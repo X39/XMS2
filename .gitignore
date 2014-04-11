@@ -1,21 +1,13 @@
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+# ArmA related files
+*.pbo
+*.bisign
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+# log files
+*.log
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+# some general exceptions to keeps the syncs small
+*.tga
+*.png
+*.jpeg
+*.ps
+*.ps
