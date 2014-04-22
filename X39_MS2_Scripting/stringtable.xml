@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="ArmA3">
+	<Package name="X39_MedSys_Scripting">
+		<Container name="MedicalMenu">
+			<Key ID="STR_X39_MedSys_var__ReviveTopMenu">
+				<English>Revival measures</English>
+				<German>Wiederbelebungs maßnahmen</German>
+				<French>Mesures de reanimation</French>
+				<Russian>Реанимация</Russian>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__Header_MS_Menu">
+				<English>MedSys menu</English>
+				<German>MedSys Menü</German>
+				<Hungarian>MedSys menü</Hungarian>
+				<Italian>MedSys menù</Italian>
+				<French>Menu Medsys</French>
+				<Russian>Меню Medsys</Russian>
+				<Polish>Menu MedSys</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__Header_Character_Interactions">
+				<English>Interactions</English>
+				<German>Interaktionen</German>
+				<Hungarian>Cselekvések</Hungarian>
+				<Italian>Interazioni</Italian>
+				<French>Interactions</French>
+				<Russian>Действия</Russian>
+				<Polish>Interakcje</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__Option_CloseUI">
+				<English>CLOSE</English>
+				<German>Schließen</German>
+				<Italian>CHIUDI</Italian>
+				<French>Fermer</French>
+				<Russian>Закрыть</Russian>
+				<Polish>Zamknij</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__Option_CheckSelf">
+				<English>Check self</English>
+				<German>Selbst überprüfen</German>
+				<Hungarian>Ön vizsgálat</Hungarian>
+				<Italian>Diagnosi personale</Italian>
+				<French>Se checker</French>
+				<Russian>Осмотреть себя</Russian>
+				<Polish>Zbadaj siebie</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__Option_CheckOther">
+				<English>Check</English>
+				<German>Überprüfen:</German>
+				<Hungarian>Vizsgálat</Hungarian>
+				<Italian>Diagnosi</Italian>
+				<French>Checker</French>
+				<Russian>Осмотреть</Russian>
+				<Polish>Zbadaj</Polish>
+			</Key>
+			
+			<Key ID="STR_X39_MedSys_var__VehiclePull_Pull">
+				<English>Remove</English>
+				<German>Entferne</German>
+				<Hungarian>Eltávolítás</Hungarian>
+				<Italian>Togli</Italian>
+				<French>Sortir</French>
+				<Russian>Достать</Russian>
+				<Polish>Wyciągnij</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__VehiclePull_OutOfVehicle">
+				<English>from vehicle</English>
+				<German>aus Fahrzeug</German>
+				<Hungarian>a járműből</Hungarian>
+				<Italian>dal veicolo</Italian>
+				<French>de ce vehicule</French>
+				<Russian>из техники</Russian>
+				<Polish>z pojazdu</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__VehiclePut_Put">
+				<English>Put</English>
+				<German>Lege</German>
+				<Hungarian>Berakás</Hungarian>
+				<Italian>Metti</Italian>
+				<French>Mettre</French>
+				<Russian>Положить</Russian>
+				<Polish>Umieść</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__VehiclePut_IntoVehicle">
+				<English>into vehicle</English>
+				<German>ins Fahrzeug</German>
+				<Hungarian>a járműbe</Hungarian>
+				<Italian>nel veicolo</Italian>
+				<French>dans ce vehicule</French>
+				<Russian>в технику</Russian>
+				<Polish>w pojeździe</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__VehiclePut_NoVehicleInRange">
+				<English>There is no vehicle in range.</English>
+				<German>Es ist kein Fahrzeug in Reichweite</German>
+				<Hungarian>Nincs a közelben jármű</Hungarian>
+				<Italian>Non cè un veicolo vicino</Italian>
+				<French>Il n'y a aucun vehicule autour de vous</French>
+				<Russian>Нет техники в радиусе</Russian>
+				<Polish>Brak pojazdu w zasięgu</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__VehiclePut_VehicleIsFull"> <!-- No use currently -->
+				<English>There is no space left inside of the vehicle</English>
+				<German>Es ist kein Platz mehr im Fahrzeug</German>
+				<Hungarian>Nincs több hely a járműben</Hungarian>
+				<Italian>Non cè abbastanza spazio nel veicolo</Italian>
+				<French>Il n'y a pas assez de place dans ce vehicule</French>
+				<Russian>Нет места в технике</Russian>
+				<Polish>Pojazd jest pełny</Polish>
+			</Key>
+			
+			<Key ID="STR_X39_MedSys_var__Option_Bandage">
+				<English>Bandage</English>
+				<German>Bandagieren</German>
+				<Hungarian>Kötözés</Hungarian>
+				<Italian>Bendaggio</Italian>
+				<French>Bandage</French>
+				<Russian>Бандаж</Russian>
+				<Polish>Bandaż</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__Option_PutTourniquet">
+				<English>Put Tourniquet</English>
+				<German>Tourniquet anlegen</German>
+				<Hungarian>Érszorító használata</Hungarian>
+				<Italian>Metti laccio emostatico</Italian>
+				<French>Mettre garrot</French>
+				<Russian>Наложить жгут</Russian>
+				<Polish>Załóż opaskę uciskową</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__Option_RemoveTourniquet">
+				<English>Remove Tourniquet</English>
+				<German>Tourniquet entfernen</German>
+				<Hungarian>Érszorító eltávolítása</Hungarian>
+				<Italian>Togli laccio emostatico</Italian>
+				<French>Retirer le garrot</French>
+				<Russian>Снять жгут</Russian>
+				<Polish>Ściągnij opaskę</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__Option_Blood">
+				<English>Bloodbag</English>
+				<German>Blutpaket verabreichen</German>
+				<Hungarian>Infuzió</Hungarian>
+				<Italian>Trasfusione</Italian>
+				<French>Poche de sang</French>
+				<Russian>Пакет с кровью</Russian>
+				<Polish>Transfuzja krwi</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__Option_Morphine">
+				<English>Morphine</English>
+				<German>Morphium verabreichen</German>
+				<Hungarian>Morfium</Hungarian>
+				<Italian>Morfina</Italian>
+				<French>Morphine</French>
+				<Russian>Морфин</Russian>
+				<Polish>Morfina</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__Option_Epinephrine">
+				<English>Epinephrine</English>
+				<German>L-Adrenalin verabreichen</German>
+				<Hungarian>Adrenalin</Hungarian>
+				<Italian>Adrenalina</Italian>
+				<French>Adrenaline</French>
+				<Russian>Адреналин</Russian>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__Option_PutEarplugs">
+				<English>Put earplugs</English>
+				<German>Ohrstöpsel nutzen</German>
+				<Frenc>Mettre boules quies</French>
+				<Russian>Вставить беруши</Russian>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__Option_RemoveEarplugs">
+				<English>Remove earplugs</English>
+				<German>Ohrstöpsel entfernen</German>
+				<French>Retirer boules quies</French>
+				<Russian>Снять беруши</Russian>
+				<Polish>Adrenalina</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__Option_Defibrillator">
+				<English>Defibrillator</English>
+				<German>Defibrillator anwenden</German>
+				<Hungarian>Defibrillátor</Hungarian>
+				<Italian>Defibrillatore</Italian>
+				<French>Defibrilateur</French>
+				<Russian>Дефибриллятор</Russian>
+				<Polish>Defibrylator</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__Option_Medikit">
+				<English>MediKit</English>
+				<German>Erste Hilfe Kit anwenden</German>
+				<Hungarian>Elsősegély csomag</Hungarian>
+				<Italian>Kit medico</Italian>
+				<French>Kit de soins</French>
+				<Russian>Аптечка</Russian>
+				<Polish>Użyj apteczki</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__Interaction_Drag">
+				<English>Drag unit</English>
+				<German>Verletzten ziehen</German>
+				<Hungarian>Húzás</Hungarian>
+				<Italian>Trascina ferito</Italian>
+				<French>Trainer blesse</French>
+				<Russian>Тащить</Russian>
+				<Polish>Ciągnij</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__Interaction_Carry">
+				<English>Carry unit</English>
+				<German>Verletzten tragen</German>
+				<Hungarian>Cipelés</Hungarian>
+				<Italian>Carica ferito</Italian>
+				<French>Porter blesse</French>
+				<Russian>Нести</Russian>
+				<Polish>Podnieś</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__Interaction_doCPR">
+				<English>Begin CPR</English>
+				<German>Herz-Lungen-Massage beginnen</German>
+				<Hungarian>Szívmasszázs elkezdése</Hungarian>
+				<Italian>Iniziare massaggio cardiaco</Italian>
+				<French>Commencer RCP</French>
+				<Russian>Массаж сердца</Russian>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__Interaction_doStabilize">
+				<English>Stabilize unit</English>
+				<German>Einheit Stabilisieren</German>
+				<French>Stabiliser la cible</French>
+				<Russian>Стабилизировать</Russian>
+				<Polish>Rozpocznij RKO</Polish>
+			</Key>
+		</Container>
+		<Container name="MedicalMessages">
+			<Key ID="STR_X39_MedSys_var__msgReal_BloodLeft">
+				<English>Blood left</English>
+				<German>Blut verfügbar</German>
+				<Hungarian>Vér mennyiség</Hungarian>
+				<Italian>Sangue rimanente</Italian>
+				<French>Sang restant</French>
+				<Russian>Крови осталось</Russian>
+				<Polish>Pozostało krwi</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msgReal_HP">
+				<English>Health</English>
+				<German>Gesundheit</German>
+				<Hungarian>Egészség</Hungarian>
+				<Italian>Salute</Italian>
+				<French>Sante</French>
+				<Russian>Здоровье</Russian>
+				<Polish>Zdrowie</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msgReal_Pain">
+				<English>Pain</English>
+				<German>Schmerzen</German>
+				<Hungarian>Fájdalom</Hungarian>
+				<Italian>Dolore</Italian>
+				<French>Douleurs</French>
+				<Russian>Боль</Russian>
+				<Polish>Ból</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msgReal_LifeTime">
+				<English>Time left</English>
+				<German>Zeit verfügbar</German>
+				<Hungarian>Hátralévő idő</Hungarian>
+				<Italian>Tempo rimasto</Italian>
+				<French>Temps restant</French>
+				<Russian>Времени осталось</Russian>
+				<Polish>Pozostały czas</Polish>
+			</Key>
+		
+			<Key ID="STR_X39_MedSys_var__msg_cprInProgress">
+				<English>Someone is doing CPR on this unit</English>
+				<German>Jemand führt gerade eine Herz-Lungen-Massage aus</German>
+				<Hungarian>Valaki már szívmasszázst hajt végre a sérültön</Hungarian>
+				<Italian>Qualcuno stà effettuando il massaggio cardiaco sù questa unità</Italian>
+				<French>Quelqu'un fait un RCP sur ce blesse</French>
+				<Russian>Кто-то уже делает массаж сердца</Russian>
+				<Polish>Ktoś już robi RKO tej osobie</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_NoDefibrilator">
+				<English>You got no Defibrilator</English>
+				<German>Du hast keinen Defibrillator</German>
+				<Hungarian>Nincs nálad defibrillátor</Hungarian>
+				<Italian>Non hai il defibrillatore</Italian>
+				<French>Pas de defribilateur</French>
+				<Russian>У вас нет дефибриллятора</Russian>
+				<Polish>Nie masz defibrylatora</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_NoMediKitLeft">
+				<English>No MediKit left</English>
+				<German>Du hast kein Medikit mehr</German>
+				<Hungarian>Nincs elsősegély csomagod</Hungarian>
+				<Italian>Nessun Medikit rimasto</Italian>
+				<French>Plus de kit de soins</French>
+				<Russian>Нет аптечки</Russian>
+				<Polish>Nie masz apteczki</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_NoBandageLeft">
+				<English>No bandage left</English>
+				<German>Du hast keine Bandagen mehr</German>
+				<Hungarian>Nincs kötszered</Hungarian>
+				<Italian>Nessuna Benda rimasta</Italian>
+				<French>Plus de bandage</French>
+				<Russian>Нет бандажа</Russian>
+				<Polish>Nie masz bandażu</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_NoEpiLeft">
+				<English>No epinephrine left</English>
+				<German>Du hast kein L-Adrenalin mehr</German>
+				<Hungarian>Nincs adrenalined</Hungarian>
+				<Italian>Sei senza adrenalina</Italian>
+				<French>Plus d'adrenaline</French>
+				<Russian>Нет эпинефрина</Russian>
+				<Polish>Nie masz już adrenaliny</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_TargetStillBleeding">
+				<English>Target is still bleeding!</English>
+				<German>Verletzter blutet immer noch!</German>
+				<Hungarian>Még vérzik!</Hungarian>
+				<Italian>Il paziente stà perdendo sangue!</Italian>
+				<French>La cible saigne encore</French>
+				<Russian>Все еще истекает кровью!</Russian>
+				<Polish>Pacjent dalej krwawi</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_TargetIsNotKnockedOut">
+				<English>No reaction!</English>
+				<German>Keine Reaktion!</German>
+				<Hungarian>Nincs reakció!</Hungarian>
+				<Italian>Nessuna reazione!</Italian>
+				<French>Aucunes reactions</French>
+				<Russian>Нет реакции!</Russian>
+				<Polish>Brak reakcji</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_NoMorphineLeft">
+				<English>No morphine left</English>
+				<German>Du hast kein Morphium mehr</German>
+				<Hungarian>Nincs morfiumod</Hungarian>
+				<Italian>Sei senza morfina!</Italian>
+				<French>Plus de morphine</French>
+				<Russian>Нет морфина</Russian>
+				<Polish>Nie masz już morfiny</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_NoTourniquetLeft">
+				<English>No tourniquet left</English>
+				<German>Du hast keine Tourniquet mehr</German>
+				<Hungarian>Nincs érszorítód</Hungarian>
+				<Italian>Nessun laccio emostatico rimasto</Italian>
+				<French>Pas de garrot</French>
+				<Russian>Нет жгута</Russian>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_NoEarplugs">
+				<English>You got no earplugs</English>
+				<German>Du hast keine Ohrstöpsel</German>
+				<French>Vous n'avez pas de boules quies</French>
+				<Russian>У вас нет беруш</Russian>
+				<Polish>Nie masz opaski uciskowej</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_Title_UnitReport">
+				<English>Unit report</English>
+				<German>Einheitenreport</German>
+				<Hungarian>Jelentés</Hungarian>
+				<Italian>Rapporto paziente</Italian>
+				<French>Rapport medical</French>
+				<Russian>Результат осмотра</Russian>
+				<Polish>Stan pacjenta</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_ThisMakesNoSense">
+				<English>This makes no sense!</English>
+				<German>Das ergibt keinen Sinn!</German>
+				<Hungarian>Ennek nincs értelme!</Hungarian>
+				<Italian>Questo non ha senso!</Italian>
+				<French>Ca ne sert a rien</French>
+				<Russian>В этом нет смысла!</Russian>
+				<Polish>To nie ma sensu!</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_DragCarry_InProgress">
+				<English>You cant take two guys!</English>
+				<German>Du kannst nicht zwei Leute auf einmal tragen!</German>
+				<Hungarian>Nem vihetsz két embert!</Hungarian>
+				<Italian>Non puoi prendere due ragazzi!</Italian>
+				<French>Vous ne pouvez pas porter deux blesses</French>
+				<Russian>Вы не можете нести двух человек!</Russian>
+				<Polish>Nie możesz ciągnąć dwóch osób!</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_NoBloodBagLeft">
+				<English>No bloodbag left</English>
+				<German>Du hast kein Blutpaket mehr!</German>
+				<Hungarian>Nincs infúziód</Hungarian>
+				<Italian>Sei senza trasfusioni</Italian>
+				<French>Pas de poche de sang</French>
+				<Russian>Нет пакета с кровью</Russian>
+				<Polish>Nie masz już krwi do transfuzji</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_bloodLeft_msg1">
+				<English>Blood presure is critical!</English>
+				<German>Der Blutdruck ist kritisch</German>
+				<Hungarian>A vérnyomás kritikus!</Hungarian>
+				<Italian>La pressione del sangue è critica!</Italian>
+				<French>La pression sanguine est critique</French>
+				<Russian>Кровяное давление критическое</Russian>
+				<Polish>Ciśnienie krwi jest krytyczne</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_bloodLeft_msg2">
+				<English>Blood presure is not OK!</English>
+				<German>Der Blutdruck ist nicht in Ordnung</German>
+				<Hungarian>A vérnyomás nincs rendben!</Hungarian>
+				<Italian>La pressione del sangue non è OK!</Italian>
+				<French>La pression sanguine est tres basse</French>
+				<Russian>Кровяное давление не в порядке</Russian>
+				<Polish>Ciśnienie krwi jest złe</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_bloodLeft_msg3">
+				<English>Blood presure should be better</English>
+				<German>Der Blutdruck könnte besser sein</German>
+				<Hungarian>A vérnyomás javul</Hungarian>
+				<Italian>La pressione del sangue và meglio</Italian>
+				<French>La pression sanguine est basse</French>
+				<Russian>Кровяное давление должно быть лучше</Russian>
+				<Polish>Ciśnienie krwi mogłoby być lepsze</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_bloodLeft_msg4">
+				<English>Blood presure seems to be OK</English>
+				<German>Der Blutdruck ist in Ordnung!</German>
+				<Hungarian>A vérnyomás rendben van</Hungarian>
+				<Italian>La pressione del sangue sembra OK</Italian>
+				<French>La pression sanguine est bonne</French>
+				<Russian>Кровяное давление в норме</Russian>
+				<Polish>Ciśnienie krwi jest dobre</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_hurtReceived_msg1">
+				<English>Target is deadly hurt</English>
+				<German>Der Soldat ist tödlich verwundet!</German>
+				<Hungarian>Halálos sebet kapott</Hungarian>
+				<Italian>Il paziente è ferito mortalmente</Italian>
+				<French>La cible est extremement blesse</French>
+				<Russian>Смертельно ранен</Russian>
+				<Polish>Pacjent śmiertelnie ranny</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_hurtReceived_msg2">
+				<English>Target is extremly hurt</English>
+				<German>Der Soldat ist schwer verwundet</German>
+				<Hungarian>Súlyos állapotban van</Hungarian>
+				<Italian>Il paziente è ferito gravemente</Italian>
+				<French>La cible est gravement blesse </French>
+				<Russian>Сильно ранен</Russian>
+				<Polish>Pacjent ciężko ranny</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_hurtReceived_msg3">
+				<English>Target is hurt</English>
+				<German>Der Soldat ist verwundet</German>
+
+				<Hungarian>Megsérült</Hungarian>
+				<Italian>Il paziente è ferito</Italian>
+				<French>La cible est blesse</French>
+				<Russian>Ранение средней тяжести</Russian>
+				<Polish>Pacjent ranny</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_hurtReceived_msg4">
+				<English>Target is lightly hurt</English>
+				<German>Der Soldat ist leicht verletzt!</German>
+				<Hungarian>Könnyen sérült</Hungarian>
+				<Italian>Il paziente è leggermente ferito</Italian>
+				<French>La cible est legerement blesse</French>
+				<Russian>Легкое ранение</Russian>
+				<Polish>Pacjent lekko ranny</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_painReceived_msg1">
+				<English>Target is in extreme pain</English>
+				<German>Der Soldat hat extrem starke Schmerzen</German>
+				<Hungarian>Iszonyatos fájdalmai vannak</Hungarian>
+				<Italian>Il paziente ha un dolore estremo</Italian>
+				<French>La cible a extremement mal</French>
+				<Russian>Болевой шок</Russian>
+				<Polish>Pacjeny w wielkim bólu</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_painReceived_msg2">
+				<English>Target is in agony</English>
+				<German>Der Soldat hat starke Schmerzen</German>
+				<Hungarian>Il paziente è in agonia</Hungarian>
+				<French>La cible agonise</French>
+				<Russian>Агония</Russian>
+				<Polish>Pacjent w agonii</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_painReceived_msg3">
+				<English>Target is in pain</English>
+				<German>Der Soldat hat Schmerzen</German>
+				<Hungarian>Fájdalmai vannak</Hungarian>
+				<Italian>Il paziente stà soffrendo</Italian>
+				<French>La cible a mal</French>
+				<Russian>Терпимая боль</Russian>
+				<Polish>Pacjent w bólu</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_painReceived_msg4">
+				<English>Target has light pain</English>
+				<German>Der Soldat hat einen Kratzer</German>
+				<Hungarian>Enyhe fájdalmai vannak</Hungarian>
+				<Italian>Il paziente stà soffrendo leggermente</Italian>
+				<French>La cible a un peu mal</French>
+				<Russian>Легкая боль</Russian>
+				<Polish>Pacjent w lekkim bólu</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_painReceivedNeg_msg1">
+				<English>Target is having extreme morphine overdose</English>
+				<German>Der Soldat hat eine extrem hohe Morphium Überdosis</German>
+				<Hungarian>Extrém morfium túladagolásban szenved</Hungarian>
+				<Italian>Il paziente è in overdose estrema da Morfina</Italian>
+				<French>Overdose de morphine dangereuse</French>
+				<Russian>Смертельная передозировка морфина</Russian>
+				<Polish>Pacjent ekstremalnie przedawkował morfinę</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_painReceivedNeg_msg2">
+				<English>Target is having high morphine overdose</English>
+				<German>Der Soldat hat eine hohe Morphium Überdosis</German>
+				<Hungarian>Nagy morfium túladagolásban szenved</Hungarian>
+				<Italian>Il paziente è in overdose da morfina</Italian>
+				<French>Overdose importante de morphine!</French>
+				<Russian>Критическая передозировка морфина</Russian>
+				<Polish>Pacjent mocno przedawkował morfinę</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_painReceivedNeg_msg3">
+				<English>Target is having morphine overdose</English>
+				<German>Der Soldat hat eine Morphium Überdosis</German>
+				<Hungarian>Morfium túladagolásban szenved</Hungarian>
+				<Italian>Il paziente è in shock da morfina</Italian>
+				<French>Overdose de morphine!</French>
+				<Russian>Передозировка морфина</Russian>
+				<Polish>Pacjent przedawkował morfinę</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_painReceivedNeg_msg4">
+				<English>Target is having consumed to much morphine</English>
+				<German>Der Soldat hat zuviel Morphium bekommen</German>
+				<Hungarian>Túl sok morfiumot kapott</Hungarian>
+				<Italian>Il paziente ha ricevuto troppa morfina</Italian>
+				<French>La cible a recut trop de morphine</French>
+				<Russian>Высокая доза морфина</Russian>
+				<Polish>Pacjent ma za dużo morfiny</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_isBleeding">
+				<English>Target is bleeding</English>
+				<German>Der Soldat blutet</German>
+				<Hungarian>Vérzik</Hungarian>
+				<Italian>Il paziente sanguina</Italian>
+				<French>La cible saigne</French>
+				<Russian>Кровотечение</Russian>
+				<Polish>Pacjent krwawi</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_legsBroken">
+				<English>Targets legs are broken</English>
+				<German>Der Soldat hat seine Beine gebrochen</German>
+				<Hungarian>Eltörtek a lábai</Hungarian>
+				<Italian>Il paziente ha delle ossa rotte</Italian>
+				<French>La cible a les jambes cassees</French>
+				<Russian>Ноги повреждены</Russian>
+				<Polish>Pacjent ma złamane nogi</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_knockedOut">
+				<English>Target is unresponsive</English>
+				<German>Der Soldat reagiert nicht</German>
+				<Hungarian>Nem reagál</Hungarian>
+				<Italian>Il paziente non risponde</Italian>
+				<French>La cible est inconsciente</French>
+				<Russian>Без сознания</Russian>
+				<Polish>Pacjent nieprzytomny</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_lifeTime_msg1">
+				<English>Pulse is irregular</English>
+				<German>Der Puls ist unregelmäßig</German>
+				<Hungarian>Rendszertelen a pulzusa</Hungarian>
+				<Italian>I battiti sono irregolari</Italian>
+				<French>Le pouls est irregulier</French>
+				<Russian>Пульс неровный</Russian>
+				<Polish>Tętno nieregularny</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_lifeTime_msg2">
+				<English>Pulse is pretty low</English>
+				<German>Der Puls ist sehr niedrig</German>
+				<Hungarian>Alacsony a pulzusa</Hungarian>
+				<Italian>I battiti sono bassi</Italian>
+				<French>Le pouls est faible</French>
+				<Russian>Пульс слабый</Russian>
+				<Polish>Tętno słabe</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_lifeTime_msg3">
+				<English>Pulse is nearly gone</English>
+				<German>Der Puls ist kaum tastbar</German>
+				<Hungarian>Alig van pulzusa</Hungarian>
+				<Italian>I battiti se ne stanno andando!</Italian>
+				<French>Il n'y a presque plus de pouls</French>
+				<Russian>Пульс очень слабый</Russian>
+				<Polish>Tętno ledwo wyczuwalne</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_lifeTime_msg4">
+				<English>No pulse</English>
+				<German>Kein Puls</German>
+				<Hungarian>Nincs pulzusa</Hungarian>
+				<Italian>Nessun battito</Italian>
+				<French>Pas de pouls</French>
+				<Russian>Нет пульса</Russian>
+				<Polish>Brak tętna</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_lifeTime_msg5">
+				<English>Dead ...</English>
+				<German>Tot...</German>
+				<Hungarian>Meghalt...</Hungarian>
+				<Italian>Morto ...</Italian>
+				<French>Mort...</French>
+				<Russian>Мертв ...</Russian>
+				<Polish>Martwy...</Polish>
+			</Key>
+			
+			<Key ID="STR_X39_MedSys_var__msg_CantSaveUnitInField">
+				<English>You cant save this soul in the field!</English>
+				<German>Du kannst diesen Soldaten nicht mitten auf dem Feld retten...</German>
+				<Hungarian>Nem tudod megmenteni a csatatéren!</Hungarian>
+				<Italian>Non puoi salvare questa anima sul campo!</Italian>
+				<French>Vous ne pouvez plus rien pour lui!</French>
+				<Russian>Вы не можете спасти его в поле</Russian>
+				<Polish>Nie możesz go tutaj odratować!</Polish>
+			</Key>
+			
+			<Key ID="STR_X39_MedSys_var__msg_StoppedBleeding">
+				<English>stopped bleeding!</English>
+				<German>hat aufgehört zu bluten.</German>
+				<Hungarian>vérzése elállt!</Hungarian>
+				<Italian>L'emorragia si è fermata</Italian>
+				<French>ne saigne plus</French>
+				<Russian>кровотечение остановлено!</Russian>
+				<Polish>przestał krwawić!</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_StillBleeding">
+				<English>is still bleeding!</English>
+				<German>blutet immer noch!</German>
+				<Hungarian>még vérzik!</Hungarian>
+				<Italian>Stà sanguinando !</Italian>
+				<French>continue de saigner</French>
+				<Russian>кровотечение не остановлено!</Russian>
+				<Polish>ciągle krwawi!</Polish>
+			</Key>
+			<Key ID="STR_X39_MedSys_var__msg_tooDamagedToBeRevived">
+				<English>is too damaged to be revived!</English>
+				<German>ist zu stark verletzt um reanimiert zu werden!</German>
+				<Hungarian>túlságosan sérült hogy újra lehessen éleszteni</Hungarian>
+				<Italian>Troppo grave per recuperarlo!</Italian>
+				<French>est trop blesse pour etre reanime!</French>
+				<Russian>слишком пострадал для реанимации!</Russian>
+				<Polish>zbyt ranny by go reanimować.</Polish>
+			</Key>
+		</Container>
+	</Package>
+</Project>
