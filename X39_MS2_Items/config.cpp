@@ -9,6 +9,8 @@ class CfgPatches{
 	};
 };
 class CfgVehicles {
+	class NATO_Box_Base;
+	class Bag_Base;
 	#include "vehicles.cpp"
 	#include "backpacks.cpp"
 };

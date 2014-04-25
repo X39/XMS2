@@ -19,3 +19,4 @@ class RscTitles {
 	#include "XMS2_Overlay\ui.hpp"
 };
 #include "MedicalUi\ui.hpp"
+#include "XMS2_BlackOutUi\ui.hpp"

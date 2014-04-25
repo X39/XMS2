@@ -1,4 +1,3 @@
-class NATO_Box_Base;
 class X39_MS2_medicalbox: NATO_Box_Base {
 	scope = 2;
 	vehicleClass = "X39_MS2_Vehicle";
@@ -16,10 +15,26 @@ class X39_MS2_medicalbox: NATO_Box_Base {
 	class TransportMagazines{};
 	class TransportWeapons{};
 	class TransportItems {
-		//class x39_medicBox_Bandages {
-		//	name = "x39_bandage";
-		//	count = 100;
-		//};
+		class x39_xms2_bandage {
+			name = "x39_xms2_bandage";
+			count = 100;
+		};
+		class x39_xms2_adrenaline {
+			name = "x39_xms2_adrenaline";
+			count = 100;
+		};
+		class x39_xms2_heatPack {
+			name = "x39_xms2_heatPack";
+			count = 100;
+		};
+		class x39_xms2_mediPack {
+			name = "x39_xms2_mediPack";
+			count = 100;
+		};
+		class x39_xms2_morphine {
+			name = "x39_xms2_morphine";
+			count = 100;
+		};
 	};
 
 };

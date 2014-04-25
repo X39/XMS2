@@ -17,7 +17,7 @@
  *	@Param2 - SCALAR - HandleID
  *	@Return - NA
  */
-private["_unit", "_handleID", "_fatigue", "_pulseChange", "_adrenalineChange", "_pulseCurrent", "_adrenalineCurrent"];
+private["_unit", "_handleID", "_fatigue", "_stage", "_pulseChange", "_adrenalineChange", "_pulseCurrent", "_adrenalineCurrent", "_speed"];
 _unit = _this select 0;
 _handleID = _this select 1;
 if(!X39_MS2_var_Feature_EnableAdrenaline) exitWith {};
@@ -26,54 +26,76 @@ _pulseChange = 0;
 _adrenalineChange = 0;
 _pulseCurrent = [_unit] call X39_MS2_fnc_getHeartPulse;
 _adrenalineCurrent = [_unit] call X39_MS2_fnc_getAdrenaline;
+_fatigue = getFatigue _unit;
+_stage = speed _unit;
 
 //Simulate Heart
 if(X39_MS2_var_Adrenaline_enableHeartSimulation && {(_unit getVariable ["X39_MS2_var_Adrenaline_HasFlatLine", 0]) == 0}) then
 {
 	[] call {
-		_fatigue = getFatigue _unit;
-		if(X39_MS2_var_Adrenaline_useAdrenalineForHeartCalculations) then
+		if(_stage < X39_MS2_var_Adrenaline_PulseSpeedStage0) then
 		{
-			if(_adrenalineCurrent != 0) then
+			_stage = 0;
+		}
+		else
+		{
+			if(_stage < X39_MS2_var_Adrenaline_PulseSpeedStage1) then
 			{
-				_fatigue = _fatigue * (_adrenalineCurrent / X39_MS2_var_Adrenaline_maxAdrenaline);
+				_stage = 1;
+			}
+			else
+			{
+				if(_stage < X39_MS2_var_Adrenaline_PulseSpeedStage2) then
+				{
+					_stage = 2;
+				}
+				else
+				{
+					if(_stage < X39_MS2_var_Adrenaline_PulseSpeedStage3) then
+					{
+						_stage = 3;
+					}
+					else
+					{
+						_stage = 4;
+					};
+				};
 			};
 		};
-		if(_fatigue < X39_MS2_var_Adrenaline_fatigueToReducePulse) exitWith
+		
+		if(_stage == 0) then
 		{
-			_pulseChange = (_fatigue - 1) * X39_MS2_var_Adrenaline_pulseReductionPerTickP * X39_MS2_var_Adrenaline_pulseMultiplicator;
-			DEBUG_LOG_WFn("Reducing pulse (exit 1)");
+			_pulseChange = _pulseChange + (-X39_MS2_var_Adrenaline_basePulseChangePerTick * X39_MS2_var_Adrenaline_pulseReductionMultiplicator);
+		}
+		else
+		{
+			_pulseChange = _pulseChange + (X39_MS2_var_Adrenaline_basePulseChangePerTick * _stage);
 		};
-		if(_fatigue < X39_MS2_var_Adrenaline_fatigueToKeepPulse) exitWith
+		
+		_pulseChange = _pulseChange + _fatigue;
+		if(X39_MS2_var_Adrenaline_useAdrenalineForHeartCalculations) then
 		{
-			_pulseChange = 0;
-			DEBUG_LOG_WFn("Pulse unchanged(exit 2)");
-		};
-		if(_fatigue < X39_MS2_var_Adrenaline_fatigueToRaisePulseNormal) exitWith
-		{
-			if(_pulseCurrent + (_fatigue * X39_MS2_var_Adrenaline_pulseMultiplicator) < X39_MS2_var_Adrenaline_normalMaxHeartPulsePerSecond) then
-			{
-				_pulseChange = _fatigue * X39_MS2_var_Adrenaline_pulseMultiplicator;
-				DEBUG_LOG_WFn("Raising pulse (exit 3)");
-			}DEBUG_CODE(else{DEBUG_LOG_WFn("leaving pulse (exit 3.2)");});
-		};
-		if(_fatigue >= X39_MS2_var_Adrenaline_fatigueToRaisePulseNormal) exitWith
-		{
-			_pulseChange = _fatigue * X39_MS2_var_Adrenaline_pulseMultiplicatorByDeadlyFatigue;
-			DEBUG_LOG_WFn("Raising pulse (exit 4)");
+			_pulseChange = _pulseChange * ((0.5 - (_adrenalineCurrent / X39_MS2_var_Adrenaline_maxAdrenaline)) * 2);
 		};
 	};
 	if(_pulseChange != 0) then
 	{
 		if(_pulseChange + _pulseCurrent >= X39_MS2_var_Adrenaline_minHeartPulsePerSecond) then
 		{
-			[_unit, _pulseChange] call X39_MS2_fnc_addHeartPulse;
+			if(_pulseChange + _pulseCurrent < X39_MS2_var_Adrenaline_normalMaxHeartPulsePerSecond) then
+			{
+				[_unit, _pulseChange] call X39_MS2_fnc_addHeartPulse;
+			}
+			else
+			{
+				_cfnForceWalk = _cfnForceWalk + 1;
+			};
 			[_unit] call X39_MS2_fnc_doHeartPulseDependingActions;
 			DEBUG_LOG_WFn("Pulse has been changed");
 		}DEBUG_CODE(else{DEBUG_LOG_WFn("No pulse change required (lower min)");});
 	}DEBUG_CODE(else{DEBUG_LOG_WFn("No pulse change has been made");});
 	
-	_ppeFilmGrain = ((_pulseCurrent + _pulseChange) / X39_MS2_var_Adrenaline_deadlyMaxHeartPulsePerSecond) - (X39_MS2_var_Adrenaline_deadlyMaxHeartPulsePerSecond / 2);
+	_ppeFilmGrain = _ppeFilmGrain + ((_pulseCurrent + _pulseChange) / X39_MS2_var_Adrenaline_deadlyMaxHeartPulsePerSecond) - (X39_MS2_var_Adrenaline_deadlyMaxHeartPulsePerSecond / 2);
 };
 //Simulate Adrenaline
 if(_adrenalineCurrent > 0) then
@@ -81,8 +103,8 @@ if(_adrenalineCurrent > 0) then
 	_adrenalineChange = -X39_MS2_var_Adrenaline_adrenalineReductionPerTick;
 };
 
-_ppeRadialBlur = (_adrenalineCurrent + _adrenalineChange) / X39_MS2_var_Adrenaline_maxAdrenaline;
-_ppeFocus = ((_adrenalineCurrent + _adrenalineChange) / X39_MS2_var_Adrenaline_maxAdrenaline) * 2;
+_ppeRadialBlur = _ppeRadialBlur+ (_adrenalineCurrent + _adrenalineChange) / X39_MS2_var_Adrenaline_maxAdrenaline;
+_ppeFocus = _ppeFocus + ((_adrenalineCurrent + _adrenalineChange) / X39_MS2_var_Adrenaline_maxAdrenaline) * 2;
 
 if(_adrenalineChange > 0 && {_adrenalineCurrent + _adrenalineChange > X39_MS2_var_Adrenaline_maxAdrenaline * X39_MS2_var_Adrenaline_naturalAdrenalineP}) then
 {

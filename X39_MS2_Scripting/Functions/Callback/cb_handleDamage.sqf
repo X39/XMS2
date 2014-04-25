@@ -8,7 +8,7 @@
  *	@Param5 - STRING - Classname of the projectile that caused inflicted the damage. ("" for unknown, such as falling damage.)
  *	@Return - SCALAR - New damage value (always 0)
  */
-private["_unit", "_sectionHit", "_damage", "_source", "_projectile"];
+private["_unit", "_sectionHit", "_damage", "_source", "_projectile", "_isExplosion"];
 
 _unit = _this select 0;
 _sectionHit = _this select 1;
@@ -16,36 +16,61 @@ _damage = (_this select 2) * X39_MS2_var_Damage_GlobalModificator;
 _source = _this select 3;
 _projectile = _this select 4;
 
+_isExplosion = false;
+
 _unit setVariable ["X39_MS2_var_Damage_LastHitter", _source];
 
 //Check if damage source was an explosive
 if(_projectile == "GrenadeHand" || {[_projectile, "AT", false] call BIS_fnc_inString}) then
 {
 	_damage = _damage * X39_MS2_var_Damage_ExplosionModificator;
+	_isExplosion = true;
 };
+
+
 if(_sectionHit == "head") exitWith
 {
 	[_unit, _damage] call X39_MS2_fnc_addDamageToHead;
+	if(_damage > X39_MS2_var_Bleeding_minDamageRequiredForHead) then
+	{
+		[_unit, _damage * X39_MS2_var_Bleeding_GlobalModificator * (if(_isExplosion) then {X39_MS2_var_Bleeding_ExplosionModificator} else {1})] call X39_MS2_fnc_addBleedingToHead;
+	};
 	0
 };
 if(_sectionHit == "body") exitWith
 {
 	[_unit, _damage] call X39_MS2_fnc_addDamageToBody;
+	if(_damage > X39_MS2_var_Bleeding_minDamageRequiredForBody) then
+	{
+		[_unit, _damage * X39_MS2_var_Bleeding_GlobalModificator * (if(_isExplosion) then {X39_MS2_var_Bleeding_ExplosionModificator} else {1})] call X39_MS2_fnc_addBleedingToBody;
+	};
 	0
 };
 if(_sectionHit == "hands") exitWith
 {
 	[_unit, _damage] call X39_MS2_fnc_addDamageToHands;
+	if(_damage > X39_MS2_var_Bleeding_minDamageRequiredForHands) then
+	{
+		[_unit, _damage * X39_MS2_var_Bleeding_GlobalModificator * (if(_isExplosion) then {X39_MS2_var_Bleeding_ExplosionModificator} else {1})] call X39_MS2_fnc_addBleedingToHands;
+	};
 	0
 };
 if(_sectionHit == "legs") exitWith
 {
 	[_unit, _damage] call X39_MS2_fnc_addDamageToLegs;
+	if(_damage > X39_MS2_var_Bleeding_minDamageRequiredForLegs) then
+	{
+		[_unit, _damage * X39_MS2_var_Bleeding_GlobalModificator * (if(_isExplosion) then {X39_MS2_var_Bleeding_ExplosionModificator} else {1})] call X39_MS2_fnc_addBleedingToLegs;
+	};
 	0
 };
 if(_sectionHit == "") exitWith
 {
 	[_unit, _damage] call X39_MS2_fnc_addDamageToGeneric;
+	if(_damage > X39_MS2_var_Bleeding_minDamageRequiredForGeneric) then
+	{
+		[_unit, _damage * X39_MS2_var_Bleeding_GlobalModificator * (if(_isExplosion) then {X39_MS2_var_Bleeding_ExplosionModificator} else {1})] call X39_MS2_fnc_addBleedingToGeneric;
+	};
 	0
 };
 0

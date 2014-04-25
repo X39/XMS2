@@ -1,4 +1,3 @@
-class Bag_Base;
 //class X39_BackPackBase : Bag_Base{
 //	hiddenselectionstextures[] = {"\A3\weapons_f\ammoboxes\bags\data\backpack_compact_khk_co.paa"};
 //	mass = 20;

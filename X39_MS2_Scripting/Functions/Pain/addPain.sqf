@@ -11,5 +11,16 @@ if(!X39_MS2_var_Feature_EnablePain) exitWith {};
 private["_pain"];
 _pain = [(_this select 0)] call X39_MS2_fnc_getPain;
 _pain = _pain + ((_this select 1) * X39_MS2_var_Pain_GlobalModificator);
+if(_pain > X39_MS2_var_Pain_maxPain) then
+{
+	_pain = X39_MS2_var_Pain_maxPain;
+}
+else
+{
+	if(_pain < 0) then
+	{
+		_pain = 0;
+	};
+};
 [_this select 0, _pain] call X39_MS2_fnc_setPain;
 _pain

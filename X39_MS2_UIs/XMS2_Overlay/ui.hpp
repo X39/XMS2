@@ -1,7 +1,7 @@
 class X39_MS2_Overay {
 	idd = 26486;
-	onUnload = "uiNamespace setVariable['X39_MS2_var_UIs_XMS2_Overay', _this select 0];";
-	onLoad = "uiNamespace setVariable['X39_MS2_var_UIs_XMS2_Overay', displayNull];";
+	onLoad = "uiNamespace setVariable['X39_MS2_var_UIs_XMS2_Overay', _this select 0];";
+	onUnload = "uiNamespace setVariable['X39_MS2_var_UIs_XMS2_Overay', displayNull];";
 	duration = 32000;
 	fadeIn = 0;
 	fadeOut = 0;
@@ -153,7 +153,10 @@ class X39_MS2_Overay {
 		RscText_1069,
 		RscText_1070,
 		RscText_1071,
-		RscText_1072
+		RscStructuredText_1172,
+		RscPicture_1291,
+		RscPicture_1292,
+		RscPicture_1293
 	};
 
 	class RscPicture_1200: RscPicture
@@ -1456,11 +1459,38 @@ class X39_MS2_Overay {
 	{
 		idc = 1072;
 		text = "XMS2_DEBUGOUTPUT"; //--- ToDo: Localize;
-		x = -0.000156274 * safezoneW + safezoneX;
-		y = 0.859333 * safezoneH + safezoneY;
-		w = 1.00031 * safezoneW;
-		h = 0.143 * safezoneH;
+		x = safezoneX;
+		y = safezoneY;
+		w = safezoneW;
+		h = safezoneH;
 		backgroundColor[] = {0,0,0,0};
+	};
+	class RscPicture_1291: RscPicture
+	{
+		idc = 1291;
+		text = "#(argb,8,8,3)color(1,1,1,1)";
+		x = safezoneX;
+		y = safezoneY;
+		w = safezoneW;
+		h = safezoneH;
+	};
+	class RscPicture_1292: RscPicture
+	{
+		idc = 1292;
+		text = "#(argb,8,8,3)color(1,1,1,1)";
+		x = safezoneX;
+		y = safezoneY;
+		w = safezoneW;
+		h = safezoneH;
+	};
+	class RscPicture_1293: RscPicture
+	{
+		idc = 1293;
+		text = "\X39_MS2_Ressources\textures\FrozenScreen_MiddleClear2.paa";
+		x = safezoneX;
+		y = safezoneY;
+		w = safezoneW;
+		h = safezoneH;
 	};
 
 };

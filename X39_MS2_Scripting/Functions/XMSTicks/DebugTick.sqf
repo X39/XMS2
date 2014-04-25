@@ -20,18 +20,27 @@
 private["_unit", "_handleID"];
 _unit = _this select 0;
 _handleID = _this select 1;
-hint parseText format[
-						"fatigue = %1<br />enableFatigue = %2<br />forceWalk = %3<br />pulse = %4<br />adrenaline = %5<br /><br />Damage<br />Head: %6<br />Body: %7<br />Hands: %8<br />Legs: %9",
-						getFatigue _unit,
-						_cfnDisableFatigue > 0,
-						_cfnForceWalk > 0,
-						[_unit] call X39_MS2_fnc_getHeartPulse,
-						[_unit] call X39_MS2_fnc_getAdrenaline,
-						[_unit] call X39_MS2_fnc_getDamageOfBody,
-						[_unit] call X39_MS2_fnc_getDamageOfGeneric,
-						[_unit] call X39_MS2_fnc_getDamageOfHands,
-						[_unit] call X39_MS2_fnc_getDamageOfHead,
-						[_unit] call X39_MS2_fnc_getDamageOfLegs
+displayCtrl_Overlay(1072) ctrlShow true;
+displayCtrl_Overlay(1072) ctrlSetStructuredText parseText format[
+						"--General Info--<br />fatigue = %11<br />enableFatigue = %12<br />forceWalk = %13<br />pulse = %14<br />adrenaline = %15<br />temperature = %16<br />pain = %17<br />speed = %18<br /><br />--Damage--<br />Head:<br />- %4<br />- %9<br />Body:<br />- %1<br />- %6<br />Hands:<br />- %3<br />- %8<br />Legs:<br />- %5<br />- %10<br />Generic:<br />- %2<br />- %7",
+						[_unit] call X39_MS2_fnc_getDamageOfBody,		//1
+						[_unit] call X39_MS2_fnc_getDamageOfGeneric,	//2
+						[_unit] call X39_MS2_fnc_getDamageOfHands,		//3
+						[_unit] call X39_MS2_fnc_getDamageOfHead,		//4
+						[_unit] call X39_MS2_fnc_getDamageOfLegs,		//5
+						[_unit] call X39_MS2_fnc_getBleedingOfBody,		//6
+						[_unit] call X39_MS2_fnc_getBleedingOfGeneric,	//7
+						[_unit] call X39_MS2_fnc_getBleedingOfHands,	//8
+						[_unit] call X39_MS2_fnc_getBleedingOfHead,		//9
+						[_unit] call X39_MS2_fnc_getBleedingOfLegs,		//10
+						getFatigue _unit,								//11
+						_cfnDisableFatigue > 0,							//12
+						_cfnForceWalk > 0,								//13
+						[_unit] call X39_MS2_fnc_getHeartPulse,			//14
+						[_unit] call X39_MS2_fnc_getAdrenaline,			//15
+						[_unit] call X39_MS2_fnc_getTemperature,		//16
+						[_unit] call X39_MS2_fnc_getPain,				//17
+						speed _unit										//18
 					];
 if(X39_MS2_DEBUG_ppeDynamicBlur != -1)		then {_ppeDynamicBlur = X39_MS2_DEBUG_ppeDynamicBlur;			};
 if(X39_MS2_DEBUG_ppeRadialBlur != -1)		then {_ppeRadialBlur = X39_MS2_DEBUG_ppeRadialBlur;				};

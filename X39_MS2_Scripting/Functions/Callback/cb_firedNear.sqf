@@ -10,7 +10,7 @@
  *	@Param7 - STRING - Ammo used
  *	@Return - NA
  */
-private["_unit", "_sectionHit", "_damage", "_source", "_projectile", "_arr", "_ovUnit", "_v180", "_sp_ovUnit_v180", "_l_sp_ovUnit_v180"];
+private["_unit", "_firerer", "_distance", "_usedWeapon", "_usedMuzzle", "_usedFiremode", "_usedAmmo", "_usedAmmoClass", "_valHit", "_valCal", "_fixVal"];
 
 _unit = _this select 0;
 _firerer = _this select 1;
@@ -19,6 +19,7 @@ _usedWeapon = _this select 3;
 _usedMuzzle = _this select 4;
 _usedFiremode = _this select 5;
 _usedAmmo = _this select 6;
+_usedAmmoClass = (configFile >> "CfgAmmo" >> _usedAmmo);
 
 //Check if damage source was an AT weapon
 if(X39_MS2_var_Feature_EnableBackBlast && {[_projectile, "AT", false] call BIS_fnc_inString || {[_usedWeapon, "LAUNCH", false] call BIS_fnc_inString}}) then
@@ -43,5 +44,14 @@ if(X39_MS2_var_Feature_EnableBackBlast && {[_projectile, "AT", false] call BIS_f
 	//	};
 	//};
 };
-//TODO: Handle Hearing
-[_unit, X39_MS2_var_Adrenaline_adrenalineAddedThroughShooting] call X39_MS2_fnc_addAdrenaline;
+if(!(_unit getVariable ["X39_MS2_var_hasEarplugs", false]) && _usedFiremode != "Throw") then
+{
+	private["_distance"];
+	_distance = 1 - ((_this select 2) / 69);
+	_valHit = getNumber (_ammoClass >> "hit");
+	_valCal = getNumber (_ammoClass >> "caliber");
+	_fixVal = (_valHit * _valCal * _distance);
+	
+	[_unit, if(_fixVal == 0) then { 0 } else { 0.1 / _fixVal} ] call X39_MS2_fnc_addHearing;
+};
+[_unit, X39_MS2_var_Adrenaline_adrenalineAddedThroughShooting, true] call X39_MS2_fnc_addAdrenaline;

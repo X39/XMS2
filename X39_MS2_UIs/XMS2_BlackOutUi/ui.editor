@@ -1,0 +1,12 @@
+$[
+	1.063,
+	["BlackOutUi",[[0,0,1,1],0.025,0.04,"GUI_GRID"],0,0,0],
+	[1200,"",[1,"#(argb,8,8,3)color(1,1,1,1)",["-0.000156274 * safezoneW + safezoneX","0.038 * safezoneH + safezoneY","1.00031 * safezoneW","0.968 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
+	[1600,"RscButton_Respawn",			[1,"RESPAWN",			["-0.000156274 * safezoneW + safezoneX","-0.00599999 * safezoneH + safezoneY",	"0.108281 * safezoneW",	"0.044 * safezoneH"	],[-1,-1,-1,-1],[0,0,0,1],[0,0,0,1],"","-1"],[]],
+	[1601,"RscButton_Abort",			[1,"ABORT",				["0.108125 * safezoneW + safezoneX",	"-0.00599999 * safezoneH + safezoneY",	"0.108281 * safezoneW",	"0.044 * safezoneH"	],[-1,-1,-1,-1],[0,0,0,1],[0,0,0,1],"","-1"],[]],
+	[1104,"RscText_TimeInfo",			[1,"TIME LEFT",			["0.381406 * safezoneW + safezoneX",	"-0.00599999 * safezoneH + safezoneY",	"0.154687 * safezoneW",	"0.044 * safezoneH"	],[-1,-1,-1,-1],[0,0,0,1],[0,0,0,1],"","-1"],[]],
+	[1103,"RscText_BloodInfo",			[1,"BLOOD LEFT",		["0.536094 * safezoneW + safezoneX",	"-0.00599999 * safezoneH + safezoneY",	"0.154687 * safezoneW",	"0.044 * safezoneH"	],[-1,-1,-1,-1],[0,0,0,1],[0,0,0,1],"","-1"],[]],
+	[1102,"RscText_TemperatureInfo",	[1,"BODY TEMPERATURE",	["0.690781 * safezoneW + safezoneX",	"-0.00599999 * safezoneH + safezoneY",	"0.154687 * safezoneW",	"0.044 * safezoneH"	],[-1,-1,-1,-1],[0,0,0,1],[0,0,0,1],"","-1"],[]],
+	[1101,"RscText_PulseInformation",	[1,"CURRENT PULSE",		["0.845469 * safezoneW + safezoneX",	"-0.00599999 * safezoneH + safezoneY",	"0.154687 * safezoneW",	"0.044 * safezoneH"	],[-1,-1,-1,-1],[0,0,0,1],[0,0,0,1],"","-1"],[]],
+	[1100,"RscText_TextInformation",	[1,"DESCRIBING TEXT",	["0.216406 * safezoneW + safezoneX",	"-0.00599999 * safezoneH + safezoneY",	"0.165 * safezoneW",	"0.044 * safezoneH"	],[-1,-1,-1,-1],[0,0,0,1],[0,0,0,1],"","-1"],[]]
+]

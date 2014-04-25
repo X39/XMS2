@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="ArmA3">
+	<Package name="X39_MS2_UIs">
+		<Container name="XMS2_Overlay">
+			<Key ID="STR_X39_MS2_UIs_XMS2_Overlay_RscButton_Respawn">
+				<English>Respawn</English>
+				<German>Respawn</German>
+				<Hungarian>Respawn</Hungarian>
+				<Italian>Respawn</Italian>
+				<French>Respawn</French>
+				<Russian>Respawn</Russian>
+				<Polish>Respawn</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_UIs_XMS2_Overlay_RscButton_Abort">
+				<English>Abort</English>
+				<German>Abort</German>
+				<Hungarian>Abort</Hungarian>
+				<Italian>Abort</Italian>
+				<French>Abort</French>
+				<Russian>Abort</Russian>
+				<Polish>Abort</Polish>
+			</Key>
+		</Container>
+		<Container name="MedicalUi">
+			<Key ID="STR_X39_MS2_UIs_MedicalUi_RscButton_1600">
+				<English>Check unit</English>
+				<German>Check unit</German>
+				<Hungarian>Check unit</Hungarian>
+				<Italian>Check unit</Italian>
+				<French>Check unit</French>
+				<Russian>Check unit</Russian>
+				<Polish>Check unit</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_UIs_MedicalUi_RscText_1000">
+				<English>Diagnosis</English>
+				<German>Diagnosis</German>
+				<Hungarian>Diagnosis</Hungarian>
+				<Italian>Diagnosis</Italian>
+				<French>Diagnosis</French>
+				<Russian>Diagnosis</Russian>
+				<Polish>Diagnosis</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_UIs_MedicalUi_RscText_1002">
+				<English>Treatment</English>
+				<German>Treatment</German>
+				<Hungarian>Treatment</Hungarian>
+				<Italian>Treatment</Italian>
+				<French>Treatment</French>
+				<Russian>Treatment</Russian>
+				<Polish>Treatment</Polish>
+			</Key>
+		</Container>
+	</Package>
+</Project>

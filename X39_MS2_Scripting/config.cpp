@@ -24,6 +24,7 @@ class CfgFunctions
 			class registerTickHandler:X39_XLib_Function_TypeA					{file = "\X39_MS2_Scripting\Functions\registerTickHandler.sqf";};
 			class runTicker:X39_XLib_Function_TypeA								{file = "\X39_MS2_Scripting\Functions\runTicker.sqf";};
 			class blackOutUnit:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\blackOutUnit.sqf";};
+			class isBlackedOut:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\isBlackedOut.sqf";};
 			class applyPPEffects:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\applyPPEffects.sqf";};
 			class resetPPEffects:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\resetPPEffects.sqf";};
 			class addEffect:X39_XLib_Function_TypeA								{file = "\X39_MS2_Scripting\Functions\addEffect.sqf";};
@@ -51,6 +52,26 @@ class CfgFunctions
 			class getColorArrayFromDamageValue:X39_XLib_Function_TypeA			{file = "X39_MS2_Scripting\Functions\Damage\getColorArrayFromDamageValue.sqf";};
 			class getDamageTotal:X39_XLib_Function_TypeA						{file = "X39_MS2_Scripting\Functions\Damage\getDamageTotal.sqf";};
 		};
+		class Bleeding
+		{
+			class addBleedingToBody:X39_XLib_Function_TypeA						{file = "X39_MS2_Scripting\Functions\Bleeding\adder\addBleedingToBody.sqf";};
+			class addBleedingToGeneric:X39_XLib_Function_TypeA					{file = "X39_MS2_Scripting\Functions\Bleeding\adder\addBleedingToGeneric.sqf";};
+			class addBleedingToHands:X39_XLib_Function_TypeA					{file = "X39_MS2_Scripting\Functions\Bleeding\adder\addBleedingToHands.sqf";};
+			class addBleedingToHead:X39_XLib_Function_TypeA						{file = "X39_MS2_Scripting\Functions\Bleeding\adder\addBleedingToHead.sqf";};
+			class addBleedingToLegs:X39_XLib_Function_TypeA						{file = "X39_MS2_Scripting\Functions\Bleeding\adder\addBleedingToLegs.sqf";};
+			
+			class setBleedingOfBody:X39_XLib_Function_TypeA						{file = "X39_MS2_Scripting\Functions\Bleeding\setter\setBleedingOfBody.sqf";};
+			class setBleedingOfGeneric:X39_XLib_Function_TypeA					{file = "X39_MS2_Scripting\Functions\Bleeding\setter\setBleedingOfGeneric.sqf";};
+			class setBleedingOfHands:X39_XLib_Function_TypeA					{file = "X39_MS2_Scripting\Functions\Bleeding\setter\setBleedingOfHands.sqf";};
+			class setBleedingOfHead:X39_XLib_Function_TypeA						{file = "X39_MS2_Scripting\Functions\Bleeding\setter\setBleedingOfHead.sqf";};
+			class setBleedingOfLegs:X39_XLib_Function_TypeA						{file = "X39_MS2_Scripting\Functions\Bleeding\setter\setBleedingOfLegs.sqf";};
+			
+			class getBleedingOfBody:X39_XLib_Function_TypeA						{file = "X39_MS2_Scripting\Functions\Bleeding\getter\getBleedingOfBody.sqf";};
+			class getBleedingOfGeneric:X39_XLib_Function_TypeA					{file = "X39_MS2_Scripting\Functions\Bleeding\getter\getBleedingOfGeneric.sqf";};
+			class getBleedingOfHands:X39_XLib_Function_TypeA					{file = "X39_MS2_Scripting\Functions\Bleeding\getter\getBleedingOfHands.sqf";};
+			class getBleedingOfHead:X39_XLib_Function_TypeA						{file = "X39_MS2_Scripting\Functions\Bleeding\getter\getBleedingOfHead.sqf";};
+			class getBleedingOfLegs:X39_XLib_Function_TypeA						{file = "X39_MS2_Scripting\Functions\Bleeding\getter\getBleedingOfLegs.sqf";};
+		};
 		class Callback
 		{
 			class cb_Explosion:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\Callback\cb_Explosion.sqf";};
@@ -64,6 +85,12 @@ class CfgFunctions
 			class getPain:X39_XLib_Function_TypeA								{file = "\X39_MS2_Scripting\Functions\Pain\getPain.sqf";};
 			class setPain:X39_XLib_Function_TypeA								{file = "\X39_MS2_Scripting\Functions\Pain\setPain.sqf";};
 		};
+		class Hearing
+		{
+			class addHearing:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\Hearing\addHearing.sqf";};
+			class getHearing:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\Hearing\getHearing.sqf";};
+			class setHearing:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\Hearing\setHearing.sqf";};
+		};
 		class Adrenaline
 		{
 			class addAdrenaline:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\Adrenaline\addAdrenaline.sqf";};
@@ -76,12 +103,26 @@ class CfgFunctions
 			class setFlatLine:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\Adrenaline\setFlatLine.sqf";};
 			class doHeartPulseDependingActions:X39_XLib_Function_TypeA			{file = "\X39_MS2_Scripting\Functions\Adrenaline\doHeartPulseDependingActions.sqf";};
 		};
+		class Temperature
+		{
+			class addTemperature:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\Temperature\addTemperature.sqf";};
+			class getTemperature:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\Temperature\getTemperature.sqf";};
+			class setTemperature:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\Temperature\setTemperature.sqf";};
+		};
 		class XMSTicks
 		{
 			class adrenalineTick:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\XMSTicks\adrenalineTick.sqf";};
 			class updateOverlay:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\XMSTicks\updateOverlay.sqf";};
 			class effectHandleTick:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\XMSTicks\effectHandleTick.sqf";};
-			class debugTick:X39_XLib_Function_TypeA								{file = "\X39_MS2_Scripting\Functions\XMSTicks\debugTick.sqf";};
+			class temperatureTick:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\XMSTicks\temperatureTick.sqf";};
+			class hearingTick:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\XMSTicks\hearingTick.sqf";};
+			class PainTick:X39_XLib_Function_TypeA								{file = "\X39_MS2_Scripting\Functions\XMSTicks\PainTick.sqf";};
+			class BleedingTick:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\XMSTicks\BleedingTick.sqf";};
+			class DebugTick:X39_XLib_Function_TypeA								{file = "\X39_MS2_Scripting\Functions\XMSTicks\DebugTick.sqf";};
+		};
+		class DialogControl_BlackOutDialog
+		{
+			class blackOutDialog_createDialog:X39_XLib_Function_TypeA			{file = "\X39_MS2_Scripting\Functions\DialogControl\BlackOutDialog\createDialog.sqf";};
 		};
 		class DialogControl_Overlay
 		{

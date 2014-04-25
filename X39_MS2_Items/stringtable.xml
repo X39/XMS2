@@ -2,8 +2,61 @@
 <Project name="ArmA3">
 	<Package name="X39_MS2_Items">
 		<Container name="Vehicles">
-			<Key ID="STR_X39_MS2_Items_Vehicles_MedicalBox">
+			<Key ID="STR_X39_MS2_Items_Vehicles_BandageBox">
 				<English>Medical Box</English>
+				<German>Medical Box</German>
+				<Hungarian>Medical Box</Hungarian>
+				<Italian>Medical Box</Italian>
+				<French>Medical Box</French>
+				<Russian>Medical Box</Russian>
+				<Polish>Medical Box</Polish>
+			</Key>
+		</Container>
+		<Container name="Items">
+			<Key ID="STR_X39_MS2_Items_Items_Bandage">
+				<English>Bandage</English>
+				<German>Bandage</German>
+				<Hungarian>Bandage</Hungarian>
+				<Italian>Bandage</Italian>
+				<French>Bandage</French>
+				<Russian>Bandage</Russian>
+				<Polish>Bandage</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Items_Items_Adrenaline">
+				<English>Adrenaline</English>
+				<German>Adrenaline</German>
+				<Hungarian>Adrenaline</Hungarian>
+				<Italian>Adrenaline</Italian>
+				<French>Adrenaline</French>
+				<Russian>Adrenaline</Russian>
+				<Polish>Adrenaline</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Items_Items_heatPack">
+				<English>Heat pack</English>
+				<German>Heat pack</German>
+				<Hungarian>Heat pack</Hungarian>
+				<Italian>Heat pack</Italian>
+				<French>Heat pack</French>
+				<Russian>Heat pack</Russian>
+				<Polish>Heat pack</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Items_Items_mediPack">
+				<English>Medipack</English>
+				<German>Medipack</German>
+				<Hungarian>Medipack</Hungarian>
+				<Italian>Medipack</Italian>
+				<French>Medipack</French>
+				<Russian>Medipack</Russian>
+				<Polish>Medipack</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Items_Items_morphine">
+				<English>Morphine</English>
+				<German>Morphine</German>
+				<Hungarian>Morphine</Hungarian>
+				<Italian>Morphine</Italian>
+				<French>Morphine</French>
+				<Russian>Morphine</Russian>
+				<Polish>Morphine</Polish>
 			</Key>
 		</Container>
 	</Package>
