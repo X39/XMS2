@@ -82,7 +82,7 @@ if(X39_MS2_var_Adrenaline_enableHeartSimulation && {(_unit getVariable ["X39_MS2
 	{
 		if(_pulseChange + _pulseCurrent >= X39_MS2_var_Adrenaline_minHeartPulsePerSecond) then
 		{
-			if(_pulseChange + _pulseCurrent < X39_MS2_var_Adrenaline_normalMaxHeartPulsePerSecond) then
+			if(_pulseChange + _pulseCurrent < X39_MS2_var_Adrenaline_normalMaxHeartPulsePerSecond && {_adrenalineCurrent / X39_MS2_var_Adrenaline_maxAdrenaline < X39_MS2_var_Adrenaline_AdrenalinePulseRagePointP}) then
 			{
 				[_unit, _pulseChange] call X39_MS2_fnc_addHeartPulse;
 			}

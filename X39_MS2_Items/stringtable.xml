@@ -2,7 +2,7 @@
 <Project name="ArmA3">
 	<Package name="X39_MS2_Items">
 		<Container name="Vehicles">
-			<Key ID="STR_X39_MS2_Items_Vehicles_BandageBox">
+			<Key ID="STR_X39_MS2_Items_Vehicles_MedicalBox">
 				<English>Medical Box</English>
 				<German>Medical Box</German>
 				<Hungarian>Medical Box</Hungarian>

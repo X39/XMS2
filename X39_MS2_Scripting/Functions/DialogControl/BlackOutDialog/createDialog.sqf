@@ -15,7 +15,7 @@ _this spawn {
 	if(dialog) exitWith {PRINT_INFO("Another UI is already displayed! Closed that."); closeDialog 0;};
 	_handle = scriptNull;
 	
-	while {([player] call X39_MS2_fnc_isBlackedOut)} do
+	while {([player] call X39_MS2_fnc_isBlackedOut) && alive player} do
 	{
 		
 		if(!dialog) then
@@ -31,16 +31,16 @@ _this spawn {
 		if(_currentStage > 4) then
 		{
 			//Time left
-			displayCtrl_BlackoutUI(1104) ctrlSetStructuredText (parseText formatText["%1<br/>%2", localize "STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_TimeLeft", player getVariable["", -1]]);
+			displayCtrl_BlackoutUI(1104) ctrlSetStructuredText (parseText format["%1<br/>%2", localize "STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_TimeLeft", player getVariable["", -1]]);
 		};
 		//Blood left
-		displayCtrl_BlackoutUI(1103) ctrlSetStructuredText (parseText formatText["%1<br/>%2&#37;", localize "STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_BloodLeft", abs (100 * (player getVariable["X39_MS2_var_Bleeding_Blood", -1] / X39_MS2_var_Bleeding_maxBloodInEntireBody))]);
+		displayCtrl_BlackoutUI(1103) ctrlSetStructuredText (parseText format["%1<br/>%2&#37;", localize "STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_BloodLeft", abs (100 * ((player getVariable["X39_MS2_var_Bleeding_Blood", -1]) / X39_MS2_var_Bleeding_maxBloodInEntireBody))]);
 		
 		//Body temperature
-		displayCtrl_BlackoutUI(1102) ctrlSetStructuredText (parseText formatText["%1<br/>%2°", localize "STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_Temperature", abs (37 * (player getVariable["X39_MS2_var_Temperature_value", -1] / X39_MS2_var_Temperature_max))]);
+		displayCtrl_BlackoutUI(1102) ctrlSetStructuredText (parseText format["%1<br/>%2°", localize "STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_Temperature", abs (37 * ((player getVariable["X39_MS2_var_Temperature_value", -1]) / X39_MS2_var_Temperature_max))]);
 		
 		//Current pulse
-		displayCtrl_BlackoutUI(1101) ctrlSetStructuredText (parseText formatText["%1<br/>%2", localize "STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_Pulse", floor player getVariable["X39_MS2_var_Adrenaline_heartPulse", -1]]);
+		displayCtrl_BlackoutUI(1101) ctrlSetStructuredText (parseText format["%1<br/>%2", localize "STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_Pulse", floor (player getVariable["X39_MS2_var_Adrenaline_heartPulse", -1])]);
 		
 		if(time % 20 == 0 && {scriptDone _handle}) then
 		{

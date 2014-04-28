@@ -83,6 +83,7 @@ class CfgFunctions
 		{
 			class addPain:X39_XLib_Function_TypeA								{file = "\X39_MS2_Scripting\Functions\Pain\addPain.sqf";};
 			class getPain:X39_XLib_Function_TypeA								{file = "\X39_MS2_Scripting\Functions\Pain\getPain.sqf";};
+			class getMaxPain:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\Pain\getMaxPain.sqf";};
 			class setPain:X39_XLib_Function_TypeA								{file = "\X39_MS2_Scripting\Functions\Pain\setPain.sqf";};
 		};
 		class Hearing
@@ -116,9 +117,11 @@ class CfgFunctions
 			class effectHandleTick:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\XMSTicks\effectHandleTick.sqf";};
 			class temperatureTick:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\XMSTicks\temperatureTick.sqf";};
 			class hearingTick:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\XMSTicks\hearingTick.sqf";};
-			class PainTick:X39_XLib_Function_TypeA								{file = "\X39_MS2_Scripting\Functions\XMSTicks\PainTick.sqf";};
-			class BleedingTick:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\XMSTicks\BleedingTick.sqf";};
+			class painTick:X39_XLib_Function_TypeA								{file = "\X39_MS2_Scripting\Functions\XMSTicks\painTick.sqf";};
+			class bleedingTick:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\XMSTicks\bleedingTick.sqf";};
 			class DebugTick:X39_XLib_Function_TypeA								{file = "\X39_MS2_Scripting\Functions\XMSTicks\DebugTick.sqf";};
+			
+			class publishTick:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\XMSTicks\publishTick.sqf";};
 		};
 		class DialogControl_BlackOutDialog
 		{

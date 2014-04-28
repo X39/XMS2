@@ -19,4 +19,12 @@
  */
 private["_unit", "_handleID"];
 _unit = _this select 0;
-_handleID = _this select 1;
+//_handleID = _this select 1;
+if(X39_MS2_var_Bleeding_BleedingCurePerTick > 0) then
+{
+	[_unit, -X39_MS2_var_Bleeding_BleedingCurePerTick] call X39_MS2_fnc_addBleedingToBody;
+	[_unit, -X39_MS2_var_Bleeding_BleedingCurePerTick] call X39_MS2_fnc_addBleedingToGeneric;
+	[_unit, -X39_MS2_var_Bleeding_BleedingCurePerTick] call X39_MS2_fnc_addBleedingToHand;
+	[_unit, -X39_MS2_var_Bleeding_BleedingCurePerTick] call X39_MS2_fnc_addBleedingToHead;
+	[_unit, -X39_MS2_var_Bleeding_BleedingCurePerTick] call X39_MS2_fnc_addBleedingToLegs;
+};

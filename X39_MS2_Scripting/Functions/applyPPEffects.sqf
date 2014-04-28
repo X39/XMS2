@@ -45,7 +45,7 @@ if(X39_MS2_var_ppEffect_EnableColorCorrections) then
 							1,								//BlackScreen circle
 							1,								//BlackScreen full
 							0,								//Brightness
-							0, 0, 0, 0,						//Colorized overlay (R,G,B,A)
+							0, 0, 0, _redScreenAlpha,		//Colorized overlay (R,G,B,A)
 							1, 1, 1, 1.75 * _ppeGreyScreen,	//Color Corrections AKA STRANGE VUDU CRAP (R,G,B,A)
 							0, 1, 0.1, 1					//Something with brightness again (IDK, IDK, IDK, A)
 						];

@@ -63,33 +63,34 @@ X39_MS2_var_Internal_Keys set [count X39_MS2_var_Internal_Keys, [(configFile >> 
 X39_MS2_var_Internal_Keys set [count X39_MS2_var_Internal_Keys, [(configFile >> "CfgSettings" >> "X39" >> "XMS2" >> "ClientConfig" >> "keys" >> "Key2") call _fnc_getKey, {[cursorTarget] call X39_MS2_fnc_MedicalActionMenu_createDialog}]];
 
 assignValue("X39_MS2_var_Internal_UnitVariables", []);
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_UnitInitialized",		{false											}]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_LastHitter", 	{objNull										}]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_Generic",		{0.0											}]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_Body",			{0.0											}]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_Head",			{0.0											}]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_Hands",			{0.0											}]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_Legs",			{0.0											}]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Generic",		{0.0											}]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Body",			{0.0											}]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Head",			{0.0											}]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Hands",		{0.0											}]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Legs",			{0.0											}]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Blood",		{X39_MS2_var_Bleeding_maxBloodInEntireBody		}]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_HandleDamage",		{-1												}]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_FiredNear",			{-1												}]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_Explosion",			{-1												}]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Adrenaline_value",		{0												}]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Adrenaline_heartPulse",	{X39_MS2_var_Adrenaline_minHeartPulsePerSecond	}]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Adrenaline_HasFlatLine",{0												}]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Pain_value",			{0												}]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Hearing_value",			{0												}]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Internal_XMSEffects",	{[]												}]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Temperature_value",		{X39_MS2_var_Temperature_max					}]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_hasEarplugs",			{false											}]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_Text",			{""												}]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_isBlackedOut",	{false											}]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_currentStage",	{0												}]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_UnitInitialized",		{false											}, true]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_LastHitter", 	{objNull										}, true]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_Generic",		{0.0											}, true]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_Body",			{0.0											}, true]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_Head",			{0.0											}, true]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_Hands",			{0.0											}, true]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_Legs",			{0.0											}, true]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Generic",		{0.0											}, true]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Body",			{0.0											}, true]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Head",			{0.0											}, true]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Hands",		{0.0											}, true]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Legs",			{0.0											}, true]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Blood",		{X39_MS2_var_Bleeding_maxBloodInEntireBody		}, true]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_HandleDamage",		{-1												}, false]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_FiredNear",			{-1												}, false]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_Explosion",			{-1												}, false]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Adrenaline_value",		{0												}, true]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Adrenaline_heartPulse",	{X39_MS2_var_Adrenaline_minHeartPulsePerSecond	}, true]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Adrenaline_HasFlatLine",{0												}, true]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Pain_value",			{0												}, true]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Hearing_value",			{0												}, true]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Internal_XMSEffects",	{[]												}, false]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Temperature_value",		{X39_MS2_var_Temperature_max					}, true]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_hasEarplugs",			{false											}, true]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_Text",			{""												}, false]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_isBlackedOut",	{false											}, true]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_currentStage",	{0												}, true]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Internal_lastValues",	[], false]];
 
 //Reserve ppEffect/EventHandler variable holders (not all are used)
 assignValue("X39_MS2_var_Internal_ppe_radialBlur", -1);
@@ -124,6 +125,7 @@ assignValue("X39_MS2_var_Internal_ticker_tickHandlers", []);
 [X39_MS2_fnc_bleedingTick, 1] call X39_MS2_fnc_registerTickHandler;
 [X39_MS2_fnc_painTick, 1] call X39_MS2_fnc_registerTickHandler;
 [X39_MS2_fnc_updateOverlay, 1] call X39_MS2_fnc_registerTickHandler;
+[X39_MS2_fnc_publishTick, 4] call X39_MS2_fnc_registerTickHandler;
 DEBUG_CODE([X39_MS2_fnc_debugTick COMMA 1] call X39_MS2_fnc_registerTickHandler);
 assignValue("X39_MS2_var_Internal_ticker_minTickRate", 0.25);
 assignValue("X39_MS2_var_Internal_ticker_maxTicksTimeout", 100);
@@ -186,6 +188,8 @@ assignValue("X39_MS2_var_Bleeding_EnableHitzoneLegs", true);
 assignValue("X39_MS2_var_Bleeding_EnableHitzoneGeneric", true);
 
 //Dynamic definitions
+assignValue("X39_MS2_var_Bleeding_BleedingCurePerTick", 0.001);
+
 assignValue("X39_MS2_var_Bleeding_maxBloodInEntireBody", 60000);
 assignValue("X39_MS2_var_Bleeding_maxBleedingHead", 1);
 assignValue("X39_MS2_var_Bleeding_maxBleedingBody", 5);
@@ -233,6 +237,7 @@ assignValue("X39_MS2_var_Pain_useCurrentDamageValues", true);
 
 //Dynamic definitions
 assignValue("X39_MS2_var_Pain_maxPain", 10);
+assignValue("X39_MS2_var_Pain_painReductionPerTick", 0.001);
 
 //Modificators
 assignValue("X39_MS2_var_Pain_ExtraPainForGlobalModificator", 1.0);
@@ -269,6 +274,7 @@ assignValue("X39_MS2_var_Adrenaline_naturalAdrenalineP", 0.2);
 assignValue("X39_MS2_var_Adrenaline_adrenalineReductionPerTick", 0.02);
 assignValue("X39_MS2_var_Adrenaline_adrenalineAddedThroughShooting", 0.025);
 ////HEART
+assignValue("X39_MS2_var_Adrenaline_AdrenalinePulseRagePointP", 0.7);
 assignValue("X39_MS2_var_Adrenaline_normalMaxHeartPulsePerSecond", 220);
 assignValue("X39_MS2_var_Adrenaline_deadlyMaxHeartPulsePerSecond", 300);
 assignValue("X39_MS2_var_Adrenaline_knockOutUnitAtPulse", 270);

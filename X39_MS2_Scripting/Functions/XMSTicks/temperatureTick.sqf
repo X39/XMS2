@@ -46,6 +46,7 @@ if(_currentTemperature <= X39_MS2_var_Temperature_minDead) then
 if(_currentTemperature <= X39_MS2_var_Temperature_minNatural) then
 {
 	_calcValue = 1 - (_currentTemperature / X39_MS2_var_Temperature_minNatural);
+	DEBUG_LOG_WFn(str ["_calcValue" COMMA _calcValue]);
 	if(X39_MS2_var_Temperature_useFilmGrainForLowTemperature) then
 	{
 		_ppeFilmGrain = _ppeFilmGrain + _calcValue;

@@ -7,4 +7,4 @@
  * @Param2 - SCALAR - Value to set
  * @Return - NA
  */
-(_this select 0) setVariable["X39_MS2_var_Adrenaline_HasFlatLine", _this select 1];
+(_this select 0) setVariable["X39_MS2_var_Adrenaline_HasFlatLine", _this select 1, false];

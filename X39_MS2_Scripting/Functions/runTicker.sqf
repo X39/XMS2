@@ -28,6 +28,7 @@ _res = _this spawn {
 		
 		_cfnDisableFatigue = 0;
 		_cfnForceWalk = 0;
+		_redScreenAlpha = 0; //special, FOR PAIN ONLY variable to create the redscreen
 		//TickHandling
 		{
 			if(_ticks % (_x select 1) == 0) then

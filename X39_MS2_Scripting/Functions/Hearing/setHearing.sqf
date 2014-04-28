@@ -9,4 +9,4 @@
  * @Return - NA
  */
 if(count _this < 3) then {["HearingChanged", _this, false, "XMS2", missionNamespace] call X39_XLib_EH_fnc_triggerEvent;};
-(_this select 0) setVariable ["X39_MS2_var_Hearing_value", _this select 1, true];
+(_this select 0) setVariable ["X39_MS2_var_Hearing_value", _this select 1, false];

@@ -8,4 +8,4 @@
  * @Return - NA
  */
 ["DamageChanged_Head", _this, false, "XMS2", missionNamespace] call X39_XLib_EH_fnc_triggerEvent;
-(_this select 0) setVariable ["X39_MS2_var_Damage_Head", _this select 1, true];
+(_this select 0) setVariable ["X39_MS2_var_Damage_Head", _this select 1, false];

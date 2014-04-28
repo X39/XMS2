@@ -8,7 +8,7 @@
  *	
  *	Errors will use https://community.bistudio.com/wiki/throw
  *	
- *	Function supports tryCatch
+ *	Function supports tryCatch for errors (warnings will be ignored)
  *	
  *	@Param1 - OBJECT - Unit to initialize
  *	@Return - NA

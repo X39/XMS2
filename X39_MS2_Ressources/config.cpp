@@ -47,7 +47,9 @@ class CfgSounds
 		XMS2_SoundFiles_pain_short_2,
 		XMS2_SoundFiles_pain_short_3,
 		XMS2_SoundFiles_pain_short_4,
-		XMS2_SoundFiles_pain_short_5
+		XMS2_SoundFiles_pain_short_5,
+		XMS2_SoundFiles_flashbang,
+		XMS2_SoundFiles_tinitus
 	};
 	class XMS2_SoundFiles_Bandage_unwrapping		{ name = "XMS2_SoundFiles_Bandage_unwrapping";			sound[] = {"\X39_MS2_Ressources\sounds\XMS2_SoundFiles_Bandage_unwrapping.ogg", 0.5, 1};		titles[] = {}; };
 	class XMS2_SoundFiles_breathing_1				{ name = "XMS2_SoundFiles_breathing_1";					sound[] = {"\X39_MS2_Ressources\sounds\XMS2_SoundFiles_breathing_1.ogg", 0.5, 1};				titles[] = {}; };
@@ -77,6 +79,8 @@ class CfgSounds
 	class XMS2_SoundFiles_pain_short_3				{ name = "XMS2_SoundFiles_pain_short_3";				sound[] = {"\X39_MS2_Ressources\sounds\XMS2_SoundFiles_pain_short_3.ogg", 0.5, 1};				titles[] = {}; };
 	class XMS2_SoundFiles_pain_short_4				{ name = "XMS2_SoundFiles_pain_short_4";				sound[] = {"\X39_MS2_Ressources\sounds\XMS2_SoundFiles_pain_short_4.ogg", 0.5, 1};				titles[] = {}; };
 	class XMS2_SoundFiles_pain_short_5				{ name = "XMS2_SoundFiles_pain_short_5";				sound[] = {"\X39_MS2_Ressources\sounds\XMS2_SoundFiles_pain_short_5.ogg", 0.5, 1};				titles[] = {}; };
+	class XMS2_SoundFiles_flashbang					{ name = "XMS2_SoundFiles_flashbang";					sound[] = {"\X39_MS2_Ressources\sounds\XMS2_SoundFiles_flashbang.ogg", 0.5, 1};					titles[] = {}; };
+	class XMS2_SoundFiles_tinitus					{ name = "XMS2_SoundFiles_tinitus";						sound[] = {"\X39_MS2_Ressources\sounds\XMS2_SoundFiles_tinitus.ogg", 0.5, 1};					titles[] = {}; };
 };
 
 
