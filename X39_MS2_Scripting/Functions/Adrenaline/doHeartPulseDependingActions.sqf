@@ -15,7 +15,6 @@ _currentPulse = [_unit] call X39_MS2_fnc_getHeartPulse;
 if(_currentPulse >= X39_MS2_var_Adrenaline_deadlyMaxHeartPulsePerSecond) exitWith
 {
 	[_unit, time] call X39_MS2_fnc_setFlatLine;
-	[_unit, 3, -1, localize "STR_X39_MS2_Scripting_Adrenaline_Pulse_FlatLine"] call X39_MS2_fnc_blackOutUnit;
 };
 if(_currentPulse >= X39_MS2_var_Adrenaline_knockOutUnitAtPulse) then
 {

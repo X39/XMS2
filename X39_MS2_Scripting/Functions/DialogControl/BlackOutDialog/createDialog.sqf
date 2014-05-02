@@ -14,6 +14,7 @@ X39_MS2_var_Internal_DialogCommunication_BO_isActive = true;
 _this spawn {
 	if(dialog) exitWith {PRINT_INFO("Another UI is already displayed! Closed that."); closeDialog 0;};
 	_handle = scriptNull;
+	(_this select 0) playAction "die";
 	
 	while {([player] call X39_MS2_fnc_isBlackedOut) && alive player} do
 	{
@@ -67,5 +68,6 @@ _this spawn {
 	{
 		closeDialog 26484;
 	};
+	(_this select 0) switchMove "amovppnemstpsraswrfldnon";
 	X39_MS2_var_Internal_DialogCommunication_BO_isActive = false;
 };

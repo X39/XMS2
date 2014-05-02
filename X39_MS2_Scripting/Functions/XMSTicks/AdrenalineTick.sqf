@@ -29,9 +29,17 @@ _adrenalineCurrent = [_unit] call X39_MS2_fnc_getAdrenaline;
 _fatigue = getFatigue _unit;
 _stage = speed _unit;
 
+
 //Simulate Heart
-if(X39_MS2_var_Adrenaline_enableHeartSimulation && {(_unit getVariable ["X39_MS2_var_Adrenaline_HasFlatLine", 0]) == 0}) then
+if(X39_MS2_var_Adrenaline_enableHeartSimulation && {!([_unit] call X39_MS2_fnc_hasFlatLine)}) then
 {
+	if(_pulseCurrent <= 0) then
+	{
+		if(_blackOutStage < 3) then
+		{
+			[_unit, time] call X39_MS2_fnc_setFlatLine;
+		};
+	};
 	[] call {
 		if(_stage < X39_MS2_var_Adrenaline_PulseSpeedStage0) then
 		{
@@ -80,7 +88,7 @@ if(X39_MS2_var_Adrenaline_enableHeartSimulation && {(_unit getVariable ["X39_MS2
 	};
 	if(_pulseChange != 0) then
 	{
-		if(_pulseChange + _pulseCurrent >= X39_MS2_var_Adrenaline_minHeartPulsePerSecond) then
+		if(_pulseChange + _pulseCurrent >= X39_MS2_var_Adrenaline_minHeartPulsePerSecond || {_blackOutStage > 2}) then
 		{
 			if(_pulseChange + _pulseCurrent < X39_MS2_var_Adrenaline_normalMaxHeartPulsePerSecond && {_adrenalineCurrent / X39_MS2_var_Adrenaline_maxAdrenaline < X39_MS2_var_Adrenaline_AdrenalinePulseRagePointP}) then
 			{

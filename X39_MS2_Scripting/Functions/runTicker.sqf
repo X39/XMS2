@@ -7,7 +7,7 @@
  *	@Author - X39|Cpt. HM Murdock
  */
 _res = _this spawn {
-	private["_unit", "_ticks", "_startTime", "_endTime", "_sleep", "_ppeDynamicBlur", "_ppeRadialBlur", "_ppeFocus", "_ppeFilmGrain", "_ppeChromAberration", "_ppeGreyScreen", "_ppeColorInversion", "_cfnDisableFatigue", "_cfnDisableFatigueLast", "_cfnForceWalk", "_cfnForceWalkLast"];
+	private["_unit", "_ticks", "_startTime", "_endTime", "_blackOutStage", "_sleep", "_ppeDynamicBlur", "_ppeRadialBlur", "_ppeFocus", "_ppeFilmGrain", "_ppeChromAberration", "_ppeGreyScreen", "_ppeColorInversion", "_cfnDisableFatigue", "_cfnDisableFatigueLast", "_cfnForceWalk", "_cfnForceWalkLast", "_redScreenAlpha"];
 	DEBUG_CODE(private["_randomID"];_randomID = random 20000);
 	_cfnDisableFatigueLast = str (0 > 0);
 	_cfnForceWalkLast = str (0 > 0);
@@ -29,6 +29,7 @@ _res = _this spawn {
 		_cfnDisableFatigue = 0;
 		_cfnForceWalk = 0;
 		_redScreenAlpha = 0; //special, FOR PAIN ONLY variable to create the redscreen
+		_blackOutStage = [_unit] call X39_MS2_fnc_getBlackOutStage;
 		//TickHandling
 		{
 			if(_ticks % (_x select 1) == 0) then

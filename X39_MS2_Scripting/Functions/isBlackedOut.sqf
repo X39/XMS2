@@ -1,4 +1,4 @@
-#include "\X39_MedSys_Scripting\MedicSystem\default.hpp"
+#include "\X39_MS2_Scripting\default.hpp"
 /* 
  * !FUNCTION IS NOT CALLSAFE!
  * Checks if a unit is blacked out

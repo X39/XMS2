@@ -58,3 +58,40 @@ class x39_xms2_morphine : ItemCore
 	picture = "\X39_MS2_Ressources\Items\MorphineInjector.paa";
 	descriptionShort = "";
 };
+class x39_xms2_coldSpray : ItemCore
+{
+	scope = 2;
+	displayName = $STR_X39_MS2_Items_Items_coldSpray;
+	class ItemInfo
+    {
+		mass = 3;
+		type = 201;
+    }; 
+	picture = "\X39_MS2_Ressources\Items\ColdSpray.paa";
+	descriptionShort = "";
+};
+class x39_xms2_earplugs : ItemCore
+{
+	scope = 2;
+	displayName = $STR_X39_MS2_Items_Items_earplugs;
+	class ItemInfo
+    {
+		mass = 0;
+		type = 201;
+    }; 
+	picture = "\X39_MS2_Ressources\Items\earplugs.paa";
+	descriptionShort = "";
+};
+class x39_xms2_defibrillator : ItemCore
+{
+	scope = 2;
+	displayName = $STR_X39_MS2_Items_Items_defibrillator;
+	model = "\A3\Structures_F_EPA\Items\Medical\Defibrillator_F.p3d";
+	class ItemInfo
+    {
+    	mass = 20;
+		type = 201;
+    }; 
+	picture = "\X39_MS2_Ressources\Items\Defibrillator.paa";
+	descriptionShort = "";
+};

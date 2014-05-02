@@ -21,7 +21,7 @@ if(typeName _handler == "STRING" || typeName _handler == "TEXT") then
 	}
 	else
 	{
-		_handler = compile _handler;
+		_handler = missionNamespace getVariable _handler;
 	};
 };
 if(_exit) exitWith {diag_log "No tickhandler has been registered";};

@@ -22,7 +22,7 @@ _unit = _this select 0;
 //_handleID = _this select 1;
 
 _currentPain = [_unit] call X39_MS2_fnc_getPain;
-_maxPain = [] call X39_MS2_fmc_getMaxPain;
+_maxPain = [] call X39_MS2_fnc_getMaxPain;
 _changePain = -X39_MS2_var_Pain_painReductionPerTick;
 
 _redScreenAlpha = _currentPain / _maxPain;

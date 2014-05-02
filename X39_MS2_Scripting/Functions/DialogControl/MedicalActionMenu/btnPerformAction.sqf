@@ -76,10 +76,6 @@ _this spawn {
 
 
 		if(_consumesItems && {count _items > 0 && {{_caller find _x != -1} count _items <= 0 && {X39_MS2_var_Internal_DialogCommunication_MA_Target find _x != -1} count _items <= 0}}) exitWith {};//TODO: got no item for this message output
-		if(_healingValue > 0) then
-		{
-			[X39_MS2_var_Internal_DialogCommunication_MA_Target, -(_healingValue * _efficency)] call _fncAdd;
-		};
 
 		DEBUG_LOG_WFn(str [_this COMMA _action]);
 		_noAnimationPresent = (_animation == "");
@@ -101,12 +97,16 @@ _this spawn {
 			playSound3D [_this select 0, player, false, position player, 1, 1, 0];
 		};
 		sleep _animationTime;
+		
+		if([player] call X39_MS2_fnc_isBlackedOut) exitWith {X39_MS2_var_Internal_DialogCommunication_MA_preventActions = false;};
 		if(_noAnimationPresent) then
 		{
-			player playAction "medicStop";
+			player playAction "MedicStop";
 		};
-		
-		if([player] call X39_MS2_fnc_isBlackedOut) exitWith {};
+		if(_healingValue > 0) then
+		{
+			[X39_MS2_var_Internal_DialogCommunication_MA_Target, -(_healingValue * _efficency)] call _fncAdd;
+		};
 		[player, X39_MS2_var_Internal_DialogCommunication_MA_Target, _efficency, _suffix] call _fncName;
 	};
 	X39_MS2_var_Internal_DialogCommunication_MA_preventActions = false;

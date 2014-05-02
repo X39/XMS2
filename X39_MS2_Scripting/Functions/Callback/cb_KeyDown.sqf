@@ -1,4 +1,4 @@
-#include "\X39_MedSys_Scripting\MedicSystem\default.hpp"
+#include "\X39_MS2_Scripting\default.hpp"
 /**
  *	handles key presses (function for KeyDown display event handler. KeyDown param description of the wiki:
  * 	Returns the control, the keyboard code and the state of Shift, Ctrl and Alt.)
@@ -12,9 +12,9 @@
  *	@Return - N/A
  *	@Author - X39|Cpt. HM Murdock
  */
- _i = 0;
- _handled = false;
- {
+_i = 0;
+_handled = false;
+{
 	scopeName "out";
 	_currentKey = X39_MS2_var_Internal_Keys select _i select 0;
 	if(_currentKey select 0) then
@@ -43,5 +43,5 @@
 	};
 	//_scriptToCall = X39_MS2_var_Internal_Keys select _i select 1;
 	_i = _i + 1;
- }count X39_MS2_var_Internal_Keys;
- _handled
+}count X39_MS2_var_Internal_Keys;
+_handled

@@ -17,6 +17,7 @@
  *	@Param2 - SCALAR - HandleID
  *	@Return - NA
  */
+if(!X39_MS2_var_Feature_EnableBlood) exitWith {};
 private["_unit", "_handleID"];
 _unit = _this select 0;
 //_handleID = _this select 1;
@@ -24,7 +25,11 @@ if(X39_MS2_var_Bleeding_BleedingCurePerTick > 0) then
 {
 	[_unit, -X39_MS2_var_Bleeding_BleedingCurePerTick] call X39_MS2_fnc_addBleedingToBody;
 	[_unit, -X39_MS2_var_Bleeding_BleedingCurePerTick] call X39_MS2_fnc_addBleedingToGeneric;
-	[_unit, -X39_MS2_var_Bleeding_BleedingCurePerTick] call X39_MS2_fnc_addBleedingToHand;
+	[_unit, -X39_MS2_var_Bleeding_BleedingCurePerTick] call X39_MS2_fnc_addBleedingToHands;
 	[_unit, -X39_MS2_var_Bleeding_BleedingCurePerTick] call X39_MS2_fnc_addBleedingToHead;
 	[_unit, -X39_MS2_var_Bleeding_BleedingCurePerTick] call X39_MS2_fnc_addBleedingToLegs;
 };
+
+[_unit, -(([_unit] call X39_MS2_fnc_getBleedingOfBody) + ([_unit] call X39_MS2_fnc_getBleedingOfGeneric) + ([_unit] call X39_MS2_fnc_getBleedingOfHands) + ([_unit] call X39_MS2_fnc_getBleedingOfHead) + ([_unit] call X39_MS2_fnc_getBleedingOfLegs))] call X39_MS2_fnc_addBlood;
+//TODO: implement bloodloss
+//TODO: implement knockOut condition

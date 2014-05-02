@@ -116,5 +116,6 @@ class X39_MS2_BlackOutUi {
 		h = 0.044 * safezoneH;
 		colorBackground[] = {0,0,0,1};
 		colorActive[] = {0,0,0,1};
+		colorText[] = {1,1,1,1};
 	};
 };

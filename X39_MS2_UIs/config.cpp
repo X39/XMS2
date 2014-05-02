@@ -14,6 +14,8 @@ class RscListbox;
 class RscButton;
 class RscStructuredText;
 class RscText;
+class RscEdit;
+class RscCombo;
 
 class RscTitles {
 	#include "XMS2_Overlay\ui.hpp"

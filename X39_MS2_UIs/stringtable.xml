@@ -22,7 +22,7 @@
 			</Key>
 		</Container>
 		<Container name="MedicalUi">
-			<Key ID="STR_X39_MS2_UIs_MedicalUi_RscButton_1600">
+			<Key ID="STR_X39_MS2_UIs_MedicalUi_RscButton_1610">
 				<English>Check unit</English>
 				<German>Check unit</German>
 				<Hungarian>Check unit</Hungarian>
@@ -30,6 +30,51 @@
 				<French>Check unit</French>
 				<Russian>Check unit</Russian>
 				<Polish>Check unit</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_UIs_MedicalUi_RscButton_1611">
+				<English>Add the selected entry to triage card</English>
+				<German>Add the selected entry to triage card</German>
+				<Hungarian>Add the selected entry to triage card</Hungarian>
+				<Italian>Add the selected entry to triage card</Italian>
+				<French>Add the selected entry to triage card</French>
+				<Russian>Add the selected entry to triage card</Russian>
+				<Polish>Add the selected entry to triage card</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_UIs_MedicalUi_RscButton_1614">
+				<English>Drop from card</English>
+				<German>Drop from card</German>
+				<Hungarian>Drop from card</Hungarian>
+				<Italian>Drop from card</Italian>
+				<French>Drop from card</French>
+				<Russian>Drop from card</Russian>
+				<Polish>Drop from card</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_UIs_MedicalUi_RscButton_1615">
+				<English>Prune triage card</English>
+				<German>Prune triage card</German>
+				<Hungarian>Prune triage card</Hungarian>
+				<Italian>Prune triage card</Italian>
+				<French>Prune triage card</French>
+				<Russian>Prune triage card</Russian>
+				<Polish>Prune triage card</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_UIs_MedicalUi_RscButton_1613">
+				<English>Add</English>
+				<German>Add</German>
+				<Hungarian>Add</Hungarian>
+				<Italian>Add</Italian>
+				<French>Add</French>
+				<Russian>Add</Russian>
+				<Polish>Add</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_UIs_MedicalUi_RscButton_1612">
+				<English>Push to server</English>
+				<German>Push to server</German>
+				<Hungarian>Push to server</Hungarian>
+				<Italian>Push to server</Italian>
+				<French>Push to server</French>
+				<Russian>Push to server</Russian>
+				<Polish>Push to server</Polish>
 			</Key>
 			<Key ID="STR_X39_MS2_UIs_MedicalUi_RscText_1000">
 				<English>Diagnosis</English>
@@ -39,6 +84,15 @@
 				<French>Diagnosis</French>
 				<Russian>Diagnosis</Russian>
 				<Polish>Diagnosis</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_UIs_MedicalUi_RscText_1001">
+				<English>Triage Card</English>
+				<German>Triage Card</German>
+				<Hungarian>Triage Card</Hungarian>
+				<Italian>Triage Card</Italian>
+				<French>Triage Card</French>
+				<Russian>Triage Card</Russian>
+				<Polish>Triage Card</Polish>
 			</Key>
 			<Key ID="STR_X39_MS2_UIs_MedicalUi_RscText_1002">
 				<English>Treatment</English>

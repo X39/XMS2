@@ -4,7 +4,7 @@
  *
  *	@ParamsCount - 1
  *	@Param1 - OBJECT - Unit to kill
- *	@Param1 - BOOL - apply score change to last hitter (true => playerScore + -1 (to remove the selfkill) & killerScore + 1 (to add the kill), false => Skip those things)
+ *	@Param1 - BOOL - apply score change to last hitter (true => playerScore + 1 (to remove the selfkill) & killerScore + 1 (to add the kill), false => Skip those things)
  *	@Return - N/A
  *	@Author - X39|Cpt. HM Murdock
  */
@@ -14,14 +14,22 @@ _unit = [_this, 0, objNull, [objNull]] call BIS_fnc_param;
 _applyScoreChange = [_this, 1, true, [true]] call BIS_fnc_param;
 
 if(isNull _unit) exitWith { PRINT_ERROR("No valid unit to kill provided"); };
+
 _unit setDamage 1;
 if(_applyScoreChange) then
 {
-	_lastHitter = _unit setVariable["X39_MS2_var_Damage_LastHitter", objNull];
+	_lastHitter = _unit getVariable["X39_MS2_var_Damage_LastHitter", objNull];
+	_unit addScore 1;
 	if(!isNull _lastHitter) then
 	{
-		_unit addScore -1;
-		_lastHitter addScore 1;
+		if ([_unit call BIS_fnc_objectSide, _lastHitter call BIS_fnc_objectSide] call BIS_fnc_areFriendly) then
+		{
+			_lastHitter addScore -1;	//friendly kill
+		}
+		else
+		{
+			_lastHitter addScore 1;	//enemy kill
+		};
 	};
 };
 if(_unit getVariable ["X39_MS2_var_UnitInitialized", false]) then

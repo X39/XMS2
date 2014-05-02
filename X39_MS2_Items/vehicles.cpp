@@ -35,6 +35,18 @@ class X39_MS2_medicalbox: NATO_Box_Base {
 			name = "x39_xms2_morphine";
 			count = 100;
 		};
+		class x39_xms2_coldSpray {
+			name = "x39_xms2_coldSpray";
+			count = 100;
+		};
+		class x39_xms2_earplugs {
+			name = "x39_xms2_earplugs";
+			count = 100;
+		};
+		class x39_xms2_defibrillator {
+			name = "x39_xms2_defibrillator";
+			count = 100;
+		};
 	};
 
 };

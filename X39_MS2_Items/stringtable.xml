@@ -58,6 +58,33 @@
 				<Russian>Morphine</Russian>
 				<Polish>Morphine</Polish>
 			</Key>
+			<Key ID="STR_X39_MS2_Items_Items_coldSpray">
+				<English>Cold spray</English>
+				<German>Cold spray</German>
+				<Hungarian>Cold spray</Hungarian>
+				<Italian>Cold spray</Italian>
+				<French>Cold spray</French>
+				<Russian>Cold spray</Russian>
+				<Polish>Cold spray</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Items_Items_earplugs">
+				<English>Earplugs</English>
+				<German>Earplugs</German>
+				<Hungarian>Earplugs</Hungarian>
+				<Italian>Earplugs</Italian>
+				<French>Earplugs</French>
+				<Russian>Earplugs</Russian>
+				<Polish>Earplugs</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Items_Items_defibrillator">
+				<English>Defibrillator</English>
+				<German>Defibrillator</German>
+				<Hungarian>Defibrillator</Hungarian>
+				<Italian>Defibrillator</Italian>
+				<French>Defibrillator</French>
+				<Russian>Defibrillator</Russian>
+				<Polish>Defibrillator</Polish>
+			</Key>
 		</Container>
 	</Package>
 </Project>

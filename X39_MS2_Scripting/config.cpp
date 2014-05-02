@@ -25,9 +25,12 @@ class CfgFunctions
 			class runTicker:X39_XLib_Function_TypeA								{file = "\X39_MS2_Scripting\Functions\runTicker.sqf";};
 			class blackOutUnit:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\blackOutUnit.sqf";};
 			class isBlackedOut:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\isBlackedOut.sqf";};
+			class getBlackOutStage:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\getBlackOutStage.sqf";};
 			class applyPPEffects:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\applyPPEffects.sqf";};
 			class resetPPEffects:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\resetPPEffects.sqf";};
 			class addEffect:X39_XLib_Function_TypeA								{file = "\X39_MS2_Scripting\Functions\addEffect.sqf";};
+			class messagePlayer:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\messagePlayer.sqf";};
+			class applyServerConfig:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\applyServerConfig.sqf";};
 		};
 		class Damage
 		{
@@ -51,6 +54,7 @@ class CfgFunctions
 			
 			class getColorArrayFromDamageValue:X39_XLib_Function_TypeA			{file = "X39_MS2_Scripting\Functions\Damage\getColorArrayFromDamageValue.sqf";};
 			class getDamageTotal:X39_XLib_Function_TypeA						{file = "X39_MS2_Scripting\Functions\Damage\getDamageTotal.sqf";};
+			class getMaxDamageTotal:X39_XLib_Function_TypeA						{file = "X39_MS2_Scripting\Functions\Damage\getMaxDamageTotal.sqf";};
 		};
 		class Bleeding
 		{
@@ -59,18 +63,21 @@ class CfgFunctions
 			class addBleedingToHands:X39_XLib_Function_TypeA					{file = "X39_MS2_Scripting\Functions\Bleeding\adder\addBleedingToHands.sqf";};
 			class addBleedingToHead:X39_XLib_Function_TypeA						{file = "X39_MS2_Scripting\Functions\Bleeding\adder\addBleedingToHead.sqf";};
 			class addBleedingToLegs:X39_XLib_Function_TypeA						{file = "X39_MS2_Scripting\Functions\Bleeding\adder\addBleedingToLegs.sqf";};
+			class addBlood:X39_XLib_Function_TypeA								{file = "X39_MS2_Scripting\Functions\Bleeding\adder\addBlood.sqf";};
 			
 			class setBleedingOfBody:X39_XLib_Function_TypeA						{file = "X39_MS2_Scripting\Functions\Bleeding\setter\setBleedingOfBody.sqf";};
 			class setBleedingOfGeneric:X39_XLib_Function_TypeA					{file = "X39_MS2_Scripting\Functions\Bleeding\setter\setBleedingOfGeneric.sqf";};
 			class setBleedingOfHands:X39_XLib_Function_TypeA					{file = "X39_MS2_Scripting\Functions\Bleeding\setter\setBleedingOfHands.sqf";};
 			class setBleedingOfHead:X39_XLib_Function_TypeA						{file = "X39_MS2_Scripting\Functions\Bleeding\setter\setBleedingOfHead.sqf";};
 			class setBleedingOfLegs:X39_XLib_Function_TypeA						{file = "X39_MS2_Scripting\Functions\Bleeding\setter\setBleedingOfLegs.sqf";};
+			class setBlood:X39_XLib_Function_TypeA								{file = "X39_MS2_Scripting\Functions\Bleeding\setter\setBlood.sqf";};
 			
 			class getBleedingOfBody:X39_XLib_Function_TypeA						{file = "X39_MS2_Scripting\Functions\Bleeding\getter\getBleedingOfBody.sqf";};
 			class getBleedingOfGeneric:X39_XLib_Function_TypeA					{file = "X39_MS2_Scripting\Functions\Bleeding\getter\getBleedingOfGeneric.sqf";};
 			class getBleedingOfHands:X39_XLib_Function_TypeA					{file = "X39_MS2_Scripting\Functions\Bleeding\getter\getBleedingOfHands.sqf";};
 			class getBleedingOfHead:X39_XLib_Function_TypeA						{file = "X39_MS2_Scripting\Functions\Bleeding\getter\getBleedingOfHead.sqf";};
 			class getBleedingOfLegs:X39_XLib_Function_TypeA						{file = "X39_MS2_Scripting\Functions\Bleeding\getter\getBleedingOfLegs.sqf";};
+			class getBlood:X39_XLib_Function_TypeA								{file = "X39_MS2_Scripting\Functions\Bleeding\getter\getBlood.sqf";};
 		};
 		class Callback
 		{
@@ -78,6 +85,7 @@ class CfgFunctions
 			class cb_FiredNear:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\Callback\cb_FiredNear.sqf";};
 			class cb_HandleDamage:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\Callback\cb_HandleDamage.sqf";};
 			class cb_KeyDown:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\Callback\cb_KeyDown.sqf";};
+			class cb_AnimStateChanged:X39_XLib_Function_TypeA					{file = "\X39_MS2_Scripting\Functions\Callback\cb_AnimStateChanged.sqf";};
 		};
 		class Pain
 		{
@@ -102,6 +110,7 @@ class CfgFunctions
 			class setHeartPulse:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\Adrenaline\setHeartPulse.sqf";};
 			
 			class setFlatLine:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\Adrenaline\setFlatLine.sqf";};
+			class hasFlatLine:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\Adrenaline\hasFlatLine.sqf";};
 			class doHeartPulseDependingActions:X39_XLib_Function_TypeA			{file = "\X39_MS2_Scripting\Functions\Adrenaline\doHeartPulseDependingActions.sqf";};
 		};
 		class Temperature
@@ -123,6 +132,10 @@ class CfgFunctions
 			
 			class publishTick:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\XMSTicks\publishTick.sqf";};
 		};
+		class LimitationSystem
+		{
+			class isAllowedToUse:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\LimitationSystem\isAllowedToUse.sqf";};
+		};
 		class DialogControl_BlackOutDialog
 		{
 			class blackOutDialog_createDialog:X39_XLib_Function_TypeA			{file = "\X39_MS2_Scripting\Functions\DialogControl\BlackOutDialog\createDialog.sqf";};
@@ -131,15 +144,27 @@ class CfgFunctions
 		{
 			class overlay_createDisplay:X39_XLib_Function_TypeA					{file = "\X39_MS2_Scripting\Functions\DialogControl\Overlay\createDisplay.sqf";};
 		};
+		class DialogControl_InteractionMenu
+		{
+			class interactionMenu_openDialog:X39_XLib_Function_TypeA			{file = "\X39_MS2_Scripting\Functions\DialogControl\InteractionMenu\openDialog.sqf";};
+		};
 		class DialogControl_MedicalActionMenu
 		{
-			class MedicalActionMenu_createDialog:X39_XLib_Function_TypeA		{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\createDialog.sqf";};
-			class MedicalActionMenu_btnCheckUnit:X39_XLib_Function_TypeA		{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\btnCheckUnit.sqf";};
-			class MedicalActionMenu_btnPerformAction:X39_XLib_Function_TypeA	{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\btnPerformAction.sqf";};
+			class MedicalActionMenu_btnAddSelectedToTriageCard:X39_XLib_Function_TypeA		{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\btnAddSelectedToTriageCard.sqf";};
+			class MedicalActionMenu_btnAddToTriageCard:X39_XLib_Function_TypeA				{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\btnAddToTriageCard.sqf";};
+			class MedicalActionMenu_btnApplyTriageCardChanges:X39_XLib_Function_TypeA		{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\btnApplyTriageCardChanges.sqf";};
+			class MedicalActionMenu_btnCheckUnit:X39_XLib_Function_TypeA					{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\btnCheckUnit.sqf";};
+			class MedicalActionMenu_btnClearTriageCard:X39_XLib_Function_TypeA				{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\btnClearTriageCard.sqf";};
+			class MedicalActionMenu_btnPerformAction:X39_XLib_Function_TypeA				{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\btnPerformAction.sqf";};
+			class MedicalActionMenu_btnRemoveSelectedFromTriageCard:X39_XLib_Function_TypeA	{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\btnRemoveSelectedFromTriageCard.sqf";};
+			class MedicalActionMenu_createDialog:X39_XLib_Function_TypeA					{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\createDialog.sqf";};
+			class MedicalActionMenu_outputBlockedMessage:X39_XLib_Function_TypeA			{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\outputBlockedMessage.sqf";};
+			class MedicalActionMenu_outputNothingSelectedMessage:X39_XLib_Function_TypeA	{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\outputNothingSelectedMessage.sqf";};
 		};
 		class MedcialActions
 		{
 			class registerAction:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\MedicalActions\registerAction.sqf";};
+			class MA_defibrillate:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\MedicalActions\defibrillate.sqf";};
 		};
 	};
 };

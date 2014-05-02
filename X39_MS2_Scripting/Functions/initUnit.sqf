@@ -34,9 +34,10 @@ else
 		_unit setVariable[_x select 0, [] call (_x select 1), true];
 	}count X39_MS2_var_Internal_UnitVariables;
 	//set triggers
-	if((_unit getVariable ["X39_MS2_var_EH_HandleDamage", -1]) == -1)	then { _unit setVariable["X39_MS2_var_EH_HandleDamage", _unit addEventHandler["HandleDamage", {_this call X39_MS2_fnc_cb_HandleDamage}], true];	};
-	if((_unit getVariable ["X39_MS2_var_EH_FiredNear", -1]) == -1)	then { _unit setVariable["X39_MS2_var_EH_FiredNear", _unit addEventHandler["FiredNear", {_this call X39_MS2_fnc_cb_FiredNear}], true];			};
-	if((_unit getVariable ["X39_MS2_var_EH_Explosion", -1]) == -1)	then { _unit setVariable["X39_MS2_var_EH_Explosion", _unit addEventHandler["Explosion", {_this call X39_MS2_fnc_cb_Explosion}], true];			};
+	if((_unit getVariable ["X39_MS2_var_EH_HandleDamage", -1]) == -1)		then { _unit setVariable["X39_MS2_var_EH_HandleDamage",		_unit addEventHandler["HandleDamage",		{_this call X39_MS2_fnc_cb_HandleDamage}], true];		};
+	if((_unit getVariable ["X39_MS2_var_EH_FiredNear", -1]) == -1)			then { _unit setVariable["X39_MS2_var_EH_FiredNear",		_unit addEventHandler["FiredNear",			{_this call X39_MS2_fnc_cb_FiredNear}], true];			};
+	if((_unit getVariable ["X39_MS2_var_EH_Explosion", -1]) == -1)			then { _unit setVariable["X39_MS2_var_EH_Explosion",		_unit addEventHandler["Explosion",			{_this call X39_MS2_fnc_cb_Explosion}], true];			};
+	if((_unit getVariable ["X39_MS2_var_EH_AnimStateChanged", -1]) == -1)	then { _unit setVariable["X39_MS2_var_EH_AnimStateChanged",	_unit addEventHandler["AnimStateChanged",	{_this call X39_MS2_fnc_cb_AnimStateChanged}], true];	};
 	_unit setVariable ["X39_MS2_var_UnitInitialized", true];
 	[_unit, "X39_MS2_fnc_runTicker", _unit, false] spawn BIS_fnc_MP;
 };

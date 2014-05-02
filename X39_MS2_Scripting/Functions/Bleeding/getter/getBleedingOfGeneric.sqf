@@ -8,7 +8,7 @@
  */
 if(X39_MS2_var_Bleeding_EnableHitzoneGeneric) then
 {
-	(_this select 0) getVariable ["X39_MS2_var_Bleeding_Generic", -1];
+	(_this select 0) getVariable ["X39_MS2_var_Bleeding_Generic", -1]
 }
 else
 {
