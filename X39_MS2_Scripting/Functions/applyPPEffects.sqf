@@ -30,11 +30,11 @@ if(X39_MS2_var_ppEffect_EnableWetDistortion) then
 {
 	//X39_MS2_var_Internal_ppe_wetDistortion ppEffectAdjust [1, 0.1, 0.1, [1, 1, 1, 1], [0.3, 0.3, 0.05, 0.05], [0.05, 0.75, 0.1, 0.64]]; 
 	X39_MS2_var_Internal_ppe_wetDistortion ppEffectAdjust [
-							1,								//Black screen
-							0.2, 0.2,						//Effect strenth
-							1, 1, 1, 1,						//Wave Speed
-							0.1, 0.1, 0.03, 0.03,			//1 - 2 Wave left/right factor, 3 - 4 crystalize (0.1 already is crystalized!)
-							0.05, 0.55, 0.75, 0.75			//Fine tuning of upper 4 scalar values
+							1,																		//Black screen
+							0.2 * _ppeWetDisort_LeftStrength, 0.2 * _ppeWetDisort_RightStrength,	//Effect strenth
+							1, 1, 1, 1,																//Wave Speed
+							0.1, 0.1, 0.03, 0.03,													//1 - 2 Wave left/right factor, 3 - 4 crystalize (0.1 already is crystalized!)
+							0.05, 0.55, 0.75, 0.75													//Fine tuning of upper 4 scalar values
 						];
 	X39_MS2_var_Internal_ppe_wetDistortion ppEffectCommit X39_MedSys_var_TickRate; 
 };

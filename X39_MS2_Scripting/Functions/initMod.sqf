@@ -66,42 +66,46 @@ assignValue("X39_MS2_var_UIs_XMS2_Overay_ShownInCurrentMission", false);
 
 assignValue("X39_MS2_var_Internal_Keys", []);
 //Settings
-X39_MS2_var_Internal_Keys set [count X39_MS2_var_Internal_Keys, [(configFile >> "CfgSettings" >> "X39" >> "XMS2" >> "ClientConfig" >> "keys" >> "Key1") call _fnc_getKey, {X39_MS2_var_Internal_Dialog_IsSelfInteracton = true;	[true] call X39_MS2_fnc_interactionMenu_openDialog}]];
-X39_MS2_var_Internal_Keys set [count X39_MS2_var_Internal_Keys, [(configFile >> "CfgSettings" >> "X39" >> "XMS2" >> "ClientConfig" >> "keys" >> "Key2") call _fnc_getKey, {X39_MS2_var_Internal_Dialog_IsSelfInteracton = false;[false] call X39_MS2_fnc_interactionMenu_openDialog}]];
+X39_MS2_var_Internal_Keys set [count X39_MS2_var_Internal_Keys, [(configFile >> "CfgSettings" >> "X39" >> "XMS2" >> "ClientConfig" >> "keys" >> "Key1") call _fnc_getKey, {X39_MS2_var_Internal_Dialog_IsSelfInteracton = true;	[true] call X39_MS2_fnc_interactionMenu_openDialog;}]];
+X39_MS2_var_Internal_Keys set [count X39_MS2_var_Internal_Keys, [(configFile >> "CfgSettings" >> "X39" >> "XMS2" >> "ClientConfig" >> "keys" >> "Key2") call _fnc_getKey, {X39_MS2_var_Internal_Dialog_IsSelfInteracton = false;[false] call X39_MS2_fnc_interactionMenu_openDialog;}]];
 
 assignValue("X39_MS2_var_Internal_UnitVariables", []);
-//																				  |Variable name						|Value (as code)								|Will this be broadcasted over the network?|
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_UnitInitialized",		{false											}, true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_LastHitter", 	{objNull										}, true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_Generic",		{0.0											}, true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_Body",			{0.0											}, true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_Head",			{0.0											}, true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_Hands",			{0.0											}, true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_Legs",			{0.0											}, true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Generic",		{0.0											}, true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Body",			{0.0											}, true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Head",			{0.0											}, true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Hands",		{0.0											}, true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Legs",			{0.0											}, true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Blood",		{X39_MS2_var_Bleeding_maxBloodInEntireBody		}, true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_HandleDamage",		{-1												}, false]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_FiredNear",			{-1												}, false]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_Explosion",			{-1												}, false]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_AnimStateChanged",	{-1												}, false]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Adrenaline_value",		{0												}, true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Adrenaline_heartPulse",	{X39_MS2_var_Adrenaline_minHeartPulsePerSecond	}, true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Adrenaline_HasFlatLine",{0												}, true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Pain_value",			{0												}, true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Hearing_value",			{0												}, true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Internal_XMSEffects",	{[]												}, false]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Temperature_value",		{X39_MS2_var_Temperature_max					}, true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_hasEarplugs",			{false											}, true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_Text",			{""												}, false]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_isBlackedOut",	{false											}, true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_currentStage",	{0												}, true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Internal_lastValues",	{[]												}, false]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_triageCard",			{[]												}, false]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_triageState",			{-1												}, true]];
+//																				  |Variable name								|Value (as code)								|Will this be broadcasted over the network?|
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_UnitInitialized",				{false											}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_LastHitter", 			{objNull										}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_Generic",				{0.0											}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_Body",					{0.0											}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_Head",					{0.0											}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_Hands",					{0.0											}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_Legs",					{0.0											}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Generic",				{0.0											}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Body",					{0.0											}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Head",					{0.0											}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Hands",				{0.0											}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Legs",					{0.0											}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Blood",				{X39_MS2_var_Bleeding_maxBloodInEntireBody		}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_HandleDamage",				{-1												}, false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_FiredNear",					{-1												}, false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_Explosion",					{-1												}, false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_AnimStateChanged",			{-1												}, false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Adrenaline_value",				{0												}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Adrenaline_heartPulse",			{X39_MS2_var_Adrenaline_minHeartPulsePerSecond	}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Adrenaline_HasFlatLine",		{-1												}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Pain_value",					{0												}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Pain_MorphineValue",			{0												}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Hearing_value",					{0												}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Internal_XMSEffects",			{[]												}, false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Temperature_value",				{X39_MS2_var_Temperature_max					}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_hasEarplugs",					{false											}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_Text",					{""												}, false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_isBlackedOut",			{false											}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_currentStage",			{0												}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_timeOfUnconscious",	{-1												}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_timeOfDeath",			{-1												}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_TimeValue",			{-1												}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Internal_lastValues",			{[]												}, false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_triageCard",					{[]												}, false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_triageState",					{-1												}, true		]];
 
 //Reserve ppEffect/EventHandler variable holders (not all are used)
 assignValue("X39_MS2_var_Internal_ppe_radialBlur", -1);
@@ -118,15 +122,7 @@ assignValue("X39_MS2_var_Internal_deh_keyDown", -1);
 
 //MedicalActions
 assignValue("X39_MS2_var_Internal_MedicalActions_actionArray", []);
-//"Hands", "Body", "Legs", "Head", "Generic", "Temperature"
-nope = {systemChat format["nope: %1", _this];};
-["Morphine", "nope", "", "Acts_TreatingWounded02", 8.032, "XMS2_SoundFiles_injection_3", 0, "\X39_MS2_Ressources\Items\MorphineInjector.paa", [], {true}, 0, "X39_MS2_var_MedicalActions_Morphine_DamageHealing", ["Hands", "Body", "Legs", "Head", "Generic"]] call X39_MS2_fnc_registerAction;
-["Adrenaline", {[(_this select 1), X39_MS2_var_MedicalActions_Adrenaline_AdrenalineChange] call X39_MS2_fnc_addAdrenaline;}, "", "Acts_TreatingWounded02", 8.032, "XMS2_SoundFiles_injection_3", 0, "\X39_MS2_Ressources\Items\Epipen.paa", [], {true}, 0, "X39_MS2_var_MedicalActions_Adrenaline_DamageHealing", ["Hands", "Body", "Legs", "Head", "Generic"]] call X39_MS2_fnc_registerAction;
-//["CPR", "nope", "", "Acts_TreatingWounded01", 5.299, "", 0, "\X39_MS2_Ressources\UI\MedicalUI\HEART_SHOCK.paa", [], {true}, 2, "", ["Hands", "Body", "Legs", "Head", "Generic"]] call X39_MS2_fnc_registerAction;
-["bandage", "nope", "", "Acts_TreatingWounded03", 8.665, "XMS2_SoundFiles_Bandage_unwrapping", 0, "\X39_MS2_Ressources\Items\Bandage.paa", [], {true}, 0, "X39_MS2_var_MedicalActions_StickyBandage_DamageHealing", ["Hands", "Body", "Legs", "Head", "Generic"]] call X39_MS2_fnc_registerAction;
-["cold spray", {[(_this select 1), X39_MS2_var_MedicalActions_ColdSpray_TemperatureChange] call X39_MS2_fnc_addTemperature; [(_this select 1), X39_MS2_var_MedicalActions_ColdSpray_PainChange] call X39_MS2_fnc_addPain;}, "", "Acts_TreatingWounded06", 6.234, "", 0, "\X39_MS2_Ressources\Items\ColdSpray.paa", [], {true}, 0, "X39_MS2_var_MedicalActions_ColdSpray_DamageHealing", ["Hands", "Body", "Legs", "Head", "Generic", "Temperature"]] call X39_MS2_fnc_registerAction;
-["MediPack", {}, "", "", 50, "", 0, "\X39_MS2_Ressources\Items\MedicalPack.paa", [], {true}, 0, "X39_MS2_var_MedicalActions_MediPack_DamageHealing", ["Hands", "Body", "Legs", "Head", "Generic"]] call X39_MS2_fnc_registerAction;
-["HeatPack", {[(_this select 1), X39_MS2_var_MedicalActions_HeatPack_TemperatureChange * (_this select 2)] call X39_MS2_fnc_addTemperature;}, "", "", 0, "", 0, "\X39_MS2_Ressources\Items\HeatPack.paa", [], {true}, 0, "X39_MS2_var_MedicalActions_MediPack_DamageHealing", ["Temperature"]] call X39_MS2_fnc_registerAction;
+[] call X39_MS2_fnc_IMH_registerMedicalActions;
 
 //Ticker
 assignValue("X39_MS2_var_Internal_ticker_tickHandlers", []);
@@ -158,129 +154,17 @@ assignValue("X39_MS2_var_Internal_Dialog_TriageCard_PreDefinedMessages", []);
 
 //MedicalMessages
 assignValue("X39_MS2_var_Internal_MedicalMessages", []);
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Legs_Low",		[1, 1, 1, 1],		{_value = ([_this] call X39_MS2_fnc_getBleedingOfLegs) / X39_MS2_var_Bleeding_maxBleedingLegs;		(_value >= 0.1 && _value < 0.3)	}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Legs_Middle",	[0.5, 0.5, 0, 1],	{_value = ([_this] call X39_MS2_fnc_getBleedingOfLegs) / X39_MS2_var_Bleeding_maxBleedingLegs;		(_value >= 0.3 && _value < 0.6)	}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Legs_High",		[1, 1, 0, 1],		{_value = ([_this] call X39_MS2_fnc_getBleedingOfLegs) / X39_MS2_var_Bleeding_maxBleedingLegs;		(_value >= 0.6 && _value < 0.7)	}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Legs_Extreme",	[1, 0, 0, 1],		{_value = ([_this] call X39_MS2_fnc_getBleedingOfLegs) / X39_MS2_var_Bleeding_maxBleedingLegs;		(_value >= 0.7)					}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Hands_Low",		[1, 1, 1, 1],		{_value = ([_this] call X39_MS2_fnc_getBleedingOfHands) / X39_MS2_var_Bleeding_maxBleedingHands;	(_value >= 0.1 && _value < 0.3)	}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Hands_Middle",	[0.5, 0.5, 0, 1],	{_value = ([_this] call X39_MS2_fnc_getBleedingOfHands) / X39_MS2_var_Bleeding_maxBleedingHands;	(_value >= 0.3 && _value < 0.6)	}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Hands_High",		[1, 1, 0, 1],		{_value = ([_this] call X39_MS2_fnc_getBleedingOfHands) / X39_MS2_var_Bleeding_maxBleedingHands;	(_value >= 0.6 && _value < 0.7)	}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Hands_Extreme",	[1, 0, 0, 1],		{_value = ([_this] call X39_MS2_fnc_getBleedingOfHands) / X39_MS2_var_Bleeding_maxBleedingHands;	(_value >= 0.7)					}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Head_Low",		[1, 1, 1, 1],		{_value = ([_this] call X39_MS2_fnc_getBleedingOfHead) / X39_MS2_var_Bleeding_maxBleedingHead;		(_value >= 0.1 && _value < 0.3)	}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Head_Middle",	[0.5, 0.5, 0, 1],	{_value = ([_this] call X39_MS2_fnc_getBleedingOfHead) / X39_MS2_var_Bleeding_maxBleedingHead;		(_value >= 0.3 && _value < 0.6)	}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Head_High",		[1, 1, 0, 1],		{_value = ([_this] call X39_MS2_fnc_getBleedingOfHead) / X39_MS2_var_Bleeding_maxBleedingHead;		(_value >= 0.6 && _value < 0.7)	}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Head_Extreme",	[1, 0, 0, 1],		{_value = ([_this] call X39_MS2_fnc_getBleedingOfHead) / X39_MS2_var_Bleeding_maxBleedingHead;		(_value >= 0.7)					}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Generic_Low",	[1, 1, 1, 1],		{_value = ([_this] call X39_MS2_fnc_getBleedingOfGeneric) / X39_MS2_var_Bleeding_maxBleedingGeneric;(_value >= 0.1 && _value < 0.3)	}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Generic_Middle",	[0.5, 0.5, 0, 1],	{_value = ([_this] call X39_MS2_fnc_getBleedingOfGeneric) / X39_MS2_var_Bleeding_maxBleedingGeneric;(_value >= 0.3 && _value < 0.6)	}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Generic_High",	[1, 1, 0, 1],		{_value = ([_this] call X39_MS2_fnc_getBleedingOfGeneric) / X39_MS2_var_Bleeding_maxBleedingGeneric;(_value >= 0.6 && _value < 0.7)	}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Generic_Extreme",[1, 0, 0, 1],		{_value = ([_this] call X39_MS2_fnc_getBleedingOfGeneric) / X39_MS2_var_Bleeding_maxBleedingGeneric;(_value >= 0.7)					}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Body_Low",		[1, 1, 1, 1],		{_value = ([_this] call X39_MS2_fnc_getBleedingOfBody) / X39_MS2_var_Bleeding_maxBleedingBody;		(_value >= 0.1 && _value < 0.3)	}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Body_Middle",	[0.5, 0.5, 0, 1],	{_value = ([_this] call X39_MS2_fnc_getBleedingOfBody) / X39_MS2_var_Bleeding_maxBleedingBody;		(_value >= 0.3 && _value < 0.6)	}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Body_High",		[1, 1, 0, 1],		{_value = ([_this] call X39_MS2_fnc_getBleedingOfBody) / X39_MS2_var_Bleeding_maxBleedingBody;		(_value >= 0.6 && _value < 0.7)	}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Body_Extreme",	[1, 0, 0, 1],		{_value = ([_this] call X39_MS2_fnc_getBleedingOfBody) / X39_MS2_var_Bleeding_maxBleedingBody;		(_value >= 0.7)					}]];
-
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Damage_Legs_Low",			[1, 1, 1, 1],		{_value = ([_this] call X39_MS2_fnc_getDamageOfLegs) / X39_MS2_var_Damage_maxDamageLegs;			(_value >= 0.1 && _value < 0.3)	}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Damage_Legs_Middle",		[0.5, 0.5, 0, 1],	{_value = ([_this] call X39_MS2_fnc_getDamageOfLegs) / X39_MS2_var_Damage_maxDamageLegs;			(_value >= 0.3 && _value < 0.6)	}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Damage_Legs_High",		[1, 1, 0, 1],		{_value = ([_this] call X39_MS2_fnc_getDamageOfLegs) / X39_MS2_var_Damage_maxDamageLegs;			(_value >= 0.6 && _value < 0.7)	}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Damage_Legs_Extreme",		[1, 0, 0, 1],		{_value = ([_this] call X39_MS2_fnc_getDamageOfLegs) / X39_MS2_var_Damage_maxDamageLegs;			(_value >= 0.7)					}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Damage_Hands_Low",		[1, 1, 1, 1],		{_value = ([_this] call X39_MS2_fnc_getDamageOfHands) / X39_MS2_var_Damage_maxDamageHands;			(_value >= 0.1 && _value < 0.3)	}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Damage_Hands_Middle",		[0.5, 0.5, 0, 1],	{_value = ([_this] call X39_MS2_fnc_getDamageOfHands) / X39_MS2_var_Damage_maxDamageHands;			(_value >= 0.3 && _value < 0.6)	}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Damage_Hands_High",		[1, 1, 0, 1],		{_value = ([_this] call X39_MS2_fnc_getDamageOfHands) / X39_MS2_var_Damage_maxDamageHands;			(_value >= 0.6 && _value < 0.7)	}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Damage_Hands_Extreme",	[1, 0, 0, 1],		{_value = ([_this] call X39_MS2_fnc_getDamageOfHands) / X39_MS2_var_Damage_maxDamageHands;			(_value >= 0.7)					}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Damage_Head_Low",			[1, 1, 1, 1],		{_value = ([_this] call X39_MS2_fnc_getDamageOfHead) / X39_MS2_var_Damage_maxDamageHead;			(_value >= 0.1 && _value < 0.3)	}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Damage_Head_Middle",		[0.5, 0.5, 0, 1],	{_value = ([_this] call X39_MS2_fnc_getDamageOfHead) / X39_MS2_var_Damage_maxDamageHead;			(_value >= 0.3 && _value < 0.6)	}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Damage_Head_High",		[1, 1, 0, 1],		{_value = ([_this] call X39_MS2_fnc_getDamageOfHead) / X39_MS2_var_Damage_maxDamageHead;			(_value >= 0.6 && _value < 0.7)	}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Damage_Head_Extreme",		[1, 0, 0, 1],		{_value = ([_this] call X39_MS2_fnc_getDamageOfHead) / X39_MS2_var_Damage_maxDamageHead;			(_value >= 0.7)					}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Damage_Generic_Low",		[1, 1, 1, 1],		{_value = ([_this] call X39_MS2_fnc_getDamageOfGeneric) / X39_MS2_var_Damage_maxDamageGeneric;		(_value >= 0.1 && _value < 0.3)	}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Damage_Generic_Middle",	[0.5, 0.5, 0, 1],	{_value = ([_this] call X39_MS2_fnc_getDamageOfGeneric) / X39_MS2_var_Damage_maxDamageGeneric;		(_value >= 0.3 && _value < 0.6)	}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Damage_Generic_High",		[1, 1, 0, 1],		{_value = ([_this] call X39_MS2_fnc_getDamageOfGeneric) / X39_MS2_var_Damage_maxDamageGeneric;		(_value >= 0.6 && _value < 0.7)	}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Damage_Generic_Extreme",	[1, 0, 0, 1],		{_value = ([_this] call X39_MS2_fnc_getDamageOfGeneric) / X39_MS2_var_Damage_maxDamageGeneric;		(_value >= 0.7)					}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Damage_Body_Low",			[1, 1, 1, 1],		{_value = ([_this] call X39_MS2_fnc_getDamageOfBody) / X39_MS2_var_Damage_maxDamageBody;			(_value >= 0.1 && _value < 0.3)	}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Damage_Body_Middle",		[0.5, 0.5, 0, 1],	{_value = ([_this] call X39_MS2_fnc_getDamageOfBody) / X39_MS2_var_Damage_maxDamageBody;			(_value >= 0.3 && _value < 0.6)	}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Damage_Body_High",		[1, 1, 0, 1],		{_value = ([_this] call X39_MS2_fnc_getDamageOfBody) / X39_MS2_var_Damage_maxDamageBody;			(_value >= 0.6 && _value < 0.7)	}]];
-X39_MS2_var_Internal_MedicalMessages set [count X39_MS2_var_Internal_MedicalMessages, ["STR_X39_MS2_Scripting_MedicalMessages_Damage_Body_Extreme",		[1, 0, 0, 1],		{_value = ([_this] call X39_MS2_fnc_getDamageOfBody) / X39_MS2_var_Damage_maxDamageBody;			(_value >= 0.7)					}]];
+[] call X39_MS2_fnc_IMH_addMedicalMessages;
 
 //InteractionMenu
 assignValue("X39_MS2_var_Internal_Dialog_IsSelfInteracton", false);
 assignValue("X39_MS2_var_Internal_InteractionMenu_Entries", []);
-/*
- *	ArrayStructure:
- *		0+ STRING		- displayed text
- *		1+ STRING		- limitation name
- *		2+ BOOL			- allow usage inside of a vehicle
- *		3+ CODE			- condition to display option
- *		4+ STRING/CODE	- code to execute when action is performed
- *		5- STRING/CODE	- "UpdateCode" see http://x39software.unitedtacticalforces.de/wiki/index.php?title=ArmA3_XActionUI_ActionsArray
- *		6- ARRAY		- "SubActions" see http://x39software.unitedtacticalforces.de/wiki/index.php?title=ArmA3_XActionUI_ActionsArray
- */
-[] call {
-	X39_MS2_var_Internal_InteractionMenu_Entries set [count X39_MS2_var_Internal_InteractionMenu_Entries, [
-		localize "STR_X39_MS2_Scripting_InteractionMenu_openMedicalMenu",
-		"DUMMY",
-		true, 
-		{X39_MS2_var_Internal_Dialog_IsSelfInteracton},
-		{
-			[] call X39_ActionUI_fnc_closeDialog;
-			[X39_MS2_var_Internal_DialogCommunication_IM_Executor] call X39_MS2_fnc_MedicalActionMenu_createDialog;
-		}
-	]];
-};
-[] call {
-	X39_MS2_var_Internal_InteractionMenu_Entries set [count X39_MS2_var_Internal_InteractionMenu_Entries, [
-		localize "STR_X39_MS2_Scripting_InteractionMenu_openMedicalMenu",
-		"DUMMY",
-		true,
-		{!X39_MS2_var_Internal_Dialog_IsSelfInteracton},
-		{
-			[] call X39_ActionUI_fnc_closeDialog;
-			if(isNull cursorTarget) exitWith {false};
-			[cursorTarget] call X39_MS2_fnc_MedicalActionMenu_createDialog;
-		}
-	]];
-};
-[] call {
-	X39_MS2_var_Internal_InteractionMenu_Entries set [count X39_MS2_var_Internal_InteractionMenu_Entries, [
-		localize "STR_X39_MS2_Scripting_InteractionMenu_putEarplugs",
-		"DUMMY",
-		true,
-		{((items X39_MS2_var_Internal_DialogCommunication_IM_Target) find "x39_xms2_earplugs" != -1) && !(X39_MS2_var_Internal_DialogCommunication_IM_Target getVariable ["X39_MS2_var_hasEarplugs", false])},
-		{
-			[] call X39_ActionUI_fnc_closeDialog;
-			X39_MS2_var_Internal_DialogCommunication_IM_Target setVariable ["X39_MS2_var_hasEarplugs", true];
-			X39_MS2_var_Internal_DialogCommunication_IM_Target removeItem "x39_xms2_earplugs";
-		}
-	]];
-};
-[] call {
-	X39_MS2_var_Internal_InteractionMenu_Entries set [count X39_MS2_var_Internal_InteractionMenu_Entries, [
-		localize "STR_X39_MS2_Scripting_InteractionMenu_removeEarplugs",
-		"DUMMY",
-		true,
-		{(X39_MS2_var_Internal_DialogCommunication_IM_Target getVariable ["X39_MS2_var_hasEarplugs", false])},
-		{
-			[] call X39_ActionUI_fnc_closeDialog;
-			X39_MS2_var_Internal_DialogCommunication_IM_Target setVariable ["X39_MS2_var_hasEarplugs", false];
-			X39_MS2_var_Internal_DialogCommunication_IM_Target addItem "x39_xms2_earplugs";
-		}
-	]];
-};
-[] call {
-	X39_MS2_var_Internal_InteractionMenu_Entries set [count X39_MS2_var_Internal_InteractionMenu_Entries, [
-		localize "STR_X39_MS2_Scripting_InteractionMenu_useDefibrillator",
-		"DUMMY",
-		false,
-		{!X39_MS2_var_Internal_Dialog_IsSelfInteracton && (((items X39_MS2_var_Internal_DialogCommunication_IM_Target) find "x39_xms2_defibrillator" != -1) || ((items X39_MS2_var_Internal_DialogCommunication_IM_Executor) find "x39_xms2_defibrillator" != -1))},
-		{
-			[] call X39_ActionUI_fnc_closeDialog;
-			[X39_MS2_var_Internal_DialogCommunication_IM_Executor, X39_MS2_var_Internal_DialogCommunication_IM_Target] call X39_ActionUI_fnc_MA_defibrillate;
-		}
-	]];
-};
-
+[] call X39_MS2_fnc_IMH_addInteractionMenuEntries;
 
 /***********************
  * CATEGORY: BACKBLAST *
  **********************/
+//http://upload.wikimedia.org/wikipedia/commons/c/c4/A-1_Backblast_area_and_surface_danger_zone.PNG
 assignValue("X39_MS2_var_BackBlast_range", 10);
 assignValue("X39_MS2_var_BackBlast_damageDealtOverall", 3);
 assignValue("X39_MS2_var_BackBlast_knocksOut", true);
@@ -373,13 +257,28 @@ assignValue("X39_MS2_var_Hearing_GlobalModificator", 1.0);
  *****************/
 //Enable/Disable painRelated features
 assignValue("X39_MS2_var_Pain_useExtraPain", true);
+assignValue("X39_MS2_var_Pain_useMorphineForPain", true);
+assignValue("X39_MS2_var_Pain_morphineOverdoseCanKill", true);
+assignValue("X39_MS2_var_Pain_morphineFakeKills", true);
 assignValue("X39_MS2_var_Pain_useCurrentDamageValues", true);
+assignValue("X39_MS2_var_Pain_morphineEffects", true);
 
 //Dynamic definitions
+assignValue("X39_MS2_var_Pain_maxMorphine", 11);
 assignValue("X39_MS2_var_Pain_maxPain", 10);
+assignValue("X39_MS2_var_Pain_morphineKillLifeTime", 600);
 assignValue("X39_MS2_var_Pain_painReductionPerTick", 0.001);
+assignValue("X39_MS2_var_Pain_morphineReductionPerTick", 0.001);
+assignValue("X39_MS2_var_Pain_morphineRandomDowningPointP", 0.3);
+assignValue("X39_MS2_var_Pain_morphineDisortionStartPointP", 0.4);
+assignValue("X39_MS2_var_Pain_morphineForceWalkPointP", 0.3);
+assignValue("X39_MS2_var_Pain_morphineRandomDowningBaseValue", 30);
 
 //Modificators
+assignValue("X39_MS2_var_Pain_MorphinePainCureValueP", 1.0);
+assignValue("X39_MS2_var_Pain_MorphinePainMinForFullCureP", 0.5);
+assignValue("X39_MS2_var_Pain_MorphineKillPointP", 1);
+
 assignValue("X39_MS2_var_Pain_ExtraPainForGlobalModificator", 1.0);
 assignValue("X39_MS2_var_Pain_ExtraPainForBodyModificator", 1.0);
 assignValue("X39_MS2_var_Pain_ExtraPainForGenericModificator", 1.0);
@@ -387,6 +286,7 @@ assignValue("X39_MS2_var_Pain_ExtraPainForHandsModificator", 1.0);
 assignValue("X39_MS2_var_Pain_ExtraPainForHeadModificator", 1.0);
 assignValue("X39_MS2_var_Pain_ExtraPainForLegsModificator", 1.0);
 
+assignValue("X39_MS2_var_Pain_GlobalMorphineModificator", 1.0);
 assignValue("X39_MS2_var_Pain_GlobalModificator", 1.0);
 assignValue("X39_MS2_var_Pain_DamagePainForGlobalModificator", 1.0);
 assignValue("X39_MS2_var_Pain_DamagePainForBodyModificator", 1.0);
@@ -415,9 +315,9 @@ assignValue("X39_MS2_var_Adrenaline_adrenalineReductionPerTick", 0.02);
 assignValue("X39_MS2_var_Adrenaline_adrenalineAddedThroughShooting", 0.025);
 ////HEART
 assignValue("X39_MS2_var_Adrenaline_AdrenalinePulseRagePointP", 0.7);
-assignValue("X39_MS2_var_Adrenaline_normalMaxHeartPulsePerSecond", 220);
-assignValue("X39_MS2_var_Adrenaline_deadlyMaxHeartPulsePerSecond", 300);
-assignValue("X39_MS2_var_Adrenaline_knockOutUnitAtPulse", 270);
+assignValue("X39_MS2_var_Adrenaline_normalMaxHeartPulsePerSecond", 190);
+assignValue("X39_MS2_var_Adrenaline_deadlyMaxHeartPulsePerSecond", 260);
+assignValue("X39_MS2_var_Adrenaline_knockOutUnitAtPulse", 220);
 assignValue("X39_MS2_var_Adrenaline_temporaryKnockOutBaseTimePulse", 20);
 assignValue("X39_MS2_var_Adrenaline_temporaryKnockOutRandomTimePulse", 20);
 assignValue("X39_MS2_var_Adrenaline_minHeartPulsePerSecond", 50);
@@ -451,7 +351,7 @@ assignValue("X39_MS2_var_Temperature_maxReductionWhileRaining", 5); //Maximum te
 assignValue("X39_MS2_var_Temperature_minNatural", 3); //Temperature where no effects (like slowing) will be applied
 assignValue("X39_MS2_var_Temperature_forceWalkAtTemperature", 2.5);
 assignValue("X39_MS2_var_Temperature_minDead", 0); //Temperature where unit dies, -1 to disable
-assignValue("X39_MS2_var_Temperature_DeathTimerTime", 600); //when reaching X39_MS2_var_Temperature_minDead + this is true then a unit will be killed directly without timer, false will kill with timer
+assignValue("X39_MS2_var_Temperature_DeathTimerTime", 600);
 assignValue("X39_MS2_var_Temperature_valueRaisePerTick", 0.0001);
 assignValue("X39_MS2_var_Temperature_valueReductionWhileSwimmingPerTick", 0.01);
 assignValue("X39_MS2_var_Temperature_valueReductionWhileRainingPerTick", 0.01);
@@ -478,6 +378,8 @@ assignValue("X39_MS2_var_Feature_EnableTemperature", true);
 assignValue("X39_MS2_var_Feature_EnableHearing", true);
 //Enables simulation of bleeding
 assignValue("X39_MS2_var_Feature_EnableBlood", true);
+//Enables simulation of morphine
+assignValue("X39_MS2_var_Feature_EnableMorphine", true);
 
 /***********************
  * CATEGORY: PPEFFECTS *
@@ -486,8 +388,8 @@ assignValue("X39_MS2_var_Feature_EnableBlood", true);
 assignValue("X39_MS2_var_ppEffect_EnableRadialBlur", true);
 //Enables chrom aberration
 assignValue("X39_MS2_var_ppEffect_EnableChromAberration", true);
-//Enables wet distortion effect !EXPERIMENTAL!
-assignValue("X39_MS2_var_ppEffect_EnableWetDistortion", false);
+//Enables wet distortion effect
+assignValue("X39_MS2_var_ppEffect_EnableWetDistortion", true);
 //Enables color corrections effect
 assignValue("X39_MS2_var_ppEffect_EnableColorCorrections", true);
 //Enables dynamic blur effect
@@ -518,11 +420,18 @@ assignValue("X39_MS2_var_DialogControl_MedicalActionMenu_checkUnitTimeout", 20);
  * CATEGORY: MedicalActions *
  ***************************/
 assignValue("X39_MS2_var_MedicalActions_Morphine_DamageHealing", 0.5);
+assignValue("X39_MS2_var_MedicalActions_Naloxone_DamageHealing", 0.5);
 assignValue("X39_MS2_var_MedicalActions_Adrenaline_DamageHealing", 0);
 assignValue("X39_MS2_var_MedicalActions_StickyBandage_DamageHealing", 0.1);
 assignValue("X39_MS2_var_MedicalActions_ColdSpray_DamageHealing", 0);
 assignValue("X39_MS2_var_MedicalActions_MediPack_DamageHealing", 5);
 assignValue("X39_MS2_var_MedicalActions_HeatPack_DamageHealing", 0.1);
+
+assignValue("X39_MS2_var_MedicalActions_StickyBandage_BleedingCure", 0.5);
+
+assignValue("X39_MS2_var_MedicalActions_Morphine_AdditionalMorphineValue", 5);
+
+assignValue("X39_MS2_var_MedicalActions_Naloxone_AdditionalMorphineValue", -2);
 
 assignValue("X39_MS2_var_MedicalActions_ColdSpray_TemperatureChange", -0.5);
 assignValue("X39_MS2_var_MedicalActions_ColdSpray_PainChange", -3);

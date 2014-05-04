@@ -58,6 +58,15 @@
 				<Russian>Morphine</Russian>
 				<Polish>Morphine</Polish>
 			</Key>
+			<Key ID="STR_X39_MS2_Items_Items_naloxone">
+				<English>Naloxone</English>
+				<German>Naloxone</German>
+				<Hungarian>Naloxone</Hungarian>
+				<Italian>Naloxone</Italian>
+				<French>Naloxone</French>
+				<Russian>Naloxone</Russian>
+				<Polish>Naloxone</Polish>
+			</Key>
 			<Key ID="STR_X39_MS2_Items_Items_coldSpray">
 				<English>Cold spray</English>
 				<German>Cold spray</German>

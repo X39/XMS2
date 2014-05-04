@@ -34,7 +34,7 @@ class X39_MS2_BlackOutUi {
 	class RscPicture_1200: RscPicture
 	{
 		idc = 1200;
-		text = "\X39_MS2_Ressources\UI\BlackOutUI\BlackVision.paa";
+		text = "\X39_MS2_Resources\UI\BlackOutUI\BlackVision.paa";
 		x = safezoneX;
 		y = safezoneY;
 		w = safezoneW;

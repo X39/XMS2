@@ -445,16 +445,61 @@
 				<Russian>Please select something first</Russian>
 				<Polish>Please select something first</Polish>
 			</Key>
+			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_NotEnoughItems1">
+				<English>You need %1 to perform this</English>
+				<German>You need %1 to perform this</German>
+				<Hungarian>You need %1 to perform this</Hungarian>
+				<Italian>You need %1 to perform this action</Italian>
+				<French>You need %1 to perform this</French>
+				<Russian>You need %1 to perform this</Russian>
+				<Polish>You need %1 to perform this</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_NotEnoughItems2">
+				<English>Run out of %1</English>
+				<German>Run out of %1</German>
+				<Hungarian>Run out of %1</Hungarian>
+				<Italian>Run out of %1</Italian>
+				<French>Run out of %1</French>
+				<Russian>Run out of %1</Russian>
+				<Polish>Run out of %1</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_NotEnoughItems3">
+				<English>To heal %2 you need %1 first</English>
+				<German>To heal %2 you need %1 first</German>
+				<Hungarian>To heal %2 you need %1 first</Hungarian>
+				<Italian>To heal %2 you need %1 first</Italian>
+				<French>To heal %2 you need %1 first</French>
+				<Russian>To heal %2 you need %1 first</Russian>
+				<Polish>To heal %2 you need %1 first</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_NotEnoughItems4">
+				<English>Missing %1</English>
+				<German>Missing %1</German>
+				<Hungarian>Missing %1</Hungarian>
+				<Italian>Missing %1</Italian>
+				<French>Missing %1</French>
+				<Russian>Missing %1</Russian>
+				<Polish>Missing %1</Polish>
+			</Key>
 		</Container>
 		<Container name="DialogControl_BlackOutDialog">
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_TimeLeft">
-				<English>Time left</English>
-				<German>Time left</German>
-				<Hungarian>Time left</Hungarian>
-				<Italian>Time left</Italian>
-				<French>Time left</French>
-				<Russian>Time left</Russian>
-				<Polish>Time left</Polish>
+			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_TimeLeftDeath">
+				<English>Time left for revive</English>
+				<German>Time left for revive</German>
+				<Hungarian>Time left for revive</Hungarian>
+				<Italian>Time left for revive</Italian>
+				<French>Time left for revive</French>
+				<Russian>Time left for revive</Russian>
+				<Polish>Time left for revive</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_TimeLeftAwake">
+				<English>Time left unconscious</English>
+				<German>Time left unconscious</German>
+				<Hungarian>Time left unconscious</Hungarian>
+				<Italian>Time left unconscious</Italian>
+				<French>Time left unconscious</French>
+				<Russian>Time left unconscious</Russian>
+				<Polish>Time left unconscious</Polish>
 			</Key>
 			<Key ID="STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_BloodLeft">
 				<English>Blood left</English>
@@ -531,6 +576,15 @@
 				<French>Youre dead because of coldness</French>
 				<Russian>Youre dead because of coldness</Russian>
 				<Polish>Youre dead because of coldness</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_XMSTicks_PainTick_DeathThroughMorphineOverdose">
+				<English>Youre dead because of a morphine overdose</English>
+				<German>Youre dead because of a morphine overdose</German>
+				<Hungarian>Youre dead because of a morphine overdose</Hungarian>
+				<Italian>Youre dead because of a morphine overdose</Italian>
+				<French>Youre dead because of a morphine overdose</French>
+				<Russian>Youre dead because of a morphine overdose</Russian>
+				<Polish>Youre dead because of a morphine overdose</Polish>
 			</Key>
 		</Container>
 		<Container name="Adrenaline">

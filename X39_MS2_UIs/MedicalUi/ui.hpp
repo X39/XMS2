@@ -91,7 +91,7 @@ class X39_MS2_MedicalUi {
 	class RscPicture_1200: RscPicture
 	{
 		idc = 1200;
-		text = "\X39_MS2_Ressources\UI\MedicalUI\TriageSymbol";
+		text = "\X39_MS2_Resources\UI\MedicalUI\TriageSymbol";
 		x = 0.634062 * safezoneW + safezoneX;
 		y = 0.313 * safezoneH + safezoneY;
 		w = 0.0515625 * safezoneW;
@@ -101,7 +101,7 @@ class X39_MS2_MedicalUi {
 	class RscPicture_1201: RscPicture
 	{
 		idc = 1201;
-		text = "\X39_MS2_Ressources\UI\MedicalUI\HumanBody_arms";
+		text = "\X39_MS2_Resources\UI\MedicalUI\HumanBody_arms";
 		x = 0.433438 * safezoneW + safezoneX;
 		y = 0.316593 * safezoneH + safezoneY;
 		w = 0.117604 * safezoneW;
@@ -110,7 +110,7 @@ class X39_MS2_MedicalUi {
 	class RscPicture_1202: RscPicture
 	{
 		idc = 1202;
-		text = "\X39_MS2_Ressources\UI\MedicalUI\HumanBody_body";
+		text = "\X39_MS2_Resources\UI\MedicalUI\HumanBody_body";
 		x = 0.463906 * safezoneW + safezoneX;
 		y = 0.302 * safezoneH + safezoneY;
 		w = 0.0567187 * safezoneW;
@@ -119,7 +119,7 @@ class X39_MS2_MedicalUi {
 	class RscPicture_1203: RscPicture
 	{
 		idc = 1203;
-		text = "\X39_MS2_Ressources\UI\MedicalUI\HumanBody_legs";
+		text = "\X39_MS2_Resources\UI\MedicalUI\HumanBody_legs";
 		x = 0.463906 * safezoneW + safezoneX;
 		y = 0.511 * safezoneH + safezoneY;
 		w = 0.0567187 * safezoneW;
@@ -128,7 +128,7 @@ class X39_MS2_MedicalUi {
 	class RscPicture_1204: RscPicture
 	{
 		idc = 1204;
-		text = "\X39_MS2_Ressources\UI\MedicalUI\HumanBody_head";
+		text = "\X39_MS2_Resources\UI\MedicalUI\HumanBody_head";
 		x = 0.475417 * safezoneW + safezoneX;
 		y = 0.235889 * safezoneH + safezoneY;
 		w = 0.0339583 * safezoneW;
@@ -137,7 +137,7 @@ class X39_MS2_MedicalUi {
 	class RscPicture_1205: RscPicture
 	{
 		idc = 1205;
-		text = "\X39_MS2_Ressources\UI\MedicalUI\MEDIC_WHITE";
+		text = "\X39_MS2_Resources\UI\MedicalUI\MEDIC_WHITE";
 		x = 0.561875 * safezoneW + safezoneX;
 		y = 0.61 * safezoneH + safezoneY;
 		w = 0.0464063 * safezoneW;
@@ -147,7 +147,7 @@ class X39_MS2_MedicalUi {
 	class RscPicture_1207: RscPicture
 	{
 		idc = 1207;
-		text = "\X39_MS2_Ressources\UI\MedicalUI\TEMPERATURE_WHITE";
+		text = "\X39_MS2_Resources\UI\MedicalUI\TEMPERATURE_WHITE";
 		x = 0.381406 * safezoneW + safezoneX;
 		y = 0.61 * safezoneH + safezoneY;
 		w = 0.0464063 * safezoneW;

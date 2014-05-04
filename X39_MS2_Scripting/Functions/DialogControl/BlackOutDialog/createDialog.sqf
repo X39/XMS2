@@ -7,67 +7,129 @@
  *	@Return - N/A
  *	@Author - X39|Cpt. HM Murdock
  */
-if(!hasInterface) exitWith {};
-if(!isPlayer (_this select 0) || !local (_this select 0)) exitWith {};
-if(X39_MS2_var_Internal_DialogCommunication_BO_isActive) exitWith {};
-X39_MS2_var_Internal_DialogCommunication_BO_isActive = true;
+if(!local (_this select 0)) exitWith {[_this, _fnc_scriptName, (_this select 0), false] call BIS_fnc_MP;};
+if(X39_MS2_var_Internal_DialogCommunication_BO_isActive && isPlayer (_this select 0)) exitWith {};
+if(isPlayer (_this select 0)) then
+{
+	X39_MS2_var_Internal_DialogCommunication_BO_isActive = true;
+};
 _this spawn {
-	if(dialog) exitWith {PRINT_INFO("Another UI is already displayed! Closed that."); closeDialog 0;};
 	_handle = scriptNull;
-	(_this select 0) playAction "die";
+	_unit = (_this select 0);
+	_unit playAction "die";
+	_isPlayer = isPlayer _unit;
+	if(_isPlayer && {dialog}) then {PRINT_INFO("Another UI is already displayed! Closed that."); closeDialog 0;};
 	
-	while {([player] call X39_MS2_fnc_isBlackedOut) && alive player} do
+	while {([_unit] call X39_MS2_fnc_isBlackedOut) && alive _unit} do
 	{
 		
-		if(!dialog) then
+		if(_isPlayer && {!dialog}) then
 		{
 			createDialog "X39_MS2_BlackOutUi";
 			buttonSetAction[1600, "player call X39_MedSys_fnc_killUnit; call X39_MedSys_fnc_closeBlackOutDisplay;"];
 			buttonSetAction[1601, "endMission 'end1';"];
 		};
-		_currentStage = player getVariable ["X39_MS2_var_BlackOut_currentStage", 0];
-		
-		//Describing text
-		displayCtrl_BlackoutUI(1100) ctrlSetStructuredText (parseText (player getVariable["X39_MS2_var_BlackOut_Text", ""]));
-		if(_currentStage > 4) then
+		_currentStage = _unit getVariable ["X39_MS2_var_BlackOut_currentStage", 0];
+		if(_isPlayer) then
 		{
-			//Time left
-			displayCtrl_BlackoutUI(1104) ctrlSetStructuredText (parseText format["%1<br/>%2", localize "STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_TimeLeft", player getVariable["", -1]]);
+			//Describing text
+			displayCtrl_BlackoutUI(1100) ctrlSetStructuredText (parseText (_unit getVariable["X39_MS2_var_BlackOut_Text", ""]));
+			//Blood left
+			displayCtrl_BlackoutUI(1103) ctrlSetStructuredText (parseText format["%1<br/>%2&#37;", localize "STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_BloodLeft", abs (100 * ((_unit getVariable["X39_MS2_var_Bleeding_Blood", -1]) / X39_MS2_var_Bleeding_maxBloodInEntireBody))]);
+			
+			//Body temperature
+			displayCtrl_BlackoutUI(1102) ctrlSetStructuredText (parseText format["%1<br/>%2°", localize "STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_Temperature", abs (37 * ((_unit getVariable["X39_MS2_var_Temperature_value", -1]) / X39_MS2_var_Temperature_max))]);
+			
+			//Current pulse
+			displayCtrl_BlackoutUI(1101) ctrlSetStructuredText (parseText format["%1<br/>%2", localize "STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_Pulse", floor (_unit getVariable["X39_MS2_var_Adrenaline_heartPulse", -1])]);
+			if(time % 20 == 0 && {scriptDone _handle}) then
+			{
+				_handle = [] spawn {
+					private["_i"];
+					_i = 0.4;
+					while{_i < 1 && dialog} do {
+						displayCtrl_BlackoutUI(2200) ctrlSetBackgroundColor  [0, 0, 0, _i];
+						_i = _i + 0.02;
+						sleep 0.01;
+					};
+					sleep 1 + ((random 4) / 2);
+					_i = 1;
+					while{_i < 1 && dialog} do {
+						displayCtrl_BlackoutUI(2200) ctrlSetBackgroundColor  [0, 0, 0, _i];
+						_i = _i - 0.02;
+						sleep 0.01;
+					};
+					sleep 1 + ((random 4) / 2);
+				};
+			};
 		};
-		//Blood left
-		displayCtrl_BlackoutUI(1103) ctrlSetStructuredText (parseText format["%1<br/>%2&#37;", localize "STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_BloodLeft", abs (100 * ((player getVariable["X39_MS2_var_Bleeding_Blood", -1]) / X39_MS2_var_Bleeding_maxBloodInEntireBody))]);
-		
-		//Body temperature
-		displayCtrl_BlackoutUI(1102) ctrlSetStructuredText (parseText format["%1<br/>%2°", localize "STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_Temperature", abs (37 * ((player getVariable["X39_MS2_var_Temperature_value", -1]) / X39_MS2_var_Temperature_max))]);
-		
-		//Current pulse
-		displayCtrl_BlackoutUI(1101) ctrlSetStructuredText (parseText format["%1<br/>%2", localize "STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_Pulse", floor (player getVariable["X39_MS2_var_Adrenaline_heartPulse", -1])]);
-		
-		if(time % 20 == 0 && {scriptDone _handle}) then
+		_timeLeft = -1;
+		_timeValue = _unit getVariable["X39_MS2_var_BlackOut_TimeValue", -1];
+		if(_currentStage == 1) then
 		{
-			_handle = [] spawn {
-				private["_i"];
-				_i = 0.4;
-				while{_i < 1 && dialog} do {
-					displayCtrl_BlackoutUI(2200) ctrlSetBackgroundColor  [0, 0, 0, _i];
-					_i = _i + 0.02;
-					sleep 0.01;
+			_timeOfUnconscious = _unit getVariable["X39_MS2_var_BlackOut_timeOfUnconscious", -1];
+			_timeLeft = time - _timeOfUnconscious;
+			_timeLeft = _timeValue - _timeLeft;
+			if(_timeLeft < 0) then
+			{
+				_timeLeft = 0;
+			};
+			if(_isPlayer) then
+			{
+				displayCtrl_BlackoutUI(1104) ctrlSetStructuredText (parseText format["%1<br/>%2", localize "STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_TimeLeftAwake", ceil _timeLeft]);
+			};
+			if(_timeLeft == 0) then
+			{
+				[_unit, 0, -1, ""] call X39_MS2_fnc_blackOutUnit;
+			};
+		}
+		else
+		{
+			_timeBlackOut = _unit getVariable["X39_MS2_var_BlackOut_timeOfDeath", -1];
+			_timeFlatLine = _unit getVariable["X39_MS2_var_Adrenaline_HasFlatLine", -1];
+			if(_timeBlackOut != -1 || _timeFlatLine != -1) then
+			{
+				//
+				//X39_MS2_var_Adrenaline_timeBeforeFlatLineKills
+				if(_timeBlackOut != -1 && (_timeBlackOut + _timeValue < _timeFlatLine + X39_MS2_var_Adrenaline_timeBeforeFlatLineKills)) then
+				{
+					_timeLeft = time - (_timeBlackOut);
+					_timeLeft = _timeValue - time;
+				}
+				else
+				{
+					_timeLeft = time - (_timeFlatLine);
+					_timeLeft = X39_MS2_var_Adrenaline_timeBeforeFlatLineKills - time;
 				};
-				sleep 1 + ((random 4) / 2);
-				_i = 1;
-				while{_i < 1 && dialog} do {
-					displayCtrl_BlackoutUI(2200) ctrlSetBackgroundColor  [0, 0, 0, _i];
-					_i = _i - 0.02;
-					sleep 0.01;
+				if(_timeLeft < 0) then
+				{
+					_timeLeft = 0;
 				};
-				sleep 1 + ((random 4) / 2);
+			};
+			if(_isPlayer) then
+			{
+				if(_timeLeft >= 0) then
+				{
+					displayCtrl_BlackoutUI(1104) ctrlSetStructuredText (parseText format["%1<br/>%2", localize "STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_TimeLeftDeath", ceil _timeLeft]);
+				}
+				else
+				{
+					displayCtrl_BlackoutUI(1104) ctrlSetStructuredText (parseText "");
+				};
+			};
+			if(_timeLeft == 0) then
+			{
+				[_unit] call X39_MS2_fnc_killUnit;
 			};
 		};
 	};
-	if(dialog) then
+	if(_isPlayer && {dialog}) then
 	{
 		closeDialog 26484;
 	};
-	(_this select 0) switchMove "amovppnemstpsraswrfldnon";
-	X39_MS2_var_Internal_DialogCommunication_BO_isActive = false;
+	_unit switchMove "amovppnemstpsraswrfldnon";
+	if(_isPlayer) then
+	{
+		X39_MS2_var_Internal_DialogCommunication_BO_isActive = false;
+	};
 };

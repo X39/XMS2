@@ -11,7 +11,7 @@ if(X39_MS2_var_Internal_DialogCommunication_MA_preventActions) exitWith {};//TOD
 _this spawn {
 	X39_MS2_var_Internal_DialogCommunication_MA_preventActions = true;
 	_this call {
-		private["_fncAdd", "_fncSet", "_fncGet"];
+		private["_fncAdd", "_fncSet", "_fncGet", "_targetToRemoveItemsFrom"];
 
 		DEBUG_CODE(_fnc_scriptName = "X39_MS2_fnc_MedicalActionMenu_btnPerformAction");
 		_index =					[_this, 0, 0, [0]] call BIS_fnc_param;
@@ -74,8 +74,28 @@ _this spawn {
 
 		if(_workingParts find _suffix == -1) exitWith {};//TODO: not valid for this selection message output
 
-
-		if(_consumesItems && {count _items > 0 && {{_caller find _x != -1} count _items <= 0 && {X39_MS2_var_Internal_DialogCommunication_MA_Target find _x != -1} count _items <= 0}}) exitWith {};//TODO: got no item for this message output
+		if(_consumesItems && {count _items > 0}) then
+		{
+			private[""];
+			_targetToRemoveItemsFrom = if({items player find _x != -1} count _items > 0) then { player } else { if({items X39_MS2_var_Internal_DialogCommunication_MA_Target find _x != -1} count _items > 0 ) then { X39_MS2_var_Internal_DialogCommunication_MA_Target } else { objNull}};
+			if(isNull _targetToRemoveItemsFrom) exitWith { [_items select (floor (random count _items)), X39_MS2_var_Internal_DialogCommunication_MA_Target] call X39_MS2_fnc_MedicalActionMenu_outputMissingItemsMessage; };
+			_index = -1;
+			_i = 0;
+			while{_index == -1} do
+			{
+				if(items _targetToRemoveItemsFrom find (_items select _index) != -1) then
+				{
+					_index = items _targetToRemoveItemsFrom find (_items select _index);
+				};
+				_i = _i + 1;
+				if(count items _targetToRemoveItemsFrom == _i) then
+				{
+					_index = -2;
+				};
+			};
+			if(_index == -2) exitWith { PRINT_ERROR(format["btnPerformAction was unable to perform the remove of an item! Please check manually using these values and report: %1" COMMA [_targetToRemoveItemsFrom COMMA items _targetToRemoveItemsFrom COMMA _items]]); };
+			_targetToRemoveItemsFrom removeItem (_items select _index);
+		};
 
 		DEBUG_LOG_WFn(str [_this COMMA _action]);
 		_noAnimationPresent = (_animation == "");

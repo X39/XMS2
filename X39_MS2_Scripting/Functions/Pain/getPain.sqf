@@ -21,4 +21,24 @@ if(X39_MS2_var_Pain_useCurrentDamageValues) then
 	_pain = _pain + ((([_unit] call X39_MS2_fnc_getDamageOfHands)	* X39_MS2_var_Pain_DamagePainForHandsModificator)	* X39_MS2_var_Pain_DamagePainForGlobalModificator);
 	_pain = _pain + ((([_unit] call X39_MS2_fnc_getDamageOfLegs)	* X39_MS2_var_Pain_DamagePainForLegsModificator)	* X39_MS2_var_Pain_DamagePainForGlobalModificator);
 };
+
+
+
+if(X39_MS2_var_Pain_useMorphineForPain) then //NEEDS TO BE EXECUTED LAST!
+{
+	_morphCalcBase = (([_unit] call X39_MS2_fnc_getMorphine) / (X39_MS2_var_Pain_maxPain * X39_MS2_var_Pain_MorphinePainMinForFullCureP)) * X39_MS2_var_Pain_MorphinePainCureValueP;
+	if(_morphCalcBase > 1) then
+	{
+		_morphCalcBase = 1;
+	};
+	if(_morphCalcBase < 0) then
+	{
+		_morphCalcBase = 0;
+	};
+	_pain = _pain - (_pain * _morphCalcBase);
+};
+if(_pain < 0) then
+{
+	_pain = 0;
+};
 _pain

@@ -25,10 +25,11 @@ if(_stage == -1) exitWith
 {
 	["BlackOutTextChanged", [_unit getVariable "X39_MS2_var_BlackOut_Text", _text], false, "XMS2", missionNamespace] call X39_XLib_EH_fnc_triggerEvent;
 	_unit setVariable ["X39_MS2_var_BlackOut_Text", _text];
-	_unit setVariable ["X39_MS2_var_BlackOut_currentStage", _stage];
 };
 if(_stage == 0) exitWith
 {
+	_unit setVariable ["X39_MS2_var_BlackOut_timeOfDeath", -1];
+	_unit setVariable ["X39_MS2_var_BlackOut_timeOfUnconscious", -1];
 	_unit setVariable ["X39_MS2_var_BlackOut_Text", _text];
 	_unit setVariable ["X39_MS2_var_BlackOut_isBlackedOut", false];
 	["unitBlackedOut", _this, false, "XMS2", missionNamespace] call X39_XLib_EH_fnc_triggerEvent;
@@ -40,6 +41,15 @@ _currentStageOfUnit = _unit getVariable["X39_MS2_var_BlackOut_currentStage", 0];
 
 if(_stage > _currentStageOfUnit && {_stage < 5}) then
 {
+	if(_stage > 4) then
+	{
+		_unit setVariable ["X39_MS2_var_BlackOut_timeOfDeath", time];
+	};
+	if(_stage == 1) then
+	{
+		_unit setVariable ["X39_MS2_var_BlackOut_timeOfUnconscious", time];
+	};
+	_unit setVariable ["X39_MS2_var_BlackOut_TimeValue", _time];
 	_unit setVariable ["X39_MS2_var_BlackOut_Text", _text];
 	_unit setVariable ["X39_MS2_var_BlackOut_isBlackedOut", true];
 	_unit setVariable ["X39_MS2_var_BlackOut_currentStage", _stage];

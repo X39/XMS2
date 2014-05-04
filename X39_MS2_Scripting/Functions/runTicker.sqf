@@ -7,7 +7,7 @@
  *	@Author - X39|Cpt. HM Murdock
  */
 _res = _this spawn {
-	private["_unit", "_ticks", "_startTime", "_endTime", "_blackOutStage", "_sleep", "_ppeDynamicBlur", "_ppeRadialBlur", "_ppeFocus", "_ppeFilmGrain", "_ppeChromAberration", "_ppeGreyScreen", "_ppeColorInversion", "_cfnDisableFatigue", "_cfnDisableFatigueLast", "_cfnForceWalk", "_cfnForceWalkLast", "_redScreenAlpha"];
+	private["_unit", "_ticks", "_startTime", "_endTime", "_blackOutStage", "_sleep", "_ppeDynamicBlur", "_ppeRadialBlur", "_ppeFocus", "_ppeFilmGrain", "_ppeChromAberration", "_ppeGreyScreen", "_ppeColorInversion", "_ppeWetDisort_LeftStrength", "_ppeWetDisort_RightStrength", "_cfnDisableFatigue", "_cfnDisableFatigueLast", "_cfnForceWalk", "_cfnForceWalkLast", "_redScreenAlpha"];
 	DEBUG_CODE(private["_randomID"];_randomID = random 20000);
 	_cfnDisableFatigueLast = str (0 > 0);
 	_cfnForceWalkLast = str (0 > 0);
@@ -24,6 +24,9 @@ _res = _this spawn {
 		_ppeChromAberration = 0;
 		_ppeGreyScreen = 0;
 		_ppeColorInversion = 0;
+		_ppeFilmGrain = 0;
+		_ppeWetDisort_LeftStrength = 0;
+		_ppeWetDisort_RightStrength = 0;
 		_ppeFilmGrain = 0;
 		
 		_cfnDisableFatigue = 0;
@@ -49,6 +52,8 @@ _res = _this spawn {
 			//Dynamic call handling
 			_ppeGreyScreen = 1 - _ppeGreyScreen;
 			if(_ppeFocus < 0) then { _ppeFocus = 0; } else { if(_ppeFocus > 1) then { _ppeFocus = 1; }; };
+			if(_ppeWetDisort_LeftStrength < 0) then { _ppeWetDisort_LeftStrength = 0; } else { if(_ppeWetDisort_LeftStrength > 2) then { _ppeWetDisort_LeftStrength = 2; }; };
+			if(_ppeWetDisort_RightStrength < 0) then { _ppeWetDisort_RightStrength = 0; } else { if(_ppeWetDisort_RightStrength > 2) then { _ppeWetDisort_RightStrength = 2; }; };
 			if(_ppeColorInversion < 0) then { _ppeColorInversion = 0; } else { if(_ppeColorInversion > 1) then { _ppeColorInversion = 1; }; };
 			if(_ppeGreyScreen < 0) then { _ppeGreyScreen = 0; } else { if(_ppeGreyScreen > 1) then { _ppeGreyScreen = 1; }; };
 			if(_ppeChromAberration < 0) then { _ppeChromAberration = 0; } else { if(_ppeChromAberration > 1) then { _ppeChromAberration = 1; }; };

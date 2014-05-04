@@ -1486,7 +1486,7 @@ class X39_MS2_Overay {
 	class RscPicture_1293: RscPicture
 	{
 		idc = 1293;
-		text = "\X39_MS2_Ressources\textures\FrozenScreen_MiddleClear2.paa";
+		text = "\X39_MS2_Resources\textures\FrozenScreen_MiddleClear2.paa";
 		x = safezoneX;
 		y = safezoneY;
 		w = safezoneW;

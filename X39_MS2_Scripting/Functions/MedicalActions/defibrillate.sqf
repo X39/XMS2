@@ -18,13 +18,13 @@ _adrenaline = ([_unit] call X39_MS2_fnc_getAdrenaline) / X39_MS2_var_Adrenaline_
 X39_MS2_var_Internal_DialogCommunication_IM_preventActions = true;
 
 _executer playAction "MedicStart";
-playSound3D ["\X39_MS2_Ressources\sounds\XMS2_SoundFiles_LP12_full.ogg", _unit, false, position _unit, 1, 1, 0];
+playSound3D ["\X39_MS2_Resources\sounds\XMS2_SoundFiles_LP12_full.ogg", _unit, false, position _unit, 1, 1, 0];
 sleep 15;
 if(_hasFlatLine) then
 {
 	if(_adrenaline > X39_MS2_var_InteractionMenu_Defibrillate_RequiredAdrenalineP || random X39_MS2_var_InteractionMenu_Defibrillate_ChanceWithoutAdrenaline == X39_MS2_var_InteractionMenu_Defibrillate_ChanceWithoutAdrenaline / 2) then
 	{
-		[_unit, 0] call X39_MS2_fnc_setFlatLine;
+		[_unit, -1] call X39_MS2_fnc_setFlatLine;
 		[_unit, 0, -1, ""] call X39_MS2_fnc_blackOutUnit;
 	};
 }

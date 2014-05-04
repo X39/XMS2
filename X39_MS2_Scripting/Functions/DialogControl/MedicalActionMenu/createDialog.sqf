@@ -17,20 +17,20 @@ _this spawn {
 		X39_MS2_var_Internal_DialogCommunication_MA_Target = _caller;
 	};
 	_isSelf = (_caller == X39_MS2_var_Internal_DialogCommunication_MA_Target);
-	buttonSetAction  [1601, "if(lbCurSel 1500 == -1) exitWith {[] call X39_MS2_fnc_MedicalActionMenu_outputNothingSelectedMessage;}; if(str lbColor[1500, lbValue[1500, lbCurSel 1500]] == str [0,1,0,1]) then {[lbValue[1500, lbCurSel 1500], 'Hands'] call X39_MS2_fnc_MedicalActionMenu_btnPerformAction;}; ctrlSetFocus (findDisplay 26485 displayCtrl 1600)"];
-	buttonSetAction  [1602, "if(lbCurSel 1500 == -1) exitWith {[] call X39_MS2_fnc_MedicalActionMenu_outputNothingSelectedMessage;}; if(str lbColor[1500, lbValue[1500, lbCurSel 1500]] == str [0,1,0,1]) then {[lbValue[1500, lbCurSel 1500], 'Body'] call X39_MS2_fnc_MedicalActionMenu_btnPerformAction;}; ctrlSetFocus (findDisplay 26485 displayCtrl 1600)"];
-	buttonSetAction  [1603, "if(lbCurSel 1500 == -1) exitWith {[] call X39_MS2_fnc_MedicalActionMenu_outputNothingSelectedMessage;}; if(str lbColor[1500, lbValue[1500, lbCurSel 1500]] == str [0,1,0,1]) then {[lbValue[1500, lbCurSel 1500], 'Legs'] call X39_MS2_fnc_MedicalActionMenu_btnPerformAction;}; ctrlSetFocus (findDisplay 26485 displayCtrl 1600)"];
-	buttonSetAction  [1604, "if(lbCurSel 1500 == -1) exitWith {[] call X39_MS2_fnc_MedicalActionMenu_outputNothingSelectedMessage;}; if(str lbColor[1500, lbValue[1500, lbCurSel 1500]] == str [0,1,0,1]) then {[lbValue[1500, lbCurSel 1500], 'Head'] call X39_MS2_fnc_MedicalActionMenu_btnPerformAction;}; ctrlSetFocus (findDisplay 26485 displayCtrl 1600)"];
+	buttonSetAction  [1601, "if(lbCurSel 1500 == -1) exitWith {[] call X39_MS2_fnc_MedicalActionMenu_outputNothingSelectedMessage;}; if(str lbColor[1500, lbValue[1500, lbCurSel 1500]] == str [0,1,0,1]) then {[lbValue[1500, lbCurSel 1500], 'Hands'] call X39_MS2_fnc_MedicalActionMenu_btnPerformAction;}; ctrlSetFocus (findDisplay 26485 displayCtrl 1601);"];
+	buttonSetAction  [1602, "if(lbCurSel 1500 == -1) exitWith {[] call X39_MS2_fnc_MedicalActionMenu_outputNothingSelectedMessage;}; if(str lbColor[1500, lbValue[1500, lbCurSel 1500]] == str [0,1,0,1]) then {[lbValue[1500, lbCurSel 1500], 'Body'] call X39_MS2_fnc_MedicalActionMenu_btnPerformAction;}; ctrlSetFocus (findDisplay 26485 displayCtrl  1602);"];
+	buttonSetAction  [1603, "if(lbCurSel 1500 == -1) exitWith {[] call X39_MS2_fnc_MedicalActionMenu_outputNothingSelectedMessage;}; if(str lbColor[1500, lbValue[1500, lbCurSel 1500]] == str [0,1,0,1]) then {[lbValue[1500, lbCurSel 1500], 'Legs'] call X39_MS2_fnc_MedicalActionMenu_btnPerformAction;}; ctrlSetFocus (findDisplay 26485 displayCtrl  1603);"];
+	buttonSetAction  [1604, "if(lbCurSel 1500 == -1) exitWith {[] call X39_MS2_fnc_MedicalActionMenu_outputNothingSelectedMessage;}; if(str lbColor[1500, lbValue[1500, lbCurSel 1500]] == str [0,1,0,1]) then {[lbValue[1500, lbCurSel 1500], 'Head'] call X39_MS2_fnc_MedicalActionMenu_btnPerformAction;}; ctrlSetFocus (findDisplay 26485 displayCtrl  1604);"];
 
-	buttonSetAction  [1605, "if(lbCurSel 1500 == -1) exitWith {[] call X39_MS2_fnc_MedicalActionMenu_outputNothingSelectedMessage;}; if(str lbColor[1500, lbValue[1500, lbCurSel 1500]] == str [0,1,0,1]) then {[lbValue[1500, lbCurSel 1500], 'Generic'] call X39_MS2_fnc_MedicalActionMenu_btnPerformAction;}; ctrlSetFocus (findDisplay 26485 displayCtrl 1600)"];
-	buttonSetAction  [1607, "if(lbCurSel 1500 == -1) exitWith {[] call X39_MS2_fnc_MedicalActionMenu_outputNothingSelectedMessage;}; if(str lbColor[1500, lbValue[1500, lbCurSel 1500]] == str [0,1,0,1]) then {[lbValue[1500, lbCurSel 1500], 'Temperature', false] call X39_MS2_fnc_MedicalActionMenu_btnPerformAction;}; ctrlSetFocus (findDisplay 26485 displayCtrl 1600)"];
+	buttonSetAction  [1605, "if(lbCurSel 1500 == -1) exitWith {[] call X39_MS2_fnc_MedicalActionMenu_outputNothingSelectedMessage;}; if(str lbColor[1500, lbValue[1500, lbCurSel 1500]] == str [0,1,0,1]) then {[lbValue[1500, lbCurSel 1500], 'Generic'] call X39_MS2_fnc_MedicalActionMenu_btnPerformAction;}; ctrlSetFocus (findDisplay 26485 displayCtrl 1605);"];
+	buttonSetAction  [1607, "if(lbCurSel 1500 == -1) exitWith {[] call X39_MS2_fnc_MedicalActionMenu_outputNothingSelectedMessage;}; if(str lbColor[1500, lbValue[1500, lbCurSel 1500]] == str [0,1,0,1]) then {[lbValue[1500, lbCurSel 1500], 'Temperature', false] call X39_MS2_fnc_MedicalActionMenu_btnPerformAction;}; ctrlSetFocus (findDisplay 26485 displayCtrl 1607);"];
 
-	buttonSetAction  [1610, "X39_MS2_var_DialogControl_MedicalActionMenu_checkUnitTimeout call X39_MS2_fnc_MedicalActionMenu_btnCheckUnit"];
-	buttonSetAction  [1611, "[] call X39_MS2_fnc_MedicalActionMenu_btnAddSelectedToTriageCard"];
-	buttonSetAction  [1612, "[] call X39_MS2_fnc_MedicalActionMenu_btnApplyTriageCardChanges"];
-	buttonSetAction  [1613, "[] call X39_MS2_fnc_MedicalActionMenu_btnAddToTriageCard"];
-	buttonSetAction  [1614, "[] call X39_MS2_fnc_MedicalActionMenu_btnRemoveSelectedFromTriageCard"];
-	buttonSetAction  [1615, "[] call X39_MS2_fnc_MedicalActionMenu_btnClearTriageCard"];
+	buttonSetAction  [1610, "[X39_MS2_var_DialogControl_MedicalActionMenu_checkUnitTimeout] call X39_MS2_fnc_MedicalActionMenu_btnCheckUnit;"];
+	buttonSetAction  [1611, "[] call X39_MS2_fnc_MedicalActionMenu_btnAddSelectedToTriageCard;"];
+	buttonSetAction  [1612, "[] call X39_MS2_fnc_MedicalActionMenu_btnApplyTriageCardChanges;"];
+	buttonSetAction  [1613, "[] call X39_MS2_fnc_MedicalActionMenu_btnAddToTriageCard;"];
+	buttonSetAction  [1614, "[] call X39_MS2_fnc_MedicalActionMenu_btnRemoveSelectedFromTriageCard;"];
+	buttonSetAction  [1615, "[] call X39_MS2_fnc_MedicalActionMenu_btnClearTriageCard;"];
 	
 	(findDisplay 26485 displayCtrl 2101) ctrlSetEventHandler ["LBSelChanged", "X39_MS2_var_Internal_DialogCommunication_MA_Target setVariable ['X39_MS2_var_triageState', _this select 1];"];
 

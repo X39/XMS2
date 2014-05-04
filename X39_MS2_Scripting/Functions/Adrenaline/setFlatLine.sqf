@@ -15,5 +15,5 @@ if(_this select 1 > 0) then
 }
 else
 {
-	PRINT_INFO("setFlatLine wont automatically unBlackout a unit");
+	DEBUG_LOG("setFlatLine wont automatically unBlackout a unit");
 };

@@ -24,7 +24,7 @@ if(_applyScoreChange) then
 	{
 		if ([_unit call BIS_fnc_objectSide, _lastHitter call BIS_fnc_objectSide] call BIS_fnc_areFriendly) then
 		{
-			_lastHitter addScore -1;	//friendly kill
+			_lastHitter addScore -1;//friendly kill
 		}
 		else
 		{

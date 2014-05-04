@@ -1,7 +1,7 @@
 class X39_MS2_medicalbox: NATO_Box_Base {
 	scope = 2;
 	vehicleClass = "X39_MS2_Vehicle";
-	hiddenSelectionsTextures[] = {"\X39_MS2_Ressources\textures\MedicBox_HiddenSelectionTexture.paa","A3\Weapons_F\Ammoboxes\data\AmmoBox_CO.paa"};
+	hiddenSelectionsTextures[] = {"\X39_MS2_Resources\textures\MedicBox_HiddenSelectionTexture.paa","A3\Weapons_F\Ammoboxes\data\AmmoBox_CO.paa"};
 	displayName = $STR_X39_MS2_Items_Vehicles_MedicalBox;
 	model = "\A3\weapons_F\AmmoBoxes\WpnsBox_large_F";
 	icon = "iconCrateLarge";
@@ -33,6 +33,10 @@ class X39_MS2_medicalbox: NATO_Box_Base {
 		};
 		class x39_xms2_morphine {
 			name = "x39_xms2_morphine";
+			count = 100;
+		};
+		class x39_xms2_naloxone {
+			name = "x39_xms2_naloxone";
 			count = 100;
 		};
 		class x39_xms2_coldSpray {

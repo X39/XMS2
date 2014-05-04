@@ -31,6 +31,9 @@
 	
 	#define assignValue(NAM,VAL) if(isNil NAM) then { missionNamespace setVariable [NAM, VAL]; } else { PRINT_WARNING(format["%1 is already set, JIP player?" COMMA VAL]); }
 	
+	#define REGION()
+	#define ENDREGION()
+	
 	#define COMMA ,
 	
 	#ifndef DEBUG

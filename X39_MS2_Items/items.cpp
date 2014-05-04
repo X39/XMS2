@@ -7,7 +7,7 @@ class x39_xms2_bandage : ItemCore
 		mass = 2;
 		type = 201;
     }; 
-	picture = "\X39_MS2_Ressources\Items\Bandage.paa";
+	picture = "\X39_MS2_Resources\Items\Bandage.paa";
 	descriptionShort = "";
 };
 class x39_xms2_adrenaline : ItemCore
@@ -19,7 +19,7 @@ class x39_xms2_adrenaline : ItemCore
 		mass = 1;
 		type = 201;
     }; 
-	picture = "\X39_MS2_Ressources\Items\Epipen.paa";
+	picture = "\X39_MS2_Resources\Items\Epipen.paa";
 	descriptionShort = "";
 };
 class x39_xms2_heatPack : ItemCore
@@ -31,7 +31,7 @@ class x39_xms2_heatPack : ItemCore
 		mass = 4;
 		type = 201;
     }; 
-	picture = "\X39_MS2_Ressources\Items\HeatPack.paa";
+	picture = "\X39_MS2_Resources\Items\HeatPack.paa";
 	descriptionShort = "";
 };
 class x39_xms2_mediPack : ItemCore
@@ -43,7 +43,7 @@ class x39_xms2_mediPack : ItemCore
 		mass = 8;
 		type = 201;
     }; 
-	picture = "\X39_MS2_Ressources\Items\MedicalPack.paa";
+	picture = "\X39_MS2_Resources\Items\MedicalPack.paa";
 	descriptionShort = "";
 };
 class x39_xms2_morphine : ItemCore
@@ -55,7 +55,19 @@ class x39_xms2_morphine : ItemCore
 		mass = 1;
 		type = 201;
     }; 
-	picture = "\X39_MS2_Ressources\Items\MorphineInjector.paa";
+	picture = "\X39_MS2_Resources\Items\MorphineInjector.paa";
+	descriptionShort = "";
+};
+class x39_xms2_naloxone : ItemCore
+{
+	scope = 2;
+	displayName = $STR_X39_MS2_Items_Items_naloxone;
+	class ItemInfo
+    {
+		mass = 1;
+		type = 201;
+    }; 
+	picture = "\X39_MS2_Resources\Items\NaloxoneInjector.paa";
 	descriptionShort = "";
 };
 class x39_xms2_coldSpray : ItemCore
@@ -67,7 +79,7 @@ class x39_xms2_coldSpray : ItemCore
 		mass = 3;
 		type = 201;
     }; 
-	picture = "\X39_MS2_Ressources\Items\ColdSpray.paa";
+	picture = "\X39_MS2_Resources\Items\ColdSpray.paa";
 	descriptionShort = "";
 };
 class x39_xms2_earplugs : ItemCore
@@ -79,7 +91,7 @@ class x39_xms2_earplugs : ItemCore
 		mass = 0;
 		type = 201;
     }; 
-	picture = "\X39_MS2_Ressources\Items\earplugs.paa";
+	picture = "\X39_MS2_Resources\Items\earplugs.paa";
 	descriptionShort = "";
 };
 class x39_xms2_defibrillator : ItemCore
@@ -92,6 +104,6 @@ class x39_xms2_defibrillator : ItemCore
     	mass = 20;
 		type = 201;
     }; 
-	picture = "\X39_MS2_Ressources\Items\Defibrillator.paa";
+	picture = "\X39_MS2_Resources\Items\Defibrillator.paa";
 	descriptionShort = "";
 };
