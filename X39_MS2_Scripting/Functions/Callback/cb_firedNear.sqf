@@ -48,10 +48,12 @@ if(!(_unit getVariable ["X39_MS2_var_hasEarplugs", false]) && _usedFiremode != "
 {
 	private["_distance"];
 	_distance = 1 - ((_this select 2) / 69);
-	_valHit = getNumber (_ammoClass >> "hit");
-	_valCal = getNumber (_ammoClass >> "caliber");
+	_valHit = getNumber (_usedAmmoClass >> "hit");
+	_valCal = getNumber (_usedAmmoClass >> "caliber");
 	_fixVal = (_valHit * _valCal * _distance);
-	
-	[_unit, if(_fixVal == 0) then { 0 } else { 0.1 / _fixVal} ] call X39_MS2_fnc_addHearing;
+	if(_fixVal != 0) then
+	{
+		[_unit,  -(0.1 / _fixVal) ] call X39_MS2_fnc_addHearing;
+	};
 };
 [_unit, X39_MS2_var_Adrenaline_adrenalineAddedThroughShooting, true] call X39_MS2_fnc_addAdrenaline;

@@ -11,7 +11,7 @@ if(X39_MS2_var_Internal_DialogCommunication_MA_preventActions) exitWith {};//TOD
 _this spawn {
 	X39_MS2_var_Internal_DialogCommunication_MA_preventActions = true;
 	_this call {
-		private["_fncAdd", "_fncSet", "_fncGet", "_targetToRemoveItemsFrom"];
+		private["_fncAdd", "_fncSet", "_fncGet", "_fncAddH", "_fncSetH", "_fncGetH", "_targetToRemoveItemsFrom"];
 
 		DEBUG_CODE(_fnc_scriptName = "X39_MS2_fnc_MedicalActionMenu_btnPerformAction");
 		_index =					[_this, 0, 0, [0]] call BIS_fnc_param;
@@ -28,10 +28,13 @@ _this spawn {
 			DEBUG_LOG_WFn(format["X39_MS2_fnc_addDamageTo%1" COMMA _suffix]);
 			DEBUG_LOG_WFn(format["X39_MS2_fnc_setDamageTo%1" COMMA _suffix]);
 			DEBUG_LOG_WFn(format["X39_MS2_fnc_getDamageTo%1" COMMA _suffix]);
-			_fncAdd = missionNamespace getVariable format["X39_MS2_fnc_addDamageTo%1", _suffix];
-			_fncSet = missionNamespace getVariable format["X39_MS2_fnc_setDamageOf%1", _suffix];
-			_fncGet = missionNamespace getVariable format["X39_MS2_fnc_getDamageOf%1", _suffix];
-
+			_fncAddH = format["X39_MS2_fnc_addDamageTo%1", _suffix];
+			_fncSetH = format["X39_MS2_fnc_setDamageOf%1", _suffix];
+			_fncGetH = format["X39_MS2_fnc_getDamageOf%1", _suffix];
+			
+			_fncAdd = {[_this, _fncAddH, (_this select 0), false] call BIS_fnc_MP;};
+			_fncSet = {[_this, _fncSetH, (_this select 0), false] call BIS_fnc_MP;};
+			_fncGet = {[_this, _fncGetH, (_this select 0), false] call BIS_fnc_MP;};
 			if(isNil "_fncAdd") exitWith {PRINT_ERROR(format["The function %1 has not been found" COMMA format["X39_MS2_fnc_addDamageTo%1" COMMA _suffix]]);};
 			if(isNil "_fncSet") exitWith {PRINT_ERROR(format["The function %1 has not been found" COMMA format["X39_MS2_fnc_setDamageOf%1" COMMA _suffix]]);};
 			if(isNil "_fncGet") exitWith {PRINT_ERROR(format["The function %1 has not been found" COMMA format["X39_MS2_fnc_getDamageOf%1" COMMA _suffix]]);};

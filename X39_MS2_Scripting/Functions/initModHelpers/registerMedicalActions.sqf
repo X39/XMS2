@@ -10,7 +10,7 @@ nope = {systemChat format["nope: %1", _this];};
 [
 	"Morphine",
 	{
-		[_this select 0, X39_MS2_var_MedicalActions_Morphine_AdditionalMorphineValue] call X39_MS2_fnc_addMorphine;
+		[[_this select 0, X39_MS2_var_MedicalActions_Morphine_AdditionalMorphineValue], "X39_MS2_fnc_addMorphine", _this select 0, false] call BIS_fnc_MP;
 	},
 	"",
 	"Acts_TreatingWounded02",
@@ -27,14 +27,14 @@ nope = {systemChat format["nope: %1", _this];};
 [
 	"Naloxone",
 	{
-		[_this select 0, X39_MS2_var_MedicalActions_Naloxone_AdditionalMorphineValue] call X39_MS2_fnc_addMorphine;
+		[[_this select 0, X39_MS2_var_MedicalActions_Naloxone_AdditionalMorphineValue], "X39_MS2_fnc_addMorphine", _this select 0, false] call BIS_fnc_MP;
 	},
 	"",
 	"Acts_TreatingWounded02",
 	8.032,
 	"XMS2_SoundFiles_injection_3",
 	0,
-	"\X39_MS2_Resources\Items\MorphineInjector.paa",
+	"\X39_MS2_Resources\Items\NaloxoneInjector.paa",
 	["x39_xms2_naloxone"],
 	{true},
 	0,
@@ -44,7 +44,7 @@ nope = {systemChat format["nope: %1", _this];};
 [
 	"Adrenaline",
 	{
-		[(_this select 1), X39_MS2_var_MedicalActions_Adrenaline_AdrenalineChange] call X39_MS2_fnc_addAdrenaline;
+		[[(_this select 1), X39_MS2_var_MedicalActions_Adrenaline_AdrenalineChange], "X39_MS2_fnc_addAdrenaline", _this select 0, false] call BIS_fnc_MP;
 	},
 	"",
 	"Acts_TreatingWounded02",
@@ -63,7 +63,7 @@ nope = {systemChat format["nope: %1", _this];};
 	{
 		_unit = _this select 0;
 		_part = _this select 3;
-		[_unit, X39_MS2_var_MedicalActions_StickyBandage_BleedingCure] call (missionNamespace getVariable format["X39_MS2_fnc_addBleedingTo%1", _part]);
+		[[_unit, -X39_MS2_var_MedicalActions_StickyBandage_BleedingCure], format["X39_MS2_fnc_addBleedingTo%1", _part], _this select 0, false] call BIS_fnc_MP;
 	},
 	"",
 	"Acts_TreatingWounded03",
@@ -80,8 +80,8 @@ nope = {systemChat format["nope: %1", _this];};
 [
 	"cold spray",
 	{
-		[(_this select 1), X39_MS2_var_MedicalActions_ColdSpray_TemperatureChange] call X39_MS2_fnc_addTemperature;
-		[(_this select 1), X39_MS2_var_MedicalActions_ColdSpray_PainChange] call X39_MS2_fnc_addPain;
+		[[(_this select 1), X39_MS2_var_MedicalActions_ColdSpray_TemperatureChange], "X39_MS2_fnc_addTemperature", _this select 0, false] call BIS_fnc_MP;
+		[[(_this select 1), X39_MS2_var_MedicalActions_ColdSpray_PainChange], "X39_MS2_fnc_addPain", _this select 0, false] call BIS_fnc_MP;
 	},
 	"",
 	"Acts_TreatingWounded06",
@@ -114,7 +114,7 @@ nope = {systemChat format["nope: %1", _this];};
 [
 	"HeatPack",
 	{
-		[(_this select 1), X39_MS2_var_MedicalActions_HeatPack_TemperatureChange * (_this select 2)] call X39_MS2_fnc_addTemperature;
+		[[(_this select 1), X39_MS2_var_MedicalActions_HeatPack_TemperatureChange * (_this select 2)], "X39_MS2_fnc_addTemperature", _this select 0, false] call BIS_fnc_MP;
 	},
 	"",
 	"",
@@ -125,6 +125,6 @@ nope = {systemChat format["nope: %1", _this];};
 	["x39_xms2_heatPack"],
 	{true},
 	0,
-	"X39_MS2_var_MedicalActions_MediPack_DamageHealing",
+	0,
 	["Temperature"]
 ] call X39_MS2_fnc_registerAction;

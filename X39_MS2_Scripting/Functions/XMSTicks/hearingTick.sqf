@@ -20,8 +20,8 @@
 if(!X39_MS2_var_Feature_EnableHearing) exitWith { };
 private["_unit", "_hearing", "_hearingCALC"];
 _unit = _this select 0;
-_hearing = (_unit call X39_MedSys_fnc_getUnitHearing);
-_hearingCALC = (1 - _hearing) ^ 4;
+_hearing = ([_unit] call X39_MS2_fnc_getHearing);
+_hearingCALC = _hearing ^ 4;
 
 if(X39_MS2_var_Hearing_allowMusicChange) then {0.1 fadeMusic _hearingCALC;};
 if(X39_MS2_var_Hearing_allowSoundChange) then {0.1 fadeSound _hearingCALC;};
@@ -35,4 +35,4 @@ _unit setVariable ["tf_globalVolume", _hearingCALC];
 //{
 //	playSound ["X39_Sounds_earRingingSoundLoop_1s", true];
 //};
-[_unit, X39_MS2_var_Hearing_curePerTick] call X39_MedSys_fnc_addUnitHearing
+[_unit, X39_MS2_var_Hearing_curePerTick] call X39_MS2_fnc_addHearing;

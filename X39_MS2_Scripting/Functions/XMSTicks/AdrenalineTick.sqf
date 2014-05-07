@@ -28,6 +28,10 @@ _pulseCurrent = [_unit] call X39_MS2_fnc_getHeartPulse;
 _adrenalineCurrent = [_unit] call X39_MS2_fnc_getAdrenaline;
 _fatigue = getFatigue _unit;
 _stage = speed _unit;
+if(vehicle _unit != _unit) then
+{
+	_stage = 0;
+};
 
 
 //Simulate Heart

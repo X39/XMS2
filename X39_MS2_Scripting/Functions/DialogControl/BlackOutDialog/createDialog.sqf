@@ -26,7 +26,7 @@ _this spawn {
 		if(_isPlayer && {!dialog}) then
 		{
 			createDialog "X39_MS2_BlackOutUi";
-			buttonSetAction[1600, "player call X39_MedSys_fnc_killUnit; call X39_MedSys_fnc_closeBlackOutDisplay;"];
+			buttonSetAction[1600, "player call X39_MS2_fnc_killUnit;"];
 			buttonSetAction[1601, "endMission 'end1';"];
 		};
 		_currentStage = _unit getVariable ["X39_MS2_var_BlackOut_currentStage", 0];
@@ -42,7 +42,7 @@ _this spawn {
 			
 			//Current pulse
 			displayCtrl_BlackoutUI(1101) ctrlSetStructuredText (parseText format["%1<br/>%2", localize "STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_Pulse", floor (_unit getVariable["X39_MS2_var_Adrenaline_heartPulse", -1])]);
-			if(time % 20 == 0 && {scriptDone _handle}) then
+			if(time % 20 < 1 && {scriptDone _handle}) then
 			{
 				_handle = [] spawn {
 					private["_i"];
@@ -91,7 +91,7 @@ _this spawn {
 			{
 				//
 				//X39_MS2_var_Adrenaline_timeBeforeFlatLineKills
-				if(_timeBlackOut != -1 && (_timeBlackOut + _timeValue < _timeFlatLine + X39_MS2_var_Adrenaline_timeBeforeFlatLineKills)) then
+				if(_timeBlackOut != -1) then
 				{
 					_timeLeft = time - (_timeBlackOut);
 					_timeLeft = _timeValue - time;

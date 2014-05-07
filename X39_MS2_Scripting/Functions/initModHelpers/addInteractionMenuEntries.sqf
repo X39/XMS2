@@ -14,7 +14,8 @@
  *	@Return - N/A
  *	@Author - X39|Cpt. HM Murdock
  */
-X39_MS2_var_Internal_InteractionMenu_Entries set [count X39_MS2_var_Internal_InteractionMenu_Entries, [
+X39_MS2_var_Internal_InteractionMenu_Entries set [count X39_MS2_var_Internal_InteractionMenu_Entries, 
+[
 	localize "STR_X39_MS2_Scripting_InteractionMenu_openMedicalMenu",
 	"DUMMY",
 	true, 

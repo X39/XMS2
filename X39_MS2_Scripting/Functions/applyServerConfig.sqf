@@ -32,7 +32,7 @@ for "_serverConfigOption" from 0 to ((count _config) - 1) do
 						_value = getNumber _selectedEntry;
 						if(typeName (missionNamespace getVariable [_name, nil]) == "BOOL") then
 						{
-							_value = _value call X39_MedSys_fnc_IntToBoolean;
+							_value = _value call X39_XLib_fnc_IntToBool;
 						};
 					}
 					else

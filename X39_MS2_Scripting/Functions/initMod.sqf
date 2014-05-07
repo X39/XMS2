@@ -13,10 +13,10 @@ if(isNil "scriptNull") then
 _fnc_getKey =
 {
 	_keycode = getNumber (_this >> "key");
-	_bool1 = (getNumber (_this >> "press_ctrl")) call X39_MedSys_fnc_IntToBoolean;
-	_bool2 = (getNumber (_this >> "press_alt")) call X39_MedSys_fnc_IntToBoolean;
-	_bool3 = (getNumber (_this >> "press_shift")) call X39_MedSys_fnc_IntToBoolean;
-	_useActionKey = (getNumber (_this >> "useActionKey")) call X39_MedSys_fnc_IntToBoolean;
+	_bool1 = (getNumber (_this >> "press_ctrl")) call X39_XLib_fnc_IntToBool;
+	_bool2 = (getNumber (_this >> "press_alt")) call X39_XLib_fnc_IntToBool;
+	_bool3 = (getNumber (_this >> "press_shift")) call X39_XLib_fnc_IntToBool;
+	_useActionKey = (getNumber (_this >> "useActionKey")) call X39_XLib_fnc_IntToBool;
 	_actionKey = getText (_this >> "actionKey");
 	[_useActionKey, _keycode, _bool1, _bool2, _bool3, _actionKey]
 };
@@ -93,7 +93,7 @@ X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Adrenaline_HasFlatLine",		{-1												}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Pain_value",					{0												}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Pain_MorphineValue",			{0												}, true		]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Hearing_value",					{0												}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Hearing_value",					{1												}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Internal_XMSEffects",			{[]												}, false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Temperature_value",				{X39_MS2_var_Temperature_max					}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_hasEarplugs",					{false											}, true		]];
@@ -190,6 +190,7 @@ assignValue("X39_MS2_var_Damage_maxDamageGeneric", 5);
 
 assignValue("X39_MS2_var_Damage_knockOutLimitP", 0.5);
 assignValue("X39_MS2_var_Damage_DeathLimitP", 0.8);
+assignValue("X39_MS2_var_Damage_DeathTime", 600);
 
 //Modificators
 assignValue("X39_MS2_var_Damage_ExplosionModificator", 1.0);
@@ -419,24 +420,23 @@ assignValue("X39_MS2_var_DialogControl_MedicalActionMenu_checkUnitTimeout", 20);
 /****************************
  * CATEGORY: MedicalActions *
  ***************************/
-assignValue("X39_MS2_var_MedicalActions_Morphine_DamageHealing", 0.5);
-assignValue("X39_MS2_var_MedicalActions_Naloxone_DamageHealing", 0.5);
-assignValue("X39_MS2_var_MedicalActions_Adrenaline_DamageHealing", 0);
-assignValue("X39_MS2_var_MedicalActions_StickyBandage_DamageHealing", 0.1);
-assignValue("X39_MS2_var_MedicalActions_ColdSpray_DamageHealing", 0);
-assignValue("X39_MS2_var_MedicalActions_MediPack_DamageHealing", 5);
-assignValue("X39_MS2_var_MedicalActions_HeatPack_DamageHealing", 0.1);
-
-assignValue("X39_MS2_var_MedicalActions_StickyBandage_BleedingCure", 0.5);
-
 assignValue("X39_MS2_var_MedicalActions_Morphine_AdditionalMorphineValue", 5);
+assignValue("X39_MS2_var_MedicalActions_Morphine_DamageHealing", 0.5);
 
 assignValue("X39_MS2_var_MedicalActions_Naloxone_AdditionalMorphineValue", -2);
+assignValue("X39_MS2_var_MedicalActions_Naloxone_DamageHealing", 0.5);
+
+assignValue("X39_MS2_var_MedicalActions_Adrenaline_AdrenalineChange", 5);
+assignValue("X39_MS2_var_MedicalActions_Adrenaline_DamageHealing", 0);
+
+assignValue("X39_MS2_var_MedicalActions_StickyBandage_DamageHealing", 0.1);
+assignValue("X39_MS2_var_MedicalActions_StickyBandage_BleedingCure", 0.5);
 
 assignValue("X39_MS2_var_MedicalActions_ColdSpray_TemperatureChange", -0.5);
 assignValue("X39_MS2_var_MedicalActions_ColdSpray_PainChange", -3);
+assignValue("X39_MS2_var_MedicalActions_ColdSpray_DamageHealing", 0);
 
-assignValue("X39_MS2_var_MedicalActions_Adrenaline_AdrenalineChange", 5);
+assignValue("X39_MS2_var_MedicalActions_MediPack_DamageHealing", 5);
 
 assignValue("X39_MS2_var_MedicalActions_HeatPack_TemperatureChange", 4);
 
