@@ -32,8 +32,8 @@ X39_MS2_var_Internal_InteractionMenu_Entries set [count X39_MS2_var_Internal_Int
 	{!X39_MS2_var_Internal_Dialog_IsSelfInteracton},
 	{
 		[] call X39_ActionUI_fnc_closeDialog;
-		if(isNull cursorTarget) exitWith {false};
-		[cursorTarget] call X39_MS2_fnc_MedicalActionMenu_createDialog;
+		if(isNull X39_MS2_var_Internal_DialogCommunication_IM_Target) exitWith {false};
+		[X39_MS2_var_Internal_DialogCommunication_IM_Target] call X39_MS2_fnc_MedicalActionMenu_createDialog;
 	}
 ]];
 X39_MS2_var_Internal_InteractionMenu_Entries set [count X39_MS2_var_Internal_InteractionMenu_Entries, [
@@ -62,9 +62,31 @@ X39_MS2_var_Internal_InteractionMenu_Entries set [count X39_MS2_var_Internal_Int
 	localize "STR_X39_MS2_Scripting_InteractionMenu_useDefibrillator",
 	"DUMMY",
 	false,
-	{!X39_MS2_var_Internal_Dialog_IsSelfInteracton && (((items X39_MS2_var_Internal_DialogCommunication_IM_Target) find "x39_xms2_defibrillator" != -1) || ((items X39_MS2_var_Internal_DialogCommunication_IM_Executor) find "x39_xms2_defibrillator" != -1))},
+	{	 !X39_MS2_var_Internal_Dialog_IsSelfInteracton &&
+		{(((items X39_MS2_var_Internal_DialogCommunication_IM_Target) find "x39_xms2_defibrillator") != -1 || {((items X39_MS2_var_Internal_DialogCommunication_IM_Executor) find "x39_xms2_defibrillator") != -1}) &&
+		{X39_MS2_var_Internal_DialogCommunication_IM_TargetBlackOutStage >= 3}}},
 	{
 		[] call X39_ActionUI_fnc_closeDialog;
 		[X39_MS2_var_Internal_DialogCommunication_IM_Executor, X39_MS2_var_Internal_DialogCommunication_IM_Target] call X39_ActionUI_fnc_MA_defibrillate;
+	}
+]];
+X39_MS2_var_Internal_InteractionMenu_Entries set [count X39_MS2_var_Internal_InteractionMenu_Entries, [
+	localize "STR_X39_MS2_Scripting_InteractionMenu_useNaloxone",
+	"DUMMY",
+	false,
+	{!X39_MS2_var_Internal_Dialog_IsSelfInteracton &&
+	{((((items X39_MS2_var_Internal_DialogCommunication_IM_Target) find "x39_xms2_naloxone") != -1) || {(((items X39_MS2_var_Internal_DialogCommunication_IM_Executor) find "x39_xms2_naloxone") != -1)}) &&
+	{X39_MS2_var_Internal_DialogCommunication_IM_TargetBlackOutStage >= 1 && X39_MS2_var_Internal_DialogCommunication_IM_TargetBlackOutStage < 3}}},
+	{
+		[] call X39_ActionUI_fnc_closeDialog;
+		if((items X39_MS2_var_Internal_DialogCommunication_IM_Target) find "x39_xms2_naloxone" != -1) then
+		{
+			X39_MS2_var_Internal_DialogCommunication_IM_Executor removeItem "x39_xms2_naloxone";
+		}
+		else
+		{
+			X39_MS2_var_Internal_DialogCommunication_IM_Target removeItem "x39_xms2_naloxone";
+		};
+		[X39_MS2_var_Internal_DialogCommunication_IM_Target, 0, -1, ""] call X39_MS2_fnc_blackOutUnit;
 	}
 ]];

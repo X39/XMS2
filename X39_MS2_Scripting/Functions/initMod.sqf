@@ -306,6 +306,7 @@ assignValue("X39_MS2_var_Pain_DamagePainForLegsModificator", 1.0);
 assignValue("X39_MS2_var_Adrenaline_enableHeartSimulation", true);
 ////HEART
 assignValue("X39_MS2_var_Adrenaline_useAdrenalineForHeartCalculations", true);
+assignValue("X39_MS2_var_Adrenaline_allowForceWalkByPulse", true);
 
 //Dynamic definitions
 ////GENERIC
@@ -324,10 +325,15 @@ assignValue("X39_MS2_var_Adrenaline_temporaryKnockOutRandomTimePulse", 20);
 assignValue("X39_MS2_var_Adrenaline_minHeartPulsePerSecond", 50);
 assignValue("X39_MS2_var_Adrenaline_basePulseChangePerTick", 0.125);
 assignValue("X39_MS2_var_Adrenaline_timeBeforeFlatLineKills", 120);
+assignValue("X39_MS2_var_Adrenaline_pulseForceWalkAt", 190);
 assignValue("X39_MS2_var_Adrenaline_PulseSpeedStage0", 0.001);
 assignValue("X39_MS2_var_Adrenaline_PulseSpeedStage1", 5);
 assignValue("X39_MS2_var_Adrenaline_PulseSpeedStage2", 12);
 assignValue("X39_MS2_var_Adrenaline_PulseSpeedStage3", 18);
+assignValue("X39_MS2_var_Adrenaline_PulseLimitStage1", 90);
+assignValue("X39_MS2_var_Adrenaline_PulseLimitStage2", 120);
+assignValue("X39_MS2_var_Adrenaline_PulseLimitStage3", 180);
+assignValue("X39_MS2_var_Adrenaline_PulseLimitStage4", -1);
 
 //Modificators
 ////GENERIC
@@ -336,6 +342,7 @@ assignValue("X39_MS2_var_Adrenaline_AdrenalinePulseMultiplicator", 1);
 ////HEART
 assignValue("X39_MS2_var_Adrenaline_pulseGlobalMultiplicator", 1);
 assignValue("X39_MS2_var_Adrenaline_pulseReductionMultiplicator", 2);
+assignValue("X39_MS2_var_Adrenaline_knockOutSmallerMinPulseManipulator", 0.2);
 
 /*************************
  * CATEGORY: Temperature *

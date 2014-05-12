@@ -15,6 +15,7 @@ _this spawn {
 	_isInVehicle = vehicle player != player;
 	X39_MS2_var_Internal_Dialog_IsSelfInteracton = _isSelf;
 	X39_MS2_var_Internal_DialogCommunication_IM_Executor = player;
+	X39_MS2_var_Internal_DialogCommunication_IM_TargetBlackOutStage = -1;
 	if(_isSelf) then
 	{
 		X39_MS2_var_Internal_DialogCommunication_IM_Target = player;
@@ -31,7 +32,7 @@ _this spawn {
 		};
 	};
 	if(isNull X39_MS2_var_Internal_DialogCommunication_IM_Target) exitWith {};
-	
+	X39_MS2_var_Internal_DialogCommunication_IM_TargetBlackOutStage = [X39_MS2_var_Internal_DialogCommunication_IM_Target] call X39_MS2_fnc_getBlackOutStage;
 	_actions = [];
 	_index = 0;
 	{

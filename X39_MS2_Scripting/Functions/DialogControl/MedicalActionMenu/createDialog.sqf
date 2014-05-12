@@ -32,7 +32,6 @@ _this spawn {
 	buttonSetAction  [1614, "[] call X39_MS2_fnc_MedicalActionMenu_btnRemoveSelectedFromTriageCard;"];
 	buttonSetAction  [1615, "[] call X39_MS2_fnc_MedicalActionMenu_btnClearTriageCard;"];
 	
-	(findDisplay 26485 displayCtrl 2101) ctrlSetEventHandler ["LBSelChanged", "X39_MS2_var_Internal_DialogCommunication_MA_Target setVariable ['X39_MS2_var_triageState', _this select 1];"];
 
 
 	ctrlShow	[1201, X39_MS2_var_Damage_EnableHitzoneHead];
@@ -76,6 +75,7 @@ _this spawn {
 		false
 	}count X39_MS2_var_Internal_Dialog_TriageCard_States;
 	lbSetCurSel[2101, 0];
+	(findDisplay 26485 displayCtrl 2101) ctrlSetEventHandler ["LBSelChanged", "X39_MS2_var_Internal_DialogCommunication_MA_Target setVariable ['X39_MS2_var_triageState', _this select 1];"];
 	while {!([_caller] call X39_MS2_fnc_isBlackedOut) && dialog} do
 	{
 		_triageCardEntries = X39_MS2_var_Internal_DialogCommunication_MA_Target getVariable ["X39_MS2_var_triageCard", []];

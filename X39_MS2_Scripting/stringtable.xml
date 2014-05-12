@@ -566,6 +566,15 @@
 				<Russian>Use defibrillator</Russian>
 				<Polish>Use defibrillator</Polish>
 			</Key>
+			<Key ID="STR_X39_MS2_Scripting_InteractionMenu_useNaloxone">
+				<English>Use naloxone</English>
+				<German>Use naloxone</German>
+				<Hungarian>Use naloxone</Hungarian>
+				<Italian>Use naloxone</Italian>
+				<French>Use naloxone</French>
+				<Russian>Use naloxone</Russian>
+				<Polish>Use naloxone</Polish>
+			</Key>
 		</Container>
 		<Container name="XMSTicks">
 			<Key ID="STR_X39_MS2_Scripting_XMSTicks_temperatureTick_DeathThroughColdness">
