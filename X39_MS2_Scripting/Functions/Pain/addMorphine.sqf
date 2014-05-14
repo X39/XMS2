@@ -8,6 +8,7 @@
  * @Return - SCALAR - Current morphine of the unit
  */
 if(!X39_MS2_var_Feature_EnableMorphine) exitWith {};
+FORCELOCAL(_this select 0);
 private["_morphine"];
 _morphine = [(_this select 0)] call X39_MS2_fnc_getMorphine;
 _morphine = _morphine + ((_this select 1) * X39_MS2_var_Pain_GlobalMorphineModificator);

@@ -7,6 +7,8 @@
  * @Param2 - SCALAR - Value to add
  * @Return - SCALAR - Current damage of the unit
  */
+if(!X39_MS2_var_Damage_EnableHitzoneHands) exitWith {};
+FORCELOCAL(_this select 0);
 private["_damage"];
 _damage = [(_this select 0)] call X39_MS2_fnc_getDamageOfHands;
 _damage = _damage + ((_this select 1) * X39_MS2_var_Damage_HandsModificator);

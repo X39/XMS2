@@ -20,4 +20,18 @@
 private["_unit", "_handleID"];
 _unit = _this select 0;
 _handleID = _this select 1;
-//TODO: implement overlay
+
+//HitMarker
+_currentHitMarkerValue = (_unit getVariable ["X39_MS2_var_hitMarkerValue", 0]);
+if(_currentHitMarkerValue != 0) then
+{
+	_painValue = ([_unit] call X39_MS2_fnc_getPain) / (0 call X39_MS2_fnc_getMaxPain);
+	DEBUG_CODE(if(_painValue > 1) then { PRINT_ERROR("updateOverlay: HitMarker_painValue is > 1!"); };)
+	displayCtrl_Overlay(1294) ctrlSetTextColor [1, 1, 1, _currentHitMarkerValue * _painValue];
+	_currentHitMarkerValue = _currentHitMarkerValue - X39_MS2_var_HitMarker_ReductionPerTick;
+	if(_currentHitMarkerValue < 0) then 
+	{
+		_currentHitMarkerValue = 0;
+	};
+	_unit setVariable ["X39_MS2_var_hitMarkerValue", _currentHitMarkerValue, false];
+};

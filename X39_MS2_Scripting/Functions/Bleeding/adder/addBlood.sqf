@@ -7,6 +7,7 @@
  * @Param2 - SCALAR - Value to add
  * @Return - SCALAR - Current Bleeding of the unit
  */
+if(!X39_MS2_var_Feature_EnableBlood) exitWith {};
 private["_blood"];
 _blood = [(_this select 0)] call X39_MS2_fnc_getBlood;
 _blood = _blood + ((_this select 1) * X39_MS2_var_Bleeding_GlobalModificator);

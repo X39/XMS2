@@ -105,6 +105,7 @@ X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_TimeValue",			{-1												}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Internal_lastValues",			{[]												}, false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_triageCard",					{[]												}, false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_hitMarkerValue",				{0												}, false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_triageState",					{-1												}, true		]];
 
 //Reserve ppEffect/EventHandler variable holders (not all are used)
@@ -306,6 +307,9 @@ assignValue("X39_MS2_var_Pain_DamagePainForLegsModificator", 1.0);
 assignValue("X39_MS2_var_Adrenaline_enableHeartSimulation", true);
 ////HEART
 assignValue("X39_MS2_var_Adrenaline_useAdrenalineForHeartCalculations", true);
+assignValue("X39_MS2_var_Adrenaline_useFatigueForHeartCalculations", true);
+assignValue("X39_MS2_var_Adrenaline_allowForceWalkByPulse", true);
+assignValue("X39_MS2_var_Adrenaline_pulseUseFilmGrainForHighPulseIndicator", true);
 
 //Dynamic definitions
 ////GENERIC
@@ -324,10 +328,16 @@ assignValue("X39_MS2_var_Adrenaline_temporaryKnockOutRandomTimePulse", 20);
 assignValue("X39_MS2_var_Adrenaline_minHeartPulsePerSecond", 50);
 assignValue("X39_MS2_var_Adrenaline_basePulseChangePerTick", 0.125);
 assignValue("X39_MS2_var_Adrenaline_timeBeforeFlatLineKills", 120);
+assignValue("X39_MS2_var_Adrenaline_pulseForceWalkAt", 190);
+assignValue("X39_MS2_var_Adrenaline_pulseFilmGrainKickIn", 120);
 assignValue("X39_MS2_var_Adrenaline_PulseSpeedStage0", 0.001);
 assignValue("X39_MS2_var_Adrenaline_PulseSpeedStage1", 5);
 assignValue("X39_MS2_var_Adrenaline_PulseSpeedStage2", 12);
 assignValue("X39_MS2_var_Adrenaline_PulseSpeedStage3", 18);
+assignValue("X39_MS2_var_Adrenaline_PulseLimitStage1", 90);
+assignValue("X39_MS2_var_Adrenaline_PulseLimitStage2", 120);
+assignValue("X39_MS2_var_Adrenaline_PulseLimitStage3", 180);
+assignValue("X39_MS2_var_Adrenaline_PulseLimitStage4", -1);
 
 //Modificators
 ////GENERIC
@@ -336,6 +346,7 @@ assignValue("X39_MS2_var_Adrenaline_AdrenalinePulseMultiplicator", 1);
 ////HEART
 assignValue("X39_MS2_var_Adrenaline_pulseGlobalMultiplicator", 1);
 assignValue("X39_MS2_var_Adrenaline_pulseReductionMultiplicator", 2);
+assignValue("X39_MS2_var_Adrenaline_knockOutSmallerMinPulseManipulator", 0.2);
 
 /*************************
  * CATEGORY: Temperature *
@@ -360,6 +371,12 @@ assignValue("X39_MS2_var_Temperature_valueReductionWhileRainingPerTick", 0.01);
 //Modificators
 assignValue("X39_MS2_var_Temperature_GlobalModificator", 1.0);
 
+/***********************
+ * CATEGORY: HitMarker *
+ **********************/
+
+assignValue("X39_MS2_var_HitMarker_ReductionPerTick", 0.25);
+
 /***************************
  * CATEGORY: FEATURE FLAGS *
  **************************/
@@ -381,6 +398,8 @@ assignValue("X39_MS2_var_Feature_EnableHearing", true);
 assignValue("X39_MS2_var_Feature_EnableBlood", true);
 //Enables simulation of morphine
 assignValue("X39_MS2_var_Feature_EnableMorphine", true);
+//Enables the simple hit marker
+assignValue("X39_MS2_var_Feature_SimpleHitMarker", true);
 
 /***********************
  * CATEGORY: PPEFFECTS *

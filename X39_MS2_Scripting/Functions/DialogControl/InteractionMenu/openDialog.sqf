@@ -15,6 +15,7 @@ _this spawn {
 	_isInVehicle = vehicle player != player;
 	X39_MS2_var_Internal_Dialog_IsSelfInteracton = _isSelf;
 	X39_MS2_var_Internal_DialogCommunication_IM_Executor = player;
+	X39_MS2_var_Internal_DialogCommunication_IM_TargetBlackOutStage = -1;
 	if(_isSelf) then
 	{
 		X39_MS2_var_Internal_DialogCommunication_IM_Target = player;
@@ -31,7 +32,8 @@ _this spawn {
 		};
 	};
 	if(isNull X39_MS2_var_Internal_DialogCommunication_IM_Target) exitWith {};
-	
+	if(!([] call X39_MS2_fnc_isUnitXms2Unit)) exitWith {DEBUG_LOG("InteractionMenu_openDialog: Other unit is a nonXMS2 compatible unit")};
+	X39_MS2_var_Internal_DialogCommunication_IM_TargetBlackOutStage = [X39_MS2_var_Internal_DialogCommunication_IM_Target] call X39_MS2_fnc_getBlackOutStage;
 	_actions = [];
 	_index = 0;
 	{
@@ -59,4 +61,5 @@ _this spawn {
 	}count X39_MS2_var_Internal_InteractionMenu_Entries;
 	DEBUG_LOG(str _actions);
 	[_actions] call X39_ActionUI_fnc_createDialog;
+	DEBUG_CODE(systemChat format["InterAction menu currently targeting: %1" COMMA X39_MS2_var_Internal_DialogCommunication_IM_Target];)
 };

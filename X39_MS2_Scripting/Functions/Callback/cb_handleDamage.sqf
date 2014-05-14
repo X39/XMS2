@@ -95,4 +95,6 @@ if(_dmgP > X39_MS2_var_Damage_knockOutLimitP) then
 		[_unit, 2, -1, localize "STR_X39_MS2_Scripting_cb_handleDamage_knockOut"] call X39_MS2_fnc_blackOutUnit;
 	};
 };
+[_unit] call X39_MS2_fnc_overlay_showHitMarker;
+
 0

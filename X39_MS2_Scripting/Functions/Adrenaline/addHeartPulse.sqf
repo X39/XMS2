@@ -8,6 +8,7 @@
  * @Return - SCALAR - Current adrenaline of the unit
  */
 if(!X39_MS2_var_Feature_EnableAdrenaline) exitWith {};
+FORCELOCAL(_this select 0);
 private["_pulse"];
 _pulse = [(_this select 0)] call X39_MS2_fnc_getHeartPulse;
 _pulse = _pulse + ((_this select 1) * X39_MS2_var_Adrenaline_pulseGlobalMultiplicator);

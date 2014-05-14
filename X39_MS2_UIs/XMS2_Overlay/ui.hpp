@@ -156,7 +156,8 @@ class X39_MS2_Overay {
 		RscStructuredText_1172,
 		RscPicture_1291,
 		RscPicture_1292,
-		RscPicture_1293
+		RscPicture_1293,
+		RscPicture_1294
 	};
 
 	class RscPicture_1200: RscPicture
@@ -1468,7 +1469,7 @@ class X39_MS2_Overay {
 	class RscPicture_1291: RscPicture
 	{
 		idc = 1291;
-		text = "#(argb,8,8,3)color(1,1,1,1)";
+		text = "\X39_MS2_Resources\textures\BasicWaterOverlay.paa";
 		x = safezoneX;
 		y = safezoneY;
 		w = safezoneW;
@@ -1477,7 +1478,7 @@ class X39_MS2_Overay {
 	class RscPicture_1292: RscPicture
 	{
 		idc = 1292;
-		text = "#(argb,8,8,3)color(1,1,1,1)";
+		text = "\X39_MS2_Resources\textures\BloodOverlay.paa";
 		x = safezoneX;
 		y = safezoneY;
 		w = safezoneW;
@@ -1487,6 +1488,15 @@ class X39_MS2_Overay {
 	{
 		idc = 1293;
 		text = "\X39_MS2_Resources\textures\FrozenScreen_MiddleClear2.paa";
+		x = safezoneX;
+		y = safezoneY;
+		w = safezoneW;
+		h = safezoneH;
+	};
+	class RscPicture_1294: RscPicture
+	{
+		idc = 1294;
+		text = "\X39_MS2_Resources\textures\HitFeedback.paa";
 		x = safezoneX;
 		y = safezoneY;
 		w = safezoneW;

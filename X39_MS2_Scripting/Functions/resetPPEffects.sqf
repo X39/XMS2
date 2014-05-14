@@ -16,7 +16,7 @@ X39_MS2_var_Internal_ppe_colorInversion		ppEffectEnable X39_MS2_var_ppEffect_Ena
 
 X39_MS2_var_Internal_ppe_radialBlur			ppEffectAdjust [ 0, 0, 0.3, 0.3];
 X39_MS2_var_Internal_ppe_chromAberration	ppEffectAdjust [0, 0, true];
-X39_MS2_var_Internal_ppe_wetDistortion		ppEffectAdjust [1, 0.2, 0.2, 1, 1, 1, 1, 0.1, 0.1, 0.03, 0.03, 0.05, 0.55, 0.75, 0.75];
+X39_MS2_var_Internal_ppe_wetDistortion		ppEffectAdjust [0, 0, 0, 1, 1, 1, 1, 0.1, 0.1, 0.03, 0.03, 0.05, 0.55, 0.75, 0.75];
 X39_MS2_var_Internal_ppe_colorCorrections	ppEffectAdjust [1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1.75 * 1, 0, 1, 0.1, 1];
 X39_MS2_var_Internal_ppe_dynamicBlur		ppEffectAdjust [0];
 X39_MS2_var_Internal_ppe_filmGrain			ppEffectAdjust [0, 1, 1, 0.1, 0.1, false];

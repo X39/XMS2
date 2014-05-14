@@ -8,6 +8,7 @@
  * @Return - SCALAR - Current pain of the unit
  */
 if(!X39_MS2_var_Feature_EnableTemperature) exitWith {};
+FORCELOCAL(_this select 0);
 private["_temperature"];
 _temperature = [(_this select 0)] call X39_MS2_fnc_getTemperature;
 _temperature = _temperature + ((_this select 1) * X39_MS2_var_Temperature_GlobalModificator);

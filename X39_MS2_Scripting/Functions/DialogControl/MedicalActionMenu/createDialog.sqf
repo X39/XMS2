@@ -17,6 +17,7 @@ _this spawn {
 		X39_MS2_var_Internal_DialogCommunication_MA_Target = _caller;
 	};
 	_isSelf = (_caller == X39_MS2_var_Internal_DialogCommunication_MA_Target);
+	DEBUG_CODE(systemChat format["MedicalMenu is currently targeting: %1" COMMA X39_MS2_var_Internal_DialogCommunication_MA_Target];)
 	buttonSetAction  [1601, "if(lbCurSel 1500 == -1) exitWith {[] call X39_MS2_fnc_MedicalActionMenu_outputNothingSelectedMessage;}; if(str lbColor[1500, lbValue[1500, lbCurSel 1500]] == str [0,1,0,1]) then {[lbValue[1500, lbCurSel 1500], 'Hands'] call X39_MS2_fnc_MedicalActionMenu_btnPerformAction;}; ctrlSetFocus (findDisplay 26485 displayCtrl 1601);"];
 	buttonSetAction  [1602, "if(lbCurSel 1500 == -1) exitWith {[] call X39_MS2_fnc_MedicalActionMenu_outputNothingSelectedMessage;}; if(str lbColor[1500, lbValue[1500, lbCurSel 1500]] == str [0,1,0,1]) then {[lbValue[1500, lbCurSel 1500], 'Body'] call X39_MS2_fnc_MedicalActionMenu_btnPerformAction;}; ctrlSetFocus (findDisplay 26485 displayCtrl  1602);"];
 	buttonSetAction  [1603, "if(lbCurSel 1500 == -1) exitWith {[] call X39_MS2_fnc_MedicalActionMenu_outputNothingSelectedMessage;}; if(str lbColor[1500, lbValue[1500, lbCurSel 1500]] == str [0,1,0,1]) then {[lbValue[1500, lbCurSel 1500], 'Legs'] call X39_MS2_fnc_MedicalActionMenu_btnPerformAction;}; ctrlSetFocus (findDisplay 26485 displayCtrl  1603);"];
@@ -32,7 +33,6 @@ _this spawn {
 	buttonSetAction  [1614, "[] call X39_MS2_fnc_MedicalActionMenu_btnRemoveSelectedFromTriageCard;"];
 	buttonSetAction  [1615, "[] call X39_MS2_fnc_MedicalActionMenu_btnClearTriageCard;"];
 	
-	(findDisplay 26485 displayCtrl 2101) ctrlSetEventHandler ["LBSelChanged", "X39_MS2_var_Internal_DialogCommunication_MA_Target setVariable ['X39_MS2_var_triageState', _this select 1];"];
 
 
 	ctrlShow	[1201, X39_MS2_var_Damage_EnableHitzoneHead];
@@ -76,6 +76,7 @@ _this spawn {
 		false
 	}count X39_MS2_var_Internal_Dialog_TriageCard_States;
 	lbSetCurSel[2101, 0];
+	(findDisplay 26485 displayCtrl 2101) ctrlSetEventHandler ["LBSelChanged", "X39_MS2_var_Internal_DialogCommunication_MA_Target setVariable ['X39_MS2_var_triageState', _this select 1];"];
 	while {!([_caller] call X39_MS2_fnc_isBlackedOut) && dialog} do
 	{
 		_triageCardEntries = X39_MS2_var_Internal_DialogCommunication_MA_Target getVariable ["X39_MS2_var_triageCard", []];

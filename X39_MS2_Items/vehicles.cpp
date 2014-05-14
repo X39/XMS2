@@ -7,10 +7,10 @@ class X39_MS2_medicalbox: NATO_Box_Base {
 	icon = "iconCrateLarge";
 	mapSize = 2.34;
 	author = "X39|Cpt. HM Murdock";
-	transportMaxMagazines = 1000;
-	transportMaxWeapons = 1000;
-	transportMaxBackpacks = 1000;
-	maximumLoad = 2000;
+	transportMaxMagazines = 10000;
+	transportMaxWeapons = 10000;
+	transportMaxBackpacks = 10000;
+	maximumLoad = 200000;
 	
 	class TransportMagazines{};
 	class TransportWeapons{};

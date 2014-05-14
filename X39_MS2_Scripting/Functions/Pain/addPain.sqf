@@ -8,6 +8,7 @@
  * @Return - SCALAR - Current pain of the unit
  */
 if(!X39_MS2_var_Feature_EnablePain) exitWith {};
+FORCELOCAL(_this select 0);
 private["_pain"];
 _pain = [(_this select 0)] call X39_MS2_fnc_getPain;
 _pain = _pain + ((_this select 1) * X39_MS2_var_Pain_GlobalModificator);
