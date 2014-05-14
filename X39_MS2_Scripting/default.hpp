@@ -25,7 +25,7 @@
 	#define ISTEAM_MEMBER(X)(typeName X == "TEAM_MEMBER")
 	#define ISNAMESPACE(X)	(typeName X == "NAMESPACE")
 	
-	#define FORCELOCAL(X) if(!local X) exitWith {[_this, _fnc_scriptName, X, false] call BIS_fnc_MP;}
+	#define FORCELOCAL(X) if(!local (X)) exitWith {[_this, _fnc_scriptName, X, false] call BIS_fnc_MP;}
 	
 	#define PRINT_ERROR(TXT) diag_log format["%1|%2 ERROR: %3", diag_tickTime, time, TXT]
 	#define PRINT_WARNING(TXT) diag_log format["%1|%2 WARNING: %3", diag_tickTime, time, TXT]

@@ -22,7 +22,7 @@
  *	@Return		- SCALAR	- MAA ID
  *	@Author - X39|Cpt. HM Murdock
  */
-private["_name", "_fncName", "_limitationName", "_animation", "_sound", "_soundTimeout", "_image", "_timeout", "_items", "_condition", "_allowSelfUse", "_healingValue", "_animationTime", "_workingParts", "_consumesItems", "_bleedingCureValue", "_bleedingCureMaxBleed"];
+private["_index", "_name", "_fncName", "_limitationName", "_animation", "_sound", "_soundTimeout", "_image", "_timeout", "_items", "_condition", "_allowSelfUse", "_healingValue", "_animationTime", "_workingParts", "_consumesItems", "_bleedingCureValue", "_bleedingCureMaxBleed"];
 _name =					[_this, 0, "", [""]]		call BIS_fnc_param;
 _fncName =				[_this, 1, {}, [{}, ""]]	call BIS_fnc_param;
 _limitationName =		[_this, 2, "", [""]]		call BIS_fnc_param;
@@ -47,8 +47,8 @@ if(ISCHARP(_fncName) && {_fncName == ""})		then {_fncName = {};};
 //if(_animation == "")							exitWith {PRINT_ERROR("MedicalActions NEED an animation!");};
 //if(_sound == "")								exitWith {PRINT_ERROR("MedicalActions NEED a sound!");};
 //if(_image == "")								exitWith {PRINT_ERROR("MedicalActions NEED an image!");};
-
-X39_MS2_var_Internal_MedicalActions_actionArray set [count X39_MS2_var_Internal_MedicalActions_actionArray, [
+_index = count X39_MS2_var_Internal_MedicalActions_actionArray;
+X39_MS2_var_Internal_MedicalActions_actionArray set [_index, [
 														_name,					//0
 														_fncName,				//1
 														_limitationName,		//2
@@ -66,3 +66,4 @@ X39_MS2_var_Internal_MedicalActions_actionArray set [count X39_MS2_var_Internal_
 														_bleedingCureValue,		//14
 														_bleedingCureMaxBleed	//15
 													]];
+_index

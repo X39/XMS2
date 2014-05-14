@@ -17,6 +17,7 @@ _this spawn {
 		X39_MS2_var_Internal_DialogCommunication_MA_Target = _caller;
 	};
 	_isSelf = (_caller == X39_MS2_var_Internal_DialogCommunication_MA_Target);
+	DEBUG_CODE(systemChat format["MedicalMenu is currently targeting: %1" COMMA X39_MS2_var_Internal_DialogCommunication_MA_Target];)
 	buttonSetAction  [1601, "if(lbCurSel 1500 == -1) exitWith {[] call X39_MS2_fnc_MedicalActionMenu_outputNothingSelectedMessage;}; if(str lbColor[1500, lbValue[1500, lbCurSel 1500]] == str [0,1,0,1]) then {[lbValue[1500, lbCurSel 1500], 'Hands'] call X39_MS2_fnc_MedicalActionMenu_btnPerformAction;}; ctrlSetFocus (findDisplay 26485 displayCtrl 1601);"];
 	buttonSetAction  [1602, "if(lbCurSel 1500 == -1) exitWith {[] call X39_MS2_fnc_MedicalActionMenu_outputNothingSelectedMessage;}; if(str lbColor[1500, lbValue[1500, lbCurSel 1500]] == str [0,1,0,1]) then {[lbValue[1500, lbCurSel 1500], 'Body'] call X39_MS2_fnc_MedicalActionMenu_btnPerformAction;}; ctrlSetFocus (findDisplay 26485 displayCtrl  1602);"];
 	buttonSetAction  [1603, "if(lbCurSel 1500 == -1) exitWith {[] call X39_MS2_fnc_MedicalActionMenu_outputNothingSelectedMessage;}; if(str lbColor[1500, lbValue[1500, lbCurSel 1500]] == str [0,1,0,1]) then {[lbValue[1500, lbCurSel 1500], 'Legs'] call X39_MS2_fnc_MedicalActionMenu_btnPerformAction;}; ctrlSetFocus (findDisplay 26485 displayCtrl  1603);"];
