@@ -14,11 +14,9 @@ _fnc_getKey =
 {
 	_keycode = getNumber (_this >> "key");
 	_bool1 = (getNumber (_this >> "press_ctrl")) call X39_XLib_fnc_IntToBool;
-	_bool2 = (getNumber (_this >> "press_alt")) call X39_XLib_fnc_IntToBool;
 	_bool3 = (getNumber (_this >> "press_shift")) call X39_XLib_fnc_IntToBool;
-	_useActionKey = (getNumber (_this >> "useActionKey")) call X39_XLib_fnc_IntToBool;
-	_actionKey = getText (_this >> "actionKey");
-	[_useActionKey, _keycode, _bool1, _bool2, _bool3, _actionKey]
+	_bool2 = (getNumber (_this >> "press_alt")) call X39_XLib_fnc_IntToBool;
+	[_keycode, _bool1, _bool2, _bool3]
 };
 
 //################################
@@ -66,8 +64,8 @@ assignValue("X39_MS2_var_UIs_XMS2_Overay_ShownInCurrentMission", false);
 
 assignValue("X39_MS2_var_Internal_Keys", []);
 //Settings
-X39_MS2_var_Internal_Keys set [count X39_MS2_var_Internal_Keys, [(configFile >> "CfgSettings" >> "X39" >> "XMS2" >> "ClientConfig" >> "keys" >> "Key1") call _fnc_getKey, {X39_MS2_var_Internal_Dialog_IsSelfInteracton = true;	[true] call X39_MS2_fnc_interactionMenu_openDialog;}]];
-X39_MS2_var_Internal_Keys set [count X39_MS2_var_Internal_Keys, [(configFile >> "CfgSettings" >> "X39" >> "XMS2" >> "ClientConfig" >> "keys" >> "Key2") call _fnc_getKey, {X39_MS2_var_Internal_Dialog_IsSelfInteracton = false;[false] call X39_MS2_fnc_interactionMenu_openDialog;}]];
+X39_MS2_var_Internal_Keys set [count X39_MS2_var_Internal_Keys, ["X39_MS2_var_Internal_Key1", {X39_MS2_var_Internal_Dialog_IsSelfInteracton = true;	[true] call X39_MS2_fnc_interactionMenu_openDialog;},	(configFile >> "CfgSettings" >> "X39" >> "XMS2" >> "ClientConfig" >> "keys" >> "Key1") call _fnc_getKey]];
+X39_MS2_var_Internal_Keys set [count X39_MS2_var_Internal_Keys, ["X39_MS2_var_Internal_Key2", {X39_MS2_var_Internal_Dialog_IsSelfInteracton = false;[false] call X39_MS2_fnc_interactionMenu_openDialog;},	(configFile >> "CfgSettings" >> "X39" >> "XMS2" >> "ClientConfig" >> "keys" >> "Key2") call _fnc_getKey]];
 
 assignValue("X39_MS2_var_Internal_UnitVariables", []);
 //																				  |Variable name								|Value (as code)								|Will this be broadcasted over the network?|
@@ -88,6 +86,7 @@ X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_FiredNear",					{-1												}, false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_Explosion",					{-1												}, false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_AnimStateChanged",			{-1												}, false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_Respawn",					{-1												}, false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Adrenaline_value",				{0												}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Adrenaline_heartPulse",			{X39_MS2_var_Adrenaline_minHeartPulsePerSecond	}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Adrenaline_HasFlatLine",		{-1												}, true		]];
@@ -122,7 +121,7 @@ assignValue("X39_MS2_var_Internal_deh_keyDown", -1);
 
 
 //MedicalActions
-assignValue("X39_MS2_var_Internal_MedicalActions_actionArray", []);
+assignValue("X39_MS2_var_Internal_MedicalActions_actionArray", [objNull]);
 [] call X39_MS2_fnc_IMH_registerMedicalActions;
 
 //Ticker
@@ -146,8 +145,12 @@ assignValue("X39_MS2_var_Internal_XMSEffects_MaxLifetime", 32000);
 assignValue("X39_MS2_var_Internal_DialogCommunication_IM_Target", objNull);
 assignValue("X39_MS2_var_Internal_DialogCommunication_IM_Executor", objNull);
 assignValue("X39_MS2_var_Internal_DialogCommunication_IM_preventActions", false);
+assignValue("X39_MS2_var_Internal_DialogCommunication_MA_Caller", objNull);
 assignValue("X39_MS2_var_Internal_DialogCommunication_MA_Target", objNull);
 assignValue("X39_MS2_var_Internal_DialogCommunication_MA_preventActions", false);
+assignValue("X39_MS2_var_Internal_DialogCommunication_MA_crafting", []);
+assignValue("X39_MS2_var_Internal_DialogCommunication_MA_currentItem", -1);
+assignValue("X39_MS2_var_Internal_DialogCommunication_MA_craftingResultItemIndex", -1);
 assignValue("X39_MS2_var_Internal_DialogCommunication_BO_isActive", false);
 
 assignValue("X39_MS2_var_Internal_Dialog_TriageCard_States", []);
@@ -162,12 +165,20 @@ assignValue("X39_MS2_var_Internal_Dialog_IsSelfInteracton", false);
 assignValue("X39_MS2_var_Internal_InteractionMenu_Entries", []);
 [] call X39_MS2_fnc_IMH_addInteractionMenuEntries;
 
+/******************************
+ * CATEGORY: PROFILENAMESPACE *
+ *****************************/
+assignValue3("X39_MS2_var_MedicalUI_selectedCheckUnitIndex", 0, profileNamespace);
+
+
+
 /***********************
  * CATEGORY: BACKBLAST *
  **********************/
 //http://upload.wikimedia.org/wikipedia/commons/c/c4/A-1_Backblast_area_and_surface_danger_zone.PNG
-assignValue("X39_MS2_var_BackBlast_range", 10);
-assignValue("X39_MS2_var_BackBlast_damageDealtOverall", 3);
+assignValue("X39_MS2_var_BackBlast_RangeMaxDamage", 2);
+assignValue("X39_MS2_var_BackBlast_DamageFalloffRange", 10);
+assignValue("X39_MS2_var_BackBlast_MaxDamage", 3);
 assignValue("X39_MS2_var_BackBlast_knocksOut", true);
 assignValue("X39_MS2_var_BackBlast_maxAngle", 45);
 
@@ -422,7 +433,7 @@ assignValue("X39_MS2_var_ppEffect_EnableColorInversion", true);
 /***************************
  * CATEGORY: DialogControl *
  **************************/
-assignValue("X39_MS2_var_DialogControl_MedicalActionMenu_checkUnitTimeout", 20); //TODO: Adjust
+assignValue("X39_MS2_var_DialogControl_MedicalActionMenu_checkUnitTimeout", [5 COMMA 20 COMMA 60]);
 
 /*****************************
  * CATEGORY: InteractionMenu *
@@ -460,6 +471,12 @@ assignValue("X39_MS2_var_MedicalActions_MediPack_DamageHealing", 5);
 assignValue("X39_MS2_var_MedicalActions_HeatPack_TemperatureChange", 4);
 
 /*******************
+ * CATEGORY: SOUND *
+ ******************/
+assignValue("X39_MS2_var_Sound_playExtremePainSounds", true);
+assignValue("X39_MS2_var_Sound_playExtremePainSounds_startPointP", 0.5);
+ 
+/*******************
  * CATEGORY: DEBUG *
  ******************/
 assignValue("X39_MS2_DEBUG_ppeDynamicBlur", -1);
@@ -468,10 +485,16 @@ assignValue("X39_MS2_DEBUG_ppeFocus", -1);
 assignValue("X39_MS2_DEBUG_ppeFilmGrain", -1);
 assignValue("X39_MS2_DEBUG_ppeChromAberration", -1);
 assignValue("X39_MS2_DEBUG_ppeGreyScreen", -1);
+assignValue("X39_MS2_DEBUG_redScreenAlpha", -1);
 assignValue("X39_MS2_DEBUG_cfnDisableFatigue", -1);
 assignValue("X39_MS2_DEBUG_cfnForceWalk", -1);
+
 
 if(isServer) then
 {
 	[] call X39_MS2_fnc_applyServerConfig;
+};
+if(!isDedicated) then
+{
+	[] call X39_MS2_fnc_applyClientConfig;
 };

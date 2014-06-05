@@ -2,8 +2,8 @@
 /**
  *	UI function
  *
- *	@Param1 - SCALAR - index
- *	@Param2 - STRING - function suffix
+ *	@Param1 - STRING - function suffix
+ *	@Param2 - BOOL - generate add/get/set dummies for this
  *	@Return - N/A
  *	@Author - X39|Cpt. HM Murdock
  */
@@ -11,33 +11,29 @@ if(X39_MS2_var_Internal_DialogCommunication_MA_preventActions) exitWith {};//TOD
 _this spawn {
 	X39_MS2_var_Internal_DialogCommunication_MA_preventActions = true;
 	_this call {
-		private["_fncAdd", "_fncSet", "_fncGet", "_fncAddH", "_fncSetH", "_fncGetH", "_targetToRemoveItemsFrom"];
+		scopeName "returnOutOfScope";
+		private["_fncAdd", "_fncSet", "_fncGet", "_targetToRemoveItemsFrom"];
 
 		DEBUG_CODE(_fnc_scriptName = "X39_MS2_fnc_MedicalActionMenu_btnPerformAction");
-		_index =					[_this, 0, 0, [0]] call BIS_fnc_param;
-		_suffix =					[_this, 1, "", [""]] call BIS_fnc_param;
-		_usesGetSetAddFunctions =	[_this, 2, true, [true]] call BIS_fnc_param;
+		_index = X39_MS2_var_Internal_DialogCommunication_MA_currentItem;
+		_suffix = toUpper ([_this, 0, "", [""]] call BIS_fnc_param);
+		_usesGetSetAddFunctions =	[_this, 1, true, [true]] call BIS_fnc_param;
+		if(X39_MS2_var_Internal_DialogCommunication_MA_currentItem == -1) exitWith {};
 
-		if(_index < 0 || {_index > count X39_MS2_var_Internal_MedicalActions_actionArray}) exitWith {PRINT_WARNING("Requested action is not existing inside of the MAA");};
+		if(_index < 1 || {_index > count X39_MS2_var_Internal_MedicalActions_actionArray}) exitWith {PRINT_WARNING("Requested action is not existing inside of the MAA");};
 		_action = X39_MS2_var_Internal_MedicalActions_actionArray select _index;
 
 		if(_suffix == "") exitWith {PRINT_ERROR("No functionSuffix has been provided");};
 
 		if(_usesGetSetAddFunctions) then
 		{
-			DEBUG_LOG_WFn(format["X39_MS2_fnc_addDamageTo%1" COMMA _suffix]);
-			DEBUG_LOG_WFn(format["X39_MS2_fnc_setDamageTo%1" COMMA _suffix]);
-			DEBUG_LOG_WFn(format["X39_MS2_fnc_getDamageTo%1" COMMA _suffix]);
-			_fncAddH = format["X39_MS2_fnc_addDamageTo%1", _suffix];
-			_fncSetH = format["X39_MS2_fnc_setDamageOf%1", _suffix];
-			_fncGetH = format["X39_MS2_fnc_getDamageOf%1", _suffix];
 			
-			_fncAdd = {[_this, _fncAddH, (_this select 0), false] call BIS_fnc_MP;};
-			_fncSet = {[_this, _fncSetH, (_this select 0), false] call BIS_fnc_MP;};
-			_fncGet = {[_this, _fncGetH, (_this select 0), false] call BIS_fnc_MP;};
-			if(isNil "_fncAdd") exitWith {PRINT_ERROR(format["The function %1 has not been found" COMMA format["X39_MS2_fnc_addDamageTo%1" COMMA _suffix]]);};
-			if(isNil "_fncSet") exitWith {PRINT_ERROR(format["The function %1 has not been found" COMMA format["X39_MS2_fnc_setDamageOf%1" COMMA _suffix]]);};
-			if(isNil "_fncGet") exitWith {PRINT_ERROR(format["The function %1 has not been found" COMMA format["X39_MS2_fnc_getDamageOf%1" COMMA _suffix]]);};
+			_fncAdd = {[_this, format["X39_MS2_fnc_addDamageTo%1", _suffix], (_this select 0), false] call BIS_fnc_MP;};
+			_fncSet = {[_this, format["X39_MS2_fnc_setDamageOf%1", _suffix], (_this select 0), false] call BIS_fnc_MP;};
+			_fncGet = {[_this, format["X39_MS2_fnc_getDamageOf%1", _suffix], (_this select 0), false] call BIS_fnc_MP;};
+			if(isNil "_fncAdd") exitWith {PRINT_ERROR(format["The function %1 has not been found" COMMA format["X39_MS2_fnc_addDamageTo%1" COMMA _suffix]]); breakOut "returnOutOfScope";};
+			if(isNil "_fncSet") exitWith {PRINT_ERROR(format["The function %1 has not been found" COMMA format["X39_MS2_fnc_setDamageOf%1" COMMA _suffix]]); breakOut "returnOutOfScope";};
+			if(isNil "_fncGet") exitWith {PRINT_ERROR(format["The function %1 has not been found" COMMA format["X39_MS2_fnc_getDamageOf%1" COMMA _suffix]]); breakOut "returnOutOfScope";};
 		}
 		else
 		{
@@ -49,20 +45,20 @@ _this spawn {
 		DEBUG_LOG_WFn(format["_fncSet = '%1'" COMMA _fncSet]);
 		DEBUG_LOG_WFn(format["_fncGet = '%1'" COMMA _fncGet]);
 		//Handle action
-		//_name =				(_action select 0);
-		_fncName =			(_action select 1);
-		_limitationName =	(_action select 2); //TODO: Implement new limitation system
-		_animation =		(_action select 3);
-		_animationTime =	(_action select 4);
-		_sound =			(_action select 5);
-		_soundTimeout =		(_action select 6);
-		_image =			(_action select 7);
-		_items =			(_action select 8);
-		//_condition =		(_action select 9);
-		//_allowSelfUse =		(_action select 10);
-		_healingValue =		(_action select 11);
-		_workingParts =		(_action select 12);
-		_consumesItems =	(_action select 13);
+		//_name =			(	_action select  1 	);
+		_fncName =			(	_action select  2 	);
+		_limitationName =	(	_action select  3 	); //TODO: Implement new limitation system
+		_animation =		(	_action select  4 	);
+		_animationTime =	(	_action select  5 	);
+		_sound =			(	_action select  6 	);
+		_soundTimeout =		(	_action select  7 	);
+		_image =			(	_action select  8 	);
+		_items =			(	_action select  9 	);
+		//_condition =		(	_action select  10 	);
+		//_allowSelfUse =	(	_action select  11 	);
+		_healingValue =		(	_action select  12 	);
+		_workingParts =		(	_action select  13 	);
+		_consumesItems =	(	_action select 	14	);
 
 		_efficency = 1; //TODO: Implement new limitation system
 
@@ -75,29 +71,32 @@ _this spawn {
 			_healingValue = missionNamespace getVariable [_healingValue, ""];
 		};
 
-		if(_workingParts find _suffix == -1) exitWith {};//TODO: not valid for this selection message output
+		if(_workingParts find _suffix == -1) exitWith {[] call X39_MS2_fnc_MedicalActionMenu_outputCannotBeAppliedOnThisPartMessage};
 
 		if(_consumesItems && {count _items > 0}) then
 		{
-			private[""];
+			private["_index", "_i"];
 			_targetToRemoveItemsFrom = if({items player find _x != -1} count _items > 0) then { player } else { if({items X39_MS2_var_Internal_DialogCommunication_MA_Target find _x != -1} count _items > 0 ) then { X39_MS2_var_Internal_DialogCommunication_MA_Target } else { objNull}};
-			if(isNull _targetToRemoveItemsFrom) exitWith { [_items select (floor (random count _items)), X39_MS2_var_Internal_DialogCommunication_MA_Target] call X39_MS2_fnc_MedicalActionMenu_outputMissingItemsMessage; };
+			if(isNull _targetToRemoveItemsFrom) exitWith { [_items select (floor (random count _items)), X39_MS2_var_Internal_DialogCommunication_MA_Target] call X39_MS2_fnc_MedicalActionMenu_outputMissingItemsMessage; breakOut "returnOutOfScope"; };
 			_index = -1;
 			_i = 0;
 			while{_index == -1} do
 			{
-				if(items _targetToRemoveItemsFrom find (_items select _index) != -1) then
+				if(items _targetToRemoveItemsFrom find (_items select 0) != -1) then
 				{
-					_index = items _targetToRemoveItemsFrom find (_items select _index);
+					_index = items _targetToRemoveItemsFrom find (_items select 0);
 				};
+				
+				//Make sure we only iterate one time through the entire inventory
 				_i = _i + 1;
-				if(count items _targetToRemoveItemsFrom == _i) then
+				if(count items _targetToRemoveItemsFrom == _i && _index == -1) then
 				{
+					//when through set _index to -2 to indicate that something moved wrong
 					_index = -2;
 				};
 			};
-			if(_index == -2) exitWith { PRINT_ERROR(format["btnPerformAction was unable to perform the remove of an item! Please check manually using these values and report: %1" COMMA [_targetToRemoveItemsFrom COMMA items _targetToRemoveItemsFrom COMMA _items]]); };
-			_targetToRemoveItemsFrom removeItem (_items select _index);
+			if(_index == -2) exitWith { PRINT_ERROR(format["btnPerformAction was unable to perform the remove of an item! Please check manually using these values and report: %1" COMMA [_targetToRemoveItemsFrom COMMA items _targetToRemoveItemsFrom COMMA _items]]); breakOut "returnOutOfScope";};
+			_targetToRemoveItemsFrom removeItem (_items select 0);
 		};
 
 		DEBUG_LOG_WFn(str [_this COMMA _action]);

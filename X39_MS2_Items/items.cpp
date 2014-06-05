@@ -2,12 +2,13 @@ class x39_xms2_bandage : ItemCore
 {
 	scope = 2;
 	displayName = $STR_X39_MS2_Items_Items_Bandage;
+	model = "\X39_MS2_Resources\Items\Bandage\Bandage.p3d";
 	class ItemInfo
     {
 		mass = 2;
 		type = 201;
     }; 
-	picture = "\X39_MS2_Resources\Items\Bandage.paa";
+	picture = "\X39_MS2_Resources\Items\Bandage\Bandage.paa";
 	descriptionShort = "";
 };
 class x39_xms2_adrenaline : ItemCore

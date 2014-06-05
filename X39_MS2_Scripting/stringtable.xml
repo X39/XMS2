@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="ArmA3">
 	<Package name="X39_MS2_Scripting">
+		<Container name="veh_Modules">
+			<Key ID="STR_X39_MS2_Scripting_Modules_BaseModule">
+				  <English>Base module</English>
+				   <German>Base module</German>
+				<Hungarian>Base module</Hungarian>
+				  <Italian>Base module</Italian>
+				   <French>Base module</French>
+				  <Russian>Base module</Russian>
+				   <Polish>Base module</Polish>
+			</Key>
+		</Container>
 		<Container name="MedicalMessages">
 			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Legs_Low">
 				  <English>%1s legs are damaged lightly</English>
@@ -362,6 +373,42 @@
 				  <Russian>%1s is bleeding deadly</Russian>
 				   <Polish>%1s is bleeding deadly</Polish>
 			</Key>
+			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Pain_Low">
+				  <English>%1 has light pain</English>
+				   <German>%1 has light pain</German>
+				<Hungarian>%1 has light pain</Hungarian>
+				  <Italian>%1 has light pain</Italian>
+				   <French>%1 has light pain</French>
+				  <Russian>%1 has light pain</Russian>
+				   <Polish>%1 has light pain</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Pain_Middle">
+				  <English>%1 has medium pain</English>
+				   <German>%1 has medium pain</German>
+				<Hungarian>%1 has medium pain</Hungarian>
+				  <Italian>%1 has medium pain</Italian>
+				   <French>%1 has medium pain</French>
+				  <Russian>%1 has medium pain</Russian>
+				   <Polish>%1 has medium pain</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Pain_High">
+				  <English>%1 has heavy pain</English>
+				   <German>%1 has heavy pain</German>
+				<Hungarian>%1 has heavy pain</Hungarian>
+				  <Italian>%1 has heavy pain</Italian>
+				   <French>%1 has heavy pain</French>
+				  <Russian>%1 has heavy pain</Russian>
+				   <Polish>%1 has heavy pain</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Pain_Extreme">
+				  <English>%1 in agony because of pain</English>
+				   <German>%1 in agony because of pain</German>
+				<Hungarian>%1 in agony because of pain</Hungarian>
+				  <Italian>%1 in agony because of pain</Italian>
+				   <French>%1 in agony because of pain</French>
+				  <Russian>%1 in agony because of pain</Russian>
+				   <Polish>%1 in agony because of pain</Polish>
+			</Key>
 			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_">
 				  <English>Youre</English>
 				   <German>Youre</German>
@@ -372,7 +419,7 @@
 				   <Polish>Youre</Polish>
 			</Key>
 		</Container>
-		<Container name="DialogControl_BlackOutDialog">
+		<Container name="DialogControl_MedicalActionMenu">
 			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_BlockedMessage1">
 				<English>Youre currently doing something else</English>
 				<German>Youre currently doing something else</German>
@@ -481,8 +528,42 @@
 				<Russian>Missing %1</Russian>
 				<Polish>Missing %1</Polish>
 			</Key>
-		</Container>
-		<Container name="DialogControl_BlackOutDialog">
+			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_CannotBeAppliedOnPart1">
+				<English>Cannot be applied on this part</English>
+				<German>Cannot be applied on this part</German>
+				<Hungarian>Cannot be applied on this part</Hungarian>
+				<Italian>Cannot be applied on this part</Italian>
+				<French>Cannot be applied on this part</French>
+				<Russian>Cannot be applied on this part</Russian>
+				<Polish>Cannot be applied on this part</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_CannotBeAppliedOnPart2">
+				<English>You need to select a different body part</English>
+				<German>You need to select a different body part</German>
+				<Hungarian>You need to select a different body part</Hungarian>
+				<Italian>You need to select a different body part</Italian>
+				<French>You need to select a different body part</French>
+				<Russian>You need to select a different body part</Russian>
+				<Polish>You need to select a different body part</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_CannotBeAppliedOnPart3">
+				<English>Try another part of the body for this</English>
+				<German>Try another part of the body for this</German>
+				<Hungarian>Try another part of the body for this</Hungarian>
+				<Italian>Try another part of the body for this</Italian>
+				<French>Try another part of the body for this</French>
+				<Russian>Try another part of the body for this</Russian>
+				<Polish>Try another part of the body for this</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_CannotBeAppliedOnPart4">
+				<English>This makes no sense</English>
+				<German>This makes no sense</German>
+				<Hungarian>This makes no sense</Hungarian>
+				<Italian>This makes no sense</Italian>
+				<French>This makes no sense</French>
+				<Russian>This makes no sense</Russian>
+				<Polish>This makes no sense</Polish>
+			</Key>
 			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_TimeLeftDeath">
 				<English>Time left for revive</English>
 				<German>Time left for revive</German>
@@ -501,7 +582,7 @@
 				<Russian>Time left unconscious</Russian>
 				<Polish>Time left unconscious</Polish>
 			</Key>
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_BloodLeft">
+			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_BloodLeft">
 				<English>Blood left</English>
 				<German>Blood left</German>
 				<Hungarian>Blood left</Hungarian>
@@ -510,7 +591,7 @@
 				<Russian>Blood left</Russian>
 				<Polish>Blood left</Polish>
 			</Key>
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_Temperature">
+			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_Temperature">
 				<English>Temperature</English>
 				<German>Temperature</German>
 				<Hungarian>Temperature</Hungarian>
@@ -519,7 +600,7 @@
 				<Russian>Temperature</Russian>
 				<Polish>Temperature</Polish>
 			</Key>
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_Pulse">
+			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_Pulse">
 				<English>Pulse</English>
 				<German>Pulse</German>
 				<Hungarian>Pulse</Hungarian>
@@ -527,6 +608,60 @@
 				<French>Pulse</French>
 				<Russian>Pulse</Russian>
 				<Polish>Pulse</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_CheckUnit_quick">
+				<English>Quick check</English>
+				<German>Quick check</German>
+				<Hungarian>Quick check</Hungarian>
+				<Italian>Quick check</Italian>
+				<French>Quick check</French>
+				<Russian>Quick check</Russian>
+				<Polish>Quick check</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_CheckUnit_normal">
+				<English>Usual check</English>
+				<German>Usual check</German>
+				<Hungarian>Usual check</Hungarian>
+				<Italian>Usual check</Italian>
+				<French>Usual check</French>
+				<Russian>Usual check</Russian>
+				<Polish>Usual check</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_CheckUnit_full">
+				<English>Full check</English>
+				<German>Full check</German>
+				<Hungarian>Full check</Hungarian>
+				<Italian>Full check</Italian>
+				<French>Full check</French>
+				<Russian>Full check</Russian>
+				<Polish>Full check</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_TargetLabel">
+				<English>Targeting: %1</English>
+				<German>Targeting: %1</German>
+				<Hungarian>Targeting: %1</Hungarian>
+				<Italian>Targeting: %1</Italian>
+				<French>Targeting: %1</French>
+				<Russian>Targeting: %1</Russian>
+				<Polish>Targeting: %1</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_ItemSelectionStartText">
+				<English>No item has been selected yet</English>
+				<German>No item has been selected yet</German>
+				<Hungarian>No item has been selected yet</Hungarian>
+				<Italian>No item has been selected yet</Italian>
+				<French>No item has been selected yet</French>
+				<Russian>No item has been selected yet</Russian>
+				<Polish>No item has been selected yet</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_ItemSelectionText">
+				<English>Currently selected item: %1</English>
+				<German>Currently selected item: %1</German>
+				<Hungarian>Currently selected item: %1</Hungarian>
+				<Italian>Currently selected item: %1</Italian>
+				<French>Currently selected item: %1</French>
+				<Russian>Currently selected item: %1</Russian>
+				<Polish>Currently selected item: %1</Polish>
 			</Key>
 		</Container>
 		<Container name="InteractionMenu">

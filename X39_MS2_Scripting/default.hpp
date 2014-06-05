@@ -6,6 +6,7 @@
 	
 	#define displayCtrl_Overlay(X) ((uiNamespace getVariable "X39_MS2_var_UIs_XMS2_Overay") displayCtrl X)
 	#define displayCtrl_BlackoutUI(X) ((uiNamespace getVariable "X39_MS2_var_UIs_XMS2_BlackOutUi") displayCtrl X)
+	#define displayCtrl_MedicalUi(X) ((uiNamespace getVariable "X39_MS2_var_UIs_MedicalUi") displayCtrl X)
 	
 	#define dISARRAY(X)		(typeName X == "ARRAY")
 	#define ISBOOL(X)		(typeName X == "BOOL")
@@ -27,11 +28,14 @@
 	
 	#define FORCELOCAL(X) if(!local (X)) exitWith {[_this, _fnc_scriptName, X, false] call BIS_fnc_MP;}
 	
+	#define NOTIMPLEMENTED diag_log format["%1 is not implemented", _fnc_scriptName]; systemChat format["%1 is not implemented", _fnc_scriptName];
+	
 	#define PRINT_ERROR(TXT) diag_log format["%1|%2 ERROR: %3", diag_tickTime, time, TXT]
 	#define PRINT_WARNING(TXT) diag_log format["%1|%2 WARNING: %3", diag_tickTime, time, TXT]
 	#define PRINT_INFO(TXT) diag_log format["%1|%2 INFO: %3", diag_tickTime, time, TXT]
 	
 	#define assignValue(NAM,VAL) if(isNil NAM) then { missionNamespace setVariable [NAM, VAL]; } else { PRINT_WARNING(format["%1 is already set, JIP player?" COMMA VAL]); }
+	#define assignValue3(NAM,VAL,NAMESPACE) if(isNil {NAMESPACE getVariable NAM}) then { NAMESPACE setVariable [NAM, VAL]; }
 	
 	#define REGION()
 	#define ENDREGION()
@@ -39,7 +43,7 @@
 	#define COMMA ,
 	
 	#ifndef DEBUG
-	#define DEBUG
+		#define DEBUG
 	#endif
 
 	#ifndef DEBUG

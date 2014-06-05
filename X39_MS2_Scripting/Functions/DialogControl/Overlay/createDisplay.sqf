@@ -166,6 +166,9 @@ REGION(HIDE EVERYTHING {)
 	displayCtrl_Overlay(1294) ctrlShow false;
 ENDREGION(})
 
+displayCtrl_Overlay(1293) ctrlShow true;
+displayCtrl_Overlay(1293) ctrlSetTextColor [1, 1, 1, 0];
+
 displayCtrl_Overlay(1294) ctrlShow true;
 displayCtrl_Overlay(1294) ctrlSetTextColor [1, 1, 1, 0];
 

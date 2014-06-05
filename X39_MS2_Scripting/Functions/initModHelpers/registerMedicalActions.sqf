@@ -6,25 +6,9 @@
  *	@Author - X39|Cpt. HM Murdock
  */
 //"Hands", "Body", "Legs", "Head", "Generic", "Temperature"
-nope = {systemChat format["nope: %1", _this];};
+
 [
-	"Morphine",
-	{
-		[_this select 0, X39_MS2_var_MedicalActions_Morphine_AdditionalMorphineValue] call X39_MS2_fnc_addMorphine;
-	},
-	"",
-	"Acts_TreatingWounded02",
-	1, //8.032,
-	"XMS2_SoundFiles_injection_3",
-	0,
-	"\X39_MS2_Resources\Items\MorphineInjector.paa",
-	["x39_xms2_morphine"],
-	{true},
-	0,
-	"X39_MS2_var_MedicalActions_Morphine_DamageHealing",
-	["Hands", "Body", "Legs", "Head", "Generic"]
-] call X39_MS2_fnc_registerAction;
-[
+	"Naloxone",
 	"Naloxone",
 	{
 		[_this select 0, X39_MS2_var_MedicalActions_Naloxone_AdditionalMorphineValue] call X39_MS2_fnc_addMorphine;
@@ -42,6 +26,25 @@ nope = {systemChat format["nope: %1", _this];};
 	["Hands", "Body", "Legs", "Head", "Generic"]
 ] call X39_MS2_fnc_registerAction;
 [
+	"Morphine",
+	"Morphine",
+	{
+		[_this select 0, X39_MS2_var_MedicalActions_Morphine_AdditionalMorphineValue] call X39_MS2_fnc_addMorphine;
+	},
+	"",
+	"Acts_TreatingWounded02",
+	1, //8.032,
+	"XMS2_SoundFiles_injection_3",
+	0,
+	"\X39_MS2_Resources\Items\MorphineInjector.paa",
+	["x39_xms2_morphine"],
+	{true},
+	0,
+	"X39_MS2_var_MedicalActions_Morphine_DamageHealing",
+	["Hands", "Body", "Legs", "Head", "Generic"]
+] call X39_MS2_fnc_registerAction;
+[
+	"Adrenaline",
 	"Adrenaline",
 	{
 		[(_this select 1), X39_MS2_var_MedicalActions_Adrenaline_AdrenalineChange] call X39_MS2_fnc_addAdrenaline;
@@ -59,18 +62,19 @@ nope = {systemChat format["nope: %1", _this];};
 	["Hands", "Body", "Legs", "Head", "Generic"]
 ] call X39_MS2_fnc_registerAction;
 [
+	"Bandage",
 	"bandage",
 	{
 		_unit = _this select 0;
 		_part = _this select 3;
-		[_unit, -X39_MS2_var_MedicalActions_StickyBandage_BleedingCure] call format["X39_MS2_fnc_addBleedingTo%1", _part];
+		[_unit, -X39_MS2_var_MedicalActions_StickyBandage_BleedingCure] call (missionNamespace getVariable format["X39_MS2_fnc_addBleedingTo%1", _part]);
 	},
 	"",
 	"Acts_TreatingWounded03",
 	1, //8.665,
 	"XMS2_SoundFiles_Bandage_unwrapping",
 	0,
-	"\X39_MS2_Resources\Items\Bandage.paa",
+	"\X39_MS2_Resources\Items\Bandage\Bandage.paa",
 	["x39_xms2_bandage"],
 	{true},
 	0,
@@ -78,6 +82,7 @@ nope = {systemChat format["nope: %1", _this];};
 	["Hands", "Body", "Legs", "Head", "Generic"]
 ] call X39_MS2_fnc_registerAction;
 [
+	"cold spray",
 	"cold spray",
 	{
 		[(_this select 1), X39_MS2_var_MedicalActions_ColdSpray_TemperatureChange] call X39_MS2_fnc_addTemperature;
@@ -97,6 +102,7 @@ nope = {systemChat format["nope: %1", _this];};
 ] call X39_MS2_fnc_registerAction;
 [
 	"MediPack",
+	"MediPack",
 	{},
 	"",
 	"",
@@ -112,6 +118,7 @@ nope = {systemChat format["nope: %1", _this];};
 ] call X39_MS2_fnc_registerAction;
 
 [
+	"HeatPack",
 	"HeatPack",
 	{
 		[(_this select 1), X39_MS2_var_MedicalActions_HeatPack_TemperatureChange * (_this select 2)] call X39_MS2_fnc_addTemperature;

@@ -15,8 +15,13 @@
  */
 private["_unit", "_resetEffects"];
 
-_unit = [_this, 0, objNull, [objNull]] call BIS_fnc_param;
+_unit = [_this, 0, objNull, [objNull, {}]] call BIS_fnc_param;
 _resetEffects = false;
+
+if(ISCODE(_unit)) then
+{
+	_unit = [] call _unit;
+};
 
 if(!ISOBJECT(_unit)) exitWith
 {
@@ -38,6 +43,7 @@ else
 	if((_unit getVariable ["X39_MS2_var_EH_FiredNear", -1]) == -1)			then { _unit setVariable["X39_MS2_var_EH_FiredNear",		_unit addEventHandler["FiredNear",			{_this call X39_MS2_fnc_cb_FiredNear}], true];			};
 	if((_unit getVariable ["X39_MS2_var_EH_Explosion", -1]) == -1)			then { _unit setVariable["X39_MS2_var_EH_Explosion",		_unit addEventHandler["Explosion",			{_this call X39_MS2_fnc_cb_Explosion}], true];			};
 	if((_unit getVariable ["X39_MS2_var_EH_AnimStateChanged", -1]) == -1)	then { _unit setVariable["X39_MS2_var_EH_AnimStateChanged",	_unit addEventHandler["AnimStateChanged",	{_this call X39_MS2_fnc_cb_AnimStateChanged}], true];	};
+	if((_unit getVariable ["X39_MS2_var_EH_Respawn", -1]) == -1)			then { _unit setVariable["X39_MS2_var_EH_Respawn",			_unit addEventHandler["Respawn",			{_this call X39_MS2_fnc_cb_Respawn}], true];			};
 	_unit setVariable ["X39_MS2_var_UnitInitialized", true];
 	[_unit, "X39_MS2_fnc_runTicker", _unit, false] spawn BIS_fnc_MP;
 };

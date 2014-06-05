@@ -17,50 +17,52 @@
  *	@Param2 - SCALAR - HandleID
  *	@Return - NA
  */
-private["_unit", "_handleID"];
-_unit = _this select 0;
-//_handleID = _this select 1;
+_this spawn {
+	private["_unit", "_handleID"]DEBUG_CODE(;_fnc_scriptName = "X39_MS2_fnc_publishTick");
+	_unit = _this select 0;
+	//_handleID = _this select 1;
 
-_lastValues = _unit getVariable["X39_MS2_var_Internal_lastValues", []];
+	_lastValues = _unit getVariable["X39_MS2_var_Internal_lastValues", []];
 
-if(count _lastValues != count X39_MS2_var_Internal_UnitVariables) exitWith
-{
-	_lastValues = X39_MS2_var_Internal_UnitVariables;
+	if(count _lastValues != count X39_MS2_var_Internal_UnitVariables) exitWith
 	{
-		_x set [1, call (_x select 1)];
-		_lastValues set [_forEachIndex, _x];
-	}forEach _lastValues;
-	_unit setVariable["X39_MS2_var_Internal_lastValues", _lastValues, false];
-};
+		_lastValues = X39_MS2_var_Internal_UnitVariables;
+		{
+			_x set [1, call (_x select 1)];
+			_lastValues set [_forEachIndex, _x];
+		}forEach _lastValues;
+		_unit setVariable["X39_MS2_var_Internal_lastValues", _lastValues, false];
+	};
 
 
-{
-	if(_x select 2) then
 	{
-		_value = _unit getVariable (_x select 0);
-		_compareObject = _lastValues select _forEachIndex;
-		DEBUG_LOG_WFn(format["Comparing value '%1' against '%2'" COMMA _value COMMA _compareObject select 1]);
-		if(ISBOOL(_value)) then
+		if(_x select 2) then
 		{
-			_boolNew = _compareObject select 1;
-			if(!(_value && _boolNew || !_value && !_boolNew)) then
+			_value = _unit getVariable (_x select 0);
+			_compareObject = _lastValues select _forEachIndex;
+			DEBUG_LOG_WFn(format["Comparing value '%1' against '%2'" COMMA _value COMMA _compareObject select 1]);
+			if(ISBOOL(_value)) then
 			{
-				_unit setVariable[_x select 0, _value, true];
-				_compareObject set[1, _value];
-				_lastValues set[_forEachIndex, _compareObject];
-			};
-		}
-		else
-		{
-			if(_value != _compareObject select 1) then
+				_boolNew = _compareObject select 1;
+				if(!(_value && _boolNew || !_value && !_boolNew)) then
+				{
+					_unit setVariable[_x select 0, _value, true];
+					_compareObject set[1, _value];
+					_lastValues set[_forEachIndex, _compareObject];
+				};
+			}
+			else
 			{
-				_unit setVariable[_x select 0, _value, true];
-				_compareObject set[1, _value];
-				_lastValues set[_forEachIndex, _compareObject];
+				if(_value != _compareObject select 1) then
+				{
+					_unit setVariable[_x select 0, _value, true];
+					_compareObject set[1, _value];
+					_lastValues set[_forEachIndex, _compareObject];
+				};
 			};
 		};
-	};
-}foreach X39_MS2_var_Internal_UnitVariables;
+	}foreach X39_MS2_var_Internal_UnitVariables;
 
 
-_unit setVariable["X39_MS2_var_Internal_lastValues", _lastValues, false];
+	_unit setVariable["X39_MS2_var_Internal_lastValues", _lastValues, false];
+};

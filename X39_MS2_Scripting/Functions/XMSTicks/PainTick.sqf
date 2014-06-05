@@ -17,9 +17,8 @@
  *	@Param2 - SCALAR - HandleID
  *	@Return - NA
  */
-private["_unit", "_handleID", "_currentPain"];
+private["_unit", "_currentPain", "_morphineCalculationBase", "_maxPain", "_changePain", "_changeMorphine"];
 _unit = _this select 0;
-//_handleID = _this select 1;
 
 _currentPain = [_unit] call X39_MS2_fnc_getPain;
 _morphineCalculationBase = ([_unit] call X39_MS2_fnc_getMorphine) / X39_MS2_var_Pain_maxMorphine;
@@ -30,7 +29,13 @@ _changeMorphine = -X39_MS2_var_Pain_morphineReductionPerTick;
 _redScreenAlpha = _currentPain / _maxPain;
 _ppeDynamicBlur = _redScreenAlpha;
 
-
+if(X39_MS2_var_Sound_playExtremePainSounds && {_redScreenAlpha > X39_MS2_var_Sound_playExtremePainSounds_startPointP}) then
+{
+	if(_blackOutStage == 0) then
+	{
+		playSound3D [format["\X39_MS2_Resources\sounds\XMS2_SoundFiles_pain_short_%1.ogg", floor (random 6)], _unit];
+	};
+};
 if(_morphineCalculationBase >= X39_MS2_var_Pain_MorphineKillPointP && {X39_MS2_var_Pain_MorphineOverdoseCanKill}) then
 {
 	if(X39_MS2_var_Pain_MorphineFakeKills) then

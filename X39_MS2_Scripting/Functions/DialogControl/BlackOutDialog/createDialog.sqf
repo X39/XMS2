@@ -69,7 +69,7 @@ _this spawn {
 		{
 			_timeOfUnconscious = _unit getVariable["X39_MS2_var_BlackOut_timeOfUnconscious", -1];
 			_timeLeft = time - _timeOfUnconscious;
-			_timeLeft = _timeValue - _timeLeft;
+			_timeLeft = floor( _timeValue - _timeLeft);
 			if(_timeLeft < 0) then
 			{
 				_timeLeft = 0;

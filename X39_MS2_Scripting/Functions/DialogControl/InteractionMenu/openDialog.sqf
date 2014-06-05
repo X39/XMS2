@@ -32,7 +32,7 @@ _this spawn {
 		};
 	};
 	if(isNull X39_MS2_var_Internal_DialogCommunication_IM_Target) exitWith {};
-	if(!([] call X39_MS2_fnc_isUnitXms2Unit)) exitWith {DEBUG_LOG("InteractionMenu_openDialog: Other unit is a nonXMS2 compatible unit")};
+	if(!([X39_MS2_var_Internal_DialogCommunication_IM_Target] call X39_MS2_fnc_isUnitXms2Unit)) exitWith {DEBUG_LOG("InteractionMenu_openDialog: Other unit is a nonXMS2 compatible unit")};
 	X39_MS2_var_Internal_DialogCommunication_IM_TargetBlackOutStage = [X39_MS2_var_Internal_DialogCommunication_IM_Target] call X39_MS2_fnc_getBlackOutStage;
 	_actions = [];
 	_index = 0;

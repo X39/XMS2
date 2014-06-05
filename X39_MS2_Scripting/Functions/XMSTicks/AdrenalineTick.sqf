@@ -114,7 +114,7 @@ if(X39_MS2_var_Adrenaline_enableHeartSimulation && {!([_unit] call X39_MS2_fnc_h
 				{
 					if(X39_MS2_var_Adrenaline_PulseLimitStage1 != -1 && _newPulse > X39_MS2_var_Adrenaline_PulseLimitStage1) then
 					{
-						_pulseChange = 0;
+						_pulseChange = (-X39_MS2_var_Adrenaline_basePulseChangePerTick * X39_MS2_var_Adrenaline_pulseReductionMultiplicator);
 						_newPulse = _pulseChange + _pulseCurrent;
 					};
 				}
@@ -124,7 +124,7 @@ if(X39_MS2_var_Adrenaline_enableHeartSimulation && {!([_unit] call X39_MS2_fnc_h
 					{
 						if(X39_MS2_var_Adrenaline_PulseLimitStage2 != -1 && _newPulse > X39_MS2_var_Adrenaline_PulseLimitStage2) then
 						{
-							_pulseChange = 0;
+							_pulseChange = (-X39_MS2_var_Adrenaline_basePulseChangePerTick * X39_MS2_var_Adrenaline_pulseReductionMultiplicator);
 							_newPulse = _pulseChange + _pulseCurrent;
 						};
 					}
@@ -134,7 +134,7 @@ if(X39_MS2_var_Adrenaline_enableHeartSimulation && {!([_unit] call X39_MS2_fnc_h
 						{
 							if(X39_MS2_var_Adrenaline_PulseLimitStage3 != -1 && _newPulse > X39_MS2_var_Adrenaline_PulseLimitStage3) then
 							{
-								_pulseChange = 0;
+								_pulseChange = (-X39_MS2_var_Adrenaline_basePulseChangePerTick * X39_MS2_var_Adrenaline_pulseReductionMultiplicator);
 								_newPulse = _pulseChange + _pulseCurrent;
 							};
 						}
@@ -144,7 +144,7 @@ if(X39_MS2_var_Adrenaline_enableHeartSimulation && {!([_unit] call X39_MS2_fnc_h
 							{
 								if(X39_MS2_var_Adrenaline_PulseLimitStage4 != -1 && _newPulse > X39_MS2_var_Adrenaline_PulseLimitStage4) then
 								{
-									_pulseChange = 0;
+									_pulseChange = (-X39_MS2_var_Adrenaline_basePulseChangePerTick * X39_MS2_var_Adrenaline_pulseReductionMultiplicator);
 									_newPulse = _pulseChange + _pulseCurrent;
 								};
 							};

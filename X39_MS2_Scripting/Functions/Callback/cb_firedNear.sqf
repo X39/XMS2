@@ -10,7 +10,7 @@
  *	@Param7 - STRING - Ammo used
  *	@Return - NA
  */
-private["_unit", "_firerer", "_distance", "_usedWeapon", "_usedMuzzle", "_usedFiremode", "_usedAmmo", "_usedAmmoClass", "_valHit", "_valCal", "_fixVal"];
+private["_unit", "_firerer", "_distance", "_usedWeapon", "_usedMuzzle", "_usedFiremode", "_usedAmmo", "_usedAmmoClass", "_valHit", "_valCal", "_fixVal", "_distance", "_damage"];
 
 _unit = _this select 0;
 _firerer = _this select 1;
@@ -22,27 +22,27 @@ _usedAmmo = _this select 6;
 _usedAmmoClass = (configFile >> "CfgAmmo" >> _usedAmmo);
 
 //Check if damage source was an AT weapon
-if(X39_MS2_var_Feature_EnableBackBlast && {[_projectile, "AT", false] call BIS_fnc_inString || {[_usedWeapon, "LAUNCH", false] call BIS_fnc_inString}}) then
+if(X39_MS2_var_Feature_EnableBackBlast && {[_usedWeapon, "LAUNCH", false] call BIS_fnc_inString}) then
 {
-//TODO: FUCKING CRAPPY BACKBLAST _._
-	////if(_unit == _firerer) exitWith {};
-	//if(_unit distance _firerer < X39_MS2_var_BackBlast_Range) then
-	//{
-	//	_ovUnit =	[
-	//					(position _firerer select 0) - (position _unit select 0),
-	//					(position _firerer select 1) - (position _unit select 1),
-	//					(position _firerer select 2) - (position _unit select 2)
-	//				];
-	//	_dirFirerer180 = (direction _firerer) - 180;
-	//	_v180 = [cos _dirFirerer180, sin _dirFirerer180];
-	//	_sp_ovUnit_v180 = ((_ovUnit select 0) * (_v180 select 0)) + ((_ovUnit select 1) * (_v180 select 1));
-	//	_l_sp_ovUnit_v180 = aCos _sp_ovUnit_v180 / ( sqrt( ((_ovUnit select 0) ^ 2) + ((_ovUnit select 1) ^ 2) ) + ((_v180 select 0) ^ 2) + ((_v180 select 1) ^ 2) ) );
-	//	if(180 + X39_MS2_var_BackBlast_maxAngle > _l_sp_ovUnit_v180 && 180 - X39_MS2_var_BackBlast_maxAngle < _l_sp_ovUnit_v180) then
-	//	{
-	//		systemChat "GOT DAMNED! YOUVE GOT HIT BY A BACKBLAST";
-	//		systemChat str [_ovUnit, _v180, _sp_ovUnit_v180, _l_sp_ovUnit_v180];
-	//	};
-	//};
+	{
+		if(_x != _firerer && {lineIntersects [eyePos _firerer, eyePos _x, _firerer] && {[position _firerer, (direction _firerer) - 180, X39_MS2_var_BackBlast_maxAngle / 2, position _x] call BIS_fnc_inAngleSector}}) then
+		{
+			_distance = (_x distance _firerer) - X39_MS2_var_BackBlast_RangeMaxDamage;
+			if(_distance < 0) then
+			{
+				_damage = X39_MS2_var_BackBlast_MaxDamage;
+			}
+			else
+			{
+				_damage = (1 - (_distance / X39_MS2_var_BackBlast_DamageFalloffRange)) * X39_MS2_var_BackBlast_MaxDamage;
+			};
+			[_unit, _damage] call X39_MS2_fnc_addDamageToBody;
+			[_unit, _damage] call X39_MS2_fnc_addDamageToGeneric;
+			[_unit, _damage] call X39_MS2_fnc_addDamageToHands;
+			[_unit, _damage] call X39_MS2_fnc_addDamageToHead;
+			[_unit, _damage] call X39_MS2_fnc_addDamageToLegs;
+		};
+	}forEach (_firerer nearEntities ["Man", X39_MS2_var_BackBlast_RangeMaxDamage + X39_MS2_var_BackBlast_DamageFalloffRange]);	
 };
 if(!(_unit getVariable ["X39_MS2_var_hasEarplugs", false]) && _usedFiremode != "Throw") then
 {

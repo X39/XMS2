@@ -22,7 +22,7 @@
 			</Key>
 		</Container>
 		<Container name="MedicalUi">
-			<Key ID="STR_X39_MS2_UIs_MedicalUi_RscButton_1610">
+			<Key ID="STR_X39_MS2_UIs_MedicalUi_btn_Diagnosis_performCheckUnit">
 				<English>Check unit</English>
 				<German>Check unit</German>
 				<Hungarian>Check unit</Hungarian>
@@ -31,7 +31,7 @@
 				<Russian>Check unit</Russian>
 				<Polish>Check unit</Polish>
 			</Key>
-			<Key ID="STR_X39_MS2_UIs_MedicalUi_RscButton_1611">
+			<Key ID="STR_X39_MS2_UIs_MedicalUi_btn_Diagnosis_addSelectedEntryToTriageCard">
 				<English>Add the selected entry to triage card</English>
 				<German>Add the selected entry to triage card</German>
 				<Hungarian>Add the selected entry to triage card</Hungarian>
@@ -40,7 +40,7 @@
 				<Russian>Add the selected entry to triage card</Russian>
 				<Polish>Add the selected entry to triage card</Polish>
 			</Key>
-			<Key ID="STR_X39_MS2_UIs_MedicalUi_RscButton_1614">
+			<Key ID="STR_X39_MS2_UIs_MedicalUi_btn_TriageCard_removeSelectedEntry">
 				<English>Drop from card</English>
 				<German>Drop from card</German>
 				<Hungarian>Drop from card</Hungarian>
@@ -49,7 +49,7 @@
 				<Russian>Drop from card</Russian>
 				<Polish>Drop from card</Polish>
 			</Key>
-			<Key ID="STR_X39_MS2_UIs_MedicalUi_RscButton_1615">
+			<Key ID="STR_X39_MS2_UIs_MedicalUi_btn_TriageCard_resetTriageCard">
 				<English>Prune triage card</English>
 				<German>Prune triage card</German>
 				<Hungarian>Prune triage card</Hungarian>
@@ -57,24 +57,6 @@
 				<French>Prune triage card</French>
 				<Russian>Prune triage card</Russian>
 				<Polish>Prune triage card</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_UIs_MedicalUi_RscButton_1613">
-				<English>Add</English>
-				<German>Add</German>
-				<Hungarian>Add</Hungarian>
-				<Italian>Add</Italian>
-				<French>Add</French>
-				<Russian>Add</Russian>
-				<Polish>Add</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_UIs_MedicalUi_RscButton_1612">
-				<English>Push to server</English>
-				<German>Push to server</German>
-				<Hungarian>Push to server</Hungarian>
-				<Italian>Push to server</Italian>
-				<French>Push to server</French>
-				<Russian>Push to server</Russian>
-				<Polish>Push to server</Polish>
 			</Key>
 			<Key ID="STR_X39_MS2_UIs_MedicalUi_RscText_1000">
 				<English>Diagnosis</English>
@@ -102,6 +84,42 @@
 				<French>Treatment</French>
 				<Russian>Treatment</Russian>
 				<Polish>Treatment</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_UIs_MedicalUi_btn_Crafting_AddToSlot1">
+				<English>Add selected to slot 1</English>
+				<German>Add selected to slot 1</German>
+				<Hungarian>Add selected to slot 1</Hungarian>
+				<Italian>Add selected to slot 1</Italian>
+				<French>Add selected to slot 1</French>
+				<Russian>Add selected to slot 1</Russian>
+				<Polish>Add selected to slot 1</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_UIs_MedicalUi_btn_Crafting_AddToSlot2">
+				<English>Add selected to slot 2</English>
+				<German>Add selected to slot 2</German>
+				<Hungarian>Add selected to slot 2</Hungarian>
+				<Italian>Add selected to slot 2</Italian>
+				<French>Add selected to slot 2</French>
+				<Russian>Add selected to slot 2</Russian>
+				<Polish>Add selected to slot 2</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_UIs_MedicalUi_btn_Crafting_AddToSlot3">
+				<English>Add selected to slot 3</English>
+				<German>Add selected to slot 3</German>
+				<Hungarian>Add selected to slot 3</Hungarian>
+				<Italian>Add selected to slot 3</Italian>
+				<French>Add selected to slot 3</French>
+				<Russian>Add selected to slot 3</Russian>
+				<Polish>Add selected to slot 3</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_UIs_MedicalUi_RscText_1003">
+				<English>Current selected item</English>
+				<German>Current selected item</German>
+				<Hungarian>Current selected item</Hungarian>
+				<Italian>Current selected item</Italian>
+				<French>Current selected item</French>
+				<Russian>Current selected item</Russian>
+				<Polish>Current selected item</Polish>
 			</Key>
 		</Container>
 	</Package>

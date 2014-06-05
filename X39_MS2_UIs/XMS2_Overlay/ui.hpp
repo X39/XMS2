@@ -153,11 +153,11 @@ class X39_MS2_Overay {
 		RscText_1069,
 		RscText_1070,
 		RscText_1071,
-		RscStructuredText_1172,
 		RscPicture_1291,
 		RscPicture_1292,
 		RscPicture_1293,
-		RscPicture_1294
+		RscPicture_1294,
+		RscStructuredText_1172
 	};
 
 	class RscPicture_1200: RscPicture

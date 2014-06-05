@@ -27,8 +27,7 @@ if(_projectile == "GrenadeHand" || {[_projectile, "AT", false] call BIS_fnc_inSt
 	_isExplosion = true;
 };
 
-[] call
-{
+[] call {
 	if(_sectionHit == "head") exitWith
 	{
 		[_unit, _damage] call X39_MS2_fnc_addDamageToHead;
@@ -47,7 +46,7 @@ if(_projectile == "GrenadeHand" || {[_projectile, "AT", false] call BIS_fnc_inSt
 		};
 		0
 	};
-	if(_sectionHit == "hands") exitWith
+	if(_sectionHit == "hands" || {_sectionHit == "hand_l"}) exitWith
 	{
 		[_unit, _damage] call X39_MS2_fnc_addDamageToHands;
 		if(_damage > X39_MS2_var_Bleeding_minDamageRequiredForHands) then
@@ -56,7 +55,7 @@ if(_projectile == "GrenadeHand" || {[_projectile, "AT", false] call BIS_fnc_inSt
 		};
 		0
 	};
-	if(_sectionHit == "legs") exitWith
+	if(_sectionHit == "legs" || {_sectionHit == "legs_l"}) exitWith
 	{
 		[_unit, _damage] call X39_MS2_fnc_addDamageToLegs;
 		if(_damage > X39_MS2_var_Bleeding_minDamageRequiredForLegs) then

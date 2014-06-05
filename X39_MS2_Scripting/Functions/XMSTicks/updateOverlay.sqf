@@ -17,7 +17,7 @@
  *	@Param2 - SCALAR - HandleID
  *	@Return - NA
  */
-private["_unit", "_handleID"];
+private["_unit", "_handleID", "_currentHitMarkerValue", "_calcValue", "_currentTemperature"];
 _unit = _this select 0;
 _handleID = _this select 1;
 
@@ -25,13 +25,40 @@ _handleID = _this select 1;
 _currentHitMarkerValue = (_unit getVariable ["X39_MS2_var_hitMarkerValue", 0]);
 if(_currentHitMarkerValue != 0) then
 {
-	_painValue = ([_unit] call X39_MS2_fnc_getPain) / (0 call X39_MS2_fnc_getMaxPain);
-	DEBUG_CODE(if(_painValue > 1) then { PRINT_ERROR("updateOverlay: HitMarker_painValue is > 1!"); };)
-	displayCtrl_Overlay(1294) ctrlSetTextColor [1, 1, 1, _currentHitMarkerValue * _painValue];
+	_calcValue = ([_unit] call X39_MS2_fnc_getPain) / (0 call X39_MS2_fnc_getMaxPain);
+	DEBUG_CODE(if(_calcValue > 1) then { PRINT_ERROR("updateOverlay: HitMarker painValue is > 1!"); };)
+	displayCtrl_Overlay(1294) ctrlSetTextColor [1, 1, 1, _currentHitMarkerValue * _calcValue];
 	_currentHitMarkerValue = _currentHitMarkerValue - X39_MS2_var_HitMarker_ReductionPerTick;
 	if(_currentHitMarkerValue < 0) then 
 	{
 		_currentHitMarkerValue = 0;
 	};
 	_unit setVariable ["X39_MS2_var_hitMarkerValue", _currentHitMarkerValue, false];
+};
+
+_currentTemperature = [_unit] call X39_MS2_fnc_getTemperature;
+if(_currentTemperature < X39_MS2_var_Temperature_minNatural) then
+{
+	_calcValue = 1 - (_currentTemperature / X39_MS2_var_Temperature_minNatural);
+	DEBUG_CODE(if(_calcValue > 1) then { PRINT_ERROR("updateOverlay: Temperature calculation value is > 1!"); };)
+	displayCtrl_Overlay(1293) ctrlSetTextColor [1, 1, 1, _calcValue];
+}
+else
+{
+	displayCtrl_Overlay(1293) ctrlSetTextColor [1, 1, 1, 0];
+};
+
+if([_unit] call X39_MS2_fnc_isBleeding) then
+{
+	if(!ctrlShown displayCtrl_Overlay(1292)) then
+	{
+		displayCtrl_Overlay(1292) ctrlShow true;
+	};
+}
+else
+{
+	if(ctrlShown displayCtrl_Overlay(1292)) then
+	{
+		displayCtrl_Overlay(1292) ctrlShow false;
+	};
 };

@@ -51,5 +51,6 @@ if(X39_MS2_DEBUG_ppeFocus != -1)			then {_ppeFocus = X39_MS2_DEBUG_ppeFocus;				
 if(X39_MS2_DEBUG_ppeFilmGrain != -1)		then {_ppeFilmGrain = X39_MS2_DEBUG_ppeFilmGrain;				};
 if(X39_MS2_DEBUG_ppeChromAberration != -1)	then {_ppeChromAberration = X39_MS2_DEBUG_ppeChromAberration;	};
 if(X39_MS2_DEBUG_ppeGreyScreen != -1)		then {_ppeGreyScreen = X39_MS2_DEBUG_ppeGreyScreen;				};
+if(X39_MS2_DEBUG_redScreenAlpha != -1)		then {_redScreenAlpha = X39_MS2_DEBUG_redScreenAlpha;			};
 if(X39_MS2_DEBUG_cfnDisableFatigue != -1)	then {_cfnDisableFatigue = X39_MS2_DEBUG_cfnDisableFatigue;		};
 if(X39_MS2_DEBUG_cfnForceWalk != -1)		then {_cfnForceWalk = X39_MS2_DEBUG_cfnForceWalk;				};
