@@ -8,6 +8,7 @@
  * @Return - SCALAR - Current Bleeding of the unit
  */
 if(!X39_MS2_var_Bleeding_EnableHitzoneHead) exitWith {};
+FORCELOCAL(_this select 0);
 private["_Bleeding"];
 _Bleeding = [(_this select 0)] call X39_MS2_fnc_getBleedingOfHead;
 _Bleeding = _Bleeding + ((_this select 1) * X39_MS2_var_Bleeding_HeadModificator);

@@ -53,11 +53,23 @@ _this spawn {
 			}
 			else
 			{
-				if(_value != _compareObject select 1) then
+				if(dISARRAY(_value)) then
 				{
-					_unit setVariable[_x select 0, _value, true];
-					_compareObject set[1, _value];
-					_lastValues set[_forEachIndex, _compareObject];
+					if(str _value != str (_compareObject select 1)) then
+					{
+						_unit setVariable[_x select 0, _value, true];
+						_compareObject set[1, _value];
+						_lastValues set[_forEachIndex, _compareObject];
+					};
+				}
+				else
+				{
+					if(_value != _compareObject select 1) then
+					{
+						_unit setVariable[_x select 0, _value, true];
+						_compareObject set[1, _value];
+						_lastValues set[_forEachIndex, _compareObject];
+					};
 				};
 			};
 		};

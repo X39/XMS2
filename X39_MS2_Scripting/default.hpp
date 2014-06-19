@@ -50,10 +50,12 @@
 		#define DEBUG_LOG(X)
 		#define DEBUG_LOG_WFn(X)
 		#define DEBUG_CODE(X)
+		#define DEBUG_CODE_SC(X)
 	#else
 		#define DEBUG_LOG(X) diag_log (X)
 		#define DEBUG_LOG_WFn(X) diag_log format["%1 - %2: %3", diag_tickTime, _fnc_scriptName, X]
 		#define DEBUG_CODE(X) X
+		#define DEBUG_CODE_SC(X) X;
 	#endif
 	DEBUG_LOG(format["%3: %1 call %2" COMMA _this COMMA _fnc_scriptName COMMA diag_tickTime]);
 	

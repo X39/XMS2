@@ -28,6 +28,13 @@ if(_projectile == "GrenadeHand" || {[_projectile, "AT", false] call BIS_fnc_inSt
 };
 
 [] call {
+	if(X39_MS2_var_Bleeding_EnableAterialDamage) then
+	{
+		if(random 100 <= X39_MS2_var_Bleeding_ChanceForAterialDamageP * 100) then
+		{
+			[_unit, true] call X39_MS2_fnc_setAterialDamage;
+		};
+	};
 	if(_sectionHit == "head") exitWith
 	{
 		[_unit, _damage] call X39_MS2_fnc_addDamageToHead;

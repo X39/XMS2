@@ -13,7 +13,7 @@ _unit = [_this, 1, objNull, [objNull]] call BIS_fnc_param;
 
 if(isNull _unit) exitWith {PRINT_ERROR("no target")};
 _hasFlatLine = [_unit] call X39_MS2_fnc_hasFlatLine;
-_adrenaline = ([_unit] call X39_MS2_fnc_getAdrenaline) / X39_MS2_var_Adrenaline_maxAdrenaline;
+_adrenaline = ([_unit] call X39_MS2_fnc_getAdrenaline) / X39_MS2_var_Drugs_Adrenaline_maxAdrenaline;
 
 X39_MS2_var_Internal_DialogCommunication_IM_preventActions = true;
 

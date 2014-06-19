@@ -1,6 +1,7 @@
 # ArmA related files
 *.pbo
 *.bisign
+*.bin
 
 # log files
 *.log
@@ -16,3 +17,6 @@
 *.pdn
 *.xcf
 *.3ds
+
+# specific files
+buildScript.cmd

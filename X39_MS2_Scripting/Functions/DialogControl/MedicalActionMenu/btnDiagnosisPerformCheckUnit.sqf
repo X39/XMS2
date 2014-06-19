@@ -15,14 +15,20 @@ _this spawn {
 	_timeout = X39_MS2_var_DialogControl_MedicalActionMenu_checkUnitTimeout select _checkUnitType;
 	if(_timeout > 0) then
 	{
-		player playAction "MedicStart";
+		if(vehicle player == player) then
+		{
+			player playAction "MedicStart";
+		};
 		//systemChat format["sleeping %1s", _timeout];
 		sleep _timeout;
 	};
 	if([player] call X39_MS2_fnc_isBlackedOut) exitWith {X39_MS2_var_Internal_DialogCommunication_MA_preventActions = false;};
 	if(_timeout > 0) then
 	{
-		player playAction "MedicStop";
+		if(vehicle player == player) then
+		{
+			player playAction "MedicStop";
+		};
 	};
 	if(!dialog) exitWith {X39_MS2_var_Internal_DialogCommunication_MA_preventActions = false;};
 	lbClear IDC_XMS2UI_LB_DIAGNOSIS_ENTRIES;
@@ -31,7 +37,7 @@ _this spawn {
 		{
 			if(X39_MS2_var_Internal_DialogCommunication_MA_Target call (_x select 2)) then
 			{
-				_index = lbAdd[IDC_XMS2UI_LB_DIAGNOSIS_ENTRIES, format[localize (_x select 0), name X39_MS2_var_Internal_DialogCommunication_MA_Target, name X39_MS2_var_Internal_DialogCommunication_MA_Caller]];
+				_index = lbAdd[IDC_XMS2UI_LB_DIAGNOSIS_ENTRIES, format[(if(ISCODE(_x select 0)) then {X39_MS2_var_Internal_DialogCommunication_MA_Target call (_x select 0)} else {localize (_x select 0)}), name X39_MS2_var_Internal_DialogCommunication_MA_Target, name X39_MS2_var_Internal_DialogCommunication_MA_Caller]];
 				lbSetColor[IDC_XMS2UI_LB_DIAGNOSIS_ENTRIES, _index, _x select 1];
 			};
 		};

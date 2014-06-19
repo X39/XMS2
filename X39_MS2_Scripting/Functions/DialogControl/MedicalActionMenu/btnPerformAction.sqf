@@ -103,14 +103,20 @@ _this spawn {
 		_noAnimationPresent = (_animation == "");
 		if(_noAnimationPresent) then
 		{
-			//Others: MedicStart; Self: Medic
-			player playAction "MedicStart";
+			if(vehicle player == player) then
+			{
+				//Others: MedicStart; Self: Medic
+				player playAction "MedicStart";
+			};
 		}
 		else
 		{
-			//Commented out as currently unfunctional: http://feedback.arma3.com/view.php?id=15808
-			//player playMoveNow _animation; 
-			player playAction "MedicStart"; _noAnimationPresent = true;
+			if(vehicle player == player) then
+			{
+				//Commented out as currently unfunctional: http://feedback.arma3.com/view.php?id=15808
+				//player playMoveNow _animation; 
+				player playAction "MedicStart"; _noAnimationPresent = true;
+			};
 		};
 		_spawnHandle = [_sound, _soundTimeout] spawn {
 			if(_this select 0 == "") exitWith {};
@@ -123,7 +129,10 @@ _this spawn {
 		if([player] call X39_MS2_fnc_isBlackedOut) exitWith {X39_MS2_var_Internal_DialogCommunication_MA_preventActions = false;};
 		if(_noAnimationPresent) then
 		{
-			player playAction "MedicStop";
+			if(vehicle player == player) then
+			{
+				player playAction "MedicStop";
+			};
 		};
 		if(_healingValue > 0) then
 		{

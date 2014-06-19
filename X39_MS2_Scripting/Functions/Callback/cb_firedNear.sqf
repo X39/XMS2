@@ -56,4 +56,4 @@ if(!(_unit getVariable ["X39_MS2_var_hasEarplugs", false]) && _usedFiremode != "
 		[_unit,  -(0.1 / _fixVal) ] call X39_MS2_fnc_addHearing;
 	};
 };
-[_unit, X39_MS2_var_Adrenaline_adrenalineAddedThroughShooting, true] call X39_MS2_fnc_addAdrenaline;
+[_unit, X39_MS2_var_Drugs_Adrenaline_adrenalineAddedThroughShooting, true] call X39_MS2_fnc_addAdrenaline;

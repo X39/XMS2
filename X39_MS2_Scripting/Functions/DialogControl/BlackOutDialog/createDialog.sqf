@@ -41,7 +41,7 @@ _this spawn {
 			displayCtrl_BlackoutUI(1102) ctrlSetStructuredText (parseText format["%1<br/>%2°", localize "STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_Temperature", abs (37 * ((_unit getVariable["X39_MS2_var_Temperature_value", -1]) / X39_MS2_var_Temperature_max))]);
 			
 			//Current pulse
-			displayCtrl_BlackoutUI(1101) ctrlSetStructuredText (parseText format["%1<br/>%2", localize "STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_Pulse", floor (_unit getVariable["X39_MS2_var_Adrenaline_heartPulse", -1])]);
+			displayCtrl_BlackoutUI(1101) ctrlSetStructuredText (parseText format["%1<br/>%2", localize "STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_Pulse", floor (_unit getVariable["X39_MS2_var_Heart_heartPulse", -1])]);
 			if(time % 20 < 1 && {scriptDone _handle}) then
 			{
 				_handle = [] spawn {
@@ -86,11 +86,11 @@ _this spawn {
 		else
 		{
 			_timeBlackOut = _unit getVariable["X39_MS2_var_BlackOut_timeOfDeath", -1];
-			_timeFlatLine = _unit getVariable["X39_MS2_var_Adrenaline_HasFlatLine", -1];
+			_timeFlatLine = _unit getVariable["X39_MS2_var_Heart_hasFlatLine", -1];
 			if(_timeBlackOut != -1 || _timeFlatLine != -1) then
 			{
 				//
-				//X39_MS2_var_Adrenaline_timeBeforeFlatLineKills
+				//X39_MS2_var_Heart_timeBeforeFlatLineKills
 				if(_timeBlackOut != -1) then
 				{
 					_timeLeft = time - (_timeBlackOut);
@@ -99,7 +99,7 @@ _this spawn {
 				else
 				{
 					_timeLeft = time - (_timeFlatLine);
-					_timeLeft = X39_MS2_var_Adrenaline_timeBeforeFlatLineKills - time;
+					_timeLeft = X39_MS2_var_Heart_timeBeforeFlatLineKills - time;
 				};
 				if(_timeLeft < 0) then
 				{

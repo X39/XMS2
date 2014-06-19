@@ -18,18 +18,34 @@
  *	@Return - NA
  */
 if(!X39_MS2_var_Feature_EnableBlood) exitWith {};
-private["_unit", "_handleID"];
+private["_unit", "_handleID", "_bloodP"];
 _unit = _this select 0;
 //_handleID = _this select 1;
-if(X39_MS2_var_Bleeding_BleedingCurePerTick > 0) then
+if(!(_unit getVariable ["X39_MS2_var_hasTourniquet", false])) then
 {
-	[_unit, -X39_MS2_var_Bleeding_BleedingCurePerTick] call X39_MS2_fnc_addBleedingToBody;
-	[_unit, -X39_MS2_var_Bleeding_BleedingCurePerTick] call X39_MS2_fnc_addBleedingToGeneric;
-	[_unit, -X39_MS2_var_Bleeding_BleedingCurePerTick] call X39_MS2_fnc_addBleedingToHands;
-	[_unit, -X39_MS2_var_Bleeding_BleedingCurePerTick] call X39_MS2_fnc_addBleedingToHead;
-	[_unit, -X39_MS2_var_Bleeding_BleedingCurePerTick] call X39_MS2_fnc_addBleedingToLegs;
-};
+	if(X39_MS2_var_Bleeding_BleedingCurePerTick > 0) then
+	{
+		[_unit, -X39_MS2_var_Bleeding_BleedingCurePerTick] call X39_MS2_fnc_addBleedingToBody;
+		[_unit, -X39_MS2_var_Bleeding_BleedingCurePerTick] call X39_MS2_fnc_addBleedingToGeneric;
+		[_unit, -X39_MS2_var_Bleeding_BleedingCurePerTick] call X39_MS2_fnc_addBleedingToHands;
+		[_unit, -X39_MS2_var_Bleeding_BleedingCurePerTick] call X39_MS2_fnc_addBleedingToHead;
+		[_unit, -X39_MS2_var_Bleeding_BleedingCurePerTick] call X39_MS2_fnc_addBleedingToLegs;
+	};
 
-[_unit, -(([_unit] call X39_MS2_fnc_getBleedingOfBody) + ([_unit] call X39_MS2_fnc_getBleedingOfGeneric) + ([_unit] call X39_MS2_fnc_getBleedingOfHands) + ([_unit] call X39_MS2_fnc_getBleedingOfHead) + ([_unit] call X39_MS2_fnc_getBleedingOfLegs))] call X39_MS2_fnc_addBlood;
-//TODO: implement bloodloss
-//TODO: implement knockOut condition
+	[_unit, -((([_unit] call X39_MS2_fnc_getBleedingOfBody) + ([_unit] call X39_MS2_fnc_getBleedingOfGeneric) + ([_unit] call X39_MS2_fnc_getBleedingOfHands) + ([_unit] call X39_MS2_fnc_getBleedingOfHead) + ([_unit] call X39_MS2_fnc_getBleedingOfLegs)) * (if(_unit getVariable ["X39_MS2_var_Bleeding_AterieDamaged", false]) then {X39_MS2_var_Bleeding_AterialDamageMultiplicator} else {1}))] call X39_MS2_fnc_addBlood;
+	if(X39_MS2_var_Bleeding_LowBloodFeatures) then
+	{
+		_bloodP = ([_unit] call X39_MS2_fnc_getBlood) / X39_MS2_var_Bleeding_maxBloodInEntireBody;
+		if(_bloodP <= X39_MS2_var_Bleeding_knockOutAtPBlood) then
+		{
+			if(_bloodP <= X39_MS2_var_Bleeding_killAtPBlood) then
+			{
+				[_unit] call X39_MS2_fnc_killUnit;
+			}
+			else
+			{
+				[_unit, 2, -1, localize "STR_X39_MS2_Scripting_XMSTicks_BleedingTick_KnockOutDueLowBlood"] call X39_MS2_fnc_blackOutUnit;
+			};
+		};
+	};
+};

@@ -24,9 +24,9 @@ if(X39_MS2_var_Pain_useCurrentDamageValues) then
 
 
 
-if(X39_MS2_var_Pain_useMorphineForPain) then //NEEDS TO BE EXECUTED LAST!
+if(X39_MS2_var_Drugs_Morphine_useMorphineForPain) then //NEEDS TO BE EXECUTED LAST!
 {
-	_morphCalcBase = (([_unit] call X39_MS2_fnc_getMorphine) / (X39_MS2_var_Pain_maxPain * X39_MS2_var_Pain_MorphinePainMinForFullCureP)) * X39_MS2_var_Pain_MorphinePainCureValueP;
+	_morphCalcBase = (([_unit] call X39_MS2_fnc_getMorphine) / (X39_MS2_var_Pain_maxPain * X39_MS2_var_Drugs_Morphine_morphinePainMinForFullCureP)) * X39_MS2_var_Drugs_Morphine_morphinePainCureValueP;
 	if(_morphCalcBase > 1) then
 	{
 		_morphCalcBase = 1;

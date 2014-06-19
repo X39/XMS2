@@ -98,6 +98,8 @@ class CfgFunctions
 			class getBlood:X39_XLib_Function_TypeA														{file = "X39_MS2_Scripting\Functions\Bleeding\getter\getBlood.sqf";};
 			
 			class isBleeding:X39_XLib_Function_TypeA													{file = "X39_MS2_Scripting\Functions\Bleeding\isBleeding.sqf";};
+			class getAterialDamage:X39_XLib_Function_TypeA												{file = "X39_MS2_Scripting\Functions\Bleeding\getAterialDamage.sqf";};
+			class setAterialDamage:X39_XLib_Function_TypeA												{file = "X39_MS2_Scripting\Functions\Bleeding\setAterialDamage.sqf";};
 		};
 		class Callback
 		{
@@ -113,9 +115,20 @@ class CfgFunctions
 			class getPain:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\Pain\getPain.sqf";};
 			class getMaxPain:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Pain\getMaxPain.sqf";};
 			class setPain:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\Pain\setPain.sqf";};
-			class addMorphine:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Pain\addMorphine.sqf";};
-			class getMorphine:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Pain\getMorphine.sqf";};
-			class setMorphine:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Pain\setMorphine.sqf";};
+		};
+		class Drugs
+		{
+			class addMorphine:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Morphine\addMorphine.sqf";};
+			class getMorphine:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Morphine\getMorphine.sqf";};
+			class setMorphine:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Morphine\setMorphine.sqf";};
+			
+			class addAdrenaline:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Adrenaline\addAdrenaline.sqf";};
+			class getAdrenaline:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Adrenaline\getAdrenaline.sqf";};
+			class setAdrenaline:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Adrenaline\setAdrenaline.sqf";};
+			
+			class addNaloxone:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Naloxone\addNaloxone.sqf";};
+			class getNaloxone:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Naloxone\getNaloxone.sqf";};
+			class setNaloxone:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Naloxone\setNaloxone.sqf";};
 		};
 		class Hearing
 		{
@@ -123,18 +136,15 @@ class CfgFunctions
 			class getHearing:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Hearing\getHearing.sqf";};
 			class setHearing:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Hearing\setHearing.sqf";};
 		};
-		class Adrenaline
+		class Heart
 		{
-			class addAdrenaline:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Adrenaline\addAdrenaline.sqf";};
-			class getAdrenaline:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Adrenaline\getAdrenaline.sqf";};
-			class setAdrenaline:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Adrenaline\setAdrenaline.sqf";};
-			class addHeartPulse:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Adrenaline\addHeartPulse.sqf";};
-			class getHeartPulse:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Adrenaline\getHeartPulse.sqf";};
-			class setHeartPulse:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Adrenaline\setHeartPulse.sqf";};
+			class addHeartPulse:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Heart\addHeartPulse.sqf";};
+			class getHeartPulse:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Heart\getHeartPulse.sqf";};
+			class setHeartPulse:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Heart\setHeartPulse.sqf";};
 			
-			class setFlatLine:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Adrenaline\setFlatLine.sqf";};
-			class hasFlatLine:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Adrenaline\hasFlatLine.sqf";};
-			class doHeartPulseDependingActions:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\Adrenaline\doHeartPulseDependingActions.sqf";};
+			class setFlatLine:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Heart\setFlatLine.sqf";};
+			class hasFlatLine:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Heart\hasFlatLine.sqf";};
+			class doHeartPulseDependingActions:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\Heart\doHeartPulseDependingActions.sqf";};
 		};
 		class Temperature
 		{
@@ -144,7 +154,7 @@ class CfgFunctions
 		};
 		class XMSTicks
 		{
-			class adrenalineTick:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\XMSTicks\adrenalineTick.sqf";};
+			class heartTick:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\XMSTicks\heartTick.sqf";};
 			class updateOverlay:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\XMSTicks\updateOverlay.sqf";};
 			class effectHandleTick:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\XMSTicks\effectHandleTick.sqf";};
 			class temperatureTick:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\XMSTicks\temperatureTick.sqf";};
@@ -152,6 +162,8 @@ class CfgFunctions
 			class painTick:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\XMSTicks\painTick.sqf";};
 			class bleedingTick:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\XMSTicks\bleedingTick.sqf";};
 			class soundTick:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\XMSTicks\soundTick.sqf";};
+			class itemReplacerTick:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\XMSTicks\itemReplacerTick.sqf";};
+			class drugsSimulationTick:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\XMSTicks\drugsSimulationTick.sqf";};
 			class DebugTick:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\XMSTicks\DebugTick.sqf";};
 			
 			class publishTick:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\XMSTicks\publishTick.sqf";};

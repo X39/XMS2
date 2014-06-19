@@ -58,6 +58,35 @@
 	}
 ] call X39_MS2_fnc_registerInteraction;
 [
+	localize "STR_X39_MS2_Scripting_InteractionMenu_putEarplugs",
+	"DUMMY",
+	true,
+	{(((items X39_MS2_var_Internal_DialogCommunication_IM_Executor) find "X39_MS2_var_hasTourniquet" != -1) || ((items X39_MS2_var_Internal_DialogCommunication_IM_Target) find "X39_MS2_var_hasTourniquet" != -1)) && !(X39_MS2_var_Internal_DialogCommunication_IM_Target getVariable ["X39_MS2_var_hasTourniquet", false])},
+	{
+		[] call X39_ActionUI_fnc_closeDialog;
+		X39_MS2_var_Internal_DialogCommunication_IM_Target setVariable ["X39_MS2_var_hasTourniquet", true];
+		if("X39_MS2_var_hasTourniquet" in (items X39_MS2_var_Internal_DialogCommunication_IM_Target) then
+		{
+			X39_MS2_var_Internal_DialogCommunication_IM_Target removeItem "X39_MS2_var_hasTourniquet";
+		}
+		else
+		{
+			X39_MS2_var_Internal_DialogCommunication_IM_Executor removeItem "X39_MS2_var_hasTourniquet";
+		};
+	}
+] call X39_MS2_fnc_registerInteraction;
+[
+	localize "STR_X39_MS2_Scripting_InteractionMenu_removeEarplugs",
+	"DUMMY",
+	true,
+	{(X39_MS2_var_Internal_DialogCommunication_IM_Target getVariable ["X39_MS2_var_hasTourniquet", false])},
+	{
+		[] call X39_ActionUI_fnc_closeDialog;
+		X39_MS2_var_Internal_DialogCommunication_IM_Target setVariable ["X39_MS2_var_hasTourniquet", false];
+		X39_MS2_var_Internal_DialogCommunication_IM_Executor addItem "X39_MS2_var_hasTourniquet";
+	}
+] call X39_MS2_fnc_registerInteraction;
+[
 	localize "STR_X39_MS2_Scripting_InteractionMenu_useDefibrillator",
 	"DUMMY",
 	false,

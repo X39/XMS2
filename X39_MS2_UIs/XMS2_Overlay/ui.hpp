@@ -1460,6 +1460,16 @@ class X39_MS2_Overay {
 	{
 		idc = 1072;
 		text = "XMS2_DEBUGOUTPUT"; //--- ToDo: Localize;
+		class Attributes
+		{
+			font = "TahomaB";
+			color = "#FFFFFF";
+			align = "right";
+			valign = "bottom";
+			shadow = false;
+			shadowColor = "#000000";
+			size = "1";
+		}
 		x = safezoneX;
 		y = safezoneY;
 		w = safezoneW;

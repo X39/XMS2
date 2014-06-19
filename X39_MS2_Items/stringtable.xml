@@ -94,6 +94,15 @@
 				<Russian>Defibrillator</Russian>
 				<Polish>Defibrillator</Polish>
 			</Key>
+			<Key ID="STR_X39_MS2_Items_Items_tourniquet">
+				<English>Tourniquet</English>
+				<German>Tourniquet</German>
+				<Hungarian>Tourniquet</Hungarian>
+				<Italian>Tourniquet</Italian>
+				<French>Tourniquet</French>
+				<Russian>Tourniquet</Russian>
+				<Polish>Tourniquet</Polish>
+			</Key>
 		</Container>
 	</Package>
 </Project>

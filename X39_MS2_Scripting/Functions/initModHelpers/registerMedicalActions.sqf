@@ -11,7 +11,7 @@
 	"Naloxone",
 	"Naloxone",
 	{
-		[_this select 0, X39_MS2_var_MedicalActions_Naloxone_AdditionalMorphineValue] call X39_MS2_fnc_addMorphine;
+		[_this select 0, X39_MS2_var_MedicalActions_Naloxone_AdditionalNaloxoneValue] call X39_MS2_fnc_addNaloxone;
 	},
 	"",
 	"Acts_TreatingWounded02",

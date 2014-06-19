@@ -21,8 +21,8 @@ private["_unit", "_pulseCurrent"];
 _unit = _this select 0;
 
 _pulseCurrent = [_unit] call X39_MS2_fnc_getHeartPulse;
-_pulseVal = round (_pulseCurrent / (X39_MS2_var_Adrenaline_deadlyMaxHeartPulsePerSecond / 5));
-if(_pulseCurrent >= X39_MS2_var_Adrenaline_normalMaxHeartPulsePerSecond) then
+_pulseVal = round (_pulseCurrent / (X39_MS2_var_Heart_deadlyMaxHeartPulsePerSecond / 5));
+if(_pulseCurrent >= X39_MS2_var_Heart_normalMaxHeartPulsePerSecond) then
 {
 	playSound "XMS2_SoundFiles_breathing_1";
 };
