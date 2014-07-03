@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="ArmA3">
+	<Package name="X39_MS2_Items">
+		<Container name="Vehicles">
+			<Key ID="STR_X39_MS2_Items_Vehicles_MedicalBox">
+				<English>Medical Box</English>
+				<German>Medical Box</German>
+				<Hungarian>Medical Box</Hungarian>
+				<Italian>Medical Box</Italian>
+				<French>Medical Box</French>
+				<Russian>Medical Box</Russian>
+				<Polish>Medical Box</Polish>
+			</Key>
+		</Container>
+		<Container name="Items">
+			<Key ID="STR_X39_MS2_Items_Items_Bandage">
+				<English>Bandage</English>
+				<German>Bandage</German>
+				<Hungarian>Bandage</Hungarian>
+				<Italian>Bandage</Italian>
+				<French>Bandage</French>
+				<Russian>Bandage</Russian>
+				<Polish>Bandage</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Items_Items_Adrenaline">
+				<English>Adrenaline</English>
+				<German>Adrenaline</German>
+				<Hungarian>Adrenaline</Hungarian>
+				<Italian>Adrenaline</Italian>
+				<French>Adrenaline</French>
+				<Russian>Adrenaline</Russian>
+				<Polish>Adrenaline</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Items_Items_heatPack">
+				<English>Heat pack</English>
+				<German>Heat pack</German>
+				<Hungarian>Heat pack</Hungarian>
+				<Italian>Heat pack</Italian>
+				<French>Heat pack</French>
+				<Russian>Heat pack</Russian>
+				<Polish>Heat pack</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Items_Items_mediPack">
+				<English>Medipack</English>
+				<German>Medipack</German>
+				<Hungarian>Medipack</Hungarian>
+				<Italian>Medipack</Italian>
+				<French>Medipack</French>
+				<Russian>Medipack</Russian>
+				<Polish>Medipack</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Items_Items_morphine">
+				<English>Morphine</English>
+				<German>Morphine</German>
+				<Hungarian>Morphine</Hungarian>
+				<Italian>Morphine</Italian>
+				<French>Morphine</French>
+				<Russian>Morphine</Russian>
+				<Polish>Morphine</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Items_Items_naloxone">
+				<English>Naloxone</English>
+				<German>Naloxone</German>
+				<Hungarian>Naloxone</Hungarian>
+				<Italian>Naloxone</Italian>
+				<French>Naloxone</French>
+				<Russian>Naloxone</Russian>
+				<Polish>Naloxone</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Items_Items_coldSpray">
+				<English>Cold spray</English>
+				<German>Cold spray</German>
+				<Hungarian>Cold spray</Hungarian>
+				<Italian>Cold spray</Italian>
+				<French>Cold spray</French>
+				<Russian>Cold spray</Russian>
+				<Polish>Cold spray</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Items_Items_earplugs">
+				<English>Earplugs</English>
+				<German>Earplugs</German>
+				<Hungarian>Earplugs</Hungarian>
+				<Italian>Earplugs</Italian>
+				<French>Earplugs</French>
+				<Russian>Earplugs</Russian>
+				<Polish>Earplugs</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Items_Items_defibrillator">
+				<English>Defibrillator</English>
+				<German>Defibrillator</German>
+				<Hungarian>Defibrillator</Hungarian>
+				<Italian>Defibrillator</Italian>
+				<French>Defibrillator</French>
+				<Russian>Defibrillator</Russian>
+				<Polish>Defibrillator</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Items_Items_tourniquet">
+				<English>Tourniquet</English>
+				<German>Tourniquet</German>
+				<Hungarian>Tourniquet</Hungarian>
+				<Italian>Tourniquet</Italian>
+				<French>Tourniquet</French>
+				<Russian>Tourniquet</Russian>
+				<Polish>Tourniquet</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Items_Items_sphygmomanometer">
+				<English>Sphygmomanometer</English>
+				<German>Blutdruckmessgerät</German>
+				<Hungarian>Sphygmomanometer</Hungarian>
+				<Italian>Sphygmomanometer</Italian>
+				<French>Sphygmomanometer</French>
+				<Russian>Sphygmomanometer</Russian>
+				<Polish>Sphygmomanometer</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Items_Items_ivBag">
+				<English>IV Bag</English>
+				<German>IV Bag</German>
+				<Hungarian>IV Bag</Hungarian>
+				<Italian>IV Bag</Italian>
+				<French>IV Bag</French>
+				<Russian>IV Bag</Russian>
+				<Polish>IV Bag</Polish>
+			</Key>
+		</Container>
+	</Package>
+</Project>

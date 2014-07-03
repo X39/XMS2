@@ -1,0 +1,94 @@
+@echo off
+setlocal ENABLEDELAYEDEXPANSION
+:::::::::::::::::::::::::::::::::::::::::::::README:::::::::::::::::::::::::::::::::::::::::::::::::::::
+::To avoid that a PBO is getting binarized, place a file callen ".PACKONLY" inside of the addon folder::
+::ALWAYS avoid the final \ for pathes!																  ::
+::																									  ::
+::						This bash script was created by X39|Cpt. HM Murdock							  ::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::
+::PROJECT DEPENDING SETTINGS::
+::::::::::::::::::::::::::::::
+::Path to the ADDON folder of your game installation
+SET GAMEADDONPATH=
+::Path to the GIT installation (just like above! Needs to point to the Addons folder)
+SET GITPATH=
+::Path to a copy (needs to be uncommented)
+::SET PLACECOPYAT=
+
+:::::::::::::::::::
+::BINPBO SETTINGS::
+:::::::::::::::::::
+::Path to your BINPBO installation
+SET BINPBO=
+::Path to your private key
+SET SIGNKEY=
+::Path to a temporary folder (usually something at %appdata%/../Temp/)
+SET TEMPPATH=
+::Path to a file containing the whitelisted extensions (';' seperated)
+::Example:
+::*.pac;*.paa;*.rtm;*.sqf;*.sqs;*.bikb;*.fsm;*.wss;*.ogg;*.wav;*.fxy;*.csv;*.html;*.lip;*.txt;*.wrp;*.bisurf;*.hpp;*.xml;*.defs
+SET WHITELIST=
+
+
+
+
+
+
+::DO NOT EDIT BELOW THIS LINE!
+::--------------------------------------------------------------------------
+ECHO ------------------------------------
+ECHO Bash script is running
+ECHO Variables:
+ECHO  GAMEADDONPATH = %GAMEADDONPATH%
+ECHO  GITPATH = %GITPATH%
+ECHO  PLACECOPYAT = %PLACECOPYAT%
+ECHO ------------------------------------
+IF NOT EXIST "%TEMPPATH%" MKDIR "%TEMPPATH%"
+CD /d "%GITPATH%"
+FOR /F %%f IN ('DIR /AD/B/D') DO (
+	ECHO.
+	ECHO.
+	ECHO Handling %%f
+	ECHO ------------------------------------
+	SET FILE=%%f
+	SET BINPBOJOB=BINARIZE
+	IF EXIST "%GITPATH%\!FILE!\.PACKONLY" (
+		echo %%f is flaged to be packed only
+		SET BINPBOJOB=PACK
+	)
+	"%BINPBO%" "%GITPATH%\!FILE!" "%GAMEADDONPATH%" -!BINPBOJOB! -CLEAR -TEMP "%TEMPPATH%" -DEBUG -PROJECT "%GITPATH%\!FILE!" -SIGN "%SIGNKEY%" -INCLUDE "%WHITELIST%"
+)
+
+IF NOT "%PLACECOPYAT%"=="" (
+	ECHO.
+	ECHO.
+	ECHO Copy will be placed at
+	ECHO %PLACECOPYAT%
+	ECHO ------------------------------------
+
+	IF NOT EXIST "%PLACECOPYAT%" MKDIR "%PLACECOPYAT%"
+	FOR /F %%f IN ('DIR /B/D *.pbo') DO (
+		SET FILE=%%f
+		CP "%GAMEADDONPATH%\!FILE!" "%PLACECOPYAT%\!FILE!"
+	)
+	FOR /F %%f IN ('DIR /B/D *.bisign') DO (
+		SET FILE=%%f
+		CP "%GAMEADDONPATH%\!FILE!" "%PLACECOPYAT%\!FILE!"
+	)
+)
+ECHO.
+ECHO ------------------------------------
+ECHO Cleaning up GITPATH
+ECHO %GITPATH%
+ECHO ------------------------------------
+FOR /F %%f IN ('DIR /B/D *.pbo') DO (
+	echo Cleaning %%f
+	del %%f
+)
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+pause

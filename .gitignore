@@ -1,13 +1,22 @@
 # ArmA related files
 *.pbo
 *.bisign
+*.bin
 
 # log files
 *.log
 
-# some general exceptions to keeps the syncs small
+# some general exceptions to keeps the syncs small and leave unneded files local
 *.tga
 *.png
 *.jpeg
+*.jpg
+*.jpe
 *.ps
 *.ps
+*.pdn
+*.xcf
+*.3ds
+
+# specific files
+buildScript.cmd
