@@ -11,7 +11,7 @@
 	"Naloxone",
 	"Naloxone",
 	{
-		[_this select 0, X39_MS2_var_MedicalActions_Naloxone_AdditionalNaloxoneValue] call X39_MS2_fnc_addNaloxone;
+		[_this select 1, X39_MS2_var_MedicalActions_Naloxone_AdditionalNaloxoneValue] call X39_MS2_fnc_addNaloxone;
 	},
 	"",
 	"Acts_TreatingWounded02",
@@ -29,7 +29,7 @@
 	"Morphine",
 	"Morphine",
 	{
-		[_this select 0, X39_MS2_var_MedicalActions_Morphine_AdditionalMorphineValue] call X39_MS2_fnc_addMorphine;
+		[_this select 1, X39_MS2_var_MedicalActions_Morphine_AdditionalMorphineValue] call X39_MS2_fnc_addMorphine;
 	},
 	"",
 	"Acts_TreatingWounded02",
@@ -65,7 +65,7 @@
 	"Bandage",
 	"bandage",
 	{
-		_unit = _this select 0;
+		_unit = _this select 1;
 		_part = _this select 3;
 		[_unit, -X39_MS2_var_MedicalActions_StickyBandage_BleedingCure] call (missionNamespace getVariable format["X39_MS2_fnc_addBleedingTo%1", _part]);
 	},

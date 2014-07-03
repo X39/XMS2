@@ -1,0 +1,10 @@
+ #Kagegi
+$[
+	1.063,
+	[UnitSelectionUi,[[0,0,1,1],0.025,0.04,GUI_GRID],0,0,0],
+	[1500,mclb_UnitSelection,[1,,[0.345311  safezoneW + safezoneX,0.319  safezoneH + safezoneY,0.299062  safezoneW,0.33  safezoneH],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],,-1],[]],
+	[1000,label_UnitSelection,[1,Unit selection,[0.345311  safezoneW + safezoneX,0.28  safezoneH + safezoneY,0.299062  safezoneW,0.033  safezoneH],[0,0,0,1],[1,1,1,1],[-1,-1,-1,-1],,-1],[]],
+	[2600,,[1,,[0.345312  safezoneW + safezoneX,0.654  safezoneH + safezoneY,0.144375  safezoneW,0.022  safezoneH],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],,-1],[]],
+	[2700,,[1,,[0.5  safezoneW + safezoneX,0.654  safezoneH + safezoneY,0.144375  safezoneW,0.022  safezoneH],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],,-1],[]]
+]
+

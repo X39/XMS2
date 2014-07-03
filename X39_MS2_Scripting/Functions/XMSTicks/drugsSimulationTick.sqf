@@ -92,5 +92,13 @@ if(X39_MS2_var_Feature_EnableMorphine) then {
 	};
 };
 if(X39_MS2_var_Feature_EnableNaloxone) then {
+	if(_blackOutStage >= 1 && _blackOutStage < 3) then
+	{
+		_currentNaloxone = [_unit] call X39_MS2_fnc_getNaloxone;
+		if((_currentNaloxone / X39_MS2_var_Drugs_Naloxone_maxNaloxone) >= X39_MS2_var_Drugs_Naloxone_wakeBlackedPersonValueP) then
+		{
+			[_unit, 0, -1, ""] call X39_MS2_fnc_blackOutUnit;
+		};
+	};
 	[_unit, -X39_MS2_var_Drugs_Naloxone_ReductionPerTick] call X39_MS2_fnc_addNaloxone;
 };

@@ -6,10 +6,10 @@
  *	@Return - N/A
  *	@Author - X39|Cpt. HM Murdock
  */
-if(X39_MS2_var_UIs_XMS2_Overay_ShownInCurrentMission) exitWith { DEBUG_LOG("Overlay is already open."); };
+if(X39_MS2_var_UIs_XMS2_Overlay_ShownInCurrentMission) exitWith { DEBUG_LOG("Overlay is already open."); };
 ("X39_MS2_var_UIs_XMS2_Overay" call BIS_fnc_rscLayer) cutRsc["X39_MS2_Overay", "PLAIN"];
 
-X39_MS2_var_UIs_XMS2_Overay_ShownInCurrentMission = true;
+X39_MS2_var_UIs_XMS2_Overlay_ShownInCurrentMission = true;
 
 REGION(HIDE EVERYTHING {)
 	displayCtrl_Overlay(1200) ctrlShow false;

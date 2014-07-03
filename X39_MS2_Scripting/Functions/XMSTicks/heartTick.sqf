@@ -95,7 +95,7 @@ if(X39_MS2_var_Heart_enableHeartSimulation && {!([_unit] call X39_MS2_fnc_hasFla
 	};
 	if(X39_MS2_var_Drugs_Adrenaline_useAdrenalineForHeartCalculations) then
 	{
-		_pulseChange = _pulseChange * ((0.5 - (_adrenalineCurrent / X39_MS2_var_Drugs_Adrenaline_maxAdrenaline)) * 2) * X39_MS2_var_Drugs_Adrenaline_AdrenalinePulseMultiplicator;
+		_pulseChange = _pulseChange * ((1 + (_adrenalineCurrent / X39_MS2_var_Drugs_Adrenaline_maxAdrenaline)) * 2) * X39_MS2_var_Drugs_Adrenaline_AdrenalinePulseMultiplicator;
 	};
 	_newPulse = _pulseChange + _pulseCurrent;
 	if(_pulseChange != 0) then
@@ -178,10 +178,22 @@ if(X39_MS2_var_Heart_enableHeartSimulation && {!([_unit] call X39_MS2_fnc_hasFla
 	*/
 	if(X39_MS2_var_Heart_pulseUseFilmGrainForHighPulseIndicator && _newPulse > X39_MS2_var_Heart_pulseFilmGrainKickIn) then
 	{
-		_ppeFilmGrain = _ppeFilmGrain + ((_newPulse - X39_MS2_var_Heart_pulseFilmGrainKickIn) / (X39_MS2_var_Heart_deadlyMaxHeartPulsePerSecond - X39_MS2_var_Heart_pulseFilmGrainKickIn));
+		_val = ((_newPulse - X39_MS2_var_Heart_pulseFilmGrainKickIn) / (X39_MS2_var_Heart_deadlyMaxHeartPulsePerSecond - X39_MS2_var_Heart_pulseFilmGrainKickIn));
+		if(_val > 0) then
+		{
+			_ppeFilmGrain = _ppeFilmGrain + _val;
+		};
 	};
 	if(X39_MS2_var_Heart_allowForceWalkByPulse && {_newPulse > X39_MS2_var_Heart_pulseForceWalkAt}) then
 	{
 		_cfnForceWalk = _cfnForceWalk + 1;
+	};
+	if(X39_MS2_var_Heart_allowBlurryScreenByPulse && {_newPulse > X39_MS2_var_Heart_pulseBlurryAt}) then
+	{
+		_val = ((_newPulse - X39_MS2_var_Heart_pulseBlurryAt) / (X39_MS2_var_Heart_deadlyMaxHeartPulsePerSecond - X39_MS2_var_Heart_pulseBlurryAt));
+		if(_val > 0) then
+		{
+			_ppeDynamicBlur = _ppeDynamicBlur + _val;
+		};
 	};
 };

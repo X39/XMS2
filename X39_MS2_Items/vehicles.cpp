@@ -59,6 +59,10 @@ class X39_MS2_medicalbox: NATO_Box_Base {
 			name = "x39_xms2_sphygmomanometer";
 			count = 100;
 		};
+		class x39_xms2_IVBag {
+			name = "x39_xms2_IVBag";
+			count = 100;
+		};
 	};
 
 };

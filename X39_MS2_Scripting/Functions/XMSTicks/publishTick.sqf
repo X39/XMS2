@@ -26,7 +26,8 @@ _this spawn {
 
 	if(count _lastValues != count X39_MS2_var_Internal_UnitVariables) exitWith
 	{
-		_lastValues = X39_MS2_var_Internal_UnitVariables;
+		//COPY array instead of refering to it
+		_lastValues = + X39_MS2_var_Internal_UnitVariables;
 		{
 			_x set [1, call (_x select 1)];
 			_lastValues set [_forEachIndex, _x];

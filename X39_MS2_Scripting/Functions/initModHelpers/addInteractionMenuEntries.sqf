@@ -58,14 +58,14 @@
 	}
 ] call X39_MS2_fnc_registerInteraction;
 [
-	localize "STR_X39_MS2_Scripting_InteractionMenu_putEarplugs",
+	localize "STR_X39_MS2_Scripting_InteractionMenu_putTourniquet",
 	"DUMMY",
 	true,
 	{(((items X39_MS2_var_Internal_DialogCommunication_IM_Executor) find "X39_MS2_var_hasTourniquet" != -1) || ((items X39_MS2_var_Internal_DialogCommunication_IM_Target) find "X39_MS2_var_hasTourniquet" != -1)) && !(X39_MS2_var_Internal_DialogCommunication_IM_Target getVariable ["X39_MS2_var_hasTourniquet", false])},
 	{
 		[] call X39_ActionUI_fnc_closeDialog;
 		X39_MS2_var_Internal_DialogCommunication_IM_Target setVariable ["X39_MS2_var_hasTourniquet", true];
-		if("X39_MS2_var_hasTourniquet" in (items X39_MS2_var_Internal_DialogCommunication_IM_Target) then
+		if("X39_MS2_var_hasTourniquet" in (items X39_MS2_var_Internal_DialogCommunication_IM_Target)) then
 		{
 			X39_MS2_var_Internal_DialogCommunication_IM_Target removeItem "X39_MS2_var_hasTourniquet";
 		}
@@ -76,7 +76,7 @@
 	}
 ] call X39_MS2_fnc_registerInteraction;
 [
-	localize "STR_X39_MS2_Scripting_InteractionMenu_removeEarplugs",
+	localize "STR_X39_MS2_Scripting_InteractionMenu_removeTourniquet",
 	"DUMMY",
 	true,
 	{(X39_MS2_var_Internal_DialogCommunication_IM_Target getVariable ["X39_MS2_var_hasTourniquet", false])},
@@ -95,27 +95,76 @@
 		{X39_MS2_var_Internal_DialogCommunication_IM_TargetBlackOutStage >= 3}}},
 	{
 		[] call X39_ActionUI_fnc_closeDialog;
-		[X39_MS2_var_Internal_DialogCommunication_IM_Executor, X39_MS2_var_Internal_DialogCommunication_IM_Target] call X39_ActionUI_fnc_MA_defibrillate;
+		[X39_MS2_var_Internal_DialogCommunication_IM_Executor, X39_MS2_var_Internal_DialogCommunication_IM_Target] call X39_MS2_fnc_MA_defibrillate;
 	}
 ] call X39_MS2_fnc_registerInteraction;
 [
-	localize "STR_X39_MS2_Scripting_InteractionMenu_useNaloxone",
+	localize "STR_X39_MS2_Scripting_InteractionMenu_stripWeapons",
 	"DUMMY",
 	false,
-	{!X39_MS2_var_Internal_Dialog_IsSelfInteracton &&
-	{((((items X39_MS2_var_Internal_DialogCommunication_IM_Target) find "x39_xms2_naloxone") != -1) || {(((items X39_MS2_var_Internal_DialogCommunication_IM_Executor) find "x39_xms2_naloxone") != -1)}) &&
-	{X39_MS2_var_Internal_DialogCommunication_IM_TargetBlackOutStage >= 1 && X39_MS2_var_Internal_DialogCommunication_IM_TargetBlackOutStage < 3}}},
+	{!X39_MS2_var_Internal_Dialog_IsSelfInteracton},
 	{
 		[] call X39_ActionUI_fnc_closeDialog;
-		if((items X39_MS2_var_Internal_DialogCommunication_IM_Target) find "x39_xms2_naloxone" != -1) then
+		_gearHolder = "GroundWeaponHolder" createVehicle position X39_MS2_var_Internal_DialogCommunication_IM_Executor;
 		{
-			X39_MS2_var_Internal_DialogCommunication_IM_Executor removeItem "x39_xms2_naloxone";
+			_gearHolder addWeaponCargoGlobal[_x, 1];
+			X39_MS2_var_Internal_DialogCommunication_IM_Target removeWeapon _x;
+			false;
+		}count weapons X39_MS2_var_Internal_DialogCommunication_IM_Target;
+	}
+] call X39_MS2_fnc_registerInteraction;
+[
+	localize "STR_X39_MS2_Scripting_InteractionMenu_dragUnit",
+	"DUMMY",
+	false,
+	{!X39_MS2_var_Internal_Dialog_IsSelfInteracton && {({(_x getVariable ["X39_MS2_var_UnitInitialized", false])} count attachedObjects X39_MS2_var_Internal_DialogCommunication_IM_Executor) <= 0}},
+	{
+		[] call X39_ActionUI_fnc_closeDialog;
+		//Self animation
+		_animation = "";
+		if(primaryWeapon X39_MS2_var_Internal_DialogCommunication_IM_Executor == "" && secondaryWeapon X39_MS2_var_Internal_DialogCommunication_IM_Executor == "") then
+		{
+			_animation = "AcinPknlMstpSnonWnonDnon";
 		}
 		else
 		{
-			X39_MS2_var_Internal_DialogCommunication_IM_Target removeItem "x39_xms2_naloxone";
+			if(primaryWeapon X39_MS2_var_Internal_DialogCommunication_IM_Executor == "") then
+			{
+				_animation = "AcinPknlMstpSnonWpstDnon";
+			}
+			else
+			{
+				_animation = "AcinPknlMstpSrasWrflDnon";
+			};
 		};
-		[X39_MS2_var_Internal_DialogCommunication_IM_Target, 0, -1, ""] call X39_MS2_fnc_blackOutUnit;
+		X39_MS2_var_Internal_DialogCommunication_IM_Executor playMove _animation;
+		//Other unit animation
+		X39_MS2_var_Internal_DialogCommunication_IM_Target attachTo [X39_MS2_var_Internal_DialogCommunication_IM_Executor, [0, 1.1, 0]];
+		X39_MS2_var_Internal_DialogCommunication_IM_Target setDir 180;
+		X39_MS2_var_Internal_DialogCommunication_IM_Target switchMove "AinjPpneMstpSnonWrflDb"; //TODO: Check if its required to do a primaryWeapon == "" etc. check
+	}
+] call X39_MS2_fnc_registerInteraction;
+[
+	localize "STR_X39_MS2_Scripting_InteractionMenu_dropUnit",
+	"DUMMY",
+	false,
+	{X39_MS2_var_Internal_Dialog_IsSelfInteracton && {({(_x getVariable ["X39_MS2_var_UnitInitialized", false])} count attachedObjects X39_MS2_var_Internal_DialogCommunication_IM_Executor) > 0}},
+	{
+		[] call X39_ActionUI_fnc_closeDialog;
+		X39_MS2_var_Internal_DialogCommunication_IM_Executor playMove "AidlPknlMstpSrasWrflDnon_AI";//TODO: Check if its required to do a primaryWeapon == "" etc. check
+		_unit = objNull;
+		{
+			if(_x getVariable ["X39_MS2_var_UnitInitialized", false]) then
+			{
+				_unit = _x;
+			};
+			false
+		} count attachedObjects X39_MS2_var_Internal_DialogCommunication_IM_Executor;
+		if(!isNull _unit) then
+		{
+			_unit playMove "AinjPpneMstpSnonWrflDb_release";//TODO: Check if its required to do a primaryWeapon == "" etc. check
+			detach _unit;
+		};
 	}
 ] call X39_MS2_fnc_registerInteraction;
 [

@@ -103,6 +103,24 @@
 				<Russian>Tourniquet</Russian>
 				<Polish>Tourniquet</Polish>
 			</Key>
+			<Key ID="STR_X39_MS2_Items_Items_sphygmomanometer">
+				<English>Sphygmomanometer</English>
+				<German>Blutdruckmessgerät</German>
+				<Hungarian>Sphygmomanometer</Hungarian>
+				<Italian>Sphygmomanometer</Italian>
+				<French>Sphygmomanometer</French>
+				<Russian>Sphygmomanometer</Russian>
+				<Polish>Sphygmomanometer</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Items_Items_ivBag">
+				<English>IV Bag</English>
+				<German>IV Bag</German>
+				<Hungarian>IV Bag</Hungarian>
+				<Italian>IV Bag</Italian>
+				<French>IV Bag</French>
+				<Russian>IV Bag</Russian>
+				<Polish>IV Bag</Polish>
+			</Key>
 		</Container>
 	</Package>
 </Project>

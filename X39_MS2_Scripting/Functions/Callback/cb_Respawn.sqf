@@ -22,4 +22,9 @@ _unit setCaptive false;
 X39_MS2_var_Internal_DialogCommunication_IM_preventActions = false;
 X39_MS2_var_Internal_DialogCommunication_MA_preventActions = false;
 X39_MS2_var_InteractionMenu_allowOpeningOfTheUi = true;
+//Workaround for a strange issue ... (somehow the variables are kept on units which respawn so we need to make sure this one IS false)
+if(_unit getVariable ["X39_MS2_var_UnitInitialized", false]) then
+{
+	_unit setVariable ["X39_MS2_var_UnitInitialized", false];
+};
 [_unit] call X39_MS2_fnc_initUnit;

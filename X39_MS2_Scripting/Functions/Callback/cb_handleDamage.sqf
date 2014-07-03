@@ -93,7 +93,7 @@ if(_dmgP > X39_MS2_var_Damage_knockOutLimitP) then
 		else
 		{
 			[_unit, 4, X39_MS2_var_Damage_DeathTime, localize "STR_X39_MS2_Scripting_cb_handleDamage_death"] call X39_MS2_fnc_blackOutUnit;
-			[_unit, time] call X39_MS2_fnc_setFlatLine;
+			[_unit, time, 5] call X39_MS2_fnc_setFlatLine;
 		};
 	}
 	else

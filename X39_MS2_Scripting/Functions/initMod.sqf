@@ -62,12 +62,12 @@ _fnc_getKey =
 * CATEGORY: INTERNAL *
 *********************/
 
-assignValue("X39_MS2_var_UIs_XMS2_Overay_ShownInCurrentMission", false);
+assignValue("X39_MS2_var_UIs_XMS2_Overlay_ShownInCurrentMission", false);
 
 assignValue("X39_MS2_var_Internal_Keys", []);
 //Settings
 X39_MS2_var_Internal_Keys set [count X39_MS2_var_Internal_Keys, ["X39_MS2_var_Internal_Key1", {X39_MS2_var_Internal_Dialog_IsSelfInteracton = true;	[true] call X39_MS2_fnc_interactionMenu_openDialog;},	(configFile >> "CfgSettings" >> "X39" >> "XMS2" >> "ClientConfig" >> "keys" >> "Key1") call _fnc_getKey]];
-X39_MS2_var_Internal_Keys set [count X39_MS2_var_Internal_Keys, ["X39_MS2_var_Internal_Key2", {X39_MS2_var_Internal_Dialog_IsSelfInteracton = false;[false] call X39_MS2_fnc_interactionMenu_openDialog;},	(configFile >> "CfgSettings" >> "X39" >> "XMS2" >> "ClientConfig" >> "keys" >> "Key2") call _fnc_getKey]];
+X39_MS2_var_Internal_Keys set [count X39_MS2_var_Internal_Keys, ["X39_MS2_var_Internal_Key2", {X39_MS2_var_Internal_Dialog_IsSelfInteracton = false; if(vehicle player == player) then { [false] call X39_MS2_fnc_interactionMenu_openDialog; } else { [] call X39_MS2_fnc_unitSelection_openDialog;};},	(configFile >> "CfgSettings" >> "X39" >> "XMS2" >> "ClientConfig" >> "keys" >> "Key2") call _fnc_getKey]];
 
 assignValue("X39_MS2_var_Internal_UnitVariables", []);
 //																				  |Variable name								|Value (as code)								|Will this be broadcasted over the network?|
@@ -141,6 +141,7 @@ assignValue("X39_MS2_var_Internal_ticker_tickHandlers", []);
 ["X39_MS2_fnc_drugsSimulationTick", 1] call X39_MS2_fnc_registerTickHandler;
 ["X39_MS2_fnc_itemReplacerTick", 5] call X39_MS2_fnc_registerTickHandler;
 ["X39_MS2_fnc_publishTick", 4] call X39_MS2_fnc_registerTickHandler;
+["X39_MS2_fnc_soundTick", 12] call X39_MS2_fnc_registerTickHandler;
 DEBUG_CODE(["X39_MS2_fnc_debugTick" COMMA 1] call X39_MS2_fnc_registerTickHandler);
 assignValue("X39_MS2_var_Internal_ticker_minTickRate", 0.25);
 assignValue("X39_MS2_var_Internal_ticker_maxTicksTimeout", 100);
@@ -159,6 +160,7 @@ assignValue("X39_MS2_var_Internal_DialogCommunication_MA_crafting", []);
 assignValue("X39_MS2_var_Internal_DialogCommunication_MA_currentItem", -1);
 assignValue("X39_MS2_var_Internal_DialogCommunication_MA_craftingResultItemIndex", -1);
 assignValue("X39_MS2_var_Internal_DialogCommunication_BO_isActive", false);
+assignValue("X39_MS2_var_Internal_DialogCommunication_US_TargetedUnit", objNull);
 
 assignValue("X39_MS2_var_Internal_Dialog_TriageCard_States", []);
 assignValue("X39_MS2_var_Internal_Dialog_TriageCard_PreDefinedMessages", []);
@@ -200,6 +202,9 @@ assignValue("X39_MS2_var_Damage_EnableHitzoneLegs", true);
 assignValue("X39_MS2_var_Damage_EnableHitzoneGeneric", true);
 assignValue("X39_MS2_var_Damage_AllowRealKillingOnMaxDamage", true);
 
+assignValue("X39_MS2_var_Damage_AllowDeathThroughFullDamageAtHeadHitzone", true);
+assignValue("X39_MS2_var_Damage_KillWithNoReviveAtMaxHeadDamage", true);
+
 //Dynamic definitions
 assignValue("X39_MS2_var_Damage_maxDamageHead", 1);
 assignValue("X39_MS2_var_Damage_maxDamageBody", 5);
@@ -220,6 +225,7 @@ assignValue("X39_MS2_var_Damage_GenericModificator", 1.0);
 assignValue("X39_MS2_var_Damage_HandsModificator", 1.0);
 assignValue("X39_MS2_var_Damage_HeadModificator", 5.0);
 assignValue("X39_MS2_var_Damage_LegsModificator", 1.0);
+
 
 /**********************
 * CATEGORY: BLEEDING *
@@ -329,6 +335,7 @@ assignValue("X39_MS2_var_Hearing_GlobalModificator", 1.0);
 	//Dynamic definitions
 	assignValue("X39_MS2_var_Drugs_Naloxone_maxNaloxone", 10);
 	assignValue("X39_MS2_var_Drugs_Naloxone_reductionPerTick", 0.001);
+	assignValue("X39_MS2_var_Drugs_Naloxone_wakeBlackedPersonValueP", 0.4);
 	
 	//Modificators
 	assignValue("X39_MS2_var_Drugs_Naloxone_NaloxoneGlobalMultiplicator", 1);
@@ -341,7 +348,8 @@ assignValue("X39_MS2_var_Hearing_GlobalModificator", 1.0);
 assignValue("X39_MS2_var_Heart_enableHeartSimulation", true);
 
 assignValue("X39_MS2_var_Heart_useFatigueForHeartCalculations", true);
-assignValue("X39_MS2_var_Heart_allowForceWalkByPulse", true);
+assignValue("X39_MS2_var_Heart_allowForceWalkByPulse", false);
+assignValue("X39_MS2_var_Heart_allowBlurryScreenByPulse", true);
 assignValue("X39_MS2_var_Heart_pulseUseFilmGrainForHighPulseIndicator", true);
 
 //Dynamic definitions
@@ -354,6 +362,7 @@ assignValue("X39_MS2_var_Heart_minHeartPulsePerSecond", 50);
 assignValue("X39_MS2_var_Heart_basePulseChangePerTick", 0.125);
 assignValue("X39_MS2_var_Heart_timeBeforeFlatLineKills", 120);
 assignValue("X39_MS2_var_Heart_pulseForceWalkAt", 190);
+assignValue("X39_MS2_var_Heart_pulseBlurryAt", 190);
 assignValue("X39_MS2_var_Heart_pulseFilmGrainKickIn", 120);
 assignValue("X39_MS2_var_Heart_pulseSpeedStage0", 0.001);
 assignValue("X39_MS2_var_Heart_pulseSpeedStage1", 5);

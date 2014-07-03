@@ -48,6 +48,13 @@ _handle = _this spawn {
 		if((_unit getVariable ["X39_MS2_var_EH_Explosion", -1]) == -1)			then { _unit setVariable["X39_MS2_var_EH_Explosion",		_unit addEventHandler["Explosion",			{_this call X39_MS2_fnc_cb_Explosion}], true];			};
 		if((_unit getVariable ["X39_MS2_var_EH_AnimStateChanged", -1]) == -1)	then { _unit setVariable["X39_MS2_var_EH_AnimStateChanged",	_unit addEventHandler["AnimStateChanged",	{_this call X39_MS2_fnc_cb_AnimStateChanged}], true];	};
 		if((_unit getVariable ["X39_MS2_var_EH_Respawn", -1]) == -1)			then { _unit setVariable["X39_MS2_var_EH_Respawn",			_unit addEventHandler["Respawn",			{_this call X39_MS2_fnc_cb_Respawn}], true];			};
+		
+		DEBUG_LOG_WFn(format["X39_MS2_var_EH_HandleDamage = %1" COMMA (_unit getVariable ["X39_MS2_var_EH_HandleDamage" COMMA "NA"])]);
+		DEBUG_LOG_WFn(format["X39_MS2_var_EH_FiredNear = %1" COMMA (_unit getVariable ["X39_MS2_var_EH_FiredNear" COMMA "NA"])]);
+		DEBUG_LOG_WFn(format["X39_MS2_var_EH_Explosion = %1" COMMA (_unit getVariable ["X39_MS2_var_EH_Explosion" COMMA "NA"])]);
+		DEBUG_LOG_WFn(format["X39_MS2_var_EH_AnimStateChanged = %1" COMMA (_unit getVariable ["X39_MS2_var_EH_AnimStateChanged" COMMA "NA"])]);
+		DEBUG_LOG_WFn(format["X39_MS2_var_EH_Respawn = %1" COMMA (_unit getVariable ["X39_MS2_var_EH_Respawn" COMMA "NA"])]);
+		
 		_unit setVariable ["X39_MS2_var_UnitInitialized", true];
 		[_unit, "X39_MS2_fnc_runTicker", _unit, false] spawn BIS_fnc_MP;
 	};

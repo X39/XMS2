@@ -127,8 +127,21 @@ class x39_xms2_tourniquet : ItemCore
 class x39_xms2_sphygmomanometer : ItemCore
 {
 	scope = 2;
-	displayName = $STR_X39_MS2_Items_Items_tourniquet;
-	picture = "\X39_MS2_Resources\Items\Sphygmomanometer.paa.paa";
+	displayName = $STR_X39_MS2_Items_Items_sphygmomanometer;
+	picture = "\X39_MS2_Resources\Items\Sphygmomanometer.paa";
+	class ItemInfo
+    {
+    	mass = 5;
+		type = 201;
+    }; 
+	descriptionShort = "";
+};
+class x39_xms2_IVBag : ItemCore
+{
+	scope = 2;
+	displayName = $STR_X39_MS2_Items_Items_ivBag;
+	picture = "\x39_ms2_resources\items\IVBag\IVBag_thumb.paa";
+	model = "\x39_ms2_resources\items\IVBag\IVBag.p3d";
 	class ItemInfo
     {
     	mass = 5;

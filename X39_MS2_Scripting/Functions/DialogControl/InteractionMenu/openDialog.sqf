@@ -2,7 +2,7 @@
 /**
  *	UI function to open the XActionUI
  *
- *	@Param1 - BOOL - isSelf
+ *	@Param1 - BOOL/OBJECT - isSelf / targeted object
  *	@Return - N/A
  *	@Author - X39|Cpt. HM Murdock
  */
@@ -16,19 +16,27 @@ _this spawn {
 	X39_MS2_var_Internal_Dialog_IsSelfInteracton = _isSelf;
 	X39_MS2_var_Internal_DialogCommunication_IM_Executor = player;
 	X39_MS2_var_Internal_DialogCommunication_IM_TargetBlackOutStage = -1;
-	if(_isSelf) then
+	if(ISOBJECT(_isSelf))then
 	{
-		X39_MS2_var_Internal_DialogCommunication_IM_Target = player;
+		X39_MS2_var_Internal_DialogCommunication_IM_Target = _isSelf;
+		_isSelf = _isSelf == player;
 	}
 	else
 	{
-		if(_isInVehicle) then
+		if(_isSelf) then
 		{
-			X39_MS2_var_Internal_DialogCommunication_IM_Target = vehicle player;
+			X39_MS2_var_Internal_DialogCommunication_IM_Target = player;
 		}
 		else
 		{
-			X39_MS2_var_Internal_DialogCommunication_IM_Target = cursorTarget;
+			if(_isInVehicle) then
+			{
+				X39_MS2_var_Internal_DialogCommunication_IM_Target = vehicle player;
+			}
+			else
+			{
+				X39_MS2_var_Internal_DialogCommunication_IM_Target = cursorTarget;
+			};
 		};
 	};
 	if(isNull X39_MS2_var_Internal_DialogCommunication_IM_Target) exitWith {};

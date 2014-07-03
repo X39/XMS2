@@ -108,6 +108,7 @@ class CfgFunctions
 			class cb_HandleDamage:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Callback\cb_HandleDamage.sqf";};
 			class cb_KeyDown:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Callback\cb_KeyDown.sqf";};
 			class cb_AnimStateChanged:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\Callback\cb_AnimStateChanged.sqf";};
+			class cb_Respawn:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Callback\cb_Respawn.sqf";};
 		};
 		class Pain
 		{
@@ -189,10 +190,16 @@ class CfgFunctions
 		{
 			class interactionMenu_openDialog:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\DialogControl\InteractionMenu\openDialog.sqf";};
 		};
+		class DialogControl_UnitSelection
+		{
+			class unitSelection_openDialog:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\DialogControl\UnitSelectionUi\createDialog.sqf";};
+		};
 		class DialogControl_MedicalActionMenu
 		{
 			class setTriageCard:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\setTriageCard.sqf";};
 			class setTriageState:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\setTriageState.sqf";};
+			class getTriageCard:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\getTriageCard.sqf";};
+			class getTriageState:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\getTriageState.sqf";};
 			class MedicalActionMenu_createDialog:X39_XLib_Function_TypeA								{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\createDialog.sqf";};
 			class MedicalActionMenu_btnDiagnosisPerformCheckUnit:X39_XLib_Function_TypeA				{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\btnDiagnosisPerformCheckUnit.sqf";};
 			class MedicalActionMenu_btnDiagnosisAddSelectedEntryToTriageCard:X39_XLib_Function_TypeA	{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\btnDiagnosisAddSelectedEntryToTriageCard.sqf";};

@@ -14,10 +14,10 @@ _res = _this spawn {
 	_unit = [_this, 0, objNull, [objNull]] call BIS_fnc_param;
 	_ticks = 0;
 	_isLocalPlayer = (_unit == player);
-	if(isNull _unit) exitWith {["XMS2 had a FATAL ERROR when the XMSTicker got started! isNull _unit => true"] call BIS_fnc_HALT;};
+	if(isNull _unit) exitWith {["XMS2 had a FATAL ERROR when the XMSTicker got started! isNull _unit => true. Please respawn/reconnect/restart. If this error persists, please contact the mod Author."] call BIS_fnc_HALT;};
 	while { alive _unit } do
 	{
-		_startTime = diag_tickTime;
+		_startTime = time;
 		_ppeDynamicBlur = 0;
 		_ppeRadialBlur = 0;
 		_ppeFocus = 0;
