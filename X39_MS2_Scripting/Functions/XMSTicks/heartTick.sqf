@@ -196,4 +196,12 @@ if(X39_MS2_var_Heart_enableHeartSimulation && {!([_unit] call X39_MS2_fnc_hasFla
 			_ppeDynamicBlur = _ppeDynamicBlur + _val;
 		};
 	};
+	if(X39_MS2_var_Heart_allowCamShakeByPulse && {_newPulse > X39_MS2_var_Heart_pulseCamShakeAt}) then
+	{
+		_val = ((_newPulse - X39_MS2_var_Heart_pulseCamShakeAt) / (X39_MS2_var_Heart_deadlyMaxHeartPulsePerSecond - X39_MS2_var_Heart_pulseCamShakeAt));
+		if(_val > 0) then
+		{
+			addCamShake [_val * X39_MS2_var_Heart_camShakeMultiplicator, 3, 1];
+		};
+	};
 };

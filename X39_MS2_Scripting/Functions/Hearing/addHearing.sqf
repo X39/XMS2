@@ -10,7 +10,7 @@
 if(!X39_MS2_var_Feature_EnableHearing) exitWith {};
 FORCELOCAL(_this select 0);
 private["_hearing"];
-_hearing = [(_this select 0)] call X39_MS2_fnc_getHearing;
+_hearing = [(_this select 0), 0] call X39_MS2_fnc_getHearing;
 _hearing = _hearing + ((_this select 1) * X39_MS2_var_Hearing_GlobalModificator);
 if(_hearing > 1) then
 {

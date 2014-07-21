@@ -15,9 +15,8 @@
  */
 _handle = _this spawn {
 	DEBUG_CODE_SC(_fnc_scriptName = "X39_MS2_fnc_initUnit")
-	private["_unit", "_resetEffects"];
+	private["_unit"];
 	_unit = [_this, 0, objNull, [objNull, {}]] call BIS_fnc_param;
-	_resetEffects = false;
 	if(ISCODE(_unit)) then
 	{
 		waitUntil{!isNil _unit};
@@ -31,7 +30,7 @@ _handle = _this spawn {
 		throw EX_INF_ARG;
 	};
 	waitUntil{alive _unit};
-	DEBUG_LOG_WFn(format["Initializing '%1's variables" COMMA _unit]);
+	DEBUG_LOG_WFn_SC(format["Initializing '%1's variables" COMMA _unit])
 	if(_unit getVariable ["X39_MS2_var_UnitInitialized", false]) then
 	{
 		PRINT_WARNING(EX_INV_ARG);
@@ -41,6 +40,7 @@ _handle = _this spawn {
 		//initialize variables
 		{
 			_unit setVariable[_x select 0, [] call (_x select 1), true];
+			false
 		}count X39_MS2_var_Internal_UnitVariables;
 		//set triggers
 		if((_unit getVariable ["X39_MS2_var_EH_HandleDamage", -1]) == -1)		then { _unit setVariable["X39_MS2_var_EH_HandleDamage",		_unit addEventHandler["HandleDamage",		{_this call X39_MS2_fnc_cb_HandleDamage}], true];		};
@@ -49,81 +49,63 @@ _handle = _this spawn {
 		if((_unit getVariable ["X39_MS2_var_EH_AnimStateChanged", -1]) == -1)	then { _unit setVariable["X39_MS2_var_EH_AnimStateChanged",	_unit addEventHandler["AnimStateChanged",	{_this call X39_MS2_fnc_cb_AnimStateChanged}], true];	};
 		if((_unit getVariable ["X39_MS2_var_EH_Respawn", -1]) == -1)			then { _unit setVariable["X39_MS2_var_EH_Respawn",			_unit addEventHandler["Respawn",			{_this call X39_MS2_fnc_cb_Respawn}], true];			};
 		
-		DEBUG_LOG_WFn(format["X39_MS2_var_EH_HandleDamage = %1" COMMA (_unit getVariable ["X39_MS2_var_EH_HandleDamage" COMMA "NA"])]);
-		DEBUG_LOG_WFn(format["X39_MS2_var_EH_FiredNear = %1" COMMA (_unit getVariable ["X39_MS2_var_EH_FiredNear" COMMA "NA"])]);
-		DEBUG_LOG_WFn(format["X39_MS2_var_EH_Explosion = %1" COMMA (_unit getVariable ["X39_MS2_var_EH_Explosion" COMMA "NA"])]);
-		DEBUG_LOG_WFn(format["X39_MS2_var_EH_AnimStateChanged = %1" COMMA (_unit getVariable ["X39_MS2_var_EH_AnimStateChanged" COMMA "NA"])]);
-		DEBUG_LOG_WFn(format["X39_MS2_var_EH_Respawn = %1" COMMA (_unit getVariable ["X39_MS2_var_EH_Respawn" COMMA "NA"])]);
+		DEBUG_LOG_WFn_SC(format["X39_MS2_var_EH_HandleDamage = %1" COMMA (_unit getVariable ["X39_MS2_var_EH_HandleDamage" COMMA "NA"])])
+		DEBUG_LOG_WFn_SC(format["X39_MS2_var_EH_FiredNear = %1" COMMA (_unit getVariable ["X39_MS2_var_EH_FiredNear" COMMA "NA"])])
+		DEBUG_LOG_WFn_SC(format["X39_MS2_var_EH_Explosion = %1" COMMA (_unit getVariable ["X39_MS2_var_EH_Explosion" COMMA "NA"])])
+		DEBUG_LOG_WFn_SC(format["X39_MS2_var_EH_AnimStateChanged = %1" COMMA (_unit getVariable ["X39_MS2_var_EH_AnimStateChanged" COMMA "NA"])])
+		DEBUG_LOG_WFn_SC(format["X39_MS2_var_EH_Respawn = %1" COMMA (_unit getVariable ["X39_MS2_var_EH_Respawn" COMMA "NA"])])
 		
 		_unit setVariable ["X39_MS2_var_UnitInitialized", true];
 		[_unit, "X39_MS2_fnc_runTicker", _unit, false] spawn BIS_fnc_MP;
 	};
 	//Initialize ppEffects if current entity hasInterface and they are -1
-	DEBUG_LOG_WFn(format["Initializing '%1's ppEffectHandles + other client related stuff if target is a player computer" COMMA _unit]);
+	DEBUG_LOG_WFn_SC(format["Initializing '%1's ppEffectHandles + other client related stuff if target is a player computer" COMMA _unit])
 	if(hasInterface && {_unit == player}) then
 	{
-		DEBUG_LOG_WFn("X39_MS2_var_Internal_ppe_radialBlur");
+		DEBUG_LOG_WFn_SC("X39_MS2_var_Internal_ppe_radialBlur")
 		if(X39_MS2_var_Internal_ppe_radialBlur == -1) then
 		{
-			_resetEffects = true;
 			X39_MS2_var_Internal_ppe_radialBlur = ppEffectCreate ["radialBlur", 470];
 			X39_MS2_var_Internal_ppe_radialBlur ppEffectEnable true;
 		};
-		DEBUG_LOG_WFn("X39_MS2_var_Internal_ppe_chromAberration");
+		DEBUG_LOG_WFn_SC("X39_MS2_var_Internal_ppe_chromAberration")
 		if(X39_MS2_var_Internal_ppe_chromAberration == -1) then
 		{
-			_resetEffects = true;
 			X39_MS2_var_Internal_ppe_chromAberration = ppEffectCreate ["chromAberration", 5010];
 			X39_MS2_var_Internal_ppe_chromAberration ppEffectEnable true;
 		};
-		DEBUG_LOG_WFn("X39_MS2_var_Internal_ppe_wetDistortion");
+		DEBUG_LOG_WFn_SC("X39_MS2_var_Internal_ppe_wetDistortion")
 		if(X39_MS2_var_Internal_ppe_wetDistortion == -1) then
 		{
-			_resetEffects = true;
 			X39_MS2_var_Internal_ppe_wetDistortion = ppEffectCreate ["wetDistortion", 1140];
 			X39_MS2_var_Internal_ppe_wetDistortion ppEffectEnable true;
 		};
-		DEBUG_LOG_WFn("X39_MS2_var_Internal_ppe_colorCorrections");
+		DEBUG_LOG_WFn_SC("X39_MS2_var_Internal_ppe_colorCorrections")
 		if(X39_MS2_var_Internal_ppe_colorCorrections == -1) then
 		{
-			_resetEffects = true;
 			X39_MS2_var_Internal_ppe_colorCorrections = ppEffectCreate ["colorCorrections", 1160];
 			X39_MS2_var_Internal_ppe_colorCorrections ppEffectEnable true;
 		};
-		DEBUG_LOG_WFn("X39_MS2_var_Internal_ppe_dynamicBlur");
+		DEBUG_LOG_WFn_SC("X39_MS2_var_Internal_ppe_dynamicBlur")
 		if(X39_MS2_var_Internal_ppe_dynamicBlur == -1) then
 		{
-			_resetEffects = true;
 			X39_MS2_var_Internal_ppe_dynamicBlur = ppEffectCreate ["dynamicBlur", 460];
 			X39_MS2_var_Internal_ppe_dynamicBlur ppEffectEnable true;
 		};
-		DEBUG_LOG_WFn("X39_MS2_var_Internal_ppe_filmGrain");
+		DEBUG_LOG_WFn_SC("X39_MS2_var_Internal_ppe_filmGrain")
 		if(X39_MS2_var_Internal_ppe_filmGrain == -1) then
 		{
-			_resetEffects = true;
 			X39_MS2_var_Internal_ppe_filmGrain = ppEffectCreate ["filmGrain", 2060];
 			X39_MS2_var_Internal_ppe_filmGrain ppEffectEnable true;
 		};
-		DEBUG_LOG_WFn("X39_MS2_var_Internal_ppe_colorInversion");
+		DEBUG_LOG_WFn_SC("X39_MS2_var_Internal_ppe_colorInversion")
 		if(X39_MS2_var_Internal_ppe_colorInversion == -1) then
 		{
-			_resetEffects = true;
 			X39_MS2_var_Internal_ppe_colorInversion = ppEffectCreate ["colorInversion", 2510];
 			X39_MS2_var_Internal_ppe_colorInversion ppEffectEnable true;
 		};
-		DEBUG_LOG_WFn("reseting all effects");
-		if(_resetEffects) then
-		{
-			[] call X39_MS2_fnc_resetPPEffects;
-		};
+		DEBUG_LOG_WFn_SC("reseting all effects")
 		[] call X39_MS2_fnc_overlay_createDisplay;
-		DEBUG_LOG_WFn("X39_MS2_var_Internal_deh_keyDown");
-		if(X39_MS2_var_Internal_deh_keyDown == -1) then
-		{
-			waitUntil{!isNull (findDisplay 46)};
-			DEBUG_LOG_WFn(format["before: X39_MS2_var_Internal_deh_keyDown => %1; (findDisplay 46) => %2" COMMA X39_MS2_var_Internal_deh_keyDown COMMA (findDisplay 46)]);
-			X39_MS2_var_Internal_deh_keyDown = (findDisplay 46) displayAddEventHandler["KeyDown", "_this call X39_MS2_fnc_cb_KeyDown;"];
-			DEBUG_LOG_WFn(format["after: X39_MS2_var_Internal_deh_keyDown => %1" COMMA X39_MS2_var_Internal_deh_keyDown]);
-		};
 	};
+	[] call X39_MS2_fnc_resetPPEffects;
 };

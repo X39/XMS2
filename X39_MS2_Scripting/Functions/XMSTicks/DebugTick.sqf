@@ -24,7 +24,7 @@ displayCtrl_Overlay(1072) ctrlShow X39_MS2_DEBUG_enable;
 if(X39_MS2_DEBUG_enable) then
 {
 	displayCtrl_Overlay(1072) ctrlSetStructuredText parseText format[
-							"--General Info--<br />fatigue = %11<br />enableFatigue = %12<br />forceWalk = %13<br />pulse = %14<br />adrenaline = %15<br />temperature = %16<br />pain = %17<br />speed = %18<br />Current blood value = %19<br />Hearing ability = %20<br />Morphine = %21<br /><br />--Damage--<br />Head:<br />- %4<br />- %9<br />Body:<br />- %1<br />- %6<br />Hands:<br />- %3<br />- %8<br />Legs:<br />- %5<br />- %10<br />Generic:<br />- %2<br />- %7",
+							"--General Info--<br />fatigue = %11<br />enableFatigue = %12<br />forceWalk = %13<br />pulse = %14<br />adrenaline = %15<br />temperature = %16<br />pain = %17<br />speed = %18<br />Current blood value = %19<br />Hearing ability = %20<br />Morphine = %21<br />Distraction = %22<br /><br />--Damage--<br />Head:<br />- %4<br />- %9<br />Body:<br />- %1<br />- %6<br />Hands:<br />- %3<br />- %8<br />Legs:<br />- %5<br />- %10<br />Generic:<br />- %2<br />- %7",
 							[_unit] call X39_MS2_fnc_getDamageOfBody,		//1
 							[_unit] call X39_MS2_fnc_getDamageOfGeneric,	//2
 							[_unit] call X39_MS2_fnc_getDamageOfHands,		//3
@@ -43,9 +43,10 @@ if(X39_MS2_DEBUG_enable) then
 							[_unit] call X39_MS2_fnc_getTemperature,		//16
 							[_unit] call X39_MS2_fnc_getPain,				//17
 							speed _unit,									//18
-							[_unit]call X39_MS2_fnc_getBlood,				//19
-							[_unit]call X39_MS2_fnc_getHearing,				//20
-							[_unit]call X39_MS2_fnc_getMorphine				//21
+							[_unit] call X39_MS2_fnc_getBlood,				//19
+							[_unit] call X39_MS2_fnc_getHearing,			//20
+							[_unit] call X39_MS2_fnc_getMorphine,			//22
+							[_unit] call X39_MS2_fnc_getDistraction			//21
 						];
 	if(X39_MS2_DEBUG_ppeDynamicBlur != -1)		then {_ppeDynamicBlur = X39_MS2_DEBUG_ppeDynamicBlur;			};
 	if(X39_MS2_DEBUG_ppeRadialBlur != -1)		then {_ppeRadialBlur = X39_MS2_DEBUG_ppeRadialBlur;				};

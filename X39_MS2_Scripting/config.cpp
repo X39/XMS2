@@ -3,7 +3,7 @@ class CfgPatches{
          units[] = {"X39_MS2_veh_BaseModule"};
          weapons[] = {};
          requiredVersion = 1.0;
-         requiredAddons[] = {"X39_XLib_Core", "X39_MS2_Settings", "X39_MS2_Factions", "X39_MS2_Resources", "X39_MS2_UIs"};
+         requiredAddons[] = {"X39_XLib_Core", "X39_MS2_Settings", "X39_MS2_Factions", "X39_MS2_Resources", "X39_MS2_UIs", "X39_XLib_ActionDialog"};
          author = "X39|Cpt. HM Murdock";
          mail = "killerx29@gmail.com";
 	};
@@ -36,12 +36,12 @@ class CfgFunctions
 			class addEffect:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\addEffect.sqf";};
 			class messagePlayer:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\messagePlayer.sqf";};
 			class killUnit:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\killUnit.sqf";};
-			class registerInteraction:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\registerInteraction.sqf";};
 			class registerTickHandler:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\registerTickHandler.sqf";};
 			class registerMedicalMessage:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\registerMedicalMessage.sqf";};
 			
 			class applyServerConfig:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\applyServerConfig.sqf";};
 			class applyClientConfig:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\applyClientConfig.sqf";};
+			class resetUnitsVariables:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\resetUnitsVariables.sqf";};
 		};
 		class InitModFunctions //Functions for initMod
 		{
@@ -106,7 +106,6 @@ class CfgFunctions
 			class cb_Explosion:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Callback\cb_Explosion.sqf";};
 			class cb_FiredNear:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Callback\cb_FiredNear.sqf";};
 			class cb_HandleDamage:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Callback\cb_HandleDamage.sqf";};
-			class cb_KeyDown:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Callback\cb_KeyDown.sqf";};
 			class cb_AnimStateChanged:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\Callback\cb_AnimStateChanged.sqf";};
 			class cb_Respawn:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Callback\cb_Respawn.sqf";};
 		};
@@ -116,6 +115,12 @@ class CfgFunctions
 			class getPain:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\Pain\getPain.sqf";};
 			class getMaxPain:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Pain\getMaxPain.sqf";};
 			class setPain:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\Pain\setPain.sqf";};
+		};
+		class Distraction
+		{
+			class addDistraction:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Distraction\addDistraction.sqf";};
+			class getDistraction:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Distraction\getDistraction.sqf";};
+			class setDistraction:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Distraction\setDistraction.sqf";};
 		};
 		class Drugs
 		{
@@ -160,6 +165,7 @@ class CfgFunctions
 			class effectHandleTick:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\XMSTicks\effectHandleTick.sqf";};
 			class temperatureTick:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\XMSTicks\temperatureTick.sqf";};
 			class hearingTick:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\XMSTicks\hearingTick.sqf";};
+			class distractionTick:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\XMSTicks\distractionTick.sqf";};
 			class painTick:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\XMSTicks\painTick.sqf";};
 			class bleedingTick:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\XMSTicks\bleedingTick.sqf";};
 			class soundTick:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\XMSTicks\soundTick.sqf";};
@@ -185,10 +191,6 @@ class CfgFunctions
 		{
 			class overlay_createDisplay:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\DialogControl\Overlay\createDisplay.sqf";};
 			class overlay_showHitMarker:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\DialogControl\Overlay\showHitMarker.sqf";};
-		};
-		class DialogControl_InteractionMenu
-		{
-			class interactionMenu_openDialog:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\DialogControl\InteractionMenu\openDialog.sqf";};
 		};
 		class DialogControl_UnitSelection
 		{

@@ -41,7 +41,7 @@ _this spawn {
 			displayCtrl_BlackoutUI(1102) ctrlSetStructuredText (parseText format["%1<br/>%2°", localize "STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_Temperature", abs (37 * ((_unit getVariable["X39_MS2_var_Temperature_value", -1]) / X39_MS2_var_Temperature_max))]);
 			
 			//Current pulse
-			displayCtrl_BlackoutUI(1101) ctrlSetStructuredText (parseText format["%1<br/>%2", localize "STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_Pulse", floor (_unit getVariable["X39_MS2_var_Heart_heartPulse", -1])]);
+			displayCtrl_BlackoutUI(1101) ctrlSetStructuredText (parseText format["%1<br/>%2", localize "STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_Pulse", (if((_unit getVariable["X39_MS2_var_Heart_hasFlatLine", -1]) == -1) then {floor (_unit getVariable["X39_MS2_var_Heart_heartPulse", -1])} else { 0 })]);
 			if(time % 20 < 1 && {scriptDone _handle}) then
 			{
 				_handle = [] spawn {
@@ -76,7 +76,7 @@ _this spawn {
 			};
 			if(_isPlayer) then
 			{
-				displayCtrl_BlackoutUI(1104) ctrlSetStructuredText (parseText format["%1<br/>%2", localize "STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_TimeLeftAwake", ceil _timeLeft]);
+				displayCtrl_BlackoutUI(1104) ctrlSetStructuredText (parseText format["%1<br/>%2", localize "STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_TimeLeftAwake", ceil _timeLeft]);
 			};
 			if(_timeLeft == 0) then
 			{
@@ -94,30 +94,26 @@ _this spawn {
 				if(_timeBlackOut != -1) then
 				{
 					_timeLeft = time - (_timeBlackOut);
-					_timeLeft = _timeValue - time;
+					_timeLeft = _timeValue - _timeLeft;
 				}
 				else
 				{
 					_timeLeft = time - (_timeFlatLine);
-					_timeLeft = X39_MS2_var_Heart_timeBeforeFlatLineKills - time;
-				};
-				if(_timeLeft < 0) then
-				{
-					_timeLeft = 0;
+					_timeLeft = X39_MS2_var_Heart_timeBeforeFlatLineKills - _timeLeft;
 				};
 			};
 			if(_isPlayer) then
 			{
 				if(_timeLeft >= 0) then
 				{
-					displayCtrl_BlackoutUI(1104) ctrlSetStructuredText (parseText format["%1<br/>%2", localize "STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_TimeLeftDeath", ceil _timeLeft]);
+					displayCtrl_BlackoutUI(1104) ctrlSetStructuredText (parseText format["%1<br/>%2", localize "STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_TimeLeftDeath", ceil _timeLeft]);
 				}
 				else
 				{
 					displayCtrl_BlackoutUI(1104) ctrlSetStructuredText (parseText "");
 				};
 			};
-			if(_timeLeft == 0) then
+			if(_timeLeft <= 0) then
 			{
 				[_unit] call X39_MS2_fnc_killUnit;
 			};

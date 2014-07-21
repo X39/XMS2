@@ -88,7 +88,7 @@ _res = _this spawn {
 		
 		//Finalize tick
 		DEBUG_CODE(diag_log format["XMSTicker %1: %2, %3" COMMA _randomID COMMA _unit COMMA alive _unit]);
-		_endTick = diag_tickTime;
+		_endTick = time;
 		_sleep = X39_MS2_var_Internal_ticker_minTickRate - (_endTick - _startTime);
 		if(_sleep > 0) then
 		{

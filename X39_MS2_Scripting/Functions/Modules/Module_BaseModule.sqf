@@ -6,5 +6,9 @@
  */
 if(isServer) then
 {
-	[[{player}], "X39_MS2_fnc_initUnit", true, true] call BIS_fnc_MP;
+	if(isNil "X39_MS2_var_ModuleProtector_BaseModule") then
+	{
+		X39_MS2_var_ModuleProtector_BaseModule = 0;
+		[[{player}], "X39_MS2_fnc_initUnit", true, true] call BIS_fnc_MP;
+	};
 };

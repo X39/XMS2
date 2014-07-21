@@ -16,10 +16,9 @@ if((_corpse getVariable ["X39_MS2_var_EH_FiredNear", -1]) != -1)		then { _corpse
 if((_corpse getVariable ["X39_MS2_var_EH_Explosion", -1]) != -1)		then { _corpse removeEventHandler["Explosion",			(_corpse getVariable ["X39_MS2_var_EH_Explosion", -1])];		};
 if((_corpse getVariable ["X39_MS2_var_EH_AnimStateChanged", -1]) != -1)	then { _corpse removeEventHandler["AnimStateChanged",	(_corpse getVariable ["X39_MS2_var_EH_AnimStateChanged", -1])];	};
 if((_corpse getVariable ["X39_MS2_var_EH_Respawn", -1]) != -1)			then { _corpse removeEventHandler["Respawn",			(_corpse getVariable ["X39_MS2_var_EH_Respawn", -1])];			};
-if(X39_MS2_var_Internal_deh_keyDown != -1)								then { (findDisplay 46) displayRemoveEventHandler["KeyDown", X39_MS2_var_Internal_deh_keyDown]; X39_MS2_var_Internal_deh_keyDown = -1;};
 
 _unit setCaptive false;
-X39_MS2_var_Internal_DialogCommunication_IM_preventActions = false;
+X39_XLib_var_ActionDialog_preventMenuOpening = false;
 X39_MS2_var_Internal_DialogCommunication_MA_preventActions = false;
 X39_MS2_var_InteractionMenu_allowOpeningOfTheUi = true;
 //Workaround for a strange issue ... (somehow the variables are kept on units which respawn so we need to make sure this one IS false)

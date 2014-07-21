@@ -15,7 +15,7 @@ if(isNull _unit) exitWith {PRINT_ERROR("no target")};
 _hasFlatLine = [_unit] call X39_MS2_fnc_hasFlatLine;
 _adrenaline = ([_unit] call X39_MS2_fnc_getAdrenaline) / X39_MS2_var_Drugs_Adrenaline_maxAdrenaline;
 
-X39_MS2_var_Internal_DialogCommunication_IM_preventActions = true;
+X39_XLib_var_ActionDialog_preventMenuOpening = true;
 
 _executer playAction "MedicStart";
 playSound3D ["\X39_MS2_Resources\sounds\XMS2_SoundFiles_LP12_full.ogg", _unit, false, position _unit, 1, 1, 0];
@@ -24,6 +24,10 @@ if(_hasFlatLine) then
 {
 	if(_adrenaline > X39_MS2_var_InteractionMenu_Defibrillate_RequiredAdrenalineP || random X39_MS2_var_InteractionMenu_Defibrillate_ChanceWithoutAdrenaline == X39_MS2_var_InteractionMenu_Defibrillate_ChanceWithoutAdrenaline / 2) then
 	{
+		if(X39_MS2_var_InteractionMenu_Defibrillate_DistractionAdded > 0) then
+		{
+			[_unit, X39_MS2_var_InteractionMenu_Defibrillate_DistractionAdded] call X39_MS2_fnc_addDistraction;
+		};
 		[_unit, -1] call X39_MS2_fnc_setFlatLine;
 		[_unit, 0, -1, ""] call X39_MS2_fnc_blackOutUnit;
 	};
@@ -36,4 +40,4 @@ _executer playAction "MedicStop";
 
 
 
-X39_MS2_var_Internal_DialogCommunication_IM_preventActions = false;
+X39_XLib_var_ActionDialog_preventMenuOpening = false;

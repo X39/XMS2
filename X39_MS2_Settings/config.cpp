@@ -9,7 +9,7 @@ class CfgPatches
          units[] = {};
          weapons[] = {};
          requiredVersion = 1.0;
-         requiredAddons[] = {"X39_XLib_Core"};
+         requiredAddons[] = {"X39_XLib_Core", "X39_XLib_ModProperties"};
          author = "X39|Cpt. HM Murdock";
          mail = "killerx29@gmail.com";
 	};

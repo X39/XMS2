@@ -19,6 +19,7 @@ _this spawn {
 	
 	while{(!isNull (uiNamespace getVariable "UnitSelectionUi")) && (vehicle player != player)} do
 	{
+		DEBUG_LOG_WFn_SC(format["_currentCrewList = %1" COMMA _currentCrewList])
 		for "_i" from 0 to ((lnbSize IDC_UNITSELECTIONUI_MCLB_UNITSELECTION) select 0) do
 		{
 			_index = lnbValue [IDC_UNITSELECTIONUI_MCLB_UNITSELECTION, [_i, 0]];
@@ -28,11 +29,13 @@ _this spawn {
 				_i = ((lnbSize IDC_UNITSELECTIONUI_MCLB_UNITSELECTION) select 0) * 2;
 				_currentCrewList = [];
 				lnbClear IDC_UNITSELECTIONUI_MCLB_UNITSELECTION;
+				DEBUG_LOG_WFn_SC("Clearing _currentCrewList & dialog")
 			};
 			//Remove crew members not in vehicle anymore
 			_curObj = _currentCrewList select _index;
 			if(vehicle _curObj != _veh) then
 			{
+				DEBUG_LOG_WFn_SC(format["Removing '%1' at index '%2' from _currentCrewList & dialog" COMMA _curObj COMMA _index])
 				_currentCrewList set[_index, -1];
 				_currentCrewList = _currentCrewList - [-1];
 				displayCtrl_UnitSelectionUi(IDC_UNITSELECTIONUI_MCLB_UNITSELECTION) lnbDeleteRow _index;
@@ -51,14 +54,17 @@ _this spawn {
 					lnbSetColor [IDC_UNITSELECTIONUI_MCLB_UNITSELECTION, [_index, 0], IDC_XMS2UI_C_TRIAGECARD_TRIAGESTATESELECTION select _triageState select 2];
 					lnbSetValue [IDC_UNITSELECTIONUI_MCLB_UNITSELECTION, [_index, 0], count _currentCrewList];
 					_currentCrewList set[count _currentCrewList, _x];
+					DEBUG_LOG_WFn_SC(format["Added '%1' to lnb" COMMA _x])
 				};
 			};
 			false
 		}count crew _veh;
 		sleep 0.1;
 	};
+	DEBUG_LOG_WFn_SC("Exiting dialog loop")
 	if(!isNull (uiNamespace getVariable "UnitSelectionUi")) then
 	{
+		DEBUG_LOG_WFn_SC("Dialog still open! Closing")
 		closeDialog 26385;
 	};
 };
