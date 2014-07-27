@@ -19,7 +19,7 @@
 		[] call X39_XLib_fnc_ActionDialog_closeDialog;
 		[X39_XLib_var_ActionDialog_Executor] call X39_MS2_fnc_MedicalActionMenu_createDialog;
 	},
-	{X39_XLib_var_ActionDialog_IsSelf}
+	{[X39_XLib_var_ActionDialog_Target] call X39_MS2_fnc_isUnitXms2Unit && {X39_XLib_var_ActionDialog_IsSelf}}
 ] call X39_XLib_fnc_ActionDialog_registerAction;
 [
 	localize 'STR_X39_MS2_Scripting_InteractionMenu_openMedicalMenu',
@@ -29,7 +29,7 @@
 		if(isNull X39_XLib_var_ActionDialog_Target) exitWith {false};
 		[X39_XLib_var_ActionDialog_Target] call X39_MS2_fnc_MedicalActionMenu_createDialog;
 	},
-	{!X39_XLib_var_ActionDialog_IsSelf}
+	{[X39_XLib_var_ActionDialog_Target] call X39_MS2_fnc_isUnitXms2Unit && {!X39_XLib_var_ActionDialog_IsSelf}}
 ] call X39_XLib_fnc_ActionDialog_registerAction;
 [
 	localize 'STR_X39_MS2_Scripting_InteractionMenu_putEarplugs',
@@ -39,7 +39,7 @@
 		X39_XLib_var_ActionDialog_Target setVariable ['X39_MS2_var_hasEarplugs', true];
 		X39_XLib_var_ActionDialog_Target removeItem 'x39_xms2_earplugs';
 	},
-	{((items X39_XLib_var_ActionDialog_Target) find 'x39_xms2_earplugs' != -1) && !(X39_XLib_var_ActionDialog_Target getVariable ['X39_MS2_var_hasEarplugs', false])}
+	{[X39_XLib_var_ActionDialog_Target] call X39_MS2_fnc_isUnitXms2Unit && {((items X39_XLib_var_ActionDialog_Target) find 'x39_xms2_earplugs' != -1) && !(X39_XLib_var_ActionDialog_Target getVariable ['X39_MS2_var_hasEarplugs', false])}}
 ] call X39_XLib_fnc_ActionDialog_registerAction;
 [
 	localize 'STR_X39_MS2_Scripting_InteractionMenu_removeEarplugs',
@@ -49,7 +49,7 @@
 		X39_XLib_var_ActionDialog_Target setVariable ['X39_MS2_var_hasEarplugs', false];
 		X39_XLib_var_ActionDialog_Target addItem 'x39_xms2_earplugs';
 	},
-	{(X39_XLib_var_ActionDialog_Target getVariable ['X39_MS2_var_hasEarplugs', false])}
+	{[X39_XLib_var_ActionDialog_Target] call X39_MS2_fnc_isUnitXms2Unit && {(X39_XLib_var_ActionDialog_Target getVariable ['X39_MS2_var_hasEarplugs', false])}}
 ] call X39_XLib_fnc_ActionDialog_registerAction;
 [
 	localize 'STR_X39_MS2_Scripting_InteractionMenu_putTourniquet',
@@ -66,7 +66,7 @@
 			X39_XLib_var_ActionDialog_Executor removeItem 'x39_xms2_tourniquet';
 		};
 	},
-	{(((items X39_XLib_var_ActionDialog_Executor) find 'x39_xms2_tourniquet' != -1) || ((items X39_XLib_var_ActionDialog_Target) find 'x39_xms2_tourniquet' != -1)) && !(X39_XLib_var_ActionDialog_Target getVariable ['X39_MS2_var_hasTourniquet', false])}
+	{[X39_XLib_var_ActionDialog_Target] call X39_MS2_fnc_isUnitXms2Unit && {(((items X39_XLib_var_ActionDialog_Executor) find 'x39_xms2_tourniquet' != -1) || ((items X39_XLib_var_ActionDialog_Target) find 'x39_xms2_tourniquet' != -1)) && !(X39_XLib_var_ActionDialog_Target getVariable ['X39_MS2_var_hasTourniquet', false])}}
 ] call X39_XLib_fnc_ActionDialog_registerAction;
 [
 	localize 'STR_X39_MS2_Scripting_InteractionMenu_removeTourniquet',
@@ -76,7 +76,7 @@
 		X39_XLib_var_ActionDialog_Target setVariable ['X39_MS2_var_hasTourniquet', false];
 		X39_XLib_var_ActionDialog_Executor addItem 'x39_xms2_tourniquet';
 	},
-	{(X39_XLib_var_ActionDialog_Target getVariable ['X39_MS2_var_hasTourniquet', false])}
+	{[X39_XLib_var_ActionDialog_Target] call X39_MS2_fnc_isUnitXms2Unit && {(X39_XLib_var_ActionDialog_Target getVariable ['X39_MS2_var_hasTourniquet', false])}}
 ] call X39_XLib_fnc_ActionDialog_registerAction;
 [
 	localize 'STR_X39_MS2_Scripting_InteractionMenu_useDefibrillator',
@@ -85,7 +85,7 @@
 		[] call X39_XLib_fnc_ActionDialog_closeDialog;
 		[X39_XLib_var_ActionDialog_Executor, X39_XLib_var_ActionDialog_Target] spawn X39_MS2_fnc_MA_defibrillate;
 	},
-	{
+	{[X39_XLib_var_ActionDialog_Target] call X39_MS2_fnc_isUnitXms2Unit && {
 		!X39_XLib_var_ActionDialog_IsSelf && !X39_XLib_var_ActionDialog_ExecutorInVehicle &&
 		{
 			(((items X39_XLib_var_ActionDialog_Target) find 'x39_xms2_defibrillator') != -1) ||
@@ -96,7 +96,7 @@
 				}
 			}
 		}
-	}
+	}}
 ] call X39_XLib_fnc_ActionDialog_registerAction;
 [
 	localize 'STR_X39_MS2_Scripting_InteractionMenu_stripWeapons',
@@ -110,7 +110,7 @@
 			X39_XLib_var_ActionDialog_Target removeWeapon _x;
 		}foreach (weapons X39_XLib_var_ActionDialog_Target);
 	},
-	{!X39_XLib_var_ActionDialog_IsSelf && !X39_XLib_var_ActionDialog_ExecutorInVehicle}
+	{[X39_XLib_var_ActionDialog_Target] call X39_MS2_fnc_isUnitXms2Unit && {!X39_XLib_var_ActionDialog_IsSelf && !X39_XLib_var_ActionDialog_ExecutorInVehicle}}
 ] call X39_XLib_fnc_ActionDialog_registerAction;
 [
 	localize 'STR_X39_MS2_Scripting_InteractionMenu_dragUnit',
@@ -140,7 +140,7 @@
 		X39_XLib_var_ActionDialog_Target switchMove 'AinjPpneMstpSnonWrflDb'; //TODO: Check if its required to do a primaryWeapon == '' etc. check
 		[] call X39_XLib_fnc_ActionDialog_closeDialog;
 	},
-	{!X39_XLib_var_ActionDialog_IsSelf && !X39_XLib_var_ActionDialog_ExecutorInVehicle && {({(_x getVariable ['X39_MS2_var_UnitInitialized', false])} count attachedObjects X39_XLib_var_ActionDialog_Executor) <= 0}}
+	{[X39_XLib_var_ActionDialog_Target] call X39_MS2_fnc_isUnitXms2Unit && {!X39_XLib_var_ActionDialog_IsSelf && !X39_XLib_var_ActionDialog_ExecutorInVehicle && {({(_x getVariable ['X39_MS2_var_UnitInitialized', false])} count attachedObjects X39_XLib_var_ActionDialog_Executor) <= 0}}}
 ] call X39_XLib_fnc_ActionDialog_registerAction;
 [
 	localize 'STR_X39_MS2_Scripting_InteractionMenu_dropUnit',
@@ -170,7 +170,7 @@
 		};
 		[] call X39_XLib_fnc_ActionDialog_closeDialog;
 	},
-	{X39_XLib_var_ActionDialog_IsSelf && !X39_XLib_var_ActionDialog_ExecutorInVehicle && {({(_x getVariable ['X39_MS2_var_UnitInitialized', false])} count attachedObjects X39_XLib_var_ActionDialog_Executor) > 0}}
+	{[X39_XLib_var_ActionDialog_Target] call X39_MS2_fnc_isUnitXms2Unit && {X39_XLib_var_ActionDialog_IsSelf && !X39_XLib_var_ActionDialog_ExecutorInVehicle && {({(_x getVariable ['X39_MS2_var_UnitInitialized', false])} count attachedObjects X39_XLib_var_ActionDialog_Executor) > 0}}}
 ] call X39_XLib_fnc_ActionDialog_registerAction;
 [
 	'Add 2000 blood to body',
@@ -180,5 +180,5 @@
 		systemChat 'THIS IS A DUMMY IMPLEMENTATION! So please dont expect something will happen now ... ^^';
 		systemChat '((for sure ... the target now has 2000 blood added))';
 	},
-	{!X39_XLib_var_ActionDialog_IsSelf && !X39_XLib_var_ActionDialog_ExecutorInVehicle}
+	{[X39_XLib_var_ActionDialog_Target] call X39_MS2_fnc_isUnitXms2Unit && {!X39_XLib_var_ActionDialog_IsSelf && !X39_XLib_var_ActionDialog_ExecutorInVehicle}}
 ] call X39_XLib_fnc_ActionDialog_registerAction;

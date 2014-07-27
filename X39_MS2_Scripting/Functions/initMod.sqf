@@ -113,9 +113,7 @@ assignValue("X39_MS2_var_Internal_ppe_colorInversion", -1);
 
 
 
-//MedicalActions
 assignValue("X39_MS2_var_Internal_MedicalActions_actionArray", [objNull]);
-[] call X39_MS2_fnc_IMH_registerMedicalActions;
 
 //Ticker
 assignValue("X39_MS2_var_Internal_ticker_tickHandlers", []);
@@ -153,10 +151,7 @@ assignValue("X39_MS2_var_Internal_Dialog_TriageCard_PreDefinedMessages", []);
 
 //MedicalMessages
 assignValue("X39_MS2_var_Internal_MedicalMessages", []);
-[] call X39_MS2_fnc_IMH_addMedicalMessages;
 
-//InteractionMenu
-[] call X39_MS2_fnc_IMH_addInteractionMenuEntries;
 
 /******************************
 * CATEGORY: PROFILENAMESPACE *
@@ -555,6 +550,9 @@ assignValue("X39_MS2_var_ItemReplacement_FirstAidKit", ["x39_xms2_bandage" COMMA
 	assignValue("X39_MS2_DEBUG_cfnForceWalk", -1);
 #endif
 
+[] call X39_MS2_fnc_IMH_registerMedicalActions;
+[] call X39_MS2_fnc_IMH_addMedicalMessages;
+[] call X39_MS2_fnc_IMH_addInteractionMenuEntries;
 if(isServer) then
 {
 	[] call X39_MS2_fnc_applyServerConfig;
