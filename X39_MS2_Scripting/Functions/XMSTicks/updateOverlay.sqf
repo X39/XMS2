@@ -17,13 +17,14 @@
  *	@Param2 - SCALAR - HandleID
  *	@Return - NA
  */
+if(!hasInterface) exitWith {};
 private["_unit", "_handleID", "_currentHitMarkerValue", "_calcValue", "_currentTemperature"];
 _unit = _this select 0;
 _handleID = _this select 1;
 
 //HitMarker
 _currentHitMarkerValue = (_unit getVariable ["X39_MS2_var_hitMarkerValue", 0]);
-if(_currentHitMarkerValue != 0) then
+if(_currentHitMarkerValue > 0) then
 {
 	_calcValue = ([_unit] call X39_MS2_fnc_getPain) / (0 call X39_MS2_fnc_getMaxPain);
 	DEBUG_CODE(if(_calcValue > 1) then { PRINT_ERROR("updateOverlay: HitMarker painValue is > 1!"); };)

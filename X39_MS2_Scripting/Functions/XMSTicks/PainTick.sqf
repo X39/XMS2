@@ -24,8 +24,8 @@ _currentPain = [_unit] call X39_MS2_fnc_getPain;
 _maxPain = [] call X39_MS2_fnc_getMaxPain;
 _changePain = -X39_MS2_var_Pain_painReductionPerTick;
 
-_redScreenAlpha = _currentPain / _maxPain;
-_ppeDynamicBlur = _redScreenAlpha;
+_redScreenAlpha = _redScreenAlpha + (_currentPain / _maxPain);
+_ppeDynamicBlur = _ppeDynamicBlur + _redScreenAlpha;
 
 if(X39_MS2_var_Sound_playExtremePainSounds && {_redScreenAlpha > X39_MS2_var_Sound_playExtremePainSounds_startPointP}) then
 {

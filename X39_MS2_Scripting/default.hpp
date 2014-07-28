@@ -43,9 +43,9 @@
 	
 	#define COMMA ,
 	
-	//#ifndef DEBUG
-	//	#define DEBUG
-	//#endif
+	#ifndef DEBUG
+		#define DEBUG
+	#endif
 
 	#ifndef DEBUG
 		#define DEBUG_LOG(X)

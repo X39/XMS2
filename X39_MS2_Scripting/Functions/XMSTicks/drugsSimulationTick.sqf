@@ -72,7 +72,7 @@ if(X39_MS2_var_Feature_EnableMorphine) then {
 		{
 			if(_morphineCalculationBase >= X39_MS2_var_Drugs_Morphine_morphineRandomDowningPointP) then
 			{
-				if(floor random X39_MS2_var_Drugs_Morphine_morphineRandomDowningBaseValue == 0) then
+				if(floor random 100 < X39_MS2_var_Drugs_Morphine_morphineRandomDowningBaseValueP * 100) then
 				{
 					_unit playMove "down";
 				};

@@ -10,14 +10,6 @@ if(isNil "scriptNull") then
 {
 	scriptNull = 0 spawn {};
 };
-_fnc_getKey =
-{
-	_keycode = getNumber (_this >> "key");
-	_bool1 = (getNumber (_this >> "press_ctrl")) call X39_XLib_fnc_IntToBool;
-	_bool3 = (getNumber (_this >> "press_shift")) call X39_XLib_fnc_IntToBool;
-	_bool2 = (getNumber (_this >> "press_alt")) call X39_XLib_fnc_IntToBool;
-	[_keycode, _bool1, _bool2, _bool3]
-};
 
 //################################
 //# X39s Medical System - EVENTS #
@@ -38,6 +30,7 @@ _fnc_getKey =
 ["BloodChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
 
 ["PainChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
+["DistractionChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
 ["HearingChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
 ["PulseChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
 ["TemperatureChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
@@ -64,10 +57,6 @@ _fnc_getKey =
 
 assignValue("X39_MS2_var_UIs_XMS2_Overlay_ShownInCurrentMission", false);
 
-assignValue("X39_MS2_var_Internal_Keys", []);
-//Settings
-X39_MS2_var_Internal_Keys set [count X39_MS2_var_Internal_Keys, ["X39_MS2_var_Internal_Key1", {X39_MS2_var_Internal_Dialog_IsSelfInteracton = true;	[true] call X39_MS2_fnc_interactionMenu_openDialog;},	(configFile >> "CfgSettings" >> "X39" >> "XMS2" >> "ClientConfig" >> "keys" >> "Key1") call _fnc_getKey]];
-X39_MS2_var_Internal_Keys set [count X39_MS2_var_Internal_Keys, ["X39_MS2_var_Internal_Key2", {X39_MS2_var_Internal_Dialog_IsSelfInteracton = false; if(vehicle player == player) then { [false] call X39_MS2_fnc_interactionMenu_openDialog; } else { [] call X39_MS2_fnc_unitSelection_openDialog;};},	(configFile >> "CfgSettings" >> "X39" >> "XMS2" >> "ClientConfig" >> "keys" >> "Key2") call _fnc_getKey]];
 
 assignValue("X39_MS2_var_Internal_UnitVariables", []);
 //																				  |Variable name								|Value (as code)								|Will this be broadcasted over the network?|
@@ -111,6 +100,7 @@ X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Morphine_value",			{0												}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Adrenaline_value",		{0												}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Naloxone_value",			{0												}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_distraction",					{0												}, true		]];
 
 //Reserve ppEffect/EventHandler variable holders (not all are used)
 assignValue("X39_MS2_var_Internal_ppe_radialBlur", -1);
@@ -121,13 +111,9 @@ assignValue("X39_MS2_var_Internal_ppe_dynamicBlur", -1);
 assignValue("X39_MS2_var_Internal_ppe_filmGrain", -1);
 assignValue("X39_MS2_var_Internal_ppe_colorInversion", -1);
 
-assignValue("X39_MS2_var_Internal_deh_keyDown", -1);
 
 
-
-//MedicalActions
 assignValue("X39_MS2_var_Internal_MedicalActions_actionArray", [objNull]);
-[] call X39_MS2_fnc_IMH_registerMedicalActions;
 
 //Ticker
 assignValue("X39_MS2_var_Internal_ticker_tickHandlers", []);
@@ -136,6 +122,7 @@ assignValue("X39_MS2_var_Internal_ticker_tickHandlers", []);
 ["X39_MS2_fnc_temperatureTick", 1] call X39_MS2_fnc_registerTickHandler;
 ["X39_MS2_fnc_hearingTick", 1] call X39_MS2_fnc_registerTickHandler;
 ["X39_MS2_fnc_bleedingTick", 1] call X39_MS2_fnc_registerTickHandler;
+["X39_MS2_fnc_distractionTick", 1] call X39_MS2_fnc_registerTickHandler;
 ["X39_MS2_fnc_painTick", 1] call X39_MS2_fnc_registerTickHandler;
 ["X39_MS2_fnc_updateOverlay", 1] call X39_MS2_fnc_registerTickHandler;
 ["X39_MS2_fnc_drugsSimulationTick", 1] call X39_MS2_fnc_registerTickHandler;
@@ -150,9 +137,6 @@ assignValue("X39_MS2_var_Internal_ticker_maxTicksTimeout", 100);
 assignValue("X39_MS2_var_Internal_XMSEffects_MaxLifetime", 32000);
 
 //Dialog variables
-assignValue("X39_MS2_var_Internal_DialogCommunication_IM_Target", objNull);
-assignValue("X39_MS2_var_Internal_DialogCommunication_IM_Executor", objNull);
-assignValue("X39_MS2_var_Internal_DialogCommunication_IM_preventActions", false);
 assignValue("X39_MS2_var_Internal_DialogCommunication_MA_Caller", objNull);
 assignValue("X39_MS2_var_Internal_DialogCommunication_MA_Target", objNull);
 assignValue("X39_MS2_var_Internal_DialogCommunication_MA_preventActions", false);
@@ -167,12 +151,7 @@ assignValue("X39_MS2_var_Internal_Dialog_TriageCard_PreDefinedMessages", []);
 
 //MedicalMessages
 assignValue("X39_MS2_var_Internal_MedicalMessages", []);
-[] call X39_MS2_fnc_IMH_addMedicalMessages;
 
-//InteractionMenu
-assignValue("X39_MS2_var_Internal_Dialog_IsSelfInteracton", false);
-assignValue("X39_MS2_var_Internal_InteractionMenu_Entries", []);
-[] call X39_MS2_fnc_IMH_addInteractionMenuEntries;
 
 /******************************
 * CATEGORY: PROFILENAMESPACE *
@@ -240,7 +219,7 @@ assignValue("X39_MS2_var_Bleeding_EnableAterialDamage", true);
 assignValue("X39_MS2_var_Bleeding_LowBloodFeatures", true);
 
 //Dynamic definitions
-assignValue("X39_MS2_var_Bleeding_BleedingCurePerTick", 0.001);
+assignValue("X39_MS2_var_Bleeding_BleedingCurePerTick", 0.0001);
 
 assignValue("X39_MS2_var_Bleeding_maxBloodInEntireBody", 60000);
 assignValue("X39_MS2_var_Bleeding_maxBleedingHead", 1);
@@ -281,7 +260,7 @@ assignValue("X39_MS2_var_Hearing_allowSoundChange", true);
 assignValue("X39_MS2_var_Hearing_allowRadioChange", true);
 
 //Dynamic definitions
-assignValue("X39_MS2_var_Hearing_curePerTick", 0.0001);
+assignValue("X39_MS2_var_Hearing_curePerTick", 0.001);
 assignValue("X39_MS2_var_Hearing_reductionThroughEarplugs", 0.2);
 
 //Modificators
@@ -304,7 +283,7 @@ assignValue("X39_MS2_var_Hearing_GlobalModificator", 1.0);
 	assignValue("X39_MS2_var_Drugs_Morphine_morphineRandomDowningPointP", 0.3);
 	assignValue("X39_MS2_var_Drugs_Morphine_morphineDisortionStartPointP", 0.4);
 	assignValue("X39_MS2_var_Drugs_Morphine_morphineForceWalkPointP", 0.3);
-	assignValue("X39_MS2_var_Drugs_Morphine_morphineRandomDowningBaseValue", 30);
+	assignValue("X39_MS2_var_Drugs_Morphine_morphineRandomDowningBaseValueP", 0.3);
 
 	//Modificators
 	assignValue("X39_MS2_var_Drugs_Morphine_morphinePainCureValueP", 1.0);
@@ -350,12 +329,13 @@ assignValue("X39_MS2_var_Heart_enableHeartSimulation", true);
 assignValue("X39_MS2_var_Heart_useFatigueForHeartCalculations", true);
 assignValue("X39_MS2_var_Heart_allowForceWalkByPulse", false);
 assignValue("X39_MS2_var_Heart_allowBlurryScreenByPulse", true);
+assignValue("X39_MS2_var_Heart_allowCamShakeByPulse", true);
 assignValue("X39_MS2_var_Heart_pulseUseFilmGrainForHighPulseIndicator", true);
 
 //Dynamic definitions
 assignValue("X39_MS2_var_Heart_normalMaxHeartPulsePerSecond", 190);
 assignValue("X39_MS2_var_Heart_deadlyMaxHeartPulsePerSecond", 260);
-assignValue("X39_MS2_var_Heart_knockOutUnitAtPulse", 220);
+assignValue("X39_MS2_var_Heart_knockOutUnitAtPulse", 250);
 assignValue("X39_MS2_var_Heart_temporaryKnockOutBaseTimePulse", 20);
 assignValue("X39_MS2_var_Heart_temporaryKnockOutRandomTimePulse", 20);
 assignValue("X39_MS2_var_Heart_minHeartPulsePerSecond", 50);
@@ -363,6 +343,7 @@ assignValue("X39_MS2_var_Heart_basePulseChangePerTick", 0.125);
 assignValue("X39_MS2_var_Heart_timeBeforeFlatLineKills", 120);
 assignValue("X39_MS2_var_Heart_pulseForceWalkAt", 190);
 assignValue("X39_MS2_var_Heart_pulseBlurryAt", 190);
+assignValue("X39_MS2_var_Heart_pulseCamShakeAt", 150);
 assignValue("X39_MS2_var_Heart_pulseFilmGrainKickIn", 120);
 assignValue("X39_MS2_var_Heart_pulseSpeedStage0", 0.001);
 assignValue("X39_MS2_var_Heart_pulseSpeedStage1", 5);
@@ -377,6 +358,7 @@ assignValue("X39_MS2_var_Heart_pulseLimitStage4", -1);
 assignValue("X39_MS2_var_Heart_pulseGlobalMultiplicator", 1);
 assignValue("X39_MS2_var_Heart_pulseReductionMultiplicator", 2);
 assignValue("X39_MS2_var_Heart_knockOutSmallerMinPulseManipulator", 0.2);
+assignValue("X39_MS2_var_Heart_camShakeMultiplicator", 3);
 
 /******************
 * CATEGORY: PAIN *
@@ -405,6 +387,17 @@ assignValue("X39_MS2_var_Pain_DamagePainForGenericModificator", 1.0);
 assignValue("X39_MS2_var_Pain_DamagePainForHandsModificator", 1.0);
 assignValue("X39_MS2_var_Pain_DamagePainForHeadModificator", 1.0);
 assignValue("X39_MS2_var_Pain_DamagePainForLegsModificator", 1.0);
+
+/******************
+* CATEGORY: Distraction *
+*****************/
+//Enable/Disable distraction related features
+
+//Dynamic definitions
+assignValue("X39_MS2_var_Distraction_reductionPerTick", 0.01);
+
+//Modificators
+
 
 /*************************
 * CATEGORY: Temperature *
@@ -442,6 +435,8 @@ assignValue("X39_MS2_var_HitMarker_ReductionPerTick", 0.25);
 assignValue("X39_MS2_var_Feature_EnableBackBlast", true);
 //Allows the mod to simulate pain
 assignValue("X39_MS2_var_Feature_EnablePain", true);
+//Allows the mod to simulate distraction
+assignValue("X39_MS2_var_Feature_EnableDistraction", true);
 //Enables general adrenaline parts of the mod
 assignValue("X39_MS2_var_Feature_EnableAdrenaline", true);
 //Enable adding "natural" ammount of adrenaline during fight
@@ -495,8 +490,9 @@ assignValue("X39_MS2_var_InteractionMenu_enablePutUnitsIntoVehicles", true);
 assignValue("X39_MS2_var_InteractionMenu_enablePullUnitsFromVehicles", true);
 assignValue("X39_MS2_var_InteractionMenu_allowOpeningOfTheUi", true);
 
-assignValue("X39_MS2_var_InteractionMenu_Defibrillate_RequiredAdrenalineP", 0.5);
+assignValue("X39_MS2_var_InteractionMenu_Defibrillate_RequiredAdrenalineP", 0.4);
 assignValue("X39_MS2_var_InteractionMenu_Defibrillate_ChanceWithoutAdrenaline", 12); //1:X
+assignValue("X39_MS2_var_InteractionMenu_Defibrillate_DistractionAdded", 10);
 
 /****************************
 * CATEGORY: MedicalActions *
@@ -554,6 +550,9 @@ assignValue("X39_MS2_var_ItemReplacement_FirstAidKit", ["x39_xms2_bandage" COMMA
 	assignValue("X39_MS2_DEBUG_cfnForceWalk", -1);
 #endif
 
+[] call X39_MS2_fnc_IMH_registerMedicalActions;
+[] call X39_MS2_fnc_IMH_addMedicalMessages;
+[] call X39_MS2_fnc_IMH_addInteractionMenuEntries;
 if(isServer) then
 {
 	[] call X39_MS2_fnc_applyServerConfig;

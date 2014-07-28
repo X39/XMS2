@@ -36,6 +36,7 @@ if(_stage == 0) exitWith
 	_unit setVariable ["X39_MS2_var_BlackOut_isBlackedOut", false];
 	["unitBlackedOut", _this, false, "XMS2", missionNamespace] call X39_XLib_EH_fnc_triggerEvent;
 	_unit setVariable ["X39_MS2_var_BlackOut_currentStage", _stage];
+	_unit setCaptive false;
 };
 
 
@@ -43,6 +44,7 @@ _currentStageOfUnit = _unit getVariable["X39_MS2_var_BlackOut_currentStage", 0];
 
 if(_stage > _currentStageOfUnit && {_stage < 5}) then
 {
+	_unit setCaptive true;
 	if(_stage > 4) then
 	{
 		_unit setVariable ["X39_MS2_var_BlackOut_timeOfDeath", time];

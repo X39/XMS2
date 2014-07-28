@@ -3,6 +3,7 @@ class X39_MS2_veh_BaseModule: Module_F
 {
 	author = "X39|Cpt. HM Murdock";
 	scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
+	scopeCurator = 2;
 	displayName = $STR_X39_MS2_Scripting_Modules_BaseModule; // Name displayed in the menu
 	icon = "\X39_MS2_Resources\ModuleImages\BaseModule.paa"; // Map icon. Delete this entry to use the default icon
 	category = "X39_MS2_Faction";
@@ -20,7 +21,7 @@ class X39_MS2_veh_BaseModule: Module_F
 	isTriggerActivated = 0;
 	// 1 if modules is to be disabled once it's activated (i.e., repeated trigger activation won't work)
 	isDisposable = 0;
-
+	curatorCost = 0;
 	// Module arguments
 	class Arguments
 	{

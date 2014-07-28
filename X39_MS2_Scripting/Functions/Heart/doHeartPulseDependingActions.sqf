@@ -16,7 +16,7 @@ if(_currentPulse >= X39_MS2_var_Heart_deadlyMaxHeartPulsePerSecond) exitWith
 {
 	[_unit, time] call X39_MS2_fnc_setFlatLine;
 };
-if(_currentPulse >= X39_MS2_var_Heart_knockOutUnitAtPulse) then
+if(_currentPulse >= X39_MS2_var_Heart_knockOutUnitAtPulse) exitWith
 {
 	[_unit, 1, X39_MS2_var_Heart_temporaryKnockOutBaseTimePulse + (random X39_MS2_var_Heart_temporaryKnockOutRandomTimePulse) - (X39_MS2_var_Heart_temporaryKnockOutRandomTimePulse / 2), localize "STR_X39_MS2_Scripting_Adrenaline_Pulse_TooHigh"] call X39_MS2_fnc_blackOutUnit;
 };
