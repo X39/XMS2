@@ -94,9 +94,9 @@ X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_timeOfDeath",			{-1												}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_TimeValue",			{-1												}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Internal_lastValues",			{[]												}, false	]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_triageCard",					{[]												}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_triageCard",					{[player] call X39_MS2_fnc_getTriageCard		}                , true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_hitMarkerValue",				{0												}, false	]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_triageState",					{-1												}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_triageState",					{[player] call X39_MS2_fnc_getTriageState		}                , true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Morphine_value",			{0												}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Adrenaline_value",		{0												}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Naloxone_value",			{0												}, true		]];
@@ -179,7 +179,7 @@ assignValue("X39_MS2_var_Damage_EnableHitzoneBody", true);
 assignValue("X39_MS2_var_Damage_EnableHitzoneHands", true);
 assignValue("X39_MS2_var_Damage_EnableHitzoneLegs", true);
 assignValue("X39_MS2_var_Damage_EnableHitzoneGeneric", true);
-assignValue("X39_MS2_var_Damage_AllowRealKillingOnMaxDamage", true);
+assignValue("X39_MS2_var_Damage_AllowRealKillingOnMaxDamage", false);
 
 assignValue("X39_MS2_var_Damage_AllowDeathThroughFullDamageAtHeadHitzone", true);
 assignValue("X39_MS2_var_Damage_KillWithNoReviveAtMaxHeadDamage", true);
@@ -221,7 +221,7 @@ assignValue("X39_MS2_var_Bleeding_LowBloodFeatures", true);
 //Dynamic definitions
 assignValue("X39_MS2_var_Bleeding_BleedingCurePerTick", 0.0001);
 
-assignValue("X39_MS2_var_Bleeding_maxBloodInEntireBody", 60000);
+assignValue("X39_MS2_var_Bleeding_maxBloodInEntireBody", 6000);
 assignValue("X39_MS2_var_Bleeding_maxBleedingHead", 1);
 assignValue("X39_MS2_var_Bleeding_maxBleedingBody", 5);
 assignValue("X39_MS2_var_Bleeding_maxBleedingHands", 1);

@@ -1,0 +1,33 @@
+Fixed 0000058
+Fixed 0000054
+Fixed 0000061
+Fixed 0000059
+Fixed 0000060
+Fixed 0000053
+
+
+Changed default value of X39_MS2_var_triageState from -1 to 0.
+Because default should be no state.
+
+I think that -1 is unnecessary in arma 3 because you have getValue with could output the default value.
+Also if a getValie is in 2 places build a function that you call instead. That way you dont have to change default value everywhere. 
+Only in the Getfile.Even init for variables is unnecessary.
+
+Added: Display will close if there is no actions to display.
+
+Hey!
+So I have been working on this now for a couple of days and seriously some things are really good with the project.
+But some other things are really broken, beyond repair and I was hoping that some bugs that we found would be just to fix a little.
+But its really broken, like the blackout system, its really broken the entire thing and it needs to be re written and I dont have time to rewrite entire 
+sections of code. And our group is talking about changing medicalsystem.
+
+Tips: 
+#1 Use the getValue with default value, just in one place not 100 different places (easier to change smaller things)
+#2 use a correct default value for example "X39_MS2_var_triageState" was default -1 but should the default value be 0 because default value on a soldier is Not hurt or no status.
+Dont make it more complicated, initiate everything, default value that is not -1 or so, use the default value you want, like default for blood is 60000 not -1.
+use variables for the values aswell so you just assign value in one place then all other code uses that number.
+#3 As above all important numbers should be in one place and the entire other code is refering to that place (minimizing bugs alot of bugs and easier to tweek).
+
+Hopefully the changes i made is not all bad but you think some are good aswell :)
+
+

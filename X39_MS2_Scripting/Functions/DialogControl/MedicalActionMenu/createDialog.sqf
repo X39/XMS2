@@ -136,7 +136,7 @@ _this spawn {
 		lbSetPicture[IDC_XMS2UI_C_TRIAGECARD_TRIAGESTATESELECTION, _index, format["#(argb,8,8,3)color(%1,%2,%3,%4)", (_x select 2) select 0, (_x select 2) select 1, (_x select 2) select 2, (_x select 2) select 3]];
 		false
 	}count X39_MS2_var_Internal_Dialog_TriageCard_States;
-	lbSetCurSel[IDC_XMS2UI_C_TRIAGECARD_TRIAGESTATESELECTION, X39_MS2_var_Internal_DialogCommunication_MA_Target getVariable ["X39_MS2_var_triageState", -1]];
+	lbSetCurSel[IDC_XMS2UI_C_TRIAGECARD_TRIAGESTATESELECTION, [X39_MS2_var_Internal_DialogCommunication_MA_Target] call X39_MS2_fnc_getTriageState];
 	displayCtrl_MedicalUi(IDC_XMS2UI_C_TRIAGECARD_TRIAGESTATESELECTION) ctrlSetEventHandler ["LBSelChanged", "[X39_MS2_var_Internal_DialogCommunication_MA_Target, _this select 1] call X39_MS2_fnc_setTriageState;"];
 	
 	//Add checkUnitTypes
@@ -148,7 +148,7 @@ _this spawn {
 
 	
 	//Begin UI Loop
-	while {!([X39_MS2_var_Internal_DialogCommunication_MA_Caller] call X39_MS2_fnc_isBlackedOut) && dialog} do
+	while {!([X39_MS2_var_Internal_DialogCommunication_MA_Caller] call X39_MS2_fnc_isBlackedOut) && dialog && ((X39_MS2_var_Internal_DialogCommunication_MA_Target distance X39_MS2_var_Internal_DialogCommunication_MA_Caller) < 4)} do
 	{
 		DEBUG_LOG("MedicalUI Loop is running a new tick");
 		//Set current item
@@ -244,8 +244,8 @@ _this spawn {
 		}forEach X39_MS2_var_Internal_MedicalActions_actionArray;
 		
 		//update Triage Card
-		_triageCardEntries = X39_MS2_var_Internal_DialogCommunication_MA_Target getVariable ["X39_MS2_var_triageCard", []];
-		_triageState = X39_MS2_var_Internal_DialogCommunication_MA_Target getVariable ["X39_MS2_var_triageState", -1];
+		_triageCardEntries = [X39_MS2_var_Internal_DialogCommunication_MA_Target] call X39_MS2_fnc_getTriageCard;
+		_triageState = [X39_MS2_var_Internal_DialogCommunication_MA_Target] call X39_MS2_fnc_getTriageState;
 		if(count _triageCardEntries != lbSize IDC_XMS2UI_LB_TRIAGECARD_ENTRIES) then
 		{
 			lbClear displayCtrl_MedicalUi(IDC_XMS2UI_LB_TRIAGECARD_ENTRIES);
