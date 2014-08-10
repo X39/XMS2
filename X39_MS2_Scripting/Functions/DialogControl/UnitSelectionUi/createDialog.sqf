@@ -45,17 +45,12 @@ _this spawn {
 					_currentCrewList = _currentCrewList - [-1];
 					displayCtrl_UnitSelectionUi(IDC_UNITSELECTIONUI_MCLB_UNITSELECTION) lnbDeleteRow _index;
 					_i = _i - 1;
-				};
-				// Check if a row is selected
-				
-							
+				};				
 			};
 		};
 		{
-			if(alive _x ) then 
-			{
-				//&& _x != player
-				
+			if(alive _x && _x != player) then 
+			{				
 				if(!(_x in _currentCrewList)) then
 				{					
 					_triageState = [_x] call X39_MS2_fnc_getTriageState;					
