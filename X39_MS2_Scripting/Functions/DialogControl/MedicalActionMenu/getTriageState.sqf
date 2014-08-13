@@ -8,4 +8,4 @@
  *	@Return - SCALAR - TriageCard state
  *	@Author - X39|Cpt. HM Murdock
  */
-_this select 0 setVariable["X39_MS2_var_triageState", -1];
+_this select 0 getVariable["X39_MS2_var_triageState", -1];

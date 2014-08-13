@@ -1,4 +1,5 @@
 #include "ui.defs"
+
 #ifndef GUI_GRID_H
 	#define GUI_GRID_H (safezoneH * 0.0165)
 #endif
@@ -62,7 +63,7 @@ class X39_MS2_UnitSelectionUi {
 			y = 0.654 * safezoneH + safezoneY;
 			w = 0.144375 * safezoneW;
 			h = 0.022 * safezoneH;
-			action = "closeDialog 26385; if(!isNull X39_MS2_var_Internal_DialogCommunication_US_TargetedUnit) then {[X39_MS2_var_Internal_DialogCommunication_US_TargetedUnit] call X39_MS2_fnc_interactionMenu_openDialog; X39_MS2_var_Internal_DialogCommunication_US_TargetedUnit = objNull;};";
+			action = "[] spawn {closeDialog 26385;sleep 0.1; if(!isNull(missionNamespace getVariable ""X39_MS2_var_Internal_DialogCommunication_US_TargetedUnit"")) then {[missionNamespace getVariable ""X39_MS2_var_Internal_DialogCommunication_US_TargetedUnit""] call X39_MS2_fnc_MedicalActionMenu_createDialog; missionNamespace setVariable [""X39_MS2_var_Internal_DialogCommunication_US_TargetedUnit"", nil];};}";
 		};
 		class RscButtonMenuCancel_2700: RscButtonMenuCancel
 		{

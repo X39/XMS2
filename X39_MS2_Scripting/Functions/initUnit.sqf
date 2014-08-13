@@ -39,7 +39,11 @@ _handle = _this spawn {
 	{
 		//initialize variables
 		{
-			_unit setVariable[_x select 0, [] call (_x select 1), true];
+			if (_x select 0 != "X39_MS2_var_triageState" && _x select 0 != "X39_MS2_var_triageCard") then {
+				_unit setVariable[_x select 0, [] call (_x select 1), true];				
+			}else{					
+				[] call (_x select 1);				
+			};			
 			false
 		}count X39_MS2_var_Internal_UnitVariables;
 		//set triggers
