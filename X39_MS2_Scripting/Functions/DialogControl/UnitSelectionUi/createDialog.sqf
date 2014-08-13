@@ -49,19 +49,24 @@ _this spawn {
 			};
 		};
 		{
-			if(alive _x && _x != player) then 
-			{				
+			if(alive _x ) then 
+			{		
+				//&& _x != player
 				if(!(_x in _currentCrewList)) then
 				{					
 					_triageState = [_x] call X39_MS2_fnc_getTriageState;					
 					
-					_index = lnbAddRow [IDC_UNITSELECTIONUI_MCLB_UNITSELECTION, ["", X39_MS2_var_Internal_Dialog_TriageCard_States select _triageState select 0, name _x]];
-					lnbSetPicture [IDC_UNITSELECTIONUI_MCLB_UNITSELECTION, [_index, 0], "\X39_MS2_Resources\UI\MedicalUI\TriageSymbol.paa"];
-					if (_triageState > 0) then {
+					if(_triageState > 0) then
+					{
+						_index = lnbAddRow [IDC_UNITSELECTIONUI_MCLB_UNITSELECTION, ["", X39_MS2_var_Internal_Dialog_TriageCard_States select _triageState select 0, name _x]];
+						lnbSetPicture [IDC_UNITSELECTIONUI_MCLB_UNITSELECTION, [_index, 0], "\X39_MS2_Resources\UI\MedicalUI\TriageSymbol.paa"];
 						lnbSetColor [IDC_UNITSELECTIONUI_MCLB_UNITSELECTION, [_index, 0], X39_MS2_var_Internal_Dialog_TriageCard_States select _triageState select 2]; // cant set color on the picture, prob needs one picture per state.
 						lnbSetColor [IDC_UNITSELECTIONUI_MCLB_UNITSELECTION, [_index, 1], X39_MS2_var_Internal_Dialog_TriageCard_States select _triageState select 2];
 						lnbSetColor [IDC_UNITSELECTIONUI_MCLB_UNITSELECTION, [_index, 2], X39_MS2_var_Internal_Dialog_TriageCard_States select _triageState select 2];
-					};
+					}else{
+						_index = lnbAddRow [IDC_UNITSELECTIONUI_MCLB_UNITSELECTION, ["", X39_MS2_var_Internal_Dialog_TriageCard_States select 0 select 0, name _x]];
+					};					
+										
 					lnbSetValue [IDC_UNITSELECTIONUI_MCLB_UNITSELECTION, [_index, 0], count _currentCrewList];
 					_currentCrewList set[count _currentCrewList, _x];
 					DEBUG_LOG_WFn_SC(format["Added '%1' to lnb" COMMA _x])
