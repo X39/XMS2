@@ -795,6 +795,24 @@
 				  <Russian>Youre knocked out as you got not enough blood in your body</Russian>
 				   <Polish>Youre knocked out as you got not enough blood in your body</Polish>
 			</Key>
+			<Key ID="STR_X39_MS2_Scripting_XMSTicks_BleedingTick_KnockOutDueBloodPresureLow">
+				  <English>Youre knocked out as your blood presure is too low</English>
+				   <German>Youre knocked out as your blood presure is too low</German>
+				<Hungarian>Youre knocked out as your blood presure is too low</Hungarian>
+				  <Italian>Youre knocked out as your blood presure is too low</Italian>
+				   <French>Youre knocked out as your blood presure is too low</French>
+				  <Russian>Youre knocked out as your blood presure is too low</Russian>
+				   <Polish>Youre knocked out as your blood presure is too low</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_XMSTicks_BleedingTick_KnockOutDueBloodPresureHigh">
+				  <English>Youre knocked out as your blood presure is too high</English>
+				   <German>Youre knocked out as your blood presure is too high</German>
+				<Hungarian>Youre knocked out as your blood presure is too high</Hungarian>
+				  <Italian>Youre knocked out as your blood presure is too high</Italian>
+				   <French>Youre knocked out as your blood presure is too high</French>
+				  <Russian>Youre knocked out as your blood presure is too high</Russian>
+				   <Polish>Youre knocked out as your blood presure is too high</Polish>
+			</Key>
 		</Container>
 		<Container name="Adrenaline">
 			<Key ID="STR_X39_MS2_Scripting_Adrenaline_Pulse_FlatLine">

@@ -49,7 +49,7 @@ _this spawn {
 			};
 		};
 		{
-			if(alive _x ) then 
+			if(alive _x DEBUG_CODE_INV( && _x != player)) then 
 			{		
 				//&& _x != player
 				if(!(_x in _currentCrewList)) then
