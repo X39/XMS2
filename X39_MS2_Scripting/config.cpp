@@ -82,6 +82,7 @@ class CfgFunctions
 			class addBleedingToHead:X39_XLib_Function_TypeA												{file = "X39_MS2_Scripting\Functions\Bleeding\adder\addBleedingToHead.sqf";};
 			class addBleedingToLegs:X39_XLib_Function_TypeA												{file = "X39_MS2_Scripting\Functions\Bleeding\adder\addBleedingToLegs.sqf";};
 			class addBlood:X39_XLib_Function_TypeA														{file = "X39_MS2_Scripting\Functions\Bleeding\adder\addBlood.sqf";};
+			class addClotting:X39_XLib_Function_TypeA													{file = "X39_MS2_Scripting\Functions\Bleeding\adder\addClotting.sqf";};
 			
 			class setBleedingOfBody:X39_XLib_Function_TypeA												{file = "X39_MS2_Scripting\Functions\Bleeding\setter\setBleedingOfBody.sqf";};
 			class setBleedingOfGeneric:X39_XLib_Function_TypeA											{file = "X39_MS2_Scripting\Functions\Bleeding\setter\setBleedingOfGeneric.sqf";};
@@ -89,6 +90,7 @@ class CfgFunctions
 			class setBleedingOfHead:X39_XLib_Function_TypeA												{file = "X39_MS2_Scripting\Functions\Bleeding\setter\setBleedingOfHead.sqf";};
 			class setBleedingOfLegs:X39_XLib_Function_TypeA												{file = "X39_MS2_Scripting\Functions\Bleeding\setter\setBleedingOfLegs.sqf";};
 			class setBlood:X39_XLib_Function_TypeA														{file = "X39_MS2_Scripting\Functions\Bleeding\setter\setBlood.sqf";};
+			class setClotting:X39_XLib_Function_TypeA													{file = "X39_MS2_Scripting\Functions\Bleeding\setter\setClotting.sqf";};
 			
 			class getBleedingOfBody:X39_XLib_Function_TypeA												{file = "X39_MS2_Scripting\Functions\Bleeding\getter\getBleedingOfBody.sqf";};
 			class getBleedingOfGeneric:X39_XLib_Function_TypeA											{file = "X39_MS2_Scripting\Functions\Bleeding\getter\getBleedingOfGeneric.sqf";};
@@ -96,10 +98,12 @@ class CfgFunctions
 			class getBleedingOfHead:X39_XLib_Function_TypeA												{file = "X39_MS2_Scripting\Functions\Bleeding\getter\getBleedingOfHead.sqf";};
 			class getBleedingOfLegs:X39_XLib_Function_TypeA												{file = "X39_MS2_Scripting\Functions\Bleeding\getter\getBleedingOfLegs.sqf";};
 			class getBlood:X39_XLib_Function_TypeA														{file = "X39_MS2_Scripting\Functions\Bleeding\getter\getBlood.sqf";};
+			class getClotting:X39_XLib_Function_TypeA													{file = "X39_MS2_Scripting\Functions\Bleeding\getter\getClotting.sqf";};
 			
 			class isBleeding:X39_XLib_Function_TypeA													{file = "X39_MS2_Scripting\Functions\Bleeding\isBleeding.sqf";};
 			class getAterialDamage:X39_XLib_Function_TypeA												{file = "X39_MS2_Scripting\Functions\Bleeding\getAterialDamage.sqf";};
 			class setAterialDamage:X39_XLib_Function_TypeA												{file = "X39_MS2_Scripting\Functions\Bleeding\setAterialDamage.sqf";};
+			class getBloodPresure:X39_XLib_Function_TypeA												{file = "X39_MS2_Scripting\Functions\Bleeding\getBloodPresure.sqf";};
 		};
 		class Callback
 		{

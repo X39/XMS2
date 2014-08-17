@@ -58,7 +58,13 @@ FOR /F %%f IN ('DIR /AD/B/D') DO (
 		echo %%f is flaged to be packed only
 		SET BINPBOJOB=PACK
 	)
-	"%BINPBO%" "%GITPATH%\!FILE!" "%GAMEADDONPATH%" -!BINPBOJOB! -CLEAR -TEMP "%TEMPPATH%" -DEBUG -PROJECT "%GITPATH%\!FILE!" -SIGN "%SIGNKEY%" -INCLUDE "%WHITELIST%"
+	if "!FILE:~0,1!"=="." (
+		echo Ignoring !FILE! because of the initial .
+	) else (
+		IF NOT EXIST "%GITPATH%\!FILE!\.IGNOREFOLDER" (
+			"%BINPBO%" "%GITPATH%\!FILE!" "%GAMEADDONPATH%" -!BINPBOJOB! -CLEAR -TEMP "%TEMPPATH%" -DEBUG -PROJECT "%GITPATH%\!FILE!" -SIGN "%SIGNKEY%" -INCLUDE "%WHITELIST%"
+		)
+	)
 )
 
 IF NOT "%PLACECOPYAT%"=="" (

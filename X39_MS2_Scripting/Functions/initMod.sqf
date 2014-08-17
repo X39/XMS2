@@ -28,6 +28,7 @@ if(isNil "scriptNull") then
 ["Bleeding_Legs", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
 ["Bleeding_Generic", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
 ["BloodChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
+["ClottingChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
 
 ["PainChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
 ["DistractionChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
@@ -73,6 +74,7 @@ X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Hands",				{0.0											}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Legs",					{0.0											}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Blood",				{X39_MS2_var_Bleeding_maxBloodInEntireBody		}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Clotting",				{1												}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_AterieDamaged",		{false											}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_HandleDamage",				{-1												}, false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_FiredNear",					{-1												}, false	]];
@@ -94,9 +96,9 @@ X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_timeOfDeath",			{-1												}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_TimeValue",			{-1												}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Internal_lastValues",			{[]												}, false	]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_triageCard",					{[]												}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_triageCard",					{[player] call X39_MS2_fnc_getTriageCard		}                , true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_hitMarkerValue",				{0												}, false	]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_triageState",					{-1												}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_triageState",					{[player] call X39_MS2_fnc_getTriageState		}                , true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Morphine_value",			{0												}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Adrenaline_value",		{0												}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Naloxone_value",			{0												}, true		]];
@@ -130,7 +132,7 @@ assignValue("X39_MS2_var_Internal_ticker_tickHandlers", []);
 ["X39_MS2_fnc_publishTick", 4] call X39_MS2_fnc_registerTickHandler;
 ["X39_MS2_fnc_soundTick", 12] call X39_MS2_fnc_registerTickHandler;
 DEBUG_CODE(["X39_MS2_fnc_debugTick" COMMA 1] call X39_MS2_fnc_registerTickHandler);
-assignValue("X39_MS2_var_Internal_ticker_minTickRate", 0.25);
+assignValue("X39_MS2_var_Internal_ticker_minTickRate", 0.5);
 assignValue("X39_MS2_var_Internal_ticker_maxTicksTimeout", 100);
 
 //XMSEffects
@@ -179,7 +181,7 @@ assignValue("X39_MS2_var_Damage_EnableHitzoneBody", true);
 assignValue("X39_MS2_var_Damage_EnableHitzoneHands", true);
 assignValue("X39_MS2_var_Damage_EnableHitzoneLegs", true);
 assignValue("X39_MS2_var_Damage_EnableHitzoneGeneric", true);
-assignValue("X39_MS2_var_Damage_AllowRealKillingOnMaxDamage", true);
+assignValue("X39_MS2_var_Damage_AllowRealKillingOnMaxDamage", false);
 
 assignValue("X39_MS2_var_Damage_AllowDeathThroughFullDamageAtHeadHitzone", true);
 assignValue("X39_MS2_var_Damage_KillWithNoReviveAtMaxHeadDamage", true);
@@ -216,12 +218,15 @@ assignValue("X39_MS2_var_Bleeding_EnableHitzoneHands", true);
 assignValue("X39_MS2_var_Bleeding_EnableHitzoneLegs", true);
 assignValue("X39_MS2_var_Bleeding_EnableHitzoneGeneric", true);
 assignValue("X39_MS2_var_Bleeding_EnableAterialDamage", true);
+assignValue("X39_MS2_var_Bleeding_EnableClotting", true);
 assignValue("X39_MS2_var_Bleeding_LowBloodFeatures", true);
+assignValue("X39_MS2_var_Bleeding_EnableBloodPresureForBleedingTick", true);
+assignValue("X39_MS2_var_Bleeding_BloodPresureCanKill", true);
 
 //Dynamic definitions
 assignValue("X39_MS2_var_Bleeding_BleedingCurePerTick", 0.0001);
 
-assignValue("X39_MS2_var_Bleeding_maxBloodInEntireBody", 60000);
+assignValue("X39_MS2_var_Bleeding_maxBloodInEntireBody", 6000);
 assignValue("X39_MS2_var_Bleeding_maxBleedingHead", 1);
 assignValue("X39_MS2_var_Bleeding_maxBleedingBody", 5);
 assignValue("X39_MS2_var_Bleeding_maxBleedingHands", 1);
@@ -238,6 +243,10 @@ assignValue("X39_MS2_var_Bleeding_ChanceForAterialDamageP", 0.3);
 
 assignValue("X39_MS2_var_Bleeding_knockOutAtPBlood", 0.25);
 assignValue("X39_MS2_var_Bleeding_killAtPBlood", 0.1);
+assignValue("X39_MS2_var_Bleeding_knockOutAtPBloodPresureUpperEnd", 1.25);
+assignValue("X39_MS2_var_Bleeding_knockOutAtPBloodPresureLowerEnd", 0.75);
+assignValue("X39_MS2_var_Bleeding_killAtPBloodPresureUpperEnd", 1.5);
+assignValue("X39_MS2_var_Bleeding_killAtPBloodPresureLowerEnd", 0.5);
 assignValue("X39_MS2_var_Bleeding_NaturalMaxOfBloodPresure", 120);
 
 //Modificators
@@ -249,6 +258,7 @@ assignValue("X39_MS2_var_Bleeding_GenericModificator", 1.0);
 assignValue("X39_MS2_var_Bleeding_HandsModificator", 1.0);
 assignValue("X39_MS2_var_Bleeding_HeadModificator", 5.0);
 assignValue("X39_MS2_var_Bleeding_LegsModificator", 1.0);
+assignValue("X39_MS2_var_Bleeding_ClottingModificator", 1.0);
 assignValue("X39_MS2_var_Bleeding_AterialDamageMultiplicator", 10.0);
 
 /*********************

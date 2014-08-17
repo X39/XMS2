@@ -18,7 +18,8 @@
  *	@Return - NA
  */
 _this spawn {
-	private["_unit", "_handleID"]DEBUG_CODE(;_fnc_scriptName = "X39_MS2_fnc_publishTick");
+	private["_unit", "_handleID","_value"];
+	DEBUG_CODE(;_fnc_scriptName = "X39_MS2_fnc_publishTick");
 	_unit = _this select 0;
 	//_handleID = _this select 1;
 
@@ -39,7 +40,11 @@ _this spawn {
 	{
 		if(_x select 2) then
 		{
-			_value = _unit getVariable (_x select 0);
+			if (_x select 0 != "X39_MS2_var_triageState" && _x select 0 != "X39_MS2_var_triageCard") then {
+				_value = _unit getVariable (_x select 0);				
+			}else{				
+				_value = [] call (_x select 1);								
+			};
 			_compareObject = _lastValues select _forEachIndex;
 			DEBUG_LOG_WFn(format["Comparing value '%1' against '%2'" COMMA _value COMMA _compareObject select 1]);
 			if(ISBOOL(_value)) then

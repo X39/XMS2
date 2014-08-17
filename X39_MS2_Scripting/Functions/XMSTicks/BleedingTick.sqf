@@ -18,7 +18,7 @@
  *	@Return - NA
  */
 if(!X39_MS2_var_Feature_EnableBlood) exitWith {};
-private["_unit", "_handleID", "_bloodP"];
+private["_unit", "_handleID", "_bloodP", "_bloodPresure"];
 _unit = _this select 0;
 //_handleID = _this select 1;
 if(!(_unit getVariable ["X39_MS2_var_hasTourniquet", false])) then
@@ -45,6 +45,21 @@ if(!(_unit getVariable ["X39_MS2_var_hasTourniquet", false])) then
 			else
 			{
 				[_unit, 2, -1, localize "STR_X39_MS2_Scripting_XMSTicks_BleedingTick_KnockOutDueLowBlood"] call X39_MS2_fnc_blackOutUnit;
+			};
+		};
+	};
+	if(X39_MS2_var_Bleeding_EnableBloodPresureForBleedingTick) then
+	{
+		_bloodPresure = ([_unit] call X39_MS2_fnc_getBloodPresure) / X39_MS2_var_Bleeding_NaturalMaxOfBloodPresure;
+		if(_bloodPresure <= X39_MS2_var_Bleeding_knockOutAtPBloodPresureLowerEnd || _bloodPresure >= X39_MS2_var_Bleeding_knockOutAtPBloodPresureUpperEnd) then
+		{
+			if(X39_MS2_var_Bleeding_BloodPresureCanKill && {_bloodPresure <= X39_MS2_var_Bleeding_killAtPBloodPresureLowerEnd || _bloodPresure >= X39_MS2_var_Bleeding_killAtPBloodPresureUpperEnd}) then
+			{
+				[_unit] call X39_MS2_fnc_killUnit;
+			}
+			else
+			{
+				[_unit, 2, -1, localize (if(_bloodPresure <= X39_MS2_var_Bleeding_knockOutAtPBloodPresureLowerEnd) then {"STR_X39_MS2_Scripting_XMSTicks_BleedingTick_KnockOutDueBloodPresureLow"} else {"STR_X39_MS2_Scripting_XMSTicks_BleedingTick_KnockOutDueBloodPresureHigh"})] call X39_MS2_fnc_blackOutUnit;
 			};
 		};
 	};

@@ -2,14 +2,18 @@
 /*
  *	THIS FUNCTION IS NOT INTENDED TO BE CALLEN BY ANY USERSCRIPT!
  *
- *	ArrayStructure:
- *		0+ STRING		- displayed text
- *		1+ STRING		- limitation name
- *		2+ BOOL			- allow usage inside of a vehicle
- *		3+ CODE			- condition to display option
- *		4+ STRING/CODE	- code to execute when action is performed
- *	
- *	@Return - N/A
+ *	@Param1 - STRING		- Text to display	
+ *	@Param2 - STRING		- Image (use "" for no image) 
+ *	@Param3 - STRING/CODE	- buttonAction (will automatically transformed to a STRING)
+ *	@Param4 - CODE			- Condition to be displayed (works also on actions with subactions)
+ *								Available preDefined variables:
+ *								- X39_XLib_var_ActionDialog_Target
+ *								- X39_XLib_var_ActionDialog_Executor
+ *								- X39_XLib_var_ActionDialog_IsSelf
+ *								- X39_XLib_var_ActionDialog_ExecutorInVehicle
+ *								- X39_XLib_var_ActionDialog_preventMenuOpening
+ *	@Param5 - SCALAR		- parent action ID (use this to add subactions or leave blank if not needed)
+ *	@Return - SCALAR		- ActionID (in case of a subAction it wil return the parents action ID)
  *	@Author - X39|Cpt. HM Murdock
  */
 [
@@ -107,7 +111,7 @@
 		_gearHolder = 'GroundWeaponHolder' createVehicle position X39_XLib_var_ActionDialog_Executor;
 		{
 			_gearHolder addWeaponCargoGlobal[_x, 1];
-			X39_XLib_var_ActionDialog_Target removeWeapon _x;
+			X39_XLib_var_ActionDialog_Target removeWeaponGlobal _x;
 		}foreach (weapons X39_XLib_var_ActionDialog_Target);
 	},
 	{[X39_XLib_var_ActionDialog_Target] call X39_MS2_fnc_isUnitXms2Unit && {!X39_XLib_var_ActionDialog_IsSelf && !X39_XLib_var_ActionDialog_ExecutorInVehicle}}
@@ -140,7 +144,7 @@
 		X39_XLib_var_ActionDialog_Target switchMove 'AinjPpneMstpSnonWrflDb'; //TODO: Check if its required to do a primaryWeapon == '' etc. check
 		[] call X39_XLib_fnc_ActionDialog_closeDialog;
 	},
-	{[X39_XLib_var_ActionDialog_Target] call X39_MS2_fnc_isUnitXms2Unit && {!X39_XLib_var_ActionDialog_IsSelf && !X39_XLib_var_ActionDialog_ExecutorInVehicle && {({(_x getVariable ['X39_MS2_var_UnitInitialized', false])} count attachedObjects X39_XLib_var_ActionDialog_Executor) <= 0}}}
+	{[X39_XLib_var_ActionDialog_Target] call X39_MS2_fnc_isUnitXms2Unit &&{!X39_XLib_var_ActionDialog_IsSelf && !X39_XLib_var_ActionDialog_ExecutorInVehicle && {({(_x getVariable ['X39_MS2_var_UnitInitialized', false])} count attachedObjects X39_XLib_var_ActionDialog_Executor) <= 0}}}
 ] call X39_XLib_fnc_ActionDialog_registerAction;
 [
 	localize 'STR_X39_MS2_Scripting_InteractionMenu_dropUnit',
@@ -174,6 +178,7 @@
 ] call X39_XLib_fnc_ActionDialog_registerAction;
 [
 	'Add 2000 blood to body',
+	'',
 	{
 		[] call X39_XLib_fnc_ActionDialog_closeDialog;
 		[X39_XLib_var_ActionDialog_Target, 2000] call X39_MS2_fnc_addBlood;
@@ -181,4 +186,15 @@
 		systemChat '((for sure ... the target now has 2000 blood added))';
 	},
 	{[X39_XLib_var_ActionDialog_Target] call X39_MS2_fnc_isUnitXms2Unit && {!X39_XLib_var_ActionDialog_IsSelf && !X39_XLib_var_ActionDialog_ExecutorInVehicle}}
+] call X39_XLib_fnc_ActionDialog_registerAction;  
+[
+	'Vehicle Menu',
+	'',
+	{
+		[] call X39_XLib_fnc_ActionDialog_closeDialog;
+		[vehicle X39_XLib_var_ActionDialog_Executor] call X39_MS2_fnc_unitSelection_openDialog;		
+	},
+	{X39_XLib_var_ActionDialog_ExecutorInVehicle && !X39_XLib_var_ActionDialog_IsSelf}
 ] call X39_XLib_fnc_ActionDialog_registerAction;
+	
+	
