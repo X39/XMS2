@@ -41,7 +41,7 @@ if(_temperatureChange != 0) then
 
 if(_currentTemperature <= X39_MS2_var_Temperature_minDead) then
 {
-	[_unit, 4, X39_MS2_var_Temperature_DeathTimerTime, localize "STR_X39_MS2_Scripting_XMSTicks_temperatureTick_DeathThroughColdness"] call X39_MS2_fnc_blackOutUnit; //TODO: Localize
+	[_unit, 4, X39_MS2_var_Temperature_DeathTimerTime, localize "STR_X39_MS2_Scripting_XMSTicks_temperatureTick_DeathThroughColdness"] call X39_MS2_fnc_blackOutUnit; 
 };
 if(_currentTemperature <= X39_MS2_var_Temperature_minNatural) then
 {

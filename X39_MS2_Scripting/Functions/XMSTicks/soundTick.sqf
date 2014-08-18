@@ -43,3 +43,10 @@
 ////		//TODO: FIX sounds
 ////	};
 ////};
+//if(X39_MS2_var_Sound_playExtremePainSounds && {_redScreenAlpha > X39_MS2_var_Sound_playExtremePainSounds_startPointP}) then
+//{
+//	if(_blackOutStage == 0 && random 10 < 1) then
+//	{
+//		playSound3D [format["\X39_MS2_Resources\sounds\XMS2_SoundFiles_pain_short_%1.ogg", floor (random 6)], _unit, false, position _unit, 1, 1, 0];
+//	};
+//};

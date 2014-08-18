@@ -3,7 +3,7 @@
  *	Will blackOut the unit depending on the inputs (current blackOut stage needs to be higher then the current or 0)
  *	!FUNCTION IS FORCED TO BE LOCAL!
  *	Available stages:
- *		(-1) NA (use this to update the text only)
+ *		(-1) NA (used to update the text)
  *		(0) OK
  *		(1) Temporary black out
  *		(2) Perma black out
@@ -45,7 +45,7 @@ _currentStageOfUnit = _unit getVariable["X39_MS2_var_BlackOut_currentStage", 0];
 if(_stage > _currentStageOfUnit && {_stage < 5}) then
 {
 	_unit setCaptive true;
-	if(_stage > 4) then
+	if(_stage > 3) then
 	{
 		_unit setVariable ["X39_MS2_var_BlackOut_timeOfDeath", time];
 	};
