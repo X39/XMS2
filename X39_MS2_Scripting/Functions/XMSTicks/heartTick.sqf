@@ -37,7 +37,7 @@ if(vehicle _unit != _unit) then
 //Simulate Heart
 if(X39_MS2_var_Heart_enableHeartSimulation && {!([_unit] call X39_MS2_fnc_hasFlatLine)}) then
 {
-	if(_pulseCurrent <= 0) then
+	if(floor _pulseCurrent <= 0) then
 	{
 		if(_blackOutStage < 3) then
 		{
@@ -104,7 +104,7 @@ if(X39_MS2_var_Heart_enableHeartSimulation && {!([_unit] call X39_MS2_fnc_hasFla
 		{
 			if(_blackOutStage >= 2 && _newPulse < X39_MS2_var_Heart_minHeartPulsePerSecond) then
 			{
-				_pulseChange = _pulseChange * X39_MS2_var_Heart_knockOutSmallerMinPulseManipulator;
+				_pulseChange = _pulseChange * X39_MS2_var_Heart_BlackedOutPulseModificator;
 				_newPulse = _pulseChange + _pulseCurrent;
 			};
 			
@@ -155,8 +155,15 @@ if(X39_MS2_var_Heart_enableHeartSimulation && {!([_unit] call X39_MS2_fnc_hasFla
 			
 			if(_pulseChange != 0) then
 			{
-				[_unit, _pulseChange] call X39_MS2_fnc_addHeartPulse;
-				[_unit] call X39_MS2_fnc_doHeartPulseDependingActions;
+				_currentPulse = [_unit, _pulseChange] call X39_MS2_fnc_addHeartPulse;
+				if(_currentPulse >= X39_MS2_var_Heart_deadlyMaxHeartPulsePerSecond) exitWith
+				{
+					[_unit, time] call X39_MS2_fnc_setFlatLine;
+				};
+				if(_currentPulse >= X39_MS2_var_Heart_knockOutUnitAtPulse) exitWith
+				{
+					[_unit, 1, X39_MS2_var_Heart_temporaryKnockOutBaseTimePulse + (random X39_MS2_var_Heart_temporaryKnockOutRandomTimePulse) - (X39_MS2_var_Heart_temporaryKnockOutRandomTimePulse / 2), localize "STR_X39_MS2_Scripting_Adrenaline_Pulse_TooHigh"] call X39_MS2_fnc_blackOutUnit;
+				};			
 			};
 		};
 	};

@@ -163,14 +163,14 @@
 		if(!isNull _unit) then
 		{
 			detach _unit;
-			_unit playMove 'AinjPpneMstpSnonWrflDb_release';//TODO: Check if its required to do a primaryWeapon == '' etc. check
-		}
-		else
-		{
-			systemChat 'WHOOOPS! Something moved TERRIBLY wrong ...';
-			systemChat 'Seems like ArmA bugs out with SQF AGAIN -.-*';
-			systemChat 'Please report at XMS2 bugTracker and well ...';
-			systemChat 'keep attached : /';
+			if([_unit] call X39_MS2_fnc_isBlackedOut) then
+			{
+				_unit playMove 'AinjPpneMstpSnonWrflDb_release';//TODO: Check if its required to do a primaryWeapon == '' etc. check
+			}
+			else
+			{
+				_unit playAction "down";
+			};
 		};
 		[] call X39_XLib_fnc_ActionDialog_closeDialog;
 	},

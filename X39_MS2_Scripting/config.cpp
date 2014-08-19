@@ -154,7 +154,6 @@ class CfgFunctions
 			
 			class setFlatLine:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Heart\setFlatLine.sqf";};
 			class hasFlatLine:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Heart\hasFlatLine.sqf";};
-			class doHeartPulseDependingActions:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\Heart\doHeartPulseDependingActions.sqf";};
 		};
 		class Temperature
 		{

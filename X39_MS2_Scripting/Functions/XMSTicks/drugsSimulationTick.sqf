@@ -47,16 +47,25 @@ if(X39_MS2_var_Feature_EnableAdrenaline) then {
 if(X39_MS2_var_Feature_EnableMorphine) then {
 	_morphineCalculationBase = ([_unit] call X39_MS2_fnc_getMorphine) / X39_MS2_var_Drugs_Morphine_maxMorphine;
 	_changeMorphine = -X39_MS2_var_Drugs_Morphine_reductionPerTick;
-	
-	if(_morphineCalculationBase >= X39_MS2_var_Drugs_Morphine_morphineKillPointP && {X39_MS2_var_Drugs_Morphine_morphineOverdoseCanKill}) then
+	if(_morphineCalculationBase >= X39_MS2_var_Drugs_Morphine_morphineBlackOutPointP && {X39_MS2_var_Drugs_Morphine_morphineOverdoseCanKnockOut || X39_MS2_var_Drugs_Morphine_morphineOverdoseCanKill}) then
 	{
-		if(X39_MS2_var_Drugs_Morphine_morphineFakeKills) then
+		if(_morphineCalculationBase >= X39_MS2_var_Drugs_Morphine_morphineKillPointP && {X39_MS2_var_Drugs_Morphine_morphineOverdoseCanKill}) then
 		{
-			[_unit, 4, X39_MS2_var_Drugs_Morphine_morphineKillLifeTime, localize "STR_X39_MS2_Scripting_XMSTicks_PainTick_DeathThroughMorphineOverdose"] call X39_MS2_fnc_blackOutUnit;
+			if(X39_MS2_var_Drugs_Morphine_morphineFakeKills) then
+			{
+				[_unit, 4, X39_MS2_var_Drugs_Morphine_morphineKillLifeTime, localize "STR_X39_MS2_Scripting_XMSTicks_MorphineSimulation_DeathThroughMorphineOverdose"] call X39_MS2_fnc_blackOutUnit;
+			}
+			else
+			{
+				[_unit, true, false] call X39_MS2_fnc_killUnit;
+			};
 		}
 		else
 		{
-			[_unit, true, false] call X39_MS2_fnc_killUnit;
+			if(X39_MS2_var_Drugs_Morphine_morphineOverdoseCanKnockOut) then
+			{
+				[_unit, 2, X39_MS2_var_Drugs_Morphine_morphineKillLifeTime, localize "STR_X39_MS2_Scripting_XMSTicks_MorphineSimulation_KnockOutThroughMorphineOverdose"] call X39_MS2_fnc_blackOutUnit;
+			};
 		};
 	};
 	if(X39_MS2_var_Drugs_Morphine_morphineEffects) then

@@ -39,9 +39,6 @@ if(isNil "scriptNull") then
 ["MorphineChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
 ["NaloxoneChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
 
-
-["PulseDependingActions", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before XMS2 Actions
-
 ["unitBlackedOut", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;
 ["BlackOutTextChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;
 
@@ -283,6 +280,7 @@ assignValue("X39_MS2_var_Hearing_GlobalModificator", 1.0);
 	//Enable/Disable Related features
 	assignValue("X39_MS2_var_Drugs_Morphine_useMorphineForPain", true);
 	assignValue("X39_MS2_var_Drugs_Morphine_morphineOverdoseCanKill", true);
+	assignValue("X39_MS2_var_Drugs_Morphine_morphineOverdoseCanKnockOut", true);
 	assignValue("X39_MS2_var_Drugs_Morphine_morphineFakeKills", true);
 	assignValue("X39_MS2_var_Drugs_Morphine_morphineEffects", true);
 
@@ -299,6 +297,7 @@ assignValue("X39_MS2_var_Hearing_GlobalModificator", 1.0);
 	assignValue("X39_MS2_var_Drugs_Morphine_morphinePainCureValueP", 1.0);
 	assignValue("X39_MS2_var_Drugs_Morphine_morphinePainMinForFullCureP", 0.5);
 	assignValue("X39_MS2_var_Drugs_Morphine_morphineKillPointP", 1);
+	assignValue("X39_MS2_var_Drugs_Morphine_morphineBlackOutPointP", 0.5);
 
 	assignValue("X39_MS2_var_Drugs_Morphine_GlobalMorphineModificator", 1.0);
 
@@ -367,7 +366,7 @@ assignValue("X39_MS2_var_Heart_pulseLimitStage4", -1);
 //Modificators
 assignValue("X39_MS2_var_Heart_pulseGlobalMultiplicator", 1);
 assignValue("X39_MS2_var_Heart_pulseReductionMultiplicator", 2);
-assignValue("X39_MS2_var_Heart_knockOutSmallerMinPulseManipulator", 0.2);
+assignValue("X39_MS2_var_Heart_BlackedOutPulseModificator", 0.2);
 assignValue("X39_MS2_var_Heart_camShakeMultiplicator", 3);
 
 /******************
@@ -490,6 +489,8 @@ assignValue("X39_MS2_var_ppEffect_EnableColorInversion", true);
 * CATEGORY: DialogControl *
 **************************/
 assignValue("X39_MS2_var_DialogControl_MedicalActionMenu_checkUnitTimeout", [5 COMMA 20 COMMA 60]);
+assignValue("X39_MS2_var_DialogControl_BlackOutDialog_EnableRespawnButton", true);
+assignValue("X39_MS2_var_DialogControl_BlackOutDialog_EnableAbortButton", true);
 
 /*****************************
 * CATEGORY: InteractionMenu *
