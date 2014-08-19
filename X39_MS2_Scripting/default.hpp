@@ -4,6 +4,19 @@
 	#define EX_INV_ARG "Invalid Argument"
 	#define EX_UNT_ARDY_INIT "Unit is already initialized"
 	
+	#define sendMessageToServer(MSGDEFINE, VALUE) if(isServer) then \
+{ \
+	[MSGDEFINE, VALUE] call X39_MS2_fnc_serverMessageSystem; \
+} \
+else \
+{ \
+	X39_MS2_var_Internal_HitPart_InitializedUnits = VALUE; \
+	publicVariableServer "X39_MS2_var_Internal_HitPart_InitializedUnits"; \
+}
+	
+	#define MSG_ADDXMS2UNITTOUNITARRAY "MSG_AddXms2UnitToUnitArray"
+	#define MSG_REMOVEXMS2UNITFROMUNITARRAY "MSG_RemoveXms2UnitFromUnitArray"
+	
 	#define displayCtrl_Overlay(X) ((uiNamespace getVariable "X39_MS2_var_UIs_XMS2_Overay") displayCtrl X)
 	#define displayCtrl_BlackoutUI(X) ((uiNamespace getVariable "X39_MS2_var_UIs_XMS2_BlackOutUi") displayCtrl X)
 	#define displayCtrl_MedicalUi(X) ((uiNamespace getVariable "X39_MS2_var_UIs_MedicalUi") displayCtrl X)

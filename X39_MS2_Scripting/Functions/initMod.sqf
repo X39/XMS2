@@ -78,7 +78,8 @@ X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_Explosion",					{-1												}, false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_AnimStateChanged",			{-1												}, false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_Respawn",					{-1												}, false	]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Heart_heartPulse",				{X39_MS2_var_Heart_minHeartPulsePerSecond	}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_HitPart",					{-1												}, false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Heart_heartPulse",				{X39_MS2_var_Heart_minHeartPulsePerSecond		}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Heart_hasFlatLine",				{-1												}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Pain_value",					{0												}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Hearing_value",					{1												}, true		]];
@@ -150,6 +151,13 @@ assignValue("X39_MS2_var_Internal_Dialog_TriageCard_PreDefinedMessages", []);
 
 //MedicalMessages
 assignValue("X39_MS2_var_Internal_MedicalMessages", []);
+
+//ClientServer communication
+assignValue("X39_MS2_var_Internal_Communication_ServerReady", false);
+assignValue("X39_MS2_var_Internal_Communication_ServerMessage", []);
+
+//HitPart eventHandler
+assignValue("X39_MS2_var_Internal_HitPart_InitializedUnits", []);
 
 
 /******************************
@@ -567,6 +575,13 @@ assignValue("X39_MS2_var_ItemReplacement_FirstAidKit", ["x39_xms2_bandage" COMMA
 if(isServer) then
 {
 	[] call X39_MS2_fnc_applyServerConfig;
+	_scriptHandle = [] spawn {
+		"X39_MS2_var_Internal_Communication_ServerMessage" addPublicVariableEventHandler {
+			_this call X39_MS2_fnc_serverMessageSystem;
+		};
+		X39_MS2_var_Internal_Communication_ServerReady = true;
+		publicVariable "X39_MS2_var_Internal_Communication_ServerReady";
+	};
 };
 if(!isDedicated) then
 {

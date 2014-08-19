@@ -14,8 +14,8 @@
  *	@Return - NA
  */
 _handle = _this spawn {
-	DEBUG_CODE_SC(_fnc_scriptName = "X39_MS2_fnc_initUnit")
-	private["_unit"];
+	private["_unit", "_fnc_scriptName"];
+	_fnc_scriptName = "X39_MS2_fnc_initUnit"
 	_unit = [_this, 0, objNull, [objNull, {}]] call BIS_fnc_param;
 	if(ISCODE(_unit)) then
 	{
@@ -29,7 +29,9 @@ _handle = _this spawn {
 		PRINT_ERROR(EX_INV_ARG);
 		throw EX_INF_ARG;
 	};
+	waitUntil{X39_MS2_var_Internal_Communication_ServerReady};
 	waitUntil{alive _unit};
+	FORCELOCAL(_unit);
 	DEBUG_LOG_WFn_SC(format["Initializing '%1's variables" COMMA _unit])
 	if(_unit getVariable ["X39_MS2_var_UnitInitialized", false]) then
 	{
@@ -61,6 +63,7 @@ _handle = _this spawn {
 		
 		_unit setVariable ["X39_MS2_var_UnitInitialized", true];
 		[_unit, "X39_MS2_fnc_runTicker", _unit, false] spawn BIS_fnc_MP;
+		sendMessageToServer(MSG_ADDXMS2UNITTOUNITARRAY, _unit);
 	};
 	//Initialize ppEffects if current entity hasInterface and they are -1
 	DEBUG_LOG_WFn_SC(format["Initializing '%1's ppEffectHandles + other client related stuff if target is a player computer" COMMA _unit])

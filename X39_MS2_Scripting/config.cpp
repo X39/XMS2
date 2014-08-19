@@ -42,6 +42,8 @@ class CfgFunctions
 			class applyServerConfig:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\applyServerConfig.sqf";};
 			class applyClientConfig:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\applyClientConfig.sqf";};
 			class resetUnitsVariables:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\resetUnitsVariables.sqf";};
+			
+			class serverMessageSystem:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\serverMessageSystem.sqf";};
 		};
 		class InitModFunctions //Functions for initMod
 		{
