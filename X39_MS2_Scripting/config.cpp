@@ -1,3 +1,5 @@
+#define ISCONFIG
+#include default.hpp
 class CfgPatches{
 	class X39_MS2_Scripting{
          units[] = {"X39_MS2_veh_BaseModule"};
@@ -114,6 +116,7 @@ class CfgFunctions
 			class cb_HandleDamage:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Callback\cb_HandleDamage.sqf";};
 			class cb_AnimStateChanged:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\Callback\cb_AnimStateChanged.sqf";};
 			class cb_Respawn:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Callback\cb_Respawn.sqf";};
+			class cb_hitPart:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Callback\cb_hitPart.sqf";};
 		};
 		class Pain
 		{
@@ -177,6 +180,7 @@ class CfgFunctions
 			class itemReplacerTick:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\XMSTicks\itemReplacerTick.sqf";};
 			class drugsSimulationTick:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\XMSTicks\drugsSimulationTick.sqf";};
 			class DebugTick:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\XMSTicks\DebugTick.sqf";};
+			class hitPartTick:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\XMSTicks\hitPartTick.sqf";};
 			
 			class publishTick:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\XMSTicks\publishTick.sqf";};
 		};

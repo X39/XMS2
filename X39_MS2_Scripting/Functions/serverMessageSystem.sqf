@@ -14,6 +14,8 @@ switch (_messageType) do {
 	case MSG_REMOVEXMS2UNITFROMUNITARRAY: {
 		_index = X39_MS2_var_Internal_HitPart_InitializedUnits find _messageValue;
 		if(_index == -1) exitWith {PRINT_ERROR(format["Some client sent a unit to server which was not existing in the hitPart unit array: %1" COMMA _messageArray]);};
+		_messageValue removeEventHandler ["HitPart", _messageValue getVariable ["X39_MS2_var_EH_HitPart", -1]];
+		_messageValue setVariable ["X39_MS2_var_EH_HitPart", -1, false];
 		X39_MS2_var_Internal_HitPart_InitializedUnits set[_index, -1];
 		X39_MS2_var_Internal_HitPart_InitializedUnits = X39_MS2_var_Internal_HitPart_InitializedUnits - [-1];
 		publicVariable "X39_MS2_var_Internal_HitPart_InitializedUnits";
