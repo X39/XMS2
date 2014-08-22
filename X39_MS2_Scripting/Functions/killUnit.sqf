@@ -15,6 +15,8 @@ _applyScoreChange = [_this, 1, true, [true]] call BIS_fnc_param;
 
 if(isNull _unit) exitWith { PRINT_ERROR("No valid unit to kill provided"); };
 
+sendMessageToServer(MSG_REMOVEXMS2UNITFROMUNITARRAY, _unit);
+
 _unit setDamage 1;
 if(_applyScoreChange) then
 {

@@ -1,6 +1,6 @@
 #include "\X39_MS2_Scripting\default.hpp"
 /*
- *	Sets the requirements automatically at mission start
+ *	Sets the requirements automatically at mission start (preInit)
  *	(calling this function manually could lead into unexpected behaviour but should work)
  *
  *	@Return - NA
@@ -78,7 +78,8 @@ X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_Explosion",					{-1												}, false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_AnimStateChanged",			{-1												}, false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_Respawn",					{-1												}, false	]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Heart_heartPulse",				{X39_MS2_var_Heart_minHeartPulsePerSecond	}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_HitPart",					{-1												}, false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Heart_heartPulse",				{X39_MS2_var_Heart_minHeartPulsePerSecond		}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Heart_hasFlatLine",				{-1												}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Pain_value",					{0												}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Hearing_value",					{1												}, true		]];
@@ -128,6 +129,7 @@ assignValue("X39_MS2_var_Internal_ticker_tickHandlers", []);
 ["X39_MS2_fnc_itemReplacerTick", 5] call X39_MS2_fnc_registerTickHandler;
 ["X39_MS2_fnc_publishTick", 4] call X39_MS2_fnc_registerTickHandler;
 ["X39_MS2_fnc_soundTick", 12] call X39_MS2_fnc_registerTickHandler;
+["X39_MS2_fnc_hitPartTick", 11] call X39_MS2_fnc_registerTickHandler;
 DEBUG_CODE(["X39_MS2_fnc_debugTick" COMMA 1] call X39_MS2_fnc_registerTickHandler);
 assignValue("X39_MS2_var_Internal_ticker_minTickRate", 0.5);
 assignValue("X39_MS2_var_Internal_ticker_maxTicksTimeout", 100);
@@ -150,6 +152,13 @@ assignValue("X39_MS2_var_Internal_Dialog_TriageCard_PreDefinedMessages", []);
 
 //MedicalMessages
 assignValue("X39_MS2_var_Internal_MedicalMessages", []);
+
+//ClientServer communication
+assignValue("X39_MS2_var_Internal_Communication_ServerReady", false);
+assignValue("X39_MS2_var_Internal_Communication_ServerMessage", []);
+
+//HitPart eventHandler
+assignValue("X39_MS2_var_Internal_HitPart_InitializedUnits", []);
 
 
 /******************************
@@ -566,6 +575,7 @@ assignValue("X39_MS2_var_ItemReplacement_FirstAidKit", ["x39_xms2_bandage" COMMA
 [] call X39_MS2_fnc_IMH_addInteractionMenuEntries;
 if(isServer) then
 {
+	private["_id"];
 	[] call X39_MS2_fnc_applyServerConfig;
 };
 if(!isDedicated) then
