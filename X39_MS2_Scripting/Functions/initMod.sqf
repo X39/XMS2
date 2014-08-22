@@ -1,6 +1,6 @@
 #include "\X39_MS2_Scripting\default.hpp"
 /*
- *	Sets the requirements automatically at mission start
+ *	Sets the requirements automatically at mission start (preInit)
  *	(calling this function manually could lead into unexpected behaviour but should work)
  *
  *	@Return - NA
@@ -575,14 +575,8 @@ assignValue("X39_MS2_var_ItemReplacement_FirstAidKit", ["x39_xms2_bandage" COMMA
 [] call X39_MS2_fnc_IMH_addInteractionMenuEntries;
 if(isServer) then
 {
+	private["_id"];
 	[] call X39_MS2_fnc_applyServerConfig;
-	_scriptHandle = [] spawn {
-		"X39_MS2_var_Internal_Communication_ServerMessage" addPublicVariableEventHandler {
-			_this call X39_MS2_fnc_serverMessageSystem;
-		};
-		X39_MS2_var_Internal_Communication_ServerReady = true;
-		publicVariable "X39_MS2_var_Internal_Communication_ServerReady";
-	};
 };
 if(!isDedicated) then
 {

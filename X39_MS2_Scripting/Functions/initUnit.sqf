@@ -11,12 +11,14 @@
  *	Function supports tryCatch for errors (warnings will be ignored)
  *	
  *	@Param1 - OBJECT - Unit to initialize
+ *	@Param2 - BOOL - prevent call on isDedicated
  *	@Return - NA
  */
 _handle = _this spawn {
 	private["_unit", "_fnc_scriptName"];
 	_fnc_scriptName = "X39_MS2_fnc_initUnit";
 	_unit = [_this, 0, objNull, [objNull, {}]] call BIS_fnc_param;
+	if(([_this, 1, false, [false]] call BIS_fnc_param) && isDedicated) exitWith {};
 	if(ISCODE(_unit)) then
 	{
 		waitUntil{!isNil _unit};

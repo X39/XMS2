@@ -48,6 +48,7 @@ class CfgFunctions
 		class InitModFunctions //Functions for initMod
 		{
 			class initMod:X39_XLib_Function_TypeB														{file = "\X39_MS2_Scripting\Functions\initMod.sqf";};
+			class postInit:X39_XLib_Function_TypeC														{file = "\X39_MS2_Scripting\Functions\postInit.sqf";};
 			class IMH_registerMedicalActions:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\initModHelpers\registerMedicalActions.sqf";};
 			class IMH_addMedicalMessages:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\initModHelpers\addMedicalMessages.sqf";};
 			class IMH_addInteractionMenuEntries:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\initModHelpers\addInteractionMenuEntries.sqf";};

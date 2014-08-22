@@ -6,12 +6,12 @@
 	
 	#define sendMessageToServer(MSGDEFINE, VALUE) if(isServer) then \
 { \
-	["X39_MS2_var_Internal_HitPart_InitializedUnits", [MSGDEFINE, VALUE]] call X39_MS2_fnc_serverMessageSystem; \
+	["X39_MS2_var_Internal_Communication_ServerMessage", [MSGDEFINE, VALUE]] call X39_MS2_fnc_serverMessageSystem; \
 } \
 else \
 { \
-	X39_MS2_var_Internal_HitPart_InitializedUnits = VALUE; \
-	publicVariableServer "X39_MS2_var_Internal_HitPart_InitializedUnits"; \
+	X39_MS2_var_Internal_Communication_ServerMessage = [MSGDEFINE, VALUE]; \
+	publicVariableServer "X39_MS2_var_Internal_Communication_ServerMessage"; \
 }
 	
 	#define MSG_ADDXMS2UNITTOUNITARRAY "MSG_AddXms2UnitToUnitArray"
