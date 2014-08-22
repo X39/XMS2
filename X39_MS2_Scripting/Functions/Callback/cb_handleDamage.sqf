@@ -88,6 +88,7 @@ if(_dmgP > X39_MS2_var_Damage_knockOutLimitP) then
 	{
 		if(X39_MS2_var_Damage_AllowRealKillingOnMaxDamage && _dmgP > 1) then
 		{
+			DEBUG_LOG_WFn_SC(format["Killing '%1' because X39_MS2_var_Damage_AllowRealKillingOnMaxDamage == true && _dmgP == %2" COMMA _unit COMMA _dmgP])
 			[_unit, true] call X39_MS2_fnc_killUnit;
 		}
 		else

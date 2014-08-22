@@ -42,10 +42,13 @@ class CfgFunctions
 			class applyServerConfig:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\applyServerConfig.sqf";};
 			class applyClientConfig:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\applyClientConfig.sqf";};
 			class resetUnitsVariables:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\resetUnitsVariables.sqf";};
+			
+			class serverMessageSystem:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\serverMessageSystem.sqf";};
 		};
 		class InitModFunctions //Functions for initMod
 		{
 			class initMod:X39_XLib_Function_TypeB														{file = "\X39_MS2_Scripting\Functions\initMod.sqf";};
+			class postInit:X39_XLib_Function_TypeC														{file = "\X39_MS2_Scripting\Functions\postInit.sqf";};
 			class IMH_registerMedicalActions:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\initModHelpers\registerMedicalActions.sqf";};
 			class IMH_addMedicalMessages:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\initModHelpers\addMedicalMessages.sqf";};
 			class IMH_addInteractionMenuEntries:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\initModHelpers\addInteractionMenuEntries.sqf";};
@@ -112,6 +115,7 @@ class CfgFunctions
 			class cb_HandleDamage:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Callback\cb_HandleDamage.sqf";};
 			class cb_AnimStateChanged:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\Callback\cb_AnimStateChanged.sqf";};
 			class cb_Respawn:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Callback\cb_Respawn.sqf";};
+			class cb_hitPart:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Callback\cb_hitPart.sqf";};
 		};
 		class Pain
 		{
@@ -175,6 +179,7 @@ class CfgFunctions
 			class itemReplacerTick:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\XMSTicks\itemReplacerTick.sqf";};
 			class drugsSimulationTick:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\XMSTicks\drugsSimulationTick.sqf";};
 			class DebugTick:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\XMSTicks\DebugTick.sqf";};
+			class hitPartTick:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\XMSTicks\hitPartTick.sqf";};
 			
 			class publishTick:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\XMSTicks\publishTick.sqf";};
 		};

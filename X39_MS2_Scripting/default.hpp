@@ -4,6 +4,19 @@
 	#define EX_INV_ARG "Invalid Argument"
 	#define EX_UNT_ARDY_INIT "Unit is already initialized"
 	
+	#define sendMessageToServer(MSGDEFINE, VALUE) if(isServer) then \
+{ \
+	["X39_MS2_var_Internal_Communication_ServerMessage", [MSGDEFINE, VALUE]] call X39_MS2_fnc_serverMessageSystem; \
+} \
+else \
+{ \
+	X39_MS2_var_Internal_Communication_ServerMessage = [MSGDEFINE, VALUE]; \
+	publicVariableServer "X39_MS2_var_Internal_Communication_ServerMessage"; \
+}
+	
+	#define MSG_ADDXMS2UNITTOUNITARRAY "MSG_AddXms2UnitToUnitArray"
+	#define MSG_REMOVEXMS2UNITFROMUNITARRAY "MSG_RemoveXms2UnitFromUnitArray"
+	
 	#define displayCtrl_Overlay(X) ((uiNamespace getVariable "X39_MS2_var_UIs_XMS2_Overay") displayCtrl X)
 	#define displayCtrl_BlackoutUI(X) ((uiNamespace getVariable "X39_MS2_var_UIs_XMS2_BlackOutUi") displayCtrl X)
 	#define displayCtrl_MedicalUi(X) ((uiNamespace getVariable "X39_MS2_var_UIs_MedicalUi") displayCtrl X)
@@ -76,7 +89,6 @@
 		//#define PRINT_WARNING(TXT) diag_log format["%1|%2 WARNING: %3", diag_tickTime, time, TXT]; systemChat format["%1|%2 WARNING: %3", diag_tickTime, time, TXT]
 		//#define PRINT_INFO(TXT) diag_log format["%1|%2 INFO: %3", diag_tickTime, time, TXT]; systemChat format["%1|%2 INFO: %3", diag_tickTime, time, TXT]
 	#endif
-	
 	DEBUG_LOG(format["%3: %1 call %2" COMMA _this COMMA _fnc_scriptName COMMA diag_tickTime]);
 	
 //#endif

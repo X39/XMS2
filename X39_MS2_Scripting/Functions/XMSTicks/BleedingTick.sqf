@@ -40,6 +40,7 @@ if(!(_unit getVariable ["X39_MS2_var_hasTourniquet", false])) then
 		{
 			if(_bloodP <= X39_MS2_var_Bleeding_killAtPBlood) then
 			{
+				DEBUG_LOG_WFn_SC(format["Killing '%1' because ([_bloodP => %2] < [X39_MS2_var_Bleeding_killAtPBlood => %3])" COMMA _unit COMMA _bloodP COMMA X39_MS2_var_Bleeding_killAtPBlood])
 				[_unit] call X39_MS2_fnc_killUnit;
 			}
 			else
@@ -55,6 +56,7 @@ if(!(_unit getVariable ["X39_MS2_var_hasTourniquet", false])) then
 		{
 			if(X39_MS2_var_Bleeding_BloodPresureCanKill && {_bloodPresure <= X39_MS2_var_Bleeding_killAtPBloodPresureLowerEnd || _bloodPresure >= X39_MS2_var_Bleeding_killAtPBloodPresureUpperEnd}) then
 			{
+				DEBUG_LOG_WFn_SC(format["Killing '%1' because ([X39_MS2_var_Bleeding_BloodPresureCanKill == %4] && {[_bloodPresure => %2] <= [X39_MS2_var_Bleeding_killAtPBloodPresureLowerEnd => %3] || [_bloodPresure => %2] >= [X39_MS2_var_Bleeding_killAtPBloodPresureUpperEnd => %5]})" COMMA _unit COMMA _bloodPresure COMMA X39_MS2_var_Bleeding_killAtPBloodPresureLowerEnd COMMA X39_MS2_var_Bleeding_BloodPresureCanKill COMMA X39_MS2_var_Bleeding_killAtPBloodPresureUpperEnd])
 				[_unit] call X39_MS2_fnc_killUnit;
 			}
 			else
