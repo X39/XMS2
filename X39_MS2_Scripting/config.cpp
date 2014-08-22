@@ -1,5 +1,3 @@
-#define ISCONFIG
-#include default.hpp
 class CfgPatches{
 	class X39_MS2_Scripting{
          units[] = {"X39_MS2_veh_BaseModule"};

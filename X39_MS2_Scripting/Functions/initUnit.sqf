@@ -15,7 +15,7 @@
  */
 _handle = _this spawn {
 	private["_unit", "_fnc_scriptName"];
-	_fnc_scriptName = "X39_MS2_fnc_initUnit"
+	_fnc_scriptName = "X39_MS2_fnc_initUnit";
 	_unit = [_this, 0, objNull, [objNull, {}]] call BIS_fnc_param;
 	if(ISCODE(_unit)) then
 	{

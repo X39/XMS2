@@ -129,7 +129,7 @@ assignValue("X39_MS2_var_Internal_ticker_tickHandlers", []);
 ["X39_MS2_fnc_itemReplacerTick", 5] call X39_MS2_fnc_registerTickHandler;
 ["X39_MS2_fnc_publishTick", 4] call X39_MS2_fnc_registerTickHandler;
 ["X39_MS2_fnc_soundTick", 12] call X39_MS2_fnc_registerTickHandler;
-["hitPartTick", 11] call X39_MS2_fnc_registerTickHandler;
+["X39_MS2_fnc_hitPartTick", 11] call X39_MS2_fnc_registerTickHandler;
 DEBUG_CODE(["X39_MS2_fnc_debugTick" COMMA 1] call X39_MS2_fnc_registerTickHandler);
 assignValue("X39_MS2_var_Internal_ticker_minTickRate", 0.5);
 assignValue("X39_MS2_var_Internal_ticker_maxTicksTimeout", 100);

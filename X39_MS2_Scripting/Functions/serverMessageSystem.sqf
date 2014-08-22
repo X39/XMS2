@@ -1,5 +1,14 @@
+#include "\X39_MS2_Scripting\default.hpp"
+/*	
+ *	message system server side
+ *	
+ *	@Param1 - ARRAY - Message array
+ *	@Return - NA
+ *	@Author	- X39|Cpt. HM Murdock
+ */
+
 private["_messageArray", "_messageType", "_messageValue", "_index"];
-DEBUG_LOG_SC(diag_log format["%1 - %2: Received new message on server: %3" COMMA diag_tickTime COMMA "X39_MS2_var_Internal_Communication_ServerMessage" COMMA _this])
+DEBUG_LOG_SC(format["%1 - %2: Received new message on server: %3" COMMA diag_tickTime COMMA "X39_MS2_var_Internal_Communication_ServerMessage" COMMA _this])
 _messageArray = _this select 1;
 if(!dISARRAY(_messageArray)) exitWIth {PRINT_ERROR(format["Some client sent an unknown message to server: %1" COMMA _messageArray]);};
 if(count _messageArray < 2) exitWIth {PRINT_ERROR(format["Some client sent an invalid message to server: %1" COMMA _messageArray]);};

@@ -6,7 +6,7 @@
 	
 	#define sendMessageToServer(MSGDEFINE, VALUE) if(isServer) then \
 { \
-	[MSGDEFINE, VALUE] call X39_MS2_fnc_serverMessageSystem; \
+	["X39_MS2_var_Internal_HitPart_InitializedUnits", [MSGDEFINE, VALUE]] call X39_MS2_fnc_serverMessageSystem; \
 } \
 else \
 { \
@@ -89,8 +89,6 @@ else \
 		//#define PRINT_WARNING(TXT) diag_log format["%1|%2 WARNING: %3", diag_tickTime, time, TXT]; systemChat format["%1|%2 WARNING: %3", diag_tickTime, time, TXT]
 		//#define PRINT_INFO(TXT) diag_log format["%1|%2 INFO: %3", diag_tickTime, time, TXT]; systemChat format["%1|%2 INFO: %3", diag_tickTime, time, TXT]
 	#endif
-	#ifndef ISCONFIG
-		DEBUG_LOG(format["%3: %1 call %2" COMMA _this COMMA _fnc_scriptName COMMA diag_tickTime]);
-	#endif
+	DEBUG_LOG(format["%3: %1 call %2" COMMA _this COMMA _fnc_scriptName COMMA diag_tickTime]);
 	
 //#endif
