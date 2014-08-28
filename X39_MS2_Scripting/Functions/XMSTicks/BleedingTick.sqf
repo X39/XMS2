@@ -23,16 +23,18 @@ _unit = _this select 0;
 //_handleID = _this select 1;
 if(!(_unit getVariable ["X39_MS2_var_hasTourniquet", false])) then
 {
-	if(X39_MS2_var_Bleeding_BleedingCurePerTick > 0) then
+	//Perform autoBleedingCure if enabled & damage not aterial
+	if(X39_MS2_var_Bleeding_EnableBleedingCure > 0) then
 	{
-		[_unit, -X39_MS2_var_Bleeding_BleedingCurePerTick] call X39_MS2_fnc_addBleedingToBody;
-		[_unit, -X39_MS2_var_Bleeding_BleedingCurePerTick] call X39_MS2_fnc_addBleedingToGeneric;
-		[_unit, -X39_MS2_var_Bleeding_BleedingCurePerTick] call X39_MS2_fnc_addBleedingToHands;
-		[_unit, -X39_MS2_var_Bleeding_BleedingCurePerTick] call X39_MS2_fnc_addBleedingToHead;
-		[_unit, -X39_MS2_var_Bleeding_BleedingCurePerTick] call X39_MS2_fnc_addBleedingToLegs;
+		{
+			if(X39_MS2_var_Bleeding_AllowBleedingCureWhenAterieDamaged || {(if(_x select HITZONE_HasAterie && {_unit getVariable [format["X39_MS2_var_Bleeding_%1AterieDamaged", _x select HITZONE_Name], false]}) then {false} else {true})}) then
+			{
+				[_unit, -(missionNamespace getVariable format["X39_MS2_var_Bleeding_BleedingCurePerTick%1", _x select HITZONE_Name])] call (missionNamespace getVariable format["X39_MS2_fnc_addBleedingTo%1", _x select HITZONE_Name]);
+			};
+		}count X39_MS2_var_Internal_HitZones;
 	};
-
-	[_unit, -((([_unit] call X39_MS2_fnc_getBleedingOfBody) + ([_unit] call X39_MS2_fnc_getBleedingOfGeneric) + ([_unit] call X39_MS2_fnc_getBleedingOfHands) + ([_unit] call X39_MS2_fnc_getBleedingOfHead) + ([_unit] call X39_MS2_fnc_getBleedingOfLegs)) * (if(_unit getVariable ["X39_MS2_var_Bleeding_AterieDamaged", false]) then {X39_MS2_var_Bleeding_AterialDamageMultiplicator} else {1}))] call X39_MS2_fnc_addBlood;
+	//Let the body bleed out with current bleedOut rate
+	[_unit, -([_unit] call X39_MS2_fnc_getCurrentBleeding)] call X39_MS2_fnc_addBlood;
 	if(X39_MS2_var_Bleeding_LowBloodFeatures) then
 	{
 		_bloodP = ([_unit] call X39_MS2_fnc_getBlood) / X39_MS2_var_Bleeding_maxBloodInEntireBody;

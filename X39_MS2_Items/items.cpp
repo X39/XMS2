@@ -1,3 +1,4 @@
+#define ITEM_TYPE 201
 class x39_xms2_bandage : ItemCore
 {
 	scope = 2;
@@ -6,7 +7,7 @@ class x39_xms2_bandage : ItemCore
 	class ItemInfo
     {
 		mass = 2;
-		type = 201;
+//		type = ITEM_TYPE;
     }; 
 	picture = "\X39_MS2_Resources\Items\Bandage\Bandage.paa";
 	descriptionShort = "";
@@ -20,7 +21,7 @@ class x39_xms2_adrenaline : ItemCore
 	class ItemInfo
     {
 		mass = 1;
-		type = 201;
+//		type = ITEM_TYPE;
     }; 
 	descriptionShort = "";
 };
@@ -31,7 +32,7 @@ class x39_xms2_heatPack : ItemCore
 	class ItemInfo
     {
 		mass = 4;
-		type = 201;
+//		type = ITEM_TYPE;
     }; 
 	picture = "\X39_MS2_Resources\Items\HeatPack.paa";
 	descriptionShort = "";
@@ -43,7 +44,7 @@ class x39_xms2_mediPack : ItemCore
 	class ItemInfo
     {
 		mass = 8;
-		type = 201;
+//		type = ITEM_TYPE;
     }; 
 	picture = "\X39_MS2_Resources\Items\MedicalPack.paa";
 	descriptionShort = "";
@@ -57,7 +58,7 @@ class x39_xms2_morphine : ItemCore
 	class ItemInfo
     {
 		mass = 1;
-		type = 201;
+//		type = ITEM_TYPE;
     }; 
 	descriptionShort = "";
 };
@@ -70,7 +71,7 @@ class x39_xms2_naloxone : ItemCore
 	class ItemInfo
     {
 		mass = 1;
-		type = 201;
+//		type = ITEM_TYPE;
     }; 
 	descriptionShort = "";
 };
@@ -81,7 +82,7 @@ class x39_xms2_coldSpray : ItemCore
 	class ItemInfo
     {
 		mass = 3;
-		type = 201;
+//		type = ITEM_TYPE;
     }; 
 	picture = "\X39_MS2_Resources\Items\ColdSpray.paa";
 	descriptionShort = "";
@@ -93,7 +94,7 @@ class x39_xms2_earplugs : ItemCore
 	class ItemInfo
     {
 		mass = 0;
-		type = 201;
+//		type = ITEM_TYPE;
     }; 
 	picture = "\X39_MS2_Resources\Items\earplugs.paa";
 	descriptionShort = "";
@@ -106,7 +107,7 @@ class x39_xms2_defibrillator : ItemCore
 	class ItemInfo
     {
     	mass = 20;
-		type = 201;
+//		type = ITEM_TYPE;
     }; 
 	picture = "\X39_MS2_Resources\Items\Defibrillator.paa";
 	descriptionShort = "";
@@ -120,7 +121,7 @@ class x39_xms2_tourniquet : ItemCore
 	class ItemInfo
     {
     	mass = 3;
-		type = 201;
+//		type = ITEM_TYPE;
     }; 
 	descriptionShort = "";
 };
@@ -132,7 +133,7 @@ class x39_xms2_sphygmomanometer : ItemCore
 	class ItemInfo
     {
     	mass = 5;
-		type = 201;
+//		type = ITEM_TYPE;
     }; 
 	descriptionShort = "";
 };
@@ -145,7 +146,7 @@ class x39_xms2_IVBag : ItemCore
 	class ItemInfo
     {
     	mass = 5;
-		type = 201;
+//		type = ITEM_TYPE;
     }; 
 	descriptionShort = "";
 };

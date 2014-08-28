@@ -40,7 +40,7 @@ else \
 	#define ISTEAM_MEMBER(X)(typeName (X) == "TEAM_MEMBER")
 	#define ISNAMESPACE(X)	(typeName (X) == "NAMESPACE")
 	
-	#define FORCELOCAL(X) if(!local (X)) exitWith {[_this, _fnc_scriptName, X, false] call BIS_fnc_MP;}
+	#define FORCELOCAL(X) if(!local (X)) exitWith {[_this, _fnc_scriptName, X, false] spawn BIS_fnc_MP;}
 	
 	#define NOTIMPLEMENTED diag_log format["%1 is not implemented", _fnc_scriptName]; systemChat format["%1 is not implemented", _fnc_scriptName];
 	
@@ -57,6 +57,8 @@ else \
 	#ifndef DEBUG
 		#define DEBUG
 	#endif
+	
+	#define getFnc(PARTA, PARTB) PARTA##PARTB
 	
 	#define PRINT_ERROR(TXT) diag_log format["%1|%2 ERROR: %3", diag_tickTime, time, TXT]
 	#define PRINT_WARNING(TXT) diag_log format["%1|%2 WARNING: %3", diag_tickTime, time, TXT]
@@ -92,3 +94,5 @@ else \
 	DEBUG_LOG(format["%3: %1 call %2" COMMA _this COMMA _fnc_scriptName COMMA diag_tickTime]);
 	
 //#endif
+
+#include "\X39_MS2_Scripting\Functions\HitZones\hitZones.hpp"

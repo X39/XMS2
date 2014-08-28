@@ -15,11 +15,9 @@ if(X39_MS2_var_Pain_useExtraPain) then
 };
 if(X39_MS2_var_Pain_useCurrentDamageValues) then
 {
-	_pain = _pain + ((([_unit] call X39_MS2_fnc_getDamageOfGeneric)	* X39_MS2_var_Pain_DamagePainForGenericModificator)	* X39_MS2_var_Pain_DamagePainForGlobalModificator);
-	_pain = _pain + ((([_unit] call X39_MS2_fnc_getDamageOfHead)	* X39_MS2_var_Pain_DamagePainForHeadModificator)	* X39_MS2_var_Pain_DamagePainForGlobalModificator);
-	_pain = _pain + ((([_unit] call X39_MS2_fnc_getDamageOfBody)	* X39_MS2_var_Pain_DamagePainForBodyModificator)	* X39_MS2_var_Pain_DamagePainForGlobalModificator);
-	_pain = _pain + ((([_unit] call X39_MS2_fnc_getDamageOfHands)	* X39_MS2_var_Pain_DamagePainForHandsModificator)	* X39_MS2_var_Pain_DamagePainForGlobalModificator);
-	_pain = _pain + ((([_unit] call X39_MS2_fnc_getDamageOfLegs)	* X39_MS2_var_Pain_DamagePainForLegsModificator)	* X39_MS2_var_Pain_DamagePainForGlobalModificator);
+	{
+		_pain = _pain + ((([_unit] call (missionNamespace getVariable format["X39_MS2_fnc_getDamageOf%1", _x select HITZONE_Name])) * (missionNamespace getVariable format["X39_MS2_var_Pain_DamagePainFor%1Modificator", _x select HITZONE_Name])) * X39_MS2_var_Pain_DamagePainGlobalModificator);
+	}count X39_MS2_var_Internal_HitZones;
 };
 
 

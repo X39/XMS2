@@ -10,10 +10,8 @@ private["_damage", "_unit"];
 
 _unit = _this select 0;
 _damage = 0;
+{
+	_damage = _damage + ([_unit] call (missionNamespace getVariable format["X39_MS2_fnc_getDamageOf%1", _x select HITZONE_Name]));
+}count X39_MS2_var_Internal_HitZones;
 
-_damage = _damage + ([_unit] call X39_MS2_fnc_getDamageOfGeneric);
-_damage = _damage + ([_unit] call X39_MS2_fnc_getDamageOfHead);
-_damage = _damage + ([_unit] call X39_MS2_fnc_getDamageOfBody);
-_damage = _damage + ([_unit] call X39_MS2_fnc_getDamageOfHands);
-_damage = _damage + ([_unit] call X39_MS2_fnc_getDamageOfLegs);
 _damage

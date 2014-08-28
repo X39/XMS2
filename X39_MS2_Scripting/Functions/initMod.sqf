@@ -1,3 +1,13 @@
+#define generateFunctionsDynamiclyByHitZone(FUNCTIONNAME, SOURCEFILE) \
+{\
+	private["_fncName"];\
+	_fncName = format[FUNCTIONNAME, _x select HITZONE_Name];\
+	if(isNil {missionNamespace getVariable _fncName}) then\
+	{\
+		missionNamespace setVariable [_fncName, compileFinal str formatText[preprocessFileLineNumbers SOURCEFILE, _x select 0]];\
+	};\
+}count X39_MS2_var_Internal_HitZones
+
 #include "\X39_MS2_Scripting\default.hpp"
 /*
  *	Sets the requirements automatically at mission start (preInit)
@@ -10,23 +20,34 @@ if(isNil "scriptNull") then
 {
 	scriptNull = 0 spawn {};
 };
+//ArmA3 HitZone names
+												//	 HitZone name			COMMA	~size	COMMA	hasAterie
+assignValue("X39_MS2_var_Internal_HitZones", 	[
+													[HITZONE_Head			COMMA	1		COMMA	false		] COMMA
+													[HITZONE_LeftLowerArm	COMMA	2		COMMA	true		] COMMA
+													[HITZONE_LeftFoot		COMMA	1		COMMA	false		] COMMA
+													[HITZONE_LeftUpperArm	COMMA	1		COMMA	true		] COMMA
+													[HITZONE_LeftLowerLeg	COMMA	2		COMMA	true		] COMMA
+													[HITZONE_LeftUpperLeg	COMMA	2		COMMA	true		] COMMA
+													[HITZONE_RightLowerArm	COMMA	1		COMMA	true		] COMMA
+													[HITZONE_RightFoot		COMMA	1		COMMA	false		] COMMA
+													[HITZONE_RightUpperArm	COMMA	1		COMMA	true		] COMMA
+													[HITZONE_RightLowerLeg	COMMA	2		COMMA	true		] COMMA
+													[HITZONE_RightUpperLeg	COMMA	2		COMMA	true		] COMMA
+													[HITZONE_LowerBody		COMMA	2		COMMA	true		] COMMA
+													[HITZONE_UpperBody		COMMA	2		COMMA	true		]
+												]);
 
 //################################
 //# X39s Medical System - EVENTS #
 //################################
 
 ["XMS2", missionNamespace] call X39_XLib_EH_fnc_registerNamespace;
-["DamageChanged_Head", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
-["DamageChanged_Body", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
-["DamageChanged_Hands", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
-["DamageChanged_Legs", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
-["DamageChanged_Generic", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
+{
+	[format["DamageChanged_%1", _x select HITZONE_Name], "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
+	[format["BleedingChanged_%1", _x select HITZONE_Name], "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
+}count X39_MS2_var_Internal_HitZones;
 
-["Bleeding_Head", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
-["Bleeding_Body", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
-["Bleeding_Hands", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
-["Bleeding_Legs", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
-["Bleeding_Generic", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
 ["BloodChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
 ["ClottingChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
 
@@ -43,6 +64,9 @@ if(isNil "scriptNull") then
 ["BlackOutTextChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;
 
 
+//Enable/Disable event variables
+assignValue("X39_MS2_var_Events_EnableSetEvents", false);
+
 
 
 //################################################
@@ -55,24 +79,12 @@ if(isNil "scriptNull") then
 
 assignValue("X39_MS2_var_UIs_XMS2_Overlay_ShownInCurrentMission", false);
 
-
 assignValue("X39_MS2_var_Internal_UnitVariables", []);
 //																				  |Variable name								|Value (as code)								|Will this be broadcasted over the network?|
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_UnitInitialized",				{false											}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_LastHitter", 			{objNull										}, true		]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_Generic",				{0.0											}, true		]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_Body",					{0.0											}, true		]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_Head",					{0.0											}, true		]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_Hands",					{0.0											}, true		]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_Legs",					{0.0											}, true		]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Generic",				{0.0											}, true		]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Body",					{0.0											}, true		]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Head",					{0.0											}, true		]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Hands",				{0.0											}, true		]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Legs",					{0.0											}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Blood",				{X39_MS2_var_Bleeding_maxBloodInEntireBody		}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Clotting",				{1												}, true		]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_AterieDamaged",		{false											}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_HandleDamage",				{-1												}, false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_FiredNear",					{-1												}, false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_Explosion",					{-1												}, false	]];
@@ -86,7 +98,6 @@ X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Internal_XMSEffects",			{[]												}, false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Temperature_value",				{X39_MS2_var_Temperature_max					}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_hasEarplugs",					{false											}, true		]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_hasTourniquet",					{false											}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_Text",					{""												}, false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_isBlackedOut",			{false											}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_currentStage",			{0												}, true		]];
@@ -101,6 +112,12 @@ X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Adrenaline_value",		{0												}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Naloxone_value",			{0												}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_distraction",					{0												}, true		]];
+{
+	X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, [format["X39_MS2_var_Damage_%1", _x select HITZONE_Name], {0}, true]];
+	X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, [format["X39_MS2_var_Bleeding_%1", _x select HITZONE_Name], {0}, true]];
+	X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, [format["X39_MS2_var_Bleeding_%1AterieDamaged", _x select HITZONE_Name], {false}, true]];
+	X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, [format["X39_MS2_var_%1HasTourniquet", _x select HITZONE_Name], {false}, true]];
+}count X39_MS2_var_Internal_HitZones;
 
 //Reserve ppEffect/EventHandler variable holders (not all are used)
 assignValue("X39_MS2_var_Internal_ppe_radialBlur", -1);
@@ -182,22 +199,19 @@ assignValue("X39_MS2_var_BackBlast_maxAngle", 45);
 * CATEGORY: DAMAGE *
 *******************/
 //Enable/Disable Hitzones
-assignValue("X39_MS2_var_Damage_EnableHitzoneHead", true);
-assignValue("X39_MS2_var_Damage_EnableHitzoneBody", true);
-assignValue("X39_MS2_var_Damage_EnableHitzoneHands", true);
-assignValue("X39_MS2_var_Damage_EnableHitzoneLegs", true);
-assignValue("X39_MS2_var_Damage_EnableHitzoneGeneric", true);
+{
+	assignValue(format["X39_MS2_var_Damage_EnableHitzone%1", _x select HITZONE_Name], true);
+}count X39_MS2_var_Internal_HitZones;
+
 assignValue("X39_MS2_var_Damage_AllowRealKillingOnMaxDamage", false);
 
 assignValue("X39_MS2_var_Damage_AllowDeathThroughFullDamageAtHeadHitzone", true);
 assignValue("X39_MS2_var_Damage_KillWithNoReviveAtMaxHeadDamage", true);
 
 //Dynamic definitions
-assignValue("X39_MS2_var_Damage_maxDamageHead", 1);
-assignValue("X39_MS2_var_Damage_maxDamageBody", 5);
-assignValue("X39_MS2_var_Damage_maxDamageHands", 1);
-assignValue("X39_MS2_var_Damage_maxDamageLegs", 1);
-assignValue("X39_MS2_var_Damage_maxDamageGeneric", 5);
+{
+	assignValue(format["X39_MS2_var_Damage_maxDamage%1", _x select HITZONE_Name], 1);
+}count X39_MS2_var_Internal_HitZones;
 
 assignValue("X39_MS2_var_Damage_knockOutLimitP", 0.5);
 assignValue("X39_MS2_var_Damage_DeathLimitP", 0.8);
@@ -207,37 +221,36 @@ assignValue("X39_MS2_var_Damage_DeathTime", 600);
 assignValue("X39_MS2_var_Damage_ExplosionModificator", 1.0);
 
 assignValue("X39_MS2_var_Damage_GlobalModificator", 1.0);
-assignValue("X39_MS2_var_Damage_BodyModificator", 3.0);
-assignValue("X39_MS2_var_Damage_GenericModificator", 1.0);
-assignValue("X39_MS2_var_Damage_HandsModificator", 1.0);
-assignValue("X39_MS2_var_Damage_HeadModificator", 5.0);
-assignValue("X39_MS2_var_Damage_LegsModificator", 1.0);
+{
+	assignValue(format["X39_MS2_var_Damage_%1Modificator", _x select HITZONE_Name], 1);
+}count X39_MS2_var_Internal_HitZones;
 
 
 /**********************
 * CATEGORY: BLEEDING *
 *********************/
 //Enable/Disable stuff
-assignValue("X39_MS2_var_Bleeding_EnableHitzoneHead", true);
-assignValue("X39_MS2_var_Bleeding_EnableHitzoneBody", true);
-assignValue("X39_MS2_var_Bleeding_EnableHitzoneHands", true);
-assignValue("X39_MS2_var_Bleeding_EnableHitzoneLegs", true);
-assignValue("X39_MS2_var_Bleeding_EnableHitzoneGeneric", true);
+{
+	assignValue(format["X39_MS2_var_Bleeding_EnableHitzone%1", _x select HITZONE_Name], true);
+}count X39_MS2_var_Internal_HitZones;
 assignValue("X39_MS2_var_Bleeding_EnableAterialDamage", true);
 assignValue("X39_MS2_var_Bleeding_EnableClotting", true);
 assignValue("X39_MS2_var_Bleeding_LowBloodFeatures", true);
 assignValue("X39_MS2_var_Bleeding_EnableBloodPresureForBleedingTick", true);
 assignValue("X39_MS2_var_Bleeding_BloodPresureCanKill", true);
+assignValue("X39_MS2_var_Bleeding_EnableBleedingCure", true);
+assignValue("X39_MS2_var_Bleeding_AllowBleedingCureWhenAterieDamaged", false);
 
 //Dynamic definitions
-assignValue("X39_MS2_var_Bleeding_BleedingCurePerTick", 0.0001);
+{
+	assignValue(format["X39_MS2_var_Bleeding_BleedingCurePerTick%1", _x select HITZONE_Name], 0.0001);
+}count X39_MS2_var_Internal_HitZones;
+
 
 assignValue("X39_MS2_var_Bleeding_maxBloodInEntireBody", 6000);
-assignValue("X39_MS2_var_Bleeding_maxBleedingHead", 1);
-assignValue("X39_MS2_var_Bleeding_maxBleedingBody", 5);
-assignValue("X39_MS2_var_Bleeding_maxBleedingHands", 1);
-assignValue("X39_MS2_var_Bleeding_maxBleedingLegs", 1);
-assignValue("X39_MS2_var_Bleeding_maxBleedingGeneric", 5);
+{
+	assignValue(format["X39_MS2_var_Bleeding_maxDamage%1", _x select 0], 1);
+}count X39_MS2_var_Internal_HitZones;
 
 assignValue("X39_MS2_var_Bleeding_minDamageRequiredForHead", 0.3);
 assignValue("X39_MS2_var_Bleeding_minDamageRequiredForBody", 0.3);
@@ -256,16 +269,18 @@ assignValue("X39_MS2_var_Bleeding_killAtPBloodPresureLowerEnd", 0.5);
 assignValue("X39_MS2_var_Bleeding_NaturalMaxOfBloodPresure", 120);
 
 //Modificators
-assignValue("X39_MS2_var_Bleeding_ExplosionModificator", 1.0);
 
 assignValue("X39_MS2_var_Bleeding_GlobalModificator", 1.0);
-assignValue("X39_MS2_var_Bleeding_BodyModificator", 3.0);
-assignValue("X39_MS2_var_Bleeding_GenericModificator", 1.0);
-assignValue("X39_MS2_var_Bleeding_HandsModificator", 1.0);
-assignValue("X39_MS2_var_Bleeding_HeadModificator", 5.0);
-assignValue("X39_MS2_var_Bleeding_LegsModificator", 1.0);
+{
+	assignValue(format["X39_MS2_var_Bleeding_%1Modificator", _x select HITZONE_Name], 1);
+}count X39_MS2_var_Internal_HitZones;
 assignValue("X39_MS2_var_Bleeding_ClottingModificator", 1.0);
-assignValue("X39_MS2_var_Bleeding_AterialDamageMultiplicator", 10.0);
+{
+	if(_x select HITZONE_HasAterie) then
+	{
+		assignValue(format["X39_MS2_var_Bleeding_AterialDamageMultiplicator%1", _x select HITZONE_Name], 10);
+	};
+}count X39_MS2_var_Internal_HitZones;
 
 /*********************
 * CATEGORY: HEARING *
@@ -318,7 +333,7 @@ assignValue("X39_MS2_var_Hearing_GlobalModificator", 1.0);
 	assignValue("X39_MS2_var_Drugs_Adrenaline_maxAdrenaline", 10);
 	assignValue("X39_MS2_var_Drugs_Adrenaline_naturalAdrenalineP", 0.2);
 	assignValue("X39_MS2_var_Drugs_Adrenaline_reductionPerTick", 0.02);
-	assignValue("X39_MS2_var_Drugs_Adrenaline_adrenalineAddedThroughShooting", 0.025);
+	assignValue("X39_MS2_var_Drugs_Adrenaline_AdrenalineAddedThroughShooting", 0.035);
 	assignValue("X39_MS2_var_Drugs_Adrenaline_AdrenalinePulseRagePointP", 0.7);
 	
 	//Modificators
@@ -390,21 +405,12 @@ assignValue("X39_MS2_var_Pain_maxPain", 10);
 assignValue("X39_MS2_var_Pain_painReductionPerTick", 0.001);
 
 //Modificators
-
-assignValue("X39_MS2_var_Pain_ExtraPainForGlobalModificator", 1.0);
-assignValue("X39_MS2_var_Pain_ExtraPainForBodyModificator", 1.0);
-assignValue("X39_MS2_var_Pain_ExtraPainForGenericModificator", 1.0);
-assignValue("X39_MS2_var_Pain_ExtraPainForHandsModificator", 1.0);
-assignValue("X39_MS2_var_Pain_ExtraPainForHeadModificator", 1.0);
-assignValue("X39_MS2_var_Pain_ExtraPainForLegsModificator", 1.0);
-
 assignValue("X39_MS2_var_Pain_GlobalModificator", 1.0);
-assignValue("X39_MS2_var_Pain_DamagePainForGlobalModificator", 1.0);
-assignValue("X39_MS2_var_Pain_DamagePainForBodyModificator", 1.0);
-assignValue("X39_MS2_var_Pain_DamagePainForGenericModificator", 1.0);
-assignValue("X39_MS2_var_Pain_DamagePainForHandsModificator", 1.0);
-assignValue("X39_MS2_var_Pain_DamagePainForHeadModificator", 1.0);
-assignValue("X39_MS2_var_Pain_DamagePainForLegsModificator", 1.0);
+assignValue("X39_MS2_var_Pain_DamagePainGlobalModificator", 1.0);
+
+{
+	assignValue(format["X39_MS2_var_Pain_DamagePainFor%1Modificator", _x select HITZONE_Name], 1);
+}count X39_MS2_var_Internal_HitZones;
 
 /******************
 * CATEGORY: Distraction *
@@ -582,3 +588,12 @@ if(!isDedicated) then
 {
 	[] call X39_MS2_fnc_applyClientConfig;
 };
+//####################################################
+//# X39s Medical System - GENERATE DYNAMIC FUNCTIONS #
+//####################################################
+generateFunctionsDynamiclyByHitZone("X39_MS2_fnc_addDamageTo%1",	"\X39_MS2_Scripting\Functions\Damage\addDamageToHitZone.sqf");
+generateFunctionsDynamiclyByHitZone("X39_MS2_fnc_setDamageOf%1",	"\X39_MS2_Scripting\Functions\Damage\setDamageOfHitZone.sqf");
+generateFunctionsDynamiclyByHitZone("X39_MS2_fnc_getDamageOf%1",	"\X39_MS2_Scripting\Functions\Damage\getDamageOfHitZone.sqf");
+generateFunctionsDynamiclyByHitZone("X39_MS2_fnc_addBleedingTo%1",	"\X39_MS2_Scripting\Functions\Bleeding\addBleedingToHitZone.sqf");
+generateFunctionsDynamiclyByHitZone("X39_MS2_fnc_setBleedingOf%1",	"\X39_MS2_Scripting\Functions\Bleeding\setBleedingOfHitZone.sqf");
+generateFunctionsDynamiclyByHitZone("X39_MS2_fnc_getBleedingOf%1",	"\X39_MS2_Scripting\Functions\Bleeding\getBleedingOfHitZone.sqf");

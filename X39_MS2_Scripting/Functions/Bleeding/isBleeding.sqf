@@ -7,9 +7,16 @@
  * @Return - BOOL - true/false depending on if the unit is bleeding or not
  */
 if(!X39_MS2_var_Feature_EnableBlood) exitWith {false};
-if(	 (_this call X39_MS2_fnc_getBleedingOfBody)		<= 0 &&
-	{(_this call X39_MS2_fnc_getBleedingOfGeneric)	<= 0 &&
-	{(_this call X39_MS2_fnc_getBleedingOfHands)	<= 0 &&
-	{(_this call X39_MS2_fnc_getBleedingOfHead)		<= 0 &&
-	{(_this call X39_MS2_fnc_getBleedingOfLegs)		<= 0 }}}}) exitWith { false };
-true
+private["_countResult", "_flag"];
+_countResult = count X39_MS2_var_Internal_HitZones;
+_flag = false;
+scopeName "main";
+for "_i" from 0 to _countResult do
+{
+	if(_this call format["X39_MS2_fnc_getBleedingOf%1", X39_MS2_var_Internal_HitZones select _i select HITZONE_Name] > 0) then
+	{
+		_flag = true;
+		breakTo "main";
+	};
+};
+_flag
