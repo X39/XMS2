@@ -13,7 +13,7 @@ _flag = false;
 scopeName "main";
 for "_i" from 0 to _countResult do
 {
-	if(_this call format["X39_MS2_fnc_getBleedingOf%1", X39_MS2_var_Internal_HitZones select _i select HITZONE_Name] > 0) then
+	if(_this call (missionNamespace getVariable format["X39_MS2_fnc_getBleedingOf%1", X39_MS2_var_Internal_HitZones select _i select HITZONE_NAME]) > 0) then
 	{
 		_flag = true;
 		breakTo "main";

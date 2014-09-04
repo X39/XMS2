@@ -10,7 +10,7 @@ private["_flag"];
 _flag = false;
 scopeName "main";
 {
-	if((_x select HITZONE_Name) == (_this select 0)) then {
+	if((_x select HITZONE_NAME) == (_this select 0)) then {
 		_flag = true;
 		breakTo "main";
 	};

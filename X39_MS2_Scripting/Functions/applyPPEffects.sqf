@@ -45,8 +45,8 @@ if(X39_MS2_var_ppEffect_EnableColorCorrections) then
 							1,								//BlackScreen circle
 							1,								//BlackScreen full
 							0,								//Brightness
-							1, 0, 0, (profileNamespace getVariable["X39_MS2_options_ppEffects_colorCorrections_maxRedScreen", X39_MS2_options_ppEffects_colorCorrections_maxRedScreen]) * _redScreenAlpha,		//Colorized overlay (R,G,B,A)
-							1, 1, 1, (profileNamespace getVariable["X39_MS2_options_ppEffects_colorCorrections_colorize", X39_MS2_options_ppEffects_colorCorrections_colorize]) * _ppeGreyScreen,	//Color Corrections AKA STRANGE VUDU CRAP (R,G,B,A)
+							1, 0, 0, (profileNamespace getVariable["X39_MS2_options_ppEffects_colorCorrections_maxRedScreen", 0.45]) * _redScreenAlpha,		//Colorized overlay (R,G,B,A)
+							1, 1, 1, (profileNamespace getVariable["X39_MS2_options_ppEffects_colorCorrections_colorize", 1.5]) * _ppeGreyScreen,	//Color Corrections AKA STRANGE VUDU CRAP (R,G,B,A)
 							0, 1, 0.1, 1					//Something with brightness again (IDK, IDK, IDK, A)
 						];
 	X39_MS2_var_Internal_ppe_colorCorrections ppEffectCommit X39_MS2_var_Internal_ticker_minTickRate; 

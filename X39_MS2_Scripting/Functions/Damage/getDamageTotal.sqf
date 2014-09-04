@@ -11,7 +11,8 @@ private["_damage", "_unit"];
 _unit = _this select 0;
 _damage = 0;
 {
-	_damage = _damage + ([_unit] call (missionNamespace getVariable format["X39_MS2_fnc_getDamageOf%1", _x select HITZONE_Name]));
+	_damage = _damage + ([_unit] call (missionNamespace getVariable format["X39_MS2_fnc_getDamageOf%1", _x select HITZONE_NAMEzz]));
+	false
 }count X39_MS2_var_Internal_HitZones;
 
 _damage

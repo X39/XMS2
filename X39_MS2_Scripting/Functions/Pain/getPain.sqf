@@ -16,7 +16,8 @@ if(X39_MS2_var_Pain_useExtraPain) then
 if(X39_MS2_var_Pain_useCurrentDamageValues) then
 {
 	{
-		_pain = _pain + ((([_unit] call (missionNamespace getVariable format["X39_MS2_fnc_getDamageOf%1", _x select HITZONE_Name])) * (missionNamespace getVariable format["X39_MS2_var_Pain_DamagePainFor%1Modificator", _x select HITZONE_Name])) * X39_MS2_var_Pain_DamagePainGlobalModificator);
+		_pain = _pain + ((([_unit] call (missionNamespace getVariable format["X39_MS2_fnc_getDamageOf%1", _x select HITZONE_NAME])) * (missionNamespace getVariable format["X39_MS2_var_Pain_DamagePainFor%1Modificator", _x select HITZONE_NAME])) * X39_MS2_var_Pain_DamagePainGlobalModificator);
+		false
 	}count X39_MS2_var_Internal_HitZones;
 };
 

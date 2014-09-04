@@ -22,6 +22,7 @@ class RscButtonMenu;
 class RscButtonMenuOK;
 class RscButtonMenuCancel;
 class RscListNBox;
+class RscTextCheckbox;
 class X39_XLib_modProperties_RscText;
 
 class RscTitles {

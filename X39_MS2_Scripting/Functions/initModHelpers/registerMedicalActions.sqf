@@ -2,136 +2,75 @@
 /*
  *	THIS FUNCTION IS NOT INTENDED TO BE CALLEN BY ANY USERSCRIPT!
  *	
- *	@Return - N/A
+ *	@Param1		- STRING	- ActionID (no uniqueCheck is performed here!)
+ *	@Param2		- STRING	- localize string name (will be displayed)
+ *	@Param3		- STRING	- Image
+ *	@Param4		- CODE		- Condition (needs to check for correct item(s) available)
+ *	@Param5		- CODE		- ExecutionCode (will be executed upon pressing applyDrug)
+ *	@Param6		- STRING	- LimitationID
+ *	@Return		- SCALAR	- Action Index
+ *	
+ *	@Notes		-	Params for ALL CODE related stuff: [Executer:OBJECT, Target:OBJECT, Hitzone:STRING]
+ *					Code will ALWAYS be executed on executer computer
+ *	
  *	@Author - X39|Cpt. HM Murdock
  */
-//"Hands", "Body", "Legs", "Head", "Generic", "Temperature"
 
 [
-	"Naloxone",
-	"Naloxone",
-	{
-		[_this select 1, X39_MS2_var_MedicalActions_Naloxone_AdditionalNaloxoneValue] call X39_MS2_fnc_addNaloxone;
-	},
-	"",
-	"Acts_TreatingWounded02",
-	1, //8.032,
-	"XMS2_SoundFiles_injection_3",
-	0,
-	"\X39_MS2_Resources\Items\Injector\InjectorInv2_thumb.paa",
-	["x39_xms2_naloxone"],
-	{true},
-	0,
-	"X39_MS2_var_MedicalActions_Naloxone_DamageHealing",
-	["Hands", "Body", "Legs", "Head", "Generic"]
-] call X39_MS2_fnc_registerAction;
-[
-	"Morphine",
-	"Morphine",
-	{
-		[_this select 1, X39_MS2_var_MedicalActions_Morphine_AdditionalMorphineValue] call X39_MS2_fnc_addMorphine;
-	},
-	"",
-	"Acts_TreatingWounded02",
-	1, //8.032,
-	"XMS2_SoundFiles_injection_3",
-	0,
-	"\X39_MS2_Resources\Items\Injector\InjectorInv_thumb.paa",
-	["x39_xms2_morphine"],
-	{true},
-	0,
-	"X39_MS2_var_MedicalActions_Morphine_DamageHealing",
-	["Hands", "Body", "Legs", "Head", "Generic"]
-] call X39_MS2_fnc_registerAction;
-[
-	"Adrenaline",
-	"Adrenaline",
-	{
-		[(_this select 1), X39_MS2_var_MedicalActions_Adrenaline_AdrenalineChange] call X39_MS2_fnc_addAdrenaline;
-	},
-	"",
-	"Acts_TreatingWounded02",
-	1, //8.032,
-	"XMS2_SoundFiles_injection_3",
-	0,
-	"\X39_MS2_Resources\Items\Injector\Injector_thumb.paa",
-	["x39_xms2_adrenaline"],
-	{true},
-	0,
-	"X39_MS2_var_MedicalActions_Adrenaline_DamageHealing",
-	["Hands", "Body", "Legs", "Head", "Generic"]
-] call X39_MS2_fnc_registerAction;
-[
-	"Bandage",
-	"bandage",
-	{
-		_unit = _this select 1;
-		_part = _this select 3;
-		[_unit, -X39_MS2_var_MedicalActions_StickyBandage_BleedingCure] call (missionNamespace getVariable format["X39_MS2_fnc_addBleedingTo%1", _part]);
-	},
-	"",
-	"Acts_TreatingWounded03",
-	1, //8.665,
-	"XMS2_SoundFiles_Bandage_unwrapping",
-	0,
+	"BANDAGE",
+	"STR_X39_MS2_Scripting_MedicalUiActions_Bandage_ActionName",
 	"\X39_MS2_Resources\Items\Bandage\Bandage.paa",
-	["x39_xms2_bandage"],
-	{true},
-	0,
-	"X39_MS2_var_MedicalActions_StickyBandage_DamageHealing",
-	["Hands", "Body", "Legs", "Head", "Generic"]
-] call X39_MS2_fnc_registerAction;
-[
-	"cold spray",
-	"cold spray",
+	{("x39_xms2_bandage" in items (_this select 0)) || ("x39_xms2_bandage" in items (_this select 1))},
 	{
-		[(_this select 1), X39_MS2_var_MedicalActions_ColdSpray_TemperatureChange] call X39_MS2_fnc_addTemperature;
-		[(_this select 1), X39_MS2_var_MedicalActions_ColdSpray_PainChange] call X39_MS2_fnc_addPain;
+		if ("x39_xms2_bandage" in items (_this select 1)) then
+		{
+			[(_this select 1), '(_this select 0) removeItem "x39_xms2_bandage"', [_this select 1]] call X39_XLib_fnc_executeLocalToUnit;
+		}
+		else
+		{
+			[(_this select 0), '(_this select 0) removeItem "x39_xms2_bandage"', [_this select 0]] call X39_XLib_fnc_executeLocalToUnit;
+		};
+		[(_this select 1), -X39_MS2_var_MedicalActions_StickyBandage_BleedingCure] call (missionNamespace getVariable format["X39_MS2_fnc_addBleedingTo%1", _this select 2]);
 	},
-	"",
-	"Acts_TreatingWounded06",
-	1, //6.234,
-	"",
-	0,
-	"\X39_MS2_Resources\Items\ColdSpray.paa",
-	["x39_xms2_coldSpray"],
-	{true},
-	0,
-	"X39_MS2_var_MedicalActions_ColdSpray_DamageHealing",
-	["Hands", "Body", "Legs", "Head", "Generic"]
+	"BANDAGE"
 ] call X39_MS2_fnc_registerAction;
 [
-	"MediPack",
-	"MediPack",
-	{},
-	"",
-	"",
-	1, //5,
-	"",
-	0,
+	"MEDIPACK",
+	"STR_X39_MS2_Scripting_MedicalUiActions_MediPack_ActionName",
 	"\X39_MS2_Resources\Items\MedicalPack.paa",
-	["x39_xms2_mediPack"],
-	{true},
-	0,
-	"X39_MS2_var_MedicalActions_MediPack_DamageHealing",
-	["Hands", "Body", "Legs", "Head", "Generic"]
+	{("x39_xms2_mediPack" in items (_this select 0)) || ("x39_xms2_mediPack" in items (_this select 1))},
+	{
+		if ("x39_xms2_mediPack" in items (_this select 1)) then
+		{
+			[(_this select 1), '(_this select 0) removeItem "x39_xms2_mediPack"', [_this select 1]] call X39_XLib_fnc_executeLocalToUnit;
+		}
+		else
+		{
+			[(_this select 0), '(_this select 0) removeItem "x39_xms2_mediPack"', [_this select 0]] call X39_XLib_fnc_executeLocalToUnit;
+		};
+		[_this select 1, -X39_MS2_var_MedicalActions_MediPack_DamageHealing] call (missionNamespace getVariable format["X39_MS2_fnc_addTamageTo%1", _this select 2]);
+	},
+	"MEDIPACK"
 ] call X39_MS2_fnc_registerAction;
 
 [
-	"HeatPack",
-	"HeatPack",
-	{
-		[(_this select 1), X39_MS2_var_MedicalActions_HeatPack_TemperatureChange * (_this select 2)] call X39_MS2_fnc_addTemperature;
-	},
-	"",
-	"",
-	1, //5,
-	"",
-	0,
+	"HEATPACK",
+	"STR_X39_MS2_Scripting_MedicalUiActions_Heatpack_ActionName",
 	"\X39_MS2_Resources\Items\HeatPack.paa",
-	["x39_xms2_heatPack"],
-	{true},
-	0,
-	0,
-	["Temperature"]
+	{("x39_xms2_heatPack" in items (_this select 0)) || ("x39_xms2_heatPack" in items (_this select 1))},
+	{
+		if ("x39_xms2_heatPack" in items (_this select 1)) then
+		{
+			[(_this select 1), '(_this select 0) removeItem "x39_xms2_heatPack"', [_this select 1]] call X39_XLib_fnc_executeLocalToUnit;
+		}
+		else
+		{
+			[(_this select 0), '(_this select 0) removeItem "x39_xms2_heatPack"', [_this select 0]] call X39_XLib_fnc_executeLocalToUnit;
+		};
+		[(_this select 1), X39_MS2_var_MedicalActions_HeatPack_TemperatureChange] call X39_MS2_fnc_addTemperature;
+	},
+	"HEATPACK"
 ] call X39_MS2_fnc_registerAction;
+
+//FINALLY, register the "close" action
+["NA", "STR_X39_MS2_Scripting_MedicalUiActions_Close", "", {true}, {}, "NA"] call X39_MS2_fnc_registerAction;

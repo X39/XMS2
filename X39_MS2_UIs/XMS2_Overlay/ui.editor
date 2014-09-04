@@ -146,7 +146,8 @@ $[
 	[1070,"",[1,"XMS2",["0.922813 * safezoneW + safezoneX","0.632 * safezoneH + safezoneY","0.04125 * safezoneW","0.0733333 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
 	[1071,"",[1,"XMS2",["0.922813 * safezoneW + safezoneX","0.786 * safezoneH + safezoneY","0.04125 * safezoneW","0.0733333 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
 	[1072,"",[1,"XMS2_DEBUGOUTPUT",["-0.000156274 * safezoneW + safezoneX","0.859333 * safezoneH + safezoneY","1.00031 * safezoneW","0.143 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
-	[1291,"",[1,"#(argb,8,8,3)color(1,1,1,0)",["safezoneX","safezoneY","safezoneW","safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
-	[1292,"",[1,"#(argb,8,8,3)color(1,1,1,0)",["safezoneX","safezoneY","safezoneW","safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
-	[1293,"",[1,"#(argb,8,8,3)color(1,1,1,0)",["safezoneX","safezoneY","safezoneW","safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]]
+	[1291,"",[1,"\X39_MS2_Resources\textures\BasicWaterOverlay.paa",["0 * safezoneW + safezoneX","0 * safezoneH + safezoneY","1 * safezoneW","1 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
+	[1292,"",[1,"\X39_MS2_Resources\textures\BloodOverlay.paa",["0 * safezoneW + safezoneX","0 * safezoneH + safezoneY","1 * safezoneW","1 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
+	[1293,"",[1,"\X39_MS2_Resources\textures\FrozenScreen_MiddleClear2.paa",["0 * safezoneW + safezoneX","0 * safezoneH + safezoneY","1 * safezoneW","1 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
+	[1294,"",[1,"#(argb,8,8,3)color(1,0.415686,0,1)",["0 * safezoneW + safezoneX","0 * safezoneH + safezoneY","1 * safezoneW","0.0055 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]]
 ]

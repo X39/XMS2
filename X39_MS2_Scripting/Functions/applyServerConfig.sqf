@@ -93,8 +93,16 @@ for "_serverConfigOption" from 0 to ((count _config) - 1) do
 								};
 								false
 							}forEach _color;
+							_textColor = getArray (_selectedEntry >> "textColor");
+							{
+								if(ISCHARP(_x)) then
+								{
+									_textColor set [_forEachIndex, [] call compile _x];
+								};
+								false
+							}forEach _textColor;
 							_rating = getNumber (_selectedEntry >> "rating");
-							X39_MS2_var_Internal_Dialog_TriageCard_States set[count X39_MS2_var_Internal_Dialog_TriageCard_States, [_name, _description, _color, _rating]];
+							X39_MS2_var_Internal_Dialog_TriageCard_States set[count X39_MS2_var_Internal_Dialog_TriageCard_States, [_name, _description, _color, _rating, _textColor]];
 						};
 					};
 					DEBUG_LOG_WFn(format["Handled States entry"]);

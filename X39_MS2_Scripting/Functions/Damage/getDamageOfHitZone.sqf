@@ -6,11 +6,5 @@
  * @Param1 - OBJECT - XMS Unit to handle
  * @Return - SCALAR - Current damage of the unit
  */
-if(missionNamespace getVariable "X39_MS2_var_Damage_EnableHitzone%1") then
-{
-	(_this select 0) getVariable ["X39_MS2_var_Damage_%1", -1]
-}
-else
-{
-	0
-};
+if(missionNamespace getVariable "X39_MS2_var_Damage_EnableHitzone%1") exitWith {0};
+((_this select 0) getVariable ["X39_MS2_var_Damage_%1", -1])

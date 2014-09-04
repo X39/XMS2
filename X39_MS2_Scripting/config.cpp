@@ -52,6 +52,8 @@ class CfgFunctions
 			class IMH_registerMedicalActions:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\initModHelpers\registerMedicalActions.sqf";};
 			class IMH_addMedicalMessages:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\initModHelpers\addMedicalMessages.sqf";};
 			class IMH_addInteractionMenuEntries:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\initModHelpers\addInteractionMenuEntries.sqf";};
+			class IMH_registerDrugs:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\initModHelpers\registerDrugs.sqf";};
+			class IMH_registerMedicalUiStatusEffects:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\initModHelpers\registerMedicalUiStatusEffects.sqf";};
 		};
 		class HitZones
 		{
@@ -104,6 +106,8 @@ class CfgFunctions
 		};
 		class Drugs
 		{
+			class registerDrug:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\registerDrug.sqf";};
+			
 			class addMorphine:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Morphine\addMorphine.sqf";};
 			class getMorphine:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Morphine\getMorphine.sqf";};
 			class setMorphine:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Morphine\setMorphine.sqf";};
@@ -171,31 +175,54 @@ class CfgFunctions
 		{
 			class overlay_createDisplay:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\DialogControl\Overlay\createDisplay.sqf";};
 			class overlay_showHitMarker:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\DialogControl\Overlay\showHitMarker.sqf";};
+			class setProgressBarTimeout:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\DialogControl\Overlay\setProgressBarTimeout.sqf";};
 		};
 		class DialogControl_UnitSelection
 		{
 			class unitSelection_openDialog:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\DialogControl\UnitSelectionUi\createDialog.sqf";};
 		};
-		class DialogControl_MedicalActionMenu
+		class DialogControl_MedicalUi
 		{
-			class setTriageCard:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\setTriageCard.sqf";};
-			class setTriageState:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\setTriageState.sqf";};
-			class getTriageCard:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\getTriageCard.sqf";};
-			class getTriageState:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\getTriageState.sqf";};
-			class MedicalActionMenu_createDialog:X39_XLib_Function_TypeA								{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\createDialog.sqf";};
-			class MedicalActionMenu_btnDiagnosisPerformCheckUnit:X39_XLib_Function_TypeA				{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\btnDiagnosisPerformCheckUnit.sqf";};
-			class MedicalActionMenu_btnDiagnosisAddSelectedEntryToTriageCard:X39_XLib_Function_TypeA	{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\btnDiagnosisAddSelectedEntryToTriageCard.sqf";};
-			class MedicalActionMenu_btnTriageCardResetTriageCard:X39_XLib_Function_TypeA				{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\btnTriageCardResetTriageCard.sqf";};
-			class MedicalActionMenu_btnTriageCardRemoveSelectedEntry:X39_XLib_Function_TypeA			{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\btnTriageCardRemoveSelectedEntry.sqf";};
-			class MedicalActionMenu_btnPerformAction:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\btnPerformAction.sqf";};
+			class registerMedicalUiStatusEffect:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\registerMedicalUiStatusEffect.sqf";};
+			class MedicalUi_DiagnosticFrame_setVisibilityState:X39_XLib_Function_TypeA					{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\DiagnosticFrame\MedicalUi_DiagnosticFrame_setVisibilityState.sqf";};
+			class MedicalUi_DrugsFrame_setVisibilityState:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\DrugsFrame\MedicalUi_DrugsFrame_setVisibilityState.sqf";};
+			class MedicalUi_QuickActionFrame_setVisibilityState:X39_XLib_Function_TypeA					{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\QuickActionFrame\MedicalUi_QuickActionFrame_setVisibilityState.sqf";};
+			class MedicalUi_TriageCardFrame_setVisibilityState:X39_XLib_Function_TypeA					{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\TriageCardFrame\MedicalUi_TriageCardFrame_setVisibilityState.sqf";};
+			class MedicalUi_createDialog:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\MedicalUi_createDialog.sqf";};
+			class setTriageCard:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\setTriageCard.sqf";};
+			class setTriageState:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\setTriageState.sqf";};
+			class getTriageCard:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\getTriageCard.sqf";};
+			class getTriageState:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\getTriageState.sqf";};
+			class MedicalUI_addGivenMessageToTriageCard:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\addGivenMessageToTriageCard.sqf";};
+			class MedicalUi_SetBodyViewType:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\MedicalUi_SetBodyViewType.sqf";};
+			class MedicalUi_btnDiagnosisPerformCheckUnit:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\MedicalUi_btnDiagnosisPerformCheckUnit.sqf";};
+			class MedicalUi_HitZones_UpdateStatusEffects:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\HitZones\MedicalUi_HitZones_UpdateStatusEffects.sqf";};
+			class MedicalUi_HitZones_CreateMenu:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\HitZones\MedicalUi_HitZones_CreateMenu.sqf";};
 
-			class MedicalActionMenu_outputBlockedMessage:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\outputBlockedMessage.sqf";};
-			class MedicalActionMenu_outputNothingSelectedMessage:X39_XLib_Function_TypeA				{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\outputNothingSelectedMessage.sqf";};
-			class MedicalActionMenu_outputMissingItemsMessage:X39_XLib_Function_TypeA					{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\outputMissingItemsMessage.sqf";};
-			class MedicalActionMenu_outputCannotBeAppliedOnThisPartMessage:X39_XLib_Function_TypeA		{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\outputCannotBeAppliedOnThisPartMessage.sqf";};
-			class MedicalActionMenu_updateCraftingOutput:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\updateCraftingOutput.sqf";};
-			class MedicalActionMenu_addGivenMessageToTriageCard:X39_XLib_Function_TypeA					{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\addGivenMessageToTriageCard.sqf";};
+			class MedicalUi_outputBlockedMessage:X39_XLib_Function_TypeA								{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\errorMessageOutputs\outputBlockedMessage.sqf";};
+			class MedicalUi_outputNothingSelectedMessage:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\errorMessageOutputs\outputNothingSelectedMessage.sqf";};
+			class MedicalUi_outputCannotBeAppliedOnThisPartMessage:X39_XLib_Function_TypeA				{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\errorMessageOutputs\outputCannotBeAppliedOnThisPartMessage.sqf";};
 		};
+		//class DialogControl_MedicalActionMenu
+		//{
+		//	class setTriageCard:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\setTriageCard.sqf";};
+		//	class setTriageState:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\setTriageState.sqf";};
+		//	class getTriageCard:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\getTriageCard.sqf";};
+		//	class getTriageState:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\getTriageState.sqf";};
+		//	class MedicalActionMenu_createDialog:X39_XLib_Function_TypeA								{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\createDialog.sqf";};
+		//	class MedicalActionMenu_btnDiagnosisPerformCheckUnit:X39_XLib_Function_TypeA				{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\btnDiagnosisPerformCheckUnit.sqf";};
+		//	class MedicalActionMenu_btnDiagnosisAddSelectedEntryToTriageCard:X39_XLib_Function_TypeA	{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\btnDiagnosisAddSelectedEntryToTriageCard.sqf";};
+		//	class MedicalActionMenu_btnTriageCardResetTriageCard:X39_XLib_Function_TypeA				{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\btnTriageCardResetTriageCard.sqf";};
+		//	class MedicalActionMenu_btnTriageCardRemoveSelectedEntry:X39_XLib_Function_TypeA			{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\btnTriageCardRemoveSelectedEntry.sqf";};
+		//	class MedicalActionMenu_btnPerformAction:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\btnPerformAction.sqf";};
+        //
+		//	class MedicalActionMenu_outputBlockedMessage:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\outputBlockedMessage.sqf";};
+		//	class MedicalActionMenu_outputNothingSelectedMessage:X39_XLib_Function_TypeA				{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\outputNothingSelectedMessage.sqf";};
+		//	class MedicalActionMenu_outputMissingItemsMessage:X39_XLib_Function_TypeA					{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\outputMissingItemsMessage.sqf";};
+		//	class MedicalActionMenu_outputCannotBeAppliedOnThisPartMessage:X39_XLib_Function_TypeA		{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\outputCannotBeAppliedOnThisPartMessage.sqf";};
+		//	class MedicalActionMenu_updateCraftingOutput:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\updateCraftingOutput.sqf";};
+		//	class MedicalActionMenu_addGivenMessageToTriageCard:X39_XLib_Function_TypeA					{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalActionMenu\addGivenMessageToTriageCard.sqf";};
+		//};
 		class MedcialActions
 		{
 			class registerAction:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\MedicalActions\registerAction.sqf";};

@@ -159,6 +159,7 @@ REGION(HIDE EVERYTHING {)
 	displayCtrl_Overlay(1071) ctrlShow false;
 
 	displayCtrl_Overlay(1072) ctrlShow false;
+	displayCtrl_Overlay(1073) ctrlShow false;
 
 	displayCtrl_Overlay(1291) ctrlShow false;
 	displayCtrl_Overlay(1292) ctrlShow false;
@@ -172,3 +173,5 @@ displayCtrl_Overlay(1293) ctrlSetTextColor [1, 1, 1, 0];
 displayCtrl_Overlay(1294) ctrlShow true;
 displayCtrl_Overlay(1294) ctrlSetTextColor [1, 1, 1, 0];
 
+displayCtrl_Overlay(1295) ctrlSetPosition [safezoneX, safezoneY, 0, 0.01];
+displayCtrl_Overlay(1295) ctrlCommit 0;

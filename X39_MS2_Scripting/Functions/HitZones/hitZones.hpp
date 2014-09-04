@@ -26,9 +26,10 @@
 #define HITZONE_IndexLowerBody		11
 #define HITZONE_IndexUpperBody		12
 
-#define HITZONE_Name				0
+#define HITZONE_NAME				0
 #define HITZONE_Size				1
 #define HITZONE_HasAterie			2
+#define HITZONE_MedicalUiIdc		3
 
 #define getHitzoneInfo(INDEX, TYPE) (X39_MS2_var_Internal_HitZones select INDEX select TYPE)
 #define getHitzoneIndexByName(HZ) (X39_MS2_var_Internal_HitZones find HZ)

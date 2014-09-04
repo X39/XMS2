@@ -1,7 +1,7 @@
 #define generateFunctionsDynamiclyByHitZone(FUNCTIONNAME, SOURCEFILE) \
 {\
 	private["_fncName"];\
-	_fncName = format[FUNCTIONNAME, _x select HITZONE_Name];\
+	_fncName = format[FUNCTIONNAME, _x select HITZONE_NAME];\
 	if(isNil {missionNamespace getVariable _fncName}) then\
 	{\
 		missionNamespace setVariable [_fncName, compileFinal str formatText[preprocessFileLineNumbers SOURCEFILE, _x select 0]];\
@@ -9,6 +9,8 @@
 }count X39_MS2_var_Internal_HitZones
 
 #include "\X39_MS2_Scripting\default.hpp"
+#include "\X39_MS2_UIs\MedicalUi\ui.defs"
+
 /*
  *	Sets the requirements automatically at mission start (preInit)
  *	(calling this function manually could lead into unexpected behaviour but should work)
@@ -21,21 +23,23 @@ if(isNil "scriptNull") then
 	scriptNull = 0 spawn {};
 };
 //ArmA3 HitZone names
-												//	 HitZone name			COMMA	~size	COMMA	hasAterie
+
+												//	 HITZONE_NAME						COMMA	HITZONE_Size	COMMA	HITZONE_HasAterie	COMMA HITZONE_MedicalUiIdc
+												//	 HitZone name						COMMA	~size			COMMA	hasAterie			COMMA MedicalUi IDC
 assignValue("X39_MS2_var_Internal_HitZones", 	[
-													[HITZONE_Head			COMMA	1		COMMA	false		] COMMA
-													[HITZONE_LeftLowerArm	COMMA	2		COMMA	true		] COMMA
-													[HITZONE_LeftFoot		COMMA	1		COMMA	false		] COMMA
-													[HITZONE_LeftUpperArm	COMMA	1		COMMA	true		] COMMA
-													[HITZONE_LeftLowerLeg	COMMA	2		COMMA	true		] COMMA
-													[HITZONE_LeftUpperLeg	COMMA	2		COMMA	true		] COMMA
-													[HITZONE_RightLowerArm	COMMA	1		COMMA	true		] COMMA
-													[HITZONE_RightFoot		COMMA	1		COMMA	false		] COMMA
-													[HITZONE_RightUpperArm	COMMA	1		COMMA	true		] COMMA
-													[HITZONE_RightLowerLeg	COMMA	2		COMMA	true		] COMMA
-													[HITZONE_RightUpperLeg	COMMA	2		COMMA	true		] COMMA
-													[HITZONE_LowerBody		COMMA	2		COMMA	true		] COMMA
-													[HITZONE_UpperBody		COMMA	2		COMMA	true		]
+													[stringify(HITZONE_Head)			COMMA	1				COMMA	false				COMMA	IDC_MEDICALUI_IMG_HEAD			] COMMA
+													[stringify(HITZONE_LeftLowerArm)	COMMA	2				COMMA	true				COMMA	IDC_MEDICALUI_IMG_LEFTLOWERARM	] COMMA
+													[stringify(HITZONE_LeftFoot)		COMMA	1				COMMA	false				COMMA	IDC_MEDICALUI_IMG_LEFTFOOT		] COMMA
+													[stringify(HITZONE_LeftUpperArm)	COMMA	1				COMMA	true				COMMA	IDC_MEDICALUI_IMG_LEFTUPPERARM	] COMMA
+													[stringify(HITZONE_LeftLowerLeg)	COMMA	2				COMMA	true				COMMA	IDC_MEDICALUI_IMG_LEFTLOWERLEG	] COMMA
+													[stringify(HITZONE_LeftUpperLeg)	COMMA	2				COMMA	true				COMMA	IDC_MEDICALUI_IMG_LEFTUPPERLEG	] COMMA
+													[stringify(HITZONE_RightLowerArm)	COMMA	1				COMMA	true				COMMA	IDC_MEDICALUI_IMG_RIGHTLOWERARM	] COMMA
+													[stringify(HITZONE_RightFoot)		COMMA	1				COMMA	false				COMMA	IDC_MEDICALUI_IMG_RIGHTFOOT		] COMMA
+													[stringify(HITZONE_RightUpperArm)	COMMA	1				COMMA	true				COMMA	IDC_MEDICALUI_IMG_RIGHTUPPERARM	] COMMA
+													[stringify(HITZONE_RightLowerLeg)	COMMA	2				COMMA	true				COMMA	IDC_MEDICALUI_IMG_RIGHTLOWERLEG	] COMMA
+													[stringify(HITZONE_RightUpperLeg)	COMMA	2				COMMA	true				COMMA	IDC_MEDICALUI_IMG_RIGHTUPPERLEG	] COMMA
+													[stringify(HITZONE_LowerBody)		COMMA	2				COMMA	true				COMMA	IDC_MEDICALUI_IMG_LOWERBODY		] COMMA
+													[stringify(HITZONE_UpperBody)		COMMA	2				COMMA	true				COMMA	IDC_MEDICALUI_IMG_UPPERBODY		]
 												]);
 
 //################################
@@ -44,8 +48,9 @@ assignValue("X39_MS2_var_Internal_HitZones", 	[
 
 ["XMS2", missionNamespace] call X39_XLib_EH_fnc_registerNamespace;
 {
-	[format["DamageChanged_%1", _x select HITZONE_Name], "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
-	[format["BleedingChanged_%1", _x select HITZONE_Name], "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
+	[format["DamageChanged_%1", _x select HITZONE_NAME], "XMS2" COMMA missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
+	[format["BleedingChanged_%1", _x select HITZONE_NAME], "XMS2" COMMA missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
+	false
 }count X39_MS2_var_Internal_HitZones;
 
 ["BloodChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
@@ -113,10 +118,11 @@ X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Naloxone_value",			{0												}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_distraction",					{0												}, true		]];
 {
-	X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, [format["X39_MS2_var_Damage_%1", _x select HITZONE_Name], {0}, true]];
-	X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, [format["X39_MS2_var_Bleeding_%1", _x select HITZONE_Name], {0}, true]];
-	X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, [format["X39_MS2_var_Bleeding_%1AterieDamaged", _x select HITZONE_Name], {false}, true]];
-	X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, [format["X39_MS2_var_%1HasTourniquet", _x select HITZONE_Name], {false}, true]];
+	X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, [format["X39_MS2_var_Damage_%1" COMMA _x select HITZONE_NAME], {0}, true]];
+	X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, [format["X39_MS2_var_Bleeding_%1" COMMA _x select HITZONE_NAME], {0}, true]];
+	X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, [format["X39_MS2_var_Bleeding_%1AterieDamaged" COMMA _x select HITZONE_NAME], {false}, true]];
+	X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, [format["X39_MS2_var_%1HasTourniquet" COMMA _x select HITZONE_NAME], {false}, true]];
+	false
 }count X39_MS2_var_Internal_HitZones;
 
 //Reserve ppEffect/EventHandler variable holders (not all are used)
@@ -130,7 +136,11 @@ assignValue("X39_MS2_var_Internal_ppe_colorInversion", -1);
 
 
 
-assignValue("X39_MS2_var_Internal_MedicalActions_actionArray", [objNull]);
+assignValue("X39_MS2_var_Internal_MedicalActions_actionArray", []);
+assignValue("X39_MS2_var_Internal_MedicalUi_RegisteredDrugs", []);
+assignValue("X39_MS2_var_Internal_MedicalUi_RegisteredStatusEffects", []);
+
+assignValue("X39_MS2_var_Internal_Overlay_ProgressBarRunning", false);
 
 //Ticker
 assignValue("X39_MS2_var_Internal_ticker_tickHandlers", []);
@@ -178,13 +188,6 @@ assignValue("X39_MS2_var_Internal_Communication_ServerMessage", []);
 assignValue("X39_MS2_var_Internal_HitPart_InitializedUnits", []);
 
 
-/******************************
-* CATEGORY: PROFILENAMESPACE *
-*****************************/
-assignValue3("X39_MS2_var_MedicalUI_selectedCheckUnitIndex", 0, profileNamespace);
-
-
-
 /***********************
 * CATEGORY: BACKBLAST *
 **********************/
@@ -200,7 +203,8 @@ assignValue("X39_MS2_var_BackBlast_maxAngle", 45);
 *******************/
 //Enable/Disable Hitzones
 {
-	assignValue(format["X39_MS2_var_Damage_EnableHitzone%1", _x select HITZONE_Name], true);
+	assignValue(format["X39_MS2_var_Damage_EnableHitzone%1" COMMA _x select HITZONE_NAME], true);
+	false
 }count X39_MS2_var_Internal_HitZones;
 
 assignValue("X39_MS2_var_Damage_AllowRealKillingOnMaxDamage", false);
@@ -210,7 +214,8 @@ assignValue("X39_MS2_var_Damage_KillWithNoReviveAtMaxHeadDamage", true);
 
 //Dynamic definitions
 {
-	assignValue(format["X39_MS2_var_Damage_maxDamage%1", _x select HITZONE_Name], 1);
+	assignValue(format["X39_MS2_var_Damage_maxDamage%1" COMMA _x select HITZONE_NAME], 1);
+	false
 }count X39_MS2_var_Internal_HitZones;
 
 assignValue("X39_MS2_var_Damage_knockOutLimitP", 0.5);
@@ -222,7 +227,8 @@ assignValue("X39_MS2_var_Damage_ExplosionModificator", 1.0);
 
 assignValue("X39_MS2_var_Damage_GlobalModificator", 1.0);
 {
-	assignValue(format["X39_MS2_var_Damage_%1Modificator", _x select HITZONE_Name], 1);
+	assignValue(format["X39_MS2_var_Damage_%1Modificator" COMMA _x select HITZONE_NAME], 1);
+	false
 }count X39_MS2_var_Internal_HitZones;
 
 
@@ -231,7 +237,8 @@ assignValue("X39_MS2_var_Damage_GlobalModificator", 1.0);
 *********************/
 //Enable/Disable stuff
 {
-	assignValue(format["X39_MS2_var_Bleeding_EnableHitzone%1", _x select HITZONE_Name], true);
+	assignValue(format["X39_MS2_var_Bleeding_EnableHitzone%1" COMMA _x select HITZONE_NAME], true);
+	false
 }count X39_MS2_var_Internal_HitZones;
 assignValue("X39_MS2_var_Bleeding_EnableAterialDamage", true);
 assignValue("X39_MS2_var_Bleeding_EnableClotting", true);
@@ -243,13 +250,15 @@ assignValue("X39_MS2_var_Bleeding_AllowBleedingCureWhenAterieDamaged", false);
 
 //Dynamic definitions
 {
-	assignValue(format["X39_MS2_var_Bleeding_BleedingCurePerTick%1", _x select HITZONE_Name], 0.0001);
+	assignValue(format["X39_MS2_var_Bleeding_BleedingCurePerTick%1" COMMA _x select HITZONE_NAME], 0.0001);
+	false
 }count X39_MS2_var_Internal_HitZones;
 
 
 assignValue("X39_MS2_var_Bleeding_maxBloodInEntireBody", 6000);
 {
-	assignValue(format["X39_MS2_var_Bleeding_maxDamage%1", _x select 0], 1);
+	assignValue(format["X39_MS2_var_Bleeding_maxBleeding%1" COMMA _x select 0], 1);
+	false
 }count X39_MS2_var_Internal_HitZones;
 
 assignValue("X39_MS2_var_Bleeding_minDamageRequiredForHead", 0.3);
@@ -272,14 +281,16 @@ assignValue("X39_MS2_var_Bleeding_NaturalMaxOfBloodPresure", 120);
 
 assignValue("X39_MS2_var_Bleeding_GlobalModificator", 1.0);
 {
-	assignValue(format["X39_MS2_var_Bleeding_%1Modificator", _x select HITZONE_Name], 1);
+	assignValue(format["X39_MS2_var_Bleeding_%1Modificator" COMMA _x select HITZONE_NAME], 1);
+	false
 }count X39_MS2_var_Internal_HitZones;
 assignValue("X39_MS2_var_Bleeding_ClottingModificator", 1.0);
 {
 	if(_x select HITZONE_HasAterie) then
 	{
-		assignValue(format["X39_MS2_var_Bleeding_AterialDamageMultiplicator%1", _x select HITZONE_Name], 10);
+		assignValue(format["X39_MS2_var_Bleeding_AterialDamageMultiplicator%1" COMMA _x select HITZONE_NAME], 10);
 	};
+	false
 }count X39_MS2_var_Internal_HitZones;
 
 /*********************
@@ -325,6 +336,9 @@ assignValue("X39_MS2_var_Hearing_GlobalModificator", 1.0);
 
 	assignValue("X39_MS2_var_Drugs_Morphine_GlobalMorphineModificator", 1.0);
 
+	//Drug specification
+	assignValue("X39_MS2_var_Drugs_Morphine_MorphineChangeOnConsume", 5);
+	
 //Adrenaline
 	//Enable/Disable Related features
 	assignValue("X39_MS2_var_Drugs_Adrenaline_useAdrenalineForHeartCalculations", true);
@@ -339,7 +353,10 @@ assignValue("X39_MS2_var_Hearing_GlobalModificator", 1.0);
 	//Modificators
 	assignValue("X39_MS2_var_Drugs_Adrenaline_AdrenalineGlobalMultiplicator", 1);
 	assignValue("X39_MS2_var_Drugs_Adrenaline_AdrenalinePulseMultiplicator", 1);
-
+	
+	//Drug specification
+	assignValue("X39_MS2_var_Drugs_Adrenaline_AdrenalineChangeOnConsume", 5);
+	
 //Naloxone
 	//Enable/Disable Related features
 	assignValue("X39_MS2_var_Drugs_Naloxone_hasImpactOnMorphine", true);
@@ -352,6 +369,9 @@ assignValue("X39_MS2_var_Hearing_GlobalModificator", 1.0);
 	//Modificators
 	assignValue("X39_MS2_var_Drugs_Naloxone_NaloxoneGlobalMultiplicator", 1);
 	assignValue("X39_MS2_var_Drugs_Naloxone_MorphineImpactMultiplicator", 1);
+
+	//Drug specification
+	assignValue("X39_MS2_var_Drugs_Naloxone_NaloxoneChangeOnConsume", 2);
 
 /*******************
 * CATEGORY: Heart *
@@ -409,7 +429,8 @@ assignValue("X39_MS2_var_Pain_GlobalModificator", 1.0);
 assignValue("X39_MS2_var_Pain_DamagePainGlobalModificator", 1.0);
 
 {
-	assignValue(format["X39_MS2_var_Pain_DamagePainFor%1Modificator", _x select HITZONE_Name], 1);
+	assignValue(format["X39_MS2_var_Pain_DamagePainFor%1Modificator" COMMA _x select HITZONE_NAME], 1);
+	false
 }count X39_MS2_var_Internal_HitZones;
 
 /******************
@@ -523,21 +544,7 @@ assignValue("X39_MS2_var_InteractionMenu_Defibrillate_DistractionAdded", 10);
 /****************************
 * CATEGORY: MedicalActions *
 ***************************/
-assignValue("X39_MS2_var_MedicalActions_Morphine_AdditionalMorphineValue", 5);
-assignValue("X39_MS2_var_MedicalActions_Morphine_DamageHealing", 0.1);
-
-assignValue("X39_MS2_var_MedicalActions_Naloxone_AdditionalNaloxoneValue", 2);
-assignValue("X39_MS2_var_MedicalActions_Naloxone_DamageHealing", 0.0);
-
-assignValue("X39_MS2_var_MedicalActions_Adrenaline_AdrenalineChange", 5);
-assignValue("X39_MS2_var_MedicalActions_Adrenaline_DamageHealing", 0);
-
-assignValue("X39_MS2_var_MedicalActions_StickyBandage_DamageHealing", 0.1);
 assignValue("X39_MS2_var_MedicalActions_StickyBandage_BleedingCure", 0.5);
-
-assignValue("X39_MS2_var_MedicalActions_ColdSpray_TemperatureChange", -0.5);
-assignValue("X39_MS2_var_MedicalActions_ColdSpray_PainChange", -3);
-assignValue("X39_MS2_var_MedicalActions_ColdSpray_DamageHealing", 0);
 
 assignValue("X39_MS2_var_MedicalActions_MediPack_DamageHealing", 5);
 
@@ -579,6 +586,25 @@ assignValue("X39_MS2_var_ItemReplacement_FirstAidKit", ["x39_xms2_bandage" COMMA
 [] call X39_MS2_fnc_IMH_registerMedicalActions;
 [] call X39_MS2_fnc_IMH_addMedicalMessages;
 [] call X39_MS2_fnc_IMH_addInteractionMenuEntries;
+[] call X39_MS2_fnc_IMH_registerDrugs;
+[] call X39_MS2_fnc_IMH_registerMedicalUiStatusEffect;
+
+//#############################################################
+//# X39s Medical System - VALIDATE PROFILENAMESPACE VARIABLES #
+//#############################################################
+
+assignValue3("X39_MS2_var_MedicalUI_selectedCheckUnitIndex", 0, profileNamespace);
+assignValue3("X39_MS2_var_MedicalUI_ViewType", 0, profileNamespace);
+assignValue3("X39_MS2_options_MedicalUi_toggleFrame_state_ToggleDrugsFrame", true, profileNamespace);
+assignValue3("X39_MS2_options_MedicalUi_toggleFrame_state_ToggleDiagnosticFrame", true, profileNamespace);
+assignValue3("X39_MS2_options_MedicalUi_toggleFrame_state_ToggleTriageCardFrame", true, profileNamespace);
+assignValue3("X39_MS2_options_MedicalUi_toggleFrame_state_ToggleQuickActionFrame", true, profileNamespace);
+
+
+//############################################
+//# X39s Medical System - APPLY CONFIG FILES #
+//############################################
+
 if(isServer) then
 {
 	private["_id"];
@@ -591,6 +617,7 @@ if(!isDedicated) then
 //####################################################
 //# X39s Medical System - GENERATE DYNAMIC FUNCTIONS #
 //####################################################
+
 generateFunctionsDynamiclyByHitZone("X39_MS2_fnc_addDamageTo%1",	"\X39_MS2_Scripting\Functions\Damage\addDamageToHitZone.sqf");
 generateFunctionsDynamiclyByHitZone("X39_MS2_fnc_setDamageOf%1",	"\X39_MS2_Scripting\Functions\Damage\setDamageOfHitZone.sqf");
 generateFunctionsDynamiclyByHitZone("X39_MS2_fnc_getDamageOf%1",	"\X39_MS2_Scripting\Functions\Damage\getDamageOfHitZone.sqf");
