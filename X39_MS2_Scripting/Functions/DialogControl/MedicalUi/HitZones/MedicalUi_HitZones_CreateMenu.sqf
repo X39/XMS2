@@ -19,28 +19,31 @@ _i = 0;
 _arr = ACTIONMENUBUTTONS;
 if({([X39_MS2_var_Internal_DialogCommunication_MA_Caller, X39_MS2_var_Internal_DialogCommunication_MA_Target, _hitZone] call (_x select 3))}count X39_MS2_var_Internal_MedicalActions_actionArray > {displayCtrl_MedicalUi(_x) ctrlShow false;true}count _arr) exitWith { ["Available MedicalActions outOfRange (>10)"] call BIS_fnc_HALT; };
 {
-	if([X39_MS2_var_Internal_DialogCommunication_MA_Caller, X39_MS2_var_Internal_DialogCommunication_MA_Target, _hitZone] call (_x select 3)) then
+	if([X39_MS2_var_Internal_DialogCommunication_MA_Caller, _x select 5] call X39_MS2_fnc_isAllowedToUse) then
 	{
-		if((_mousePos select 1) < ((safeZoneY + safeZoneH) / 2)) then
-		{//Top half
-			displayCtrl_MedicalUi(_arr select _i) ctrlSetPosition [_mousePos select 0, (_mousePos select 1) + (((0.022 * safezoneH) + 0.002) * (_i + 1)), 0.12375 * safezoneW, 0.022 * safezoneH];
-		}
-		else
-		{//Bottom half
-			displayCtrl_MedicalUi(_arr select _i) ctrlSetPosition [_mousePos select 0, (_mousePos select 1) - (((0.022 * safezoneH) + 0.002) * (_i + 1)), 0.12375 * safezoneW, 0.022 * safezoneH];
+		if([X39_MS2_var_Internal_DialogCommunication_MA_Caller, X39_MS2_var_Internal_DialogCommunication_MA_Target, _hitZone] call (_x select 3)) then
+		{
+			if((_mousePos select 1) < ((safeZoneY + safeZoneH) / 2)) then
+			{//Top half
+				displayCtrl_MedicalUi(_arr select _i) ctrlSetPosition [_mousePos select 0, (_mousePos select 1) + (((0.022 * safezoneH) + 0.002) * (_i + 1)), 0.12375 * safezoneW, 0.022 * safezoneH];
+			}
+			else
+			{//Bottom half
+				displayCtrl_MedicalUi(_arr select _i) ctrlSetPosition [_mousePos select 0, (_mousePos select 1) - (((0.022 * safezoneH) + 0.002) * (_i + 1)), 0.12375 * safezoneW, 0.022 * safezoneH];
+			};
+			displayCtrl_MedicalUi(_arr select _i) ctrlSetFade 1;
+			displayCtrl_MedicalUi(_arr select _i) ctrlCommit 0;
+			displayCtrl_MedicalUi(_arr select _i) ctrlShow true;
+			displayCtrl_MedicalUi(_arr select _i) ctrlSetFade 0;
+			displayCtrl_MedicalUi(_arr select _i) ctrlCommit (MEDICALUI_ANIMATIONTIME / (count X39_MS2_var_Internal_Dialog_TriageCard_States));
+			displayCtrl_MedicalUi(_arr select _i) ctrlSetEventHandler["MouseButtonDown", format["_res = [] spawn {{((uiNamespace getVariable 'X39_MS2_var_UIs_MedicalUi') displayCtrl (_x)) ctrlSetFade 1; ((uiNamespace getVariable 'X39_MS2_var_UIs_MedicalUi') displayCtrl (_x)) ctrlCommit (%3 / (count X39_MS2_var_Internal_Dialog_TriageCard_States)); uiSleep (%3 / (count X39_MS2_var_Internal_Dialog_TriageCard_States)); ((uiNamespace getVariable 'X39_MS2_var_UIs_MedicalUi') displayCtrl (_x)) ctrlShow false;true}count %2; X39_MS2_var_Internal_MedicalUi_ActionHandle = _this spawn {private['_timeout'];_timeout = [] call (X39_MS2_var_Internal_MedicalActions_actionArray select %4 select 6);if(_timeout > 0) then{[X39_MS2_var_Internal_DialogCommunication_MA_Caller,['ainvpknlmstpsnonwrfldnon_medic', 'ainvpknlmstpsnonwrfldnon_medic0s', 'ainvpknlmstpsnonwrfldnon_ainvpknlmstpsnonwrfldnon_medic'],['ainvpknlmstpsnonwrfldnon_medicend'],{terminate X39_MS2_var_Internal_MedicalUi_ActionHandle;X39_MS2_var_Internal_DialogCommunication_MA_preventActions = false;[] call X39_MS2_fnc_clearProgressBarTimeout;[] call X39_MS2_fnc_clearAnimationLock;},{if(vehicle (_this select 1 select 0) == (_this select 1 select 0)) then{(_this select 1 select 0) playAction 'MedicStart';};[_this select 1 select 2] call X39_MS2_fnc_setProgressBarTimeout;},[X39_MS2_var_Internal_DialogCommunication_MA_Caller, X39_MS2_var_Internal_DialogCommunication_MA_Target, _timeout]] call X39_MS2_fnc_setAnimationLock;uiSleep _timeout;if(vehicle X39_MS2_var_Internal_DialogCommunication_MA_Caller == X39_MS2_var_Internal_DialogCommunication_MA_Caller) then{X39_MS2_var_Internal_DialogCommunication_MA_Caller playAction 'MedicStop';};};[X39_MS2_var_Internal_DialogCommunication_MA_Caller, X39_MS2_var_Internal_DialogCommunication_MA_Target, %1] call (X39_MS2_var_Internal_MedicalActions_actionArray select %4 select 4);};};", str _hitZone, _arr, MEDICALUI_ANIMATIONTIME, _forEachIndex]];
+			displayCtrl_MedicalUi(_arr select _i) ctrlSetForegroundColor [0, 0, 0, 1];
+			displayCtrl_MedicalUi(_arr select _i) ctrlSetBackgroundColor [0, 0, 0, 1];
+			displayCtrl_MedicalUi(_arr select _i) ctrlSetActiveColor [0, 0, 0, 1];
+			displayCtrl_MedicalUi(_arr select _i) ctrlSetTextColor [1, 1, 1, 1];
+			displayCtrl_MedicalUi(_arr select _i) ctrlSetText localize (_x select 1);
+			uiSleep (MEDICALUI_ANIMATIONTIME / (count X39_MS2_var_Internal_Dialog_TriageCard_States));
+			_i = _i + 1;
 		};
-		displayCtrl_MedicalUi(_arr select _i) ctrlSetFade 1;
-		displayCtrl_MedicalUi(_arr select _i) ctrlCommit 0;
-		displayCtrl_MedicalUi(_arr select _i) ctrlShow true;
-		displayCtrl_MedicalUi(_arr select _i) ctrlSetFade 0;
-		displayCtrl_MedicalUi(_arr select _i) ctrlCommit (MEDICALUI_ANIMATIONTIME / (count X39_MS2_var_Internal_Dialog_TriageCard_States));
-		displayCtrl_MedicalUi(_arr select _i) ctrlSetEventHandler["MouseButtonDown", format["_res = [] spawn {{((uiNamespace getVariable 'X39_MS2_var_UIs_MedicalUi') displayCtrl (_x)) ctrlSetFade 1; ((uiNamespace getVariable 'X39_MS2_var_UIs_MedicalUi') displayCtrl (_x)) ctrlCommit (%3 / (count X39_MS2_var_Internal_Dialog_TriageCard_States)); uiSleep (%3 / (count X39_MS2_var_Internal_Dialog_TriageCard_States)); ((uiNamespace getVariable 'X39_MS2_var_UIs_MedicalUi') displayCtrl (_x)) ctrlShow false;true}count %2; [X39_MS2_var_Internal_DialogCommunication_MA_Caller, X39_MS2_var_Internal_DialogCommunication_MA_Target, %1] call (X39_MS2_var_Internal_MedicalActions_actionArray select %4 select 4);};", _hitZone, _arr, MEDICALUI_ANIMATIONTIME, _forEachIndex]];
-		displayCtrl_MedicalUi(_arr select _i) ctrlSetForegroundColor [0, 0, 0, 1];
-		displayCtrl_MedicalUi(_arr select _i) ctrlSetBackgroundColor [0, 0, 0, 1];
-		displayCtrl_MedicalUi(_arr select _i) ctrlSetActiveColor [0, 0, 0, 1];
-		displayCtrl_MedicalUi(_arr select _i) ctrlSetTextColor [1, 1, 1, 1];
-		displayCtrl_MedicalUi(_arr select _i) ctrlSetText localize (_x select 1);
-		uiSleep (MEDICALUI_ANIMATIONTIME / (count X39_MS2_var_Internal_Dialog_TriageCard_States));
-		_i = _i + 1;
 	};
 } forEach X39_MS2_var_Internal_MedicalActions_actionArray;

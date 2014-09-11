@@ -36,11 +36,10 @@ if(X39_MS2_var_Feature_EnableBackBlast && {[_usedWeapon, "LAUNCH", false] call B
 			{
 				_damage = (1 - (_distance / X39_MS2_var_BackBlast_DamageFalloffRange)) * X39_MS2_var_BackBlast_MaxDamage;
 			};
-			[_unit, _damage] call X39_MS2_fnc_addDamageToBody;
-			[_unit, _damage] call X39_MS2_fnc_addDamageToGeneric;
-			[_unit, _damage] call X39_MS2_fnc_addDamageToHands;
-			[_unit, _damage] call X39_MS2_fnc_addDamageToHead;
-			[_unit, _damage] call X39_MS2_fnc_addDamageToLegs;
+			{
+				[_unit, _damage] call (missionNamespace getVariable format["X39_MS2_fnc_addDamageTo%1", _x select HITZONE_NAME]);
+				false
+			}count X39_MS2_var_Internal_HitZones;
 		};
 	}forEach (_firerer nearEntities ["Man", X39_MS2_var_BackBlast_RangeMaxDamage + X39_MS2_var_BackBlast_DamageFalloffRange]);	
 };

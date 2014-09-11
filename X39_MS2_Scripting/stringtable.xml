@@ -1,6 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="ArmA3">
 	<Package name="X39_MS2_Scripting">
+		<Container name="Hitzones_CommonNames">
+			<Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_Head">
+				    <English>Head</English>
+				      <German>Head</German>
+				<Hungarian>Head</Hungarian>
+				    <Italian>Head</Italian>
+				      <French>Head</French>
+				    <Russian>Head</Russian>
+				      <Polish>Head</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_LeftLowerArm">
+				    <English>LeftLowerArm</English>
+				      <German>LeftLowerArm</German>
+				<Hungarian>LeftLowerArm</Hungarian>
+				    <Italian>LeftLowerArm</Italian>
+				      <French>LeftLowerArm</French>
+				    <Russian>LeftLowerArm</Russian>
+				      <Polish>LeftLowerArm</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_LeftFoot">
+				    <English>LeftFoot</English>
+				      <German>LeftFoot</German>
+				<Hungarian>LeftFoot</Hungarian>
+				    <Italian>LeftFoot</Italian>
+				      <French>LeftFoot</French>
+				    <Russian>LeftFoot</Russian>
+				      <Polish>LeftFoot</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_LeftUpperArm">
+				    <English>LeftUpperArm</English>
+				      <German>LeftUpperArm</German>
+				<Hungarian>LeftUpperArm</Hungarian>
+				    <Italian>LeftUpperArm</Italian>
+				      <French>LeftUpperArm</French>
+				    <Russian>LeftUpperArm</Russian>
+				      <Polish>LeftUpperArm</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_LeftLowerLeg">
+				    <English>LeftLowerLeg</English>
+				      <German>LeftLowerLeg</German>
+				<Hungarian>LeftLowerLeg</Hungarian>
+				    <Italian>LeftLowerLeg</Italian>
+				      <French>LeftLowerLeg</French>
+				    <Russian>LeftLowerLeg</Russian>
+				      <Polish>LeftLowerLeg</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_LeftUpperLeg">
+				    <English>LeftUpperLeg</English>
+				      <German>LeftUpperLeg</German>
+				<Hungarian>LeftUpperLeg</Hungarian>
+				    <Italian>LeftUpperLeg</Italian>
+				      <French>LeftUpperLeg</French>
+				    <Russian>LeftUpperLeg</Russian>
+				      <Polish>LeftUpperLeg</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_RightLowerArm">
+				    <English>RightLowerArm</English>
+				      <German>RightLowerArm</German>
+				<Hungarian>RightLowerArm</Hungarian>
+				    <Italian>RightLowerArm</Italian>
+				      <French>RightLowerArm</French>
+				    <Russian>RightLowerArm</Russian>
+				      <Polish>RightLowerArm</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_RightFoot">
+				    <English>RightFoot</English>
+				      <German>RightFoot</German>
+				<Hungarian>RightFoot</Hungarian>
+				    <Italian>RightFoot</Italian>
+				      <French>RightFoot</French>
+				    <Russian>RightFoot</Russian>
+				      <Polish>RightFoot</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_RightUpperArm">
+				    <English>RightUpperArm</English>
+				      <German>RightUpperArm</German>
+				<Hungarian>RightUpperArm</Hungarian>
+				    <Italian>RightUpperArm</Italian>
+				      <French>RightUpperArm</French>
+				    <Russian>RightUpperArm</Russian>
+				      <Polish>RightUpperArm</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_RightLowerLeg">
+				    <English>RightLowerLeg</English>
+				      <German>RightLowerLeg</German>
+				<Hungarian>RightLowerLeg</Hungarian>
+				    <Italian>RightLowerLeg</Italian>
+				      <French>RightLowerLeg</French>
+				    <Russian>RightLowerLeg</Russian>
+				      <Polish>RightLowerLeg</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_RightUpperLeg">
+				    <English>RightUpperLeg</English>
+				      <German>RightUpperLeg</German>
+				<Hungarian>RightUpperLeg</Hungarian>
+				    <Italian>RightUpperLeg</Italian>
+				      <French>RightUpperLeg</French>
+				    <Russian>RightUpperLeg</Russian>
+				      <Polish>RightUpperLeg</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_LowerBody">
+				    <English>LowerBody</English>
+				      <German>LowerBody</German>
+				<Hungarian>LowerBody</Hungarian>
+				    <Italian>LowerBody</Italian>
+				      <French>LowerBody</French>
+				    <Russian>LowerBody</Russian>
+				      <Polish>LowerBody</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_UpperBody">
+				    <English>UpperBody</English>
+				      <German>UpperBody</German>
+				<Hungarian>UpperBody</Hungarian>
+				    <Italian>UpperBody</Italian>
+				      <French>UpperBody</French>
+				    <Russian>UpperBody</Russian>
+				      <Polish>UpperBody</Polish>
+			</Key>
+		</Container>
 		<Container name="veh_Modules">
 			<Key ID="STR_X39_MS2_Scripting_Modules_BaseModule">
 				    <English>Base module</English>
@@ -69,365 +188,77 @@
 			</Key>
 		</Container>
 		<Container name="MedicalMessages">
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Legs_Low">
-				    <English>%1s legs are damaged lightly</English>
-				      <German>%1s Beine sind leicht verletzt</German>
-				<Hungarian>%1s legs are damaged lightly</Hungarian>
-				    <Italian>%1s legs are damaged lightly</Italian>
-				      <French>%1s legs are damaged lightly</French>
-				    <Russian>%1s legs are damaged lightly</Russian>
-				      <Polish>%1s legs are damaged lightly</Polish>
+			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Low">
+				    <English>%1s %2 is damaged lightly</English>
+				      <German>%1s %2 is damaged lightly</German>
+				<Hungarian>%1s %2 is damaged lightly</Hungarian>
+				    <Italian>%1s %2 is damaged lightly</Italian>
+				      <French>%1s %2 is damaged lightly</French>
+				    <Russian>%1s %2 is damaged lightly</Russian>
+				      <Polish>%1s %2 is damaged lightly</Polish>
 			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Legs_Middle">
-				    <English>%1s legs are damaged</English>
-				      <German>%1s Beine sind verletzt</German>
-				<Hungarian>%1s legs are damaged</Hungarian>
-				    <Italian>%1s legs are damaged</Italian>
-				      <French>%1s legs are damaged</French>
-				    <Russian>%1s legs are damaged</Russian>
-				      <Polish>%1s legs are damaged</Polish>
+			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Middle">
+				    <English>%1s %2 is damaged</English>
+				      <German>%1s %2 is damaged</German>
+				<Hungarian>%1s %2 is damaged</Hungarian>
+				    <Italian>%1s %2 is damaged</Italian>
+				      <French>%1s %2 is damaged</French>
+				    <Russian>%1s %2 is damaged</Russian>
+				      <Polish>%1s %2 is damaged</Polish>
 			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Legs_High">
-				    <English>%1s legs are damaged heavily</English>
-				      <German>%1s Beine sind schwehr verletzt</German>
-				<Hungarian>%1s legs are damaged heavily</Hungarian>
-				    <Italian>%1s legs are damaged heavily</Italian>
-				      <French>%1s legs are damaged heavily</French>
-				    <Russian>%1s legs are damaged heavily</Russian>
-				      <Polish>%1s legs are damaged heavily</Polish>
+			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_High">
+				    <English>%1s %2 is damaged heavily</English>
+				      <German>%1s %2 is damaged heavily</German>
+				<Hungarian>%1s %2 is damaged heavily</Hungarian>
+				    <Italian>%1s %2 is damaged heavily</Italian>
+				      <French>%1s %2 is damaged heavily</French>
+				    <Russian>%1s %2 is damaged heavily</Russian>
+				      <Polish>%1s %2 is damaged heavily</Polish>
 			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Legs_Extreme">
-				    <English>%1s legs are damaged deadly</English>
-				      <German>%1s Beine sind extrem verletzt</German>
-				<Hungarian>%1s legs are damaged deadly</Hungarian>
-				    <Italian>%1s legs are damaged deadly</Italian>
-				      <French>%1s legs are damaged deadly</French>
-				    <Russian>%1s legs are damaged deadly</Russian>
-				      <Polish>%1s legs are damaged deadly</Polish>
+			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Extreme">
+				    <English>%1s %2 is damaged deadly</English>
+				      <German>%1s %2 is damaged deadly</German>
+				<Hungarian>%1s %2 is damaged deadly</Hungarian>
+				    <Italian>%1s %2 is damaged deadly</Italian>
+				      <French>%1s %2 is damaged deadly</French>
+				    <Russian>%1s %2 is damaged deadly</Russian>
+				      <Polish>%1s %2 is damaged deadly</Polish>
 			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Hands_Low">
-				    <English>%1s hands are damaged lightly</English>
-				      <German>%1s Hände sind leicht verletzt</German>
-				<Hungarian>%1s hands are damaged lightly</Hungarian>
-				    <Italian>%1s hands are damaged lightly</Italian>
-				      <French>%1s hands are damaged lightly</French>
-				    <Russian>%1s hands are damaged lightly</Russian>
-				      <Polish>%1s hands are damaged lightly</Polish>
+			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Low">
+				    <English>%1s %2 is bleeding lightly</English>
+				      <German>%1s %2 is bleeding lightly</German>
+				<Hungarian>%1s %2 is bleeding lightly</Hungarian>
+				    <Italian>%1s %2 is bleeding lightly</Italian>
+				      <French>%1s %2 is bleeding lightly</French>
+				    <Russian>%1s %2 is bleeding lightly</Russian>
+				      <Polish>%1s %2 is bleeding lightly</Polish>
 			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Hands_Middle">
-				    <English>%1s hands are damaged</English>
-				      <German>%1s Hände sind verletzt</German>
-				<Hungarian>%1s hands are damaged</Hungarian>
-				    <Italian>%1s hands are damaged</Italian>
-				      <French>%1s hands are damaged</French>
-				    <Russian>%1s hands are damaged</Russian>
-				      <Polish>%1s hands are damaged</Polish>
+			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Middle">
+				    <English>%1s %2 is bleeding</English>
+				      <German>%1s %2 is bleeding</German>
+				<Hungarian>%1s %2 is bleeding</Hungarian>
+				    <Italian>%1s %2 is bleeding</Italian>
+				      <French>%1s %2 is bleeding</French>
+				    <Russian>%1s %2 is bleeding</Russian>
+				      <Polish>%1s %2 is bleeding</Polish>
 			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Hands_High">
-				    <English>%1s hands are damaged heavily</English>
-				      <German>%1s Hände sind schwehr verletzt</German>
-				<Hungarian>%1s hands are damaged heavily</Hungarian>
-				    <Italian>%1s hands are damaged heavily</Italian>
-				      <French>%1s hands are damaged heavily</French>
-				    <Russian>%1s hands are damaged heavily</Russian>
-				      <Polish>%1s hands are damaged heavily</Polish>
+			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_High">
+				    <English>%1s %2 is bleeding heavily</English>
+				      <German>%1s %2 is bleeding heavily</German>
+				<Hungarian>%1s %2 is bleeding heavily</Hungarian>
+				    <Italian>%1s %2 is bleeding heavily</Italian>
+				      <French>%1s %2 is bleeding heavily</French>
+				    <Russian>%1s %2 is bleeding heavily</Russian>
+				      <Polish>%1s %2 is bleeding heavily</Polish>
 			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Hands_Extreme">
-				    <English>%1s hands are damaged deadly</English>
-				      <German>%1s Hände sind extrem verletzt</German>
-				<Hungarian>%1s hands are damaged deadly</Hungarian>
-				    <Italian>%1s hands are damaged deadly</Italian>
-				      <French>%1s hands are damaged deadly</French>
-				    <Russian>%1s hands are damaged deadly</Russian>
-				      <Polish>%1s hands are damaged deadly</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Body_Low">
-				    <English>%1s body is damaged lightly</English>
-				      <German>%1s body is damaged lightly</German>
-				<Hungarian>%1s body is damaged lightly</Hungarian>
-				    <Italian>%1s body is damaged lightly</Italian>
-				      <French>%1s body is damaged lightly</French>
-				    <Russian>%1s body is damaged lightly</Russian>
-				      <Polish>%1s body is damaged lightly</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Body_Middle">
-				    <English>%1s body is damaged</English>
-				      <German>%1s body is damaged</German>
-				<Hungarian>%1s body is damaged</Hungarian>
-				    <Italian>%1s body is damaged</Italian>
-				      <French>%1s body is damaged</French>
-				    <Russian>%1s body is damaged</Russian>
-				      <Polish>%1s body is damaged</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Body_High">
-				    <English>%1s body is damaged heavily</English>
-				      <German>%1s body is damaged heavily</German>
-				<Hungarian>%1s body is damaged heavily</Hungarian>
-				    <Italian>%1s body is damaged heavily</Italian>
-				      <French>%1s body is damaged heavily</French>
-				    <Russian>%1s body is damaged heavily</Russian>
-				      <Polish>%1s body is damaged heavily</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Body_Extreme">
-				    <English>%1s body is damaged deadly</English>
-				      <German>%1s body is damaged deadly</German>
-				<Hungarian>%1s body is damaged deadly</Hungarian>
-				    <Italian>%1s body is damaged deadly</Italian>
-				      <French>%1s body is damaged deadly</French>
-				    <Russian>%1s body is damaged deadly</Russian>
-				      <Polish>%1s body is damaged deadly</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Head_Low">
-				    <English>%1s head is damaged lightly</English>
-				      <German>%1s head is damaged lightly</German>
-				<Hungarian>%1s head is damaged lightly</Hungarian>
-				    <Italian>%1s head is damaged lightly</Italian>
-				      <French>%1s head is damaged lightly</French>
-				    <Russian>%1s head is damaged lightly</Russian>
-				      <Polish>%1s head is damaged lightly</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Head_Middle">
-				    <English>%1s head is damaged</English>
-				      <German>%1s head is damaged</German>
-				<Hungarian>%1s head is damaged</Hungarian>
-				    <Italian>%1s head is damaged</Italian>
-				      <French>%1s head is damaged</French>
-				    <Russian>%1s head is damaged</Russian>
-				      <Polish>%1s head is damaged</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Head_High">
-				    <English>%1s head is damaged heavily</English>
-				      <German>%1s head is damaged heavily</German>
-				<Hungarian>%1s head is damaged heavily</Hungarian>
-				    <Italian>%1s head is damaged heavily</Italian>
-				      <French>%1s head is damaged heavily</French>
-				    <Russian>%1s head is damaged heavily</Russian>
-				      <Polish>%1s head is damaged heavily</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Head_Extreme">
-				    <English>%1s head is damaged deadly</English>
-				      <German>%1s head is damaged deadly</German>
-				<Hungarian>%1s head is damaged deadly</Hungarian>
-				    <Italian>%1s head is damaged deadly</Italian>
-				      <French>%1s head is damaged deadly</French>
-				    <Russian>%1s head is damaged deadly</Russian>
-				      <Polish>%1s head is damaged deadly</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Generic_Low">
-				    <English>%1s is damaged lightly</English>
-				      <German>%1s is damaged lightly</German>
-				<Hungarian>%1s is damaged lightly</Hungarian>
-				    <Italian>%1s is damaged lightly</Italian>
-				      <French>%1s is damaged lightly</French>
-				    <Russian>%1s is damaged lightly</Russian>
-				      <Polish>%1s is damaged lightly</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Generic_Middle">
-				    <English>%1s is damaged</English>
-				      <German>%1s is damaged</German>
-				<Hungarian>%1s is damaged</Hungarian>
-				    <Italian>%1s is damaged</Italian>
-				      <French>%1s is damaged</French>
-				    <Russian>%1s is damaged</Russian>
-				      <Polish>%1s is damaged</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Generic_High">
-				    <English>%1s is damaged heavily</English>
-				      <German>%1s is damaged heavily</German>
-				<Hungarian>%1s is damaged heavily</Hungarian>
-				    <Italian>%1s is damaged heavily</Italian>
-				      <French>%1s is damaged heavily</French>
-				    <Russian>%1s is damaged heavily</Russian>
-				      <Polish>%1s is damaged heavily</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Generic_Extreme">
-				    <English>%1s is damaged deadly</English>
-				      <German>%1s is damaged deadly</German>
-				<Hungarian>%1s is damaged deadly</Hungarian>
-				    <Italian>%1s is damaged deadly</Italian>
-				      <French>%1s is damaged deadly</French>
-				    <Russian>%1s is damaged deadly</Russian>
-				      <Polish>%1s is damaged deadly</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Legs_Low">
-				    <English>%1s legs are bleeding lightly</English>
-				      <German>%1s legs are bleeding lightly</German>
-				<Hungarian>%1s legs are bleeding lightly</Hungarian>
-				    <Italian>%1s legs are bleeding lightly</Italian>
-				      <French>%1s legs are bleeding lightly</French>
-				    <Russian>%1s legs are bleeding lightly</Russian>
-				      <Polish>%1s legs are bleeding lightly</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Legs_Middle">
-				    <English>%1s legs are bleeding</English>
-				      <German>%1s legs are bleeding</German>
-				<Hungarian>%1s legs are bleeding</Hungarian>
-				    <Italian>%1s legs are bleeding</Italian>
-				      <French>%1s legs are bleeding</French>
-				    <Russian>%1s legs are bleeding</Russian>
-				      <Polish>%1s legs are bleeding</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Legs_High">
-				    <English>%1s legs are bleeding heavily</English>
-				      <German>%1s legs are bleeding heavily</German>
-				<Hungarian>%1s legs are bleeding heavily</Hungarian>
-				    <Italian>%1s legs are bleeding heavily</Italian>
-				      <French>%1s legs are bleeding heavily</French>
-				    <Russian>%1s legs are bleeding heavily</Russian>
-				      <Polish>%1s legs are bleeding heavily</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Legs_Extreme">
-				    <English>%1s legs are bleeding deadly</English>
-				      <German>%1s legs are bleeding deadly</German>
-				<Hungarian>%1s legs are bleeding deadly</Hungarian>
-				    <Italian>%1s legs are bleeding deadly</Italian>
-				      <French>%1s legs are bleeding deadly</French>
-				    <Russian>%1s legs are bleeding deadly</Russian>
-				      <Polish>%1s legs are bleeding deadly</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Hands_Low">
-				    <English>%1s hands are bleeding lightly</English>
-				      <German>%1s hands are bleeding lightly</German>
-				<Hungarian>%1s hands are bleeding lightly</Hungarian>
-				    <Italian>%1s hands are bleeding lightly</Italian>
-				      <French>%1s hands are bleeding lightly</French>
-				    <Russian>%1s hands are bleeding lightly</Russian>
-				      <Polish>%1s hands are bleeding lightly</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Hands_Middle">
-				    <English>%1s hands are bleeding</English>
-				      <German>%1s hands are bleeding</German>
-				<Hungarian>%1s hands are bleeding</Hungarian>
-				    <Italian>%1s hands are bleeding</Italian>
-				      <French>%1s hands are bleeding</French>
-				    <Russian>%1s hands are bleeding</Russian>
-				      <Polish>%1s hands are bleeding</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Hands_High">
-				    <English>%1s hands are bleeding heavily</English>
-				      <German>%1s hands are bleeding heavily</German>
-				<Hungarian>%1s hands are bleeding heavily</Hungarian>
-				    <Italian>%1s hands are bleeding heavily</Italian>
-				      <French>%1s hands are bleeding heavily</French>
-				    <Russian>%1s hands are bleeding heavily</Russian>
-				      <Polish>%1s hands are bleeding heavily</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Hands_Extreme">
-				    <English>%1s hands are bleeding deadly</English>
-				      <German>%1s hands are bleeding deadly</German>
-				<Hungarian>%1s hands are bleeding deadly</Hungarian>
-				    <Italian>%1s hands are bleeding deadly</Italian>
-				      <French>%1s hands are bleeding deadly</French>
-				    <Russian>%1s hands are bleeding deadly</Russian>
-				      <Polish>%1s hands are bleeding deadly</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Body_Low">
-				    <English>%1s body is bleeding lightly</English>
-				      <German>%1s body is bleeding lightly</German>
-				<Hungarian>%1s body is bleeding lightly</Hungarian>
-				    <Italian>%1s body is bleeding lightly</Italian>
-				      <French>%1s body is bleeding lightly</French>
-				    <Russian>%1s body is bleeding lightly</Russian>
-				      <Polish>%1s body is bleeding lightly</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Body_Middle">
-				    <English>%1s body is bleeding</English>
-				      <German>%1s body is bleeding</German>
-				<Hungarian>%1s body is bleeding</Hungarian>
-				    <Italian>%1s body is bleeding</Italian>
-				      <French>%1s body is bleeding</French>
-				    <Russian>%1s body is bleeding</Russian>
-				      <Polish>%1s body is bleeding</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Body_High">
-				    <English>%1s body is bleeding heavily</English>
-				      <German>%1s body is bleeding heavily</German>
-				<Hungarian>%1s body is bleeding heavily</Hungarian>
-				    <Italian>%1s body is bleeding heavily</Italian>
-				      <French>%1s body is bleeding heavily</French>
-				    <Russian>%1s body is bleeding heavily</Russian>
-				      <Polish>%1s body is bleeding heavily</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Body_Extreme">
-				    <English>%1s body is bleeding deadly</English>
-				      <German>%1s body is bleeding deadly</German>
-				<Hungarian>%1s body is bleeding deadly</Hungarian>
-				    <Italian>%1s body is bleeding deadly</Italian>
-				      <French>%1s body is bleeding deadly</French>
-				    <Russian>%1s body is bleeding deadly</Russian>
-				      <Polish>%1s body is bleeding deadly</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Head_Low">
-				    <English>%1s head is bleeding lightly</English>
-				      <German>%1s head is bleeding lightly</German>
-				<Hungarian>%1s head is bleeding lightly</Hungarian>
-				    <Italian>%1s head is bleeding lightly</Italian>
-				      <French>%1s head is bleeding lightly</French>
-				    <Russian>%1s head is bleeding lightly</Russian>
-				      <Polish>%1s head is bleeding lightly</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Head_Middle">
-				    <English>%1s head is bleeding</English>
-				      <German>%1s head is bleeding</German>
-				<Hungarian>%1s head is bleeding</Hungarian>
-				    <Italian>%1s head is bleeding</Italian>
-				      <French>%1s head is bleeding</French>
-				    <Russian>%1s head is bleeding</Russian>
-				      <Polish>%1s head is bleeding</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Head_High">
-				    <English>%1s head is bleeding heavily</English>
-				      <German>%1s head is bleeding heavily</German>
-				<Hungarian>%1s head is bleeding heavily</Hungarian>
-				    <Italian>%1s head is bleeding heavily</Italian>
-				      <French>%1s head is bleeding heavily</French>
-				    <Russian>%1s head is bleeding heavily</Russian>
-				      <Polish>%1s head is bleeding heavily</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Head_Extreme">
-				    <English>%1s head is bleeding deadly</English>
-				      <German>%1s head is bleeding deadly</German>
-				<Hungarian>%1s head is bleeding deadly</Hungarian>
-				    <Italian>%1s head is bleeding deadly</Italian>
-				      <French>%1s head is bleeding deadly</French>
-				    <Russian>%1s head is bleeding deadly</Russian>
-				      <Polish>%1s head is bleeding deadly</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Generic_Low">
-				    <English>%1s is bleeding lightly</English>
-				      <German>%1s is bleeding lightly</German>
-				<Hungarian>%1s is bleeding lightly</Hungarian>
-				    <Italian>%1s is bleeding lightly</Italian>
-				      <French>%1s is bleeding lightly</French>
-				    <Russian>%1s is bleeding lightly</Russian>
-				      <Polish>%1s is bleeding lightly</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Generic_Middle">
-				    <English>%1s is bleeding</English>
-				      <German>%1s is bleeding</German>
-				<Hungarian>%1s is bleeding</Hungarian>
-				    <Italian>%1s is bleeding</Italian>
-				      <French>%1s is bleeding</French>
-				    <Russian>%1s is bleeding</Russian>
-				      <Polish>%1s is bleeding</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Generic_High">
-				    <English>%1s is bleeding heavily</English>
-				      <German>%1s is bleeding heavily</German>
-				<Hungarian>%1s is bleeding heavily</Hungarian>
-				    <Italian>%1s is bleeding heavily</Italian>
-				      <French>%1s is bleeding heavily</French>
-				    <Russian>%1s is bleeding heavily</Russian>
-				      <Polish>%1s is bleeding heavily</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Generic_Extreme">
-				    <English>%1s is bleeding deadly</English>
-				      <German>%1s is bleeding deadly</German>
-				<Hungarian>%1s is bleeding deadly</Hungarian>
-				    <Italian>%1s is bleeding deadly</Italian>
-				      <French>%1s is bleeding deadly</French>
-				    <Russian>%1s is bleeding deadly</Russian>
-				      <Polish>%1s is bleeding deadly</Polish>
+			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Extreme">
+				    <English>%1s %2 is bleeding deadly</English>
+				      <German>%1s %2 is bleeding deadly</German>
+				<Hungarian>%1s %2 is bleeding deadly</Hungarian>
+				    <Italian>%1s %2 is bleeding deadly</Italian>
+				      <French>%1s %2 is bleeding deadly</French>
+				    <Russian>%1s %2 is bleeding deadly</Russian>
+				      <Polish>%1s %2 is bleeding deadly</Polish>
 			</Key>
 			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Pain_Low">
 				    <English>%1 has light pain</English>
@@ -465,23 +296,14 @@
 				    <Russian>%1 in agony because of pain</Russian>
 				      <Polish>%1 in agony because of pain</Polish>
 			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_ExcessiveBloodLoss">
-				    <English>%1 is loosing excessive blood</English>
-				      <German>%1 is loosing excessive blood</German>
-				<Hungarian>%1 is loosing excessive blood</Hungarian>
-				    <Italian>%1 is loosing excessive blood</Italian>
-				      <French>%1 is loosing excessive blood</French>
-				    <Russian>%1 is loosing excessive blood</Russian>
-				      <Polish>%1 is loosing excessive blood</Polish>
-			</Key>
 			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_AterialDamage">
-				    <English>%1s aterie seems to be damaged</English>
-				      <German>%1s aterie seems to be damaged</German>
-				<Hungarian>%1s aterie seems to be damaged</Hungarian>
-				    <Italian>%1s aterie seems to be damaged</Italian>
-				      <French>%1s aterie seems to be damaged</French>
-				    <Russian>%1s aterie seems to be damaged</Russian>
-				      <Polish>%1s aterie seems to be damaged</Polish>
+				    <English>%1s %2 aterie seems to be damaged</English>
+				      <German>%1s %2 aterie seems to be damaged</German>
+				<Hungarian>%1s %2 aterie seems to be damaged</Hungarian>
+				    <Italian>%1s %2 aterie seems to be damaged</Italian>
+				      <French>%1s %2 aterie seems to be damaged</French>
+				    <Russian>%1s %2 aterie seems to be damaged</Russian>
+				      <Polish>%1s %2 aterie seems to be damaged</Polish>
 			</Key>
 			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_BloodPresure">
 				    <English>%1s current bloodpresure is %2</English>
@@ -846,6 +668,15 @@
 				  <Russian>Adrenaline</Russian>
 				   <Polish>Adrenaline</Polish>
 			</Key>
+			<Key ID="STR_X39_MS2_Scripting_Drugs_executeDrugRequestTemplate">
+				  <English>%1 wants to give you %2</English>
+				   <German>%1 wants to give you %2</German>
+				<Hungarian>%1 wants to give you %2</Hungarian>
+				  <Italian>%1 wants to give you %2</Italian>
+				   <French>%1 wants to give you %2</French>
+				  <Russian>%1 wants to give you %2</Russian>
+				   <Polish>%1 wants to give you %2</Polish>
+			</Key>
 			<Key ID="STR_X39_MS2_Scripting_Drugs_Morphine_Name">
 				  <English>Morphine</English>
 				   <German>Morphine</German>
@@ -892,6 +723,24 @@
 				   <French>Apply a Heatpack</French>
 				  <Russian>Apply a Heatpack</Russian>
 				   <Polish>Apply a Heatpack</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Tourniquet_ActionNamePut">
+				  <English>Put tournique</English>
+				   <German>Put tournique</German>
+				<Hungarian>Put tournique</Hungarian>
+				  <Italian>Put tournique</Italian>
+				   <French>Put tournique</French>
+				  <Russian>Put tournique</Russian>
+				   <Polish>Put tournique</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Tourniquet_ActionNameTake">
+				  <English>Remove tournique</English>
+				   <German>Remove tournique</German>
+				<Hungarian>Remove tournique</Hungarian>
+				  <Italian>Remove tournique</Italian>
+				   <French>Remove tournique</French>
+				  <Russian>Remove tournique</Russian>
+				   <Polish>Remove tournique</Polish>
 			</Key>
 			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Close">
 				  <English>Close</English>

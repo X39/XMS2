@@ -24,22 +24,22 @@ if(isNil "scriptNull") then
 };
 //ArmA3 HitZone names
 
-												//	 HITZONE_NAME						COMMA	HITZONE_Size	COMMA	HITZONE_HasAterie	COMMA HITZONE_MedicalUiIdc
-												//	 HitZone name						COMMA	~size			COMMA	hasAterie			COMMA MedicalUi IDC
+												//	 HITZONE_NAME						COMMA	HITZONE_Size	COMMA	HITZONE_HasAterie	COMMA HITZONE_MedicalUiIdc				COMMA	HITZONE_CommonName	
+												//	 HitZone name						COMMA	~size			COMMA	hasAterie			COMMA MedicalUi IDC						COMMA	Common name			
 assignValue("X39_MS2_var_Internal_HitZones", 	[
-													[stringify(HITZONE_Head)			COMMA	1				COMMA	false				COMMA	IDC_MEDICALUI_IMG_HEAD			] COMMA
-													[stringify(HITZONE_LeftLowerArm)	COMMA	2				COMMA	true				COMMA	IDC_MEDICALUI_IMG_LEFTLOWERARM	] COMMA
-													[stringify(HITZONE_LeftFoot)		COMMA	1				COMMA	false				COMMA	IDC_MEDICALUI_IMG_LEFTFOOT		] COMMA
-													[stringify(HITZONE_LeftUpperArm)	COMMA	1				COMMA	true				COMMA	IDC_MEDICALUI_IMG_LEFTUPPERARM	] COMMA
-													[stringify(HITZONE_LeftLowerLeg)	COMMA	2				COMMA	true				COMMA	IDC_MEDICALUI_IMG_LEFTLOWERLEG	] COMMA
-													[stringify(HITZONE_LeftUpperLeg)	COMMA	2				COMMA	true				COMMA	IDC_MEDICALUI_IMG_LEFTUPPERLEG	] COMMA
-													[stringify(HITZONE_RightLowerArm)	COMMA	1				COMMA	true				COMMA	IDC_MEDICALUI_IMG_RIGHTLOWERARM	] COMMA
-													[stringify(HITZONE_RightFoot)		COMMA	1				COMMA	false				COMMA	IDC_MEDICALUI_IMG_RIGHTFOOT		] COMMA
-													[stringify(HITZONE_RightUpperArm)	COMMA	1				COMMA	true				COMMA	IDC_MEDICALUI_IMG_RIGHTUPPERARM	] COMMA
-													[stringify(HITZONE_RightLowerLeg)	COMMA	2				COMMA	true				COMMA	IDC_MEDICALUI_IMG_RIGHTLOWERLEG	] COMMA
-													[stringify(HITZONE_RightUpperLeg)	COMMA	2				COMMA	true				COMMA	IDC_MEDICALUI_IMG_RIGHTUPPERLEG	] COMMA
-													[stringify(HITZONE_LowerBody)		COMMA	2				COMMA	true				COMMA	IDC_MEDICALUI_IMG_LOWERBODY		] COMMA
-													[stringify(HITZONE_UpperBody)		COMMA	2				COMMA	true				COMMA	IDC_MEDICALUI_IMG_UPPERBODY		]
+													[stringify(HITZONE_Head)			COMMA	1				COMMA	false				COMMA	IDC_MEDICALUI_IMG_HEAD			COMMA	localize "STR_X39_MS2_Scripting_Hitzones_CommonNames_Head"				] COMMA
+													[stringify(HITZONE_LeftLowerArm)	COMMA	2				COMMA	true				COMMA	IDC_MEDICALUI_IMG_LEFTLOWERARM	COMMA	localize "STR_X39_MS2_Scripting_Hitzones_CommonNames_LeftLowerArm"		] COMMA
+													[stringify(HITZONE_LeftFoot)		COMMA	1				COMMA	false				COMMA	IDC_MEDICALUI_IMG_LEFTFOOT		COMMA	localize "STR_X39_MS2_Scripting_Hitzones_CommonNames_LeftFoot"			] COMMA
+													[stringify(HITZONE_LeftUpperArm)	COMMA	1				COMMA	true				COMMA	IDC_MEDICALUI_IMG_LEFTUPPERARM	COMMA	localize "STR_X39_MS2_Scripting_Hitzones_CommonNames_LeftUpperArm"		] COMMA
+													[stringify(HITZONE_LeftLowerLeg)	COMMA	2				COMMA	true				COMMA	IDC_MEDICALUI_IMG_LEFTLOWERLEG	COMMA	localize "STR_X39_MS2_Scripting_Hitzones_CommonNames_LeftLowerLeg"		] COMMA
+													[stringify(HITZONE_LeftUpperLeg)	COMMA	2				COMMA	true				COMMA	IDC_MEDICALUI_IMG_LEFTUPPERLEG	COMMA	localize "STR_X39_MS2_Scripting_Hitzones_CommonNames_LeftUpperLeg"		] COMMA
+													[stringify(HITZONE_RightLowerArm)	COMMA	1				COMMA	true				COMMA	IDC_MEDICALUI_IMG_RIGHTLOWERARM	COMMA	localize "STR_X39_MS2_Scripting_Hitzones_CommonNames_RightLowerArm"		] COMMA
+													[stringify(HITZONE_RightFoot)		COMMA	1				COMMA	false				COMMA	IDC_MEDICALUI_IMG_RIGHTFOOT		COMMA	localize "STR_X39_MS2_Scripting_Hitzones_CommonNames_RightFoot"			] COMMA
+													[stringify(HITZONE_RightUpperArm)	COMMA	1				COMMA	true				COMMA	IDC_MEDICALUI_IMG_RIGHTUPPERARM	COMMA	localize "STR_X39_MS2_Scripting_Hitzones_CommonNames_RightUpperArm"		] COMMA
+													[stringify(HITZONE_RightLowerLeg)	COMMA	2				COMMA	true				COMMA	IDC_MEDICALUI_IMG_RIGHTLOWERLEG	COMMA	localize "STR_X39_MS2_Scripting_Hitzones_CommonNames_RightLowerLeg"		] COMMA
+													[stringify(HITZONE_RightUpperLeg)	COMMA	2				COMMA	true				COMMA	IDC_MEDICALUI_IMG_RIGHTUPPERLEG	COMMA	localize "STR_X39_MS2_Scripting_Hitzones_CommonNames_RightUpperLeg"		] COMMA
+													[stringify(HITZONE_LowerBody)		COMMA	2				COMMA	true				COMMA	IDC_MEDICALUI_IMG_LOWERBODY		COMMA	localize "STR_X39_MS2_Scripting_Hitzones_CommonNames_LowerBody"			] COMMA
+													[stringify(HITZONE_UpperBody)		COMMA	2				COMMA	true				COMMA	IDC_MEDICALUI_IMG_UPPERBODY		COMMA	localize "STR_X39_MS2_Scripting_Hitzones_CommonNames_UpperBody"			]
 												]);
 
 //################################
@@ -110,9 +110,9 @@ X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_timeOfDeath",			{-1												}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_TimeValue",			{-1												}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Internal_lastValues",			{[]												}, false	]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_triageCard",					{[player] call X39_MS2_fnc_getTriageCard		}                , true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_triageCard",					{[player] call X39_MS2_fnc_getTriageCard		}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_hitMarkerValue",				{0												}, false	]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_triageState",					{[player] call X39_MS2_fnc_getTriageState		}                , true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_triageState",					{[player] call X39_MS2_fnc_getTriageState		}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Morphine_value",			{0												}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Adrenaline_value",		{0												}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Naloxone_value",			{0												}, true		]];
@@ -134,13 +134,24 @@ assignValue("X39_MS2_var_Internal_ppe_dynamicBlur", -1);
 assignValue("X39_MS2_var_Internal_ppe_filmGrain", -1);
 assignValue("X39_MS2_var_Internal_ppe_colorInversion", -1);
 
+//AnimationLock variables
+assignValue("X39_MS2_var_Internal_AnimLock_AllowedAnimations", []);
+assignValue("X39_MS2_var_Internal_AnimLock_ExitAnimations", []);
+assignValue("X39_MS2_var_Internal_AnimLock_SealBrokenCode", {});
+assignValue("X39_MS2_var_Internal_AnimLock_CustomArgs", []);
+
 
 
 assignValue("X39_MS2_var_Internal_MedicalActions_actionArray", []);
 assignValue("X39_MS2_var_Internal_MedicalUi_RegisteredDrugs", []);
 assignValue("X39_MS2_var_Internal_MedicalUi_RegisteredStatusEffects", []);
 
+assignValue("X39_MS2_var_Internal_MedicalUi_CheckUnitHandle", scriptNull);
+assignValue("X39_MS2_var_Internal_MedicalUi_ActionHandle", scriptNull);
+assignValue("X39_MS2_var_Internal_MedicalUi_ApplyDrugHandle", scriptNull);
+
 assignValue("X39_MS2_var_Internal_Overlay_ProgressBarRunning", false);
+assignValue("X39_MS2_var_Internal_Overlay_ProgressBarHandle", scriptNull);
 
 //Ticker
 assignValue("X39_MS2_var_Internal_ticker_tickHandlers", []);
@@ -223,7 +234,7 @@ assignValue("X39_MS2_var_Damage_DeathLimitP", 0.8);
 assignValue("X39_MS2_var_Damage_DeathTime", 600);
 
 //Modificators
-assignValue("X39_MS2_var_Damage_ExplosionModificator", 1.0);
+assignValue("X39_MS2_var_Damage_ExplosionModificator", 2.0);
 
 assignValue("X39_MS2_var_Damage_GlobalModificator", 1.0);
 {
@@ -260,12 +271,6 @@ assignValue("X39_MS2_var_Bleeding_maxBloodInEntireBody", 6000);
 	assignValue(format["X39_MS2_var_Bleeding_maxBleeding%1" COMMA _x select 0], 1);
 	false
 }count X39_MS2_var_Internal_HitZones;
-
-assignValue("X39_MS2_var_Bleeding_minDamageRequiredForHead", 0.3);
-assignValue("X39_MS2_var_Bleeding_minDamageRequiredForBody", 0.3);
-assignValue("X39_MS2_var_Bleeding_minDamageRequiredForHands", 0.3);
-assignValue("X39_MS2_var_Bleeding_minDamageRequiredForLegs", 0.3);
-assignValue("X39_MS2_var_Bleeding_minDamageRequiredForGeneric", 0.3);
 
 assignValue("X39_MS2_var_Bleeding_ChanceForAterialDamageP", 0.3);
 

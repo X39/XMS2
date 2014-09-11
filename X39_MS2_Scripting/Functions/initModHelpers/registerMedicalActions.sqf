@@ -30,10 +30,15 @@
 		{
 			[(_this select 0), '(_this select 0) removeItem "x39_xms2_bandage"', [_this select 0]] call X39_XLib_fnc_executeLocalToUnit;
 		};
-		[(_this select 1), -X39_MS2_var_MedicalActions_StickyBandage_BleedingCure] call (missionNamespace getVariable format["X39_MS2_fnc_addBleedingTo%1", _this select 2]);
+		if(!([_this select 1, _this select 2] call X39_MS2_fnc_getAterialDamage)) then
+		{
+			[(_this select 1), -X39_MS2_var_MedicalActions_StickyBandage_BleedingCure] call (missionNamespace getVariable format["X39_MS2_fnc_addBleedingTo%1", _this select 2]);
+		};
 	},
-	"BANDAGE"
+	"BANDAGE",
+	3
 ] call X39_MS2_fnc_registerAction;
+
 [
 	"MEDIPACK",
 	"STR_X39_MS2_Scripting_MedicalUiActions_MediPack_ActionName",
@@ -48,9 +53,10 @@
 		{
 			[(_this select 0), '(_this select 0) removeItem "x39_xms2_mediPack"', [_this select 0]] call X39_XLib_fnc_executeLocalToUnit;
 		};
-		[_this select 1, -X39_MS2_var_MedicalActions_MediPack_DamageHealing] call (missionNamespace getVariable format["X39_MS2_fnc_addTamageTo%1", _this select 2]);
+		[_this select 1, -X39_MS2_var_MedicalActions_MediPack_DamageHealing] call (missionNamespace getVariable format["X39_MS2_fnc_addDamageTo%1", _this select 2]);
 	},
-	"MEDIPACK"
+	"MEDIPACK",
+	5
 ] call X39_MS2_fnc_registerAction;
 
 [
@@ -69,8 +75,42 @@
 		};
 		[(_this select 1), X39_MS2_var_MedicalActions_HeatPack_TemperatureChange] call X39_MS2_fnc_addTemperature;
 	},
-	"HEATPACK"
+	"HEATPACK",
+	3
+] call X39_MS2_fnc_registerAction;
+
+[
+	"PUTTOURNIQUET",
+	"STR_X39_MS2_Scripting_MedicalUiActions_Tourniquet_ActionNamePut",
+	"\X39_MS2_Resources\Items\Tourniquet\Tourniquet_thumb.paa",
+	{(getHitzoneInfo(getHitzoneIndexByName(_this select 2), HITZONE_HasAterie)) && {(!([_this select 1] call X39_MS2_fnc_getTournique)) && {("x39_xms2_tourniquet" in items (_this select 0)) || ("x39_xms2_tourniquet" in items (_this select 1))}}},
+	{
+		if ("x39_xms2_tourniquet" in items (_this select 1)) then
+		{
+			[(_this select 1), '(_this select 0) removeItem "x39_xms2_tourniquet"', [_this select 1]] call X39_XLib_fnc_executeLocalToUnit;
+		}
+		else
+		{
+			[(_this select 0), '(_this select 0) removeItem "x39_xms2_tourniquet"', [_this select 0]] call X39_XLib_fnc_executeLocalToUnit;
+		};
+		[_this select 1, _this select 2, true] call X39_MS2_fnc_setTournique;
+	},
+	"PUTTOURNIQUET",
+	7
+] call X39_MS2_fnc_registerAction;
+[
+	"REMOVETOURNIQUET",
+	"STR_X39_MS2_Scripting_MedicalUiActions_Tourniquet_ActionNameTake",
+	"\X39_MS2_Resources\Items\Tourniquet\Tourniquet_thumb.paa",
+	{{[_this select 1] call X39_MS2_fnc_getTournique}},
+	{
+		[(_this select 0), '(_this select 0) addItem "x39_xms2_tourniquet"', [_this select 0]] call X39_XLib_fnc_executeLocalToUnit;
+		[_this select 1, _this select 2, false] call X39_MS2_fnc_setTournique;
+
+	},
+	"REMOVETOURNIQUET",
+	4
 ] call X39_MS2_fnc_registerAction;
 
 //FINALLY, register the "close" action
-["NA", "STR_X39_MS2_Scripting_MedicalUiActions_Close", "", {true}, {}, "NA"] call X39_MS2_fnc_registerAction;
+["NA", "STR_X39_MS2_Scripting_MedicalUiActions_Close", "", {true}, {}, "NA", 0] call X39_MS2_fnc_registerAction;

@@ -44,6 +44,10 @@ class CfgFunctions
 			class resetUnitsVariables:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\resetUnitsVariables.sqf";};
 			
 			class serverMessageSystem:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\serverMessageSystem.sqf";};
+			
+			class setAnimationLock:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\setAnimationLock.sqf";};
+			class clearAnimationLock:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\clearAnimationLock.sqf";};
+			class isAnimationLockInPlace:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\isAnimationLockInPlace.sqf";};
 		};
 		class InitModFunctions //Functions for initMod
 		{
@@ -81,6 +85,10 @@ class CfgFunctions
 			class setAterialDamage:X39_XLib_Function_TypeA												{file = "X39_MS2_Scripting\Functions\Bleeding\setAterialDamage.sqf";};
 			class getBloodPresure:X39_XLib_Function_TypeA												{file = "X39_MS2_Scripting\Functions\Bleeding\getBloodPresure.sqf";};
 			class getCurrentBleeding:X39_XLib_Function_TypeA											{file = "X39_MS2_Scripting\Functions\Bleeding\getCurrentBleeding.sqf";};
+			
+			class getTournique:X39_XLib_Function_TypeA													{file = "X39_MS2_Scripting\Functions\Bleeding\getTournique.sqf";};
+			class setTournique:X39_XLib_Function_TypeA													{file = "X39_MS2_Scripting\Functions\Bleeding\setTournique.sqf";};
+			class hasTournique:X39_XLib_Function_TypeA													{file = "X39_MS2_Scripting\Functions\Bleeding\hasTournique.sqf";};
 		};
 		class Callback
 		{
@@ -107,6 +115,7 @@ class CfgFunctions
 		class Drugs
 		{
 			class registerDrug:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\registerDrug.sqf";};
+			class executeDrug:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\executeDrug.sqf";};
 			
 			class addMorphine:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Morphine\addMorphine.sqf";};
 			class getMorphine:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Morphine\getMorphine.sqf";};
@@ -176,6 +185,7 @@ class CfgFunctions
 			class overlay_createDisplay:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\DialogControl\Overlay\createDisplay.sqf";};
 			class overlay_showHitMarker:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\DialogControl\Overlay\showHitMarker.sqf";};
 			class setProgressBarTimeout:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\DialogControl\Overlay\setProgressBarTimeout.sqf";};
+			class clearProgressBarTimeout:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\DialogControl\Overlay\clearProgressBarTimeout.sqf";};
 		};
 		class DialogControl_UnitSelection
 		{
@@ -185,7 +195,9 @@ class CfgFunctions
 		{
 			class registerMedicalUiStatusEffect:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\registerMedicalUiStatusEffect.sqf";};
 			class MedicalUi_DiagnosticFrame_setVisibilityState:X39_XLib_Function_TypeA					{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\DiagnosticFrame\MedicalUi_DiagnosticFrame_setVisibilityState.sqf";};
+			class MedicalUi_btnDiagnosisPerformCheckUnit:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\DiagnosticFrame\MedicalUi_btnDiagnosisPerformCheckUnit.sqf";};
 			class MedicalUi_DrugsFrame_setVisibilityState:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\DrugsFrame\MedicalUi_DrugsFrame_setVisibilityState.sqf";};
+			class MedicalUi_DrugsFrame_applyDrug.sqf:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\DrugsFrame\MedicalUi_DrugsFrame_applyDrug.sqf.sqf";};
 			class MedicalUi_QuickActionFrame_setVisibilityState:X39_XLib_Function_TypeA					{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\QuickActionFrame\MedicalUi_QuickActionFrame_setVisibilityState.sqf";};
 			class MedicalUi_TriageCardFrame_setVisibilityState:X39_XLib_Function_TypeA					{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\TriageCardFrame\MedicalUi_TriageCardFrame_setVisibilityState.sqf";};
 			class MedicalUi_createDialog:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\MedicalUi_createDialog.sqf";};
@@ -195,7 +207,6 @@ class CfgFunctions
 			class getTriageState:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\getTriageState.sqf";};
 			class MedicalUI_addGivenMessageToTriageCard:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\addGivenMessageToTriageCard.sqf";};
 			class MedicalUi_SetBodyViewType:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\MedicalUi_SetBodyViewType.sqf";};
-			class MedicalUi_btnDiagnosisPerformCheckUnit:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\MedicalUi_btnDiagnosisPerformCheckUnit.sqf";};
 			class MedicalUi_HitZones_UpdateStatusEffects:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\HitZones\MedicalUi_HitZones_UpdateStatusEffects.sqf";};
 			class MedicalUi_HitZones_CreateMenu:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\HitZones\MedicalUi_HitZones_CreateMenu.sqf";};
 

@@ -2,7 +2,7 @@
 #include "\X39_MS2_UIs\MedicalUi\ui.defs"
 #define ACTIONMENUBUTTONS [ IDC_MEDICALUI_LBTN_ACTIONMENUBUTTON1, IDC_MEDICALUI_LBTN_ACTIONMENUBUTTON2, IDC_MEDICALUI_LBTN_ACTIONMENUBUTTON3, IDC_MEDICALUI_LBTN_ACTIONMENUBUTTON4, IDC_MEDICALUI_LBTN_ACTIONMENUBUTTON5, IDC_MEDICALUI_LBTN_ACTIONMENUBUTTON6, IDC_MEDICALUI_LBTN_ACTIONMENUBUTTON7, IDC_MEDICALUI_LBTN_ACTIONMENUBUTTON8, IDC_MEDICALUI_LBTN_ACTIONMENUBUTTON9, IDC_MEDICALUI_LBTN_ACTIONMENUBUTTON10 ]
 #define HITZONEINFOPICTURES [ IDC_MEDICALUI_IMG_HITZONEINFOPIC6, IDC_MEDICALUI_IMG_HITZONEINFOPIC5, IDC_MEDICALUI_IMG_HITZONEINFOPIC7, IDC_MEDICALUI_IMG_HITZONEINFOPIC4, IDC_MEDICALUI_IMG_HITZONEINFOPIC8, IDC_MEDICALUI_IMG_HITZONEINFOPIC3, IDC_MEDICALUI_IMG_HITZONEINFOPIC9, IDC_MEDICALUI_IMG_HITZONEINFOPIC2, IDC_MEDICALUI_IMG_HITZONEINFOPIC10, IDC_MEDICALUI_IMG_HITZONEINFOPIC1, IDC_MEDICALUI_IMG_HITZONEINFOPIC11 ]
-#define HITZONES [ IDC_MEDICALUI_IMG_HEAD,									IDC_MEDICALUI_IMG_LEFTLOWERARM,									IDC_MEDICALUI_IMG_LEFTLOWERLEG,									IDC_MEDICALUI_IMG_LEFTUPPERARM,									IDC_MEDICALUI_IMG_LEFTUPPERLEG,									IDC_MEDICALUI_IMG_LOWERBODY,									IDC_MEDICALUI_IMG_RIGHTLOWERARM,									IDC_MEDICALUI_IMG_RIGHTLOWERLEG,									IDC_MEDICALUI_IMG_RIGHTUPPERARM,									IDC_MEDICALUI_IMG_RIGHTUPPERLEG,									IDC_MEDICALUI_IMG_UPPERBODY ]
+#define HITZONES	 [ IDC_MEDICALUI_IMG_HEAD,									IDC_MEDICALUI_IMG_LEFTLOWERARM,									IDC_MEDICALUI_IMG_LEFTLOWERLEG,									IDC_MEDICALUI_IMG_LEFTUPPERARM,									IDC_MEDICALUI_IMG_LEFTUPPERLEG,									IDC_MEDICALUI_IMG_LOWERBODY,									IDC_MEDICALUI_IMG_RIGHTLOWERARM,									IDC_MEDICALUI_IMG_RIGHTLOWERLEG,									IDC_MEDICALUI_IMG_RIGHTUPPERARM,									IDC_MEDICALUI_IMG_RIGHTUPPERLEG,									IDC_MEDICALUI_IMG_UPPERBODY ]
 #define HITZONENAMES [ X39_MS2_var_Internal_HitZones select HITZONE_IndexHead,	X39_MS2_var_Internal_HitZones select HITZONE_IndexLeftLowerArm,	X39_MS2_var_Internal_HitZones select HITZONE_IndexLeftLowerLeg,	X39_MS2_var_Internal_HitZones select HITZONE_IndexLeftUpperArm,	X39_MS2_var_Internal_HitZones select HITZONE_IndexLeftUpperLeg,	X39_MS2_var_Internal_HitZones select HITZONE_IndexLowerBody,	X39_MS2_var_Internal_HitZones select HITZONE_IndexRightLowerArm,	X39_MS2_var_Internal_HitZones select HITZONE_IndexRightLowerLeg,	X39_MS2_var_Internal_HitZones select HITZONE_IndexRightUpperArm,	X39_MS2_var_Internal_HitZones select HITZONE_IndexRightUpperLeg,	X39_MS2_var_Internal_HitZones select HITZONE_IndexUpperBody ]
 
 /**
@@ -16,9 +16,13 @@ _this spawn {
 	DEBUG_CODE_SC(_fnc_scriptName = "X39_MS2_fnc_MedicalUi_createDialog";);
 	if(dialog) exitWith {PRINT_ERROR("Another UI is already displayed!");};
 	private["_index", "_marker", "_color", "_name", "_i", "_bodyViewType", "_dmg", "_maxDmg", "_triageCardEntries", "_triageState", "_txt", "_arr", "_controlArray", "_largerArray", "_smallerArray"];
-	if(!createDialog "X39_MS2_MedicalUi") exitWith {PRINT_ERROR("Something moved wrong while executing 'createDialog ""X39_MS2_MedicalUi""'");};
 	X39_MS2_var_Internal_DialogCommunication_MA_Caller = player;
 	X39_MS2_var_Internal_DialogCommunication_MA_Target = [_this, 0, objNull, [objNull]] call BIS_fnc_param;
+	if(stance X39_MS2_var_Internal_DialogCommunication_MA_Caller != "PRONE" && {stance X39_MS2_var_Internal_DialogCommunication_MA_Caller != "CROUCH"}) then
+	{
+		X39_MS2_var_Internal_DialogCommunication_MA_Caller playActionNow "CROUCH";
+	};
+	if(!createDialog "X39_MS2_MedicalUi") exitWith {PRINT_ERROR("Something moved wrong while executing 'createDialog ""X39_MS2_MedicalUi""'");};
 	if(isNull X39_MS2_var_Internal_DialogCommunication_MA_Target) then { X39_MS2_var_Internal_DialogCommunication_MA_Target = X39_MS2_var_Internal_DialogCommunication_MA_Caller; };
 	displayCtrl_MedicalUi(IDC_MEDICALUI_LABEL_UNITNAME) ctrlSetText name X39_MS2_var_Internal_DialogCommunication_MA_Target;
 	//Apply customization stuff
@@ -149,7 +153,7 @@ _this spawn {
 																										} forEach X39_MS2_var_Internal_Dialog_TriageCard_States;
 																									};} call X39_XLib_fnc_ConvertCodeToString];
 	displayCtrl_MedicalUi(IDC_MEDICALUI_BTN_TOGGLEHEALTHVIEW)					ctrlSetEventHandler["MouseButtonDown", {[0] call X39_MS2_fnc_MedicalUi_SetBodyViewType;} call X39_XLib_fnc_ConvertCodeToString];
-	displayCtrl_MedicalUi(IDC_MEDICALUI_BTN_TOGGLEBLOODVIEW)					ctrlSetEventHandler["MouseButtonDown", {systemChat str _this; [1] call X39_MS2_fnc_MedicalUi_SetBodyViewType;} call X39_XLib_fnc_ConvertCodeToString];
+	displayCtrl_MedicalUi(IDC_MEDICALUI_BTN_TOGGLEBLOODVIEW)					ctrlSetEventHandler["MouseButtonDown", {[1] call X39_MS2_fnc_MedicalUi_SetBodyViewType;} call X39_XLib_fnc_ConvertCodeToString];
 	displayCtrl_MedicalUi(IDC_MEDICALUI_BTN_CHECKUNIT)							ctrlSetEventHandler["MouseButtonDown", {
 																															if(X39_MS2_var_Internal_DialogCommunication_MA_preventActions) exitWith {[] call X39_MS2_fnc_MedicalActionMenu_outputBlockedMessage;};
 																															[lbCurSel IDC_MEDICALUI_CB_CHECKUNITTYPE] call X39_MS2_fnc_MedicalUi_btnDiagnosisPerformCheckUnit;
@@ -186,7 +190,7 @@ _this spawn {
 																														} call X39_XLib_fnc_ConvertCodeToString];
 	displayCtrl_MedicalUi(IDC_MEDICALUI_BTN_APPLYSELECTEDDRUG)					ctrlSetEventHandler["MouseButtonDown", {
 																															if(X39_MS2_var_Internal_DialogCommunication_MA_preventActions) exitWith {[] call X39_MS2_fnc_MedicalActionMenu_outputBlockedMessage;};
-																															//ToDo: Add ApplyDrug code
+																															_this call X39_MS2_fnc_MedicalUi_DrugsFrame_applyDrug;
 																														} call X39_XLib_fnc_ConvertCodeToString];
 	displayCtrl_MedicalUi(IDC_MEDICALUI_BTN_PERFORMQUICKACTION)					ctrlSetEventHandler["MouseButtonDown", {
 																															if(X39_MS2_var_Internal_DialogCommunication_MA_preventActions) exitWith {[] call X39_MS2_fnc_MedicalActionMenu_outputBlockedMessage;};
@@ -194,7 +198,7 @@ _this spawn {
 																														} call X39_XLib_fnc_ConvertCodeToString];
 	//Create rightClick menu & StatusEffect event handles 
 	{
-		displayCtrl_MedicalUi(_x) ctrlSetEventHandler["MouseButtonDown", format["_res = _this spawn {if((_this select 1) != 1) exitWith {};if(X39_MS2_var_Internal_DialogCommunication_MA_preventActions) exitWith {[] call X39_MS2_fnc_MedicalActionMenu_outputBlockedMessage;};[%1, [_this select 2, _this select 3]] call X39_MS2_fnc_MedicalUi_HitZones_CreateMenu;};", HITZONENAMES select _forEachIndex]];
+		displayCtrl_MedicalUi(_x) ctrlSetEventHandler["MouseButtonDown", format["_res = _this spawn {if((_this select 1) != 1) exitWith {};if(X39_MS2_var_Internal_DialogCommunication_MA_preventActions) exitWith {[] call X39_MS2_fnc_MedicalActionMenu_outputBlockedMessage;};[%1, [_this select 2, _this select 3]] call X39_MS2_fnc_MedicalUi_HitZones_CreateMenu;};", str (HITZONENAMES select _forEachIndex select HITZONE_NAME)]];
 	}foreach HITZONES;
 	
 	//Add preDefinedTriageCardMessages to UI
@@ -236,7 +240,7 @@ _this spawn {
 	lbSetCurSel[IDC_MEDICALUI_CB_CHECKUNITTYPE, profileNamespace getVariable["X39_MS2_var_MedicalUI_selectedCheckUnitIndex", 0]];
 	displayCtrl_MedicalUi(IDC_MEDICALUI_CB_CHECKUNITTYPE) ctrlSetEventHandler ["LBSelChanged", "profileNamespace setVariable['X39_MS2_var_MedicalUI_selectedCheckUnitIndex', _this select 1]"];
 
-	while {!([X39_MS2_var_Internal_DialogCommunication_MA_Caller] call X39_MS2_fnc_isBlackedOut) && dialog && ((X39_MS2_var_Internal_DialogCommunication_MA_Target distance X39_MS2_var_Internal_DialogCommunication_MA_Caller) < 4)} do
+	while {!([X39_MS2_var_Internal_DialogCommunication_MA_Target] call X39_MS2_fnc_isBlackedOut) && dialog && ((X39_MS2_var_Internal_DialogCommunication_MA_Target distance X39_MS2_var_Internal_DialogCommunication_MA_Caller) < 4)} do
 	{
 		//Update BodyViewPort
 		_bodyViewType = profileNamespace getVariable ["X39_MS2_var_MedicalUI_ViewType", 0];
@@ -304,9 +308,12 @@ _this spawn {
 		//update drugs list
 		_arr = [];
 		{
-			if([X39_MS2_var_Internal_DialogCommunication_MA_Caller, X39_MS2_var_Internal_DialogCommunication_MA_Target] call (_x select 3)) then
+			if([X39_MS2_var_Internal_DialogCommunication_MA_Caller, _x select 5] call X39_MS2_fnc_isAllowedToUse) then
 			{
-				_arr set[count _arr, _forEachIndex];
+				if([X39_MS2_var_Internal_DialogCommunication_MA_Caller, X39_MS2_var_Internal_DialogCommunication_MA_Target] call (_x select 3)) then
+				{
+					_arr set[count _arr, _forEachIndex];
+				};
 			};
 		} foreach X39_MS2_var_Internal_MedicalUi_RegisteredDrugs;
 		_controlArray = [];
@@ -322,6 +329,7 @@ _this spawn {
 		{
 			lbClear displayCtrl_MedicalUi(IDC_MEDICALUI_LB_DRUGSLIST);
 			{
+				
 				displayCtrl_MedicalUi(IDC_MEDICALUI_LB_DRUGSLIST) lbAdd (localize (X39_MS2_var_Internal_MedicalUi_RegisteredDrugs select _x select 1));
 				displayCtrl_MedicalUi(IDC_MEDICALUI_LB_DRUGSLIST) lbSetValue [_index, _x];
 			}count _arr;

@@ -12,7 +12,7 @@
 private["_res"];
 if(X39_MS2_var_Internal_Overlay_ProgressBarRunning) exitWith {PRINT_ERROR("X39_MS2_var_Internal_Overlay_ProgressBarRunning == true!")};
 X39_MS2_var_Internal_Overlay_ProgressBarRunning = true;
-_res = _this spawn {
+X39_MS2_var_Internal_Overlay_ProgressBarHandle = _this spawn {
 	displayCtrl_Overlay(1295) ctrlSetPosition [safezoneX, safezoneY, 0, 0.01];
 	displayCtrl_Overlay(1295) ctrlSetFade 0;
 	displayCtrl_Overlay(1295) ctrlCommit 0;

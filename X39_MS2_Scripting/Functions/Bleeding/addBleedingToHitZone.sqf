@@ -1,3 +1,4 @@
+#define ALTERNATIVEDEBUGOUTPUT
 #include "\X39_MS2_Scripting\default.hpp"
 /* 
  * !FUNCTION IS NOT CALLSAVE!

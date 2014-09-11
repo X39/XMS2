@@ -12,7 +12,7 @@
  *	@Param8		- STRING	- LimitationID
  *	@Return		- SCALAR	- Drug Index
  *	
- *	@Notes		-	Params for ALL code interactions: [Executer:OBJECT, Target:OBJECT]
+ *	@Notes		-	Params for ALL code interactions: [Executer:OBJECT, Target:OBJECT, CurrentDrugIndex:SCALAR]
  *					Code will ALWAYS be executed on executer computer
  *	
  *	@Author - X39|Cpt. HM Murdock

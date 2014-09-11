@@ -30,6 +30,19 @@
 #define HITZONE_Size				1
 #define HITZONE_HasAterie			2
 #define HITZONE_MedicalUiIdc		3
+#define HITZONE_CommonName			4
 
 #define getHitzoneInfo(INDEX, TYPE) (X39_MS2_var_Internal_HitZones select INDEX select TYPE)
-#define getHitzoneIndexByName(HZ) (X39_MS2_var_Internal_HitZones find HZ)
+#define getHitzoneIndexByName(HZ) HZ call { private["_i", "_result"];\
+	_result = -1;\
+	for "_i" from 0 to ((count X39_MS2_var_Internal_HitZones) - 1) do\
+	{\
+		scopeName "currentLoop";\
+		if(X39_MS2_var_Internal_HitZones select _i select HITZONE_NAME == _this) then\
+		{\
+			_result = _i;\
+			breakOut "currentLoop";\
+		};\
+	};\
+	_result\
+};

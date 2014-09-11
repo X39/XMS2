@@ -95,7 +95,11 @@ else \
 	#endif
 	#define assignValue3(NAM,VAL,NAMESPACE) DEBUG_LOG_SC(SINGLEQUOTATIONMARK defining variable NAM with value VAL SINGLEQUOTATIONMARK) if(isNil {NAMESPACE getVariable NAM}) then { NAMESPACE setVariable [NAM, VAL]; } else { PRINT_WARNING(format["%1 is already set, JIP player?" COMMA VAL]); }
 	#define assignValue(NAM,VAL) assignValue3(NAM,VAL,missionNamespace)
-	DEBUG_LOG(format["%3: %1 call %2" COMMA _this COMMA _fnc_scriptName COMMA diag_tickTime]);
+	#ifdef ALTERNATIVEDEBUGOUTPUT
+		DEBUG_LOG(str [diag_tickTime COMMA _this COMMA _fnc_scriptName COMMA "%1"]);
+	#else
+		DEBUG_LOG(format["%3: %1 call %2" COMMA _this COMMA _fnc_scriptName COMMA diag_tickTime]);
+	#endif
 	
 //#endif
 
