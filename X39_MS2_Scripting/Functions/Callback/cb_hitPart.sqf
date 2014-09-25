@@ -150,7 +150,7 @@ for "_i" from 0 to ((count _this) - 1) do
 		}
 		else
 		{
-			[_unit, 2, -1, localize "STR_X39_MS2_Scripting_cb_handleDamage_knockOut"] call X39_MS2_fnc_blackOutUnit;
+			[_unit, 2, -1, localize "STR_X39_MS2_Scripting_cb_handleDamage_knockOut", "cb_hitPart_damageKnockOut", {([_this select 0] call X39_MS2_fnc_getDamageTotal) / ([] call X39_MS2_fnc_getMaxDamageTotal) > X39_MS2_var_Damage_knockOutLimitP}] call X39_MS2_fnc_blackOutUnit;
 		};
 	};
 

@@ -507,24 +507,6 @@
 				  <Russian>Remove earplugs</Russian>
 				   <Polish>Remove earplugs</Polish>
 			</Key>
-			<Key ID="STR_X39_MS2_Scripting_InteractionMenu_putTourniquet">
-				  <English>Put tourniquet</English>
-				   <German>Put tourniquet</German>
-				<Hungarian>Put tourniquet</Hungarian>
-				  <Italian>Put tourniquet</Italian>
-				   <French>Put tourniquet</French>
-				  <Russian>Put tourniquet</Russian>
-				   <Polish>Put tourniquet</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_InteractionMenu_removeTourniquet">
-				  <English>Remove tourniquet</English>
-				   <German>Remove tourniquet</German>
-				<Hungarian>Remove tourniquet</Hungarian>
-				  <Italian>Remove tourniquet</Italian>
-				   <French>Remove tourniquet</French>
-				  <Russian>Remove tourniquet</Russian>
-				   <Polish>Remove tourniquet</Polish>
-			</Key>
 			<Key ID="STR_X39_MS2_Scripting_InteractionMenu_useDefibrillator">
 				  <English>Use defibrillator</English>
 				   <German>Use defibrillator</German>
@@ -742,6 +724,15 @@
 				  <Russian>Remove tournique</Russian>
 				   <Polish>Remove tournique</Polish>
 			</Key>
+			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Saline_ActionName">
+				  <English>Give saline bag</English>
+				   <German>Give saline bag</German>
+				<Hungarian>Give saline bag</Hungarian>
+				  <Italian>Give saline bag</Italian>
+				   <French>Give saline bag</French>
+				  <Russian>Give saline bag</Russian>
+				   <Polish>Give saline bag</Polish>
+			</Key>
 			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Close">
 				  <English>Close</English>
 				   <German>Close</German>
@@ -750,6 +741,26 @@
 				   <French>Close</French>
 				  <Russian>Close</Russian>
 				   <Polish>Close</Polish>
+			</Key>
+		</Container>
+		<Container name="NotifyMessages">
+			<Key ID="STR_X39_MS2_Scripting_NotifyMessages_Defibrillate_failed">
+				  <English>Damned! Still nothing!</English>
+				   <German>Damned! Still nothing!</German>
+				<Hungarian>Damned! Still nothing!</Hungarian>
+				  <Italian>Damned! Still nothing!</Italian>
+				   <French>Damned! Still nothing!</French>
+				  <Russian>Damned! Still nothing!</Russian>
+				   <Polish>Damned! Still nothing!</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_NotifyMessages_Defibrillate_succeeded">
+				  <English>Success! He is alive again ...</English>
+				   <German>Success! He is alive again ...</German>
+				<Hungarian>Success! He is alive again ...</Hungarian>
+				  <Italian>Success! He is alive again ...</Italian>
+				   <French>Success! He is alive again ...</French>
+				  <Russian>Success! He is alive again ...</Russian>
+				   <Polish>Success! He is alive again ...</Polish>
 			</Key>
 		</Container>
 	</Package>

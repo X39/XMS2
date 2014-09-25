@@ -11,7 +11,7 @@
  *	@Param7		- SCALAR/CODE	- Perform timeout
  *	@Return		- SCALAR		- Action Index
  *	
- *	@Notes		-	Params for ALL CODE related stuff: [Executer:OBJECT, Target:OBJECT, Hitzone:STRING]
+ *	@Notes		-	Params for ALL CODE related stuff: [Executer:OBJECT, Target:OBJECT, Hitzone:STRING, Efficiency:SCALAR]
  *					Code will ALWAYS be executed on executer computer
  *	
  *	@Author - X39|Cpt. HM Murdock

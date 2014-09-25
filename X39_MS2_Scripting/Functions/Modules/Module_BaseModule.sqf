@@ -4,11 +4,7 @@
  *	
  *	@Author - X39|Cpt. HM Murdock
  */
-if(isServer) then
+if(!isDedicated && hasInterface) then
 {
-	if(isNil "X39_MS2_var_ModuleProtector_BaseModule") then
-	{
-		X39_MS2_var_ModuleProtector_BaseModule = 0;
-		[[{player}, true], "X39_MS2_fnc_initUnit", true, true] call BIS_fnc_MP;
-	};
+	[{player}, true, true] call X39_MS2_fnc_initUnit;
 };

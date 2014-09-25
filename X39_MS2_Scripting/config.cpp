@@ -48,6 +48,7 @@ class CfgFunctions
 			class setAnimationLock:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\setAnimationLock.sqf";};
 			class clearAnimationLock:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\clearAnimationLock.sqf";};
 			class isAnimationLockInPlace:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\isAnimationLockInPlace.sqf";};
+			class notifyUnit:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\notifyUnit.sqf";};
 		};
 		class InitModFunctions //Functions for initMod
 		{
@@ -170,7 +171,14 @@ class CfgFunctions
 		};
 		class LimitationSystem
 		{
-			class isAllowedToUse:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\LimitationSystem\isAllowedToUse.sqf";};
+			class ls_assignLimitationClass:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\LimitationSystem\assignLimitationClass.sqf";};
+			class ls_assignLimitationObject:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\LimitationSystem\assignLimitationObject.sqf";};
+			class ls_commitChanges:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\LimitationSystem\commitChanges.sqf";};
+			class ls_convertLimitation:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\LimitationSystem\convertLimitation.sqf";};
+			class ls_createLimitationClass:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\LimitationSystem\createLimitationClass.sqf";};
+			class ls_createLimitationObject:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\LimitationSystem\createLimitationObject.sqf";};
+			class ls_isAllowedToUse:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\LimitationSystem\isAllowedToUse.sqf";};
+			class ls_registerLimitation:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\LimitationSystem\registerLimitation.sqf";};
 		};
 		class Modules
 		{
@@ -197,7 +205,7 @@ class CfgFunctions
 			class MedicalUi_DiagnosticFrame_setVisibilityState:X39_XLib_Function_TypeA					{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\DiagnosticFrame\MedicalUi_DiagnosticFrame_setVisibilityState.sqf";};
 			class MedicalUi_btnDiagnosisPerformCheckUnit:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\DiagnosticFrame\MedicalUi_btnDiagnosisPerformCheckUnit.sqf";};
 			class MedicalUi_DrugsFrame_setVisibilityState:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\DrugsFrame\MedicalUi_DrugsFrame_setVisibilityState.sqf";};
-			class MedicalUi_DrugsFrame_applyDrug.sqf:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\DrugsFrame\MedicalUi_DrugsFrame_applyDrug.sqf.sqf";};
+			class MedicalUi_DrugsFrame_applyDrug:X39_XLib_Function_TypeA								{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\DrugsFrame\MedicalUi_DrugsFrame_applyDrug.sqf";};
 			class MedicalUi_QuickActionFrame_setVisibilityState:X39_XLib_Function_TypeA					{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\QuickActionFrame\MedicalUi_QuickActionFrame_setVisibilityState.sqf";};
 			class MedicalUi_TriageCardFrame_setVisibilityState:X39_XLib_Function_TypeA					{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\TriageCardFrame\MedicalUi_TriageCardFrame_setVisibilityState.sqf";};
 			class MedicalUi_createDialog:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\MedicalUi_createDialog.sqf";};

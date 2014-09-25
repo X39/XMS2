@@ -26,7 +26,7 @@ _searchClass = {
 			}
 			else
 			{
-				if(isNumber _entry)
+				if(isNumber _entry) then
 				{
 					_value = getNumber _entry;
 					if(typeName (missionNamespace getVariable [_name, nil]) == "BOOL") then

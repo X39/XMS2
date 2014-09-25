@@ -177,7 +177,7 @@ displayCtrl_Overlay(1294) ctrlSetTextColor [1, 1, 1, 0];
 displayCtrl_Overlay(1295) ctrlSetPosition [safezoneX, safezoneY, 0, 0.01];
 displayCtrl_Overlay(1295) ctrlCommit 0;
 //_version = "0.5.0 ALPHA";
-_version = "0.5.0 INDEV ALPHA";
+_version = loadFile "\X39_MS2_Scripting\version.info";
 #ifdef DEBUG
 	displayCtrl_Overlay(1073) ctrlSetText format["XMS2 %1 - DEBUG", _version];
 #else

@@ -65,7 +65,7 @@ assignValue("X39_MS2_var_Internal_HitZones", 	[
 ["MorphineChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
 ["NaloxoneChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
 
-["unitBlackedOut", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;
+["consciousStateChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;
 ["BlackOutTextChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;
 
 
@@ -117,6 +117,7 @@ X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Adrenaline_value",		{0												}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Naloxone_value",			{0												}, true		]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_distraction",					{0												}, true		]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_lsClass",						{-1												}, false	]];
 {
 	X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, [format["X39_MS2_var_Damage_%1" COMMA _x select HITZONE_NAME], {0}, true]];
 	X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, [format["X39_MS2_var_Bleeding_%1" COMMA _x select HITZONE_NAME], {0}, true]];
@@ -197,6 +198,15 @@ assignValue("X39_MS2_var_Internal_Communication_ServerMessage", []);
 
 //HitPart eventHandler
 assignValue("X39_MS2_var_Internal_HitPart_InitializedUnits", []);
+
+
+assignValue("X39_MS2_var_Internal_BlackOut_ConditionIDs", []);
+assignValue("X39_MS2_var_Internal_BlackOut_ConditionCode", []);
+
+assignValue("X39_MS2_var_Internal_LimitationSystem_Limitations", []);
+assignValue("X39_MS2_var_Internal_LimitationSystem_Objects", []);
+assignValue("X39_MS2_var_Internal_LimitationSystem_Classes", []);
+assignValue("X39_MS2_var_Internal_LimitationSystem_Structure", []);
 
 
 /***********************
@@ -554,6 +564,8 @@ assignValue("X39_MS2_var_MedicalActions_StickyBandage_BleedingCure", 0.5);
 assignValue("X39_MS2_var_MedicalActions_MediPack_DamageHealing", 5);
 
 assignValue("X39_MS2_var_MedicalActions_HeatPack_TemperatureChange", 4);
+
+assignValue("X39_MS2_var_MedicalActions_SalineBag_BloodChangeP", 0.15);
 
 /*******************
 * CATEGORY: SOUND *

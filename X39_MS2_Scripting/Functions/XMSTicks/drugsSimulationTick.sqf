@@ -64,7 +64,7 @@ if(X39_MS2_var_Feature_EnableMorphine) then {
 		{
 			if(X39_MS2_var_Drugs_Morphine_morphineOverdoseCanKnockOut) then
 			{
-				[_unit, 2, X39_MS2_var_Drugs_Morphine_morphineKillLifeTime, localize "STR_X39_MS2_Scripting_XMSTicks_MorphineSimulation_KnockOutThroughMorphineOverdose"] call X39_MS2_fnc_blackOutUnit;
+				[_unit, 2, X39_MS2_var_Drugs_Morphine_morphineKillLifeTime, localize "STR_X39_MS2_Scripting_XMSTicks_MorphineSimulation_KnockOutThroughMorphineOverdose", "Drugs_Morphine_Overdose", {(([_this select 0] call X39_MS2_fnc_getMorphine) / X39_MS2_var_Drugs_Morphine_maxMorphine) >= X39_MS2_var_Drugs_Morphine_morphineBlackOutPointP}] call X39_MS2_fnc_blackOutUnit;
 			};
 		};
 	};

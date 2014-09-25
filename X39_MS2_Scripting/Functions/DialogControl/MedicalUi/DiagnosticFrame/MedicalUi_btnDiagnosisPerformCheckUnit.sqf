@@ -7,7 +7,7 @@
  *	@Return - N/A
  *	@Author - X39|Cpt. HM Murdock
  */
-if(X39_MS2_var_Internal_DialogCommunication_MA_preventActions) exitWith {[] call X39_MS2_fnc_MedicalActionMenu_outputBlockedMessage;};
+if(X39_MS2_var_Internal_DialogCommunication_MA_preventActions) exitWith {[] call X39_MS2_fnc_MedicalUi_outputBlockedMessage;};
 X39_MS2_var_Internal_DialogCommunication_MA_preventActions = true;
 X39_MS2_var_Internal_MedicalUi_CheckUnitHandle = _this spawn {
 	DEBUG_CODE(_fnc_scriptName = "X39_MS2_fnc_MedicalActionMenu_btnDiagnosisPerformCheckUnit";)

@@ -33,7 +33,7 @@
 #define HITZONE_CommonName			4
 
 #define getHitzoneInfo(INDEX, TYPE) (X39_MS2_var_Internal_HitZones select INDEX select TYPE)
-#define getHitzoneIndexByName(HZ) HZ call { private["_i", "_result"];\
+#define getHitzoneIndexByName(HZ) (HZ call { private["_i", "_result"];\
 	_result = -1;\
 	for "_i" from 0 to ((count X39_MS2_var_Internal_HitZones) - 1) do\
 	{\
@@ -45,4 +45,4 @@
 		};\
 	};\
 	_result\
-};
+})

@@ -140,6 +140,25 @@ _this spawn {
 				};
 			};
 		};
+		if(_currentStage == 2) then
+		{
+			{
+				if(!ISSCALAR(_x)) then
+				{
+					if(!([_unit] call _x)) then
+					{
+						X39_MS2_var_Internal_BlackOut_ConditionIDs set[_forEachIndex, -1];
+						X39_MS2_var_Internal_BlackOut_ConditionCode set[_forEachIndex, -1];
+					};
+				};
+			}forEach X39_MS2_var_Internal_BlackOut_ConditionCode;
+			if({_x == -1} count X39_MS2_var_Internal_BlackOut_ConditionCode == count X39_MS2_var_Internal_BlackOut_ConditionCode) then
+			{
+				X39_MS2_var_Internal_BlackOut_ConditionIDs = [];
+				X39_MS2_var_Internal_BlackOut_ConditionCode = [];
+				[_unit, 0] call X39_MS2_fnc_blackOutUnit;
+			};
+		};
 	};
 	if(_isPlayer && {dialog}) then
 	{

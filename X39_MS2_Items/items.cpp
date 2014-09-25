@@ -1,8 +1,4 @@
-#define ITEM_ITEMINFO_TYPE 201
-#define ITEM_TYPE 131072
-#define ITEM_SIMULATION "weapon"
-//TODO: Find a solution so that ALL items are not recognized as something invalid but still visible in all required UIs
-class x39_xms2_bandage : ItemCore
+class x39_xms2_bandage : x39_itemcore
 {
 	scope = 2;
 	displayName = $STR_X39_MS2_Items_Items_Bandage;
@@ -10,14 +6,11 @@ class x39_xms2_bandage : ItemCore
 	class ItemInfo
     {
 		mass = 2;
-		type = ITEM_ITEMINFO_TYPE;
     }; 
 	picture = "\X39_MS2_Resources\Items\Bandage\Bandage.paa";
 	descriptionShort = "";
-	type = ITEM_TYPE;
-	simulation = ITEM_SIMULATION;
 };
-class x39_xms2_adrenaline : ItemCore
+class x39_xms2_adrenaline : x39_itemcore
 {
 	scope = 2;
 	displayName = $STR_X39_MS2_Items_Items_Adrenaline;
@@ -26,41 +19,32 @@ class x39_xms2_adrenaline : ItemCore
 	class ItemInfo
     {
 		mass = 1;
-		type = ITEM_ITEMINFO_TYPE;
     }; 
 	descriptionShort = "";
-	type = ITEM_TYPE;
-	simulation = ITEM_SIMULATION;
 };
-class x39_xms2_heatPack : ItemCore
+class x39_xms2_heatPack : x39_itemcore
 {
 	scope = 2;
 	displayName = $STR_X39_MS2_Items_Items_heatPack;
 	class ItemInfo
     {
 		mass = 4;
-		type = ITEM_ITEMINFO_TYPE;
     }; 
 	picture = "\X39_MS2_Resources\Items\HeatPack.paa";
 	descriptionShort = "";
-	type = ITEM_TYPE;
-	simulation = ITEM_SIMULATION;
 };
-class x39_xms2_mediPack : ItemCore
+class x39_xms2_mediPack : x39_itemcore
 {
 	scope = 2;
 	displayName = $STR_X39_MS2_Items_Items_mediPack;
 	class ItemInfo
     {
 		mass = 8;
-		type = ITEM_ITEMINFO_TYPE;
     }; 
 	picture = "\X39_MS2_Resources\Items\MedicalPack.paa";
 	descriptionShort = "";
-	type = ITEM_TYPE;
-	simulation = ITEM_SIMULATION;
 };
-class x39_xms2_morphine : ItemCore
+class x39_xms2_morphine : x39_itemcore
 {
 	scope = 2;
 	displayName = $STR_X39_MS2_Items_Items_morphine;
@@ -69,13 +53,10 @@ class x39_xms2_morphine : ItemCore
 	class ItemInfo
     {
 		mass = 1;
-		type = ITEM_ITEMINFO_TYPE;
     }; 
 	descriptionShort = "";
-	type = ITEM_TYPE;
-	simulation = ITEM_SIMULATION;
 };
-class x39_xms2_naloxone : ItemCore
+class x39_xms2_naloxone : x39_itemcore
 {
 	scope = 2;
 	displayName = $STR_X39_MS2_Items_Items_naloxone;
@@ -84,27 +65,21 @@ class x39_xms2_naloxone : ItemCore
 	class ItemInfo
     {
 		mass = 1;
-		type = ITEM_ITEMINFO_TYPE;
     }; 
 	descriptionShort = "";
-	type = ITEM_TYPE;
-	simulation = ITEM_SIMULATION;
 };
-class x39_xms2_earplugs : ItemCore
+class x39_xms2_earplugs : x39_itemcore
 {
 	scope = 2;
 	displayName = $STR_X39_MS2_Items_Items_earplugs;
 	class ItemInfo
     {
 		mass = 0;
-		type = ITEM_ITEMINFO_TYPE;
     }; 
 	picture = "\X39_MS2_Resources\Items\earplugs.paa";
 	descriptionShort = "";
-	type = ITEM_TYPE;
-	simulation = ITEM_SIMULATION;
 };
-class x39_xms2_defibrillator : ItemCore
+class x39_xms2_defibrillator : x39_itemcore
 {
 	scope = 2;
 	displayName = $STR_X39_MS2_Items_Items_defibrillator;
@@ -112,14 +87,11 @@ class x39_xms2_defibrillator : ItemCore
 	class ItemInfo
     {
     	mass = 20;
-		type = ITEM_ITEMINFO_TYPE;
     }; 
 	picture = "\X39_MS2_Resources\Items\Defibrillator.paa";
 	descriptionShort = "";
-	type = ITEM_TYPE;
-	simulation = ITEM_SIMULATION;
 };
-class x39_xms2_tourniquet : ItemCore
+class x39_xms2_tourniquet : x39_itemcore
 {
 	scope = 2;
 	displayName = $STR_X39_MS2_Items_Items_tourniquet;
@@ -128,13 +100,10 @@ class x39_xms2_tourniquet : ItemCore
 	class ItemInfo
     {
     	mass = 3;
-		type = ITEM_ITEMINFO_TYPE;
     }; 
 	descriptionShort = "";
-	type = ITEM_TYPE;
-	simulation = ITEM_SIMULATION;
 };
-class x39_xms2_sphygmomanometer : ItemCore
+class x39_xms2_sphygmomanometer : x39_itemcore
 {
 	scope = 2;
 	displayName = $STR_X39_MS2_Items_Items_sphygmomanometer;
@@ -148,7 +117,7 @@ class x39_xms2_sphygmomanometer : ItemCore
 	type = ITEM_TYPE;
 	simulation = ITEM_SIMULATION;
 };
-class x39_xms2_IVBag : ItemCore
+class x39_xms2_IVBag : x39_itemcore
 {
 	scope = 2;
 	displayName = $STR_X39_MS2_Items_Items_ivBag;
@@ -157,9 +126,6 @@ class x39_xms2_IVBag : ItemCore
 	class ItemInfo
     {
     	mass = 5;
-		type = ITEM_ITEMINFO_TYPE;
     }; 
 	descriptionShort = "";
-	type = ITEM_TYPE;
-	simulation = ITEM_SIMULATION;
 };

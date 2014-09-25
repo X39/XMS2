@@ -33,8 +33,8 @@ DEBUG_CODE_SC(	[
 	"STR_X39_MS2_Scripting_Drugs_Adrenaline_Name",
 	"\X39_MS2_Resources\Items\Injector\Injector_thumb.paa",
 	{("x39_xms2_adrenaline" in items (_this select 0)) || ("x39_xms2_adrenaline" in items (_this select 1))},
-	{if ("x39_xms2_adrenaline" in items (_this select 1)) then {[(_this select 1), 'removeItem "x39_xms2_adrenaline"', [_this select 1]] call X39_XLib_fnc_executeLocalToUnit;} else {[(_this select 0), 'removeItem "x39_xms2_adrenaline"', [_this select 0]] call X39_XLib_fnc_executeLocalToUnit;};},
-	{[(_this select 1), X39_MS2_var_Drugs_Adrenaline_AdrenalineChangeOnConsume] call X39_MS2_fnc_addAdrenaline;},
+	{if ("x39_xms2_adrenaline" in items (_this select 1)) then {[(_this select 1), '(_this select 0)  removeItem "x39_xms2_adrenaline"', [_this select 1]] call X39_XLib_fnc_executeLocalToUnit;} else {[(_this select 0), '(_this select 0)  removeItem "x39_xms2_adrenaline"', [_this select 0]] call X39_XLib_fnc_executeLocalToUnit;};},
+	{[(_this select 1), X39_MS2_var_Drugs_Adrenaline_AdrenalineChangeOnConsume * (_this select 2)] call X39_MS2_fnc_addAdrenaline;},
 	{(_this select 0) addItem "x39_xms2_adrenaline"},
 	"ADRENALINE"
 ] call X39_MS2_fnc_registerDrug;
@@ -43,8 +43,8 @@ DEBUG_CODE_SC(	[
 	"STR_X39_MS2_Scripting_Drugs_Morphine_Name",
 	"\X39_MS2_Resources\Items\Injector\InjectorInv_thumb.paa",
 	{("x39_xms2_morphine" in items (_this select 0)) || ("x39_xms2_morphine" in items (_this select 1))},
-	{if ("x39_xms2_morphine" in items (_this select 1)) then {[(_this select 1), 'removeItem "x39_xms2_morphine"', [_this select 1]] call X39_XLib_fnc_executeLocalToUnit;} else {[(_this select 0), 'removeItem "x39_xms2_morphine"', [_this select 0]] call X39_XLib_fnc_executeLocalToUnit;};},
-	{[(_this select 1), X39_MS2_var_Drugs_Morphine_MorphineChangeOnConsume] call X39_MS2_fnc_addMorphine;},
+	{if ("x39_xms2_morphine" in items (_this select 1)) then {[(_this select 1), '(_this select 0)  removeItem "x39_xms2_morphine"', [_this select 1]] call X39_XLib_fnc_executeLocalToUnit;} else {[(_this select 0), '(_this select 0)  removeItem "x39_xms2_morphine"', [_this select 0]] call X39_XLib_fnc_executeLocalToUnit;};},
+	{[(_this select 1), X39_MS2_var_Drugs_Morphine_MorphineChangeOnConsume * (_this select 2)] call X39_MS2_fnc_addMorphine;},
 	{(_this select 0) addItem "x39_xms2_morphine"},
 	"MORPHINE"
 ] call X39_MS2_fnc_registerDrug;
@@ -53,8 +53,8 @@ DEBUG_CODE_SC(	[
 	"STR_X39_MS2_Scripting_Drugs_Naloxone_Name",
 	"\X39_MS2_Resources\Items\Injector\InjectorInv2_thumb.paa",
 	{("x39_xms2_naloxone" in items (_this select 0)) || ("x39_xms2_naloxone" in items (_this select 1))},
-	{if ("x39_xms2_naloxone" in items (_this select 1)) then {[(_this select 1), 'removeItem "x39_xms2_naloxone"', [_this select 1]] call X39_XLib_fnc_executeLocalToUnit;} else {[(_this select 0), 'removeItem "x39_xms2_naloxone"', [_this select 0]] call X39_XLib_fnc_executeLocalToUnit;};},
-	{[(_this select 1), X39_MS2_var_Drugs_Naloxone_NaloxoneChangeOnConsume] call X39_MS2_fnc_addNaloxone;},
+	{if ("x39_xms2_naloxone" in items (_this select 1)) then {[(_this select 1), '(_this select 0)  removeItem "x39_xms2_naloxone"', [_this select 1]] call X39_XLib_fnc_executeLocalToUnit;} else {[(_this select 0), '(_this select 0)  removeItem "x39_xms2_naloxone"', [_this select 0]] call X39_XLib_fnc_executeLocalToUnit;};},
+	{[(_this select 1), X39_MS2_var_Drugs_Naloxone_NaloxoneChangeOnConsume * (_this select 2)] call X39_MS2_fnc_addNaloxone;},
 	{(_this select 0) addItem "x39_xms2_naloxone"},
 	"NALOXONE"
 ] call X39_MS2_fnc_registerDrug;

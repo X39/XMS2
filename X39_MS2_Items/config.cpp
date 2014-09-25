@@ -13,7 +13,7 @@ class CfgPatches{
 			 "x39_xms2_defibrillator"
 		 };
          requiredVersion = 1.0;
-         requiredAddons[] = {"X39_MS2_Resources"};
+         requiredAddons[] = {"X39_XLib_Core", "X39_MS2_Resources"};
          author = "X39|Cpt. HM Murdock";
          mail = "killerx29@gmail.com";
 	};
@@ -26,6 +26,6 @@ class CfgVehicles {
 };
 
 class CfgWeapons {
-	class ItemCore;
+	class x39_itemcore;
 	#include "items.cpp"
 };

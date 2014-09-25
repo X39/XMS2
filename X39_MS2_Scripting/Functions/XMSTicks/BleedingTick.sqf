@@ -46,7 +46,7 @@ if(X39_MS2_var_Bleeding_LowBloodFeatures) then
 		}
 		else
 		{
-			[_unit, 2, -1, localize "STR_X39_MS2_Scripting_XMSTicks_BleedingTick_KnockOutDueLowBlood"] call X39_MS2_fnc_blackOutUnit;
+			[_unit, 2, -1, localize "STR_X39_MS2_Scripting_XMSTicks_BleedingTick_KnockOutDueLowBlood", "BleedingTick_BloodValue", {(([_this select 0] call X39_MS2_fnc_getBlood) / X39_MS2_var_Bleeding_maxBloodInEntireBody) <= X39_MS2_var_Bleeding_knockOutAtPBlood}] call X39_MS2_fnc_blackOutUnit;
 		};
 	};
 };
@@ -62,7 +62,7 @@ if(X39_MS2_var_Bleeding_EnableBloodPresureForBleedingTick) then
 		}
 		else
 		{
-			[_unit, 2, -1, localize (if(_bloodPresure <= X39_MS2_var_Bleeding_knockOutAtPBloodPresureLowerEnd) then {"STR_X39_MS2_Scripting_XMSTicks_BleedingTick_KnockOutDueBloodPresureLow"} else {"STR_X39_MS2_Scripting_XMSTicks_BleedingTick_KnockOutDueBloodPresureHigh"})] call X39_MS2_fnc_blackOutUnit;
+			[_unit, 2, -1, localize (if(_bloodPresure <= X39_MS2_var_Bleeding_knockOutAtPBloodPresureLowerEnd) then {"STR_X39_MS2_Scripting_XMSTicks_BleedingTick_KnockOutDueBloodPresureLow"} else {"STR_X39_MS2_Scripting_XMSTicks_BleedingTick_KnockOutDueBloodPresureHigh"}), "BleedingTick_BloodPresure", {private["_bp"]; _bp = (([_this select 0] call X39_MS2_fnc_getBloodPresure) / X39_MS2_var_Bleeding_NaturalMaxOfBloodPresure); (_bp <= X39_MS2_var_Bleeding_knockOutAtPBloodPresureLowerEnd || _bp >= X39_MS2_var_Bleeding_knockOutAtPBloodPresureUpperEnd)}] call X39_MS2_fnc_blackOutUnit;
 		};
 	};
 };
