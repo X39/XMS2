@@ -6,6 +6,7 @@
  *	@Return - N/A
  *	@Author - X39|Cpt. HM Murdock
  */
+private["_version"];
 if(X39_MS2_var_UIs_XMS2_Overlay_ShownInCurrentMission) exitWith { DEBUG_LOG("Overlay is already open."); };
 ("X39_MS2_var_UIs_XMS2_Overay" call BIS_fnc_rscLayer) cutRsc["X39_MS2_Overay", "PLAIN"];
 
@@ -159,6 +160,7 @@ REGION(HIDE EVERYTHING {)
 	displayCtrl_Overlay(1071) ctrlShow false;
 
 	displayCtrl_Overlay(1072) ctrlShow false;
+	//displayCtrl_Overlay(1073) ctrlShow false;
 
 	displayCtrl_Overlay(1291) ctrlShow false;
 	displayCtrl_Overlay(1292) ctrlShow false;
@@ -172,3 +174,12 @@ displayCtrl_Overlay(1293) ctrlSetTextColor [1, 1, 1, 0];
 displayCtrl_Overlay(1294) ctrlShow true;
 displayCtrl_Overlay(1294) ctrlSetTextColor [1, 1, 1, 0];
 
+displayCtrl_Overlay(1295) ctrlSetPosition [safezoneX, safezoneY, 0, 0.01];
+displayCtrl_Overlay(1295) ctrlCommit 0;
+//_version = "0.5.0 ALPHA";
+_version = loadFile "\X39_MS2_Scripting\version.info";
+#ifdef DEBUG
+	displayCtrl_Overlay(1073) ctrlSetText format["XMS2 %1 - DEBUG", _version];
+#else
+	displayCtrl_Overlay(1073) ctrlSetText  format["XMS2 %1", _version];
+#endif 

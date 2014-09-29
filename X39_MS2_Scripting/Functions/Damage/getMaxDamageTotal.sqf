@@ -7,11 +7,9 @@
 private["_damage"];
 
 _damage = 0;
-
-_damage = _damage + X39_MS2_var_Damage_maxDamageHead;
-_damage = _damage + X39_MS2_var_Damage_maxDamageBody;
-_damage = _damage + X39_MS2_var_Damage_maxDamageHands;
-_damage = _damage + X39_MS2_var_Damage_maxDamageLegs;
-_damage = _damage + X39_MS2_var_Damage_maxDamageGeneric;
+{
+	_damage = _damage + (missionNamespace getVariable format["X39_MS2_var_Damage_maxDamage%1", _x select HITZONE_NAME]);
+	false
+}count X39_MS2_var_Internal_HitZones;
 
 _damage

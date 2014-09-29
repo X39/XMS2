@@ -16,10 +16,18 @@ class keys {
 	};
 };
 class options {
-	class ppEffects {
-		class colorCorrections{
-			maxRedScreen = 0.45;
-			colorize = 1.5;
+	class MedicalUi {
+		class toggleFrame {
+			class position {
+				ToggleDrugsFrameOn[]		= {"0.0771875 * safezoneW + safezoneX",	"0.52 * safezoneH + safezoneY",		"0.0103125 * safezoneW",	"0.352 * safezoneH"};
+				ToggleDrugsFrameOff[]		= {"0.282437 * safezoneW + safezoneX",	"0.52 * safezoneH + safezoneY",		"0.0103125 * safezoneW",	"0.352 * safezoneH"};
+				ToggleDiagnosticFrameOn[]	= {"0.0771875 * safezoneW + safezoneX",	"0.127 * safezoneH + safezoneY",	"0.0103125 * safezoneW",	"0.352 * safezoneH"};
+				ToggleDiagnosticFrameOff[]	= {"0.282437 * safezoneW + safezoneX",	"0.127 * safezoneH + safezoneY",	"0.0103125 * safezoneW",	"0.352 * safezoneH"};
+				ToggleTriageCardFrameOn[]	= {"0.9125 * safezoneW + safezoneX",	"0.127 * safezoneH + safezoneY",	"0.0103125 * safezoneW",	"0.352 * safezoneH"};
+				ToggleTriageCardFrameOff[]	= {"0.70725 * safezoneW + safezoneX",	"0.127 * safezoneH + safezoneY",	"0.0103125 * safezoneW",	"0.352 * safezoneH"};
+				ToggleQuickActionFrameOn[]	= {"0.9125 * safezoneW + safezoneX",	"0.52 * safezoneH + safezoneY",		"0.0103125 * safezoneW",	"0.352 * safezoneH"};
+				ToggleQuickActionFrameOff[]	= {"0.70725 * safezoneW + safezoneX",	"0.52 * safezoneH + safezoneY",		"0.0103125 * safezoneW",	"0.352 * safezoneH"};
+			};
 		};
 	};
 };

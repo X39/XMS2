@@ -31,6 +31,7 @@ class CfgSettings
 					name = "NA";					//Displayed name of the triageCard entry
 					description = "NA";				//Description of the case (currently unused)
 					color[] = {1, 1, 1, 1};			//Displayed color of the triageCard entry
+					textColor[] = {0, 0, 0, 1};		//Text color of the triageCard entry
 					rating = 1;						//Displayed numeric rating of the triageCard
 				};
 				class messageBase

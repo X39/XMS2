@@ -8,7 +8,6 @@
 if(isServer) then
 {
 	private["_id"];
-	[] call X39_MS2_fnc_applyServerConfig;
 	DEBUG_LOG_SC("Registering serverSide serverMessageSystem variable handler")
 	_scriptHandle = [] spawn {
 		"X39_MS2_var_Internal_Communication_ServerMessage" addPublicVariableEventHandler {

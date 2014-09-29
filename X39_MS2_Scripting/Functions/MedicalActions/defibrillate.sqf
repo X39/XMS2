@@ -30,6 +30,11 @@ if(_hasFlatLine) then
 		};
 		[_unit, -1] call X39_MS2_fnc_setFlatLine;
 		[_unit, 0, -1, ""] call X39_MS2_fnc_blackOutUnit;
+		[_executer, localize "STR_X39_MS2_Scripting_NotifyMessages_Defibrillate_succeeded"] call X39_MS2_fnc_notifyUnit;
+	}
+	else
+	{
+		[_executer, localize "STR_X39_MS2_Scripting_NotifyMessages_Defibrillate_failed"] call X39_MS2_fnc_notifyUnit;
 	};
 }
 else

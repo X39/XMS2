@@ -20,3 +20,12 @@
 
 # specific files
 buildScript.cmd
+
+# office files
+*.ignore.xlsx
+
+# local sourcefile backups
+.backup
+.old
+
+*.ignore.*

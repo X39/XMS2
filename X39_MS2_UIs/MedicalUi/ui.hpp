@@ -4,561 +4,718 @@
 
 
 class X39_MS2_MedicalUi {
-	idd = 26485;
+	idd = IDC_MEDICALUI_UIIDD;
 	onLoad = "uiNamespace setVariable['X39_MS2_var_UIs_MedicalUi', _this select 0];";
 	onUnload = "uiNamespace setVariable['X39_MS2_var_UIs_MedicalUi', displayNull];";
 	duration = 32000;
 	fadeIn = 0;
 	fadeOut = 0;
 	enableSimulation = 1;
-	controls[]=
-	{
-		IGUIBack_2201,
-		IGUIBack_2200,
-		RscText_1000,
-		RscText_1001,
-		RscText_1002,
-		img_TriageCard_TriageSymbol,
-		img_Target_arms,
-		img_Target_body,
-		img_Target_legs,
-		img_Target_head,
-		img_Target_generic,
-		img_Target_temperature,
-		img_Crafting_Slot1,
-		img_Crafting_Deco1,
-		img_Crafting_Slot2,
-		img_Crafting_Deco2,
-		img_Crafting_Slot3,
-		img_Crafting_Deco3,
-		img_Crafting_Result,
-		img_TriageCard_addCustomMessage,
-		img_TriageCard_addPreDefinedMessage,
-		tb_TriageCard_customMessageInput,
-		lb_Items_list,
-		lb_Diagnosis_Entries,
-		lb_TriageCard_Entries,
-		btn_TriageCard_TriageSymbol,
-		btn_Crafting_AddToSlot1,
-		btn_Crafting_AddToSlot2,
-		btn_Crafting_AddToSlot3,
-		btn_Diagnosis_performCheckUnit,
-		btn_Diagnosis_addSelectedEntryToTriageCard,
-		btn_TriageCard_removeSelectedEntry,
-		btn_TriageCard_resetTriageCard,
-		btn_Target_arms,
-		btn_Target_body,
-		btn_Target_legs,
-		btn_Target_head,
-		btn_Target_generic,
-		btn_Target_temperature,
-		btn_Crafting_Slot1,
-		btn_Crafting_Slot2,
-		btn_Crafting_Slot3,
-		btn_Crafting_Result,
-		btn_TriageCard_addCustomMessage,
-		btn_TriageCard_addPreDefinedMessage,
-		c_TriageCard_TriageStateSelection,
-		c_TriageCard_preDefinedMessagesSelection,
-		c_Diagnosis_checkUnitTypeSelection,
-		c_TriageCard_customMessagesColorSelection,
-		RscPicture_1206,
-		RscText_1003,
-		label_Target
-	};
-	class X39_MS2_MedicalUi_RscText: RscText
-	{
-		colorText[] = {0,0,0,1};
-		colorShadow[] = {0,0,0,0.5};
-		colorBackground[] = {1,1,1,1};
-		sizeEx = 1.5 * GUI_GRID_H;
-	};
-
-	class X39_MS2_MedicalUi_RscButtonInvisible: RscButton
-	{
-		text = "";
-		colorText[] = {0,0,0,0};
-		colorBackground[] = {0,0,0,0};
-		colorActive[] = {0,0,0,0};
-		colorDisabled[] = {0,0,0,0};
-		colorBackgroundDisabled[] = {0,0,0,0};
-		colorBackgroundActive[] = {0,0,0,0};
-		colorFocused[] = {0,0,0,0};
-		colorShadow[] = {0,0,0,0};
-		colorBorder[] = {0,0,0,0};
-	};
-
-	class IGUIBack_2201: IGUIBack
-	{
-		idc = IDC_XMS2UI_IGUIBACK_2201;
-		x = 0.123594 * safezoneW + safezoneX;
-		y = 0.192 * safezoneH + safezoneY;
-		w = 0.7425 * safezoneW;
-		h = 0.737 * safezoneH;
-		colorBackground[] = {0,0,0,0.2};
-	};
-	class IGUIBack_2200: IGUIBack
-	{
-		idc = IDC_XMS2UI_IGUIBACK_2200;
-		x = 0.634062 * safezoneW + safezoneX;
-		y = 0.445 * safezoneH + safezoneY;
-		w = 0.144375 * safezoneW;
-		h = 0.022 * safezoneH;
-		colorBackground[] = {0,0,0,0.2};
-	};
-	class RscText_1000: X39_MS2_MedicalUi_RscText
-	{
-		idc = IDC_XMS2UI_RSCTEXT_1000;
-		text = $STR_X39_MS2_UIs_MedicalUi_RscText_1000;
-		x = 0.12875 * safezoneW + safezoneX;
-		y = 0.203 * safezoneH + safezoneY;
-		w = 0.226875 * safezoneW;
-		h = 0.033 * safezoneH;
-
-	};
-	class RscText_1001: X39_MS2_MedicalUi_RscText
-	{
-		idc = IDC_XMS2UI_RSCTEXT_1001;
-		text = $STR_X39_MS2_UIs_MedicalUi_RscText_1001;
-		x = 0.634062 * safezoneW + safezoneX;
-		y = 0.478 * safezoneH + safezoneY;
-		w = 0.226875 * safezoneW;
-		h = 0.033 * safezoneH;
-
-	};
-	class RscText_1002: X39_MS2_MedicalUi_RscText
-	{
-		idc = IDC_XMS2UI_RSCTEXT_1002;
-		text = $STR_X39_MS2_UIs_MedicalUi_RscText_1002;
-		x = 0.12875 * safezoneW + safezoneX;
-		y = 0.544 * safezoneH + safezoneY;
-		w = 0.226875 * safezoneW;
-		h = 0.033 * safezoneH;
-
-	};
-	class img_TriageCard_TriageSymbol: RscPicture
-	{
-		idc = IDC_XMS2UI_IMG_TRIAGECARD_TRIAGESYMBOL;
-		text = "\X39_MS2_Resources\UI\MedicalUI\TriageSymbol";
-		x = 0.716563 * safezoneW + safezoneX;
-		y = 0.236 * safezoneH + safezoneY;
-		w = 0.0515625 * safezoneW;
-		h = 0.088 * safezoneH;
-		colorText[] = {1,1,1,1};
-	};
-	class img_Target_arms: RscPicture
-	{
-		idc = IDC_XMS2UI_IMG_TARGET_ARMS;
-		text = "\X39_MS2_Resources\UI\MedicalUI\HumanBody_arms";
-		x = 0.432917 * safezoneW + safezoneX;
-		y = 0.383518 * safezoneH + safezoneY;
-		w = 0.118594 * safezoneW;
-		h = 0.187 * safezoneH;
-	};
-	class img_Target_body: RscPicture
-	{
-		idc = IDC_XMS2UI_IMG_TARGET_BODY;
-		text = "\X39_MS2_Resources\UI\MedicalUI\HumanBody_body";
-		x = 0.463906 * safezoneW + safezoneX;
-		y = 0.368 * safezoneH + safezoneY;
-		w = 0.0567187 * safezoneW;
-		h = 0.209 * safezoneH;
-	};
-	class img_Target_legs: RscPicture
-	{
-		idc = IDC_XMS2UI_IMG_TARGET_LEGS;
-		text = "\X39_MS2_Resources\UI\MedicalUI\HumanBody_legs";
-		x = 0.464947 * safezoneW + safezoneX;
-		y = 0.577 * safezoneH + safezoneY;
-		w = 0.0541145 * safezoneW;
-		h = 0.187 * safezoneH;
-	};
-	class img_Target_head: RscPicture
-	{
-		idc = IDC_XMS2UI_IMG_TARGET_HEAD;
-		text = "\X39_MS2_Resources\UI\MedicalUI\HumanBody_head";
-		x = 0.475262 * safezoneW + safezoneX;
-		y = 0.303852 * safezoneH + safezoneY;
-		w = 0.0334895 * safezoneW;
-		h = 0.0641482 * safezoneH;
-	};
-	class img_Target_generic: RscPicture
-	{
-		idc = IDC_XMS2UI_IMG_TARGET_GENERIC;
-		text = "\X39_MS2_Resources\UI\MedicalUI\MEDIC_WHITE";
-		x = 0.561875 * safezoneW + safezoneX;
-		y = 0.676 * safezoneH + safezoneY;
-		w = 0.0464063 * safezoneW;
-		h = 0.088 * safezoneH;
-		colorText[] = {1,1,1,1};
-	};
-	class img_Target_temperature: RscPicture
-	{
-		idc = IDC_XMS2UI_IMG_TARGET_TEMPERATURE;
-		text = "\X39_MS2_Resources\UI\MedicalUI\TEMPERATURE_WHITE";
-		x = 0.381406 * safezoneW + safezoneX;
-		y = 0.676 * safezoneH + safezoneY;
-		w = 0.0464063 * safezoneW;
-		h = 0.088 * safezoneH;
-		colorText[] = {1,1,1,1};
-	};
-	class img_Crafting_Slot1: RscPicture
-	{
-		idc = IDC_XMS2UI_IMG_CRAFTING_SLOT1;
-		text = "\X39_MS2_Resources\UI\plusButton.paa";
-		x = 0.371094 * safezoneW + safezoneX;
-		y = 0.797 * safezoneH + safezoneY;
-		w = 0.0567187 * safezoneW;
-		h = 0.121 * safezoneH;
-		colorText[] = {1,1,1,1};
-	};
-	class img_Crafting_Deco1: RscPicture
-	{
-		idc = IDC_XMS2UI_IMG_CRAFTING_DECO1;
-		text = "\X39_MS2_Resources\UI\plus.paa";
-		x = 0.432969 * safezoneW + safezoneX;
-		y = 0.797 * safezoneH + safezoneY;
-		w = 0.0567187 * safezoneW;
-		h = 0.121 * safezoneH;
-		colorText[] = {1,1,1,1};
-	};
-	class img_Crafting_Slot2: RscPicture
-	{
-		idc = IDC_XMS2UI_IMG_CRAFTING_SLOT2;
-		text = "\X39_MS2_Resources\UI\plusButton.paa";
-		x = 0.494844 * safezoneW + safezoneX;
-		y = 0.797 * safezoneH + safezoneY;
-		w = 0.0567187 * safezoneW;
-		h = 0.121 * safezoneH;
-		colorText[] = {1,1,1,1};
-	};
-	class img_Crafting_Deco2: RscPicture
-	{
-		idc = IDC_XMS2UI_IMG_CRAFTING_DECO2;
-		text = "\X39_MS2_Resources\UI\plus.paa";
-		x = 0.556719 * safezoneW + safezoneX;
-		y = 0.797 * safezoneH + safezoneY;
-		w = 0.0567187 * safezoneW;
-		h = 0.121 * safezoneH;
-		colorText[] = {1,1,1,1};
-	};
-	class img_Crafting_Slot3: RscPicture
-	{
-		idc = IDC_XMS2UI_IMG_CRAFTING_SLOT3;
-		text = "\X39_MS2_Resources\UI\plusButton.paa";
-		x = 0.618594 * safezoneW + safezoneX;
-		y = 0.797 * safezoneH + safezoneY;
-		w = 0.0567187 * safezoneW;
-		h = 0.121 * safezoneH;
-		colorText[] = {1,1,1,1};
-	};
-	class img_Crafting_Deco3: RscPicture
-	{
-		idc = IDC_XMS2UI_IMG_CRAFTING_DECO3;
-		text = "\X39_MS2_Resources\UI\equal.paa";
-		x = 0.690781 * safezoneW + safezoneX;
-		y = 0.797 * safezoneH + safezoneY;
-		w = 0.0567187 * safezoneW;
-		h = 0.121 * safezoneH;
-		colorText[] = {1,1,1,1};
-	};
-	class img_Crafting_Result: RscPicture
-	{
-		idc = IDC_XMS2UI_IMG_CRAFTING_RESULT;
-		text = "\X39_MS2_Resources\UI\plusButton.paa";
-		x = 0.762969 * safezoneW + safezoneX;
-		y = 0.797 * safezoneH + safezoneY;
-		w = 0.0567187 * safezoneW;
-		h = 0.121 * safezoneH;
-		colorText[] = {1,1,1,1};
-	};
-	class img_TriageCard_addCustomMessage: RscPicture
-	{
-		idc = IDC_XMS2UI_IMG_TRIAGECARD_ADDCUSTOMMESSAGE;
-		text = "\X39_MS2_Resources\UI\plusButton.paa";
-		x = 0.850625 * safezoneW + safezoneX;
-		y = 0.445 * safezoneH + safezoneY;
-		w = 0.0103125 * safezoneW;
-		h = 0.022 * safezoneH;
-	};
-	class img_TriageCard_addPreDefinedMessage: RscPicture
-	{
-		idc = IDC_XMS2UI_IMG_TRIAGECARD_ADDPREDEFINEDMESSAGE;
-		text = "\X39_MS2_Resources\UI\plusButton.paa";
-		x = 0.850625 * safezoneW + safezoneX;
-		y = 0.412 * safezoneH + safezoneY;
-		w = 0.0103125 * safezoneW;
-		h = 0.022 * safezoneH;
-	};
-	class tb_TriageCard_customMessageInput: RscEdit
-	{
-		idc = IDC_XMS2UI_TB_TRIAGECARD_CUSTOMMESSAGEINPUT;
-		x = 0.634062 * safezoneW + safezoneX;
-		y = 0.445 * safezoneH + safezoneY;
-		w = 0.144375 * safezoneW;
-		h = 0.022 * safezoneH;
-	};
-	class lb_Items_list: RscListbox
-	{
-		idc = IDC_XMS2UI_LB_ITEMS_LIST;
-		x = 0.12875 * safezoneW + safezoneX;
-		y = 0.588 * safezoneH + safezoneY;
-		w = 0.226875 * safezoneW;
-		h = 0.187 * safezoneH;
-	};
-	class lb_Diagnosis_Entries: RscListbox
-	{
-		idc = IDC_XMS2UI_LB_DIAGNOSIS_ENTRIES;
-		x = 0.12875 * safezoneW + safezoneX;
-		y = 0.291 * safezoneH + safezoneY;
-		w = 0.226875 * safezoneW;
-		h = 0.154 * safezoneH;
-	};
-	class lb_TriageCard_Entries: RscListbox
-	{
-		idc = IDC_XMS2UI_LB_TRIAGECARD_ENTRIES;
-		x = 0.634062 * safezoneW + safezoneX;
-		y = 0.522 * safezoneH + safezoneY;
-		w = 0.226875 * safezoneW;
-		h = 0.209 * safezoneH;
-	};
-	class btn_TriageCard_TriageSymbol:X39_MS2_MedicalUi_RscButtonInvisible
-	{
-		idc = IDC_XMS2UI_BTN_TRIAGECARD_TRIAGESYMBOL;
-		text = "";
-		x = 0.716563 * safezoneW + safezoneX;
-		y = 0.258 * safezoneH + safezoneY;
-		w = 0.0515625 * safezoneW;
-		h = 0.066 * safezoneH;
-		colorText[] = {1,1,1,1};
-	};
-	class btn_Crafting_AddToSlot1: RscButton
-	{
-		idc = IDC_XMS2UI_BTN_CRAFTING_ADDTOSLOT1;
-		text = $STR_X39_MS2_UIs_MedicalUi_btn_Crafting_AddToSlot1;
-		x = 0.12875 * safezoneW + safezoneX;
-		y = 0.797 * safezoneH + safezoneY;
-		w = 0.226875 * safezoneW;
-		h = 0.033 * safezoneH;
-	};
-	class btn_Crafting_AddToSlot2: RscButton
-	{
-		idc = IDC_XMS2UI_BTN_CRAFTING_ADDTOSLOT2;
-		text = $STR_X39_MS2_UIs_MedicalUi_btn_Crafting_AddToSlot2;
-		x = 0.12875 * safezoneW + safezoneX;
-		y = 0.841 * safezoneH + safezoneY;
-		w = 0.226875 * safezoneW;
-		h = 0.033 * safezoneH;
-	};
-	class btn_Crafting_AddToSlot3: RscButton
-	{
-		idc = IDC_XMS2UI_BTN_CRAFTING_ADDTOSLOT3;
-		text = $STR_X39_MS2_UIs_MedicalUi_btn_Crafting_AddToSlot3;
-		x = 0.12875 * safezoneW + safezoneX;
-		y = 0.885 * safezoneH + safezoneY;
-		w = 0.226875 * safezoneW;
-		h = 0.033 * safezoneH;
-	};
-	class btn_Diagnosis_performCheckUnit: RscButton
-	{
-		idc = IDC_XMS2UI_BTN_DIAGNOSIS_PERFORMCHECKUNIT;
-		text = $STR_X39_MS2_UIs_MedicalUi_btn_Diagnosis_performCheckUnit;
-		x = 0.12875 * safezoneW + safezoneX;
-		y = 0.489 * safezoneH + safezoneY;
-		w = 0.226875 * safezoneW;
-		h = 0.033 * safezoneH;
-	};
-	class btn_Diagnosis_addSelectedEntryToTriageCard: RscButton
-	{
-		idc = IDC_XMS2UI_BTN_DIAGNOSIS_ADDSELECTEDENTRYTOTRIAGECARD;
-		text = $STR_X39_MS2_UIs_MedicalUi_btn_Diagnosis_addSelectedEntryToTriageCard;
-		x = 0.12875 * safezoneW + safezoneX;
-		y = 0.247 * safezoneH + safezoneY;
-		w = 0.226875 * safezoneW;
-		h = 0.033 * safezoneH;
-	};
-	class btn_TriageCard_removeSelectedEntry: RscButton
-	{
-		idc = IDC_XMS2UI_BTN_TRIAGECARD_REMOVESELECTEDENTRY;
-		text = $STR_X39_MS2_UIs_MedicalUi_btn_TriageCard_removeSelectedEntry;
-		x = 0.634062 * safezoneW + safezoneX;
-		y = 0.742 * safezoneH + safezoneY;
-		w = 0.144375 * safezoneW;
-		h = 0.033 * safezoneH;
-	};
-	class btn_TriageCard_resetTriageCard: RscButton
-	{
-		idc = IDC_XMS2UI_BTN_TRIAGECARD_RESETTRIAGECARD;
-		text = $STR_X39_MS2_UIs_MedicalUi_btn_TriageCard_resetTriageCard;
-		x = 0.783593 * safezoneW + safezoneX;
-		y = 0.742 * safezoneH + safezoneY;
-		w = 0.0773437 * safezoneW;
-		h = 0.033 * safezoneH;
-	};
-	class btn_Target_arms:X39_MS2_MedicalUi_RscButtonInvisible
-	{
-		idc = IDC_XMS2UI_BTN_TARGET_ARMS;
-		x = 0.432969 * safezoneW + safezoneX;
-		y = 0.379 * safezoneH + safezoneY;
-		w = 0.117604 * safezoneW;
-		h = 0.187 * safezoneH;
-	};
-	class btn_Target_body:X39_MS2_MedicalUi_RscButtonInvisible
-	{
-		idc = IDC_XMS2UI_BTN_TARGET_BODY;
-		x = 0.463906 * safezoneW + safezoneX;
-		y = 0.379 * safezoneH + safezoneY;
-		w = 0.0567187 * safezoneW;
-		h = 0.187 * safezoneH;
-	};
-	class btn_Target_legs:X39_MS2_MedicalUi_RscButtonInvisible
-	{
-		idc = IDC_XMS2UI_BTN_TARGET_LEGS;
-		x = 0.463906 * safezoneW + safezoneX;
-		y = 0.566 * safezoneH + safezoneY;
-		w = 0.0567187 * safezoneW;
-		h = 0.198 * safezoneH;
-	};
-	class btn_Target_head:X39_MS2_MedicalUi_RscButtonInvisible
-	{
-		idc = IDC_XMS2UI_BTN_TARGET_HEAD;
-		x = 0.474219 * safezoneW + safezoneX;
-		y = 0.313 * safezoneH + safezoneY;
-		w = 0.0360937 * safezoneW;
-		h = 0.066 * safezoneH;
-	};
-	class btn_Target_generic:X39_MS2_MedicalUi_RscButtonInvisible
-	{
-		idc = IDC_XMS2UI_BTN_TARGET_GENERIC;
-		x = 0.561875 * safezoneW + safezoneX;
-		y = 0.676 * safezoneH + safezoneY;
-		w = 0.0464063 * safezoneW;
-		h = 0.088 * safezoneH;
-		colorText[] = {1,1,1,1};
-	};
-	class btn_Target_temperature:X39_MS2_MedicalUi_RscButtonInvisible
-	{
-		idc = IDC_XMS2UI_BTN_TARGET_TEMPERATURE;
-		x = 0.381406 * safezoneW + safezoneX;
-		y = 0.676 * safezoneH + safezoneY;
-		w = 0.0464063 * safezoneW;
-		h = 0.088 * safezoneH;
-		colorText[] = {1,1,1,1};
-	};
-	class btn_Crafting_Slot1:X39_MS2_MedicalUi_RscButtonInvisible
-	{
-		idc = IDC_XMS2UI_BTN_CRAFTING_SLOT1;
-		x = 0.371094 * safezoneW + safezoneX;
-		y = 0.797 * safezoneH + safezoneY;
-		w = 0.0567187 * safezoneW;
-		h = 0.121 * safezoneH;
-		colorText[] = {1,1,1,1};
-	};
-	class btn_Crafting_Slot2:X39_MS2_MedicalUi_RscButtonInvisible
-	{
-		idc = IDC_XMS2UI_BTN_CRAFTING_SLOT2;
-		x = 0.494844 * safezoneW + safezoneX;
-		y = 0.797 * safezoneH + safezoneY;
-		w = 0.0567187 * safezoneW;
-		h = 0.121 * safezoneH;
-		colorText[] = {1,1,1,1};
-	};
-	class btn_Crafting_Slot3:X39_MS2_MedicalUi_RscButtonInvisible
-	{
-		idc = IDC_XMS2UI_BTN_CRAFTING_SLOT3;
-		x = 0.618594 * safezoneW + safezoneX;
-		y = 0.797 * safezoneH + safezoneY;
-		w = 0.0567187 * safezoneW;
-		h = 0.121 * safezoneH;
-		colorText[] = {1,1,1,1};
-	};
-	class btn_Crafting_Result:X39_MS2_MedicalUi_RscButtonInvisible
-	{
-		idc = IDC_XMS2UI_BTN_CRAFTING_RESULT;
-		x = 0.762969 * safezoneW + safezoneX;
-		y = 0.797 * safezoneH + safezoneY;
-		w = 0.0567187 * safezoneW;
-		h = 0.121 * safezoneH;
-		colorText[] = {1,1,1,1};
-	};
-	class btn_TriageCard_addCustomMessage: X39_MS2_MedicalUi_RscButtonInvisible
-	{
-		idc = IDC_XMS2UI_BTN_TRIAGECARD_ADDCUSTOMMESSAGE;
-		x = 0.850625 * safezoneW + safezoneX;
-		y = 0.445 * safezoneH + safezoneY;
-		w = 0.0103125 * safezoneW;
-		h = 0.022 * safezoneH;
-	};
-	class btn_TriageCard_addPreDefinedMessage: X39_MS2_MedicalUi_RscButtonInvisible
-	{
-		idc = IDC_XMS2UI_BTN_TRIAGECARD_ADDPREDEFINEDMESSAGE;
-		x = 0.850625 * safezoneW + safezoneX;
-		y = 0.412 * safezoneH + safezoneY;
-		w = 0.0103125 * safezoneW;
-		h = 0.022 * safezoneH;
-	};
-	class c_TriageCard_TriageStateSelection: RscCombo
-	{
-		idc = IDC_XMS2UI_C_TRIAGECARD_TRIAGESTATESELECTION;
-		x = 0.685625 * safezoneW + safezoneX;
-		y = 0.335 * safezoneH + safezoneY;
-		w = 0.113437 * safezoneW;
-		h = 0.022 * safezoneH;
-	};
-	class c_TriageCard_preDefinedMessagesSelection: RscCombo
-	{
-		idc = IDC_XMS2UI_C_TRIAGECARD_PREDEFINEDMESSAGESSELECTION;
-		x = 0.634062 * safezoneW + safezoneX;
-		y = 0.412 * safezoneH + safezoneY;
-		w = 0.211406 * safezoneW;
-		h = 0.022 * safezoneH;
-	};
-	class c_Diagnosis_checkUnitTypeSelection: RscCombo
-	{
-		idc = IDC_XMS2UI_C_DIAGNOSIS_CHECKUNITTYPESELECTION;
-		x = 0.12875 * safezoneW + safezoneX;
-		y = 0.456 * safezoneH + safezoneY;
-		w = 0.226875 * safezoneW;
-		h = 0.022 * safezoneH;
-	};
-	class c_TriageCard_customMessagesColorSelection: RscCombo
-	{
-		idc = IDC_XMS2UI_C_TRIAGECARD_CUSTOMMESSAGESCOLORSELECTION;
-		x = 0.783594 * safezoneW + safezoneX;
-		y = 0.445 * safezoneH + safezoneY;
-		w = 0.061875 * safezoneW;
-		h = 0.022 * safezoneH;
-	};
-	class RscPicture_1206: RscPicture
-	{
-		idc = IDC_XMS2UI_SELECTEDITEM;
-		text = "\X39_MS2_Resources\UI\plusButton.paa";
-		x = 0.37625 * safezoneW + safezoneX;
-		y = 0.225 * safezoneH + safezoneY;
-		w = 0.0309375 * safezoneW;
-		h = 0.066 * safezoneH;
-		colorText[] = {1,1,1,1};
-	};
-	class RscText_1003: X39_MS2_MedicalUi_RscText
-	{
-		idc = IDC_XMS2UI_SELECTEDITEMTEXT;
-		text = $STR_X39_MS2_UIs_MedicalUi_RscText_1003;
-		x = 0.407187 * safezoneW + safezoneX;
-		y = 0.225 * safezoneH + safezoneY;
-		w = 0.226875 * safezoneW;
-		h = 0.066 * safezoneH;
-		colorBackground[] = {1,1,1,0};
-		colorText[] = {1,1,1,1};
-		colorShadow[] = {0,0,0,0.5};
-		sizeEx = 1.5 * GUI_GRID_H;
-	};
-	class label_Target: X39_MS2_MedicalUi_RscText
-	{
-		idc = IDC_XMS2UI_LABEL_TARGET;
-		text = "Target: NA";
-		x = 0.123594 * safezoneW + safezoneX;
-		y = 0.148 * safezoneH + safezoneY;
-		w = 0.7425 * safezoneW;
-		h = 0.033 * safezoneH;
+	author = "X39|Cpt. HM Murdock";
+	class controls {
+		class back_MainFrame: IGUIBack
+		{
+			idc = IDC_MEDICALUI_BACK_MAINFRAME;
+			x = 0.29475 * safezoneW + safezoneX;
+			y = 0.127 * safezoneH + safezoneY;
+			w = 0.4105 * safezoneW;
+			h = 0.745 * safezoneH;
+			colorBackground[] = {0,0,0,0.25};
+		};
+		class back_DiagnosticFrame: IGUIBack
+		{
+			idc = IDC_MEDICALUI_BACK_DIAGNOSTICFRAME;
+			x = 0.0875 * safezoneW + safezoneX;
+			y = 0.127 * safezoneH + safezoneY;
+			w = 0.20525 * safezoneW;
+			h = 0.352 * safezoneH;
+			colorBackground[] = {0,0,0,0.25};
+		};
+		class back_TriageCardFrame: IGUIBack
+		{
+			idc = IDC_MEDICALUI_BACK_TRIAGECARDFRAME;
+			x = 0.70725 * safezoneW + safezoneX;
+			y = 0.127 * safezoneH + safezoneY;
+			w = 0.20525 * safezoneW;
+			h = 0.352 * safezoneH;
+			colorBackground[] = {0,0,0,0.25};
+		};
+		class back_customTriageCardEntryBackground: IGUIBack
+		{
+			idc = IDC_MEDICALUI_BACK_CUSTOMTRIAGECARDENTRYBACKGROUND;
+			x = 0.711406 * safezoneW + safezoneX;
+			y = 0.427 * safezoneH + safezoneY;
+			w = 0.157844 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class back_DrugsFrame: IGUIBack
+		{
+			idc = IDC_MEDICALUI_BACK_DRUGSFRAME;
+			x = 0.0875 * safezoneW + safezoneX;
+			y = 0.52 * safezoneH + safezoneY;
+			w = 0.20525 * safezoneW;
+			h = 0.352 * safezoneH;
+			colorBackground[] = {0,0,0,0.25};
+		};
+		class back_QuickActionFrame: IGUIBack
+		{
+			idc = IDC_MEDICALUI_BACK_QUICKACTIONFRAME;
+			x = 0.70725 * safezoneW + safezoneX;
+			y = 0.52 * safezoneH + safezoneY;
+			w = 0.20525 * safezoneW;
+			h = 0.352 * safezoneH;
+			colorBackground[] = {0,0,0,0.25};
+		};
+		class label_Drugs: RscText
+		{
+			idc = IDC_MEDICALUI_LABEL_DRUGS;
+			text = "Drugs"; //--- ToDo: Localize;
+			x = 0.0926562 * safezoneW + safezoneX;
+			y = 0.533 * safezoneH + safezoneY;
+			w = 0.195937 * safezoneW;
+			h = 0.022 * safezoneH;
+			colorText[] = {0,0,0,1};
+			colorBackground[] = {1,1,1,1};
+			class Attributes
+			{
+				font = "TahomaB";
+				align = "center";
+				valign = "middle";
+				shadow = true;
+				shadowColor = "#d2d2d2";
+				size = "1";
+			}
+			style = 0x02;
+		};
+		class label_UnitName: RscText
+		{
+			idc = IDC_MEDICALUI_LABEL_UNITNAME;
+			text = "NameLabel"; //--- ToDo: Localize;
+			x = 0.37825 * safezoneW + safezoneX;
+			y = 0.137 * safezoneH + safezoneY;
+			w = 0.2435 * safezoneW;
+			h = 0.022 * safezoneH;
+			colorText[] = {0,0,0,1};
+			colorBackground[] = {1,1,1,1};
+			class Attributes
+			{
+				font = "TahomaB";
+				align = "center";
+				valign = "middle";
+				shadow = true;
+				shadowColor = "#d2d2d2";
+				size = "1";
+			}
+			style = 0x02;
+		};
+		class label_Diagnostic: RscText
+		{
+			idc = IDC_MEDICALUI_LABEL_DIAGNOSTIC;
+			text = "Diagnostics"; //--- ToDo: Localize;
+			x = 0.0926562 * safezoneW + safezoneX;
+			y = 0.137 * safezoneH + safezoneY;
+			w = 0.195937 * safezoneW;
+			h = 0.022 * safezoneH;
+			colorText[] = {0,0,0,1};
+			colorBackground[] = {1,1,1,1};
+			class Attributes
+			{
+				font = "TahomaB";
+				align = "center";
+				valign = "middle";
+				shadow = true;
+				shadowColor = "#d2d2d2";
+				size = "1";
+			}
+			style = 0x02;
+		};
+		class label_TriageCard: RscText
+		{
+			idc = IDC_MEDICALUI_LABEL_TRIAGECARD;
+			text = "TriageCardEntries"; //--- ToDo: Localize;
+			x = 0.711406 * safezoneW + safezoneX;
+			y = 0.137 * safezoneH + safezoneY;
+			w = 0.195937 * safezoneW;
+			h = 0.022 * safezoneH;
+			colorText[] = {0,0,0,1};
+			colorBackground[] = {1,1,1,1};
+			class Attributes
+			{
+				font = "TahomaB";
+				align = "center";
+				valign = "middle";
+				shadow = true;
+				shadowColor = "#d2d2d2";
+				size = "1";
+			}
+			style = 0x02;
+		};
+		class label_QuickActions: RscText
+		{
+			idc = IDC_MEDICALUI_LABEL_QUICKACTIONS;
+			text = "QuickActions"; //--- ToDo: Localize;
+			x = 0.711406 * safezoneW + safezoneX;
+			y = 0.533 * safezoneH + safezoneY;
+			w = 0.195937 * safezoneW;
+			h = 0.022 * safezoneH;
+			colorText[] = {0,0,0,1};
+			colorBackground[] = {1,1,1,1};
+			class Attributes
+			{
+				font = "TahomaB";
+				align = "center";
+				valign = "middle";
+				shadow = true;
+				shadowColor = "#d2d2d2";
+				size = "1";
+			}
+			style = 0x02;
+		};
+		class lbtn_TriageCardBottom: RscText
+		{
+			idc = IDC_MEDICALUI_LBTN_TRIAGECARDBOTTOM;
+			text = ""; //--- ToDo: Localize;
+			x = 0.29475 * safezoneW + safezoneX;
+			y = 0.874 * safezoneH + safezoneY;
+			w = 0.4105 * safezoneW;
+			h = 0.032 * safezoneH;
+			colorText[] = {1,1,1,1};
+			colorBackground[] = {0.5,0.5,0.5,1};
+			class Attributes
+			{
+				font = "TahomaB";
+				align = "center";
+				valign = "middle";
+				shadow = false;
+				shadowColor = "#d2d2d2";
+				size = "1";
+			}
+			style = 0x02;
+			shadow = 0;
+		};
+		class lbtn_TriageCardTop: RscText
+		{
+			idc = IDC_MEDICALUI_LBTN_TRIAGECARDTOP;
+			text = ""; //--- ToDo: Localize;
+			x = 0.29475 * safezoneW + safezoneX;
+			y = 0.093 * safezoneH + safezoneY;
+			w = 0.4105 * safezoneW;
+			h = 0.032 * safezoneH;
+			colorText[] = {1,1,1,1};
+			colorBackground[] = {0.5,0.5,0.5,1};
+			class Attributes
+			{
+				font = "TahomaB";
+				align = "center";
+				valign = "middle";
+				shadow = false;
+				shadowColor = "#d2d2d2";
+				size = "1";
+			}
+			style = 0x02;
+			shadow = 0;
+		};
+		class btn_checkUnit: RscButton
+		{
+			idc = IDC_MEDICALUI_BTN_CHECKUNIT;
+			text = "CheckUnitButton"; //--- ToDo: Localize;
+			x = 0.191625 * safezoneW + safezoneX;
+			y = 0.425 * safezoneH + safezoneY;
+			w = 0.0969687 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class btn_AddSelectedDiagnosticsToTriageCard: RscButton
+		{
+			idc = IDC_MEDICALUI_BTN_ADDSELECTEDDIAGNOSTICSTOTRIAGECARD;
+			text = "AddSelectedDiagnosticsToTriageCard"; //--- ToDo: Localize;
+			x = 0.0926562 * safezoneW + safezoneX;
+			y = 0.449 * safezoneH + safezoneY;
+			w = 0.195937 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class btn_AddPredefinedMessageToTriageCard: RscButton
+		{
+			idc = IDC_MEDICALUI_BTN_ADDPREDEFINEDMESSAGETOTRIAGECARD;
+			text = "+"; //--- ToDo: Localize;
+			x = 0.897031 * safezoneW + safezoneX;
+			y = 0.403 * safezoneH + safezoneY;
+			w = 0.0103125 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class btn_AddCustomMessageToTriageCard: RscButton
+		{
+			idc = IDC_MEDICALUI_BTN_ADDCUSTOMMESSAGETOTRIAGECARD;
+			text = "+"; //--- ToDo: Localize;
+			x = 0.897031 * safezoneW + safezoneX;
+			y = 0.427 * safezoneH + safezoneY;
+			w = 0.0103125 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class btn_RemoveEntryFromTriageCard: RscButton
+		{
+			idc = IDC_MEDICALUI_BTN_REMOVEENTRYFROMTRIAGECARD;
+			text = "RemoveEntry"; //--- ToDo: Localize;
+			x = 0.711406 * safezoneW + safezoneX;
+			y = 0.451 * safezoneH + safezoneY;
+			w = 0.0969687 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class btn_PruneTriageCard: RscButton
+		{
+			idc = IDC_MEDICALUI_BTN_PRUNETRIAGECARD;
+			text = "PruneCard"; //--- ToDo: Localize;
+			x = 0.810375 * safezoneW + safezoneX;
+			y = 0.451 * safezoneH + safezoneY;
+			w = 0.0969687 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class btn_ApplySelectedDrug: RscButton
+		{
+			idc = IDC_MEDICALUI_BTN_APPLYSELECTEDDRUG;
+			text = "ApplyDrug"; //--- ToDo: Localize;
+			x = 0.0926562 * safezoneW + safezoneX;
+			y = 0.843 * safezoneH + safezoneY;
+			w = 0.195937 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class btn_PerformQuickAction: RscButton
+		{
+			idc = IDC_MEDICALUI_BTN_PERFORMQUICKACTION;
+			text = "PerformQuickAction"; //--- ToDo: Localize;
+			x = 0.711406 * safezoneW + safezoneX;
+			y = 0.843 * safezoneH + safezoneY;
+			w = 0.195937 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class img_HitZoneInfoPic6: RscPicture
+		{
+			idc = IDC_MEDICALUI_IMG_HITZONEINFOPIC6;
+			text = "#(argb,8,8,3)color(1,1,1,0.1)";
+			x = 0.489687 * safezoneW + safezoneX;
+			y = 0.83 * safezoneH + safezoneY;
+			w = 0.020625 * safezoneW;
+			h = 0.033 * safezoneH;
+		};
+		class img_HitZoneInfoPic1: RscPicture
+		{
+			idc = IDC_MEDICALUI_IMG_HITZONEINFOPIC1;
+			text = "#(argb,8,8,3)color(1,1,1,0.1)";
+			x = 0.335 * safezoneW + safezoneX;
+			y = 0.83 * safezoneH + safezoneY;
+			w = 0.020625 * safezoneW;
+			h = 0.033 * safezoneH;
+		};
+		class img_HitZoneInfoPic2: RscPicture
+		{
+			idc = IDC_MEDICALUI_IMG_HITZONEINFOPIC2;
+			text = "#(argb,8,8,3)color(1,1,1,0.1)";
+			x = 0.365937 * safezoneW + safezoneX;
+			y = 0.83 * safezoneH + safezoneY;
+			w = 0.020625 * safezoneW;
+			h = 0.033 * safezoneH;
+		};
+		class img_HitZoneInfoPic3: RscPicture
+		{
+			idc = IDC_MEDICALUI_IMG_HITZONEINFOPIC3;
+			text = "#(argb,8,8,3)color(1,1,1,0.1)";
+			x = 0.396875 * safezoneW + safezoneX;
+			y = 0.83 * safezoneH + safezoneY;
+			w = 0.020625 * safezoneW;
+			h = 0.033 * safezoneH;
+		};
+		class img_HitZoneInfoPic4: RscPicture
+		{
+			idc = IDC_MEDICALUI_IMG_HITZONEINFOPIC4;
+			text = "#(argb,8,8,3)color(1,1,1,0.1)";
+			x = 0.427812 * safezoneW + safezoneX;
+			y = 0.83 * safezoneH + safezoneY;
+			w = 0.020625 * safezoneW;
+			h = 0.033 * safezoneH;
+		};
+		class img_HitZoneInfoPic5: RscPicture
+		{
+			idc = IDC_MEDICALUI_IMG_HITZONEINFOPIC5;
+			text = "#(argb,8,8,3)color(1,1,1,0.1)";
+			x = 0.45875 * safezoneW + safezoneX;
+			y = 0.83 * safezoneH + safezoneY;
+			w = 0.020625 * safezoneW;
+			h = 0.033 * safezoneH;
+		};
+		class img_HitZoneInfoPic7: RscPicture
+		{
+			idc = IDC_MEDICALUI_IMG_HITZONEINFOPIC7;
+			text = "#(argb,8,8,3)color(1,1,1,0.1)";
+			x = 0.520625 * safezoneW + safezoneX;
+			y = 0.83 * safezoneH + safezoneY;
+			w = 0.020625 * safezoneW;
+			h = 0.033 * safezoneH;
+		};
+		class img_HitZoneInfoPic8: RscPicture
+		{
+			idc = IDC_MEDICALUI_IMG_HITZONEINFOPIC8;
+			text = "#(argb,8,8,3)color(1,1,1,0.1)";
+			x = 0.551562 * safezoneW + safezoneX;
+			y = 0.83 * safezoneH + safezoneY;
+			w = 0.020625 * safezoneW;
+			h = 0.033 * safezoneH;
+		};
+		class img_HitZoneInfoPic9: RscPicture
+		{
+			idc = IDC_MEDICALUI_IMG_HITZONEINFOPIC9;
+			text = "#(argb,8,8,3)color(1,1,1,0.1)";
+			x = 0.5825 * safezoneW + safezoneX;
+			y = 0.83 * safezoneH + safezoneY;
+			w = 0.020625 * safezoneW;
+			h = 0.033 * safezoneH;
+		};
+		class img_HitZoneInfoPic10: RscPicture
+		{
+			idc = IDC_MEDICALUI_IMG_HITZONEINFOPIC10;
+			text = "#(argb,8,8,3)color(1,1,1,0.1)";
+			x = 0.613437 * safezoneW + safezoneX;
+			y = 0.83 * safezoneH + safezoneY;
+			w = 0.020625 * safezoneW;
+			h = 0.033 * safezoneH;
+		};
+		class img_HitZoneInfoPic11: RscPicture
+		{
+			idc = IDC_MEDICALUI_IMG_HITZONEINFOPIC11;
+			text = "#(argb,8,8,3)color(1,1,1,0.1)";
+			x = 0.644375 * safezoneW + safezoneX;
+			y = 0.83 * safezoneH + safezoneY;
+			w = 0.020625 * safezoneW;
+			h = 0.033 * safezoneH;
+		};
+		class lb_triageCardEntries: RscListbox
+		{
+			idc = IDC_MEDICALUI_LB_TRIAGECARDENTRIES;
+			x = 0.711405 * safezoneW + safezoneX;
+			y = 0.159 * safezoneH + safezoneY;
+			w = 0.195937 * safezoneW;
+			h = 0.242 * safezoneH;
+		};
+		class lb_DiagnosticsList: RscListbox
+		{
+			idc = IDC_MEDICALUI_LB_DIAGNOSTICSLIST;
+			x = 0.0926552 * safezoneW + safezoneX;
+			y = 0.159 * safezoneH + safezoneY;
+			w = 0.195937 * safezoneW;
+			h = 0.264 * safezoneH;
+		};
+		class lb_DrugsList: RscListbox
+		{
+			idc = IDC_MEDICALUI_LB_DRUGSLIST;
+			x = 0.0926557 * safezoneW + safezoneX;
+			y = 0.555 * safezoneH + safezoneY;
+			w = 0.195937 * safezoneW;
+			h = 0.286 * safezoneH;
+		};
+		class lb_QuickActionList: RscListbox
+		{
+			idc = IDC_MEDICALUI_LB_QUICKACTIONLIST;
+			x = 0.711405 * safezoneW + safezoneX;
+			y = 0.555 * safezoneH + safezoneY;
+			w = 0.195937 * safezoneW;
+			h = 0.154 * safezoneH;
+		};
+		class cb_checkUnitType: RscCombo
+		{
+			idc = IDC_MEDICALUI_CB_CHECKUNITTYPE;
+			x = 0.0926562 * safezoneW + safezoneX;
+			y = 0.425 * safezoneH + safezoneY;
+			w = 0.0969687 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class cb_preDefinedTriageCardMessages: RscCombo
+		{
+			idc = IDC_MEDICALUI_CB_PREDEFINEDTRIAGECARDMESSAGES;
+			x = 0.711406 * safezoneW + safezoneX;
+			y = 0.403 * safezoneH + safezoneY;
+			w = 0.183625 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class cb_customTriageCardMessageColorSelection: RscCombo
+		{
+			idc = IDC_MEDICALUI_CB_CUSTOMTRIAGECARDMESSAGECOLORSELECTION;
+			x = 0.87125 * safezoneW + safezoneX;
+			y = 0.427 * safezoneH + safezoneY;
+			w = 0.0237812 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class tb_customTriageCardEntry: RscEdit
+		{
+			idc = IDC_MEDICALUI_TB_CUSTOMTRIAGECARDENTRY;
+			x = 0.711406 * safezoneW + safezoneX;
+			y = 0.427 * safezoneH + safezoneY;
+			w = 0.157844 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class tb_quickActionDescription: RscStructuredText
+		{
+			idc = IDC_MEDICALUI_TB_QUICKACTIONDESCRIPTION;
+			x = 0.711405 * safezoneW + safezoneX;
+			y = 0.711 * safezoneH + safezoneY;
+			w = 0.195937 * safezoneW;
+			h = 0.13 * safezoneH;
+		};
+		class btn_ToggleDrugsFrame: RscButton
+		{
+			idc = IDC_MEDICALUI_BTN_TOGGLEDRUGSFRAME;
+			text = ">"; //--- ToDo: Localize;
+			x = 0.0771875 * safezoneW + safezoneX;
+			y = 0.52 * safezoneH + safezoneY;
+			w = 0.0103125 * safezoneW;
+			h = 0.352 * safezoneH;
+			colorBackground[] = {0,0,0,0.25};
+		};
+		class btn_ToggleDiagnosticFrame: RscButton
+		{
+			idc = IDC_MEDICALUI_BTN_TOGGLEDIAGNOSTICFRAME;
+			text = ">"; //--- ToDo: Localize;
+			x = 0.0771875 * safezoneW + safezoneX;
+			y = 0.127 * safezoneH + safezoneY;
+			w = 0.0103125 * safezoneW;
+			h = 0.352 * safezoneH;
+			colorBackground[] = {0,0,0,0.25};
+		};
+		class btn_ToggleTriageCardFrame: RscButton
+		{
+			idc = IDC_MEDICALUI_BTN_TOGGLETRIAGECARDFRAME;
+			text = "<"; //--- ToDo: Localize;
+			x = 0.9125 * safezoneW + safezoneX;
+			y = 0.127 * safezoneH + safezoneY;
+			w = 0.0103125 * safezoneW;
+			h = 0.352 * safezoneH;
+			colorBackground[] = {0,0,0,0.25};
+		};
+		class btn_ToggleQuickActionFrame: RscButton
+		{
+			idc = IDC_MEDICALUI_BTN_TOGGLEQUICKACTIONFRAME;
+			text = "<"; //--- ToDo: Localize;
+			x = 0.9125 * safezoneW + safezoneX;
+			y = 0.52 * safezoneH + safezoneY;
+			w = 0.0103125 * safezoneW;
+			h = 0.352 * safezoneH;
+			colorBackground[] = {0,0,0,0.25};
+		};
+		class img_head: RscPicture
+		{
+			idc = IDC_MEDICALUI_IMG_HEAD;
+			text = "\X39_MS2_Resources\UI\MedicalUI\BodyPart_Head.paa";
+			x = 0.474219 * safezoneW + safezoneX;
+			y = 0.181926 * safezoneH + safezoneY;
+			w = 0.05 * safezoneW;
+			h = 0.088 * safezoneH;
+		};
+		class img_leftLowerArm: RscPicture
+		{
+			idc = IDC_MEDICALUI_IMG_LEFTLOWERARM;
+			text = "\X39_MS2_Resources\UI\MedicalUI\BodyPart_LeftLowerArm.paa";
+			x = 0.412344 * safezoneW + safezoneX;
+			y = 0.410148 * safezoneH + safezoneY;
+			w = 0.0530729 * safezoneW;
+			h = 0.146593 * safezoneH;
+		};
+		class img_leftLowerLeg: RscPicture
+		{
+			idc = IDC_MEDICALUI_IMG_LEFTLOWERLEG;
+			text = "\X39_MS2_Resources\UI\MedicalUI\BodyPart_LeftLowerLeg.paa";
+			x = 0.466979 * safezoneW + safezoneX;
+			y = 0.66037 * safezoneH + safezoneY;
+			w = 0.0283854 * safezoneW;
+			h = 0.113371 * safezoneH;
+		};
+		class img_leftUpperArm: RscPicture
+		{
+			idc = IDC_MEDICALUI_IMG_LEFTUPPERARM;
+			text = "\X39_MS2_Resources\UI\MedicalUI\BodyPart_LeftUpperArm.paa";
+			x = 0.44125 * safezoneW + safezoneX;
+			y = 0.292852 * safezoneH + safezoneY;
+			w = 0.0247396 * safezoneW;
+			h = 0.117075 * safezoneH;
+		};
+		class img_leftUpperLeg: RscPicture
+		{
+			idc = IDC_MEDICALUI_IMG_LEFTUPPERLEG;
+			text = "\X39_MS2_Resources\UI\MedicalUI\BodyPart_LeftUpperLeg.paa";
+			x = 0.461823 * safezoneW + safezoneX;
+			y = 0.552113 * safezoneH + safezoneY;
+			w = 0.0360937 * safezoneW;
+			h = 0.110814 * safezoneH;
+		};
+		class img_lowerBody: RscPicture
+		{
+			idc = IDC_MEDICALUI_IMG_LOWERBODY;
+			text = "\X39_MS2_Resources\UI\MedicalUI\BodyPart_LowerBody.paa";
+			x = 0.459739 * safezoneW + safezoneX;
+			y = 0.444074 * safezoneH + safezoneY;
+			w = 0.08 * safezoneW;
+			h = 0.109185 * safezoneH;
+		};
+		class img_rightLowerArm: RscPicture
+		{
+			idc = IDC_MEDICALUI_IMG_RIGHTLOWERARM;
+			text = "\X39_MS2_Resources\UI\MedicalUI\BodyPart_RightLowerArm.paa";
+			x = 0.533541 * safezoneW + safezoneX;
+			y = 0.410148 * safezoneH + safezoneY;
+			w = 0.0535937 * safezoneW;
+			h = 0.146704 * safezoneH;
+		};
+		class img_rightLowerLeg: RscPicture
+		{
+			idc = IDC_MEDICALUI_IMG_RIGHTLOWERLEG;
+			text = "\X39_MS2_Resources\UI\MedicalUI\BodyPart_RightLowerLeg.paa";
+			x = 0.505156 * safezoneW + safezoneX;
+			y = 0.661408 * safezoneH + safezoneY;
+			w = 0.0273437 * safezoneW;
+			h = 0.112334 * safezoneH;
+		};
+		class img_rightUpperArm: RscPicture
+		{
+			idc = IDC_MEDICALUI_IMG_RIGHTUPPERARM;
+			text = "\X39_MS2_Resources\UI\MedicalUI\BodyPart_RightUpperArm.paa";
+			x = 0.533489 * safezoneW + safezoneX;
+			y = 0.292852 * safezoneH + safezoneY;
+			w = 0.0247395 * safezoneW;
+			h = 0.121 * safezoneH;
+		};
+		class img_rightUpperLeg: RscPicture
+		{
+			idc = IDC_MEDICALUI_IMG_RIGHTUPPERLEG;
+			text = "\X39_MS2_Resources\UI\MedicalUI\BodyPart_RightUpperLeg.paa";
+			x = 0.501563 * safezoneW + safezoneX;
+			y = 0.553482 * safezoneH + safezoneY;
+			w = 0.0353646 * safezoneW;
+			h = 0.107815 * safezoneH;
+		};
+		class img_upperBody: RscPicture
+		{
+			idc = IDC_MEDICALUI_IMG_UPPERBODY;
+			text = "\X39_MS2_Resources\UI\MedicalUI\BodyPart_UpperBody.paa";
+			x = 0.465416 * safezoneW + safezoneX;
+			y = 0.269926 * safezoneH + safezoneY;
+			w = 0.068177 * safezoneW;
+			h = 0.175408 * safezoneH;
+		};
+		class btn_ToggleHealthView: RscButton
+		{
+			idc = IDC_MEDICALUI_BTN_TOGGLEHEALTHVIEW;
+			text = "HealthView"; //--- ToDo: Localize;
+			x = 0.298906 * safezoneW + safezoneX;
+			y = 0.137 * safezoneH + safezoneY;
+			w = 0.0773437 * safezoneW;
+			h = 0.022 * safezoneH;
+			colorBackground[] = {1,1,1,1};
+			colorActive[] = {1,1,1,0.5};
+		};
+		class btn_ToggleBloodView: RscButton
+		{
+			idc = IDC_MEDICALUI_BTN_TOGGLEBLOODVIEW;
+			text = "BloodView"; //--- ToDo: Localize;
+			x = 0.62375 * safezoneW + safezoneX;
+			y = 0.137 * safezoneH + safezoneY;
+			w = 0.0773437 * safezoneW;
+			h = 0.022 * safezoneH;
+			colorBackground[] = {1,1,1,1};
+			colorActive[] = {1,1,1,0.5};
+		};
+		class img_leftFoot: RscPicture
+		{
+			idc = IDC_MEDICALUI_IMG_LEFTFOOT;
+			text = "\X39_MS2_Resources\UI\MedicalUI\BodyPart_LeftFoot.paa";
+			x = 0.473228 * safezoneW + safezoneX;
+			y = 0.772222 * safezoneH + safezoneY;
+			w = 0.0226562 * safezoneW;
+			h = 0.0438889 * safezoneH;
+		};
+		class img_rightFoot: RscPicture
+		{
+			idc = IDC_MEDICALUI_IMG_RIGHTFOOT;
+			text = "\X39_MS2_Resources\UI\MedicalUI\BodyPart_RightFoot.paa";
+			x = 0.504114 * safezoneW + safezoneX;
+			y = 0.774074 * safezoneH + safezoneY;
+			w = 0.0231771 * safezoneW;
+			h = 0.0420371 * safezoneH;
+		};
+		class lbtn_ActionMenuButton1: RscText
+		{
+			idc = IDC_MEDICALUI_LBTN_ACTIONMENUBUTTON1;
+			x = 0.00499997 * safezoneW + safezoneX;
+			y = 0.00500001 * safezoneH + safezoneY;
+			w = 0.12375 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class lbtn_ActionMenuButton2: RscText
+		{
+			idc = IDC_MEDICALUI_LBTN_ACTIONMENUBUTTON2;
+			x = 0.0101562 * safezoneW + safezoneX;
+			y = 0.016 * safezoneH + safezoneY;
+			w = 0.12375 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class lbtn_ActionMenuButton3: RscText
+		{
+			idc = IDC_MEDICALUI_LBTN_ACTIONMENUBUTTON3;
+			x = 0.0153125 * safezoneW + safezoneX;
+			y = 0.027 * safezoneH + safezoneY;
+			w = 0.12375 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class lbtn_ActionMenuButton4: RscText
+		{
+			idc = IDC_MEDICALUI_LBTN_ACTIONMENUBUTTON4;
+			x = 0.0204687 * safezoneW + safezoneX;
+			y = 0.038 * safezoneH + safezoneY;
+			w = 0.12375 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class lbtn_ActionMenuButton5: RscText
+		{
+			idc = IDC_MEDICALUI_LBTN_ACTIONMENUBUTTON5;
+			x = 0.025625 * safezoneW + safezoneX;
+			y = 0.049 * safezoneH + safezoneY;
+			w = 0.12375 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class lbtn_ActionMenuButton6: RscText
+		{
+			idc = IDC_MEDICALUI_LBTN_ACTIONMENUBUTTON6;
+			x = 0.0307812 * safezoneW + safezoneX;
+			y = 0.06 * safezoneH + safezoneY;
+			w = 0.12375 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class lbtn_ActionMenuButton7: RscText
+		{
+			idc = IDC_MEDICALUI_LBTN_ACTIONMENUBUTTON7;
+			x = 0.0359375 * safezoneW + safezoneX;
+			y = 0.071 * safezoneH + safezoneY;
+			w = 0.12375 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class lbtn_ActionMenuButton8: RscText
+		{
+			idc = IDC_MEDICALUI_LBTN_ACTIONMENUBUTTON8;
+			x = 0.0410937 * safezoneW + safezoneX;
+			y = 0.082 * safezoneH + safezoneY;
+			w = 0.12375 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class lbtn_ActionMenuButton9: RscText
+		{
+			idc = IDC_MEDICALUI_LBTN_ACTIONMENUBUTTON9;
+			x = 0.04625 * safezoneW + safezoneX;
+			y = 0.093 * safezoneH + safezoneY;
+			w = 0.12375 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
+		class lbtn_ActionMenuButton10: RscText
+		{
+			idc = IDC_MEDICALUI_LBTN_ACTIONMENUBUTTON10;
+			x = 0.0514062 * safezoneW + safezoneX;
+			y = 0.104 * safezoneH + safezoneY;
+			w = 0.12375 * safezoneW;
+			h = 0.022 * safezoneH;
+		};
 	};
 };

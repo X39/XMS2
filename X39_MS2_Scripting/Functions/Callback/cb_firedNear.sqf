@@ -36,21 +36,26 @@ if(X39_MS2_var_Feature_EnableBackBlast && {[_usedWeapon, "LAUNCH", false] call B
 			{
 				_damage = (1 - (_distance / X39_MS2_var_BackBlast_DamageFalloffRange)) * X39_MS2_var_BackBlast_MaxDamage;
 			};
-			[_unit, _damage] call X39_MS2_fnc_addDamageToBody;
-			[_unit, _damage] call X39_MS2_fnc_addDamageToGeneric;
-			[_unit, _damage] call X39_MS2_fnc_addDamageToHands;
-			[_unit, _damage] call X39_MS2_fnc_addDamageToHead;
-			[_unit, _damage] call X39_MS2_fnc_addDamageToLegs;
+			{
+				[_unit, _damage] call (missionNamespace getVariable format["X39_MS2_fnc_addDamageTo%1", _x select HITZONE_NAME]);
+				false
+			}count X39_MS2_var_Internal_HitZones;
 		};
 	}forEach (_firerer nearEntities ["Man", X39_MS2_var_BackBlast_RangeMaxDamage + X39_MS2_var_BackBlast_DamageFalloffRange]);	
 };
 if(!(_unit getVariable ["X39_MS2_var_hasEarplugs", false]) && _usedFiremode != "Throw") then
 {
+	
 	private["_distance"];
 	_distance = 1 - ((_this select 2) / 69);
 	_valHit = getNumber (_usedAmmoClass >> "hit");
 	_valCal = getNumber (_usedAmmoClass >> "caliber");
 	_fixVal = (_valHit * _valCal * _distance);
+	DEBUG_LOG_WFn_SC(format["Hearing calculation: _distance => %1" COMMA _distance])
+	DEBUG_LOG_WFn_SC(format["Hearing calculation: _valHit => %1" COMMA _valHit])
+	DEBUG_LOG_WFn_SC(format["Hearing calculation: _valCal => %1" COMMA _valCal])
+	DEBUG_LOG_WFn_SC(format["Hearing calculation: _fixVal => %1" COMMA _fixVal])
+	DEBUG_LOG_WFn_SC(format["Hearing calculation: adding to current hearing => %1" COMMA -(0.1 / _fixVal)])
 	if(_fixVal != 0) then
 	{
 		[_unit,  -(0.1 / _fixVal) ] call X39_MS2_fnc_addHearing;

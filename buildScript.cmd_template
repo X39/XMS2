@@ -59,29 +59,33 @@ FOR /F %%f IN ('DIR /AD/B/D') DO (
 		SET BINPBOJOB=PACK
 	)
 	if "!FILE:~0,1!"=="." (
-		echo Ignoring !FILE! because of the initial .
+		echo Ignoring !FILE! because of the initial dot
 	) else (
-		IF NOT EXIST "%GITPATH%\!FILE!\.IGNOREFOLDER" (
+		IF EXIST "%GITPATH%\!FILE!\.IGNOREFOLDER" (
+			ECHO Ignoring !FILE! because of the '.IGNOREFOLDER' file
+		) ELSE (
 			"%BINPBO%" "%GITPATH%\!FILE!" "%GAMEADDONPATH%" -!BINPBOJOB! -CLEAR -TEMP "%TEMPPATH%" -DEBUG -PROJECT "%GITPATH%\!FILE!" -SIGN "%SIGNKEY%" -INCLUDE "%WHITELIST%"
 		)
 	)
 )
-
 IF NOT "%PLACECOPYAT%"=="" (
 	ECHO.
 	ECHO.
 	ECHO Copy will be placed at
 	ECHO %PLACECOPYAT%
 	ECHO ------------------------------------
+	CD /d "%GAMEADDONPATH%"
 
 	IF NOT EXIST "%PLACECOPYAT%" MKDIR "%PLACECOPYAT%"
 	FOR /F %%f IN ('DIR /B/D *.pbo') DO (
 		SET FILE=%%f
-		CP "%GAMEADDONPATH%\!FILE!" "%PLACECOPYAT%\!FILE!"
+		ECHO Creating copy of "!FILE!"
+		COPY /Y/B "%GAMEADDONPATH%\!FILE!" "%PLACECOPYAT%\!FILE!"
 	)
 	FOR /F %%f IN ('DIR /B/D *.bisign') DO (
 		SET FILE=%%f
-		CP "%GAMEADDONPATH%\!FILE!" "%PLACECOPYAT%\!FILE!"
+		ECHO Creating copy of "!FILE!"
+		COPY /Y/B "%GAMEADDONPATH%\!FILE!" "%PLACECOPYAT%\!FILE!"
 	)
 )
 ECHO.
@@ -89,6 +93,7 @@ ECHO ------------------------------------
 ECHO Cleaning up GITPATH
 ECHO %GITPATH%
 ECHO ------------------------------------
+CD /d "%GITPATH%"
 FOR /F %%f IN ('DIR /B/D *.pbo') DO (
 	echo Cleaning %%f
 	del %%f

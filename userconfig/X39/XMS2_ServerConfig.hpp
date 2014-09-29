@@ -22,13 +22,15 @@ class TriageCard
 		//	name = "SomeExampleName";			//Displayed name of the triageCard entry
 		//	description = "DUDE NEARLY DEAD";	//Description of the case (currently unused)
 		//	color[] = RGBA(255,0,255,163);		//Displayed color of the triageCard entry
+		//	textColor[] = RGB(0,0,0,1);			//Text color of the triageCard entry
 		//	rating = 100;						//Displayed numeric rating of the triageCard
 		//};
 		class NA:triageBase
 		{
-			name = "No status";
-			description = "No status";
-			color[] = RGBA(0,0,0,0);
+			name = "NA";
+			description = "No injuries";
+			color[] = RGBA(128,128,128,255);
+			textColor[] = RGBA(255,255,255,255);
 			rating = -1;
 		};
 		class green_minimal:triageBase
@@ -36,6 +38,7 @@ class TriageCard
 			name = "Minimal";
 			description = "Minor injuries";
 			color[] = RGBA(0,128,0,255);
+			textColor[] = RGBA(255,255,255,255);
 			rating = 1;
 		};
 		class yellow_delayed:triageBase
@@ -43,6 +46,7 @@ class TriageCard
 			name = "Delayed";
 			description = "Non-life threating injuries";
 			color[] = RGBA(255,255,0,255);
+			textColor[] = RGBA(0,0,0,255);
 			rating = 3;
 		};
 		class red_immediate:triageBase
@@ -50,6 +54,7 @@ class TriageCard
 			name = "Immediate";
 			description = "Life threating injuries";
 			color[] = RGBA(255,0,0,255);
+			textColor[] = RGBA(255,255,255,255);
 			rating = 7;
 		};
 		class black_expectant:triageBase
@@ -57,6 +62,7 @@ class TriageCard
 			name = "Expectant";
 			description = "Pain medication only until death";
 			color[] = RGBA(0,0,0,255);
+			textColor[] = RGBA(255,255,255,255);
 			rating = 10;
 		};
 	};
