@@ -5,6 +5,11 @@
  *
  *	@Return - NA
  */
+[] call X39_MS2_fnc_IMH_registerMedicalActions;
+[] call X39_MS2_fnc_IMH_addMedicalMessages;
+[] call X39_MS2_fnc_IMH_addInteractionMenuEntries;
+[] call X39_MS2_fnc_IMH_registerDrugs;
+[] call X39_MS2_fnc_IMH_registerMedicalUiStatusEffects;
 if(isServer) then
 {
 	private["_id"];

@@ -6,7 +6,8 @@
  *	@Return - N/A
  *	@Author - X39|Cpt. HM Murdock
  */
-_res = _this spawn {
+if(!scriptDone (_this getVariable ["X39_MS2_var_UnitTickHandle", scriptNull])) exitWith {PRINT_ERROR("XMS2 TICKER IS ALREADY RUNNING!");};
+_this setVariable ["X39_MS2_var_UnitTickHandle", _this spawn {
 	private["_unit", "_ticks", "_startTime", "_blackOutStage", "_sleep", "_ppeDynamicBlur", "_ppeRadialBlur", "_ppeFocus", "_ppeFilmGrain", "_ppeChromAberration", "_ppeGreyScreen", "_ppeColorInversion", "_ppeWetDisort_LeftStrength", "_ppeWetDisort_RightStrength", "_cfnDisableFatigue", "_cfnDisableFatigueLast", "_cfnForceWalk", "_cfnForceWalkLast", "_redScreenAlpha"];
 	DEBUG_CODE(private["_randomID"];_randomID = random 20000);
 	_cfnDisableFatigueLast = str (0 > 0);
@@ -100,4 +101,4 @@ _res = _this spawn {
 		};
 	};
 	
-};
+}];

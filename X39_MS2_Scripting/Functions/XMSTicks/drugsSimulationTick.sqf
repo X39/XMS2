@@ -81,17 +81,21 @@ if(X39_MS2_var_Feature_EnableMorphine) then {
 		{
 			if(_morphineCalculationBase >= X39_MS2_var_Drugs_Morphine_morphineRandomDowningPointP) then
 			{
-				if(floor random 100 < X39_MS2_var_Drugs_Morphine_morphineRandomDowningBaseValueP * 100) then
+				if(stance _unit != "PRONE") then
 				{
-					_unit playMove "down";
+					if((random 1 < X39_MS2_var_Drugs_Morphine_morphineRandomDowningBaseValueP) && (random 1 < X39_MS2_var_Drugs_Morphine_morphineRandomDowningBaseValueP)) then
+					{
+						_unit playMove "down";
+					};
 				};
 			};
 		};
 		if(X39_MS2_var_Drugs_Morphine_morphineDisortionStartPointP != -1) then
 		{
-			if(_morphineCalculationBase >= X39_MS2_var_Drugs_Morphine_morphineForceWalkPointP) then
+			if(_morphineCalculationBase >= X39_MS2_var_Drugs_Morphine_morphineDisortionStartPointP) then
 			{
-				_ppeWetDisort_LeftStrength = _ppeWetDisort_LeftStrength + ((X39_MS2_var_Drugs_Morphine_morphineForceWalkPointP - _morphineCalculationBase) / (1 - X39_MS2_var_Drugs_Morphine_morphineForceWalkPointP));
+				_ppeWetDisort_LeftStrength = _ppeWetDisort_LeftStrength + (_morphineCalculationBase - X39_MS2_var_Drugs_Morphine_morphineDisortionStartPointP) / (1 - X39_MS2_var_Drugs_Morphine_morphineDisortionStartPointP);
+				_ppeWetDisort_RightStrength = _ppeWetDisort_RightStrength + (_morphineCalculationBase - X39_MS2_var_Drugs_Morphine_morphineDisortionStartPointP) / (1 - X39_MS2_var_Drugs_Morphine_morphineDisortionStartPointP);
 			};
 		};
 	};

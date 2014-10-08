@@ -26,7 +26,7 @@ _unit				=	[_this, 0, objNull, [objNull]]	call BIS_fnc_param;
 _stage				=	[_this, 1, 0, [0]]				call BIS_fnc_param;
 _time				=	[_this, 2, 0, [0]]				call BIS_fnc_param;
 _text				=	[_this, 3, "", [""]]			call BIS_fnc_param;
-_blackOutId			=	toUpper [_this, 4, "", [""]]	call BIS_fnc_param;
+_blackOutId		=	toUpper ([_this, 4, "", [""]]	call BIS_fnc_param);
 _wakeUpCondition	=	[_this, 5, {false}, [{}]]		call BIS_fnc_param;
 _override			=	[_this, 6, false, [false]]		call BIS_fnc_param;
 if(isNull _unit) exitWith {PRINT_ERROR("Provided unit is null!");};
@@ -39,6 +39,9 @@ if(_stage == 0) exitWith
 		_unit setVariable ["X39_MS2_var_BlackOut_timeOfUnconscious", -1];
 		_unit setVariable ["X39_MS2_var_BlackOut_Text", _text];
 		_unit setVariable ["X39_MS2_var_BlackOut_isBlackedOut", false];
+		_unit setVariable ["tf_unable_to_use_radio", false];
+		_unit setVariable ["tf_voiceVolume", 1];
+		_unit setVariable ["tf_globalVolume", 1];
 		["consciousStateChanged", _this, false, "XMS2", missionNamespace] call X39_XLib_EH_fnc_triggerEvent;
 		_unit setVariable ["X39_MS2_var_BlackOut_currentStage", _stage];
 		_unit setCaptive false;
@@ -89,4 +92,7 @@ if((_stage > _currentStageOfUnit || {_override}) && {_stage < 5}) then
 	_unit setVariable ["X39_MS2_var_BlackOut_currentStage", _stage];
 	["consciousStateChanged", _this, false, "XMS2", missionNamespace] call X39_XLib_EH_fnc_triggerEvent;
 	[_unit] call X39_MS2_fnc_blackOutDialog_createDialog;
+	_unit setVariable ["tf_unable_to_use_radio", true];
+	_unit setVariable ["tf_voiceVolume", 0];
+	_unit setVariable ["tf_globalVolume", 0];
 };

@@ -10,6 +10,7 @@
 X39_MS2_var_Internal_MedicalUi_ApplyDrugHandle = _this spawn
 {
 	private["_flag", "_anmiationTime"];
+	X39_MS2_var_Internal_DialogCommunication_MA_preventActions = true;
 	_currentSelectedDrug = X39_MS2_var_Internal_MedicalUi_RegisteredDrugs select (displayCtrl_MedicalUi(IDC_MEDICALUI_LB_DRUGSLIST) lbValue (lbCurSel displayCtrl_MedicalUi(IDC_MEDICALUI_LB_DRUGSLIST)));
 	if(vehicle X39_MS2_var_Internal_DialogCommunication_MA_Caller == X39_MS2_var_Internal_DialogCommunication_MA_Caller) then
 	{
@@ -57,4 +58,5 @@ X39_MS2_var_Internal_MedicalUi_ApplyDrugHandle = _this spawn
 			true
 		] call X39_XLib_fnc_createAcceptRequest;
 	};
+	X39_MS2_var_Internal_DialogCommunication_MA_preventActions = false;
 };

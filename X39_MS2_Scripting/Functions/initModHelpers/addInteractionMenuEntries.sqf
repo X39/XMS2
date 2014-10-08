@@ -60,20 +60,14 @@
 	'',
 	{
 		[] call X39_XLib_fnc_ActionDialog_closeDialog;
-		[X39_XLib_var_ActionDialog_Executor, X39_XLib_var_ActionDialog_Target] spawn X39_MS2_fnc_MA_defibrillate;
+		[X39_XLib_var_ActionDialog_Executor, X39_XLib_var_ActionDialog_Target] call X39_MS2_fnc_MA_defibrillate;
 	},
-	{[X39_XLib_var_ActionDialog_Target] call X39_MS2_fnc_isUnitXms2Unit && {
-		!X39_XLib_var_ActionDialog_IsSelf && !X39_XLib_var_ActionDialog_ExecutorInVehicle &&
-		{
-			(((items X39_XLib_var_ActionDialog_Target) find 'x39_xms2_defibrillator') != -1) ||
-			{
-				(((items X39_XLib_var_ActionDialog_Executor) find 'x39_xms2_defibrillator') != -1) &&
-				{
-					X39_XLib_var_ActionDialog_TargetBlackOutStage >= 3
-				}
-			}
-		}
-	}}
+	{
+		[X39_XLib_var_ActionDialog_Target] call X39_MS2_fnc_isUnitXms2Unit && {
+		!X39_XLib_var_ActionDialog_IsSelf && !X39_XLib_var_ActionDialog_ExecutorInVehicle && {
+		(((items X39_XLib_var_ActionDialog_Target) find 'x39_xms2_defibrillator') != -1) || {
+		(((items X39_XLib_var_ActionDialog_Executor) find 'x39_xms2_defibrillator') != -1) }}}
+	}
 ] call X39_XLib_fnc_ActionDialog_registerAction;
 [
 	localize 'STR_X39_MS2_Scripting_InteractionMenu_stripWeapons',
@@ -135,15 +129,32 @@
 		} count attachedObjects X39_XLib_var_ActionDialog_Executor;
 		if(!isNull _unit) then
 		{
+			private["_animation"];
 			detach _unit;
 			if([_unit] call X39_MS2_fnc_isBlackedOut) then
 			{
-				_unit playMove 'AinjPpneMstpSnonWrflDb_release';//TODO: Check if its required to do a primaryWeapon == '' etc. check
+				_animation = 'AmovPpneMstpSnonWrflDb_release';
 			}
 			else
 			{
-				_unit playAction "down";
+				_animation = "";
+				if(primaryWeapon X39_XLib_var_ActionDialog_Executor == '' && secondaryWeapon X39_XLib_var_ActionDialog_Executor == '') then
+				{
+					_animation = 'AmovPpneMstpSnonWnonDnon';
+				}
+				else
+				{
+					if(primaryWeapon X39_XLib_var_ActionDialog_Executor == '') then
+					{
+						_animation = 'AmovPpneMstpSnonWpstDnon';
+					}
+					else
+					{
+						_animation = 'AmovPpneMstpSrasWrflDnon';
+					};
+				};
 			};
+			_unit playMoveNow _animation;
 		};
 		[] call X39_XLib_fnc_ActionDialog_closeDialog;
 	},

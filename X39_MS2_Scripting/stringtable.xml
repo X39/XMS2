@@ -307,12 +307,30 @@
 			</Key>
 			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_BloodPresure">
 				    <English>%1s current bloodpresure is %2</English>
-				      <German>%1s current bloodpresure is %2</German>
-				<Hungarian>%1s current bloodpresure is %2</Hungarian>
+					 <German>%1s current bloodpresure is %2</German>
+				  <Hungarian>%1s current bloodpresure is %2</Hungarian>
 				    <Italian>%1s current bloodpresure is %2</Italian>
-				      <French>%1s current bloodpresure is %2</French>
+				     <French>%1s current bloodpresure is %2</French>
 				    <Russian>%1s current bloodpresure is %2</Russian>
-				      <Polish>%1s current bloodpresure is %2</Polish>
+				     <Polish>%1s current bloodpresure is %2</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Pulse_NoPulse">
+				  <English>No pulse</English>
+				   <German>No pulse</German>
+				<Hungarian>No pulse</Hungarian>
+				  <Italian>No pulse</Italian>
+				   <French>No pulse</French>
+				  <Russian>No pulse</Russian>
+				   <Polish>No pulse</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Drugs_ConcentrationMessage">
+				  <English>%1 concentration at %2%3</English>
+				   <German>%1 concentration at %2%3</German>
+				<Hungarian>%1 concentration at %2%3</Hungarian>
+				  <Italian>%1 concentration at %2%3</Italian>
+				   <French>%1 concentration at %2%3</French>
+				  <Russian>%1 concentration at %2%3</Russian>
+				   <Polish>%1 concentration at %2%3</Polish>
 			</Key>
 		</Container>
 		<Container name="DialogControl_MedicalActionMenu">
