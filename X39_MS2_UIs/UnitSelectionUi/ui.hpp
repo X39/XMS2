@@ -63,7 +63,7 @@ class X39_MS2_UnitSelectionUi {
 			y = 0.654 * safezoneH + safezoneY;
 			w = 0.144375 * safezoneW;
 			h = 0.022 * safezoneH;
-			action = "[] spawn {closeDialog 26385;sleep 0.1; if(!isNull(missionNamespace getVariable ""X39_MS2_var_Internal_DialogCommunication_US_TargetedUnit"")) then {[missionNamespace getVariable ""X39_MS2_var_Internal_DialogCommunication_US_TargetedUnit""] call X39_MS2_fnc_MedicalActionMenu_createDialog; missionNamespace setVariable [""X39_MS2_var_Internal_DialogCommunication_US_TargetedUnit"", nil];};}";
+			action = "[] spawn {closeDialog 26385;sleep 0.1; if(!isNull(missionNamespace getVariable ""X39_MS2_var_Internal_DialogCommunication_US_TargetedUnit"")) then {[missionNamespace getVariable ""X39_MS2_var_Internal_DialogCommunication_US_TargetedUnit""] call X39_MS2_fnc_medicalui_createDialog; missionNamespace setVariable [""X39_MS2_var_Internal_DialogCommunication_US_TargetedUnit"", nil];};}";
 		};
 		class RscButtonMenuCancel_2700: RscButtonMenuCancel
 		{

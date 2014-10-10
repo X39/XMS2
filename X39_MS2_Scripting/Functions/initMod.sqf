@@ -64,6 +64,7 @@ assignValue("X39_MS2_var_Internal_HitZones", 	[
 ["AdrenalineChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
 ["MorphineChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
 ["NaloxoneChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
+["AspirinChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
 
 ["consciousStateChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;
 ["BlackOutTextChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;
@@ -116,6 +117,7 @@ X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Morphine_value",			{0													}, true	,					true]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Adrenaline_value",		{0													}, true	,					true]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Naloxone_value",			{0													}, true	,					true]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Aspirin_value",			{0													}, true	,					true]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_distraction",					{0													}, true	,					true]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_lsClass",						{-1													}, false	,					true]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_UnitTickHandle",				{scriptNull										}, false	,					true]];
@@ -229,44 +231,28 @@ assignValue("X39_MS2_var_BackBlast_maxAngle", 45);
 * CATEGORY: DAMAGE *
 *******************/
 //Enable/Disable Hitzones
-{
-	assignValue(format["X39_MS2_var_Damage_EnableHitzone%1" COMMA _x select HITZONE_NAME], true);
-	false
-}count X39_MS2_var_Internal_HitZones;
-
+{ assignValue(format["X39_MS2_var_Damage_EnableHitzone%1" COMMA _x select HITZONE_NAME], true); false }count X39_MS2_var_Internal_HitZones;
 assignValue("X39_MS2_var_Damage_AllowRealKillingOnMaxDamage", false);
-
 assignValue("X39_MS2_var_Damage_AllowDeathThroughFullDamageAtHeadHitzone", false);
 assignValue("X39_MS2_var_Damage_KillWithNoReviveAtMaxHeadDamage", true);
 
 //Dynamic definitions
-{
-	assignValue(format["X39_MS2_var_Damage_maxDamage%1" COMMA _x select HITZONE_NAME], 1);
-	false
-}count X39_MS2_var_Internal_HitZones;
-
+{ assignValue(format["X39_MS2_var_Damage_maxDamage%1" COMMA _x select HITZONE_NAME], 1); false }count X39_MS2_var_Internal_HitZones;
 assignValue("X39_MS2_var_Damage_knockOutLimitP", 0.5);
 assignValue("X39_MS2_var_Damage_DeathLimitP", 0.8);
 assignValue("X39_MS2_var_Damage_DeathTime", 600);
 
 //Modificators
+{ assignValue(format["X39_MS2_var_Damage_%1Modificator" COMMA _x select HITZONE_NAME], 1); false }count X39_MS2_var_Internal_HitZones;
 assignValue("X39_MS2_var_Damage_ExplosionModificator", 2.0);
-
 assignValue("X39_MS2_var_Damage_GlobalModificator", 1.0);
-{
-	assignValue(format["X39_MS2_var_Damage_%1Modificator" COMMA _x select HITZONE_NAME], 1);
-	false
-}count X39_MS2_var_Internal_HitZones;
 
 
 /**********************
 * CATEGORY: BLEEDING *
 *********************/
 //Enable/Disable stuff
-{
-	assignValue(format["X39_MS2_var_Bleeding_EnableHitzone%1" COMMA _x select HITZONE_NAME], true);
-	false
-}count X39_MS2_var_Internal_HitZones;
+{ assignValue(format["X39_MS2_var_Bleeding_EnableHitzone%1" COMMA _x select HITZONE_NAME], true); false }count X39_MS2_var_Internal_HitZones;
 assignValue("X39_MS2_var_Bleeding_EnableAterialDamage", true);
 assignValue("X39_MS2_var_Bleeding_EnableClotting", true);
 assignValue("X39_MS2_var_Bleeding_LowBloodFeatures", true);
@@ -276,20 +262,10 @@ assignValue("X39_MS2_var_Bleeding_EnableBleedingCure", true);
 assignValue("X39_MS2_var_Bleeding_AllowBleedingCureWhenAterieDamaged", false);
 
 //Dynamic definitions
-{
-	assignValue(format["X39_MS2_var_Bleeding_BleedingCurePerTick%1" COMMA _x select HITZONE_NAME], 0.0001);
-	false
-}count X39_MS2_var_Internal_HitZones;
-
-
-assignValue("X39_MS2_var_Bleeding_maxBloodInEntireBody", 6000);
-{
-	assignValue(format["X39_MS2_var_Bleeding_maxBleeding%1" COMMA _x select 0], 1);
-	false
-}count X39_MS2_var_Internal_HitZones;
-
+{ assignValue(format["X39_MS2_var_Bleeding_BleedingCurePerTick%1" COMMA _x select HITZONE_NAME], 0.0001); false }count X39_MS2_var_Internal_HitZones;
+{ assignValue(format["X39_MS2_var_Bleeding_maxBleeding%1" COMMA _x select 0], 1); false }count X39_MS2_var_Internal_HitZones;
 assignValue("X39_MS2_var_Bleeding_ChanceForAterialDamageP", 0.3);
-
+assignValue("X39_MS2_var_Bleeding_maxBloodInEntireBody", 6000);
 assignValue("X39_MS2_var_Bleeding_knockOutAtPBlood", 0.25);
 assignValue("X39_MS2_var_Bleeding_killAtPBlood", 0.1);
 assignValue("X39_MS2_var_Bleeding_knockOutAtPBloodPresureUpperEnd", 1.25);
@@ -299,20 +275,10 @@ assignValue("X39_MS2_var_Bleeding_killAtPBloodPresureLowerEnd", 0.5);
 assignValue("X39_MS2_var_Bleeding_NaturalMaxOfBloodPresure", 120);
 
 //Modificators
-
+{ assignValue(format["X39_MS2_var_Bleeding_%1Modificator" COMMA _x select HITZONE_NAME], 1); false }count X39_MS2_var_Internal_HitZones;
+{ if(_x select HITZONE_HasAterie) then { assignValue(format["X39_MS2_var_Bleeding_AterialDamageMultiplicator%1" COMMA _x select HITZONE_NAME], 10); }; false }count X39_MS2_var_Internal_HitZones;
 assignValue("X39_MS2_var_Bleeding_GlobalModificator", 1.0);
-{
-	assignValue(format["X39_MS2_var_Bleeding_%1Modificator" COMMA _x select HITZONE_NAME], 1);
-	false
-}count X39_MS2_var_Internal_HitZones;
 assignValue("X39_MS2_var_Bleeding_ClottingModificator", 1.0);
-{
-	if(_x select HITZONE_HasAterie) then
-	{
-		assignValue(format["X39_MS2_var_Bleeding_AterialDamageMultiplicator%1" COMMA _x select HITZONE_NAME], 10);
-	};
-	false
-}count X39_MS2_var_Internal_HitZones;
 
 /*********************
 * CATEGORY: HEARING *
@@ -334,37 +300,40 @@ assignValue("X39_MS2_var_Hearing_GlobalModificator", 1.0);
 ******************/
 //Morphine
 	//Enable/Disable Related features
-	assignValue("X39_MS2_var_Drugs_Morphine_useMorphineForPain", true);
-	assignValue("X39_MS2_var_Drugs_Morphine_morphineOverdoseCanKill", true);
-	assignValue("X39_MS2_var_Drugs_Morphine_morphineOverdoseCanKnockOut", true);
-	assignValue("X39_MS2_var_Drugs_Morphine_morphineFakeKills", true);
-	assignValue("X39_MS2_var_Drugs_Morphine_morphineEffects", true);
+	assignValue("X39_MS2_var_Drugs_Morphine_useForPain", true);
+	assignValue("X39_MS2_var_Drugs_Morphine_OverdoseCanKill", true);
+	assignValue("X39_MS2_var_Drugs_Morphine_OverdoseCanKnockOut", true);
+	assignValue("X39_MS2_var_Drugs_Morphine_FakeKills", true);
+	assignValue("X39_MS2_var_Drugs_Morphine_Effects", true);
 
 	//Dynamic definitions
 	assignValue("X39_MS2_var_Drugs_Morphine_maxMorphine", 11);
-	assignValue("X39_MS2_var_Drugs_Morphine_morphineKillLifeTime", 600);
+	assignValue("X39_MS2_var_Drugs_Morphine_KillLifeTime", 600);
 	assignValue("X39_MS2_var_Drugs_Morphine_reductionPerTick", 0.001);
-	assignValue("X39_MS2_var_Drugs_Morphine_morphineRandomDowningPointP", 0.3);
-	assignValue("X39_MS2_var_Drugs_Morphine_morphineDisortionStartPointP", 0.4);
-	assignValue("X39_MS2_var_Drugs_Morphine_morphineForceWalkPointP", 0.3);
-	assignValue("X39_MS2_var_Drugs_Morphine_morphineRandomDowningBaseValueP", 0.3);
+	assignValue("X39_MS2_var_Drugs_Morphine_RandomDowningPointP", 0.3);
+	assignValue("X39_MS2_var_Drugs_Morphine_DisortionStartPointP", 0.4);
+	assignValue("X39_MS2_var_Drugs_Morphine_ForceWalkPointP", 0.3);
+	assignValue("X39_MS2_var_Drugs_Morphine_RandomDowningBaseValueP", 0.3);
 
 	//Modificators
-	assignValue("X39_MS2_var_Drugs_Morphine_morphinePainCureValueP", 1.0);
-	assignValue("X39_MS2_var_Drugs_Morphine_morphinePainMinForFullCureP", 0.5);
-	assignValue("X39_MS2_var_Drugs_Morphine_morphineKillPointP", 1);
-	assignValue("X39_MS2_var_Drugs_Morphine_morphineBlackOutPointP", 0.5);
+	assignValue("X39_MS2_var_Drugs_Morphine_PainCureValueP", 1.0);
+	assignValue("X39_MS2_var_Drugs_Morphine_PainMinForFullCureP", 0.5);
+	assignValue("X39_MS2_var_Drugs_Morphine_KillPointP", 1);
+	assignValue("X39_MS2_var_Drugs_Morphine_BlackOutPointP", 0.5);
 
 	assignValue("X39_MS2_var_Drugs_Morphine_GlobalMorphineModificator", 1.0);
 
 	//Drug specification
-	assignValue("X39_MS2_var_Drugs_Morphine_MorphineChangeOnConsume", 5);
+	assignValue("X39_MS2_var_Drugs_Morphine_ChangeOnConsume", 5);
 	
 //Adrenaline
 	//Enable/Disable Related features
+	assignValue("X39_MS2_var_Drugs_Adrenaline_useForPain", true);
 	assignValue("X39_MS2_var_Drugs_Adrenaline_useAdrenalineForHeartCalculations", true);
 	
 	//Dynamic definitions
+	assignValue("X39_MS2_var_Drugs_Adrenaline_PainCureValueP", 1.0);
+	assignValue("X39_MS2_var_Drugs_Adrenaline_PainMinForFullCureP", 1.0);
 	assignValue("X39_MS2_var_Drugs_Adrenaline_maxAdrenaline", 10);
 	assignValue("X39_MS2_var_Drugs_Adrenaline_naturalAdrenalineP", 0.2);
 	assignValue("X39_MS2_var_Drugs_Adrenaline_reductionPerTick", 0.02);
@@ -381,6 +350,7 @@ assignValue("X39_MS2_var_Hearing_GlobalModificator", 1.0);
 //Naloxone
 	//Enable/Disable Related features
 	assignValue("X39_MS2_var_Drugs_Naloxone_hasImpactOnMorphine", true);
+	assignValue("X39_MS2_var_Drugs_Naloxone_allowWakeUnconscious", true);
 	
 	//Dynamic definitions
 	assignValue("X39_MS2_var_Drugs_Naloxone_maxNaloxone", 10);
@@ -392,7 +362,24 @@ assignValue("X39_MS2_var_Hearing_GlobalModificator", 1.0);
 	assignValue("X39_MS2_var_Drugs_Naloxone_MorphineImpactMultiplicator", 1);
 
 	//Drug specification
-	assignValue("X39_MS2_var_Drugs_Naloxone_NaloxoneChangeOnConsume", 2);
+	assignValue("X39_MS2_var_Drugs_Naloxone_ChangeOnConsume", 2);
+
+//Aspirin
+	//Enable/Disable Related features
+	assignValue("X39_MS2_var_Drugs_Aspirin_hasImpactOnBloodClotting", true);
+	assignValue("X39_MS2_var_Drugs_Aspirin_useForPain", true);
+	
+	//Dynamic definitions
+	assignValue("X39_MS2_var_Drugs_Aspirin_PainMinForFullCureP", 1.0);
+	assignValue("X39_MS2_var_Drugs_Aspirin_PainCureValueP", 0.75);
+	assignValue("X39_MS2_var_Drugs_Aspirin_maxAspirin", 10);
+	assignValue("X39_MS2_var_Drugs_Aspirin_reductionPerTick", 0.001);
+	
+	//Modificators
+	assignValue("X39_MS2_var_Drugs_Aspirin_GlobalAspirinModificator", 1);
+
+	//Drug specification
+	assignValue("X39_MS2_var_Drugs_Aspirin_ChangeOnConsume", 2);
 
 /*******************
 * CATEGORY: Heart *
@@ -447,13 +434,9 @@ assignValue("X39_MS2_var_Pain_maxPain", 10);
 assignValue("X39_MS2_var_Pain_painReductionPerTick", 0.001);
 
 //Modificators
+{ assignValue(format["X39_MS2_var_Pain_DamagePainFor%1Modificator" COMMA _x select HITZONE_NAME], 1); false }count X39_MS2_var_Internal_HitZones;
 assignValue("X39_MS2_var_Pain_GlobalModificator", 1.0);
 assignValue("X39_MS2_var_Pain_DamagePainGlobalModificator", 1.0);
-
-{
-	assignValue(format["X39_MS2_var_Pain_DamagePainFor%1Modificator" COMMA _x select HITZONE_NAME], 1);
-	false
-}count X39_MS2_var_Internal_HitZones;
 
 /******************
 * CATEGORY: Distraction *
@@ -520,6 +503,8 @@ assignValue("X39_MS2_var_Feature_EnableBlood", true);
 assignValue("X39_MS2_var_Feature_EnableMorphine", true);
 //Enables simulation of morphine
 assignValue("X39_MS2_var_Feature_EnableNaloxone", true);
+//Enables simulation of morphine
+assignValue("X39_MS2_var_Feature_EnableAspirin", true);
 //Enables the simple hit marker
 assignValue("X39_MS2_var_Feature_SimpleHitMarker", true);
 //Enables the replacement of items in inventory 

@@ -695,6 +695,15 @@
 				  <Russian>Naloxone</Russian>
 				   <Polish>Naloxone</Polish>
 			</Key>
+			<Key ID="STR_X39_MS2_Scripting_Drugs_Aspirin_Name">
+				  <English>Aspirin</English>
+				   <German>Aspirin</German>
+				<Hungarian>Aspirin</Hungarian>
+				  <Italian>Aspirin</Italian>
+				   <French>Aspirin</French>
+				  <Russian>Aspirin</Russian>
+				   <Polish>Aspirin</Polish>
+			</Key>
 		</Container>
 		<Container name="MedicalUiActions">
 			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Bandage_ActionName">

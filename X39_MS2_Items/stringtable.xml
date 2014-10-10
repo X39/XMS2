@@ -13,7 +13,7 @@
 			</Key>
 		</Container>
 		<Container name="Items">
-			<Key ID="STR_X39_MS2_Items_Items_Bandage">
+			<Key ID="STR_X39_MS2_Items_Bandage">
 				<English>Bandage</English>
 				<German>Bandage</German>
 				<Hungarian>Bandage</Hungarian>
@@ -22,7 +22,7 @@
 				<Russian>Bandage</Russian>
 				<Polish>Bandage</Polish>
 			</Key>
-			<Key ID="STR_X39_MS2_Items_Items_Adrenaline">
+			<Key ID="STR_X39_MS2_Items_Adrenaline">
 				<English>Adrenaline</English>
 				<German>Adrenaline</German>
 				<Hungarian>Adrenaline</Hungarian>
@@ -31,7 +31,7 @@
 				<Russian>Adrenaline</Russian>
 				<Polish>Adrenaline</Polish>
 			</Key>
-			<Key ID="STR_X39_MS2_Items_Items_heatPack">
+			<Key ID="STR_X39_MS2_Items_heatPack">
 				<English>Heat pack</English>
 				<German>Heat pack</German>
 				<Hungarian>Heat pack</Hungarian>
@@ -40,7 +40,7 @@
 				<Russian>Heat pack</Russian>
 				<Polish>Heat pack</Polish>
 			</Key>
-			<Key ID="STR_X39_MS2_Items_Items_mediPack">
+			<Key ID="STR_X39_MS2_Items_mediPack">
 				<English>Medipack</English>
 				<German>Medipack</German>
 				<Hungarian>Medipack</Hungarian>
@@ -49,7 +49,7 @@
 				<Russian>Medipack</Russian>
 				<Polish>Medipack</Polish>
 			</Key>
-			<Key ID="STR_X39_MS2_Items_Items_morphine">
+			<Key ID="STR_X39_MS2_Items_morphine">
 				<English>Morphine</English>
 				<German>Morphine</German>
 				<Hungarian>Morphine</Hungarian>
@@ -58,7 +58,7 @@
 				<Russian>Morphine</Russian>
 				<Polish>Morphine</Polish>
 			</Key>
-			<Key ID="STR_X39_MS2_Items_Items_naloxone">
+			<Key ID="STR_X39_MS2_Items_naloxone">
 				<English>Naloxone</English>
 				<German>Naloxone</German>
 				<Hungarian>Naloxone</Hungarian>
@@ -67,7 +67,7 @@
 				<Russian>Naloxone</Russian>
 				<Polish>Naloxone</Polish>
 			</Key>
-			<Key ID="STR_X39_MS2_Items_Items_coldSpray">
+			<Key ID="STR_X39_MS2_Items_coldSpray">
 				<English>Cold spray</English>
 				<German>Cold spray</German>
 				<Hungarian>Cold spray</Hungarian>
@@ -76,7 +76,7 @@
 				<Russian>Cold spray</Russian>
 				<Polish>Cold spray</Polish>
 			</Key>
-			<Key ID="STR_X39_MS2_Items_Items_earplugs">
+			<Key ID="STR_X39_MS2_Items_earplugs">
 				<English>Earplugs</English>
 				<German>Earplugs</German>
 				<Hungarian>Earplugs</Hungarian>
@@ -85,7 +85,7 @@
 				<Russian>Earplugs</Russian>
 				<Polish>Earplugs</Polish>
 			</Key>
-			<Key ID="STR_X39_MS2_Items_Items_defibrillator">
+			<Key ID="STR_X39_MS2_Items_defibrillator">
 				<English>Defibrillator</English>
 				<German>Defibrillator</German>
 				<Hungarian>Defibrillator</Hungarian>
@@ -94,7 +94,7 @@
 				<Russian>Defibrillator</Russian>
 				<Polish>Defibrillator</Polish>
 			</Key>
-			<Key ID="STR_X39_MS2_Items_Items_tourniquet">
+			<Key ID="STR_X39_MS2_Items_tourniquet">
 				<English>Tourniquet</English>
 				<German>Tourniquet</German>
 				<Hungarian>Tourniquet</Hungarian>
@@ -103,7 +103,7 @@
 				<Russian>Tourniquet</Russian>
 				<Polish>Tourniquet</Polish>
 			</Key>
-			<Key ID="STR_X39_MS2_Items_Items_sphygmomanometer">
+			<Key ID="STR_X39_MS2_Items_sphygmomanometer">
 				<English>Sphygmomanometer</English>
 				<German>Blutdruckmessgerät</German>
 				<Hungarian>Sphygmomanometer</Hungarian>
@@ -112,7 +112,7 @@
 				<Russian>Sphygmomanometer</Russian>
 				<Polish>Sphygmomanometer</Polish>
 			</Key>
-			<Key ID="STR_X39_MS2_Items_Items_ivBag">
+			<Key ID="STR_X39_MS2_Items_ivBag">
 				<English>IV Bag</English>
 				<German>IV Bag</German>
 				<Hungarian>IV Bag</Hungarian>
@@ -120,6 +120,15 @@
 				<French>IV Bag</French>
 				<Russian>IV Bag</Russian>
 				<Polish>IV Bag</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Items_aspirin">
+				<English>Aspirin</English>
+				<German>Aspirin</German>
+				<Hungarian>Aspirin</Hungarian>
+				<Italian>Aspirin</Italian>
+				<French>Aspirin</French>
+				<Russian>Aspirin</Russian>
+				<Polish>Aspirin</Polish>
 			</Key>
 		</Container>
 	</Package>

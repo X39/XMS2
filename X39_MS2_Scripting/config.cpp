@@ -129,6 +129,10 @@ class CfgFunctions
 			class addNaloxone:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Naloxone\addNaloxone.sqf";};
 			class getNaloxone:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Naloxone\getNaloxone.sqf";};
 			class setNaloxone:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Naloxone\setNaloxone.sqf";};
+			
+			class addAspirin:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Aspirin\addAspirin.sqf";};
+			class getAspirin:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Aspirin\getAspirin.sqf";};
+			class setAspirin:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Aspirin\setAspirin.sqf";};
 		};
 		class Hearing
 		{

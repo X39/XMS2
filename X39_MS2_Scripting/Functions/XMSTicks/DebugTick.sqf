@@ -30,22 +30,23 @@ if(X39_MS2_DEBUG_enable && _unit == player) then
 		for "_i" from 0 to ((count X39_MS2_var_Internal_HitZones) - 1) do
 		{
 			_txt = format["%1<br />--%2--", _txt, X39_MS2_var_Internal_HitZones select _i select HITZONE_NAME];
-			_txt = format["%1<br />%2 DMG", _txt, str ([_this select 0] call (missionNamespace getVariable format["X39_MS2_fnc_getDamageOf%1", X39_MS2_var_Internal_HitZones select _i select HITZONE_NAME]))];
-			_txt = format["%1<br />%2 BLD", _txt, str ([_this select 0] call (missionNamespace getVariable format["X39_MS2_fnc_getBleedingOf%1", X39_MS2_var_Internal_HitZones select _i select HITZONE_NAME]))];
+			_txt = format["%1<br />%2 DMG", _txt, ([_this select 0] call (missionNamespace getVariable format["X39_MS2_fnc_getDamageOf%1", X39_MS2_var_Internal_HitZones select _i select HITZONE_NAME]))];
+			_txt = format["%1<br />%2 BLD", _txt, ([_this select 0] call (missionNamespace getVariable format["X39_MS2_fnc_getBleedingOf%1", X39_MS2_var_Internal_HitZones select _i select HITZONE_NAME]))];
 		};
-		_txt = format["%1<br /><br />%2 Fatigue", _txt, str (getFatigue (_this select 0))];
-		_txt = format["%1<br />%2 enableFatigue", _txt, str (_cfnDisableFatigue > 0)];
-		_txt = format["%1<br />%2 forceWalk", _txt, str (_cfnForceWalk > 0)];
-		_txt = format["%1<br />%2 Pulse", _txt, str ([_this select 0] call X39_MS2_fnc_getHeartPulse)];
-		_txt = format["%1<br />%2 Temperature", _txt, str ([_this select 0] call X39_MS2_fnc_getTemperature)];
-		_txt = format["%1<br />%2 Pain", _txt, str ([_this select 0] call X39_MS2_fnc_getPain)];
-		_txt = format["%1<br />%2 Blood", _txt, str ([_this select 0] call X39_MS2_fnc_getBlood)];
-		_txt = format["%1<br />%2 BloodPresure", _txt, str ([_this select 0] call X39_MS2_fnc_getBloodPresure)];
-		_txt = format["%1<br />%2 Hearing", _txt, str ([_this select 0] call X39_MS2_fnc_getHearing)];
-		_txt = format["%1<br />%2 Distraction", _txt, str ([_this select 0] call X39_MS2_fnc_getDistraction)];
-		_txt = format["%1<br />%2 Adrenaline", _txt, str ([_this select 0] call X39_MS2_fnc_getAdrenaline)];
-		_txt = format["%1<br />%2 Morphine", _txt, str ([_this select 0] call X39_MS2_fnc_getMorphine)];
-		_txt = format["%1<br />%2 Naloxone", _txt, str ([_this select 0] call X39_MS2_fnc_getNaloxone)];
+		_txt = format["%1<br /><br />%2 Fatigue", _txt, (getFatigue (_this select 0))];
+		_txt = format["%1<br />%2 enableFatigue", _txt, (_cfnDisableFatigue > 0)];
+		_txt = format["%1<br />%2 forceWalk", _txt, (_cfnForceWalk > 0)];
+		_txt = format["%1<br />%2 Pulse", _txt, ([_this select 0] call X39_MS2_fnc_getHeartPulse)];
+		_txt = format["%1<br />%2 Temperature", _txt, ([_this select 0] call X39_MS2_fnc_getTemperature)];
+		_txt = format["%1<br />%2 Pain", _txt, ([_this select 0] call X39_MS2_fnc_getPain)];
+		_txt = format["%1<br />%2 Blood", _txt, ([_this select 0] call X39_MS2_fnc_getBlood)];
+		_txt = format["%1<br />%2 BloodPresure", _txt, ([_this select 0] call X39_MS2_fnc_getBloodPresure)];
+		_txt = format["%1<br />%2 (%3) BloodClotting", _txt, ([_this select 0, true] call X39_MS2_fnc_getClotting), ([_this select 0] call X39_MS2_fnc_getClotting)];
+		_txt = format["%1<br />%2 Hearing", _txt, ([_this select 0] call X39_MS2_fnc_getHearing)];
+		_txt = format["%1<br />%2 Distraction", _txt, ([_this select 0] call X39_MS2_fnc_getDistraction)];
+		_txt = format["%1<br />%2 (%3) Adrenaline", _txt, ([_this select 0, true] call X39_MS2_fnc_getAdrenaline), ([_this select 0] call X39_MS2_fnc_getAdrenaline)];
+		_txt = format["%1<br />%2 (%3) Morphine", _txt, ([_this select 0, true] call X39_MS2_fnc_getMorphine), ([_this select 0] call X39_MS2_fnc_getMorphine)];
+		_txt = format["%1<br />%2 (%3) Naloxone", _txt, ([_this select 0, true] call X39_MS2_fnc_getNaloxone), ([_this select 0] call X39_MS2_fnc_getNaloxone)];
 		displayCtrl_Overlay(_x select 1) ctrlSetStructuredText parseText _txt;
 		false
 	}count [[_unit, 1072]];//, [cursorTarget, 1073]];

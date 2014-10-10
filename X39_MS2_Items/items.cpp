@@ -1,7 +1,7 @@
 class x39_xms2_bandage : x39_itemcore
 {
 	scope = 2;
-	displayName = $STR_X39_MS2_Items_Items_Bandage;
+	displayName = $STR_X39_MS2_Items_Bandage;
 	model = "\X39_MS2_Resources\Items\Bandage\Bandage.p3d";
 	class ItemInfo
     {
@@ -13,7 +13,7 @@ class x39_xms2_bandage : x39_itemcore
 class x39_xms2_adrenaline : x39_itemcore
 {
 	scope = 2;
-	displayName = $STR_X39_MS2_Items_Items_Adrenaline;
+	displayName = $STR_X39_MS2_Items_Adrenaline;
 	model = "\X39_MS2_Resources\Items\Injector\Injector.p3d";
 	picture = "\X39_MS2_Resources\Items\Injector\Injector_thumb.paa";
 	class ItemInfo
@@ -25,7 +25,7 @@ class x39_xms2_adrenaline : x39_itemcore
 class x39_xms2_heatPack : x39_itemcore
 {
 	scope = 2;
-	displayName = $STR_X39_MS2_Items_Items_heatPack;
+	displayName = $STR_X39_MS2_Items_heatPack;
 	class ItemInfo
     {
 		mass = 4;
@@ -36,7 +36,7 @@ class x39_xms2_heatPack : x39_itemcore
 class x39_xms2_mediPack : x39_itemcore
 {
 	scope = 2;
-	displayName = $STR_X39_MS2_Items_Items_mediPack;
+	displayName = $STR_X39_MS2_Items_mediPack;
 	class ItemInfo
     {
 		mass = 8;
@@ -47,7 +47,7 @@ class x39_xms2_mediPack : x39_itemcore
 class x39_xms2_morphine : x39_itemcore
 {
 	scope = 2;
-	displayName = $STR_X39_MS2_Items_Items_morphine;
+	displayName = $STR_X39_MS2_Items_morphine;
 	model = "\X39_MS2_Resources\Items\Injector\InjectorInv.p3d";
 	picture = "\X39_MS2_Resources\Items\Injector\InjectorInv_thumb.paa";
 	class ItemInfo
@@ -59,7 +59,7 @@ class x39_xms2_morphine : x39_itemcore
 class x39_xms2_naloxone : x39_itemcore
 {
 	scope = 2;
-	displayName = $STR_X39_MS2_Items_Items_naloxone;
+	displayName = $STR_X39_MS2_Items_naloxone;
 	model = "\X39_MS2_Resources\Items\Injector\InjectorInv2.p3d";
 	picture = "\X39_MS2_Resources\Items\Injector\InjectorInv2_thumb.paa";
 	class ItemInfo
@@ -71,7 +71,7 @@ class x39_xms2_naloxone : x39_itemcore
 class x39_xms2_earplugs : x39_itemcore
 {
 	scope = 2;
-	displayName = $STR_X39_MS2_Items_Items_earplugs;
+	displayName = $STR_X39_MS2_Items_earplugs;
 	class ItemInfo
     {
 		mass = 0;
@@ -82,7 +82,7 @@ class x39_xms2_earplugs : x39_itemcore
 class x39_xms2_defibrillator : x39_itemcore
 {
 	scope = 2;
-	displayName = $STR_X39_MS2_Items_Items_defibrillator;
+	displayName = $STR_X39_MS2_Items_defibrillator;
 	model = "\A3\Structures_F_EPA\Items\Medical\Defibrillator_F.p3d";
 	class ItemInfo
     {
@@ -94,7 +94,7 @@ class x39_xms2_defibrillator : x39_itemcore
 class x39_xms2_tourniquet : x39_itemcore
 {
 	scope = 2;
-	displayName = $STR_X39_MS2_Items_Items_tourniquet;
+	displayName = $STR_X39_MS2_Items_tourniquet;
 	model = "\X39_MS2_Resources\Items\Tourniquet\Tourniquet.p3d";
 	picture = "\X39_MS2_Resources\Items\Tourniquet\Tourniquet_thumb.paa";
 	class ItemInfo
@@ -106,7 +106,7 @@ class x39_xms2_tourniquet : x39_itemcore
 class x39_xms2_sphygmomanometer : x39_itemcore
 {
 	scope = 2;
-	displayName = $STR_X39_MS2_Items_Items_sphygmomanometer;
+	displayName = $STR_X39_MS2_Items_sphygmomanometer;
 	picture = "\X39_MS2_Resources\Items\Sphygmomanometer.paa";
 	class ItemInfo
     {
@@ -120,12 +120,24 @@ class x39_xms2_sphygmomanometer : x39_itemcore
 class x39_xms2_IVBag : x39_itemcore
 {
 	scope = 2;
-	displayName = $STR_X39_MS2_Items_Items_ivBag;
+	displayName = $STR_X39_MS2_Items_ivBag;
 	picture = "\x39_ms2_resources\items\IVBag\IVBag_thumb.paa";
 	model = "\x39_ms2_resources\items\IVBag\IVBag.p3d";
 	class ItemInfo
     {
     	mass = 5;
+    }; 
+	descriptionShort = "";
+};
+class x39_xms2_Aspirin : x39_itemcore
+{
+	scope = 2;
+	displayName = $STR_X39_MS2_Items_aspirin;
+//	picture = "\x39_ms2_resources\items\IVBag\IVBag_thumb.paa";
+//	model = "\x39_ms2_resources\items\IVBag\IVBag.p3d";
+	class ItemInfo
+    {
+    	mass = 2;
     }; 
 	descriptionShort = "";
 };

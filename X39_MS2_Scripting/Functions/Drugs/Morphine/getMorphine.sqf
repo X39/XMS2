@@ -16,18 +16,13 @@ if(count _this < 2) then
 	{
 		private["_naloxone"];
 		_naloxone = X39_MS2_var_Drugs_Naloxone_MorphineImpactMultiplicator * (1 - (([(_this select 0)] call X39_MS2_fnc_getNaloxone) / X39_MS2_var_Drugs_Naloxone_maxNaloxone));
-		if(_naloxone > 1) then
-		{
-			_naloxone = 1;
-		}
-		else
-		{
-			if(_naloxone < 0) then
-			{
-				_naloxone = 0;
-			};
-		};
-		_val = _val * _naloxone;
+		if(_naloxone > 1) then { _naloxone = 1; };
+		if(_naloxone < 0) then { _naloxone = 0; };
+		_val = _val - _naloxone;
 	};
 };
+
+
+if(_val > 1) then { _val = 1; };
+if(_val < 0) then { _val = 0; };
 _val

@@ -178,7 +178,7 @@ _this spawn {
 	displayCtrl_MedicalUi(IDC_MEDICALUI_BTN_REMOVEENTRYFROMTRIAGECARD)			ctrlSetEventHandler["MouseButtonDown", {
 																															if(X39_MS2_var_Internal_DialogCommunication_MA_preventActions) exitWith {[] call X39_MS2_fnc_MedicalUi_outputBlockedMessage;};
 																															_index = lbCurSel IDC_MEDICALUI_LB_TRIAGECARDENTRIES;
-																															if(lbCurSel IDC_MEDICALUI_LB_TRIAGECARDENTRIES == -1) exitWith {[] call X39_MS2_fnc_MedicalActionMenu_outputNothingSelectedMessage;};
+																															if(lbCurSel IDC_MEDICALUI_LB_TRIAGECARDENTRIES == -1) exitWith {[] call X39_MS2_fnc_MedicalUi_outputNothingSelectedMessage;};
 																															_triageCardEntries = [X39_MS2_var_Internal_DialogCommunication_MA_Target] call X39_MS2_fnc_getTriageCard;
 																															_triageCardEntries set [_index, -1];
 																															_triageCardEntries = _triageCardEntries - [-1];
