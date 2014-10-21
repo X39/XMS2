@@ -18,10 +18,6 @@
  *	@Return - NA
  */
 
-if(isNil "scriptNull") then
-{
-	scriptNull = 0 spawn {};
-};
 //ArmA3 HitZone names
 
 												//	 HITZONE_NAME						COMMA	HITZONE_Size	COMMA	HITZONE_HasAterie	COMMA HITZONE_MedicalUiIdc				COMMA	HITZONE_CommonName	
@@ -65,9 +61,10 @@ assignValue("X39_MS2_var_Internal_HitZones", 	[
 ["MorphineChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
 ["NaloxoneChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
 ["AspirinChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
+["RespiratoryChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
 
-["consciousStateChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;
-["BlackOutTextChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;
+["consciousStateChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
+["BlackOutTextChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
 
 
 //Enable/Disable event variables
@@ -119,6 +116,9 @@ X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Naloxone_value",			{0													}, true	,					true]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Aspirin_value",			{0													}, true	,					true]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_distraction",					{0													}, true	,					true]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_respiratory_value",				{X39_MS2_var_Respiratory_maxValue				}, true	,					true]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_respiratory_toungeBlocking",	{false												}, true	,					true]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_respiratory_arrestPresent",	{false												}, true	,					true]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_lsClass",						{-1													}, false	,					true]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_UnitTickHandle",				{scriptNull										}, false	,					true]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["tf_unable_to_use_radio",						{true												}, true	,					false]];
@@ -164,7 +164,8 @@ assignValue("X39_MS2_var_Internal_Overlay_ProgressBarHandle", scriptNull);
 
 //Ticker
 assignValue("X39_MS2_var_Internal_ticker_tickHandlers", []);
-["X39_MS2_fnc_HeartTick", 1] call X39_MS2_fnc_registerTickHandler;
+["X39_MS2_fnc_respiratoryTick", 1] call X39_MS2_fnc_registerTickHandler;
+["X39_MS2_fnc_heartTick", 1] call X39_MS2_fnc_registerTickHandler;
 ["X39_MS2_fnc_effectHandleTick", 1] call X39_MS2_fnc_registerTickHandler;
 ["X39_MS2_fnc_temperatureTick", 1] call X39_MS2_fnc_registerTickHandler;
 ["X39_MS2_fnc_hearingTick", 1] call X39_MS2_fnc_registerTickHandler;
@@ -188,9 +189,7 @@ assignValue("X39_MS2_var_Internal_XMSEffects_MaxLifetime", 32000);
 assignValue("X39_MS2_var_Internal_DialogCommunication_MA_Caller", objNull);
 assignValue("X39_MS2_var_Internal_DialogCommunication_MA_Target", objNull);
 assignValue("X39_MS2_var_Internal_DialogCommunication_MA_preventActions", false);
-assignValue("X39_MS2_var_Internal_DialogCommunication_MA_crafting", []);
-assignValue("X39_MS2_var_Internal_DialogCommunication_MA_currentItem", -1);
-assignValue("X39_MS2_var_Internal_DialogCommunication_MA_craftingResultItemIndex", -1);
+assignValue("X39_MS2_var_Internal_DialogCommunication_MA_StatusEffects", []);
 assignValue("X39_MS2_var_Internal_DialogCommunication_BO_isActive", false);
 assignValue("X39_MS2_var_Internal_DialogCommunication_US_TargetedUnit", objNull);
 
@@ -199,6 +198,7 @@ assignValue("X39_MS2_var_Internal_Dialog_TriageCard_PreDefinedMessages", []);
 
 //MedicalMessages
 assignValue("X39_MS2_var_Internal_MedicalMessages", []);
+assignValue("X39_MS2_var_Internal_MedicalStatusEffects", []);
 
 //ClientServer communication
 assignValue("X39_MS2_var_Internal_Communication_ServerReady", false);
@@ -418,7 +418,7 @@ assignValue("X39_MS2_var_Heart_pulseLimitStage4", -1);
 //Modificators
 assignValue("X39_MS2_var_Heart_pulseGlobalMultiplicator", 1);
 assignValue("X39_MS2_var_Heart_pulseReductionMultiplicator", 2);
-assignValue("X39_MS2_var_Heart_BlackedOutPulseModificator", 0.2);
+assignValue("X39_MS2_var_Heart_BlackedOutPulseModificator", 0.1);
 assignValue("X39_MS2_var_Heart_camShakeMultiplicator", 3);
 
 /******************
@@ -472,11 +472,38 @@ assignValue("X39_MS2_var_Temperature_valueReductionWhileRainingPerTick", 0.01);
 //Modificators
 assignValue("X39_MS2_var_Temperature_GlobalModificator", 1.0);
 
+
 /***********************
 * CATEGORY: HitMarker *
 **********************/
 
 assignValue("X39_MS2_var_HitMarker_ReductionPerTick", 0.25);
+
+
+/*******************************************************
+*  CATEGORY: Respiratory                               *
+*     Read more about it in following ticket:          *
+* http://mantis.unitedtacticalforces.de/view.php?id=93 *
+*******************************************************/
+//Enable/Disable painRelated features
+assignValue("X39_MS2_var_Respiratory_Enable", true);
+assignValue("X39_MS2_var_Respiratory_EnableToungeBlockingDuringBlackOut", true);
+assignValue("X39_MS2_var_Respiratory_EnableRespiratoryArrestDuringBlackOut", true);
+
+//Dynamic definitions
+assignValue("X39_MS2_var_Respiratory_maxValue", 10);
+assignValue("X39_MS2_var_Respiratory_RespiratoryArrestPointP", 0.6);
+assignValue("X39_MS2_var_Respiratory_FlatLinePointP", 0.25);
+
+assignValue("X39_MS2_var_Respiratory_NormalChangePerTick", 0.1);
+assignValue("X39_MS2_var_Respiratory_NoBeathingChangePerTick", -0.1);
+assignValue("X39_MS2_var_Respiratory_ChanceForToungeBlockingDuringBlackOutP", 0.5);
+assignValue("X39_MS2_var_Respiratory_ChanceForDirectRespiratoryArrestDuringBlackOutP", 0.25);
+assignValue("X39_MS2_var_Respiratory_RequiredRespirationValueForWakeupP", 0.7);
+
+//Modificators
+assignValue("X39_MS2_var_Respiratory_GlobalModificator", 1);
+//ToDo: Add Respiratory tick etc. see http://mantis.unitedtacticalforces.de/view.php?id=93
 
 /***************************
 * CATEGORY: FEATURE FLAGS *

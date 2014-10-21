@@ -7,9 +7,12 @@
 /**
  *	!UI FUNCTION!
  *	
- *	@Param1 - STRING - hitzone name
+ *	@Param1 - STRING	- hitzone name
+ *	@Param2 - CONTROL	- EventArgs
+ *	@Param3 - BOOL	- Enter (true) or Exit (false)
  *	@Return - N/A
  *	@Author - X39|Cpt. HM Murdock
  */
 FORCELOCAL(_this select 0);
 _this select 0 setVariable["X39_MS2_var_triageCard", _this select 1];
+//X39_MS2_var_Internal_DialogCommunication_MA_StatusEffects

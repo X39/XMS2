@@ -111,13 +111,10 @@ class x39_xms2_sphygmomanometer : x39_itemcore
 	class ItemInfo
     {
     	mass = 5;
-		type = ITEM_ITEMINFO_TYPE;
     }; 
 	descriptionShort = "";
-	type = ITEM_TYPE;
-	simulation = ITEM_SIMULATION;
 };
-class x39_xms2_IVBag : x39_itemcore
+class x39_xms2_ivbag : x39_itemcore
 {
 	scope = 2;
 	displayName = $STR_X39_MS2_Items_ivBag;
@@ -129,15 +126,51 @@ class x39_xms2_IVBag : x39_itemcore
     }; 
 	descriptionShort = "";
 };
-class x39_xms2_Aspirin : x39_itemcore
+class x39_xms2_aspirin : x39_itemcore
 {
 	scope = 2;
 	displayName = $STR_X39_MS2_Items_aspirin;
-//	picture = "\x39_ms2_resources\items\IVBag\IVBag_thumb.paa";
-//	model = "\x39_ms2_resources\items\IVBag\IVBag.p3d";
+	picture = "\X39_MS2_Resources\Items\Aspirin\Aspirin_Thumb.paa";
+	model = "\X39_MS2_Resources\Items\Aspirin\Aspirin.p3d";
 	class ItemInfo
     {
     	mass = 2;
+    }; 
+	descriptionShort = "";
+};
+class x39_xms2_nasopharyngeal : x39_itemcore
+{
+	scope = 2;
+	displayName = $STR_X39_MS2_Items_nasopharyngeal;
+	//picture = "\X39_MS2_Resources\Items\Aspirin\Aspirin_Thumb.paa";
+	//model = "\X39_MS2_Resources\Items\Aspirin\Aspirin.p3d";
+	class ItemInfo
+    {
+    	mass = 4;
+    }; 
+	descriptionShort = "";
+};
+class x39_xms2_oropharyngeal : x39_itemcore
+{
+	scope = 2;
+	displayName = $STR_X39_MS2_Items_oropharyngeal;
+	//picture = "\X39_MS2_Resources\Items\Aspirin\Aspirin_Thumb.paa";
+	//model = "\X39_MS2_Resources\Items\Aspirin\Aspirin.p3d";
+	class ItemInfo
+    {
+    	mass = 4;
+    }; 
+	descriptionShort = "";
+};
+class x39_xms2_bagvalvemask : x39_itemcore
+{
+	scope = 2;
+	displayName = $STR_X39_MS2_Items_bagvalvemask;
+	//picture = "\X39_MS2_Resources\Items\Aspirin\Aspirin_Thumb.paa";
+	//model = "\X39_MS2_Resources\Items\Aspirin\Aspirin.p3d";
+	class ItemInfo
+    {
+    	mass = 6;
     }; 
 	descriptionShort = "";
 };

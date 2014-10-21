@@ -59,12 +59,24 @@ class X39_MS2_medicalbox: NATO_Box_Base {
 			name = "x39_xms2_sphygmomanometer";
 			count = 100;
 		};
-		class x39_xms2_IVBag {
+		class x39_xms2_ivbag {
 			name = "x39_xms2_IVBag";
 			count = 100;
 		};
-		class x39_xms2_Aspirin {
+		class x39_xms2_aspirin {
 			name = "x39_xms2_Aspirin";
+			count = 100;
+		};
+		class x39_xms2_nasopharyngeal {
+			name = "x39_xms2_nasopharyngeal";
+			count = 100;
+		};
+		class x39_xms2_oropharyngeal {
+			name = "x39_xms2_oropharyngeal";
+			count = 100;
+		};
+		class x39_xms2_bagvalvemask {
+			name = "x39_xms2_bagvalvemask";
 			count = 100;
 		};
 	};

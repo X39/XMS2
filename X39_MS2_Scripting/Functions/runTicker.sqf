@@ -8,13 +8,14 @@
  */
 if(!scriptDone (_this getVariable ["X39_MS2_var_UnitTickHandle", scriptNull])) exitWith {PRINT_ERROR("XMS2 TICKER IS ALREADY RUNNING!");};
 _this setVariable ["X39_MS2_var_UnitTickHandle", _this spawn {
-	private["_unit", "_ticks", "_startTime", "_blackOutStage", "_sleep", "_ppeDynamicBlur", "_ppeRadialBlur", "_ppeFocus", "_ppeFilmGrain", "_ppeChromAberration", "_ppeGreyScreen", "_ppeColorInversion", "_ppeWetDisort_LeftStrength", "_ppeWetDisort_RightStrength", "_cfnDisableFatigue", "_cfnDisableFatigueLast", "_cfnForceWalk", "_cfnForceWalkLast", "_redScreenAlpha"];
+	private["_unit", "_ticks", "_startTime", "_blackOutStage", "_sleep", "_ppeDynamicBlur", "_ppeRadialBlur", "_ppeFocus", "_ppeFilmGrain", "_ppeChromAberration", "_ppeGreyScreen", "_ppeColorInversion", "_ppeWetDisort_LeftStrength", "_ppeWetDisort_RightStrength", "_cfnDisableFatigue", "_cfnDisableFatigueLast", "_cfnForceWalk", "_cfnForceWalkLast", "_redScreenAlpha", "_isXms2TickCall"];
 	DEBUG_CODE(private["_randomID"];_randomID = random 20000);
 	_cfnDisableFatigueLast = str (0 > 0);
 	_cfnForceWalkLast = str (0 > 0);
 	_unit = [_this, 0, objNull, [objNull]] call BIS_fnc_param;
 	_ticks = 0;
 	_isLocalPlayer = (_unit == player);
+	_isXms2TickCall = true;
 	if(isNull _unit) exitWith {["XMS2 had a FATAL ERROR when the XMSTicker got started! isNull _unit => true. Please respawn/reconnect/restart. If this error persists, please contact the mod Author."] call BIS_fnc_HALT;};
 	while { alive _unit } do
 	{

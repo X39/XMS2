@@ -38,6 +38,7 @@ class CfgFunctions
 			class killUnit:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\killUnit.sqf";};
 			class registerTickHandler:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\registerTickHandler.sqf";};
 			class registerMedicalMessage:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\registerMedicalMessage.sqf";};
+			class registerMedicalStatusEffect:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\registerMedicalStatusEffect.sqf";};
 			
 			class applyServerConfig:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\applyServerConfig.sqf";};
 			class applyClientConfig:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\applyClientConfig.sqf";};
@@ -140,6 +141,17 @@ class CfgFunctions
 			class getHearing:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Hearing\getHearing.sqf";};
 			class setHearing:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Hearing\setHearing.sqf";};
 		};
+		class Respiratory
+		{
+			class addRespiratory:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\addRespiratory.sqf";};
+			class getRespiratory:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\getRespiratory.sqf";};
+			class setRespiratory:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\setRespiratory.sqf";};
+			
+			class setToungeBlocking:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\setToungeBlocking.sqf";};
+			class getToungeBlocking:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\getToungeBlocking.sqf";};
+			class setArrestPresent:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\setArrestPresent.sqf";};
+			class getArrestPresent:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\getArrestPresent.sqf";};
+		};
 		class Heart
 		{
 			class addHeartPulse:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Heart\addHeartPulse.sqf";};
@@ -157,6 +169,7 @@ class CfgFunctions
 		};
 		class XMSTicks
 		{
+			class respiratoryTick:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\XMSTicks\respiratoryTick.sqf";};
 			class heartTick:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\XMSTicks\heartTick.sqf";};
 			class updateOverlay:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\XMSTicks\updateOverlay.sqf";};
 			class effectHandleTick:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\XMSTicks\effectHandleTick.sqf";};

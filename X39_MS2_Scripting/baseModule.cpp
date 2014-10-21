@@ -14,7 +14,7 @@ class X39_MS2_veh_BaseModule: Module_F
 	// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
 	functionPriority = 1;
 	// 1 for remote execution on all clients, 0 for server only execution
-	isGlobal = 0;
+	isGlobal = 1;
 	// 1 for persistent execution (i.e. will be called on every JIPped client). Use with caution, can lead to desync
 	isPersistent = 0;
 	// 1 for module waiting until all synced triggers are activated

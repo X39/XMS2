@@ -332,6 +332,24 @@
 				  <Russian>%1 concentration at %2%3</Russian>
 				   <Polish>%1 concentration at %2%3</Polish>
 			</Key>
+			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Respiration_NotBreathing">
+				  <English>%1 is not breathing</English>
+				   <German>%1 is not breathing</German>
+				<Hungarian>%1 is not breathing</Hungarian>
+				  <Italian>%1 is not breathing</Italian>
+				   <French>%1 is not breathing</French>
+				  <Russian>%1 is not breathing</Russian>
+				   <Polish>%1 is not breathing</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Respiration_ToungeBlocks">
+				  <English>%1s tongue is blocking is airway</English>
+				   <German>%1s tongue is blocking is airway</German>
+				<Hungarian>%1s tongue is blocking is airway</Hungarian>
+				  <Italian>%1s tongue is blocking is airway</Italian>
+				   <French>%1s tongue is blocking is airway</French>
+				  <Russian>%1s tongue is blocking is airway</Russian>
+				   <Polish>%1s tongue is blocking is airway</Polish>
+			</Key>
 		</Container>
 		<Container name="DialogControl_MedicalActionMenu">
 			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_BlockedMessage1">
