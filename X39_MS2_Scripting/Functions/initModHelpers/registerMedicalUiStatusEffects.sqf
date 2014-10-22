@@ -8,3 +8,13 @@
  *	
  *	@Author - X39|Cpt. HM Murdock
  */
+[
+	"\X39_MS2_Resources\Items\Tourniquet\Tourniquet_thumb.paa",
+	{[_this select 0, _this select 1] call X39_MS2_fnc_getTournique},
+	["*"]
+] call registerMedicalUiStatusEffect;
+[
+	"\X39_MS2_Resources\UI\equal.paa",
+	{[_this select 0, _this select 1] call X39_MS2_fnc_getAterialDamage > 0},
+	["*"]
+] call registerMedicalUiStatusEffect;
