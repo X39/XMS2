@@ -3,6 +3,7 @@
  *	Will blackOut the unit depending on the inputs (current blackOut stage needs to be higher then the current or 0)
  *	!FUNCTION IS FORCED TO BE LOCAL!
  *	Available stages:
+ *		(-2) NA (used to add another WakeUpCondition)
  *		(-1) NA (used to update the text)
  *		(0) OK
  *		(1) Temporary black out
@@ -18,7 +19,7 @@
  *	@Param6 - CODE		- WakeUp Condition code (needs to return false to let the unit wake up again) ONLY USED IN STAGE 2
  *							Parameters:
  *							0. _unit:OBJECT
- *	@Param7 - BOOL		- Override protection mode (just for internal use!)
+ *	@Param7 - BOOL		- Override protected mode (just for internal use!) --> Makes it possible to move the unit in lower blackOutStages => (0;4]
  *	@Return - BOOL - true when unit was blacked out, false when not
  */
 private["_unit", "_stage", "_time", "_text", "_currentStageOfUnit", "_index", "_blackOutId", "_wakeUpCondition", "_override", "_flag"];

@@ -769,6 +769,60 @@
 				  <Russian>Remove tournique</Russian>
 				   <Polish>Remove tournique</Polish>
 			</Key>
+			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Nasopharyngeal_ActionNamePut">
+				  <English>Put nasopharyngeal</English>
+				   <German>Put nasopharyngeal</German>
+				<Hungarian>Put nasopharyngeal</Hungarian>
+				  <Italian>Put nasopharyngeal</Italian>
+				   <French>Put nasopharyngeal</French>
+				  <Russian>Put nasopharyngeal</Russian>
+				   <Polish>Put nasopharyngeal</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Nasopharyngeal_ActionNameTake">
+				  <English>Remove nasopharyngeal</English>
+				   <German>Remove nasopharyngeal</German>
+				<Hungarian>Remove nasopharyngeal</Hungarian>
+				  <Italian>Remove nasopharyngeal</Italian>
+				   <French>Remove nasopharyngeal</French>
+				  <Russian>Remove nasopharyngeal</Russian>
+				   <Polish>Remove nasopharyngeal</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_BagvalveMask_ActionNamePut">
+				  <English>Put bagvalve-mask</English>
+				   <German>Put bagvalve-mask</German>
+				<Hungarian>Put bagvalve-mask</Hungarian>
+				  <Italian>Put bagvalve-mask</Italian>
+				   <French>Put bagvalve-mask</French>
+				  <Russian>Put bagvalve-mask</Russian>
+				   <Polish>Put bagvalve-mask</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_BagvalveMask_ActionNameTake">
+				  <English>Remove bagvalve-mask</English>
+				   <German>Remove bagvalve-mask</German>
+				<Hungarian>Remove bagvalve-mask</Hungarian>
+				  <Italian>Remove bagvalve-mask</Italian>
+				   <French>Remove bagvalve-mask</French>
+				  <Russian>Remove bagvalve-mask</Russian>
+				   <Polish>Remove bagvalve-mask</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Oropharyngeal_ActionNamePut">
+				  <English>Put oropharyngeal</English>
+				   <German>Put oropharyngeal</German>
+				<Hungarian>Put oropharyngeal</Hungarian>
+				  <Italian>Put oropharyngeal</Italian>
+				   <French>Put oropharyngeal</French>
+				  <Russian>Put oropharyngeal</Russian>
+				   <Polish>Put oropharyngeal</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Oropharyngeal_ActionNameTake">
+				  <English>Remove oropharyngeal</English>
+				   <German>Remove oropharyngeal</German>
+				<Hungarian>Remove oropharyngeal</Hungarian>
+				  <Italian>Remove oropharyngeal</Italian>
+				   <French>Remove oropharyngeal</French>
+				  <Russian>Remove oropharyngeal</Russian>
+				   <Polish>Remove oropharyngeal</Polish>
+			</Key>
 			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Saline_ActionName">
 				  <English>Give saline bag</English>
 				   <German>Give saline bag</German>

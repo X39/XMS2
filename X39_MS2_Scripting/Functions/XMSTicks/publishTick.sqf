@@ -40,13 +40,20 @@ _this spawn {
 	{
 		if(_x select 2) then
 		{
+			DEBUG_LOG_WFn_SC(format["Checking variable '%1' at index position '%2" COMMA _x select 0 COMMA _forEachIndex])
 			if (_x select 0 != "X39_MS2_var_triageState" && _x select 0 != "X39_MS2_var_triageCard") then {
 				_value = _unit getVariable (_x select 0);				
-			}else{				
+			}
+			else
+			{				
 				_value = [] call (_x select 1);								
 			};
 			_compareObject = _lastValues select _forEachIndex;
-			DEBUG_LOG_WFn(format["Comparing value '%1' against '%2'" COMMA _value COMMA _compareObject select 1]);
+			//If at any point in time the following DEBUG code will cause issues because _value is NIL, check the RPT log
+			//for the variable name causing all this & make sure that ALL points where that variable is used are setted up proper!
+			//NIL in _value means simply that the unit variable was set to nil at some point
+			//The issue itself is NOT supposed to be fixed! The publishTick was written like this so it is possible to discover variable issues fast and simple!
+			DEBUG_LOG_WFn_SC(format["Comparing value '%1' against '%2'" COMMA _value COMMA _compareObject select 1])
 			if(ISBOOL(_value)) then
 			{
 				_boolNew = _compareObject select 1;
@@ -66,6 +73,7 @@ _this spawn {
 						_unit setVariable[_x select 0, _value, true];
 						_compareObject set[1, _value];
 						_lastValues set[_forEachIndex, _compareObject];
+						DEBUG_LOG_WFn_SC(format["Value changed for '%1'! Published new value:'%2'" COMMA _x select 0 COMMA _value])
 					};
 				}
 				else
@@ -75,6 +83,7 @@ _this spawn {
 						_unit setVariable[_x select 0, _value, true];
 						_compareObject set[1, _value];
 						_lastValues set[_forEachIndex, _compareObject];
+						DEBUG_LOG_WFn_SC(format["Value changed for '%1'! Published new value:'%2'" COMMA _x select 0 COMMA _value])
 					};
 				};
 			};

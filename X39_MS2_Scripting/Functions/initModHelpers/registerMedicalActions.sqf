@@ -130,6 +130,105 @@
 	"GIVESALINE",
 	12
 ] call X39_MS2_fnc_registerAction;
+[
+	"PUTNASOPHARYNGEAL",
+	"STR_X39_MS2_Scripting_MedicalUiActions_Nasopharyngeal_ActionNamePut",
+	"",
+	{("x39_xms2_nasopharyngeal" in items (_this select 0)) || ("x39_xms2_nasopharyngeal" in items (_this select 1)) && {([_this select 1] call X39_MS2_fnc_isBlackedOut)}},
+	{
+		if ("x39_xms2_nasopharyngeal" in items (_this select 1)) then
+		{
+			[(_this select 1), '(_this select 0) removeItem "x39_xms2_nasopharyngeal"', [_this select 1]] call X39_XLib_fnc_executeLocalToUnit;
+		}
+		else
+		{
+			[(_this select 0), '(_this select 0) removeItem "x39_xms2_nasopharyngeal"', [_this select 0]] call X39_XLib_fnc_executeLocalToUnit;
+		};
+		[_this select 1, true] call X39_MS2_fnc_setNasopharyngeal;
+		[(_this select 1), -2, nil, nil, "NASOPHARYNGEAL", {[_this select 0] call X39_MS2_fnc_getNasopharyngeal}] call X39_MS2_fnc_blackOutUnit;
+	},
+	"PUTNASOPHARYNGEAL",
+	8
+] call X39_MS2_fnc_registerAction;
+[
+	"TAKENASOPHARYNGEAL",
+	"STR_X39_MS2_Scripting_MedicalUiActions_Nasopharyngeal_ActionNameTake",
+	"",
+	{[_this select 1] call X39_MS2_fnc_getNasopharyngeal},
+	{
+		[(_this select 0), '(_this select 0) addItem "x39_xms2_nasopharyngeal"', [_this select 0]] call X39_XLib_fnc_executeLocalToUnit;
+		[_this select 1, false] call X39_MS2_fnc_setNasopharyngeal;
+		
+	},
+	"TAKENASOPHARYNGEAL",
+	4
+] call X39_MS2_fnc_registerAction;
+[
+	"PUTOROPHARYNGEAL",
+	"STR_X39_MS2_Scripting_MedicalUiActions_Oropharyngeal_ActionNamePut",
+	"",
+	{("x39_xms2_oropharyngeal" in items (_this select 0)) || ("x39_xms2_oropharyngeal" in items (_this select 1)) && {([_this select 1] call X39_MS2_fnc_isBlackedOut)}},
+	{
+		if ("x39_xms2_oropharyngeal" in items (_this select 1)) then
+		{
+			[(_this select 1), '(_this select 0) removeItem "x39_xms2_oropharyngeal"', [_this select 1]] call X39_XLib_fnc_executeLocalToUnit;
+		}
+		else
+		{
+			[(_this select 0), '(_this select 0) removeItem "x39_xms2_oropharyngeal"', [_this select 0]] call X39_XLib_fnc_executeLocalToUnit;
+		};
+		[_this select 1, true] call X39_MS2_fnc_setOropharyngeal;
+		[(_this select 1), -2, nil, nil, "OROPHARYNGEAL", {[_this select 0] call X39_MS2_fnc_getOropharyngeal}] call X39_MS2_fnc_blackOutUnit;
+	},
+	"PUTOROPHARYNGEAL",
+	8
+] call X39_MS2_fnc_registerAction;
+[
+	"TAKEOROPHARYNGEAL",
+	"STR_X39_MS2_Scripting_MedicalUiActions_Oropharyngeal_ActionNameTake",
+	"",
+	{[_this select 1] call X39_MS2_fnc_getOropharyngeal},
+	{
+		[(_this select 0), '(_this select 0) addItem "x39_xms2_oropharyngeal"', [_this select 0]] call X39_XLib_fnc_executeLocalToUnit;
+		[_this select 1, false] call X39_MS2_fnc_setOropharyngeal;
+		
+	},
+	"TAKEOROPHARYNGEAL",
+	4
+] call X39_MS2_fnc_registerAction;
+//[
+//	"PUTBAGVALVEMASK",
+//	"STR_X39_MS2_Scripting_MedicalUiActions_BagvalveMask_ActionNamePut",
+//	"",
+//	{("x39_xms2_bagvalvemask" in items (_this select 0)) || ("x39_xms2_bagvalvemask" in items (_this select 1)) && {([_this select 1] call X39_MS2_fnc_isBlackedOut)}},
+//	{
+//		if ("x39_xms2_bagvalvemask" in items (_this select 1)) then
+//		{
+//			[(_this select 1), '(_this select 0) removeItem "x39_xms2_bagvalvemask"', [_this select 1]] call X39_XLib_fnc_executeLocalToUnit;
+//		}
+//		else
+//		{
+//			[(_this select 0), '(_this select 0) removeItem "x39_xms2_bagvalvemask"', [_this select 0]] call X39_XLib_fnc_executeLocalToUnit;
+//		};
+//		[_this select 1, true] call X39_MS2_fnc_setBagvalveMask;
+//		[(_this select 1), -2, nil, nil, "OROPHARYNGEAL", {[_this select 0] call X39_MS2_fnc_getBagvalveMask}] call X39_MS2_fnc_blackOutUnit;
+//	},
+//	"PUTBAGVALVEMASK",
+//	8
+//] call X39_MS2_fnc_registerAction;
+//[
+//	"TAKEBAGVALVEMASK",
+//	"STR_X39_MS2_Scripting_MedicalUiActions_BagvalveMask_ActionNameTake",
+//	"",
+//	{[_this select 1] call X39_MS2_fnc_getBagvalveMask},
+//	{
+//		[(_this select 0), '(_this select 0) addItem "x39_xms2_bagvalvemask"', [_this select 0]] call X39_XLib_fnc_executeLocalToUnit;
+//		[_this select 1, false] call X39_MS2_fnc_setBagvalveMask;
+//		
+//	},
+//	"TAKEBAGVALVEMASK",
+//	4
+//] call X39_MS2_fnc_registerAction;
 
 //FINALLY, register the "close" action
 ["NA", "STR_X39_MS2_Scripting_MedicalUiActions_Close", "", {true}, {}, "NA", 0] call X39_MS2_fnc_registerAction;

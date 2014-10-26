@@ -154,8 +154,8 @@ class x39_xms2_oropharyngeal : x39_itemcore
 {
 	scope = 2;
 	displayName = $STR_X39_MS2_Items_oropharyngeal;
-	//picture = "\X39_MS2_Resources\Items\Aspirin\Aspirin_Thumb.paa";
-	//model = "\X39_MS2_Resources\Items\Aspirin\Aspirin.p3d";
+	picture = "\X39_MS2_Resources\Items\KingLT\KingLT_thumb.paa";
+	model = "\X39_MS2_Resources\Items\KingLT\KingLT.p3d";
 	class ItemInfo
     {
     	mass = 4;

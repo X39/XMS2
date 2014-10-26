@@ -21,16 +21,18 @@ if(_this select 2) then
 	_i = 0;
 	{
 		if(_x select 2 select 0 == "*" || {_hitzone in (_x select 2)}) then
-		if([X39_MS2_var_Internal_DialogCommunication_MA_Target, _hitzone] call (_x select 1)) then
 		{
-			displayCtrl_MedicalUi(HITZONEINFOPICTURES select _i) ctrlShow false;
-			_i = _i + 1;
-			
-			displayCtrl_MedicalUi(HITZONEINFOPICTURES select _i) ctrlSetText (_x select 0);
+			if([X39_MS2_var_Internal_DialogCommunication_MA_Target, _hitzone] call (_x select 1)) then
+			{
+				displayCtrl_MedicalUi(HITZONEINFOPICTURES select _i) ctrlShow true;
+				displayCtrl_MedicalUi(HITZONEINFOPICTURES select _i) ctrlSetText (_x select 0);
+				
+				_i = _i + 1;
+			};
 		};
-	} count X39_MS2_var_Internal_DialogCommunication_MA_StatusEffects;
+	} count X39_MS2_var_Internal_MedicalUi_RegisteredStatusEffects;
 }
 else
 {//Mouse exit
-	{displayCtrl_MedicalUi(_x) ctrlShow false; false}count HITZONEINFOPICTURES
+	{displayCtrl_MedicalUi(_x) ctrlShow false; false}count HITZONEINFOPICTURES;
 };

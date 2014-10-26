@@ -3,18 +3,19 @@
  *	THIS FUNCTION IS NOT INTENDED TO BE CALLEN BY ANY USERSCRIPT!
  *	
  *	@Param1		- STRING	- Image
- *	@Param2		- CODE		- DisplayCondition (will get the following as param: [HitzoneName:STRING, TargetedUnit:OBJECT]
+ *	@Param2		- CODE		- DisplayCondition (will get the following as param: [TargetedUnit:OBJECT, SelectedHitZone:STRING])
+ *	@Param2		- ARRAY	- Valid hitzones (use ["*"] for ALL hitzones)
  *	@Return		- NA
  *	
  *	@Author - X39|Cpt. HM Murdock
  */
 [
 	"\X39_MS2_Resources\Items\Tourniquet\Tourniquet_thumb.paa",
-	{[_this select 0, _this select 1] call X39_MS2_fnc_getTournique},
+	{([_this select 0, _this select 1] call X39_MS2_fnc_getTournique)},
 	["*"]
-] call registerMedicalUiStatusEffect;
+] call X39_MS2_fnc_registerMedicalUiStatusEffect;
 [
-	"\X39_MS2_Resources\UI\equal.paa",
-	{[_this select 0, _this select 1] call X39_MS2_fnc_getAterialDamage > 0},
+	"\X39_MS2_Resources\UI\AterialDamage.paa",
+	{([_this select 0, _this select 1] call X39_MS2_fnc_getAterialDamage)},
 	["*"]
-] call registerMedicalUiStatusEffect;
+] call X39_MS2_fnc_registerMedicalUiStatusEffect;

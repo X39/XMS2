@@ -83,47 +83,50 @@ assignValue("X39_MS2_var_Events_EnableSetEvents", false);
 assignValue("X39_MS2_var_UIs_XMS2_Overlay_ShownInCurrentMission", false);
 
 assignValue("X39_MS2_var_Internal_UnitVariables", []);
-//																				  |Variable name								|Value (as code)								|Will this be broadcasted over the network?|	IsInternalVariable
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_UnitInitialized",				{false												}, true	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_LastHitter", 			{objNull											}, true	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Blood",				{X39_MS2_var_Bleeding_maxBloodInEntireBody	}, true	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Clotting",				{1													}, true	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_HandleDamage",				{-1													}, false	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_FiredNear",					{-1													}, false	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_Explosion",					{-1													}, false	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_AnimStateChanged",			{-1													}, false	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_Respawn",						{-1													}, false	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_HitPart",						{-1													}, false	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Heart_heartPulse",				{X39_MS2_var_Heart_minHeartPulsePerSecond		}, true	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Heart_hasFlatLine",				{-1													}, true	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Pain_value",						{0													}, true	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Hearing_value",					{1													}, true	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Internal_XMSEffects",			{[]												}, false	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Temperature_value",				{X39_MS2_var_Temperature_max					}, true	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_hasEarplugs",					{false												}, true	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_Text",					{""													}, false	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_isBlackedOut",		{false												}, true	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_currentStage",		{0													}, true	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_timeOfUnconscious",	{-1													}, true	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_timeOfDeath",			{-1													}, true	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_TimeValue",			{-1													}, true	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Internal_lastValues",			{[]												}, false	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_triageCard",						{[player] call X39_MS2_fnc_getTriageCard		}, true	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_hitMarkerValue",				{0													}, false	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_triageState",					{[player] call X39_MS2_fnc_getTriageState	}, true	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Morphine_value",			{0													}, true	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Adrenaline_value",		{0													}, true	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Naloxone_value",			{0													}, true	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Aspirin_value",			{0													}, true	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_distraction",					{0													}, true	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_respiratory_value",				{X39_MS2_var_Respiratory_maxValue				}, true	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_respiratory_toungeBlocking",	{false												}, true	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_respiratory_arrestPresent",	{false												}, true	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_lsClass",						{-1													}, false	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_UnitTickHandle",				{scriptNull										}, false	,					true]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["tf_unable_to_use_radio",						{true												}, true	,					false]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["tf_voiceVolume",								{1													}, true	,					false]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["tf_globalVolume",								{1													}, true	,					false]];
+//																				  |Variable name								|Value (as code)								|Will this be broadcasted over the network?|	IsInternalVariable|	Transfer after death
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_UnitInitialized",				{false												}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Damage_LastHitter", 			{objNull											}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Blood",				{X39_MS2_var_Bleeding_maxBloodInEntireBody	}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Bleeding_Clotting",				{1													}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_HandleDamage",				{-1													}, false	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_FiredNear",					{-1													}, false	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_Explosion",					{-1													}, false	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_AnimStateChanged",			{-1													}, false	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_Respawn",						{-1													}, false	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_HitPart",						{-1													}, false	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Heart_heartPulse",				{X39_MS2_var_Heart_minHeartPulsePerSecond		}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Heart_hasFlatLine",				{-1													}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Pain_value",						{0													}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Hearing_value",					{1													}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Internal_XMSEffects",			{[]												}, false	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Temperature_value",				{X39_MS2_var_Temperature_max					}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_hasEarplugs",					{false												}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_hasNasopharyngeal",				{false												}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_hasOropharyngeal",				{false												}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_hasBagvalveMask",				{false												}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_Text",					{""													}, false	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_isBlackedOut",		{false												}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_currentStage",		{0													}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_timeOfUnconscious",	{-1													}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_timeOfDeath",			{-1													}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_TimeValue",			{-1													}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Internal_lastValues",			{[]												}, false	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_triageCard",						{[player] call X39_MS2_fnc_getTriageCard		}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_hitMarkerValue",				{0													}, false	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_triageState",					{[player] call X39_MS2_fnc_getTriageState	}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Morphine_value",			{0													}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Adrenaline_value",		{0													}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Naloxone_value",			{0													}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Drugs_Aspirin_value",			{0													}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_distraction",					{0													}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_respiratory_value",				{X39_MS2_var_Respiratory_maxValue				}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_respiratory_toungeBlocking",	{false												}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_respiratory_arrestPresent",	{false												}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_lsClass",						{-1													}, false	,					true	,				true	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_UnitTickHandle",				{scriptNull										}, false	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["tf_unable_to_use_radio",						{true												}, true	,					false	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["tf_voiceVolume",								{1													}, true	,					false	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["tf_globalVolume",								{1													}, true	,					false	,				false	]];
 {
 	X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, [format["X39_MS2_var_Damage_%1" COMMA _x select HITZONE_NAME], {0}, true]];
 	X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, [format["X39_MS2_var_Bleeding_%1" COMMA _x select HITZONE_NAME], {0}, true]];
@@ -189,7 +192,6 @@ assignValue("X39_MS2_var_Internal_XMSEffects_MaxLifetime", 32000);
 assignValue("X39_MS2_var_Internal_DialogCommunication_MA_Caller", objNull);
 assignValue("X39_MS2_var_Internal_DialogCommunication_MA_Target", objNull);
 assignValue("X39_MS2_var_Internal_DialogCommunication_MA_preventActions", false);
-assignValue("X39_MS2_var_Internal_DialogCommunication_MA_StatusEffects", []);
 assignValue("X39_MS2_var_Internal_DialogCommunication_BO_isActive", false);
 assignValue("X39_MS2_var_Internal_DialogCommunication_US_TargetedUnit", objNull);
 
@@ -238,8 +240,8 @@ assignValue("X39_MS2_var_Damage_KillWithNoReviveAtMaxHeadDamage", true);
 
 //Dynamic definitions
 { assignValue(format["X39_MS2_var_Damage_maxDamage%1" COMMA _x select HITZONE_NAME], 1); false }count X39_MS2_var_Internal_HitZones;
-assignValue("X39_MS2_var_Damage_knockOutLimitP", 0.5);
-assignValue("X39_MS2_var_Damage_DeathLimitP", 0.8);
+assignValue("X39_MS2_var_Damage_knockOutLimitP", 0.3);
+assignValue("X39_MS2_var_Damage_DeathLimitP", 0.5);
 assignValue("X39_MS2_var_Damage_DeathTime", 600);
 
 //Modificators
@@ -359,7 +361,7 @@ assignValue("X39_MS2_var_Hearing_GlobalModificator", 1.0);
 	
 	//Modificators
 	assignValue("X39_MS2_var_Drugs_Naloxone_NaloxoneGlobalMultiplicator", 1);
-	assignValue("X39_MS2_var_Drugs_Naloxone_MorphineImpactMultiplicator", 1);
+	assignValue("X39_MS2_var_Drugs_Naloxone_MorphineImpactMultiplicator", 8);
 
 	//Drug specification
 	assignValue("X39_MS2_var_Drugs_Naloxone_ChangeOnConsume", 2);
@@ -486,9 +488,9 @@ assignValue("X39_MS2_var_HitMarker_ReductionPerTick", 0.25);
 * http://mantis.unitedtacticalforces.de/view.php?id=93 *
 *******************************************************/
 //Enable/Disable painRelated features
-assignValue("X39_MS2_var_Respiratory_Enable", true);
-assignValue("X39_MS2_var_Respiratory_EnableToungeBlockingDuringBlackOut", true);
-assignValue("X39_MS2_var_Respiratory_EnableRespiratoryArrestDuringBlackOut", true);
+assignValue("X39_MS2_var_Respiratory_Enable", false);
+assignValue("X39_MS2_var_Respiratory_EnableToungeBlockingDuringBlackOut", false);
+assignValue("X39_MS2_var_Respiratory_EnableRespiratoryArrestDuringBlackOut", false);
 
 //Dynamic definitions
 assignValue("X39_MS2_var_Respiratory_maxValue", 10);

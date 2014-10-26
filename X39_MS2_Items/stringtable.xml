@@ -140,13 +140,13 @@
 				   <Polish>Nasopharyngeal</Polish>
 			</Key>
 			<Key ID="STR_X39_MS2_Items_oropharyngeal">
-				  <English>Oropharyngeal</English>
-				   <German>Oropharyngeal</German>
-				<Hungarian>Oropharyngeal</Hungarian>
-				  <Italian>Oropharyngeal</Italian>
-				   <French>Oropharyngeal</French>
-				  <Russian>Oropharyngeal</Russian>
-				   <Polish>Oropharyngeal</Polish>
+				  <English>King-LT</English>
+				   <German>King-LT</German>
+				<Hungarian>King-LT</Hungarian>
+				  <Italian>King-LT</Italian>
+				   <French>King-LT</French>
+				  <Russian>King-LT</Russian>
+				   <Polish>King-LT</Polish>
 			</Key>
 			<Key ID="STR_X39_MS2_Items_bagvalvemask">
 				  <English>Bag-Valve Mask</English>

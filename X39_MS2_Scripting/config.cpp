@@ -88,9 +88,9 @@ class CfgFunctions
 			class getBloodPresure:X39_XLib_Function_TypeA												{file = "X39_MS2_Scripting\Functions\Bleeding\getBloodPresure.sqf";};
 			class getCurrentBleeding:X39_XLib_Function_TypeA											{file = "X39_MS2_Scripting\Functions\Bleeding\getCurrentBleeding.sqf";};
 			
-			class getTournique:X39_XLib_Function_TypeA													{file = "X39_MS2_Scripting\Functions\Bleeding\getTournique.sqf";};
-			class setTournique:X39_XLib_Function_TypeA													{file = "X39_MS2_Scripting\Functions\Bleeding\setTournique.sqf";};
-			class hasTournique:X39_XLib_Function_TypeA													{file = "X39_MS2_Scripting\Functions\Bleeding\hasTournique.sqf";};
+			class getTournique:X39_XLib_Function_TypeA													{file = "X39_MS2_Scripting\Functions\Bleeding\Tournique\getTournique.sqf";};
+			class setTournique:X39_XLib_Function_TypeA													{file = "X39_MS2_Scripting\Functions\Bleeding\Tournique\setTournique.sqf";};
+			class hasTournique:X39_XLib_Function_TypeA													{file = "X39_MS2_Scripting\Functions\Bleeding\Tournique\hasTournique.sqf";};
 		};
 		class Callback
 		{
@@ -151,6 +151,13 @@ class CfgFunctions
 			class getToungeBlocking:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\getToungeBlocking.sqf";};
 			class setArrestPresent:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\setArrestPresent.sqf";};
 			class getArrestPresent:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\getArrestPresent.sqf";};
+			
+			class getNasopharyngeal:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\Nasopharyngeal\getNasopharyngeal.sqf";};
+			class setNasopharyngeal:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\Nasopharyngeal\setNasopharyngeal.sqf";};
+			class getOropharyngeal:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\Oropharyngeal\getOropharyngeal.sqf";};
+			class setOropharyngeal:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\Oropharyngeal\setOropharyngeal.sqf";};
+			class getBagvalveMask:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\BagvalveMask\getBagvalveMask.sqf";};
+			class setBagvalveMask:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\BagvalveMask\setBagvalveMask.sqf";};
 		};
 		class Heart
 		{

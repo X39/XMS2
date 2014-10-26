@@ -19,7 +19,6 @@ _this spawn {
 	_lastDrugList = [];
 	X39_MS2_var_Internal_DialogCommunication_MA_Caller = player;
 	X39_MS2_var_Internal_DialogCommunication_MA_Target = [_this, 0, objNull, [objNull]] call BIS_fnc_param;
-	X39_MS2_var_Internal_DialogCommunication_MA_StatusEffects = [];
 	if(stance X39_MS2_var_Internal_DialogCommunication_MA_Caller != "PRONE" && {stance X39_MS2_var_Internal_DialogCommunication_MA_Caller != "CROUCH"}) then
 	{
 		X39_MS2_var_Internal_DialogCommunication_MA_Caller playActionNow "CROUCH";
@@ -204,7 +203,7 @@ _this spawn {
 	{
 		displayCtrl_MedicalUi(_x) ctrlSetEventHandler["MouseButtonDown",	format["_res = _this spawn {if((_this select 1) != 1) exitWith {};if(X39_MS2_var_Internal_DialogCommunication_MA_preventActions) exitWith {[] call X39_MS2_fnc_MedicalUi_outputBlockedMessage;};[%1, [_this select 2, _this select 3]] call X39_MS2_fnc_MedicalUi_HitZones_CreateMenu;};", str (HITZONENAMES select _forEachIndex select HITZONE_NAME)]];
 		displayCtrl_MedicalUi(_x) ctrlSetEventHandler["MouseEnter",		format["[%1, _this, true] call X39_MS2_fnc_MedicalUi_HitZones_UpdateStatusEffects", str (HITZONENAMES select _forEachIndex select HITZONE_NAME)]];
-		displayCtrl_MedicalUi(_x) ctrlSetEventHandler["MouseExit",			format["[%1, _this, true] call X39_MS2_fnc_MedicalUi_HitZones_UpdateStatusEffects", str (HITZONENAMES select _forEachIndex select HITZONE_NAME)]];
+		displayCtrl_MedicalUi(_x) ctrlSetEventHandler["MouseExit",			format["[%1, _this, false] call X39_MS2_fnc_MedicalUi_HitZones_UpdateStatusEffects", str (HITZONENAMES select _forEachIndex select HITZONE_NAME)]];
 	}forEach HITZONES;
 	
 	//Add preDefinedTriageCardMessages to UI
