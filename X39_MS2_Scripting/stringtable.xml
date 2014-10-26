@@ -307,12 +307,48 @@
 			</Key>
 			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_BloodPresure">
 				    <English>%1s current bloodpresure is %2</English>
-				      <German>%1s current bloodpresure is %2</German>
-				<Hungarian>%1s current bloodpresure is %2</Hungarian>
+					 <German>%1s current bloodpresure is %2</German>
+				  <Hungarian>%1s current bloodpresure is %2</Hungarian>
 				    <Italian>%1s current bloodpresure is %2</Italian>
-				      <French>%1s current bloodpresure is %2</French>
+				     <French>%1s current bloodpresure is %2</French>
 				    <Russian>%1s current bloodpresure is %2</Russian>
-				      <Polish>%1s current bloodpresure is %2</Polish>
+				     <Polish>%1s current bloodpresure is %2</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Pulse_NoPulse">
+				  <English>No pulse</English>
+				   <German>No pulse</German>
+				<Hungarian>No pulse</Hungarian>
+				  <Italian>No pulse</Italian>
+				   <French>No pulse</French>
+				  <Russian>No pulse</Russian>
+				   <Polish>No pulse</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Drugs_ConcentrationMessage">
+				  <English>%1 concentration at %2%3</English>
+				   <German>%1 concentration at %2%3</German>
+				<Hungarian>%1 concentration at %2%3</Hungarian>
+				  <Italian>%1 concentration at %2%3</Italian>
+				   <French>%1 concentration at %2%3</French>
+				  <Russian>%1 concentration at %2%3</Russian>
+				   <Polish>%1 concentration at %2%3</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Respiration_NotBreathing">
+				  <English>%1 is not breathing</English>
+				   <German>%1 is not breathing</German>
+				<Hungarian>%1 is not breathing</Hungarian>
+				  <Italian>%1 is not breathing</Italian>
+				   <French>%1 is not breathing</French>
+				  <Russian>%1 is not breathing</Russian>
+				   <Polish>%1 is not breathing</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Respiration_ToungeBlocks">
+				  <English>%1s tongue is blocking is airway</English>
+				   <German>%1s tongue is blocking is airway</German>
+				<Hungarian>%1s tongue is blocking is airway</Hungarian>
+				  <Italian>%1s tongue is blocking is airway</Italian>
+				   <French>%1s tongue is blocking is airway</French>
+				  <Russian>%1s tongue is blocking is airway</Russian>
+				   <Polish>%1s tongue is blocking is airway</Polish>
 			</Key>
 		</Container>
 		<Container name="DialogControl_MedicalActionMenu">
@@ -677,6 +713,15 @@
 				  <Russian>Naloxone</Russian>
 				   <Polish>Naloxone</Polish>
 			</Key>
+			<Key ID="STR_X39_MS2_Scripting_Drugs_Aspirin_Name">
+				  <English>Aspirin</English>
+				   <German>Aspirin</German>
+				<Hungarian>Aspirin</Hungarian>
+				  <Italian>Aspirin</Italian>
+				   <French>Aspirin</French>
+				  <Russian>Aspirin</Russian>
+				   <Polish>Aspirin</Polish>
+			</Key>
 		</Container>
 		<Container name="MedicalUiActions">
 			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Bandage_ActionName">
@@ -723,6 +768,60 @@
 				   <French>Remove tournique</French>
 				  <Russian>Remove tournique</Russian>
 				   <Polish>Remove tournique</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Nasopharyngeal_ActionNamePut">
+				  <English>Put nasopharyngeal</English>
+				   <German>Put nasopharyngeal</German>
+				<Hungarian>Put nasopharyngeal</Hungarian>
+				  <Italian>Put nasopharyngeal</Italian>
+				   <French>Put nasopharyngeal</French>
+				  <Russian>Put nasopharyngeal</Russian>
+				   <Polish>Put nasopharyngeal</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Nasopharyngeal_ActionNameTake">
+				  <English>Remove nasopharyngeal</English>
+				   <German>Remove nasopharyngeal</German>
+				<Hungarian>Remove nasopharyngeal</Hungarian>
+				  <Italian>Remove nasopharyngeal</Italian>
+				   <French>Remove nasopharyngeal</French>
+				  <Russian>Remove nasopharyngeal</Russian>
+				   <Polish>Remove nasopharyngeal</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_BagvalveMask_ActionNamePut">
+				  <English>Put bagvalve-mask</English>
+				   <German>Put bagvalve-mask</German>
+				<Hungarian>Put bagvalve-mask</Hungarian>
+				  <Italian>Put bagvalve-mask</Italian>
+				   <French>Put bagvalve-mask</French>
+				  <Russian>Put bagvalve-mask</Russian>
+				   <Polish>Put bagvalve-mask</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_BagvalveMask_ActionNameTake">
+				  <English>Remove bagvalve-mask</English>
+				   <German>Remove bagvalve-mask</German>
+				<Hungarian>Remove bagvalve-mask</Hungarian>
+				  <Italian>Remove bagvalve-mask</Italian>
+				   <French>Remove bagvalve-mask</French>
+				  <Russian>Remove bagvalve-mask</Russian>
+				   <Polish>Remove bagvalve-mask</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Oropharyngeal_ActionNamePut">
+				  <English>Put oropharyngeal</English>
+				   <German>Put oropharyngeal</German>
+				<Hungarian>Put oropharyngeal</Hungarian>
+				  <Italian>Put oropharyngeal</Italian>
+				   <French>Put oropharyngeal</French>
+				  <Russian>Put oropharyngeal</Russian>
+				   <Polish>Put oropharyngeal</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Oropharyngeal_ActionNameTake">
+				  <English>Remove oropharyngeal</English>
+				   <German>Remove oropharyngeal</German>
+				<Hungarian>Remove oropharyngeal</Hungarian>
+				  <Italian>Remove oropharyngeal</Italian>
+				   <French>Remove oropharyngeal</French>
+				  <Russian>Remove oropharyngeal</Russian>
+				   <Polish>Remove oropharyngeal</Polish>
 			</Key>
 			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Saline_ActionName">
 				  <English>Give saline bag</English>

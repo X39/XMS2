@@ -9,4 +9,4 @@
  */
 if(!X39_MS2_var_Feature_EnableBlood || !X39_MS2_var_Bleeding_EnableAterialDamage) exitWith {false};
 if(!([_this select 1] call X39_MS2_fnc_isValidHitZone)) exitWith {false};
-((_this select 0) getVariable [format["X39_MS2_var_Bleeding_%1AterieDamaged", _this select 1], false])
+((_this select 0) getVariable [format["X39_MS2_var_%1HasTourniquet", _this select 1], false])

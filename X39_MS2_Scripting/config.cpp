@@ -26,6 +26,7 @@ class CfgFunctions
 		class General //Functions without any categoriy
 		{
 			class initUnit:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\initUnit.sqf";};
+			class unInitUnit:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\unInitUnit.sqf";};
 			class isUnitXms2Unit:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\isUnitXms2Unit.sqf";};
 			class runTicker:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\runTicker.sqf";};
 			class blackOutUnit:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\blackOutUnit.sqf";};
@@ -34,10 +35,10 @@ class CfgFunctions
 			class applyPPEffects:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\applyPPEffects.sqf";};
 			class resetPPEffects:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\resetPPEffects.sqf";};
 			class addEffect:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\addEffect.sqf";};
-			class messagePlayer:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\messagePlayer.sqf";};
 			class killUnit:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\killUnit.sqf";};
 			class registerTickHandler:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\registerTickHandler.sqf";};
 			class registerMedicalMessage:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\registerMedicalMessage.sqf";};
+			class registerMedicalStatusEffect:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\registerMedicalStatusEffect.sqf";};
 			
 			class applyServerConfig:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\applyServerConfig.sqf";};
 			class applyClientConfig:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\applyClientConfig.sqf";};
@@ -87,9 +88,9 @@ class CfgFunctions
 			class getBloodPresure:X39_XLib_Function_TypeA												{file = "X39_MS2_Scripting\Functions\Bleeding\getBloodPresure.sqf";};
 			class getCurrentBleeding:X39_XLib_Function_TypeA											{file = "X39_MS2_Scripting\Functions\Bleeding\getCurrentBleeding.sqf";};
 			
-			class getTournique:X39_XLib_Function_TypeA													{file = "X39_MS2_Scripting\Functions\Bleeding\getTournique.sqf";};
-			class setTournique:X39_XLib_Function_TypeA													{file = "X39_MS2_Scripting\Functions\Bleeding\setTournique.sqf";};
-			class hasTournique:X39_XLib_Function_TypeA													{file = "X39_MS2_Scripting\Functions\Bleeding\hasTournique.sqf";};
+			class getTournique:X39_XLib_Function_TypeA													{file = "X39_MS2_Scripting\Functions\Bleeding\Tournique\getTournique.sqf";};
+			class setTournique:X39_XLib_Function_TypeA													{file = "X39_MS2_Scripting\Functions\Bleeding\Tournique\setTournique.sqf";};
+			class hasTournique:X39_XLib_Function_TypeA													{file = "X39_MS2_Scripting\Functions\Bleeding\Tournique\hasTournique.sqf";};
 		};
 		class Callback
 		{
@@ -129,12 +130,34 @@ class CfgFunctions
 			class addNaloxone:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Naloxone\addNaloxone.sqf";};
 			class getNaloxone:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Naloxone\getNaloxone.sqf";};
 			class setNaloxone:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Naloxone\setNaloxone.sqf";};
+			
+			class addAspirin:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Aspirin\addAspirin.sqf";};
+			class getAspirin:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Aspirin\getAspirin.sqf";};
+			class setAspirin:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Aspirin\setAspirin.sqf";};
 		};
 		class Hearing
 		{
 			class addHearing:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Hearing\addHearing.sqf";};
 			class getHearing:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Hearing\getHearing.sqf";};
 			class setHearing:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Hearing\setHearing.sqf";};
+		};
+		class Respiratory
+		{
+			class addRespiratory:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\addRespiratory.sqf";};
+			class getRespiratory:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\getRespiratory.sqf";};
+			class setRespiratory:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\setRespiratory.sqf";};
+			
+			class setToungeBlocking:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\setToungeBlocking.sqf";};
+			class getToungeBlocking:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\getToungeBlocking.sqf";};
+			class setArrestPresent:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\setArrestPresent.sqf";};
+			class getArrestPresent:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\getArrestPresent.sqf";};
+			
+			class getNasopharyngeal:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\Nasopharyngeal\getNasopharyngeal.sqf";};
+			class setNasopharyngeal:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\Nasopharyngeal\setNasopharyngeal.sqf";};
+			class getOropharyngeal:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\Oropharyngeal\getOropharyngeal.sqf";};
+			class setOropharyngeal:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\Oropharyngeal\setOropharyngeal.sqf";};
+			class getBagvalveMask:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\BagvalveMask\getBagvalveMask.sqf";};
+			class setBagvalveMask:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\BagvalveMask\setBagvalveMask.sqf";};
 		};
 		class Heart
 		{
@@ -153,6 +176,7 @@ class CfgFunctions
 		};
 		class XMSTicks
 		{
+			class respiratoryTick:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\XMSTicks\respiratoryTick.sqf";};
 			class heartTick:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\XMSTicks\heartTick.sqf";};
 			class updateOverlay:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\XMSTicks\updateOverlay.sqf";};
 			class effectHandleTick:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\XMSTicks\effectHandleTick.sqf";};
@@ -191,6 +215,7 @@ class CfgFunctions
 		class DialogControl_Overlay
 		{
 			class overlay_createDisplay:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\DialogControl\Overlay\createDisplay.sqf";};
+			class overlay_destroyDisplay:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\DialogControl\Overlay\destroyDisplay.sqf";};
 			class overlay_showHitMarker:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\DialogControl\Overlay\showHitMarker.sqf";};
 			class setProgressBarTimeout:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\DialogControl\Overlay\setProgressBarTimeout.sqf";};
 			class clearProgressBarTimeout:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\DialogControl\Overlay\clearProgressBarTimeout.sqf";};

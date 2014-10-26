@@ -10,7 +10,7 @@
 if(!X39_MS2_var_Feature_EnableMorphine) exitWith {};
 FORCELOCAL(_this select 0);
 private["_morphine"];
-_morphine = [(_this select 0)] call X39_MS2_fnc_getMorphine;
+_morphine = [(_this select 0), true] call X39_MS2_fnc_getMorphine;
 _morphine = _morphine + ((_this select 1) * X39_MS2_var_Drugs_Morphine_GlobalMorphineModificator);
 if(_morphine > X39_MS2_var_Drugs_Morphine_maxMorphine) then
 {
@@ -23,5 +23,12 @@ else
 		_morphine = 0;
 	};
 };
-[_this select 0, _morphine] call X39_MS2_fnc_setMorphine;
+if(isNil("_isXms2TickCall")) then
+{
+	[_this select 0, _morphine] call X39_MS2_fnc_setMorphine;
+}
+else
+{
+	[_this select 0, _morphine, _isXms2TickCall] call X39_MS2_fnc_setMorphine;
+};
 _morphine

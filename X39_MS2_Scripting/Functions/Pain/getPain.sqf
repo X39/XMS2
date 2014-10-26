@@ -6,7 +6,7 @@
  * @Param1 - OBJECT - XMS Unit to handle
  * @Return - SCALAR - Current damage of the unit
  */
-private["_unit", "_pain"];
+private["_unit", "_pain", "_calcBase"];
 _unit = _this select 0;
 _pain = 0;
 if(X39_MS2_var_Pain_useExtraPain) then
@@ -23,21 +23,26 @@ if(X39_MS2_var_Pain_useCurrentDamageValues) then
 
 
 
-if(X39_MS2_var_Drugs_Morphine_useMorphineForPain) then //NEEDS TO BE EXECUTED LAST!
+if(X39_MS2_var_Drugs_Morphine_useForPain) then
 {
-	_morphCalcBase = (([_unit] call X39_MS2_fnc_getMorphine) / (X39_MS2_var_Pain_maxPain * X39_MS2_var_Drugs_Morphine_morphinePainMinForFullCureP)) * X39_MS2_var_Drugs_Morphine_morphinePainCureValueP;
-	if(_morphCalcBase > 1) then
-	{
-		_morphCalcBase = 1;
-	};
-	if(_morphCalcBase < 0) then
-	{
-		_morphCalcBase = 0;
-	};
-	_pain = _pain - (_pain * _morphCalcBase);
+	_calcBase = (([_unit] call X39_MS2_fnc_getMorphine) / (X39_MS2_var_Pain_maxPain * X39_MS2_var_Drugs_Morphine_PainMinForFullCureP)) * X39_MS2_var_Drugs_Morphine_PainCureValueP;
+	if(_calcBase > 1) then { _calcBase = 1; };
+	if(_calcBase < 0) then { _calcBase = 0; };
+	_pain = _pain - (_pain * _calcBase);
 };
-if(_pain < 0) then
+if(X39_MS2_var_Drugs_Adrenaline_useForPain) then
 {
-	_pain = 0;
+	_calcBase = (([_unit] call X39_MS2_fnc_getAdrenaline) / (X39_MS2_var_Drugs_Adrenaline_maxAdrenaline * X39_MS2_var_Drugs_Adrenaline_PainMinForFullCureP)) * X39_MS2_var_Drugs_Adrenaline_PainCureValueP;
+	if(_calcBase > 1) then { _calcBase = 1; };
+	if(_calcBase < 0) then { _calcBase = 0; };
+	_pain = _pain - (_pain * _calcBase);
 };
+if(X39_MS2_var_Drugs_Aspirin_useForPain) then
+{
+	_calcBase = (([_unit] call X39_MS2_fnc_getAspirin) / (X39_MS2_var_Drugs_Aspirin_maxAspirin * X39_MS2_var_Drugs_Aspirin_PainMinForFullCureP)) * X39_MS2_var_Drugs_Aspirin_PainCureValueP;
+	if(_calcBase > 1) then { _calcBase = 1; };
+	if(_calcBase < 0) then { _calcBase = 0; };
+	_pain = _pain - (_pain * _calcBase);
+};
+if(_pain < 0) then { _pain = 0; };
 _pain

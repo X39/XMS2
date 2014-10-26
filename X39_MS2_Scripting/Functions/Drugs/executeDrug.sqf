@@ -17,6 +17,7 @@
 FORCELOCAL(_this select 2);
 private["_drug"];
 _drug = X39_MS2_var_Internal_MedicalUi_RegisteredDrugs select (_this select 3 select 3);
+DEBUG_LOG_WFn_SC(format["Executing drug with drugID '%1'" COMMA _drug select 0])
 if(_this select 0) then
 {
 	(_this select 3) call (_drug select 5);

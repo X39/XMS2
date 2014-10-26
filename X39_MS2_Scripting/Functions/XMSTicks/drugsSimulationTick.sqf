@@ -47,13 +47,13 @@ if(X39_MS2_var_Feature_EnableAdrenaline) then {
 if(X39_MS2_var_Feature_EnableMorphine) then {
 	_morphineCalculationBase = ([_unit] call X39_MS2_fnc_getMorphine) / X39_MS2_var_Drugs_Morphine_maxMorphine;
 	_changeMorphine = -X39_MS2_var_Drugs_Morphine_reductionPerTick;
-	if(_morphineCalculationBase >= X39_MS2_var_Drugs_Morphine_morphineBlackOutPointP && {X39_MS2_var_Drugs_Morphine_morphineOverdoseCanKnockOut || X39_MS2_var_Drugs_Morphine_morphineOverdoseCanKill}) then
+	if(_morphineCalculationBase >= X39_MS2_var_Drugs_Morphine_BlackOutPointP && {X39_MS2_var_Drugs_Morphine_OverdoseCanKnockOut || X39_MS2_var_Drugs_Morphine_OverdoseCanKill}) then
 	{
-		if(_morphineCalculationBase >= X39_MS2_var_Drugs_Morphine_morphineKillPointP && {X39_MS2_var_Drugs_Morphine_morphineOverdoseCanKill}) then
+		if(_morphineCalculationBase >= X39_MS2_var_Drugs_Morphine_KillPointP && {X39_MS2_var_Drugs_Morphine_OverdoseCanKill}) then
 		{
-			if(X39_MS2_var_Drugs_Morphine_morphineFakeKills) then
+			if(X39_MS2_var_Drugs_Morphine_FakeKills) then
 			{
-				[_unit, 4, X39_MS2_var_Drugs_Morphine_morphineKillLifeTime, localize "STR_X39_MS2_Scripting_XMSTicks_MorphineSimulation_DeathThroughMorphineOverdose"] call X39_MS2_fnc_blackOutUnit;
+				[_unit, 4, X39_MS2_var_Drugs_Morphine_KillLifeTime, localize "STR_X39_MS2_Scripting_XMSTicks_MorphineSimulation_DeathThroughMorphineOverdose"] call X39_MS2_fnc_blackOutUnit;
 			}
 			else
 			{
@@ -62,36 +62,40 @@ if(X39_MS2_var_Feature_EnableMorphine) then {
 		}
 		else
 		{
-			if(X39_MS2_var_Drugs_Morphine_morphineOverdoseCanKnockOut) then
+			if(X39_MS2_var_Drugs_Morphine_OverdoseCanKnockOut) then
 			{
-				[_unit, 2, X39_MS2_var_Drugs_Morphine_morphineKillLifeTime, localize "STR_X39_MS2_Scripting_XMSTicks_MorphineSimulation_KnockOutThroughMorphineOverdose", "Drugs_Morphine_Overdose", {(([_this select 0] call X39_MS2_fnc_getMorphine) / X39_MS2_var_Drugs_Morphine_maxMorphine) >= X39_MS2_var_Drugs_Morphine_morphineBlackOutPointP}] call X39_MS2_fnc_blackOutUnit;
+				[_unit, 2, X39_MS2_var_Drugs_Morphine_KillLifeTime, localize "STR_X39_MS2_Scripting_XMSTicks_MorphineSimulation_KnockOutThroughMorphineOverdose", "Drugs_Morphine_Overdose", {(([_this select 0] call X39_MS2_fnc_getMorphine) / X39_MS2_var_Drugs_Morphine_maxMorphine) >= X39_MS2_var_Drugs_Morphine_BlackOutPointP}] call X39_MS2_fnc_blackOutUnit;
 			};
 		};
 	};
-	if(X39_MS2_var_Drugs_Morphine_morphineEffects) then
+	if(X39_MS2_var_Drugs_Morphine_Effects) then
 	{
-		if(X39_MS2_var_Drugs_Morphine_morphineForceWalkPointP != -1) then
+		if(X39_MS2_var_Drugs_Morphine_ForceWalkPointP != -1) then
 		{
-			if(_morphineCalculationBase >= X39_MS2_var_Drugs_Morphine_morphineForceWalkPointP) then
+			if(_morphineCalculationBase >= X39_MS2_var_Drugs_Morphine_ForceWalkPointP) then
 			{
 				_cfnForceWalk = _cfnForceWalk + 1;
 			};
 		};
-		if(X39_MS2_var_Drugs_Morphine_morphineRandomDowningPointP != -1) then
+		if(X39_MS2_var_Drugs_Morphine_RandomDowningPointP != -1) then
 		{
-			if(_morphineCalculationBase >= X39_MS2_var_Drugs_Morphine_morphineRandomDowningPointP) then
+			if(_morphineCalculationBase >= X39_MS2_var_Drugs_Morphine_RandomDowningPointP) then
 			{
-				if(floor random 100 < X39_MS2_var_Drugs_Morphine_morphineRandomDowningBaseValueP * 100) then
+				if(stance _unit != "PRONE") then
 				{
-					_unit playMove "down";
+					if((random 1 < X39_MS2_var_Drugs_Morphine_RandomDowningBaseValueP) && (random 1 < X39_MS2_var_Drugs_Morphine_RandomDowningBaseValueP)) then
+					{
+						_unit playMove "down";
+					};
 				};
 			};
 		};
-		if(X39_MS2_var_Drugs_Morphine_morphineDisortionStartPointP != -1) then
+		if(X39_MS2_var_Drugs_Morphine_DisortionStartPointP != -1) then
 		{
-			if(_morphineCalculationBase >= X39_MS2_var_Drugs_Morphine_morphineForceWalkPointP) then
+			if(_morphineCalculationBase >= X39_MS2_var_Drugs_Morphine_DisortionStartPointP) then
 			{
-				_ppeWetDisort_LeftStrength = _ppeWetDisort_LeftStrength + ((X39_MS2_var_Drugs_Morphine_morphineForceWalkPointP - _morphineCalculationBase) / (1 - X39_MS2_var_Drugs_Morphine_morphineForceWalkPointP));
+				_ppeWetDisort_LeftStrength = _ppeWetDisort_LeftStrength + (_morphineCalculationBase - X39_MS2_var_Drugs_Morphine_DisortionStartPointP) / (1 - X39_MS2_var_Drugs_Morphine_DisortionStartPointP);
+				_ppeWetDisort_RightStrength = _ppeWetDisort_RightStrength + (_morphineCalculationBase - X39_MS2_var_Drugs_Morphine_DisortionStartPointP) / (1 - X39_MS2_var_Drugs_Morphine_DisortionStartPointP);
 			};
 		};
 	};
@@ -101,13 +105,19 @@ if(X39_MS2_var_Feature_EnableMorphine) then {
 	};
 };
 if(X39_MS2_var_Feature_EnableNaloxone) then {
-	if(_blackOutStage >= 1 && _blackOutStage < 3) then
+	if(X39_MS2_var_Drugs_Naloxone_allowWakeUnconscious) then
 	{
-		_currentNaloxone = [_unit] call X39_MS2_fnc_getNaloxone;
-		if((_currentNaloxone / X39_MS2_var_Drugs_Naloxone_maxNaloxone) >= X39_MS2_var_Drugs_Naloxone_wakeBlackedPersonValueP) then
+		if(_blackOutStage >= 1 && _blackOutStage < 3) then
 		{
-			[_unit, 0, -1, ""] call X39_MS2_fnc_blackOutUnit;
+			_currentNaloxone = [_unit] call X39_MS2_fnc_getNaloxone;
+			if((_currentNaloxone / X39_MS2_var_Drugs_Naloxone_maxNaloxone) >= X39_MS2_var_Drugs_Naloxone_wakeBlackedPersonValueP) then
+			{
+				[_unit, 0, -1, ""] call X39_MS2_fnc_blackOutUnit;
+			};
 		};
 	};
 	[_unit, -X39_MS2_var_Drugs_Naloxone_ReductionPerTick] call X39_MS2_fnc_addNaloxone;
+};
+if(X39_MS2_var_Feature_EnableAspirin) then {
+	[_unit, -X39_MS2_var_Drugs_Aspirin_ReductionPerTick] call X39_MS2_fnc_addAspirin;
 };

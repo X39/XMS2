@@ -3,6 +3,7 @@
  *	Will blackOut the unit depending on the inputs (current blackOut stage needs to be higher then the current or 0)
  *	!FUNCTION IS FORCED TO BE LOCAL!
  *	Available stages:
+ *		(-2) NA (used to add another WakeUpCondition)
  *		(-1) NA (used to update the text)
  *		(0) OK
  *		(1) Temporary black out
@@ -18,27 +19,36 @@
  *	@Param6 - CODE		- WakeUp Condition code (needs to return false to let the unit wake up again) ONLY USED IN STAGE 2
  *							Parameters:
  *							0. _unit:OBJECT
- *	@Param7 - BOOL		- Override protection mode (just for internal use!)
+ *	@Param7 - BOOL		- Override protected mode (just for internal use!) --> Makes it possible to move the unit in lower blackOutStages => (0;4]
  *	@Return - BOOL - true when unit was blacked out, false when not
  */
-private["_unit", "_stage", "_time", "_text", "_currentStageOfUnit", "_index", "_blackOutId", "_wakeUpCondition", "_override"];
+private["_unit", "_stage", "_time", "_text", "_currentStageOfUnit", "_index", "_blackOutId", "_wakeUpCondition", "_override", "_flag"];
 _unit				=	[_this, 0, objNull, [objNull]]	call BIS_fnc_param;
 _stage				=	[_this, 1, 0, [0]]				call BIS_fnc_param;
 _time				=	[_this, 2, 0, [0]]				call BIS_fnc_param;
-_text				=	[_this, 3, "", [""]]			call BIS_fnc_param;
-_blackOutId			=	toUpper [_this, 4, "", [""]]	call BIS_fnc_param;
+_text				=	[_this, 3, "", [""]]				call BIS_fnc_param;
+_blackOutId		=	toUpper ([_this, 4, "", [""]]	call BIS_fnc_param);
 _wakeUpCondition	=	[_this, 5, {false}, [{}]]		call BIS_fnc_param;
 _override			=	[_this, 6, false, [false]]		call BIS_fnc_param;
+
+_flag = true;
+
 if(isNull _unit) exitWith {PRINT_ERROR("Provided unit is null!");};
 FORCELOCAL(_unit);
 if(_stage == 0) exitWith
 {
+	//Ensure ALL blackOutConditions are terminated
 	if({_x == -1} count X39_MS2_var_Internal_BlackOut_ConditionCode == count X39_MS2_var_Internal_BlackOut_ConditionCode) then
 	{
 		_unit setVariable ["X39_MS2_var_BlackOut_timeOfDeath", -1];
 		_unit setVariable ["X39_MS2_var_BlackOut_timeOfUnconscious", -1];
 		_unit setVariable ["X39_MS2_var_BlackOut_Text", _text];
 		_unit setVariable ["X39_MS2_var_BlackOut_isBlackedOut", false];
+		_unit setVariable ["tf_unable_to_use_radio", false];
+		_unit setVariable ["tf_voiceVolume", 1];
+		_unit setVariable ["tf_globalVolume", 1];
+		[_unit, false] call X39_MS2_fnc_setToungeBlocking;
+		[_unit, false] call X39_MS2_fnc_setArrestPresent;
 		["consciousStateChanged", _this, false, "XMS2", missionNamespace] call X39_XLib_EH_fnc_triggerEvent;
 		_unit setVariable ["X39_MS2_var_BlackOut_currentStage", _stage];
 		_unit setCaptive false;
@@ -83,10 +93,60 @@ if((_stage > _currentStageOfUnit || {_override}) && {_stage < 5}) then
 	{
 		_unit setVariable ["X39_MS2_var_BlackOut_timeOfUnconscious", time];
 	};
-	_unit setVariable ["X39_MS2_var_BlackOut_TimeValue", _time];
-	_unit setVariable ["X39_MS2_var_BlackOut_Text", _text];
-	_unit setVariable ["X39_MS2_var_BlackOut_isBlackedOut", true];
-	_unit setVariable ["X39_MS2_var_BlackOut_currentStage", _stage];
-	["consciousStateChanged", _this, false, "XMS2", missionNamespace] call X39_XLib_EH_fnc_triggerEvent;
-	[_unit] call X39_MS2_fnc_blackOutDialog_createDialog;
+	if(_currentStageOfUnit <= 1) then
+	{
+		if(X39_MS2_var_Respiratory_Enable) then
+		{
+			if(X39_MS2_var_Respiratory_EnableToungeBlockingDuringBlackOut && random 1 <= X39_MS2_var_Respiratory_ChanceForToungeBlockingDuringBlackOutP) then
+			{
+				[_unit, true] call X39_MS2_fnc_setToungeBlocking;
+				_flag = false;
+				if(_stage < 2) then
+				{
+					[_unit, 2, 0, _text, "ToungeBlock", {
+																([_this select 0] call X39_MS2_fnc_getToungeBlocking) ||
+																( ( X39_MS2_var_Respiratory_RequiredRespirationValueForWakeupP * X39_MS2_var_Respiratory_maxValue ) >= ( [_this select 0] call X39_MS2_fnc_getRespiratory ) )
+															}, false] call X39_MS2_fnc_blackOutUnit
+				}
+				else
+				{
+					[_unit, _stage, _time, _text, "ToungeBlock", {
+																([_this select 0] call X39_MS2_fnc_getToungeBlocking) ||
+																( ( X39_MS2_var_Respiratory_RequiredRespirationValueForWakeupP * X39_MS2_var_Respiratory_maxValue ) >= ( [_this select 0] call X39_MS2_fnc_getRespiratory ) )
+															}, false] call X39_MS2_fnc_blackOutUnit
+				};
+			};
+			if(X39_MS2_var_Respiratory_EnableRespiratoryArrestDuringBlackOut && random 1 <= X39_MS2_var_Respiratory_ChanceForDirectRespiratoryArrestDuringBlackOutP) then
+			{
+				[_unit, true] call X39_MS2_fnc_setArrestPresent;
+				_flag = false;
+				if(_stage < 2) then
+				{
+					[_unit, 2, 0, _text, "ArrestPresent", {
+																([_this select 0] call X39_MS2_fnc_getArrestPresent) ||
+																( ( X39_MS2_var_Respiratory_RequiredRespirationValueForWakeupP * X39_MS2_var_Respiratory_maxValue ) >= ( [_this select 0] call X39_MS2_fnc_getRespiratory ) )
+															}, false] call X39_MS2_fnc_blackOutUnit
+				}
+				else
+				{
+					[_unit, _stage, _time, _text, "ArrestPresent", {
+																([_this select 0] call X39_MS2_fnc_getArrestPresent) ||
+																( ( X39_MS2_var_Respiratory_RequiredRespirationValueForWakeupP * X39_MS2_var_Respiratory_maxValue ) >= ( [_this select 0] call X39_MS2_fnc_getRespiratory ) )
+															}, false] call X39_MS2_fnc_blackOutUnit
+				};
+			};
+		};
+	};
+	if(_flag) then
+	{
+		_unit setVariable ["X39_MS2_var_BlackOut_TimeValue", _time];
+		_unit setVariable ["X39_MS2_var_BlackOut_Text", _text];
+		_unit setVariable ["X39_MS2_var_BlackOut_isBlackedOut", true];
+		_unit setVariable ["X39_MS2_var_BlackOut_currentStage", _stage];
+		["consciousStateChanged", _this, false, "XMS2", missionNamespace] call X39_XLib_EH_fnc_triggerEvent;
+		[_unit] call X39_MS2_fnc_blackOutDialog_createDialog;
+		_unit setVariable ["tf_unable_to_use_radio", true];
+		_unit setVariable ["tf_voiceVolume", 0];
+		_unit setVariable ["tf_globalVolume", 0];
+	};
 };

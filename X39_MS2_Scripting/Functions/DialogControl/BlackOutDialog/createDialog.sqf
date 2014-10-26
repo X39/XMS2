@@ -152,7 +152,7 @@ _this spawn {
 					};
 				};
 			}forEach X39_MS2_var_Internal_BlackOut_ConditionCode;
-			if({_x == -1} count X39_MS2_var_Internal_BlackOut_ConditionCode == count X39_MS2_var_Internal_BlackOut_ConditionCode) then
+			if({ISSCALAR(_x)} count X39_MS2_var_Internal_BlackOut_ConditionCode == count X39_MS2_var_Internal_BlackOut_ConditionCode) then
 			{
 				X39_MS2_var_Internal_BlackOut_ConditionIDs = [];
 				X39_MS2_var_Internal_BlackOut_ConditionCode = [];

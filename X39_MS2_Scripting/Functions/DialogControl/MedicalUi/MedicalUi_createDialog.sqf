@@ -15,7 +15,8 @@
 _this spawn {
 	DEBUG_CODE_SC(_fnc_scriptName = "X39_MS2_fnc_MedicalUi_createDialog";);
 	if(dialog) exitWith {PRINT_ERROR("Another UI is already displayed!");};
-	private["_index", "_marker", "_color", "_name", "_i", "_bodyViewType", "_dmg", "_maxDmg", "_triageCardEntries", "_triageState", "_txt", "_arr", "_controlArray", "_largerArray", "_smallerArray", "_flag"];
+	private["_index", "_marker", "_color", "_name", "_i", "_bodyViewType", "_dmg", "_maxDmg", "_triageCardEntries", "_triageState", "_txt", "_arr", "_controlArray", "_largerArray", "_smallerArray", "_flag", "_lastDrugList"];
+	_lastDrugList = [];
 	X39_MS2_var_Internal_DialogCommunication_MA_Caller = player;
 	X39_MS2_var_Internal_DialogCommunication_MA_Target = [_this, 0, objNull, [objNull]] call BIS_fnc_param;
 	if(stance X39_MS2_var_Internal_DialogCommunication_MA_Caller != "PRONE" && {stance X39_MS2_var_Internal_DialogCommunication_MA_Caller != "CROUCH"}) then
@@ -42,7 +43,7 @@ _this spawn {
 	{displayCtrl_MedicalUi(_x) ctrlShow false; false} count HITZONEINFOPICTURES;
 	
 	
-	//All that fancy eyeCandy crap logic stuff (the crap is connected to the eyeCandy! not the logic (which is actually kinda cool))
+	//All that fancy eyeCandy crap logic stuff (the crap is connected to the eyeCandy! Not the actual logic (which is kinda cool))
 	displayCtrl_MedicalUi(IDC_MEDICALUI_BTN_TOGGLEDRUGSFRAME)		ctrlSetEventHandler["MouseButtonDown", {_res = [] spawn {
 																												_currentPos = ctrlPosition displayCtrl_MedicalUi(IDC_MEDICALUI_BTN_TOGGLEDRUGSFRAME);
 																												_pos1 = [
@@ -178,7 +179,7 @@ _this spawn {
 	displayCtrl_MedicalUi(IDC_MEDICALUI_BTN_REMOVEENTRYFROMTRIAGECARD)			ctrlSetEventHandler["MouseButtonDown", {
 																															if(X39_MS2_var_Internal_DialogCommunication_MA_preventActions) exitWith {[] call X39_MS2_fnc_MedicalUi_outputBlockedMessage;};
 																															_index = lbCurSel IDC_MEDICALUI_LB_TRIAGECARDENTRIES;
-																															if(lbCurSel IDC_MEDICALUI_LB_TRIAGECARDENTRIES == -1) exitWith {[] call X39_MS2_fnc_MedicalActionMenu_outputNothingSelectedMessage;};
+																															if(lbCurSel IDC_MEDICALUI_LB_TRIAGECARDENTRIES == -1) exitWith {[] call X39_MS2_fnc_MedicalUi_outputNothingSelectedMessage;};
 																															_triageCardEntries = [X39_MS2_var_Internal_DialogCommunication_MA_Target] call X39_MS2_fnc_getTriageCard;
 																															_triageCardEntries set [_index, -1];
 																															_triageCardEntries = _triageCardEntries - [-1];
@@ -200,8 +201,10 @@ _this spawn {
 																														} call X39_XLib_fnc_ConvertCodeToString];
 	//Create rightClick menu & StatusEffect event handles 
 	{
-		displayCtrl_MedicalUi(_x) ctrlSetEventHandler["MouseButtonDown", format["_res = _this spawn {if((_this select 1) != 1) exitWith {};if(X39_MS2_var_Internal_DialogCommunication_MA_preventActions) exitWith {[] call X39_MS2_fnc_MedicalUi_outputBlockedMessage;};[%1, [_this select 2, _this select 3]] call X39_MS2_fnc_MedicalUi_HitZones_CreateMenu;};", str (HITZONENAMES select _forEachIndex select HITZONE_NAME)]];
-	}foreach HITZONES;
+		displayCtrl_MedicalUi(_x) ctrlSetEventHandler["MouseButtonDown",	format["_res = _this spawn {if((_this select 1) != 1) exitWith {};if(X39_MS2_var_Internal_DialogCommunication_MA_preventActions) exitWith {[] call X39_MS2_fnc_MedicalUi_outputBlockedMessage;};[%1, [_this select 2, _this select 3]] call X39_MS2_fnc_MedicalUi_HitZones_CreateMenu;};", str (HITZONENAMES select _forEachIndex select HITZONE_NAME)]];
+		displayCtrl_MedicalUi(_x) ctrlSetEventHandler["MouseEnter",		format["[%1, _this, true] call X39_MS2_fnc_MedicalUi_HitZones_UpdateStatusEffects", str (HITZONENAMES select _forEachIndex select HITZONE_NAME)]];
+		displayCtrl_MedicalUi(_x) ctrlSetEventHandler["MouseExit",			format["[%1, _this, false] call X39_MS2_fnc_MedicalUi_HitZones_UpdateStatusEffects", str (HITZONENAMES select _forEachIndex select HITZONE_NAME)]];
+	}forEach HITZONES;
 	
 	//Add preDefinedTriageCardMessages to UI
 	{
@@ -306,75 +309,32 @@ _this spawn {
 			displayCtrl_MedicalUi(IDC_MEDICALUI_LBTN_TRIAGECARDBOTTOM) ctrlSetToolTip ((X39_MS2_var_Internal_Dialog_TriageCard_States select _triageState) select 1);
 			displayCtrl_MedicalUi(IDC_MEDICALUI_LBTN_TRIAGECARDTOP) ctrlSetToolTip ((X39_MS2_var_Internal_Dialog_TriageCard_States select _triageState) select 1);
 		};
+		
 		//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		//update drugs list
 		_arr = [];
-		for "_i" from 0 to ((lbSize displayCtrl_MedicalUi(IDC_MEDICALUI_LB_DRUGSLIST)) - 1) do
 		{
-			_index = displayCtrl_MedicalUi(IDC_MEDICALUI_LB_DRUGSLIST) lbValue _i;
-			_x = X39_MS2_var_Internal_MedicalUi_RegisteredDrugs select _index;
 			if(([X39_MS2_var_Internal_DialogCommunication_MA_Caller, _x select 7] call X39_MS2_fnc_ls_isAllowedToUse) select 0) then
 			{
-				_flag = [X39_MS2_var_Internal_DialogCommunication_MA_Caller, X39_MS2_var_Internal_DialogCommunication_MA_Target] call (_x select 3);
-			}
-			else
-			{
-				_flag = false;
-			};
-			if(!_flag) then
-			{
-				displayCtrl_MedicalUi(IDC_MEDICALUI_LB_DRUGSLIST) lbDelete _i;
-				_i = _i - 1;
-			}
-			else
-			{
-				_arr set[count _arr, _index];
-			};
-		};
-		{
-			if(!(_forEachIndex in _arr)) then
-			{
-				if(([X39_MS2_var_Internal_DialogCommunication_MA_Caller, _x select 7] call X39_MS2_fnc_ls_isAllowedToUse) select 0) then
+				if([X39_MS2_var_Internal_DialogCommunication_MA_Caller, X39_MS2_var_Internal_DialogCommunication_MA_Target] call (_x select 3)) then
 				{
-					if([X39_MS2_var_Internal_DialogCommunication_MA_Caller, X39_MS2_var_Internal_DialogCommunication_MA_Target] call (_x select 3)) then
-					{
-						_index = displayCtrl_MedicalUi(IDC_MEDICALUI_LB_DRUGSLIST) lbAdd (localize (_x select 1));
-						displayCtrl_MedicalUi(IDC_MEDICALUI_LB_DRUGSLIST) lbSetValue [_index, _forEachIndex];
-					};
+					_arr pushBack _forEachIndex;
+					//_index = displayCtrl_MedicalUi(IDC_MEDICALUI_LB_DRUGSLIST) lbAdd (localize (_x select 1));
+					//displayCtrl_MedicalUi(IDC_MEDICALUI_LB_DRUGSLIST) lbSetValue [_index, _forEachIndex];
 				};
 			};
 		}forEach X39_MS2_var_Internal_MedicalUi_RegisteredDrugs;
-		///////////////////////////
-		///////////////////////////
-		///////////////////////////
-		//_arr = [];
-		//{
-		//	if(([X39_MS2_var_Internal_DialogCommunication_MA_Caller, _x select 5] call X39_MS2_fnc_ls_isAllowedToUse) select 0) then
-		//	{
-		//		if([X39_MS2_var_Internal_DialogCommunication_MA_Caller, X39_MS2_var_Internal_DialogCommunication_MA_Target] call (_x select 3)) then
-		//		{
-		//			_arr set[count _arr, _forEachIndex];
-		//		};
-		//	};
-		//} foreach X39_MS2_var_Internal_MedicalUi_RegisteredDrugs;
-		//_controlArray = [];
-		//for "_i" from 0 to (lbSize displayCtrl_MedicalUi(IDC_MEDICALUI_LB_DRUGSLIST)) do
-		//{
-		//	_index = displayCtrl_MedicalUi(IDC_MEDICALUI_LB_DRUGSLIST) lbValue _i;
-		//	if([X39_MS2_var_Internal_DialogCommunication_MA_Caller, X39_MS2_var_Internal_DialogCommunication_MA_Target] call (X39_MS2_var_Internal_MedicalUi_RegisteredDrugs select _index select 3)) then
-		//	{
-		//		_controlArray set[count _controlArray, _index];
-		//	};
-		//};
-		//if({!(_x in _controlArray)} count _arr > 0) then
-		//{
-		//	lbClear displayCtrl_MedicalUi(IDC_MEDICALUI_LB_DRUGSLIST);
-		//	{
-		//		
-		//		displayCtrl_MedicalUi(IDC_MEDICALUI_LB_DRUGSLIST) lbAdd (localize (X39_MS2_var_Internal_MedicalUi_RegisteredDrugs select _x select 1));
-		//		displayCtrl_MedicalUi(IDC_MEDICALUI_LB_DRUGSLIST) lbSetValue [_index, _x];
-		//	}count _arr;
-		//};
+		if(str _arr != str _lastDrugList) then
+		{
+			lbClear displayCtrl_MedicalUi(IDC_MEDICALUI_LB_DRUGSLIST);
+			{
+				_index = displayCtrl_MedicalUi(IDC_MEDICALUI_LB_DRUGSLIST) lbAdd (localize ((X39_MS2_var_Internal_MedicalUi_RegisteredDrugs select _x) select 1));
+				displayCtrl_MedicalUi(IDC_MEDICALUI_LB_DRUGSLIST) lbSetValue [_index, _x];
+				false
+			}count _arr;
+			_lastDrugList = _arr;
+		};
+		
 		//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		//update quick action list
 		//TODO: Get an actual idea about how to implement those quick actions ...
