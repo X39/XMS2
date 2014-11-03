@@ -24,6 +24,7 @@ _this spawn {
 		X39_MS2_var_Internal_DialogCommunication_MA_Caller playActionNow "CROUCH";
 	};
 	if(!createDialog "X39_MS2_MedicalUi") exitWith {PRINT_ERROR("Something moved wrong while executing 'createDialog ""X39_MS2_MedicalUi""'");};
+	X39_MS2_var_Internal_DialogCommunication_MA_preventActions = false;
 	if(isNull X39_MS2_var_Internal_DialogCommunication_MA_Target) then { X39_MS2_var_Internal_DialogCommunication_MA_Target = X39_MS2_var_Internal_DialogCommunication_MA_Caller; };
 	displayCtrl_MedicalUi(IDC_MEDICALUI_LABEL_UNITNAME) ctrlSetText name X39_MS2_var_Internal_DialogCommunication_MA_Target;
 	//Apply customization stuff

@@ -53,11 +53,12 @@ else \
 	#define ROUNDBRACKEDOPEN (
 	#define ROUNDBRACKEDCLOSE )
 	#define COMMA ,
+	#define QUOTATIONMARK "
 	#define SINGLEQUOTATIONMARK '
 	
-	#ifndef DEBUG
-		#define DEBUG
-	#endif
+//	#ifndef DEBUG
+//		#define DEBUG
+//	#endif
 	
 	#define getFnc(PARTA, PARTB) PARTA##PARTB
 	#define stringify(X) #X

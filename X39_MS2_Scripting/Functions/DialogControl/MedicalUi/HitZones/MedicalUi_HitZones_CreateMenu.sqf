@@ -40,51 +40,65 @@ if (
 			displayCtrl_MedicalUi(_arr select _i) ctrlShow true;
 			displayCtrl_MedicalUi(_arr select _i) ctrlSetFade 0;
 			displayCtrl_MedicalUi(_arr select _i) ctrlCommit (MEDICALUI_ANIMATIONTIME / (count X39_MS2_var_Internal_Dialog_TriageCard_States));
-			displayCtrl_MedicalUi(_arr select _i) ctrlSetEventHandler["MouseButtonDown", format["X39_MS2_var_Internal_DialogCommunication_MA_preventActions = true;
-_res = [] spawn {
-	{
-		((uiNamespace getVariable 'X39_MS2_var_UIs_MedicalUi') displayCtrl (_x)) ctrlSetFade 1;
-		((uiNamespace getVariable 'X39_MS2_var_UIs_MedicalUi') displayCtrl (_x)) ctrlCommit (%3 / (count X39_MS2_var_Internal_Dialog_TriageCard_States));
-		uiSleep (%3 / (count X39_MS2_var_Internal_Dialog_TriageCard_States));
-		((uiNamespace getVariable 'X39_MS2_var_UIs_MedicalUi') displayCtrl (_x)) ctrlShow false;
-		true
-	}count %2;
-	X39_MS2_var_Internal_MedicalUi_ActionHandle = _this spawn {
-		private['_timeout'];
-		_timeout = [] call (X39_MS2_var_Internal_MedicalActions_actionArray select %4 select 6);
-		if(_timeout > 0) then
-		{
-			if(vehicle X39_MS2_var_Internal_DialogCommunication_MA_Caller == X39_MS2_var_Internal_DialogCommunication_MA_Caller) then
-			{
-				[
-					X39_MS2_var_Internal_DialogCommunication_MA_Caller,
-					['ainvpknlmstpsnonwrfldnon_medic', 'ainvpknlmstpsnonwrfldnon_medic0s', 'ainvpknlmstpsnonwrfldnon_ainvpknlmstpsnonwrfldnon_medic'],
-					['ainvpknlmstpsnonwrfldnon_medicend'],
-					{
-						terminate X39_MS2_var_Internal_MedicalUi_ActionHandle;
-						X39_MS2_var_Internal_DialogCommunication_MA_preventActions = false;
-						[] call X39_MS2_fnc_clearProgressBarTimeout;[] call X39_MS2_fnc_clearAnimationLock;
-					},
-					{
-						if(vehicle (_this select 1 select 0) == (_this select 1 select 0)) then
-						{
-							(_this select 1 select 0) playAction 'MedicStart';
-						};
-						[_this select 1 select 2] call X39_MS2_fnc_setProgressBarTimeout;
-					},
-					[X39_MS2_var_Internal_DialogCommunication_MA_Caller, X39_MS2_var_Internal_DialogCommunication_MA_Target, _timeout]
-				] call X39_MS2_fnc_setAnimationLock;
-			};
-			uiSleep _timeout;
-			if(vehicle X39_MS2_var_Internal_DialogCommunication_MA_Caller == X39_MS2_var_Internal_DialogCommunication_MA_Caller) then
-			{
-				X39_MS2_var_Internal_DialogCommunication_MA_Caller playAction 'MedicStop';
-			};
-		};
-		[X39_MS2_var_Internal_DialogCommunication_MA_Caller, X39_MS2_var_Internal_DialogCommunication_MA_Target, %1, %5] call (X39_MS2_var_Internal_MedicalActions_actionArray select %4 select 4);
-		X39_MS2_var_Internal_DialogCommunication_MA_preventActions = false;
-	};
-};", str _hitZone, _arr, MEDICALUI_ANIMATIONTIME, _forEachIndex, _isAllowedToUseResult select 1]];
+			displayCtrl_MedicalUi(_arr select _i) ctrlSetEventHandler["MouseButtonDown", format[QUOTATIONMARK
+								if(!(X39_MS2_var_Internal_MedicalActions_actionArray select %4 select 7)) then
+								{
+									X39_MS2_var_Internal_DialogCommunication_MA_preventActions = true;
+									X39_XLib_var_ActionDialog_preventMenuOpening = true;
+								};
+								_res = [] spawn {
+									{
+										((uiNamespace getVariable 'X39_MS2_var_UIs_MedicalUi') displayCtrl (_x)) ctrlSetFade 1;
+										((uiNamespace getVariable 'X39_MS2_var_UIs_MedicalUi') displayCtrl (_x)) ctrlCommit (%3 / (count X39_MS2_var_Internal_Dialog_TriageCard_States));
+										uiSleep (%3 / (count X39_MS2_var_Internal_Dialog_TriageCard_States));
+										((uiNamespace getVariable 'X39_MS2_var_UIs_MedicalUi') displayCtrl (_x)) ctrlShow false;
+										true
+									}count %2;
+									X39_MS2_var_Internal_MedicalUi_ActionHandle = _this spawn {
+										private['_timeout'];
+										_timeout = [] call (X39_MS2_var_Internal_MedicalActions_actionArray select %4 select 6);
+										if(_timeout > 0) then
+										{
+											if(vehicle X39_MS2_var_Internal_DialogCommunication_MA_Caller == X39_MS2_var_Internal_DialogCommunication_MA_Caller) then
+											{
+												[
+													X39_MS2_var_Internal_DialogCommunication_MA_Caller,
+													['ainvpknlmstpsnonwrfldnon_medic', 'ainvpknlmstpsnonwrfldnon_medic0s', 'ainvpknlmstpsnonwrfldnon_ainvpknlmstpsnonwrfldnon_medic'],
+													['ainvpknlmstpsnonwrfldnon_medicend'],
+													{
+														terminate X39_MS2_var_Internal_MedicalUi_ActionHandle;
+														if(!(X39_MS2_var_Internal_MedicalActions_actionArray select %4 select 7)) then
+														{
+															X39_MS2_var_Internal_DialogCommunication_MA_preventActions = false;
+															X39_XLib_var_ActionDialog_preventMenuOpening = false;
+														};
+														[] call X39_MS2_fnc_clearProgressBarTimeout;
+														[] call X39_MS2_fnc_clearAnimationLock;
+													},
+													{
+														if(vehicle (_this select 1 select 0) == (_this select 1 select 0)) then
+														{
+															(_this select 1 select 0) playAction 'MedicStart';
+														};
+														[_this select 1 select 2] call X39_MS2_fnc_setProgressBarTimeout;
+													},
+													[X39_MS2_var_Internal_DialogCommunication_MA_Caller, X39_MS2_var_Internal_DialogCommunication_MA_Target, _timeout]
+												] call X39_MS2_fnc_setAnimationLock;
+											};
+											uiSleep _timeout;
+											if(vehicle X39_MS2_var_Internal_DialogCommunication_MA_Caller == X39_MS2_var_Internal_DialogCommunication_MA_Caller) then
+											{
+												X39_MS2_var_Internal_DialogCommunication_MA_Caller playAction 'MedicStop';
+											};
+										};
+										[X39_MS2_var_Internal_DialogCommunication_MA_Caller, X39_MS2_var_Internal_DialogCommunication_MA_Target, %1, %5] call (X39_MS2_var_Internal_MedicalActions_actionArray select %4 select 4);
+										if(!(X39_MS2_var_Internal_MedicalActions_actionArray select %4 select 7)) then
+										{
+											X39_MS2_var_Internal_DialogCommunication_MA_preventActions = false;
+											X39_XLib_var_ActionDialog_preventMenuOpening = false;
+										};
+									};
+								}; QUOTATIONMARK , str _hitZone, _arr, MEDICALUI_ANIMATIONTIME, _forEachIndex, _isAllowedToUseResult select 1]];
 			displayCtrl_MedicalUi(_arr select _i) ctrlSetForegroundColor [0, 0, 0, 1];
 			displayCtrl_MedicalUi(_arr select _i) ctrlSetBackgroundColor [0, 0, 0, 1];
 			displayCtrl_MedicalUi(_arr select _i) ctrlSetActiveColor [0, 0, 0, 1];

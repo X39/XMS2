@@ -93,16 +93,21 @@ if(X39_MS2_var_Heart_enableHeartSimulation && {!([_unit] call X39_MS2_fnc_hasFla
 			_pulseChange = _pulseChange + _fatigue;
 		};
 	};
-	if(X39_MS2_var_Drugs_Adrenaline_useAdrenalineForHeartCalculations) then
+	if(X39_MS2_var_Drugs_Adrenaline_useForHeartCalculations) then
 	{
 		_pulseChange = _pulseChange * ((1 + (_adrenalineCurrent / X39_MS2_var_Drugs_Adrenaline_maxAdrenaline)) * 2) * X39_MS2_var_Drugs_Adrenaline_AdrenalinePulseMultiplicator;
+	};
+	if(X39_MS2_var_Respiratory_UseForHeartCalculations) then
+	{
+		_val = ([_unit] call X39_MS2_fnc_getRespiratory) / X39_MS2_var_Respiratory_maxValue * X39_MS2_var_Respiratory_MaxPulseChange;
+		_val = _val - X39_MS2_var_Respiratory_MaxPulseChange;
 	};
 	_newPulse = _pulseChange + _pulseCurrent;
 	if(_pulseChange != 0) then
 	{
 		if(_newPulse >= X39_MS2_var_Heart_minHeartPulsePerSecond ||  {_blackOutStage >= 2}) then
 		{
-			if(_blackOutStage >= 2 && _newPulse < X39_MS2_var_Heart_minHeartPulsePerSecond) then
+			if(X39_MS2_var_Heart_lowerPulseIfPermaKnockedOut && _blackOutStage >= 2 && _newPulse < X39_MS2_var_Heart_minHeartPulsePerSecond) then
 			{
 				_pulseChange = _pulseChange * X39_MS2_var_Heart_BlackedOutPulseModificator;
 				_newPulse = _pulseChange + _pulseCurrent;

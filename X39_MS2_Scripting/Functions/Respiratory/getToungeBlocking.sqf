@@ -7,4 +7,7 @@
  * @Param2 - SCALAR - Value to set
  * @Return - NA
  */
-((_this select 0) getVariable ["X39_MS2_var_respiratory_toungeBlocking", false])
+(
+	((_this select 0) getVariable ["X39_MS2_var_respiratory_toungeBlocking", false]) &&
+	!(([_this select 0] call X39_MS2_fnc_getKingLt) || ([_this select 0] call X39_MS2_fnc_getNasopharyngeal))
+)

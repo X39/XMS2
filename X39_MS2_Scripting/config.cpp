@@ -154,8 +154,8 @@ class CfgFunctions
 			
 			class getNasopharyngeal:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\Nasopharyngeal\getNasopharyngeal.sqf";};
 			class setNasopharyngeal:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\Nasopharyngeal\setNasopharyngeal.sqf";};
-			class getOropharyngeal:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\Oropharyngeal\getOropharyngeal.sqf";};
-			class setOropharyngeal:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\Oropharyngeal\setOropharyngeal.sqf";};
+			class getKingLt:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\Respiratory\KingLt\getkingLt.sqf";};
+			class setKingLt:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\Respiratory\KingLt\setkingLt.sqf";};
 			class getBagvalveMask:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\BagvalveMask\getBagvalveMask.sqf";};
 			class setBagvalveMask:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\BagvalveMask\setBagvalveMask.sqf";};
 		};
@@ -234,6 +234,7 @@ class CfgFunctions
 			class MedicalUi_QuickActionFrame_setVisibilityState:X39_XLib_Function_TypeA					{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\QuickActionFrame\MedicalUi_QuickActionFrame_setVisibilityState.sqf";};
 			class MedicalUi_TriageCardFrame_setVisibilityState:X39_XLib_Function_TypeA					{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\TriageCardFrame\MedicalUi_TriageCardFrame_setVisibilityState.sqf";};
 			class MedicalUi_createDialog:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\MedicalUi_createDialog.sqf";};
+			class MedicalUi_closeDialog:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\MedicalUi_closeDialog.sqf";};
 			class setTriageCard:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\setTriageCard.sqf";};
 			class setTriageState:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\setTriageState.sqf";};
 			class getTriageCard:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\getTriageCard.sqf";};

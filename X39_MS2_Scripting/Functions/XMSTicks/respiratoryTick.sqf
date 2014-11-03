@@ -26,7 +26,7 @@ _unit = _this select 0;
 _currentRespiratory = [_unit] call X39_MS2_fnc_getRespiratory;
 
 _changeRespiratory = X39_MS2_var_Respiratory_NormalChangePerTick;
-if(_blackOutStage >= 1) then
+if(_blackOutStage >= 1 && {!([_unit] call X39_MS2_fnc_getBagvalveMask) || ([_unit] call X39_MS2_fnc_getArrestPresent) || ([_unit] call X39_MS2_fnc_getToungeBlocking)}) then
 {
 	_changeRespiratory = X39_MS2_var_Respiratory_NoBeathingChangePerTick;
 };

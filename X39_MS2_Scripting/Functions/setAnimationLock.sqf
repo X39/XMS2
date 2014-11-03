@@ -2,6 +2,9 @@
 /*	
  *	!FUNCTION WILL BE EXECUTED LOCAL TO PARAM1 UNIT!
  *	
+ *	Code variables get following input:
+ *	[[], CUSTOMARGS]
+ *	
  *	@Param1 - OBJECT - Unit to create the animation lock on
  *	@Param2 - ARRAY - Animations which are OK (wont trigger abort)
  *	@Param3 - ARRAY - Animations which remove the lock
