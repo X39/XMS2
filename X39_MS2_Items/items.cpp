@@ -150,10 +150,10 @@ class x39_xms2_nasopharyngeal : x39_itemcore
     }; 
 	descriptionShort = "";
 };
-class x39_xms2_oropharyngeal : x39_itemcore
+class x39_xms2_kinglt : x39_itemcore
 {
 	scope = 2;
-	displayName = $STR_X39_MS2_Items_oropharyngeal;
+	displayName = $STR_X39_MS2_Items_kingLt;
 	picture = "\X39_MS2_Resources\Items\KingLT\KingLT_thumb.paa";
 	model = "\X39_MS2_Resources\Items\KingLT\KingLT.p3d";
 	class ItemInfo

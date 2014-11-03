@@ -91,7 +91,7 @@ for "_i" from 0 to ((count _this) - 1) do
 	_sizeMultiplicator = DMG_SIZE_BASE / _sizeOfComponentHit;
 	_damage = _caliberMultiplicator * _velocityMultiplicator * _sizeMultiplicator * X39_MS2_var_Damage_GlobalModificator;
 	//ToDo: Implement Contusio damage (trauma damage) ==> A seperated damage type which adds up with bullet/explosion/etc. damage
-	_isContusioDamage = (_unit == _firer);
+	_isContusioDamage = (_unit == _firer) && {!(_ammoInfo_projectileClass in ["GrenadeHand"])};
 	if(_ammoInfo_explosiveDamage > 0) then
 	{
 		_damage = _damage * _ammoInfo_explosiveDamage * X39_MS2_var_Damage_ExplosionModificator;

@@ -71,8 +71,8 @@ class X39_MS2_medicalbox: NATO_Box_Base {
 			name = "x39_xms2_nasopharyngeal";
 			count = 100;
 		};
-		class x39_xms2_oropharyngeal {
-			name = "x39_xms2_oropharyngeal";
+		class x39_xms2_kingLt {
+			name = "x39_xms2_kingLt";
 			count = 100;
 		};
 		class x39_xms2_bagvalvemask {

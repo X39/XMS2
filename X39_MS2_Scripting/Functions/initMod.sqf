@@ -102,7 +102,7 @@ X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Temperature_value",				{X39_MS2_var_Temperature_max					}, true	,					true	,				false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_hasEarplugs",					{false												}, true	,					true	,				false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_hasNasopharyngeal",				{false												}, true	,					true	,				false	]];
-X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_hasOropharyngeal",				{false												}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_haskingLt",						{false												}, true	,					true	,				false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_hasBagvalveMask",				{false												}, true	,					true	,				false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_Text",					{""													}, false	,					true	,				false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_BlackOut_isBlackedOut",		{false												}, true	,					true	,				false	]];
@@ -159,7 +159,6 @@ assignValue("X39_MS2_var_Internal_MedicalUi_RegisteredStatusEffects", []);
 assignValue("X39_MS2_var_Internal_MedicalUi_CheckUnitHandle", scriptNull);
 assignValue("X39_MS2_var_Internal_MedicalUi_ActionHandle", scriptNull);
 assignValue("X39_MS2_var_Internal_MedicalUi_ApplyDrugHandle", scriptNull);
-assignValue("X39_MS2_var_Internal_MedicalUi_DefibrillateHandle", scriptNull);
 assignValue("X39_MS2_var_Internal_MedicalUi_DefibrillateHandle", scriptNull);
 
 assignValue("X39_MS2_var_Internal_Overlay_ProgressBarRunning", false);
@@ -229,6 +228,12 @@ assignValue("X39_MS2_var_BackBlast_MaxDamage", 3);
 assignValue("X39_MS2_var_BackBlast_knocksOut", true);
 assignValue("X39_MS2_var_BackBlast_maxAngle", 45);
 
+/***********************
+* CATEGORY: BLACKOUT *
+**********************/
+assignValue("X39_MS2_var_Blackout_allowTurningTempBlackoutToPermaByChance", true);
+assignValue("X39_MS2_var_Blackout_turnTempToPermaBlackoutChanceP", 0.2);
+
 /********************
 * CATEGORY: DAMAGE *
 *******************/
@@ -266,7 +271,7 @@ assignValue("X39_MS2_var_Bleeding_AllowBleedingCureWhenAterieDamaged", false);
 //Dynamic definitions
 { assignValue(format["X39_MS2_var_Bleeding_BleedingCurePerTick%1" COMMA _x select HITZONE_NAME], 0.0001); false }count X39_MS2_var_Internal_HitZones;
 { assignValue(format["X39_MS2_var_Bleeding_maxBleeding%1" COMMA _x select 0], 1); false }count X39_MS2_var_Internal_HitZones;
-assignValue("X39_MS2_var_Bleeding_ChanceForAterialDamageP", 0.3);
+assignValue("X39_MS2_var_Bleeding_ChanceForAterialDamageP", 0.2);
 assignValue("X39_MS2_var_Bleeding_maxBloodInEntireBody", 6000);
 assignValue("X39_MS2_var_Bleeding_knockOutAtPBlood", 0.25);
 assignValue("X39_MS2_var_Bleeding_killAtPBlood", 0.1);
@@ -279,7 +284,7 @@ assignValue("X39_MS2_var_Bleeding_NaturalMaxOfBloodPresure", 120);
 //Modificators
 { assignValue(format["X39_MS2_var_Bleeding_%1Modificator" COMMA _x select HITZONE_NAME], 1); false }count X39_MS2_var_Internal_HitZones;
 { if(_x select HITZONE_HasAterie) then { assignValue(format["X39_MS2_var_Bleeding_AterialDamageMultiplicator%1" COMMA _x select HITZONE_NAME], 10); }; false }count X39_MS2_var_Internal_HitZones;
-assignValue("X39_MS2_var_Bleeding_GlobalModificator", 1.0);
+assignValue("X39_MS2_var_Bleeding_GlobalModificator", 10.0);
 assignValue("X39_MS2_var_Bleeding_ClottingModificator", 1.0);
 
 /*********************
@@ -331,7 +336,7 @@ assignValue("X39_MS2_var_Hearing_GlobalModificator", 1.0);
 //Adrenaline
 	//Enable/Disable Related features
 	assignValue("X39_MS2_var_Drugs_Adrenaline_useForPain", true);
-	assignValue("X39_MS2_var_Drugs_Adrenaline_useAdrenalineForHeartCalculations", true);
+	assignValue("X39_MS2_var_Drugs_Adrenaline_useForHeartCalculations", true);
 	
 	//Dynamic definitions
 	assignValue("X39_MS2_var_Drugs_Adrenaline_PainCureValueP", 1.0);
@@ -394,6 +399,7 @@ assignValue("X39_MS2_var_Heart_allowForceWalkByPulse", false);
 assignValue("X39_MS2_var_Heart_allowBlurryScreenByPulse", true);
 assignValue("X39_MS2_var_Heart_allowCamShakeByPulse", true);
 assignValue("X39_MS2_var_Heart_pulseUseFilmGrainForHighPulseIndicator", true);
+assignValue("X39_MS2_var_Heart_lowerPulseIfPermaKnockedOut", true);
 
 //Dynamic definitions
 assignValue("X39_MS2_var_Heart_normalMaxHeartPulsePerSecond", 190);
@@ -488,14 +494,16 @@ assignValue("X39_MS2_var_HitMarker_ReductionPerTick", 0.25);
 * http://mantis.unitedtacticalforces.de/view.php?id=93 *
 *******************************************************/
 //Enable/Disable painRelated features
-assignValue("X39_MS2_var_Respiratory_Enable", false);
-assignValue("X39_MS2_var_Respiratory_EnableToungeBlockingDuringBlackOut", false);
-assignValue("X39_MS2_var_Respiratory_EnableRespiratoryArrestDuringBlackOut", false);
+assignValue("X39_MS2_var_Respiratory_Enable", true);
+assignValue("X39_MS2_var_Respiratory_EnableToungeBlockingDuringBlackOut", true);
+assignValue("X39_MS2_var_Respiratory_EnableRespiratoryArrestDuringBlackOut", true);
+assignValue("X39_MS2_var_Respiratory_UseForHeartCalculations", true);
 
 //Dynamic definitions
 assignValue("X39_MS2_var_Respiratory_maxValue", 10);
 assignValue("X39_MS2_var_Respiratory_RespiratoryArrestPointP", 0.6);
 assignValue("X39_MS2_var_Respiratory_FlatLinePointP", 0.25);
+assignValue("X39_MS2_var_Respiratory_MaxPulseChange", -0.5);
 
 assignValue("X39_MS2_var_Respiratory_NormalChangePerTick", 0.1);
 assignValue("X39_MS2_var_Respiratory_NoBeathingChangePerTick", -0.1);
@@ -505,7 +513,6 @@ assignValue("X39_MS2_var_Respiratory_RequiredRespirationValueForWakeupP", 0.7);
 
 //Modificators
 assignValue("X39_MS2_var_Respiratory_GlobalModificator", 1);
-//ToDo: Add Respiratory tick etc. see http://mantis.unitedtacticalforces.de/view.php?id=93
 
 /***************************
 * CATEGORY: FEATURE FLAGS *

@@ -1,5 +1,7 @@
 #define ALTERNATIVEDEBUGOUTPUT
 #include "\X39_MS2_Scripting\default.hpp"
+private["_fnc_scriptName"];
+_fnc_scriptName = "X39_MS2_fnc_setDamageOf%1";
 /* 
  * !FUNCTION IS NOT CALLSAVE!
  * Will add given value to given unit for the BODY hitzone

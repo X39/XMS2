@@ -134,7 +134,7 @@
 	"PUTNASOPHARYNGEAL",
 	"STR_X39_MS2_Scripting_MedicalUiActions_Nasopharyngeal_ActionNamePut",
 	"",
-	{("x39_xms2_nasopharyngeal" in items (_this select 0)) || ("x39_xms2_nasopharyngeal" in items (_this select 1)) && {([_this select 1] call X39_MS2_fnc_isBlackedOut)}},
+	{(("x39_xms2_nasopharyngeal" in items (_this select 0)) || ("x39_xms2_nasopharyngeal" in items (_this select 1))) && !([_this select 1] call X39_MS2_fnc_getBagvalveMask) && {([_this select 1] call X39_MS2_fnc_isBlackedOut) && {!([_this select 1] call X39_MS2_fnc_getNasopharyngeal)}}},
 	{
 		if ("x39_xms2_nasopharyngeal" in items (_this select 1)) then
 		{
@@ -154,7 +154,7 @@
 	"TAKENASOPHARYNGEAL",
 	"STR_X39_MS2_Scripting_MedicalUiActions_Nasopharyngeal_ActionNameTake",
 	"",
-	{[_this select 1] call X39_MS2_fnc_getNasopharyngeal},
+	{([_this select 1] call X39_MS2_fnc_getNasopharyngeal) && !([_this select 1] call X39_MS2_fnc_getBagvalveMask)},
 	{
 		[(_this select 0), '(_this select 0) addItem "x39_xms2_nasopharyngeal"', [_this select 0]] call X39_XLib_fnc_executeLocalToUnit;
 		[_this select 1, false] call X39_MS2_fnc_setNasopharyngeal;
@@ -164,71 +164,71 @@
 	4
 ] call X39_MS2_fnc_registerAction;
 [
-	"PUTOROPHARYNGEAL",
-	"STR_X39_MS2_Scripting_MedicalUiActions_Oropharyngeal_ActionNamePut",
+	"PUTKINGLT",
+	"STR_X39_MS2_Scripting_MedicalUiActions_KingLt_ActionNamePut",
 	"",
-	{("x39_xms2_oropharyngeal" in items (_this select 0)) || ("x39_xms2_oropharyngeal" in items (_this select 1)) && {([_this select 1] call X39_MS2_fnc_isBlackedOut)}},
+	{(("x39_xms2_kinglt" in items (_this select 0)) || ("x39_xms2_kinglt" in items (_this select 1))) && !([_this select 1] call X39_MS2_fnc_getBagvalveMask) && {([_this select 1] call X39_MS2_fnc_isBlackedOut) && {!([_this select 1] call X39_MS2_fnc_getkingLt)}}},
 	{
-		if ("x39_xms2_oropharyngeal" in items (_this select 1)) then
+		if ("x39_xms2_kinglt" in items (_this select 1)) then
 		{
-			[(_this select 1), '(_this select 0) removeItem "x39_xms2_oropharyngeal"', [_this select 1]] call X39_XLib_fnc_executeLocalToUnit;
+			[(_this select 1), '(_this select 0) removeItem "x39_xms2_kinglt"', [_this select 1]] call X39_XLib_fnc_executeLocalToUnit;
 		}
 		else
 		{
-			[(_this select 0), '(_this select 0) removeItem "x39_xms2_oropharyngeal"', [_this select 0]] call X39_XLib_fnc_executeLocalToUnit;
+			[(_this select 0), '(_this select 0) removeItem "x39_xms2_kinglt"', [_this select 0]] call X39_XLib_fnc_executeLocalToUnit;
 		};
-		[_this select 1, true] call X39_MS2_fnc_setOropharyngeal;
-		[(_this select 1), -2, nil, nil, "OROPHARYNGEAL", {[_this select 0] call X39_MS2_fnc_getOropharyngeal}] call X39_MS2_fnc_blackOutUnit;
+		[_this select 1, true] call X39_MS2_fnc_setkingLt;
+		[(_this select 1), -2, nil, nil, "KINGLT", {[_this select 0] call X39_MS2_fnc_getkingLt}] call X39_MS2_fnc_blackOutUnit;
 	},
-	"PUTOROPHARYNGEAL",
+	"PUTKINGLT",
 	8
 ] call X39_MS2_fnc_registerAction;
 [
-	"TAKEOROPHARYNGEAL",
-	"STR_X39_MS2_Scripting_MedicalUiActions_Oropharyngeal_ActionNameTake",
+	"TAKEKINGLT",
+	"STR_X39_MS2_Scripting_MedicalUiActions_KingLt_ActionNameTake",
 	"",
-	{[_this select 1] call X39_MS2_fnc_getOropharyngeal},
+	{[_this select 1] call X39_MS2_fnc_getkingLt && !([_this select 1] call X39_MS2_fnc_getBagvalveMask)},
 	{
-		[(_this select 0), '(_this select 0) addItem "x39_xms2_oropharyngeal"', [_this select 0]] call X39_XLib_fnc_executeLocalToUnit;
-		[_this select 1, false] call X39_MS2_fnc_setOropharyngeal;
+		[(_this select 0), '(_this select 0) addItem "x39_xms2_kinglt"', [_this select 0]] call X39_XLib_fnc_executeLocalToUnit;
+		[_this select 1, false] call X39_MS2_fnc_setkingLt;
 		
 	},
-	"TAKEOROPHARYNGEAL",
+	"TAKEKINGLT",
 	4
 ] call X39_MS2_fnc_registerAction;
-//[
-//	"PUTBAGVALVEMASK",
-//	"STR_X39_MS2_Scripting_MedicalUiActions_BagvalveMask_ActionNamePut",
-//	"",
-//	{("x39_xms2_bagvalvemask" in items (_this select 0)) || ("x39_xms2_bagvalvemask" in items (_this select 1)) && {([_this select 1] call X39_MS2_fnc_isBlackedOut)}},
-//	{
-//		if ("x39_xms2_bagvalvemask" in items (_this select 1)) then
-//		{
-//			[(_this select 1), '(_this select 0) removeItem "x39_xms2_bagvalvemask"', [_this select 1]] call X39_XLib_fnc_executeLocalToUnit;
-//		}
-//		else
-//		{
-//			[(_this select 0), '(_this select 0) removeItem "x39_xms2_bagvalvemask"', [_this select 0]] call X39_XLib_fnc_executeLocalToUnit;
-//		};
-//		[_this select 1, true] call X39_MS2_fnc_setBagvalveMask;
-//		[(_this select 1), -2, nil, nil, "OROPHARYNGEAL", {[_this select 0] call X39_MS2_fnc_getBagvalveMask}] call X39_MS2_fnc_blackOutUnit;
-//	},
-//	"PUTBAGVALVEMASK",
-//	8
-//] call X39_MS2_fnc_registerAction;
-//[
-//	"TAKEBAGVALVEMASK",
-//	"STR_X39_MS2_Scripting_MedicalUiActions_BagvalveMask_ActionNameTake",
-//	"",
-//	{[_this select 1] call X39_MS2_fnc_getBagvalveMask},
-//	{
-//		[(_this select 0), '(_this select 0) addItem "x39_xms2_bagvalvemask"', [_this select 0]] call X39_XLib_fnc_executeLocalToUnit;
-//		[_this select 1, false] call X39_MS2_fnc_setBagvalveMask;
-//		
-//	},
-//	"TAKEBAGVALVEMASK",
-//	4
-//] call X39_MS2_fnc_registerAction;
+[
+	"USEBAGVALVEMASK",
+	"STR_X39_MS2_Scripting_MedicalUiActions_UseBagValveMask",
+	"",
+	{("x39_xms2_bagvalvemask" in items (_this select 0)) || ("x39_xms2_bagvalvemask" in items (_this select 1)) && {([_this select 1] call X39_MS2_fnc_isBlackedOut) && {!([_this select 1] call X39_MS2_fnc_getBagvalveMask)}}},
+	{
+		[
+			_this select 0,
+			["ainvpknlmstpsnonwrfldnon_medic", "ainvpknlmstpsnonwrfldnon_medic0s", "ainvpknlmstpsnonwrfldnon_ainvpknlmstpsnonwrfldnon_medic"],
+			["ainvpknlmstpsnonwrfldnon_medicend"],
+			{
+				_this = _this select 1;
+				[_this select 0, false] call X39_MS2_fnc_setBagvalveMask;
+				[-1] call X39_MS2_fnc_clearProgressBarTimeout;
+				X39_MS2_var_Internal_DialogCommunication_MA_preventActions = false;
+				X39_XLib_var_ActionDialog_preventMenuOpening = false;
+				[] call X39_MS2_fnc_clearAnimationLock;
+			},
+			{
+				_this = _this select 1;
+				[_this select 0, true] call X39_MS2_fnc_setBagvalveMask;
+				[] call X39_MS2_fnc_MedicalUi_closeDialog;
+				[-1] call X39_MS2_fnc_setProgressBarTimeout;
+				X39_MS2_var_Internal_DialogCommunication_MA_preventActions = true;
+				X39_XLib_var_ActionDialog_preventMenuOpening = true;
+				(_this select 0) playAction "MedicStart";
+			},
+			[_this select 0, _this select 1]
+		] call X39_MS2_fnc_setAnimationLock;
+	},
+	"USEBAGVALVEMASK",
+	0
+] call X39_MS2_fnc_registerAction;
 
 //FINALLY, register the "close" action
 ["NA", "STR_X39_MS2_Scripting_MedicalUiActions_Close", "", {true}, {}, "NA", 0] call X39_MS2_fnc_registerAction;
