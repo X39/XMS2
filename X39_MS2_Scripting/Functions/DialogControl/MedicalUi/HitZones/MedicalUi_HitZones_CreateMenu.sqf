@@ -54,7 +54,7 @@ if (
 										((uiNamespace getVariable 'X39_MS2_var_UIs_MedicalUi') displayCtrl (_x)) ctrlShow false;
 										true
 									}count %2;
-									X39_MS2_var_Internal_MedicalUi_ActionHandle = _this spawn {
+									X39_MS2_var_Internal_Handles_ActionHandle = _this spawn {
 										private['_timeout'];
 										_timeout = [] call (X39_MS2_var_Internal_MedicalActions_actionArray select %4 select 6);
 										if(_timeout > 0) then
@@ -66,7 +66,7 @@ if (
 													['ainvpknlmstpsnonwrfldnon_medic', 'ainvpknlmstpsnonwrfldnon_medic0s', 'ainvpknlmstpsnonwrfldnon_ainvpknlmstpsnonwrfldnon_medic'],
 													['ainvpknlmstpsnonwrfldnon_medicend'],
 													{
-														terminate X39_MS2_var_Internal_MedicalUi_ActionHandle;
+														terminate X39_MS2_var_Internal_Handles_ActionHandle;
 														if(!(X39_MS2_var_Internal_MedicalActions_actionArray select %4 select 7)) then
 														{
 															X39_MS2_var_Internal_DialogCommunication_MA_preventActions = false;

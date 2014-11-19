@@ -3,8 +3,8 @@
 
 class X39_MS2_Overay {
 	idd = 26486;
-	onLoad = "uiNamespace setVariable['X39_MS2_var_UIs_XMS2_Overay', _this select 0];";
-	onUnload = "uiNamespace setVariable['X39_MS2_var_UIs_XMS2_Overay', displayNull];";
+	onLoad = "uiNamespace setVariable['X39_MS2_var_UIs_XMS2_Overlay', _this select 0];";
+	onUnload = "uiNamespace setVariable['X39_MS2_var_UIs_XMS2_Overlay', displayNull];";
 	duration = 32000;
 	fadeIn = 0;
 	fadeOut = 0;

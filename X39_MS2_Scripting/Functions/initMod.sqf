@@ -80,7 +80,6 @@ assignValue("X39_MS2_var_Events_EnableSetEvents", false);
 * CATEGORY: INTERNAL *
 *********************/
 
-assignValue("X39_MS2_var_UIs_XMS2_Overlay_ShownInCurrentMission", false);
 
 assignValue("X39_MS2_var_Internal_UnitVariables", []);
 //																				  |Variable name								|Value (as code)								|Will this be broadcasted over the network?|	IsInternalVariable|	Transfer after death
@@ -150,16 +149,19 @@ assignValue("X39_MS2_var_Internal_AnimLock_ExitAnimations", []);
 assignValue("X39_MS2_var_Internal_AnimLock_SealBrokenCode", {});
 assignValue("X39_MS2_var_Internal_AnimLock_CustomArgs", []);
 
-
+//Hallucinations variables
+assignValue("X39_MS2_var_Internal_Hallucinations_available", []);
 
 assignValue("X39_MS2_var_Internal_MedicalActions_actionArray", []);
 assignValue("X39_MS2_var_Internal_MedicalUi_RegisteredDrugs", []);
 assignValue("X39_MS2_var_Internal_MedicalUi_RegisteredStatusEffects", []);
 
-assignValue("X39_MS2_var_Internal_MedicalUi_CheckUnitHandle", scriptNull);
-assignValue("X39_MS2_var_Internal_MedicalUi_ActionHandle", scriptNull);
-assignValue("X39_MS2_var_Internal_MedicalUi_ApplyDrugHandle", scriptNull);
-assignValue("X39_MS2_var_Internal_MedicalUi_DefibrillateHandle", scriptNull);
+//ScriptHandle variables
+assignValue("X39_MS2_var_Internal_Handles_CheckUnitHandle", scriptNull);
+assignValue("X39_MS2_var_Internal_Handles_ActionHandle", scriptNull);
+assignValue("X39_MS2_var_Internal_Handles_ApplyDrugHandle", scriptNull);
+assignValue("X39_MS2_var_Internal_Handles_DefibrillateHandle", scriptNull);
+assignValue("X39_MS2_var_Internal_Handles_HallucinationHandle", scriptNull);
 
 assignValue("X39_MS2_var_Internal_Overlay_ProgressBarRunning", false);
 assignValue("X39_MS2_var_Internal_Overlay_ProgressBarHandle", scriptNull);
@@ -180,6 +182,7 @@ assignValue("X39_MS2_var_Internal_ticker_tickHandlers", []);
 ["X39_MS2_fnc_publishTick", 4] call X39_MS2_fnc_registerTickHandler;
 ["X39_MS2_fnc_soundTick", 12] call X39_MS2_fnc_registerTickHandler;
 ["X39_MS2_fnc_hitPartTick", 11] call X39_MS2_fnc_registerTickHandler;
+["X39_MS2_fnc_hallucinationTick", 4] call X39_MS2_fnc_registerTickHandler;
 DEBUG_CODE(["X39_MS2_fnc_debugTick" COMMA 1] call X39_MS2_fnc_registerTickHandler);
 assignValue("X39_MS2_var_Internal_ticker_minTickRate", 0.5);
 assignValue("X39_MS2_var_Internal_ticker_maxTicksTimeout", 100);
@@ -283,8 +286,8 @@ assignValue("X39_MS2_var_Bleeding_NaturalMaxOfBloodPresure", 120);
 
 //Modificators
 { assignValue(format["X39_MS2_var_Bleeding_%1Modificator" COMMA _x select HITZONE_NAME], 1); false }count X39_MS2_var_Internal_HitZones;
-{ if(_x select HITZONE_HasAterie) then { assignValue(format["X39_MS2_var_Bleeding_AterialDamageMultiplicator%1" COMMA _x select HITZONE_NAME], 10); }; false }count X39_MS2_var_Internal_HitZones;
-assignValue("X39_MS2_var_Bleeding_GlobalModificator", 10.0);
+{ if(_x select HITZONE_HasAterie) then { assignValue(format["X39_MS2_var_Bleeding_AterialDamageMultiplicator%1" COMMA _x select HITZONE_NAME], 3.0); }; false }count X39_MS2_var_Internal_HitZones;
+assignValue("X39_MS2_var_Bleeding_GlobalModificator", 2.0);
 assignValue("X39_MS2_var_Bleeding_ClottingModificator", 1.0);
 
 /*********************
@@ -388,7 +391,7 @@ assignValue("X39_MS2_var_Hearing_GlobalModificator", 1.0);
 	//Drug specification
 	assignValue("X39_MS2_var_Drugs_Aspirin_ChangeOnConsume", 2);
 
-/*******************
+/******************
 * CATEGORY: Heart *
 *******************/
 //Enable/Disable heartRelated features
@@ -545,6 +548,8 @@ assignValue("X39_MS2_var_Feature_EnableAspirin", true);
 assignValue("X39_MS2_var_Feature_SimpleHitMarker", true);
 //Enables the replacement of items in inventory 
 assignValue("X39_MS2_var_Feature_ReplaceItemsOnInventoryJoin", true);
+//Enables the random appearance of hallucinations 
+assignValue("X39_MS2_var_Feature_Hallucinations", true);
 
 /***********************
 * CATEGORY: PPEFFECTS *

@@ -7,7 +7,7 @@
  *	@Return - N/A
  *	@Author - X39|Cpt. HM Murdock
  */
-X39_MS2_var_Internal_MedicalUi_ApplyDrugHandle = _this spawn
+X39_MS2_var_Internal_Handles_ApplyDrugHandle = _this spawn
 {
 	private["_flag", "_anmiationTime"];
 	X39_MS2_var_Internal_DialogCommunication_MA_preventActions = true;
@@ -22,7 +22,7 @@ X39_MS2_var_Internal_MedicalUi_ApplyDrugHandle = _this spawn
 		["ainvpknlmstpsnonwrfldnon_medic", "ainvpknlmstpsnonwrfldnon_medic0s", "ainvpknlmstpsnonwrfldnon_ainvpknlmstpsnonwrfldnon_medic"],
 		["ainvpknlmstpsnonwrfldnon_medicend"],
 		{
-			terminate X39_MS2_var_Internal_MedicalUi_ApplyDrugHandle;
+			terminate X39_MS2_var_Internal_Handles_ApplyDrugHandle;
 			X39_MS2_var_Internal_DialogCommunication_MA_preventActions = false;
 			[] call X39_MS2_fnc_clearProgressBarTimeout;
 			[] call X39_MS2_fnc_clearAnimationLock;

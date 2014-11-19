@@ -55,10 +55,10 @@ if(!(_unit getVariable ["X39_MS2_var_hasEarplugs", false]) && _usedFiremode != "
 	DEBUG_LOG_WFn_SC(format["Hearing calculation: _valHit => %1" COMMA _valHit])
 	DEBUG_LOG_WFn_SC(format["Hearing calculation: _valCal => %1" COMMA _valCal])
 	DEBUG_LOG_WFn_SC(format["Hearing calculation: _fixVal => %1" COMMA _fixVal])
-	DEBUG_LOG_WFn_SC(format["Hearing calculation: adding to current hearing => %1" COMMA -(0.1 / _fixVal)])
 	if(_fixVal != 0) then
 	{
+		DEBUG_LOG_WFn_SC(format["Hearing calculation: adding to current hearing => %1" COMMA -(0.1 / _fixVal)])
 		[_unit,  -(0.1 / _fixVal) ] call X39_MS2_fnc_addHearing;
-	};
+	}DEBUG_CODE(else{DEBUG_LOG_WFn_SC("Hearing calculation: Did not added something to hearing as _fixVal == 0")});
 };
 [_unit, X39_MS2_var_Drugs_Adrenaline_adrenalineAddedThroughShooting, true] call X39_MS2_fnc_addAdrenaline;

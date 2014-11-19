@@ -10,6 +10,7 @@
 [] call X39_MS2_fnc_IMH_addInteractionMenuEntries;
 [] call X39_MS2_fnc_IMH_registerDrugs;
 [] call X39_MS2_fnc_IMH_registerMedicalUiStatusEffects;
+[] call X39_MS2_fnc_IMH_registerHallucinations;
 if(isServer) then
 {
 	private["_id"];
