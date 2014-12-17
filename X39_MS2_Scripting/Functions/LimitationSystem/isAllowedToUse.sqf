@@ -26,6 +26,8 @@ if(ISOBJECT(_input)) then
 	};
 };
 if(ISSTRING(_input) && {_input == ""}) exitWith {PRINT_ERROR("Please provide a valid input for checking");};
+//In case _input was an object: If no limitation class was located on the given Object
+//try to find a limitation class id using the classname
 if(_limitationClassId == -1) then
 {
 	{

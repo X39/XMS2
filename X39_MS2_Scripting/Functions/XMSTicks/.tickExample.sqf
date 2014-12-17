@@ -15,7 +15,7 @@
  *		_cfnDisableFatigue			- range 0 - n | >0 will disable fatigue
  *		_cfnForceWalk					- range 0 - n | >0 will force walk
  *
- *		_blackOutStage				- get variable! Contains blackOutStage at the beginning of the tickCircle
+ *		_blackOutStage				- !get variable only! Contains blackOutStage at the beginning of the tickCircle
  *	
  *	@Param1 - OBJECT - Unit
  *	@Param2 - SCALAR - HandleID

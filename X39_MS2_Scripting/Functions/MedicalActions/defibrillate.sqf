@@ -8,7 +8,7 @@
  *	@Return	- NA
  *	@Author - X39|Cpt. HM Murdock
  */
-X39_MS2_var_Internal_MedicalUi_DefibrillateHandle = _this spawn {
+X39_MS2_var_Internal_Handles_DefibrillateHandle = _this spawn {
 	private["_executer", "_unit"];
 	_executer = [_this, 0, objNull, [objNull]] call BIS_fnc_param;
 	_unit = [_this, 1, objNull, [objNull]] call BIS_fnc_param;
@@ -25,7 +25,7 @@ X39_MS2_var_Internal_MedicalUi_DefibrillateHandle = _this spawn {
 		["ainvpknlmstpsnonwrfldnon_medic", "ainvpknlmstpsnonwrfldnon_medic0s", "ainvpknlmstpsnonwrfldnon_ainvpknlmstpsnonwrfldnon_medic"],
 		["ainvpknlmstpsnonwrfldnon_medicend"],
 		{
-			terminate X39_MS2_var_Internal_MedicalUi_DefibrillateHandle;
+			terminate X39_MS2_var_Internal_Handles_DefibrillateHandle;
 			X39_XLib_var_ActionDialog_preventMenuOpening = false;
 			[] call X39_MS2_fnc_clearProgressBarTimeout;
 			[] call X39_MS2_fnc_clearAnimationLock;

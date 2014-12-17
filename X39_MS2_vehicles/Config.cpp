@@ -5,31 +5,15 @@ class X39_MedSys_Patch_Stretcher
 	units[] = {"X39_MS2_stretcher"};
 	weapons[] = {};
 	requiredVersion = 0.10;
-	requiredAddons[] = {};
-	author = "Config: X39|Cpt. HM Murdock, Model/Textures: Nicomach";
+	requiredAddons[] = {"X39_MS2_Scripting"};
+	author = "Config: X39|Cpt. HM Murdock & Mr Ewok, Model/Textures: Nicomach";
 	mail = "killerx29@gmail.com";
-	};
-};
-class CfgFactionClasses
-{
-	class XMS_Stretcher_fac
-	{
-		displayName = "XMS_Stretcher_fac";
-		priority = 8;
-		side = 2;
-		icon = "\X39_MS2_vehicles\data\stretcher\stretcher_ico.paa";
-	};
-};
-class CfgVehicleClasses
-{
-	class XMS_Stretcher
-	{
-		displayName = "XMS_Stretcher";
 	};
 };
 class CfgVehicles
 {
 	class LandVehicle;
+	class Land_Research_HQ_F;
 	class Car: LandVehicle
 	{
 		class NewTurret;
@@ -82,7 +66,7 @@ class CfgVehicles
 		Icon="";
 		mapSize = 6;
 		displayName = "X39_MS2_vehicles_base";
-		vehicleClass = "XMS_Stretcher";
+		vehicleClass = "X39_MS2_Vehicle";
 		crew = "B_Soldier_F";
 		typicalCargo[]=
 		{
@@ -90,7 +74,7 @@ class CfgVehicles
 		};
 		//accuracy=0.3;
 		side=2;
-		faction="XMS_Stretcher_fac";
+		faction="X39_MS2_Faction";
 		//water resistance and effects on vehicle
 		WaterLeakiness = 10;
 		maxFordingDepth = 0.5;
@@ -950,73 +934,6 @@ class CfgVehicles
 		*/
 		};
 	};
-	class X39_MS2_stretcher: X39_MS2_vehicles_Base
-	{
-		side=1;
-		scope=2;
-		model = "\X39_MS2_vehicles\data\stretcher\stretcher.p3d";
-		faction = "BLU_F";
-		vehicleClass = "XMS_Stretcher";
-		displayname = "XMS_Stretcher";
-		hasGunner = 0;
-		transportSoldier=1;
-		cargoAction[] = 
-		{
-		"passenger_injured_medevac_truck01"
-		};
-		threat[]={0,0,0};
-		driverLeftHandAnimName="drivewheel";
-		driverRightHandAnimName="";
-		driverLeftLegAnimName = "";
-		driverRightLegAnimName = "pedal_thrust";
-		armor=120;
-		damageResistance=0.030990001;
-		Picture = "\X39_MS2_vehicles\data\stretcher\stretcher_ico.paa"; //i used the icon path change it if you want ,it's for diplay in the commandbar when one of you unit is inside it
-		icon = "\X39_MS2_vehicles\data\stretcher\stretcher_ico.paa";
-		attendant=1; //this is the basic can heal variable from a3
-		/*class Eventhandlers
-		{
-		 //i suggest you to doesn't allow damage on the stretcher cause when a vehicle reach 1 dammage it's explode...
-		};*/
-		class Library
-		{
-			libTextDesc = "X39_MS2_vehicles";
-		};
-		class Turrets: Turrets
-		{
-		};
-		class AnimationSources: AnimationSources
-		{
-		};
-		class UserActions
-		{
-		};
-		class TransportWeapons
-		{
-		};
-		class TransportItems
-		{
-		};
-		class Damage
-		{
-			tex[] = {};
-			mat[] =
-			{
-			//once again dammage rvmat applied
-			};
-		};
-		HiddenSelections[] =
-		{
-		/*
-		//Related to named selection in model.
-			"camo",
-			"camo1",
-			"camo2",
-			"camo3"*/
-		};
-		HiddenSelectionsTextures[] = 
-		{
-		/*Path to textures applied to the related hiddenselection*/
-		};
-	};
+	#include "stretcher.cpp"
+	#include "MedicLab.cpp"
 };

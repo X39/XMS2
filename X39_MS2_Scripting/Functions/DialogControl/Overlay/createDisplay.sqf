@@ -7,10 +7,8 @@
  *	@Author - X39|Cpt. HM Murdock
  */
 private["_version"];
-if(X39_MS2_var_UIs_XMS2_Overlay_ShownInCurrentMission) exitWith { DEBUG_LOG("Overlay is already open."); };
-("X39_MS2_var_UIs_XMS2_Overay" call BIS_fnc_rscLayer) cutRsc["X39_MS2_Overay", "PLAIN"];
-
-X39_MS2_var_UIs_XMS2_Overlay_ShownInCurrentMission = true;
+if(!isNull(uiNamespace getVariable['X39_MS2_var_UIs_XMS2_Overlay', displayNull])) exitWith { DEBUG_LOG("Overlay is already open."); };
+("X39_MS2_var_UIs_XMS2_Overlay" call BIS_fnc_rscLayer) cutRsc["X39_MS2_Overay", "PLAIN"];
 
 REGION(HIDE EVERYTHING {)
 	displayCtrl_Overlay(1200) ctrlShow false;

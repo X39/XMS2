@@ -20,7 +20,7 @@
 private["_unit", "_handleID"];
 _unit = _this select 0;
 _handleID = _this select 1;
-if(X39_MS2_DEBUG_enable && _unit == player) then
+if(X39_MS2_DEBUG_enable && isPlayer _unit) then
 {
 	displayCtrl_Overlay(1072) ctrlShow X39_MS2_DEBUG_enable;
 	//displayCtrl_Overlay(1073) ctrlShow (X39_MS2_DEBUG_enable && !isNull cursorTarget && {[cursorTarget] call X39_MS2_fnc_isUnitXMS2Unit});

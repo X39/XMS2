@@ -17,7 +17,7 @@ else \
 	#define MSG_ADDXMS2UNITTOUNITARRAY "MSG_AddXms2UnitToUnitArray"
 	#define MSG_REMOVEXMS2UNITFROMUNITARRAY "MSG_RemoveXms2UnitFromUnitArray"
 	
-	#define displayCtrl_Overlay(X) ((uiNamespace getVariable "X39_MS2_var_UIs_XMS2_Overay") displayCtrl (X))
+	#define displayCtrl_Overlay(X) ((uiNamespace getVariable "X39_MS2_var_UIs_XMS2_Overlay") displayCtrl (X))
 	#define displayCtrl_BlackoutUI(X) ((uiNamespace getVariable "X39_MS2_var_UIs_XMS2_BlackOutUi") displayCtrl (X))
 	#define displayCtrl_MedicalUi(X) ((uiNamespace getVariable "X39_MS2_var_UIs_MedicalUi") displayCtrl (X))
 	#define displayCtrl_UnitSelectionUi(X) ((uiNamespace getVariable "UnitSelectionUi") displayCtrl (X))
@@ -38,7 +38,7 @@ else \
 	#define ISSIDE(X)		(typeName (X) == "SIDE")
 	#define ISSTRING(X)		(typeName (X) == "STRING")
 	#define dISTEXT(X)		(typeName (X) == "TEXT")
-	#define ISCHARP(X)		(ISSTRING(X) || {dISTEXT(X)})
+	#define ISCHARP(X)		(ISSTRING(X) || dISTEXT(X))
 	#define ISTEAM_MEMBER(X)(typeName (X) == "TEAM_MEMBER")
 	#define ISNAMESPACE(X)	(typeName (X) == "NAMESPACE")
 	
@@ -56,9 +56,9 @@ else \
 	#define QUOTATIONMARK "
 	#define SINGLEQUOTATIONMARK '
 	
-//	#ifndef DEBUG
-//		#define DEBUG
-//	#endif
+	#ifndef DEBUG
+		#define DEBUG
+	#endif
 	
 	#define getFnc(PARTA, PARTB) PARTA##PARTB
 	#define stringify(X) #X

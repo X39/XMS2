@@ -38,7 +38,7 @@ FORCELOCAL(_unit);
 if(_stage == 0) exitWith
 {
 	//Ensure ALL blackOutConditions are terminated
-	if({_x == -1} count X39_MS2_var_Internal_BlackOut_ConditionCode == count X39_MS2_var_Internal_BlackOut_ConditionCode) then
+	if({ISSCALAR(_x)} count X39_MS2_var_Internal_BlackOut_ConditionCode == count X39_MS2_var_Internal_BlackOut_ConditionCode) then
 	{
 		_unit setVariable ["X39_MS2_var_BlackOut_timeOfDeath", -1];
 		_unit setVariable ["X39_MS2_var_BlackOut_timeOfUnconscious", -1];

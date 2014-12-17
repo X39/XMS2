@@ -9,7 +9,7 @@
  */
 if(X39_MS2_var_Internal_DialogCommunication_MA_preventActions) exitWith {[] call X39_MS2_fnc_MedicalUi_outputBlockedMessage;};
 X39_MS2_var_Internal_DialogCommunication_MA_preventActions = true;
-X39_MS2_var_Internal_MedicalUi_CheckUnitHandle = _this spawn {
+X39_MS2_var_Internal_Handles_CheckUnitHandle = _this spawn {
 	DEBUG_CODE(_fnc_scriptName = "X39_MS2_fnc_MedicalUi_btnDiagnosisPerformCheckUnit";)
 	private["_checkUnitType", "_timeout", "_index"];
 	_checkUnitType = [_this, 0, 0, [0]] call BIS_fnc_param;
@@ -28,7 +28,7 @@ X39_MS2_var_Internal_MedicalUi_CheckUnitHandle = _this spawn {
 			["ainvpknlmstpsnonwrfldnon_medic", "ainvpknlmstpsnonwrfldnon_medic0s", "ainvpknlmstpsnonwrfldnon_ainvpknlmstpsnonwrfldnon_medic"],
 			["ainvpknlmstpsnonwrfldnon_medicend"],
 			{
-				terminate X39_MS2_var_Internal_MedicalUi_CheckUnitHandle;
+				terminate X39_MS2_var_Internal_Handles_CheckUnitHandle;
 				X39_MS2_var_Internal_DialogCommunication_MA_preventActions = false;
 				[] call X39_MS2_fnc_clearProgressBarTimeout;
 				[] call X39_MS2_fnc_clearAnimationLock;

@@ -11,7 +11,7 @@ private["_val"];
 _val = 0;
 _unit = _this select 0;
 {
-	if([_unit, _x select HITZONE_NAME] call X39_MS2_fnc_getTournique) then
+	if(!([_unit, _x select HITZONE_NAME] call X39_MS2_fnc_getTournique)) then
 	{
 		_val = _val + (
 						([_unit] call (missionNamespace getVariable format["X39_MS2_fnc_getBleedingOf%1", _x select HITZONE_NAME])) *

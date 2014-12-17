@@ -313,28 +313,37 @@ _this spawn {
 		
 		//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		//update drugs list
+		DEBUG_LOG_WFn_SC("Updating drug list...")
 		_arr = [];
 		{
 			if(([X39_MS2_var_Internal_DialogCommunication_MA_Caller, _x select 7] call X39_MS2_fnc_ls_isAllowedToUse) select 0) then
 			{
+				DEBUG_LOG_WFn_SC(format["'%1' is allowed to use '%2'" COMMA X39_MS2_var_Internal_DialogCommunication_MA_Caller COMMA _x select 7])
+				DEBUG_LOG_WFn_SC(format["Checking condition %1 now with parameters [%2, %3]" COMMA _x select 3 COMMA X39_MS2_var_Internal_DialogCommunication_MA_Caller COMMA X39_MS2_var_Internal_DialogCommunication_MA_Target])
 				if([X39_MS2_var_Internal_DialogCommunication_MA_Caller, X39_MS2_var_Internal_DialogCommunication_MA_Target] call (_x select 3)) then
 				{
+					DEBUG_LOG_WFn_SC(format["'%1's conditions return true, adding to list" COMMA _x select 7])
 					_arr pushBack _forEachIndex;
 					//_index = displayCtrl_MedicalUi(IDC_MEDICALUI_LB_DRUGSLIST) lbAdd (localize (_x select 1));
 					//displayCtrl_MedicalUi(IDC_MEDICALUI_LB_DRUGSLIST) lbSetValue [_index, _forEachIndex];
 				};
 			};
 		}forEach X39_MS2_var_Internal_MedicalUi_RegisteredDrugs;
+		DEBUG_LOG_WFn_SC(format["found following valid drugs: %1" COMMA _arr])
+		DEBUG_CODE_SC(for "_i" from 0 to ((lbSize displayCtrl_MedicalUi(IDC_MEDICALUI_LB_DRUGSLIST))) do {DEBUG_LOG_WFn(format["listbox index %1 has value %2" COMMA _i COMMA displayCtrl_MedicalUi(IDC_MEDICALUI_LB_DRUGSLIST) lbValue _i]);})
 		if(str _arr != str _lastDrugList) then
 		{
+			DEBUG_LOG_WFn_SC(format["current drug list (%1) differs from last drug list (%2)! Updating available drugs ..." COMMA _arr COMMA _lastDrugList])
 			lbClear displayCtrl_MedicalUi(IDC_MEDICALUI_LB_DRUGSLIST);
 			{
 				_index = displayCtrl_MedicalUi(IDC_MEDICALUI_LB_DRUGSLIST) lbAdd (localize ((X39_MS2_var_Internal_MedicalUi_RegisteredDrugs select _x) select 1));
 				displayCtrl_MedicalUi(IDC_MEDICALUI_LB_DRUGSLIST) lbSetValue [_index, _x];
+				DEBUG_LOG_WFn_SC(format["added drug '%1'(index %2) at index '%3'(value %4)  to drugs list" COMMA (X39_MS2_var_Internal_MedicalUi_RegisteredDrugs select _x) select 7 COMMA _x COMMA _index COMMA displayCtrl_MedicalUi(IDC_MEDICALUI_LB_DRUGSLIST) lbValue _index])
 				false
 			}count _arr;
 			_lastDrugList = _arr;
 		};
+		DEBUG_LOG_WFn_SC("Updating drug list has been done!")
 		
 		//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		//update quick action list

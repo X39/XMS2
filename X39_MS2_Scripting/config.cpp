@@ -27,6 +27,7 @@ class CfgFunctions
 		{
 			class initUnit:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\initUnit.sqf";};
 			class unInitUnit:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\unInitUnit.sqf";};
+			
 			class isUnitXms2Unit:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\isUnitXms2Unit.sqf";};
 			class runTicker:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\runTicker.sqf";};
 			class blackOutUnit:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\blackOutUnit.sqf";};
@@ -60,6 +61,7 @@ class CfgFunctions
 			class IMH_addInteractionMenuEntries:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\initModHelpers\addInteractionMenuEntries.sqf";};
 			class IMH_registerDrugs:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\initModHelpers\registerDrugs.sqf";};
 			class IMH_registerMedicalUiStatusEffects:X39_XLib_Function_TypeA							{file = "\X39_MS2_Scripting\Functions\initModHelpers\registerMedicalUiStatusEffects.sqf";};
+			class IMH_registerHallucinations:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\initModHelpers\registerHallucinations.sqf";};
 		};
 		class HitZones
 		{
@@ -174,6 +176,12 @@ class CfgFunctions
 			class getTemperature:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Temperature\getTemperature.sqf";};
 			class setTemperature:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Temperature\setTemperature.sqf";};
 		};
+		class Hallucinations
+		{
+			class registerHallucination:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\Hallucinations\registerHallucination.sqf";};
+			
+			class hallu_testHallucination:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\Hallucinations\testHallucination.sqf";};
+		};
 		class XMSTicks
 		{
 			class respiratoryTick:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\XMSTicks\respiratoryTick.sqf";};
@@ -190,6 +198,7 @@ class CfgFunctions
 			class drugsSimulationTick:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\XMSTicks\drugsSimulationTick.sqf";};
 			class DebugTick:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\XMSTicks\DebugTick.sqf";};
 			class hitPartTick:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\XMSTicks\hitPartTick.sqf";};
+			class hallucinationTick:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\XMSTicks\hallucinationTick.sqf";};
 			
 			class publishTick:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\XMSTicks\publishTick.sqf";};
 		};
@@ -211,6 +220,7 @@ class CfgFunctions
 		class DialogControl_BlackOutDialog
 		{
 			class blackOutDialog_createDialog:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\DialogControl\BlackOutDialog\createDialog.sqf";};
+			class blackOutDialog_closeDialog:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\DialogControl\BlackOutDialog\closeDialog.sqf";};
 		};
 		class DialogControl_Overlay
 		{
