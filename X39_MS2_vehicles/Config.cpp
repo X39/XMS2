@@ -5,31 +5,15 @@ class X39_MedSys_Patch_Stretcher
 	units[] = {"X39_MS2_stretcher"};
 	weapons[] = {};
 	requiredVersion = 0.10;
-	requiredAddons[] = {};
-	author = "Config: X39|Cpt. HM Murdock, Model/Textures: Nicomach";
+	requiredAddons[] = {"X39_MS2_Scripting"};
+	author = "Config: X39|Cpt. HM Murdock & Mr Ewok, Model/Textures: Nicomach";
 	mail = "killerx29@gmail.com";
-	};
-};
-class CfgFactionClasses
-{
-	class XMS_Stretcher_fac
-	{
-		displayName = "XMS_Stretcher_fac";
-		priority = 8;
-		side = 2;
-		icon = "\X39_MS2_vehicles\data\stretcher\stretcher_ico.paa";
-	};
-};
-class CfgVehicleClasses
-{
-	class XMS_Stretcher
-	{
-		displayName = "XMS_Stretcher";
 	};
 };
 class CfgVehicles
 {
 	class LandVehicle;
+	class Land_Research_HQ_F;
 	class Car: LandVehicle
 	{
 		class NewTurret;
@@ -82,7 +66,7 @@ class CfgVehicles
 		Icon="";
 		mapSize = 6;
 		displayName = "X39_MS2_vehicles_base";
-		vehicleClass = "XMS_Stretcher";
+		vehicleClass = "X39_MS2_Vehicle";
 		crew = "B_Soldier_F";
 		typicalCargo[]=
 		{
@@ -90,7 +74,7 @@ class CfgVehicles
 		};
 		//accuracy=0.3;
 		side=2;
-		faction="XMS_Stretcher_fac";
+		faction="X39_MS2_Faction";
 		//water resistance and effects on vehicle
 		WaterLeakiness = 10;
 		maxFordingDepth = 0.5;
@@ -951,4 +935,5 @@ class CfgVehicles
 		};
 	};
 	#include "stretcher.cpp"
+	#include "MedicLab.cpp"
 };

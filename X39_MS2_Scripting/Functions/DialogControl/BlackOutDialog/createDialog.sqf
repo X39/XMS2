@@ -13,7 +13,7 @@ if(isPlayer (_this select 0)) then
 {
 	X39_MS2_var_Internal_DialogCommunication_BO_isActive = true;
 };
-_this spawn {
+X39_MS2_var_Internal_Handles_BlackOutDialogHandle = _this spawn {
 	private["_handle", "_unit", "_isPlayer", "_currentStage", "_timeLeft", "_timeValue", "_timeOfUnconscious", "_timeBlackOut", "_timeFlatLine"];
 	DEBUG_CODE(private["_fnc_scriptName"]; _fnc_scriptName = "X39_MS2_fnc_blackOutDialog_createDialog";)
 	_handle = scriptNull;

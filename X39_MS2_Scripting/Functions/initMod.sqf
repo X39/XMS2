@@ -127,10 +127,10 @@ X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["tf_voiceVolume",								{1													}, true	,					false	,				false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["tf_globalVolume",								{1													}, true	,					false	,				false	]];
 {
-	X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, [format["X39_MS2_var_Damage_%1" COMMA _x select HITZONE_NAME], {0}, true]];
-	X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, [format["X39_MS2_var_Bleeding_%1" COMMA _x select HITZONE_NAME], {0}, true]];
-	X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, [format["X39_MS2_var_Bleeding_%1AterieDamaged" COMMA _x select HITZONE_NAME], {false}, true]];
-	X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, [format["X39_MS2_var_%1HasTourniquet" COMMA _x select HITZONE_NAME], {false}, true]];
+	X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, [format["X39_MS2_var_Damage_%1" COMMA _x select HITZONE_NAME], {0}, true, false]];
+	X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, [format["X39_MS2_var_Bleeding_%1" COMMA _x select HITZONE_NAME], {0}, true, false]];
+	X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, [format["X39_MS2_var_Bleeding_%1AterieDamaged" COMMA _x select HITZONE_NAME], {false}, true, false]];
+	X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, [format["X39_MS2_var_%1HasTourniquet" COMMA _x select HITZONE_NAME], {false}, true, false]];
 	false
 }count X39_MS2_var_Internal_HitZones;
 
@@ -162,6 +162,7 @@ assignValue("X39_MS2_var_Internal_Handles_ActionHandle", scriptNull);
 assignValue("X39_MS2_var_Internal_Handles_ApplyDrugHandle", scriptNull);
 assignValue("X39_MS2_var_Internal_Handles_DefibrillateHandle", scriptNull);
 assignValue("X39_MS2_var_Internal_Handles_HallucinationHandle", scriptNull);
+assignValue("X39_MS2_var_Internal_Handles_BlackOutDialogHandle", scriptNull);
 
 assignValue("X39_MS2_var_Internal_Overlay_ProgressBarRunning", false);
 assignValue("X39_MS2_var_Internal_Overlay_ProgressBarHandle", scriptNull);

@@ -27,6 +27,7 @@ class CfgFunctions
 		{
 			class initUnit:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\initUnit.sqf";};
 			class unInitUnit:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\unInitUnit.sqf";};
+			
 			class isUnitXms2Unit:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\isUnitXms2Unit.sqf";};
 			class runTicker:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\runTicker.sqf";};
 			class blackOutUnit:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\blackOutUnit.sqf";};
@@ -219,6 +220,7 @@ class CfgFunctions
 		class DialogControl_BlackOutDialog
 		{
 			class blackOutDialog_createDialog:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\DialogControl\BlackOutDialog\createDialog.sqf";};
+			class blackOutDialog_closeDialog:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\DialogControl\BlackOutDialog\closeDialog.sqf";};
 		};
 		class DialogControl_Overlay
 		{

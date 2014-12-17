@@ -8,8 +8,8 @@
  *	@Param4		-	ARRAY
  *	@Param4.1	-	OBJECT	-	Caller
  *	@Param4.2	-	OBJECT	-	Target
- *	@Param4.3	-	SCALAR	-	DrugIndex
- *	@Param4.4	-	SCALAR	-	Efficiency
+ *	@Param4.3	-	SCALAR	-	Efficiency
+ *	@Param4.4	-	SCALAR	-	DrugIndex
  *	@Return		-	NA
  *	
  *	@Author - X39|Cpt. HM Murdock

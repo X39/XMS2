@@ -1,16 +1,16 @@
 class X39_MS2_stretcher: X39_MS2_vehicles_Base
 {
-	side=1;
-	scope=2;
+	side = 1;
+	scope = 2;
 	model = "\X39_MS2_vehicles\data\stretcher\stretcher.p3d";
-	faction = "BLU_F";
-	vehicleClass = "XMS_Stretcher";
+	faction = "X39_MS2_Faction";
+	vehicleClass = "X39_MS2_Vehicle";
 	displayname = "XMS_Stretcher";
 	hasGunner = 0;
 	transportSoldier=1;
 	cargoAction[] = 
 	{
-	"passenger_injured_medevac_truck01"
+		"passenger_injured_medevac_truck01"
 	};
 	threat[]={0,0,0};
 	driverLeftHandAnimName="drivewheel";
@@ -21,11 +21,11 @@ class X39_MS2_stretcher: X39_MS2_vehicles_Base
 	damageResistance=0.030990001;
 	Picture = "\X39_MS2_vehicles\data\stretcher\stretcher_ico.paa"; //i used the icon path change it if you want ,it's for diplay in the commandbar when one of you unit is inside it
 	icon = "\X39_MS2_vehicles\data\stretcher\stretcher_ico.paa";
-	attendant=1; //this is the basic can heal variable from a3
-	/*class Eventhandlers
+	attendant = 1; //this is the basic can heal variable from a3
+	class Eventhandlers
 	{
-	 //i suggest you to doesn't allow damage on the stretcher cause when a vehicle reach 1 dammage it's explode...
-	};*/
+		init = "(_this select 0) addEventHandler ['HandleDamage', {0}];";
+	};
 	class Library
 	{
 		libTextDesc = "X39_MS2_vehicles";
