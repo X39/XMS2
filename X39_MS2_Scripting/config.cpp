@@ -175,6 +175,9 @@ class CfgFunctions
 			class addTemperature:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Temperature\addTemperature.sqf";};
 			class getTemperature:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Temperature\getTemperature.sqf";};
 			class setTemperature:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Temperature\setTemperature.sqf";};
+			class addWetness:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Temperature\addWetness.sqf";};
+			class getWetness:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Temperature\getWetness.sqf";};
+			class setWetness:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Temperature\setWetness.sqf";};
 		};
 		class Hallucinations
 		{
@@ -199,6 +202,7 @@ class CfgFunctions
 			class DebugTick:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\XMSTicks\DebugTick.sqf";};
 			class hitPartTick:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\XMSTicks\hitPartTick.sqf";};
 			class hallucinationTick:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\XMSTicks\hallucinationTick.sqf";};
+			class timeIntensiveCallsTick:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\XMSTicks\timeIntensiveCallsTick.sqf";};
 			
 			class publishTick:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\XMSTicks\publishTick.sqf";};
 		};

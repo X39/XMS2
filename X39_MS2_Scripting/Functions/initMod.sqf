@@ -62,6 +62,7 @@ assignValue("X39_MS2_var_Internal_HitZones", 	[
 ["NaloxoneChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
 ["AspirinChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
 ["RespiratoryChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
+["WetnessChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
 
 ["consciousStateChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
 ["BlackOutTextChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
@@ -99,6 +100,7 @@ X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Hearing_value",					{1													}, true	,					true	,				false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Internal_XMSEffects",			{[]												}, false	,					true	,				false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Temperature_value",				{X39_MS2_var_Temperature_max					}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Temperature_wetness",			{0													}, true	,					true	,				false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_hasEarplugs",					{false												}, true	,					true	,				false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_hasNasopharyngeal",				{false												}, true	,					true	,				false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_haskingLt",						{false												}, true	,					true	,				false	]];
@@ -123,6 +125,7 @@ X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_respiratory_arrestPresent",	{false												}, true	,					true	,				false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_lsClass",						{-1													}, false	,					true	,				true	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_UnitTickHandle",				{scriptNull										}, false	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_isUnitInOpenArea",				{false												}, false	,					true	,				false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["tf_unable_to_use_radio",						{true												}, true	,					false	,				false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["tf_voiceVolume",								{1													}, true	,					false	,				false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["tf_globalVolume",								{1													}, true	,					false	,				false	]];
@@ -184,6 +187,7 @@ assignValue("X39_MS2_var_Internal_ticker_tickHandlers", []);
 ["X39_MS2_fnc_soundTick", 12] call X39_MS2_fnc_registerTickHandler;
 ["X39_MS2_fnc_hitPartTick", 11] call X39_MS2_fnc_registerTickHandler;
 ["X39_MS2_fnc_hallucinationTick", 4] call X39_MS2_fnc_registerTickHandler;
+["X39_MS2_fnc_timeIntensiveCallsTick", 10] call X39_MS2_fnc_registerTickHandler;
 DEBUG_CODE(["X39_MS2_fnc_debugTick" COMMA 1] call X39_MS2_fnc_registerTickHandler);
 assignValue("X39_MS2_var_Internal_ticker_minTickRate", 0.5);
 assignValue("X39_MS2_var_Internal_ticker_maxTicksTimeout", 100);
@@ -237,6 +241,7 @@ assignValue("X39_MS2_var_BackBlast_maxAngle", 45);
 **********************/
 assignValue("X39_MS2_var_Blackout_allowTurningTempBlackoutToPermaByChance", true);
 assignValue("X39_MS2_var_Blackout_turnTempToPermaBlackoutChanceP", 0.2);
+assignValue("X39_MS2_var_Blackout_turnTempToPermaWakeUpAtAdrenalineP", 0.2);
 
 /********************
 * CATEGORY: DAMAGE *
@@ -450,9 +455,9 @@ assignValue("X39_MS2_var_Pain_painReductionPerTick", 0.001);
 assignValue("X39_MS2_var_Pain_GlobalModificator", 1.0);
 assignValue("X39_MS2_var_Pain_DamagePainGlobalModificator", 1.0);
 
-/******************
+/************************
 * CATEGORY: Distraction *
-*****************/
+************************/
 //Enable/Disable distraction related features
 
 //Dynamic definitions
@@ -468,11 +473,15 @@ assignValue("X39_MS2_var_Distraction_reductionPerTick", 0.01);
 assignValue("X39_MS2_var_Temperature_useGreyScreenForLowTemperature", true);
 assignValue("X39_MS2_var_Temperature_useFocusEffectForLowTemperature", true);
 assignValue("X39_MS2_var_Temperature_useFilmGrainForLowTemperature", true);
+assignValue("X39_MS2_var_Temperature_enableWetness", true);
+assignValue("X39_MS2_var_Temperature_oceanSetsWetnessToFull", true);
+assignValue("X39_MS2_var_Temperature_allowUnitSpeedToAffectTemperatureIncrease", true);
 assignValue("X39_MS2_var_Temperature_InstantDeath", false); //when reaching X39_MS2_var_Temperature_minDead + this is true then a unit will be killed directly without timer, false will kill with timer
 
 //Dynamic definitions
 assignValue("X39_MS2_var_Temperature_max", 10); //Maximum temperature a unit can reach (starts with this), not allowed to be 0!
-assignValue("X39_MS2_var_Temperature_maxReductionWhileRaining", 5); //Maximum temperature to which raining can reduce the temperature
+assignValue("X39_MS2_var_Temperature_maxReductionByRaining", 5); //Maximum temperature to which raining can reduce the temperature
+assignValue("X39_MS2_var_Temperature_maxReductionByOcean", 2); //Maximum temperature to which ocean can reduce the temperature
 assignValue("X39_MS2_var_Temperature_minNatural", 3); //Temperature where no effects (like slowing) will be applied
 assignValue("X39_MS2_var_Temperature_forceWalkAtTemperature", 2.5);
 assignValue("X39_MS2_var_Temperature_minDead", 0); //Temperature where unit dies, -1 to disable
@@ -480,9 +489,35 @@ assignValue("X39_MS2_var_Temperature_DeathTimerTime", 600);
 assignValue("X39_MS2_var_Temperature_valueRaisePerTick", 0.0001);
 assignValue("X39_MS2_var_Temperature_valueReductionWhileSwimmingPerTick", 0.01);
 assignValue("X39_MS2_var_Temperature_valueReductionWhileRainingPerTick", 0.01);
+assignValue("X39_MS2_var_Temperature_startRainAffectionAt", 0.5);
+assignValue("X39_MS2_var_Temperature_wetnessValueReductionPerTick", 0.01);
+assignValue("X39_MS2_var_Temperature_wetnessMaxReductionWithoutFire", 0.25);
+assignValue("X39_MS2_var_Temperature_fireplaceClasses", ["FirePlace_burning_F" COMMA "Land_Fire_burning"]);
+assignValue("X39_MS2_var_Temperature_reductionInOpen", 0.01);
+assignValue("X39_MS2_var_Temperature_increaseInShelter", 0.01);
+assignValue("X39_MS2_var_Temperature_aslHeightReductionStart", 1000);
+assignValue("X39_MS2_var_Temperature_aslMaxReductionHit", 3000);
+assignValue("X39_MS2_var_Temperature_aslImpactPerTick", 0.5);
+assignValue("X39_MS2_var_Temperature_environmentTemperatureP", 1);
+assignValue("X39_MS2_var_Temperature_reductionByEnvironmentOnHighBodyTemperaturePerTick", 0.001); //used when body temperature is > environment temperature
+assignValue("X39_MS2_var_Temperature_speedIncreasePerTick", 0.04);
+assignValue("X39_MS2_var_Temperature_speedIncreasePerTickCalculationBase", 30);
+assignValue("X39_MS2_var_Temperature_fireplaceIncreasePerTick", 1);
+assignValue("X39_MS2_var_Temperature_reductionByBeingPronePerTick", 0.25);
+assignValue("X39_MS2_var_Temperature_environmentChangePerTick_day", 0.01);
+assignValue("X39_MS2_var_Temperature_environmentChangePerTick_night", -0.025);
+assignValue("X39_MS2_var_Temperature_maxTempChangeByEnvironmentP_night", 0.25);
+assignValue("X39_MS2_var_Temperature_maxTempChangeByEnvironmentP_day", 1);
+
 
 //Modificators
 assignValue("X39_MS2_var_Temperature_GlobalModificator", 1.0);
+assignValue("X39_MS2_var_Temperature_wetnessModificator", 1.0);
+assignValue("X39_MS2_var_Temperature_wetnessImpactOnTemperatureChangeModificator_Negative", 2);
+assignValue("X39_MS2_var_Temperature_wetnessImpactOnTemperatureChangeModificator_Positive", 0.5);
+assignValue("X39_MS2_var_Temperature_wetnessReductionIncreaseByFireModificator", 10);
+assignValue("X39_MS2_var_Temperature_wetnessIncreaseModificator", 0.2);
+assignValue("X39_MS2_var_Temperature_windStrengthImpactModificator", 0.125);
 
 
 /***********************
@@ -635,8 +670,14 @@ assignValue("X39_MS2_var_ItemReplacement_FirstAidKit", ["x39_xms2_bandage" COMMA
 	assignValue("X39_MS2_DEBUG_cfnForceWalk", -1);
 #endif
 
+/********************
+* CATEGORY: SPECIAL *
+********************/
+assignValue("X39_MS2_var_special_DisableTimeIntensiveCallsTick", false);
+
+
 //#############################################################
-//# X39s Medical System - VALIDATE PROFILENAMESPACE VARIABLES #
+//# X39s Medical System - INITIATE PROFILENAMESPACE VARIABLES #
 //#############################################################
 
 assignValue3("X39_MS2_var_MedicalUI_selectedCheckUnitIndex", 0, profileNamespace);

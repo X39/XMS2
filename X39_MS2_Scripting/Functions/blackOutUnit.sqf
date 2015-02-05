@@ -82,8 +82,12 @@ if(_stage == -1) exitWith
 
 _currentStageOfUnit = _unit getVariable["X39_MS2_var_BlackOut_currentStage", 0];
 
-if((_stage > _currentStageOfUnit || {_override}) && {_stage < 5}) then
+if((_stage > _currentStageOfUnit || _override) && _stage < 5) then
 {
+	if(_stage == 1 && X39_MS2_var_Blackout_allowTurningTempBlackoutToPermaByChance && random 1 <= X39_MS2_var_Blackout_turnTempToPermaBlackoutChanceP) exitWith
+	{
+		[_unit, 2, _time, _text, "TempToPermaBlackout", {(([_this select 0] call X39_MS2_fnc_getAdrenaline) / X39_MS2_var_Drugs_Adrenaline_maxAdrenaline) < X39_MS2_var_Blackout_turnTempToPermaWakeUpAtAdrenalineP}, true] call X39_MS2_fnc_blackOutUnit;
+	};
 	_unit setCaptive true;
 	if(_stage > 3) then
 	{
