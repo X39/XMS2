@@ -144,6 +144,12 @@ class Heart
 	
 	class setFlatLine:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Heart\setFlatLine.sqf";};
 	class hasFlatLine:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Heart\hasFlatLine.sqf";};
+	
+	class getCprPresent:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Heart\getCprPresent.sqf";};
+	class setCprPresent:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Heart\setCprPresent.sqf";};
+	class addCprCount:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Heart\addCprCount.sqf";};
+	class getCprCount:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Heart\getCprCount.sqf";};
+	class setCprCount:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Heart\setCprCount.sqf";};
 };
 class Temperature
 {

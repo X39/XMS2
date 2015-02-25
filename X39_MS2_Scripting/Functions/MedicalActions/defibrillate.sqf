@@ -36,7 +36,10 @@ X39_MS2_var_Internal_Handles_DefibrillateHandle = _this spawn {
 	uiSleep TIMEOUT;
 	if([_unit] call X39_MS2_fnc_hasFlatLine) then
 	{
-		if((([_unit] call X39_MS2_fnc_getAdrenaline) / X39_MS2_var_Drugs_Adrenaline_maxAdrenaline) > X39_MS2_var_InteractionMenu_Defibrillate_RequiredAdrenalineP || random 100 <= X39_MS2_var_InteractionMenu_Defibrillate_ChanceWithoutAdrenaline) then
+		if(
+				((([_unit] call X39_MS2_fnc_getAdrenaline) / X39_MS2_var_Drugs_Adrenaline_maxAdrenaline) > X39_MS2_var_InteractionMenu_Defibrillate_RequiredAdrenalineP || random 100 <= X39_MS2_var_InteractionMenu_Defibrillate_ChanceWithoutAdrenaline) &&
+				(!X39_MS2_var_InteractionMenu_Defibrillate_CprNeeded || (([_unit] call X39_MS2_fnc_getCprCount) > 0 || random 100 <= X39_MS2_var_InteractionMenu_Defibrillate_ChanceWithoutCprP))
+		   ) then
 		{
 			if(X39_MS2_var_InteractionMenu_Defibrillate_DistractionAdded > 0) then
 			{

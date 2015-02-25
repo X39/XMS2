@@ -63,6 +63,7 @@ assignValue("X39_MS2_var_Internal_HitZones", 	[
 ["AspirinChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
 ["RespiratoryChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
 ["WetnessChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
+["FlatLineChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
 
 ["consciousStateChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
 ["BlackOutTextChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
@@ -96,6 +97,8 @@ X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_EH_HitPart",						{-1													}, false	,					true	,				false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Heart_heartPulse",				{X39_MS2_var_Heart_minHeartPulsePerSecond		}, true	,					true	,				false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Heart_hasFlatLine",				{-1													}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Heart_cprPresent",				{false												}, true	,					true	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Heart_cprCount",				{0													}, true	,					true	,				false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Pain_value",						{0													}, true	,					true	,				false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Hearing_value",					{1													}, true	,					true	,				false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_Internal_XMSEffects",			{[]												}, false	,					true	,				false	]];
@@ -562,6 +565,8 @@ assignValue("X39_MS2_var_Feature_EnableBackBlast", true);
 assignValue("X39_MS2_var_Feature_EnablePain", true);
 //Allows the mod to simulate distraction
 assignValue("X39_MS2_var_Feature_EnableDistraction", true);
+//Enables heart simulation stuff
+assignValue("X39_MS2_var_Feature_EnableHeart", true);
 //Enables general adrenaline parts of the mod
 assignValue("X39_MS2_var_Feature_EnableAdrenaline", true);
 //Enable adding "natural" ammount of adrenaline during fight
@@ -620,10 +625,12 @@ assignValue("X39_MS2_var_InteractionMenu_enableInVehicleHealing_others", true);
 assignValue("X39_MS2_var_InteractionMenu_enablePutUnitsIntoVehicles", true);
 assignValue("X39_MS2_var_InteractionMenu_enablePullUnitsFromVehicles", true);
 assignValue("X39_MS2_var_InteractionMenu_allowOpeningOfTheUi", true);
+assignValue("X39_MS2_var_InteractionMenu_Defibrillate_CprNeeded", true);
 
 assignValue("X39_MS2_var_InteractionMenu_Defibrillate_RequiredAdrenalineP", 0.4);
 assignValue("X39_MS2_var_InteractionMenu_Defibrillate_ChanceWithoutAdrenaline", 12); //1:X
 assignValue("X39_MS2_var_InteractionMenu_Defibrillate_DistractionAdded", 10);
+assignValue("X39_MS2_var_InteractionMenu_Defibrillate_ChanceWithoutCpr", 25);
 
 /****************************
 * CATEGORY: MedicalActions *

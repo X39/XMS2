@@ -17,11 +17,11 @@
  *	@Param2 - SCALAR - HandleID
  *	@Return - NA
  */
-private["_unit", "_handleID", "_fatigue", "_newPulse", "_stage", "_pulseChange", "_adrenalineChange", "_pulseCurrent", "_adrenalineCurrent", "_speed"];
+if(!X39_MS2_var_Feature_enableHeartSimulation) exitWith {};
+
+private["_unit", "_handleID", "_fatigue", "_newPulse", "_stage", "_pulseChange", "_adrenalineChange", "_pulseCurrent", "_adrenalineCurrent", "_speed", "_cprCount"];
 _unit = _this select 0;
 _handleID = _this select 1;
-if(!X39_MS2_var_Feature_EnableAdrenaline) exitWith {};
-
 _pulseChange = 0;
 _adrenalineChange = 0;
 _pulseCurrent = [_unit] call X39_MS2_fnc_getHeartPulse;
@@ -35,8 +35,17 @@ if(vehicle _unit != _unit) then
 
 
 //Simulate Heart
-if(X39_MS2_var_Heart_enableHeartSimulation && {!([_unit] call X39_MS2_fnc_hasFlatLine)}) then
+if(!([_unit] call X39_MS2_fnc_hasFlatLine)) then
 {
+	
+	if([_unit] call X39_MS2_fnc_getCprPresent) then
+	{
+		[_unit, 1] call X39_MS2_fnc_addCprCount;
+	}
+	else
+	{
+		[_unit, -1] call X39_MS2_fnc_addCprCount;
+	};
 	if(floor _pulseCurrent <= 0) then
 	{
 		if(_blackOutStage < 3) then
