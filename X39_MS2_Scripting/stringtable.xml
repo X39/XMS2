@@ -823,6 +823,15 @@
 				  <Russian>Start using Bag-Valve Mask</Russian>
 				   <Polish>Start using Bag-Valve Mask</Polish>
 			</Key>
+			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_StartCPR">
+				  <English>Start CPR</English>
+				   <German>Start CPR</German>
+				<Hungarian>Start CPR</Hungarian>
+				  <Italian>Start CPR</Italian>
+				   <French>Start CPR</French>
+				  <Russian>Start CPR</Russian>
+				   <Polish>Start CPR</Polish>
+			</Key>
 			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Close">
 				  <English>Close</English>
 				   <German>Close</German>

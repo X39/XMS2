@@ -49,7 +49,10 @@ if(_stage == 0) exitWith
 		_unit setVariable ["tf_globalVolume", 1];
 		[_unit, false] call X39_MS2_fnc_setToungeBlocking;
 		[_unit, false] call X39_MS2_fnc_setArrestPresent;
-		["consciousStateChanged", _this, false, "XMS2", missionNamespace] call X39_XLib_EH_fnc_triggerEvent;
+		if(X39_MS2_var_Events_EnableSetEvents) then
+		{
+			["consciousStateChanged", _this, false, "XMS2", missionNamespace] call X39_XLib_EH_fnc_triggerEvent;
+		};
 		_unit setVariable ["X39_MS2_var_BlackOut_currentStage", _stage];
 		_unit setCaptive false;
 		X39_MS2_var_Internal_BlackOut_ConditionIDs = [];
@@ -75,15 +78,22 @@ if(_blackOutId != "") then
 };
 if(_stage == -1) exitWith
 {
-	["BlackOutTextChanged", [_unit getVariable "X39_MS2_var_BlackOut_Text", _text], false, "XMS2", missionNamespace] call X39_XLib_EH_fnc_triggerEvent;
+	if(X39_MS2_var_Events_EnableSetEvents) then
+	{
+		["BlackOutTextChanged", [_unit getVariable "X39_MS2_var_BlackOut_Text", _text], false, "XMS2", missionNamespace] call X39_XLib_EH_fnc_triggerEvent;
+	};
 	_unit setVariable ["X39_MS2_var_BlackOut_Text", _text];
 };
 
 
 _currentStageOfUnit = _unit getVariable["X39_MS2_var_BlackOut_currentStage", 0];
 
-if((_stage > _currentStageOfUnit || {_override}) && {_stage < 5}) then
+if((_stage > _currentStageOfUnit || _override) && _stage < 5) then
 {
+	if(_stage == 1 && X39_MS2_var_Blackout_allowTurningTempBlackoutToPermaByChance && random 1 <= X39_MS2_var_Blackout_turnTempToPermaBlackoutChanceP) exitWith
+	{
+		[_unit, 2, _time, _text, "TempToPermaBlackout", {(([_this select 0] call X39_MS2_fnc_getAdrenaline) / X39_MS2_var_Drugs_Adrenaline_maxAdrenaline) < X39_MS2_var_Blackout_turnTempToPermaWakeUpAtAdrenalineP}, true] call X39_MS2_fnc_blackOutUnit;
+	};
 	_unit setCaptive true;
 	if(_stage > 3) then
 	{
@@ -143,7 +153,10 @@ if((_stage > _currentStageOfUnit || {_override}) && {_stage < 5}) then
 		_unit setVariable ["X39_MS2_var_BlackOut_Text", _text];
 		_unit setVariable ["X39_MS2_var_BlackOut_isBlackedOut", true];
 		_unit setVariable ["X39_MS2_var_BlackOut_currentStage", _stage];
-		["consciousStateChanged", _this, false, "XMS2", missionNamespace] call X39_XLib_EH_fnc_triggerEvent;
+		if(X39_MS2_var_Events_EnableSetEvents) then
+		{
+			["consciousStateChanged", _this, false, "XMS2", missionNamespace] call X39_XLib_EH_fnc_triggerEvent;
+		};
 		[_unit] call X39_MS2_fnc_blackOutDialog_createDialog;
 		_unit setVariable ["tf_unable_to_use_radio", true];
 		_unit setVariable ["tf_voiceVolume", 0];

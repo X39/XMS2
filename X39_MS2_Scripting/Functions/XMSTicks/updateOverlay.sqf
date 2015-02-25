@@ -21,6 +21,7 @@ if(!hasInterface) exitWith {};
 private["_unit", "_handleID", "_currentHitMarkerValue", "_calcValue", "_currentTemperature"];
 _unit = _this select 0;
 _handleID = _this select 1;
+DEBUG_CODE_SC(if(!isPlayer _unit) exitWith {})
 if(isNull(uiNamespace getVariable['X39_MS2_var_UIs_XMS2_Overlay', displayNull])) then
 {
 	[] call X39_MS2_fnc_overlay_createDisplay;
@@ -50,6 +51,16 @@ if(_currentTemperature < X39_MS2_var_Temperature_minNatural) then
 else
 {
 	displayCtrl_Overlay(1293) ctrlSetTextColor [1, 1, 1, 0];
+};
+_currentWetness = [_unit] call X39_MS2_fnc_getWetness;
+if(_currentWetness > 0) then
+{
+	displayCtrl_Overlay(1291) ctrlSetTextColor [1, 1, 1, _currentWetness];
+	displayCtrl_Overlay(1291) ctrlShow true;
+}
+else
+{
+	displayCtrl_Overlay(1291) ctrlShow false;
 };
 
 if([_unit] call X39_MS2_fnc_isBleeding) then

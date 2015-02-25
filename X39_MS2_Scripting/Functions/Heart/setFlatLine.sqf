@@ -8,6 +8,10 @@
  * @Param3 - ANY - If set, no blackOutUnit call will be done
  * @Return - NA
  */
+if(X39_MS2_var_Events_EnableSetEvents) then
+{
+	["FlatLineChanged", _this, false, "XMS2", missionNamespace] call X39_XLib_EH_fnc_triggerEvent;
+};
 (_this select 0) setVariable["X39_MS2_var_Heart_hasFlatLine", _this select 1, false];
 if(!(count _this >= 3)) then
 {

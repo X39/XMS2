@@ -2,6 +2,7 @@
 setlocal ENABLEDELAYEDEXPANSION
 :::::::::::::::::::::::::::::::::::::::::::::README:::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::To avoid that a PBO is getting binarized, place a file callen ".PACKONLY" inside of the addon folder::
+::To ignore specific folders from getting handled, create a file named ".IGNOREFOLDER" inside		  ::
 ::ALWAYS avoid the final \ for pathes!																  ::
 ::																									  ::
 ::						This bash script was created by X39|Cpt. HM Murdock							  ::

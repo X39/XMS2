@@ -23,7 +23,7 @@ _handleID = _this select 1;
 if(X39_MS2_DEBUG_enable && isPlayer _unit) then
 {
 	displayCtrl_Overlay(1072) ctrlShow X39_MS2_DEBUG_enable;
-	//displayCtrl_Overlay(1073) ctrlShow (X39_MS2_DEBUG_enable && !isNull cursorTarget && {[cursorTarget] call X39_MS2_fnc_isUnitXMS2Unit});
+	displayCtrl_Overlay(1073) ctrlShow (X39_MS2_DEBUG_enable && !isNull cursorTarget && {[cursorTarget] call X39_MS2_fnc_isUnitXMS2Unit});
 	{
 		private["_txt", "_i"];
 		_txt = name (_x select 0);
@@ -47,9 +47,10 @@ if(X39_MS2_DEBUG_enable && isPlayer _unit) then
 		_txt = format["%1<br />%2 (%3) Adrenaline", _txt, ([_this select 0, true] call X39_MS2_fnc_getAdrenaline), ([_this select 0] call X39_MS2_fnc_getAdrenaline)];
 		_txt = format["%1<br />%2 (%3) Morphine", _txt, ([_this select 0, true] call X39_MS2_fnc_getMorphine), ([_this select 0] call X39_MS2_fnc_getMorphine)];
 		_txt = format["%1<br />%2 (%3) Naloxone", _txt, ([_this select 0, true] call X39_MS2_fnc_getNaloxone), ([_this select 0] call X39_MS2_fnc_getNaloxone)];
+		_txt = format["%1<br />%2 Wetness", _txt, [_this select 0] call X39_MS2_fnc_getWetness];
 		displayCtrl_Overlay(_x select 1) ctrlSetStructuredText parseText _txt;
 		false
-	}count [[_unit, 1072]];//, [cursorTarget, 1073]];
+	}count [[_unit, 1072], [cursorTarget, 1073]];//
 	
 	if(X39_MS2_DEBUG_ppeDynamicBlur != -1)		then {_ppeDynamicBlur = X39_MS2_DEBUG_ppeDynamicBlur;			};
 	if(X39_MS2_DEBUG_ppeRadialBlur != -1)		then {_ppeRadialBlur = X39_MS2_DEBUG_ppeRadialBlur;				};

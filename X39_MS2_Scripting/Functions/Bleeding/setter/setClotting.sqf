@@ -8,5 +8,8 @@
  * @Return - NA
  */
 if(!X39_MS2_var_Bleeding_EnableClotting) exitWith {};
-["ClottingChanged", _this, false, "XMS2", missionNamespace] call X39_XLib_EH_fnc_triggerEvent;
+if(X39_MS2_var_Events_EnableSetEvents) then
+{
+	["ClottingChanged", _this, false, "XMS2", missionNamespace] call X39_XLib_EH_fnc_triggerEvent;
+};
 (_this select 0) setVariable ["X39_MS2_var_Bleeding_Clotting", _this select 1, false];
