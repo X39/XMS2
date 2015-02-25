@@ -2,8 +2,8 @@
 /*
  *	THIS FUNCTION IS NOT INTENDED TO BE CALLEN BY ANY USERSCRIPT!
  *
- *	@Param1 - STRING		- Text to display	
- *	@Param2 - STRING		- Image (use "" for no image) 
+ *	@Param1 - STRING		- Text to display
+ *	@Param2 - STRING		- Image (use "" for no image)
  *	@Param3 - STRING/CODE	- buttonAction (will automatically transformed to a STRING)
  *	@Param4 - CODE			- Condition to be displayed (works also on actions with subactions)
  *								Available preDefined variables:
@@ -63,8 +63,8 @@
 		[X39_XLib_var_ActionDialog_Executor, X39_XLib_var_ActionDialog_Target] call X39_MS2_fnc_MA_defibrillate;
 	},
 	{
-		[X39_XLib_var_ActionDialog_Target] call X39_MS2_fnc_isUnitXms2Unit && 
-		!([X39_XLib_var_ActionDialog_Target] call X39_MS2_fnc_getCprPresent) && 
+		[X39_XLib_var_ActionDialog_Target] call X39_MS2_fnc_isUnitXms2Unit &&
+		!([X39_XLib_var_ActionDialog_Target] call X39_MS2_fnc_getCprPresent) &&
 		!X39_XLib_var_ActionDialog_IsSelf && !X39_XLib_var_ActionDialog_ExecutorInVehicle && {
 		(((items X39_XLib_var_ActionDialog_Target) find 'x39_xms2_defibrillator') != -1) || {
 		(((items X39_XLib_var_ActionDialog_Executor) find 'x39_xms2_defibrillator') != -1) }}
@@ -114,6 +114,38 @@
 	},
 	{[X39_XLib_var_ActionDialog_Target] call X39_MS2_fnc_isUnitXms2Unit &&{!X39_XLib_var_ActionDialog_IsSelf && !X39_XLib_var_ActionDialog_ExecutorInVehicle && {({(_x getVariable ['X39_MS2_var_UnitInitialized', false])} count attachedObjects X39_XLib_var_ActionDialog_Executor) <= 0}}}
 ] call X39_XLib_fnc_ActionDialog_registerAction;
+
+[
+	localize 'STR_X39_MS2_Scripting_InteractionMenu_carryUnit',
+	'',
+	{
+		//Self animation
+		_animation = '';
+		if(primaryWeapon X39_XLib_var_ActionDialog_Executor == '' && secondaryWeapon X39_XLib_var_ActionDialog_Executor == '') then
+		{
+			_animation = 'AcinPknlMstpSrasWrflDnon_AcinPercMrunSrasWrflDnon';
+		}
+		else
+		{
+			if(primaryWeapon X39_XLib_var_ActionDialog_Executor == '') then
+			{
+				_animation = 'AcinPknlMstpSrasWrflDnon_AcinPercMrunSrasWrflDnon';
+			}
+			else
+			{
+				_animation = 'AcinPknlMstpSrasWrflDnon_AcinPercMrunSrasWrflDnon';
+			};
+		};
+		X39_XLib_var_ActionDialog_Executor playMove _animation;
+		//Other unit animation
+		X39_XLib_var_ActionDialog_Target attachTo [X39_XLib_var_ActionDialog_Executor, [0.2,0.2,0.1]];
+		X39_XLib_var_ActionDialog_Target setDir 180;
+		X39_XLib_var_ActionDialog_Target switchMove 'AinjPfalMstpSnonWrflDnon_carried_Still'; //TODO: Check if its required to do a primaryWeapon == '' etc. check
+		[] call X39_XLib_fnc_ActionDialog_closeDialog;
+	},
+	{[X39_XLib_var_ActionDialog_Target] call X39_MS2_fnc_isUnitXms2Unit &&{!X39_XLib_var_ActionDialog_IsSelf && !X39_XLib_var_ActionDialog_ExecutorInVehicle && {({(_x getVariable ['X39_MS2_var_UnitInitialized', false])} count attachedObjects X39_XLib_var_ActionDialog_Executor) <= 0}}}
+] call X39_XLib_fnc_ActionDialog_registerAction;
+
 [
 	localize 'STR_X39_MS2_Scripting_InteractionMenu_dropUnit',
 	'',
@@ -166,9 +198,8 @@
 	'',
 	{
 		[] call X39_XLib_fnc_ActionDialog_closeDialog;
-		[vehicle X39_XLib_var_ActionDialog_Executor] call X39_MS2_fnc_unitSelection_openDialog;		
+		[vehicle X39_XLib_var_ActionDialog_Executor] call X39_MS2_fnc_unitSelection_openDialog;
 	},
 	{X39_XLib_var_ActionDialog_ExecutorInVehicle && X39_XLib_var_ActionDialog_IsSelf}
 ] call X39_XLib_fnc_ActionDialog_registerAction;
-	
-	
+

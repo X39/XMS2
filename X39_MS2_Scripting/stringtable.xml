@@ -570,6 +570,15 @@
 				  <Russian>Drag unit</Russian>
 				   <Polish>Drag unit</Polish>
 			</Key>
+			<Key ID="STR_X39_MS2_Scripting_InteractionMenu_carryUnit">
+				  <English>Carry unit</English>
+				   <German>Carry unit</German>
+				<Hungarian>Carry unit</Hungarian>
+				  <Italian>Carry unit</Italian>
+				   <French>Carry unit</French>
+				  <Russian>Carry unit</Russian>
+				   <Polish>Carry unit</Polish>
+			</Key>
 			<Key ID="STR_X39_MS2_Scripting_InteractionMenu_dropUnit">
 				  <English>Drop unit</English>
 				   <German>Drop unit</German>
