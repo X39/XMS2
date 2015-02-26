@@ -228,6 +228,11 @@ assignValue("X39_MS2_var_Internal_LimitationSystem_Objects", []);
 assignValue("X39_MS2_var_Internal_LimitationSystem_Classes", []);
 assignValue("X39_MS2_var_Internal_LimitationSystem_Structure", []);
 
+//Extension system
+assignValue("X39_MS2_var_Internal_Extensions_AvailableExtensionsServer", []);
+assignValue("X39_MS2_var_Internal_Extensions_AvailableExtensionsClient", []);
+assignValue("X39_MS2_var_Internal_Extensions_InitializationDone", false);
+
 
 /***********************
 * CATEGORY: BACKBLAST *

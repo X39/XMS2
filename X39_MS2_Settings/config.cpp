@@ -45,6 +45,18 @@ class CfgSettings
 				};
 				#include "\userconfig\X39\XMS2_ServerConfig.hpp"
 			};
+			class Extensions
+			{
+				class extensionBase
+				{
+					name = "NA";		//Name of the extension
+					author[] = {};		//Names of the authors
+					version = "NA";		//Extension version
+					code = "";			//Extension code (SQF), it wont receive any parameters
+					serverOnly = 0;		//Should this be broadcasted to the client? 1 = yes, 0 = no
+				};
+				#include "\userconfig\X39\XMS2_Extensions.hpp"
+			};
 		};
 	};
 };
