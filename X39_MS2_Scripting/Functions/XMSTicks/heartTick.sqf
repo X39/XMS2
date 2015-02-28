@@ -17,7 +17,7 @@
  *	@Param2 - SCALAR - HandleID
  *	@Return - NA
  */
-if(!X39_MS2_var_Feature_enableHeartSimulation) exitWith {};
+if(!X39_MS2_var_Heart_enableHeartSimulation) exitWith {};
 
 private["_unit", "_handleID", "_fatigue", "_newPulse", "_stage", "_pulseChange", "_adrenalineChange", "_pulseCurrent", "_adrenalineCurrent", "_speed", "_cprCount"];
 _unit = _this select 0;

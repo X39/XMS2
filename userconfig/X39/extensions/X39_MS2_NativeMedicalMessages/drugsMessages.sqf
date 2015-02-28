@@ -1,0 +1,6 @@
+#include "\X39_MS2_Scripting\default.hpp"
+[{format[localize "STR_X39_MS2_Scripting_MedicalMessages_Drugs_ConcentrationMessage", "Adrenaline",	([_this select 0] call X39_MS2_fnc_getAdrenaline)/ X39_MS2_var_Drugs_Adrenaline_maxAdrenaline * 100, "%"]},	[1, 1, 1, 1],		{X39_MS2_var_CheckUnit_showDrugsConcentrationInDiagnostics}, 0] call X39_MS2_fnc_registerMedicalMessage;
+[{format[localize "STR_X39_MS2_Scripting_MedicalMessages_Drugs_ConcentrationMessage", "Morphine",		([_this select 0] call X39_MS2_fnc_getMorphine)	/ X39_MS2_var_Drugs_Morphine_maxMorphine * 100, "%"]},		[1, 1, 1, 1],		{X39_MS2_var_CheckUnit_showDrugsConcentrationInDiagnostics}, 0] call X39_MS2_fnc_registerMedicalMessage;
+[{format[localize "STR_X39_MS2_Scripting_MedicalMessages_Drugs_ConcentrationMessage", "Naloxone",		([_this select 0] call X39_MS2_fnc_getNaloxone)	/ X39_MS2_var_Drugs_Naloxone_maxNaloxone * 100, "%"]},		[1, 1, 1, 1],		{X39_MS2_var_CheckUnit_showDrugsConcentrationInDiagnostics}, 0] call X39_MS2_fnc_registerMedicalMessage;
+[{format[localize "STR_X39_MS2_Scripting_MedicalMessages_Drugs_ConcentrationMessage", "Aspirin",		([_this select 0] call X39_MS2_fnc_getAspirin)	/ X39_MS2_var_Drugs_Aspirin_maxAspirin * 100, "%"]},		[1, 1, 1, 1],		{X39_MS2_var_CheckUnit_showDrugsConcentrationInDiagnostics}, 0] call X39_MS2_fnc_registerMedicalMessage;
+true

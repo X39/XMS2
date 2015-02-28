@@ -22,15 +22,25 @@ if(isServer) then
 	for "_serverConfigOption" from 0 to ((count _config) - 1) do
 	{
 		_currentConfig = _config select _serverConfigOption;
-		_arr = [];
-		_arr pushBack (getText(_currentConfig >> "name"));
-		_arr pushBack (getArray(_currentConfig >> "author"));
-		_arr pushBack (getText(_currentConfig >> "version"));
-		_arr pushBack (getText(_currentConfig >> "code"));
-		if(getNumber(_currentConfig >> "serverOnly") == 0) then{
-			X39_MS2_var_Internal_Extensions_AvailableExtensionsClient pushBack _arr;
+		if(configName _currentConfig != "extensionBase") then
+		{
+			_arr = [];
+			_arr pushBack (getText(_currentConfig >> "name"));
+			_arr pushBack (getArray(_currentConfig >> "authors"));
+			_arr pushBack (getText(_currentConfig >> "version"));
+			_files = (getArray(_currentConfig >> "files"));
+			_arr2 = [];
+			for "_filesIndex" from 0 to ((count _files) - 1) do
+			{
+				_arr2 pushBack preprocessFileLineNumbers (_files select _filesIndex);
+			};
+			_arr pushBack _arr2;
+			if(getNumber(_currentConfig >> "serverOnly") == 0) then
+			{
+				X39_MS2_var_Internal_Extensions_AvailableExtensionsClient pushBack _arr;
+			};
+			X39_MS2_var_Internal_Extensions_AvailableExtensionsServer pushBack _arr;
 		};
-		X39_MS2_var_Internal_Extensions_AvailableExtensionsServer pushBack _arr;
 	};
 	publicVariable "X39_MS2_var_Internal_Extensions_AvailableExtensionsClient";
 	X39_MS2_var_Internal_Extensions_InitializationDone = true;
@@ -40,10 +50,20 @@ if(isServer) then
 	if(isServer) then
 	{
 		{
-			_return = [] call compile (_x select 3);
-			if(!ISBOOL(_return) || {!_return}) then
+			_extensions = _x select 3;
+			for "_extIndex" from 0 to ((count _extensions) - 1) do
 			{
-				PRINT_ERROR(format["Failed to initialize XMS2 extension '%1', exited with result '%2' instead of 'true'" COMMA _x select 0 COMMA _return]);
+				scopeName "out";
+				_return = [] call compile (_extensions select _extIndex);
+				if(isNil "_return" || {!ISBOOL(_return) || {!_return}}) then
+				{
+					PRINT_ERROR(format["Failed to initialize XMS2 extension '%1', file '%2' exited with result '%3' instead of 'true'" COMMA _x select 0 COMMA _extIndex COMMA _return]);
+					breakOut "out";
+				}
+				else
+				{
+					PRINT_INFO(format["File '%2' of ExtensionPackage '%1' was loaded" COMMA _x select 1 COMMA _extIndex]);
+				};
 			};
 			false
 		}count X39_MS2_var_Internal_Extensions_AvailableExtensionsServer;
@@ -52,18 +72,24 @@ if(isServer) then
 	{
 		waitUntil{X39_MS2_var_Internal_Extensions_InitializationDone};
 		{
-			_return = [] call compile (_x select 3);
-			if(!ISBOOL(_return) || {!_return}) then
+			_extensions = _x select 3;
+			for "_extIndex" from 0 to ((count _extensions) - 1) do
 			{
-				PRINT_ERROR(format["Failed to initialize XMS2 extension '%1', exited with result '%2' instead of 'true'" COMMA _x select 0 COMMA _return]);
+				scopeName "out";
+				_return = [] call compile (_extensions select _extIndex);
+				if(isNil "_return" || {!ISBOOL(_return) || {!_return}}) then
+				{
+					PRINT_ERROR(format["Failed to initialize XMS2 extension '%1', file '%2' exited with result '%3' instead of 'true'" COMMA _x select 0 COMMA _extIndex COMMA _return]);
+					breakOut "out";
+				}
+				else
+				{
+					PRINT_INFO(format["File '%2' of ExtensionPackage '%1' was loaded" COMMA _x select 1 COMMA _extIndex]);
+				};
 			};
 			false
 		}count X39_MS2_var_Internal_Extensions_AvailableExtensionsClient;
 	};
-	[] call X39_MS2_fnc_IMH_registerMedicalActions;
-	[] call X39_MS2_fnc_IMH_addMedicalMessages;
-	[] call X39_MS2_fnc_IMH_addInteractionMenuEntries;
-	[] call X39_MS2_fnc_IMH_registerDrugs;
-	[] call X39_MS2_fnc_IMH_registerMedicalUiStatusEffects;
-	[] call X39_MS2_fnc_IMH_registerHallucinations;
+	//Add the Close action to the first native context menu of XMS2
+	["NA", "STR_X39_MS2_Scripting_MedicalUiActions_Close", "", {true}, {}, "NA", 0] call X39_MS2_fnc_registerAction;
 };
