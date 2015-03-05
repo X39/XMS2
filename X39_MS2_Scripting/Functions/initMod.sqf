@@ -161,6 +161,7 @@ assignValue("X39_MS2_var_Internal_Hallucinations_available", []);
 assignValue("X39_MS2_var_Internal_MedicalActions_actionArray", []);
 assignValue("X39_MS2_var_Internal_MedicalUi_RegisteredDrugs", []);
 assignValue("X39_MS2_var_Internal_MedicalUi_RegisteredStatusEffects", []);
+assignValue("X39_MS2_var_Internal_MedicalUi_QuickActions", []);
 
 //ScriptHandle variables
 assignValue("X39_MS2_var_Internal_Handles_CheckUnitHandle", scriptNull);
@@ -490,7 +491,7 @@ assignValue("X39_MS2_var_Temperature_InstantDeath", false); //when reaching X39_
 assignValue("X39_MS2_var_Temperature_max", 10); //Maximum temperature a unit can reach (starts with this), not allowed to be 0!
 assignValue("X39_MS2_var_Temperature_maxReductionByRaining", 5); //Maximum temperature to which raining can reduce the temperature
 assignValue("X39_MS2_var_Temperature_maxReductionByOcean", 2); //Maximum temperature to which ocean can reduce the temperature
-assignValue("X39_MS2_var_Temperature_minNatural", 3); //Temperature where no effects (like slowing) will be applied
+assignValue("X39_MS2_var_Temperature_minNatural", 5); //Temperature where no effects (like slowing) will be applied
 assignValue("X39_MS2_var_Temperature_forceWalkAtTemperature", 2.5);
 assignValue("X39_MS2_var_Temperature_minDead", 0); //Temperature where unit dies, -1 to disable
 assignValue("X39_MS2_var_Temperature_DeathTimerTime", 600);
@@ -511,7 +512,7 @@ assignValue("X39_MS2_var_Temperature_reductionByEnvironmentOnHighBodyTemperature
 assignValue("X39_MS2_var_Temperature_speedIncreasePerTick", 0.04);
 assignValue("X39_MS2_var_Temperature_speedIncreasePerTickCalculationBase", 30);
 assignValue("X39_MS2_var_Temperature_fireplaceIncreasePerTick", 1);
-assignValue("X39_MS2_var_Temperature_reductionByBeingPronePerTick", 0.25);
+assignValue("X39_MS2_var_Temperature_reductionByBeingPronePerTick", 0.025);
 assignValue("X39_MS2_var_Temperature_environmentChangePerTick_day", 0.01);
 assignValue("X39_MS2_var_Temperature_environmentChangePerTick_night", -0.025);
 assignValue("X39_MS2_var_Temperature_maxTempChangeByEnvironmentP_night", 0.25);
