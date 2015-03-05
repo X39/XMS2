@@ -1,6 +1,5 @@
-class X39_MS2_NativeMedicalMessages
+class X39_MS2_NativeMedicalMessages : extensionBase
 {
-	name = "X39_MS2_NativeMedicalMessages";
 	authors[] = {"X39"};
 	version = "1.0";
 	files[] = {

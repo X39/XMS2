@@ -1,6 +1,5 @@
-class X39_MS2_NativeInteractions
+class X39_MS2_NativeInteractions : extensionBase
 {
-	name = "X39_MS2_NativeInteractions";
 	authors[] = {"X39", "Mr. Potter"};
 	version = "1.0";
 	files[] = {

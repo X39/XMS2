@@ -1,6 +1,5 @@
-class X39_MS2_NativeMedicalActions
+class X39_MS2_NativeMedicalActions : extensionBase
 {
-	name = "X39_MS2_NativeMedicalActions";
 	authors[] = {"X39"};
 	version = "1.0";
 	files[] = {

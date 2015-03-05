@@ -56,11 +56,11 @@ class CfgSettings
 			{
 				class extensionBase
 				{
-					name = "NA";		//Name of the extensionPackage
 					authors[] = {};		//Names of the authors
 					version = "NA";		//ExtensionPackage version
 					files[] = {};		//FULL path to different files your extension has, each file needs to return true if it passed to initialize (the package will stop being initialized if it encounters a non-true return)
 					serverOnly = 0;		//Should this be broadcasted to the client? 1 = yes, 0 = no
+					requiredExtensions[] = {};	//Extensions required for this extension to work
 				};
 				#include "\userconfig\X39\XMS2_Extensions.hpp"
 			};

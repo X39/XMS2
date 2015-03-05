@@ -1,6 +1,5 @@
-class X39_MS2_NativeMedicalUiStatusEffects
+class X39_MS2_NativeMedicalUiStatusEffects : extensionBase
 {
-	name = "X39_MS2_NativeMedicalUiStatusEffects";
 	authors[] = {"X39"};
 	version = "1.0";
 	files[] = {
