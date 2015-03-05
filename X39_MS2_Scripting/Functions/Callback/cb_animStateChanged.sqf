@@ -14,7 +14,7 @@ private["_unit", "_animation"];
 //TODO: Make independent from unit so that the animationLock can also be used for AI
 _unit = _this select 0;
 _animation = _this select 1;
-if(count X39_MS2_var_Internal_AnimLock_AllowedAnimations == 0) exitWith {DEBUG_LOG_WFn_SC("No lock in place")};
+if(count X39_MS2_var_Internal_AnimLock_AllowedAnimations == 0) exitWith {DEBUG_LOG_WFn_SC("No animation lock in place")};
 //X39_MS2_var_Internal_AnimLock_AllowedAnimations
 //X39_MS2_var_Internal_AnimLock_ExitAnimations
 //X39_MS2_var_Internal_AnimLock_SealBrokenCode
