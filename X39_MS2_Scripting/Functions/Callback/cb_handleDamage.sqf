@@ -8,6 +8,5 @@
  *	@Param5 - STRING - Classname of the projectile that caused inflicted the damage. ("" for unknown, such as falling damage.)
  *	@Return - SCALAR - New damage value (always 0)
  */
-private["_unit", "_sectionHit", "_damage", "_source", "_projectile", "_isExplosion", "_dmgP"];
 //Keep player at 0 ArmA damage to make custom damage system handling possible
 0

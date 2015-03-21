@@ -149,6 +149,18 @@ if(isServer) then
 		};
 		false
 	}count (missionNamespace getVariable _extensionVariable);
+	
+	PRINT_INFO("###################################");
+	PRINT_INFO("# FOLLOWING EXTENSIONS ARE LOADED #");
+	PRINT_INFO("###################################");
+	
+	{
+		PRINT_INFO(format["- %1" COMMA _x]);
+		false
+	}count _extensionsAvailable;
+	PRINT_INFO("##############################");
+	PRINT_INFO("# Loading Extensions is done #");
+	PRINT_INFO("##############################");
 	//Add the Close action to the native context menu of XMS2
 	["NA", "STR_X39_MS2_Scripting_MedicalUiActions_Close", "", {true}, {}, "NA", 0] call X39_MS2_fnc_registerAction;
 	//nilify extension variables (we dont need them any more)

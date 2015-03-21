@@ -12,7 +12,7 @@
  *	@Param8		- BOOLEAN		- Prevent the (un)locking of the medicalUi actions & actionUi actions
  *	@Return		- SCALAR		- Action Index
  *	
- *	@Notes		-	Params for ALL CODE related stuff: [Executer:OBJECT, Target:OBJECT, Hitzone:STRING, Efficiency:SCALAR]
+ *	@Notes		-	Params for ALL CODE related stuff (but Param7): [Executer:OBJECT, Target:OBJECT, Hitzone:STRING, Efficiency:SCALAR]
  *					Code will ALWAYS be executed on executer computer
  *	
  *	@Author - X39|Cpt. HM Murdock
