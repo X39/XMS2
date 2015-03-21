@@ -1,7 +1,8 @@
 #include "\X39_MS2_Scripting\default.hpp"
 /* 
  * !FUNCTION IS NOT CALLSAVE!
- * Will add given value to given units pain value
+ * Changes a units temperature by given value
+ * Also makes sure that units temperature value will remain in allowed bounds
  * 
  * @Param1 - OBJECT - XMS Unit to handle
  * @Param2 - SCALAR - Value to add

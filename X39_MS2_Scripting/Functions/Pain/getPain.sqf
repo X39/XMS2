@@ -1,10 +1,11 @@
 #include "\X39_MS2_Scripting\default.hpp"
 /* 
  * !FUNCTION IS NOT CALLSAVE!
- * Will return current damage value of given unit for the GENERIC hitzone
+ * returns current units pain value
  * 
  * @Param1 - OBJECT - XMS Unit to handle
- * @Return - SCALAR - Current damage of the unit
+ * @Return - SCALAR
+ * @Author - X39|Cpt. HM Murdock
  */
 private["_unit", "_pain", "_calcBase"];
 _unit = _this select 0;

@@ -1,7 +1,7 @@
 #include "\X39_MS2_Scripting\default.hpp"
 /* 
  * !FUNCTION IS NOT CALLSAVE!
- * Will add given value to given unit for the LEGS hitzone
+ * Changes given units blood value according to provided value
  * 
  * @Param1 - OBJECT - XMS Unit to handle
  * @Param2 - SCALAR - Value to add

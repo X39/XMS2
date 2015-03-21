@@ -2,7 +2,7 @@
 /* 
  * Will return the maximum Pain a unit can reach
  * 
- * @Return - SCALAR - Current damage of the unit
+ * @Return - SCALAR
  */
 private["_pain"];
 _pain = 0;

@@ -2,7 +2,7 @@
 /* 
  * Will return the maximum damage a unit can receive
  * 
- * @Return - SCALAR - total maximum damage a unit can receive
+ * @Return - SCALAR - maximum damage a unit can receive
  */
 private["_damage"];
 

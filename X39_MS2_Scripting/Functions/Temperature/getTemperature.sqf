@@ -1,9 +1,10 @@
 #include "\X39_MS2_Scripting\default.hpp"
 /* 
  * !FUNCTION IS NOT CALLSAVE!
- * Will return current damage value of given unit for the GENERIC hitzone
+ * returns given units temperature
  * 
  * @Param1 - OBJECT - XMS Unit to handle
- * @Return - SCALAR - Current damage of the unit
+ * @Return - SCALAR
+ * @Author - X39|Cpt. HM Murdock
  */
 (_this select 0) getVariable ["X39_MS2_var_Temperature_value", -1];

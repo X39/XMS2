@@ -1,7 +1,7 @@
 #include "\X39_MS2_Scripting\default.hpp"
 /* 
  * !FUNCTION IS NOT CALLSAVE!
- * Will return current Bleeding value of given unit for the LEGS hitzone
+ * Will return current blood level of given unit
  * 
  * @Param1 - OBJECT - XMS Unit to handle
  * @Return - SCALAR - Current Bleeding of the unit

@@ -1,7 +1,8 @@
 #include "\X39_MS2_Scripting\default.hpp"
 /* 
  * !FUNCTION IS NOT CALLSAVE!
- * Will add given value to given units adrenaline value
+ * Changes a units pulse value according to given value
+ * Also makes sure that the pulse is in accepted bounds
  * 
  * @Param1 - OBJECT - XMS Unit to handle
  * @Param2 - SCALAR - Value to add

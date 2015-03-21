@@ -4,7 +4,7 @@ private["_fnc_scriptName"];
 _fnc_scriptName = "X39_MS2_fnc_setDamageOf%1";
 /* 
  * !FUNCTION IS NOT CALLSAVE!
- * Will add given value to given unit for the BODY hitzone
+ * Will add given value to given unit for the %1 hitzone (damage type)
  * 
  * @Param1 - OBJECT - XMS Unit to handle
  * @Param2 - SCALAR - Value to add

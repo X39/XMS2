@@ -1,11 +1,12 @@
 #include "\X39_MS2_Scripting\default.hpp"
 /* 
  * !FUNCTION IS NOT CALLSAVE!
- * Will set given value to given unit for the GENERIC hitzone
+ * sets given units adrenaline concentration
  * 
  * @Param1 - OBJECT - XMS Unit to handle
  * @Param2 - SCALAR - Value to set
  * @Return - NA
+ * @Author - X39|Cpt. HM Murdock
  */
 if(X39_MS2_var_Events_EnableSetEvents) then
 {
