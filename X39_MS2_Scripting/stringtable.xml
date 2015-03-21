@@ -131,6 +131,26 @@
 				      <Polish>Base module</Polish>
 			</Key>
 		</Container>
+		<Container name="QuickActions">
+			<Key ID="STR_X39_MS2_Scripting_QuickActions_BandageAll_Name">
+				  <English>Bandage all limbs</English>
+				   <German>Bandage all limbs</German>
+				<Hungarian>Bandage all limbs</Hungarian>
+				  <Italian>Bandage all limbs</Italian>
+				   <French>Bandage all limbs</French>
+				  <Russian>Bandage all limbs</Russian>
+				   <Polish>Bandage all limbs</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_QuickActions_BandageAll_Description">
+				  <English>Bandage all limbs</English>
+				   <German>Bandage all limbs</German>
+				<Hungarian>Bandage all limbs</Hungarian>
+				  <Italian>Bandage all limbs</Italian>
+				   <French>Bandage all limbs</French>
+				  <Russian>Bandage all limbs</Russian>
+				   <Polish>Bandage all limbs</Polish>
+			</Key>
+		</Container>
 		<Container name="DialogControl_BlackOutDialog">
 			<Key ID="STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_BloodLeft">
 				    <English>Blood left:</English>
@@ -513,6 +533,33 @@
 				   <French>Currently selected item: %1</French>
 				  <Russian>Currently selected item: %1</Russian>
 				   <Polish>Currently selected item: %1</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_QuickActions_RequiredTime">
+				  <English>Required time</English>
+				   <German>Required time</German>
+				<Hungarian>Required time</Hungarian>
+				  <Italian>Required time</Italian>
+				   <French>Required time</French>
+				  <Russian>Required time</Russian>
+				   <Polish>Required time</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_QuickActions_RequiredItems">
+				  <English>Required items</English>
+				   <German>Required items</German>
+				<Hungarian>Required items</Hungarian>
+				  <Italian>Required items</Italian>
+				   <French>Required items</French>
+				  <Russian>Required items</Russian>
+				   <Polish>Required items</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_QuickActions_Description">
+				  <English>Description</English>
+				   <German>Description</German>
+				<Hungarian>Description</Hungarian>
+				  <Italian>Description</Italian>
+				   <French>Description</French>
+				  <Russian>Description</Russian>
+				   <Polish>Description</Polish>
 			</Key>
 		</Container>
 		<Container name="InteractionMenu">

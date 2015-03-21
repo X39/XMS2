@@ -216,6 +216,7 @@ class DialogControl_UnitSelection
 class DialogControl_MedicalUi
 {
 	class registerMedicalUiStatusEffect:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\registerMedicalUiStatusEffect.sqf";};
+	class registerQuickAction:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\registerQuickAction.sqf";};
 	class MedicalUi_DiagnosticFrame_setVisibilityState:X39_XLib_Function_TypeA					{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\DiagnosticFrame\MedicalUi_DiagnosticFrame_setVisibilityState.sqf";};
 	class MedicalUi_btnDiagnosisPerformCheckUnit:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\DiagnosticFrame\MedicalUi_btnDiagnosisPerformCheckUnit.sqf";};
 	class MedicalUi_DrugsFrame_setVisibilityState:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\DrugsFrame\MedicalUi_DrugsFrame_setVisibilityState.sqf";};

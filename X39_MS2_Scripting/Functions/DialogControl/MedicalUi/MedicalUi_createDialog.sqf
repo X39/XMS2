@@ -15,8 +15,9 @@
 _this spawn {
 	DEBUG_CODE_SC(_fnc_scriptName = "X39_MS2_fnc_MedicalUi_createDialog";);
 	if(dialog) exitWith {PRINT_ERROR("Another UI is already displayed!");};
-	private["_index", "_marker", "_color", "_name", "_i", "_bodyViewType", "_dmg", "_maxDmg", "_triageCardEntries", "_triageState", "_txt", "_arr", "_controlArray", "_largerArray", "_smallerArray", "_flag", "_lastDrugList"];
+	private["_index", "_marker", "_color", "_name", "_i", "_bodyViewType", "_dmg", "_maxDmg", "_triageCardEntries", "_triageState", "_txt", "_arr", "_controlArray", "_largerArray", "_smallerArray", "_flag", "_lastDrugList", "_lastQuickActionList", "_item"];
 	_lastDrugList = [];
+	_lastQuickActionList = [];
 	X39_MS2_var_Internal_DialogCommunication_MA_Caller = player;
 	X39_MS2_var_Internal_DialogCommunication_MA_Target = [_this, 0, objNull, [objNull]] call BIS_fnc_param;
 	if(stance X39_MS2_var_Internal_DialogCommunication_MA_Caller != "PRONE" && {stance X39_MS2_var_Internal_DialogCommunication_MA_Caller != "CROUCH"}) then
@@ -198,8 +199,16 @@ _this spawn {
 																														} call X39_XLib_fnc_ConvertCodeToString];
 	displayCtrl_MedicalUi(IDC_MEDICALUI_BTN_PERFORMQUICKACTION)					ctrlSetEventHandler["MouseButtonDown", {
 																															if(X39_MS2_var_Internal_DialogCommunication_MA_preventActions) exitWith {[] call X39_MS2_fnc_MedicalUi_outputBlockedMessage;};
-																															//ToDo: Add performQuickAction code
+																															_index = (displayCtrl_MedicalUi(IDC_MEDICALUI_LB_QUICKACTIONLIST) lbValue lbCurSel displayCtrl_MedicalUi(IDC_MEDICALUI_LB_QUICKACTIONLIST));
+																															DEBUG_CODE(systemChat format["performQuickAction - QuickActionIndex: %1" COMMA _index];)
+																															if(_index >= 0 && _index < count X39_MS2_var_Internal_MedicalUi_QuickActions) then
+																															{
+																																DEBUG_CODE(systemChat "performQuickAction - QuickAction was available";)
+																																_quickAction = X39_MS2_var_Internal_MedicalUi_QuickActions select _index;
+																																[_quickAction select 6, X39_MS2_var_Internal_DialogCommunication_MA_Target, X39_MS2_var_Internal_DialogCommunication_MA_Caller] call (_quickAction select 5);
+																															};
 																														} call X39_XLib_fnc_ConvertCodeToString];
+
 	//Create rightClick menu & StatusEffect event handles 
 	{
 		displayCtrl_MedicalUi(_x) ctrlSetEventHandler["MouseButtonDown",	format["_res = _this spawn {if((_this select 1) != 1) exitWith {};if(X39_MS2_var_Internal_DialogCommunication_MA_preventActions) exitWith {[] call X39_MS2_fnc_MedicalUi_outputBlockedMessage;};[%1, [_this select 2, _this select 3]] call X39_MS2_fnc_MedicalUi_HitZones_CreateMenu;};", str (HITZONENAMES select _forEachIndex select HITZONE_NAME)]];
@@ -347,7 +356,50 @@ _this spawn {
 		
 		//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		//update quick action list
-		//TODO: Get an actual idea about how to implement those quick actions ...
+		DEBUG_LOG_WFn_SC("Updating drug list...")
+		_arr = [];
+		{
+			if([_x select 6, X39_MS2_var_Internal_DialogCommunication_MA_Caller, X39_MS2_var_Internal_DialogCommunication_MA_Target] call (_x select 4)) then
+			{
+				DEBUG_LOG_WFn_SC(format["'%1's conditions return true, adding to list" COMMA _x select 0])
+				_arr pushBack _forEachIndex;
+			};
+		}forEach X39_MS2_var_Internal_MedicalUi_QuickActions;
+		DEBUG_LOG_WFn_SC(format["found following valid quickActions: %1" COMMA _arr])
+		if(str _arr != str _lastQuickActionList) then
+		{
+			DEBUG_LOG_WFn_SC(format["current quickAction list (%1) differs from last quickAction list (%2)! Updating available quickActions ..." COMMA _arr COMMA _lastQuickActionList])
+			lbClear displayCtrl_MedicalUi(IDC_MEDICALUI_LB_QUICKACTIONLIST);
+			{
+				_index = displayCtrl_MedicalUi(IDC_MEDICALUI_LB_QUICKACTIONLIST) lbAdd ((X39_MS2_var_Internal_MedicalUi_QuickActions select _x) select 0);
+				displayCtrl_MedicalUi(IDC_MEDICALUI_LB_QUICKACTIONLIST) lbSetPicture [_index, (X39_MS2_var_Internal_MedicalUi_QuickActions select _x) select 2];
+				displayCtrl_MedicalUi(IDC_MEDICALUI_LB_QUICKACTIONLIST) lbSetValue [_index, _x];
+				DEBUG_LOG_WFn_SC(format["added quickAction '%1'(index %2) at index '%3'(value %4)  to quickActions list" COMMA (X39_MS2_var_Internal_MedicalUi_QuickActions select _x) select 0 COMMA _x COMMA _index COMMA displayCtrl_MedicalUi(IDC_MEDICALUI_LB_QUICKACTIONLIST) lbValue _index])
+				false
+			}count _arr;
+			_lastQuickActionList = _arr;
+		};
+		DEBUG_LOG_WFn_SC("Updating quickAction list has been done!")
+		//update quickActionText
+		//IDC_MEDICALUI_TB_QUICKACTIONDESCRIPTION
+		_index = (displayCtrl_MedicalUi(IDC_MEDICALUI_LB_QUICKACTIONLIST) lbValue lbCurSel displayCtrl_MedicalUi(IDC_MEDICALUI_LB_QUICKACTIONLIST));
+		if(_index >= 0 && _index < count X39_MS2_var_Internal_MedicalUi_QuickActions) then
+		{
+			_item = X39_MS2_var_Internal_MedicalUi_QuickActions select _index;
+			displayCtrl_MedicalUi(IDC_MEDICALUI_TB_QUICKACTIONDESCRIPTION) ctrlSetStructuredText parseText format[
+																												"%1: %2<br />%3: %4<br />%5:<br />%6",
+																												localize "STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_QuickActions_RequiredTime", 
+																												[_item select 6, X39_MS2_var_Internal_DialogCommunication_MA_Target, X39_MS2_var_Internal_DialogCommunication_MA_Caller] call (_item select 3),
+																												localize "STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_QuickActions_RequiredItems", 
+																												[_item select 6, X39_MS2_var_Internal_DialogCommunication_MA_Target, X39_MS2_var_Internal_DialogCommunication_MA_Caller] call (_item select 7),
+																												localize "STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_QuickActions_Description",
+																												_item select 1
+																											];
+		}
+		else
+		{
+			displayCtrl_MedicalUi(IDC_MEDICALUI_TB_QUICKACTIONDESCRIPTION) ctrlSetStructuredText parseText "-/-";
+		};
 	};
 	if(dialog) then
 	{
