@@ -6,6 +6,10 @@ thus i decided to close this project i worked on for about a year now ...
 
 thx ACE3
 
+PS
+
+with enough people willed to actually help me on this project it will be "revived" ... but i kinda think that will never happen
+
 
 XMedSys2
 ========
