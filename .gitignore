@@ -9,6 +9,7 @@
 # some general exceptions to keeps the syncs small and leave unneded files local
 *.tga
 *.png
+!XMS2_Logo_PageHeader.png
 *.jpeg
 *.jpg
 *.jpe
