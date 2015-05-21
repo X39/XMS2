@@ -1,29 +1,42 @@
-Its dead Jim :(
+
+
+<div style="text-align: center;"><img src="https://raw.githubusercontent.com/X39/XMS2/master/XMS2_Logo_PageHeader.png" /></div>
+
+X39s Medical System 2
+=====================
+X39s Medical System 2 (or short: XMS2) is a medical system developed for ArmA
+
+Reporting a bug
 ===============
-As ACE3 is released i see no chance that this modification would be used by anybody at any point in time
+Please make sure its a XMS2 related problem before you report by disabling all mods but XMS2 and its requirements.
 
-thus i decided to close this project i worked on for about a year now ...
+If you confirmed its an XMS2 issue, please refer to this template:
+<pre>
+Used Mods
+=========
+* [@Mod1](downloadpagemod1.com)
+* [@Mod2](downloadpagemod2.com)
+* [@ModN](downloadpagemoN.com)
 
-thx ACE3
+Steps to reproduce
+==================
+1. Do this
+2. Do that
+3. Do here
 
-PS
+Issues
+======
+* While step 2: that and that is happening
 
-with enough people willed to actually help me on this project it will be "revived" ... but i kinda think that will never happen
-
-
-XMedSys2
+Expected
 ========
+* While step 2: that and that should happen
 
-XMedSys 2 is a modification for the game ArmA 3
-
-
-
-To build a new version you need to do the following steps:
-
-1. Download BinPBO from the internet
-
-2. Setup the buildScript.cmd file for yourself (use any text editor to do)
-
-3. Execute the buildScript.cmd file
-
-4. Youre done
+Additional Notes
+================
+* Relevant information
+* Document title
+```
+Some document
+```
+</pre>
