@@ -3,15 +3,15 @@
  *	XMSTick Handler
  *	Description will not be available as this is not intended to be callen by anyone but the XMSTicker
  *	Available parent variables:
- *		_ppeDynamicBlur			- range 0 - 1 | ammount of blur over entire screen
- *		_ppeRadialBlur			- range 0 - 1 | ammount of blur (needs _ppeFocus to actually work)
- *		_ppeFocus				- range 0 - 1 | how focused the player will be (where 0 is not focused and 1 is full focus) (needs _ppeRadialBlur to actually work)
- *		_ppeFilmGrain			- range 0 - 1 | how strong the film grain effect will be (confusion)
- *		_ppeChromAberration		- range 0 - 1 | how strong the chromAberration will be (see things twice>)
- *		_ppeGreyScreen			- range 0 - 1 | 0 means normal 1 means totally grey
+ *		(_unit getVariable "X39_MS2_var_Internal_Ticker_ppeDynamicBlur")			- range 0 - 1 | ammount of blur over entire screen
+ *		(_unit getVariable "X39_MS2_var_Internal_Ticker_ppeRadialBlur")			- range 0 - 1 | ammount of blur (needs (_unit getVariable "X39_MS2_var_Internal_Ticker_ppeFocus") to actually work)
+ *		(_unit getVariable "X39_MS2_var_Internal_Ticker_ppeFocus")				- range 0 - 1 | how focused the player will be (where 0 is not focused and 1 is full focus) (needs (_unit getVariable "X39_MS2_var_Internal_Ticker_ppeRadialBlur") to actually work)
+ *		X39_MS2_var_Internal_Ticker(_unit getVariable "X39_MS2_var_Internal_Ticker_ppeFilmGrain")			- range 0 - 1 | how strong the film grain effect will be (confusion)
+ *		(_unit getVariable "X39_MS2_var_Internal_Ticker_ppeChromAberration")		- range 0 - 1 | how strong the chromAberration will be (see things twice>)
+ *		(_unit getVariable "X39_MS2_var_Internal_Ticker_ppeGreyScreen")			- range 0 - 1 | 0 means normal 1 means totally grey
  *	
- *		_cfnDisableFatigue		- range 0 - n | >0 will disable fatigue
- *		_cfnForceWalk			- range 0 - n | >0 will force walk
+ *		(_unit getVariable "X39_MS2_var_Internal_Ticker_cfnDisableFatigue")		- range 0 - n | >0 will disable fatigue
+ *		(_unit getVariable "X39_MS2_var_Internal_Ticker_cfnForceWalk")			- range 0 - n | >0 will force walk
  *	
  *	@Param1 - OBJECT - Unit
  *	@Param2 - SCALAR - HandleID
@@ -48,7 +48,7 @@ if(!([_unit] call X39_MS2_fnc_hasFlatLine)) then
 	};
 	if(floor _pulseCurrent <= 0) then
 	{
-		if(_blackOutStage < 3) then
+		if((_unit getVariable "X39_MS2_var_Internal_Ticker_blackOutStage") < 3) then
 		{
 			[_unit, time] call X39_MS2_fnc_setFlatLine;
 		};
@@ -114,9 +114,9 @@ if(!([_unit] call X39_MS2_fnc_hasFlatLine)) then
 	_newPulse = _pulseChange + _pulseCurrent;
 	if(_pulseChange != 0) then
 	{
-		if(_newPulse >= X39_MS2_var_Heart_minHeartPulsePerSecond ||  {_blackOutStage >= 2}) then
+		if(_newPulse >= X39_MS2_var_Heart_minHeartPulsePerSecond ||  {(_unit getVariable "X39_MS2_var_Internal_Ticker_blackOutStage") >= 2}) then
 		{
-			if(X39_MS2_var_Heart_lowerPulseIfPermaKnockedOut && _blackOutStage >= 2 && _newPulse < X39_MS2_var_Heart_minHeartPulsePerSecond) then
+			if(X39_MS2_var_Heart_lowerPulseIfPermaKnockedOut && (_unit getVariable "X39_MS2_var_Internal_Ticker_blackOutStage") >= 2 && _newPulse < X39_MS2_var_Heart_minHeartPulsePerSecond) then
 			{
 				_pulseChange = _pulseChange * X39_MS2_var_Heart_BlackedOutPulseModificator;
 				_newPulse = _pulseChange + _pulseCurrent;
@@ -182,7 +182,7 @@ if(!([_unit] call X39_MS2_fnc_hasFlatLine)) then
 		};
 	};
 		/*
-		if(_pulseChange + _pulseCurrent >= X39_MS2_var_Heart_minHeartPulsePerSecond || {_blackOutStage > 2}) then
+		if(_pulseChange + _pulseCurrent >= X39_MS2_var_Heart_minHeartPulsePerSecond || {(_unit getVariable "X39_MS2_var_Internal_Ticker_blackOutStage") > 2}) then
 		{
 			if(_pulseChange + _pulseCurrent < X39_MS2_var_Heart_normalMaxHeartPulsePerSecond && {_adrenalineCurrent / X39_MS2_var_Drugs_Adrenaline_maxAdrenaline < X39_MS2_var_Drugs_Adrenaline_AdrenalinePulseRagePointP}) then
 			{
@@ -190,7 +190,7 @@ if(!([_unit] call X39_MS2_fnc_hasFlatLine)) then
 			}
 			else
 			{
-				_cfnForceWalk = _cfnForceWalk + 1;
+				_unit setVariable["X39_MS2_var_Internal_Ticker_cfnForceWalk", (_unit getVariable "X39_MS2_var_Internal_Ticker_cfnForceWalk") + 1];
 			};
 			[_unit] call X39_MS2_fnc_doHeartPulseDependingActions;
 			DEBUG_LOG_WFn("Pulse has been changed");
@@ -202,19 +202,19 @@ if(!([_unit] call X39_MS2_fnc_hasFlatLine)) then
 		_val = ((_newPulse - X39_MS2_var_Heart_pulseFilmGrainKickIn) / (X39_MS2_var_Heart_deadlyMaxHeartPulsePerSecond - X39_MS2_var_Heart_pulseFilmGrainKickIn));
 		if(_val > 0) then
 		{
-			_ppeFilmGrain = _ppeFilmGrain + _val;
+			_unit setVariable["X39_MS2_var_Internal_Ticker_ppeFilmGrain", (_unit getVariable "X39_MS2_var_Internal_Ticker_ppeFilmGrain") + _val];
 		};
 	};
 	if(X39_MS2_var_Heart_allowForceWalkByPulse && {_newPulse > X39_MS2_var_Heart_pulseForceWalkAt}) then
 	{
-		_cfnForceWalk = _cfnForceWalk + 1;
+		_unit setVariable["X39_MS2_var_Internal_Ticker_cfnForceWalk", (_unit getVariable "X39_MS2_var_Internal_Ticker_cfnForceWalk") + 1];
 	};
 	if(X39_MS2_var_Heart_allowBlurryScreenByPulse && {_newPulse > X39_MS2_var_Heart_pulseBlurryAt}) then
 	{
 		_val = ((_newPulse - X39_MS2_var_Heart_pulseBlurryAt) / (X39_MS2_var_Heart_deadlyMaxHeartPulsePerSecond - X39_MS2_var_Heart_pulseBlurryAt));
 		if(_val > 0) then
 		{
-			_ppeDynamicBlur = _ppeDynamicBlur + _val;
+			_unit setVariable["X39_MS2_var_Internal_Ticker_ppeDynamicBlur", (_unit getVariable "X39_MS2_var_Internal_Ticker_ppeDynamicBlur") + _val];
 		};
 	};
 	if(X39_MS2_var_Heart_allowCamShakeByPulse && {_newPulse > X39_MS2_var_Heart_pulseCamShakeAt}) then

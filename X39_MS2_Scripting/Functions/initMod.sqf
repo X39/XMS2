@@ -44,29 +44,29 @@ assignValue("X39_MS2_var_Internal_HitZones", 	[
 
 ["XMS2", missionNamespace] call X39_XLib_EH_fnc_registerNamespace;
 {
-	[format["DamageChanged_%1", _x select HITZONE_NAME], "XMS2" COMMA missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
-	[format["BleedingChanged_%1", _x select HITZONE_NAME], "XMS2" COMMA missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
+	[format["DamageChanged_%1", _x select HITZONE_NAME], "XMS2" COMMA missionNamespace] call X39_XLib_EH_fnc_registerEvent;	//Triggered before valuechange
+	[format["BleedingChanged_%1", _x select HITZONE_NAME], "XMS2" COMMA missionNamespace] call X39_XLib_EH_fnc_registerEvent;	//Triggered before valuechange
 	false
 }count X39_MS2_var_Internal_HitZones;
 
-["BloodChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
-["ClottingChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
+["BloodChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;			//Triggered before valuechange
+["ClottingChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;		//Triggered before valuechange
 
-["PainChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
-["DistractionChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
-["HearingChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
-["PulseChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
-["TemperatureChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
-["AdrenalineChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
-["MorphineChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
-["NaloxoneChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
-["AspirinChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
-["RespiratoryChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
-["WetnessChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
-["FlatLineChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
+["PainChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;			//Triggered before valuechange
+["DistractionChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;	//Triggered before valuechange
+["HearingChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;			//Triggered before valuechange
+["PulseChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;			//Triggered before valuechange
+["TemperatureChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;	//Triggered before valuechange
+["AdrenalineChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;		//Triggered before valuechange
+["MorphineChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;		//Triggered before valuechange
+["NaloxoneChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;		//Triggered before valuechange
+["AspirinChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;			//Triggered before valuechange
+["RespiratoryChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;	//Triggered before valuechange
+["WetnessChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;			//Triggered before valuechange
+["FlatLineChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;		//Triggered before valuechange
 
-["consciousStateChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
-["BlackOutTextChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;//Triggered before valuechange
+["consciousStateChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;	//Triggered before valuechange
+["BlackOutTextChanged", "XMS2", missionNamespace] call X39_XLib_EH_fnc_registerEvent;	//Triggered before valuechange
 
 
 //Enable/Disable event variables
@@ -78,7 +78,7 @@ assignValue("X39_MS2_var_Events_EnableSetEvents", false);
 //# X39s Medical System - VARIABLES/REGISTRATION #
 //################################################
 
-/**********************
+/*********************
 * CATEGORY: INTERNAL *
 *********************/
 
@@ -235,7 +235,7 @@ assignValue("X39_MS2_var_Internal_Extensions_AvailableExtensionsClient", []);
 assignValue("X39_MS2_var_Internal_Extensions_InitializationDone", false);
 
 
-/***********************
+/**********************
 * CATEGORY: BACKBLAST *
 **********************/
 //http://upload.wikimedia.org/wikipedia/commons/c/c4/A-1_Backblast_area_and_surface_danger_zone.PNG
@@ -245,14 +245,14 @@ assignValue("X39_MS2_var_BackBlast_MaxDamage", 3);
 assignValue("X39_MS2_var_BackBlast_knocksOut", true);
 assignValue("X39_MS2_var_BackBlast_maxAngle", 45);
 
-/***********************
+/*********************
 * CATEGORY: BLACKOUT *
-**********************/
+*********************/
 assignValue("X39_MS2_var_Blackout_allowTurningTempBlackoutToPermaByChance", true);
 assignValue("X39_MS2_var_Blackout_turnTempToPermaBlackoutChanceP", 0.2);
 assignValue("X39_MS2_var_Blackout_turnTempToPermaWakeUpAtAdrenalineP", 0.2);
 
-/********************
+/*******************
 * CATEGORY: DAMAGE *
 *******************/
 //Enable/Disable Hitzones
@@ -273,7 +273,7 @@ assignValue("X39_MS2_var_Damage_ExplosionModificator", 2.0);
 assignValue("X39_MS2_var_Damage_GlobalModificator", 1.0);
 
 
-/**********************
+/*********************
 * CATEGORY: BLEEDING *
 *********************/
 //Enable/Disable stuff
@@ -305,7 +305,7 @@ assignValue("X39_MS2_var_Bleeding_NaturalMaxOfBloodPresure", 120);
 assignValue("X39_MS2_var_Bleeding_GlobalModificator", 2.0);
 assignValue("X39_MS2_var_Bleeding_ClottingModificator", 1.0);
 
-/*********************
+/********************
 * CATEGORY: HEARING *
 ********************/
 //Enable/Disable painRelated features
@@ -320,7 +320,7 @@ assignValue("X39_MS2_var_Hearing_reductionThroughEarplugs", 0.2);
 //Modificators
 assignValue("X39_MS2_var_Hearing_GlobalModificator", 1.0);
 
-/*******************
+/******************
 * CATEGORY: DRUGS *
 ******************/
 //Morphine
@@ -408,7 +408,7 @@ assignValue("X39_MS2_var_Hearing_GlobalModificator", 1.0);
 
 /******************
 * CATEGORY: Heart *
-*******************/
+******************/
 //Enable/Disable heartRelated features
 assignValue("X39_MS2_var_Heart_enableHeartSimulation", true);
 
@@ -439,7 +439,7 @@ assignValue("X39_MS2_var_Heart_pulseSpeedStage3", 18);
 assignValue("X39_MS2_var_Heart_pulseLimitStage1", 90);
 assignValue("X39_MS2_var_Heart_pulseLimitStage2", 120);
 assignValue("X39_MS2_var_Heart_pulseLimitStage3", 180);
-assignValue("X39_MS2_var_Heart_pulseLimitStage4", -1);
+assignValue("X39_MS2_var_Heart_pulseLimitStage4", 220);
 
 //Modificators
 assignValue("X39_MS2_var_Heart_pulseGlobalMultiplicator", 1);
@@ -447,7 +447,7 @@ assignValue("X39_MS2_var_Heart_pulseReductionMultiplicator", 2);
 assignValue("X39_MS2_var_Heart_BlackedOutPulseModificator", 0.1);
 assignValue("X39_MS2_var_Heart_camShakeMultiplicator", 3);
 
-/******************
+/*****************
 * CATEGORY: PAIN *
 *****************/
 //Enable/Disable painRelated features
@@ -475,9 +475,9 @@ assignValue("X39_MS2_var_Distraction_reductionPerTick", 0.01);
 //Modificators
 
 
-/*************************
+/************************
 * CATEGORY: Temperature *
-*************************/
+************************/
 //Enable/Disable painRelated features
 assignValue("X39_MS2_var_Temperature_useGreyScreenForLowTemperature", true);
 assignValue("X39_MS2_var_Temperature_useFocusEffectForLowTemperature", true);
@@ -529,7 +529,7 @@ assignValue("X39_MS2_var_Temperature_wetnessIncreaseModificator", 0.2);
 assignValue("X39_MS2_var_Temperature_windStrengthImpactModificator", 0.125);
 
 
-/***********************
+/**********************
 * CATEGORY: HitMarker *
 **********************/
 
@@ -562,7 +562,7 @@ assignValue("X39_MS2_var_Respiratory_RequiredRespirationValueForWakeupP", 0.7);
 //Modificators
 assignValue("X39_MS2_var_Respiratory_GlobalModificator", 1);
 
-/***************************
+/**************************
 * CATEGORY: FEATURE FLAGS *
 **************************/
 //Allows the mod to handle AT/AA (launcher) weapons BackBlast
@@ -598,7 +598,7 @@ assignValue("X39_MS2_var_Feature_ReplaceItemsOnInventoryJoin", true);
 //Enables the random appearance of hallucinations 
 assignValue("X39_MS2_var_Feature_Hallucinations", true);
 
-/***********************
+/**********************
 * CATEGORY: PPEFFECTS *
 **********************/
 //Enables radial blur
@@ -616,14 +616,18 @@ assignValue("X39_MS2_var_ppEffect_EnableFilmGrain", true);
 //Enables color inversion effect
 assignValue("X39_MS2_var_ppEffect_EnableColorInversion", true);
 
-/***************************
+/**************************
 * CATEGORY: DialogControl *
 **************************/
+#ifdef DEBUG
+assignValue("X39_MS2_var_DialogControl_MedicalActionMenu_checkUnitTimeout", [1 COMMA 1 COMMA 1]);
+#else
 assignValue("X39_MS2_var_DialogControl_MedicalActionMenu_checkUnitTimeout", [5 COMMA 20 COMMA 60]);
+#endif
 assignValue("X39_MS2_var_DialogControl_BlackOutDialog_EnableRespawnButton", true);
 assignValue("X39_MS2_var_DialogControl_BlackOutDialog_EnableAbortButton", true);
 
-/*****************************
+/****************************
 * CATEGORY: InteractionMenu *
 ****************************/
 assignValue("X39_MS2_var_InteractionMenu_enableInVehicleHealing_self", true);
@@ -638,7 +642,7 @@ assignValue("X39_MS2_var_InteractionMenu_Defibrillate_ChanceWithoutAdrenaline", 
 assignValue("X39_MS2_var_InteractionMenu_Defibrillate_DistractionAdded", 10);
 assignValue("X39_MS2_var_InteractionMenu_Defibrillate_ChanceWithoutCpr", 25);
 
-/****************************
+/***************************
 * CATEGORY: MedicalActions *
 ***************************/
 assignValue("X39_MS2_var_MedicalActions_StickyBandage_BleedingCure", 0.5);
@@ -649,7 +653,7 @@ assignValue("X39_MS2_var_MedicalActions_HeatPack_TemperatureChange", 4);
 
 assignValue("X39_MS2_var_MedicalActions_SalineBag_BloodChangeP", 0.15);
 
-/*******************
+/******************
 * CATEGORY: SOUND *
 ******************/
 assignValue("X39_MS2_var_Sound_playExtremePainSounds", true);

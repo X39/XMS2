@@ -4,13 +4,19 @@
  *	Register a new tickHandler which will be executed each XMSTick
  *	
  *	@ParamsCount - 1
- *	@Param1 - Code	- Handler
- *	@Return - N/A
+ *	@Param1 - CODE	- Handler
+ *	@Param2 - SCALAR	- TickRate (1 = each tick)
+ *	@Param3 - SCALAR	- Use mode:	1 --> via FSM script in synchron space (wont wait for completeness)
+ *										2 --> via FSM script in synchron space (will wait for completeness)
+ *										3 --> via a simple call in asynchron space
+ *										4 --> via spawn (wont wait for completeness)
+ *										5 --> via spawn (will wait for completeness)
  *	@Author - X39|Cpt. HM Murdock
  */
-private["_handler", "_tickRate", "_exit"];
+private["_handler", "_tickRate", "_mode", "_exit"];
 _handler = [_this, 0, "", [{}, "", text ""]] call BIS_fnc_param;
 _tickRate = [_this, 1, 1, [1]] call BIS_fnc_param;
+_mode = [_this, 2, 2, [1]] call BIS_fnc_param;
 _exit = false;
 if(typeName _handler == "STRING" || typeName _handler == "TEXT") then
 {
@@ -25,6 +31,6 @@ if(typeName _handler == "STRING" || typeName _handler == "TEXT") then
 	};
 };
 if(_exit) exitWith {diag_log "No tickhandler has been registered";};
-if(_tickRate >= X39_MS2_var_Internal_ticker_maxTicksTimeout) exitWith { diag_log "wanted tickRate is to high!"; };
+if(_tickRate >= (_unit getVariable "X39_MS2_var_Internal_ticker_maxTicksTimeout")) exitWith { diag_log "wanted tickRate is to high!"; };
 if(_tickRate <= 0) exitWith { diag_log "wanted tickRate needs to be larger then 0!"; };
-X39_MS2_var_Internal_ticker_tickHandlers set[count X39_MS2_var_Internal_ticker_tickHandlers, [_handler, _tickRate]];
+X39_MS2_var_Internal_ticker_tickHandlers pushBack [_handler, _tickRate, _mode];

@@ -11,9 +11,9 @@ if(!X39_MS2_var_Feature_EnableAdrenaline) exitWith {};
 FORCELOCAL(_this select 0);
 private["_count"];
 _count = ([(_this select 0)] call X39_MS2_fnc_getCprCount) + (_this select 1);
-if(_count > 5 / X39_MS2_var_Internal_ticker_minTickRate) then
+if(_count > 5 / (_unit getVariable "X39_MS2_var_Internal_ticker_minTickRate")) then
 {
-	_count = 5 / X39_MS2_var_Internal_ticker_minTickRate;
+	_count = 5 / (_unit getVariable "X39_MS2_var_Internal_ticker_minTickRate");
 };
 if(_count < 0) then
 {

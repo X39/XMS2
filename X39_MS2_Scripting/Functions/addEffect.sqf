@@ -6,7 +6,7 @@
  *	@Param2 - SCALAR - Lifetime (max is defined in X39_MS2_var_Internal_XMSEffects_MaxLifetime)
  *	@Param3 - CODE - Code which shall be executed each tick (_this = [_unit, _timeLeft (range: 1 - 0)])
  *					 Available parent variables:
- *					 	_ppeDynamicBlur			- range 0 - 1 | ammount of blur over entire screen
+ *					 	(_unit getVariable "X39_MS2_var_Internal_Ticker_ppeDynamicBlur")			- range 0 - 1 | ammount of blur over entire screen
  *					 	_ppeRadialBlur			- range 0 - 1 | ammount of blur (needs _ppeFocus to actually work)
  *					 	_ppeFocus				- range 0 - 1 | how focused the player will be (where 0 is not focused and 1 is full focus) (needs _ppeRadialBlur to actually work)
  *					 	_ppeFilmGrain			- range 0 - 1 | how strong the film grain effect will be (confusion)

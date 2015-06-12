@@ -10,7 +10,7 @@ class XLib {
 			name = "X39s Medical System 2";
 			image = "\X39_MS2_Resources\logoXMS2.paa";
 			class properties {
-				class maxRedScreen: propertyBase {
+				class X39_MS2_options_ppEffects_colorCorrections_maxRedScreen: propertyBase {
 					variable = "X39_MS2_options_ppEffects_colorCorrections_maxRedScreen";
 					display = "ppEffects >> colorCorrections - maxRedScreen";
 					type = TYPE_VALUE;
@@ -18,7 +18,7 @@ class XLib {
 					description = "This value limits the maximum of redscreen you can get during your gameplay sessions";
 					default = 0.45;
 				};
-				class colorize: propertyBase {
+				class X39_MS2_options_ppEffects_colorCorrections_colorize: propertyBase {
 					variable = "X39_MS2_options_ppEffects_colorCorrections_colorize";
 					display = "ppEffects >> colorCorrections - colorize";
 					type = TYPE_VALUE;
@@ -26,7 +26,7 @@ class XLib {
 					description = "Defines how colorfull your game will be";
 					default = 1.5;
 				};
-				class animationSpeed: propertyBase {
+				class X39_MS2_options_medicalUi_AnimationSpeed: propertyBase {
 					variable = "X39_MS2_options_medicalUi_AnimationSpeed";
 					display = "MedicalUI - AnimationSpeed";
 					type = TYPE_VALUE;
@@ -34,7 +34,23 @@ class XLib {
 					description = "How long shall an animation take?<br />Set to '0' to disable animations.";
 					default = 1;
 				};
-				class HitMenuColorType: propertyBase {
+				class X39_MS2_options_medicalUi_BlurAmmount: propertyBase {
+					variable = "X39_MS2_options_medicalUi_BlurAmmount";
+					display = "MedicalUI - Blur Ammount";
+					type = TYPE_VALUE;
+					valueType = "SCALAR";
+					description = "How much should the screen be blured out when you use the MedicalUI?<br />Set to '0' to disable animations.";
+					default = 1;
+				};
+				class X39_MS2_options_medicalUi_BlurFadeTime: propertyBase {
+					variable = "X39_MS2_options_medicalUi_BlurFadeTime";
+					display = "MedicalUI - Blur Fade Time";
+					type = TYPE_VALUE;
+					valueType = "SCALAR";
+					description = "How fast should the blur be faded?<br />Set to '0' to disable animations.";
+					default = 1;
+				};
+				class X39_MS2_options_medicalUi_HitMenuColorType: propertyBase {
 					variable = "X39_MS2_options_medicalUi_HitMenuColorType";
 					display = "MedicalUI - HitZone damage color type";
 					type = TYPE_COMBOBOX;

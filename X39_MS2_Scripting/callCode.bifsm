@@ -1,0 +1,70 @@
+version=1;
+class GraphItems
+{
+	class Item0
+	{
+		Flags=250;
+		BasicText="";
+		Left=-40.348839;
+		Top=-141.27907;
+		Right=49.651192;
+		Bottom=-91.279083;
+		BgColor=33023;
+		class ItemInfo
+		{
+			Text="exit" \n "call code";
+			lStyle=-842150451;
+			Shape=6;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=700;
+			FontCharSet=0;
+			ItemType=1;
+			class ItemInfo
+			{
+				Id=1;
+				InitCode="(_this select 0) call (_this select 1)";
+			};
+		};
+	};
+};
+class GraphLinks
+{
+};
+class Globals
+{
+	NextGroupID=1;
+	NextID=3;
+	FSMName="callCode";
+	CompileConfig="C:\Steam ONLY INSTALL\SteamApps\common\Arma 3 Tools\FSMEditor\ORBAT.cfg";
+	class DefaultLink
+	{
+		ArrowSize=0;
+	};
+	DefaultLinkColor=6316128;
+	DefaultLinkColorFromSelected=6316287;
+	DefaultLinkColorToSelected=6356832;
+	DefaultLinkUseCustom=1;
+	PZoomLeft=-300;
+	PZoomRight=300;
+	PZoomBottom=300;
+	PZoomTop=-300;
+	Clxs=1404;
+	Clys=911;
+	Aspect=1;
+};
+class Window
+{
+	Flags=2;
+	MaxPosX=-1;
+	MaxPosY=-1;
+	MinPosX=-1;
+	MinPosY=-1;
+	Left=50;
+	Top=50;
+	Right=1490;
+	Bottom=810;
+	ShowCmd=3;
+	SplitPos=1422;
+};

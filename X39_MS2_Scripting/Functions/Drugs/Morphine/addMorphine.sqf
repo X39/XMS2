@@ -23,12 +23,5 @@ else
 		_morphine = 0;
 	};
 };
-if(isNil("_isXms2TickCall")) then
-{
-	[_this select 0, _morphine] call X39_MS2_fnc_setMorphine;
-}
-else
-{
-	[_this select 0, _morphine, _isXms2TickCall] call X39_MS2_fnc_setMorphine;
-};
+[_this select 0, _morphine] call X39_MS2_fnc_setMorphine;
 _morphine

@@ -23,12 +23,5 @@ else
 		_respiratory = 0;
 	};
 };
-if(isNil("_isXms2TickCall")) then
-{
-	[_this select 0, _respiratory] call X39_MS2_fnc_setRespiratory;
-}
-else
-{
-	[_this select 0, _respiratory, _isXms2TickCall] call X39_MS2_fnc_setRespiratory;
-};
+[_this select 0, _respiratory] call X39_MS2_fnc_setRespiratory;
 _respiratory
