@@ -15,7 +15,7 @@
 _this spawn {
 	DEBUG_CODE_SC(_fnc_scriptName = "X39_MS2_fnc_MedicalUi_createDialog";);
 	if(dialog) exitWith {PRINT_ERROR("Another UI is already displayed!");};
-	private["_index", "_marker", "_color", "_name", "_i", "_bodyViewType", "_dmg", "_maxDmg", "_triageCardEntries", "_triageState", "_txt", "_arr", "_controlArray", "_largerArray", "_smallerArray", "_flag", "_lastDrugList", "_lastQuickActionList", "_item"];
+	private["_index", "_marker", "_color", "_name", "_i", "_bodyViewType", "_ppe_dynamicBlur", "_dmg", "_maxDmg", "_triageCardEntries", "_triageState", "_txt", "_arr", "_controlArray", "_largerArray", "_smallerArray", "_flag", "_lastDrugList", "_lastQuickActionList", "_item"];
 	_lastDrugList = [];
 	_lastQuickActionList = [];
 	X39_MS2_var_Internal_DialogCommunication_MA_Caller = player;
@@ -34,6 +34,13 @@ _this spawn {
 	[profileNamespace getVariable["X39_MS2_options_MedicalUi_toggleFrame_state_ToggleTriageCardFrame", true], 0] call X39_MS2_fnc_MedicalUi_TriageCardFrame_setVisibilityState;
 	[profileNamespace getVariable["X39_MS2_options_MedicalUi_toggleFrame_state_ToggleQuickActionFrame", true], 0] call X39_MS2_fnc_MedicalUi_QuickActionFrame_setVisibilityState;
 	[profileNamespace getVariable ["X39_MS2_var_MedicalUI_ViewType", 0]] call X39_MS2_fnc_MedicalUi_SetBodyViewType;
+	
+	//Create DynamicBlur instance and set it to current value
+	_ppe_dynamicBlur = ppEffectCreate ["dynamicBlur", 461];
+	_ppe_dynamicBlur ppEffectEnable true;
+	
+	_ppe_dynamicBlur ppEffectAdjust [(profileNamespace getVariable["X39_MS2_options_medicalUi_BlurAmmount", 1])];
+	_ppe_dynamicBlur ppEffectCommit (profileNamespace getVariable["X39_MS2_options_medicalUi_BlurFadeTime", 1]); 
 	
 	//Enable fake buttons (reason for them: http://feedback.arma3.com/view.php?id=20546)
 	{displayCtrl_MedicalUi(_x) ctrlEnable true; false} count ACTIONMENUBUTTONS;
@@ -404,5 +411,12 @@ _this spawn {
 	if(dialog) then
 	{
 		closeDialog IDC_MEDICALUI_UIIDD;
+	};
+	//Spawn another handle to smooth out the pp effect
+	_ppe_dynamicBlur spawn {
+		_this ppEffectAdjust [0];
+		_this ppEffectCommit (profileNamespace getVariable["X39_MS2_options_medicalUi_BlurFadeTime", 1]); 
+		uiSleep (profileNamespace getVariable["X39_MS2_options_medicalUi_BlurFadeTime", 1]);
+		ppEffectDestroy _this;
 	};
 };
