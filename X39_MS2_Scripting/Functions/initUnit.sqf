@@ -37,6 +37,7 @@ _handle = _this spawn {
 	waitUntil{alive _unit};
 	FORCELOCAL(_unit);
 	DEBUG_LOG_WFn_SC(format["Initializing '%1's variables" COMMA _unit])
+	player enableFatigue false;
 	if(_unit getVariable ["X39_MS2_var_UnitInitialized", false]) then
 	{
 		PRINT_WARNING(EX_INV_ARG);

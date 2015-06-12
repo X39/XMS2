@@ -8,6 +8,7 @@
 private["_unit"];
 _unit = [_this, 0, objNull, [objNull]] call BIS_fnc_param;
 FORCELOCAL(_unit);
+player enableFatigue true;
 if(isNull _unit) exitWith {PRINT_ERROR("Cannot uninitialize a NULL unit!");};
 if((_unit getVariable ["X39_MS2_var_EH_HandleDamage", -1]) != -1)			then {_unit removeEventHandler["HandleDamage",			(_unit getVariable ["X39_MS2_var_EH_HandleDamage", -1])];};
 if((_unit getVariable ["X39_MS2_var_EH_FiredNear", -1]) != -1)				then {_unit removeEventHandler["FiredNear",			(_unit getVariable ["X39_MS2_var_EH_FiredNear", -1])];};
