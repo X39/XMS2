@@ -1,7 +1,7 @@
 #include "\X39_MS2_Scripting\default.hpp"
 /*
  *	creates the XMSTicker which handles all dynamic parts of XMS
- *	
+ *
  *	@Param1 - OBJECT - Unit to handle
  *	@Return - N/A
  *	@Author - X39|Cpt. HM Murdock
@@ -33,7 +33,7 @@ _this setVariable ["X39_MS2_var_UnitTickHandle", _this spawn {
 		_unit setVariable ["X39_MS2_var_Internal_Ticker_cfnForceWalk", 0];
 		_unit setVariable ["X39_MS2_var_Internal_Ticker_redScreenAlpha", 0]; //special, FOR PAIN ONLY variable to create the redscreen
 		_unit setVariable ["X39_MS2_var_Internal_Ticker_blackOutStage", [_unit] call X39_MS2_fnc_getBlackOutStage];
-		
+
 		//TickHandling
 		_handleListFsm = [];
 		_handleListSpawn = [];
@@ -41,7 +41,7 @@ _this setVariable ["X39_MS2_var_UnitTickHandle", _this spawn {
 			if(_ticks % (_x select 1) == 0) then
 			{
 				if(!alive _unit) exitWith { PRINT_INFO(format["'%1' died while XMSTick handling was in progress" COMMA _unit]); };
-				switch(_x select 2) do 
+				switch(_x select 2) do
 				{
 					case 1: {
 						_handleListFsm pushBack [[_unit, _forEachIndex], _x select 0] execFSM "\X39_MS2_Scripting\callCode.fsm";
@@ -66,9 +66,9 @@ _this setVariable ["X39_MS2_var_UnitTickHandle", _this spawn {
 			};
 			false
 		} foreach X39_MS2_var_Internal_ticker_tickHandlers;
-		DEBUG_CODE_SC({waitUntil {sleep 0.0001; completedFSM  _x;};}count _handleListFsm)
-		DEBUG_CODE_SC({waitUntil {sleep 0.0001; scriptDone _x;};}count _handleListSpawn)
-		
+		DEBUG_CODE_SC({waitUntil {completedFSM  _x;};}count _handleListFsm)
+		DEBUG_CODE_SC({waitUntil {scriptDone _x;};}count _handleListSpawn)
+
 		_ticks = _ticks + 1;
 		if(_ticks >= (_unit getVariable "X39_MS2_var_Internal_ticker_maxTicksTimeout")) then
 		{
@@ -112,7 +112,7 @@ _this setVariable ["X39_MS2_var_UnitTickHandle", _this spawn {
 				_unit forceWalk false;
 			};
 		};
-		
+
 		//Finalize tick
 		DEBUG_CODE(diag_log format["XMSTicker %1: %2, %3" COMMA _randomID COMMA _unit COMMA alive _unit]);
 		_sleep = X39_MS2_var_Internal_ticker_minTickRate - (diag_tickTime - _startTime);
@@ -124,8 +124,8 @@ _this setVariable ["X39_MS2_var_UnitTickHandle", _this spawn {
 		else
 		{
 			PRINT_WARNING(format["Ticker lost time! Time lost: %1" COMMA -_sleep]);
-			systemChat format["Ticker lost time! Time lost: %1" COMMA -_sleep];
+			DEBUG_CODE_SC(systemChat format["Ticker lost time! Time lost: %1" COMMA -_sleep])
 		};
 	};
-	
+
 }];
