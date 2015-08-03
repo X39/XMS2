@@ -8,9 +8,9 @@
  */
 if(!scriptDone (_this getVariable ["X39_MS2_var_UnitTickHandle", scriptNull])) exitWith {PRINT_ERROR("XMS2 TICKER IS ALREADY RUNNING!");};
 _this setVariable ["X39_MS2_var_UnitTickHandle", _this spawn {
-	private["_unit", "_ticks", "_startTime", "_sleep", "_handleListFsm", "_handleListSpawn"];
+	private["_ticks", "_startTime", "_sleep", "_handleListFsm", "_handleListSpawn"];
 	DEBUG_CODE(private["_randomID"];_randomID = random 20000);
-	_unit = [_this, 0, objNull, [objNull]] call BIS_fnc_param;
+	params [["_unit", objNull, [objNull]]];
 	_unit setVariable ["X39_MS2_var_Internal_Ticker_cfnDisableFatigueLast", str (0 > 0)];
 	_unit setVariable ["X39_MS2_var_Internal_Ticker_cfnForceWalkLast", str (0 > 0)];
 	_ticks = 0;

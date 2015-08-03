@@ -8,10 +8,10 @@
  *	@Return - N/A
  *	@Author - X39|Cpt. HM Murdock
  */
-private["_unit", "_lastHitter", "_applyScoreChange"];
-
-_unit = [_this, 0, objNull, [objNull]] call BIS_fnc_param;
-_applyScoreChange = [_this, 1, true, [true]] call BIS_fnc_param;
+params [
+	["_unit", objNull, [objNull]],
+	["_applyScoreChange", true, [true]]
+];
 
 if(isNull _unit) exitWith { PRINT_ERROR("No valid unit to kill provided"); };
 
@@ -20,6 +20,7 @@ sendMessageToServer(MSG_REMOVEXMS2UNITFROMUNITARRAY, _unit);
 _unit setDamage 1;
 if(_applyScoreChange) then
 {
+	private "_lastHitter";
 	_lastHitter = _unit getVariable["X39_MS2_var_Damage_LastHitter", objNull];
 	_unit addScore 1;
 	if(!isNull _lastHitter) then

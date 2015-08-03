@@ -14,13 +14,15 @@
  *	@Return - NA
  *	@Author	- X39|Cpt. HM Murdock
  */
-private["_target", "_animationsOK", "_animationsLockRemove", "_lockSealBroken", "_beforeLock", "_customArgs"];
-_target =				[_this, 0, objNull, [objNull]] call BIS_fnc_param;
-_animationsOK =			[_this, 1, [], [[]]] call BIS_fnc_param;
-_animationsLockRemove =	[_this, 2, [], [[]]] call BIS_fnc_param;
-_lockSealBroken =		[_this, 3, {}, [{}]] call BIS_fnc_param;
-_beforeLock =			[_this, 4, {}, [{}]] call BIS_fnc_param;
-_customArgs =			[_this, 5] call BIS_fnc_param;
+params [
+	["_target", objNull, [objNull]],
+	["_animationsOK", [], [[]]],
+	["_animationsLockRemove", [], [[]]],
+	["_lockSealBroken", {}, [{}]],
+	["_beforeLock", {}, [{}]],
+	"_customArgs"
+];
+
 if(isNull _target) exitWith {PRINT_ERROR("AnimationLock function received NULL unit!");};
 FORCELOCAL(_target);
 if({ISCHARP(_x)}count _animationsOK != count _animationsOK) exitWith {PRINT_ERROR("AnimationLock function received invalid AnimationsOK array!");};

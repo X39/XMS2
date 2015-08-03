@@ -6,8 +6,10 @@
  *	@Return - NA
  *	@Author	- X39|Cpt. HM Murdock
  */
-_unit = [_this, 0, objNull, [objNull]] call BIS_fnc_param;
-_msg = [_this, 1, "", ["", text ""]] call BIS_fnc_param;
+params [
+	["_unit", objNull, [objNull]],
+	["_msg", "", ["", text ""]]
+];
 
 FORCELOCAL(_unit);
 

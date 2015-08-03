@@ -1,6 +1,7 @@
 #include "\X39_MS2_Scripting\default.hpp"
 /*
  *	Adds a new drug to XMS2s MedicalUi
+ *	Effects are LOCAL
  *
  *	@Param1		- STRING	- DrugID (no uniqueCheck is performed here!)
  *	@Param2		- STRING	- localize string name (will be displayed)
@@ -17,15 +18,17 @@
  *	
  *	@Author - X39|Cpt. HM Murdock
  */
-private["_id", "_localizedString", "_image", "_condition", "_executionCode", "_acceptCode", "_abortCode", "_limitationID", "_index"];
-_id =					[_this, 0	, "NA",		[""]]		call BIS_fnc_param;
-_localizedString =		[_this, 1	, "", 		[""]]		call BIS_fnc_param;
-_image =				[_this, 2	, "", 		[""]]		call BIS_fnc_param;
-_condition =			[_this, 3	, {true}, 	[{}]]		call BIS_fnc_param;
-_executionCode =		[_this, 4	, {}, 		[{}]]		call BIS_fnc_param;
-_acceptCode =			[_this, 5	, {}, 		[{}]]		call BIS_fnc_param;
-_abortCode =			[_this, 6	, {}, 		[{}]]		call BIS_fnc_param;
-_limitationID =			[_this, 7	, "NA",		[""]]		call BIS_fnc_param;
+private "_index";
+params [
+	["_id", "NA", [""]],
+	["_localizedString", "NA", [""]],
+	["_image", "NA", [""]],
+	["_condition", {true}, [{}]],
+	["_executionCode", {}, [{}]],
+	["_acceptCode", {}, [{}]],
+	["_abortCode", {}, [{}]],
+	["_limitationID", "NA", [""]]
+];
 
 if(_localizedString == "")	exitWith {PRINT_ERROR("MedicalActions NEEDS a localized string!");};
 if(_image == "")			exitWith {PRINT_ERROR("MedicalActions NEEDS an image!");};

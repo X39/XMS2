@@ -5,8 +5,7 @@
  *	@Param1 - OBJECT - Unit to initialize
  *	@Return - NA
  */
-private["_unit"];
-_unit = [_this, 0, objNull, [objNull]] call BIS_fnc_param;
+params [["_unit", objNull, [objNull]]];
 FORCELOCAL(_unit);
 player enableFatigue true;
 if(isNull _unit) exitWith {PRINT_ERROR("Cannot uninitialize a NULL unit!");};

@@ -1,6 +1,7 @@
 #include "\X39_MS2_Scripting\default.hpp"
 /*
  *	Adds a new Action to XMS2s MedicalUi
+ * Effect is LOCAL
  *
  *	@Param1		- STRING		- ActionID (no uniqueCheck is performed here!)
  *	@Param2		- STRING		- localize string name (will be displayed)
@@ -17,19 +18,19 @@
  *	
  *	@Author - X39|Cpt. HM Murdock
  */
-private["_id", "_localizedString", "_image", "_condition", "_executionCode", "_index", "_limitationID", "_timeout"];
-_id =					[_this, 0	, "NA",	[""]]		call BIS_fnc_param;
-_localizedString =	[_this, 1	, "", 		[""]]		call BIS_fnc_param;
-_image =				[_this, 2	, "", 		[""]]		call BIS_fnc_param;
-_condition =			[_this, 3	, {true},	[{}]]		call BIS_fnc_param;
-_executionCode =		[_this, 4	, {}, 		[{}]]		call BIS_fnc_param;
-_limitationID =       [_this, 5	, "NA",	[""]]		call BIS_fnc_param;
-_timeout =				[_this, 6	, 1,		[0, {}]]	call BIS_fnc_param;
-_preventUnlock =		[_this, 7	, false,	[false]]	call BIS_fnc_param;
+params [
+	["_id", "NA", [""]],
+	["_localizedString", "", [""]],
+	["_image", "", [""]],
+	["_condition", {true},	[{}]],
+	["_executionCode", {},	[{}]],
+	["_limitationID", "NA", [""]],
+	["_timeout", 1,		[0, {}]],
+	["_preventUnlock", false,	[false]]
+];
 
 if(_localizedString == "")	exitWith {PRINT_ERROR("MedicalActions NEEDS a localized string!");};
-_index = count X39_MS2_var_Internal_MedicalActions_actionArray;
-X39_MS2_var_Internal_MedicalActions_actionArray set [_index, [
+(X39_MS2_var_Internal_MedicalActions_actionArray pushBack [
 														toUpper _id,																	//0
 														_localizedString,																//1
 														_image,																		//2
@@ -38,5 +39,4 @@ X39_MS2_var_Internal_MedicalActions_actionArray set [_index, [
 														_limitationID,																//5
 														(if(ISCODE(_timeout)) then {_timeout} else {compile str _timeout}),	//6
 														_preventUnlock																//7
-													]];
-_index
+													])

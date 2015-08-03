@@ -22,15 +22,17 @@
  *	@Param7 - BOOL		- Override protected mode (just for internal use!) --> Makes it possible to move the unit in lower blackOutStages => (0;4]
  *	@Return - BOOL - true when unit was blacked out, false when not
  */
-private["_unit", "_stage", "_time", "_text", "_currentStageOfUnit", "_index", "_blackOutId", "_wakeUpCondition", "_override", "_flag"];
-_unit				=	[_this, 0, objNull, [objNull]]	call BIS_fnc_param;
-_stage				=	[_this, 1, 0, [0]]				call BIS_fnc_param;
-_time				=	[_this, 2, 0, [0]]				call BIS_fnc_param;
-_text				=	[_this, 3, "", [""]]				call BIS_fnc_param;
-_blackOutId		=	toUpper ([_this, 4, "", [""]]	call BIS_fnc_param);
-_wakeUpCondition	=	[_this, 5, {false}, [{}]]		call BIS_fnc_param;
-_override			=	[_this, 6, false, [false]]		call BIS_fnc_param;
-
+private "_flag";
+params [
+	["_unit", objNull, [objNull]],
+	["_stage", 0, [0]],
+	["_time", 0, [0]],
+	["_text", "", [""]],
+	["_blackOutId", "", [""]],
+	["_wakeUpCondition", {false}, [{}]],
+	["_override", false, [false]]
+];
+_blackOutId = toUpper _blackOutId;
 _flag = true;
 
 if(isNull _unit) exitWith {PRINT_ERROR("Provided unit is null!");};

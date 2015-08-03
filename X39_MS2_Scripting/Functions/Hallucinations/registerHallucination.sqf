@@ -1,7 +1,7 @@
 #include "\X39_MS2_Scripting\default.hpp"
-
 /*
- * Adds a new Hallucination to the list which will later then get picked and spawned
+ *	Adds a new Hallucination to the list which will later then get picked and spawned
+ *	Effects are LOCAL
  *
  *	@Param1 - STRING/CODE	- logic that will be called (using SPAWN) for the hallucination
  *									!MAKE SURE YOU DISABLE ANY DAMAGE COMMING FROM HOSTILE UNITS!
@@ -17,11 +17,12 @@
  *									 - CustomArgs:ANY
  *	@Return - NA
  */
-private["_logic", "_customArgs", "_chance", "_condition"];
-_logic =		[_this, 0, "", ["", {}]] call BIS_fnc_param;
-_customArgs =	[_this, 1, []] call BIS_fnc_param;
-_chance =		[_this, 2, -1, [0, {}]] call BIS_fnc_param;
-_condition =	[_this, 3, {true}, ["", {}]] call BIS_fnc_param;
+params [
+	["_logic", "", ["", {}]],
+	"_customArgs"
+	["_chance", -1, [0, {}]],
+	["_condition", {true}, ["", {}]]
+];
 if(ISCHARP(_logic) && {_logic == ""}) exitWith {PRINT_ERROR("Cannot register a hallucination with empty logic")};
 if(ISCHARP(_logic)) then {_logic = compile _logic;};
 if(ISCHARP(_condition)) then {_logic = compile _logic;};

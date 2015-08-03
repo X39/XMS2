@@ -12,10 +12,11 @@
  *	@Return - SCALAR	- Limitation object ID
  *	@Author - X39|Cpt. HM Murdock
  */
-private["_limitations", "_objectType", "_efficiency", "_index"];
-_limitations = [_this, 0, [], [[]]] call BIS_fnc_param;
-_objectType = [_this, 1, 0, [0]] call BIS_fnc_param;
-_efficiency = [_this, 2, 0, [0]] call BIS_fnc_param;
+params [
+	["_limitations", [], [[]]],
+	["_objectType", 0, [0]],
+	["_efficiency", 0, [0]]
+];
 
 if(count _limitations == 0 || {{!ISSTRING(_x)}count _limitations > 0}) exitWith {PRINT_ERROR("Please validate your limitationObjects Param1! (either empty or not 100% string array)");};
 if({!(_x in X39_MS2_var_Internal_LimitationSystem_Limitations)}count _limitations > 0) exitWith {PRINT_ERROR("Please validate your limitationObjects Param1! (not all limitations are existing)");};
@@ -27,6 +28,4 @@ if(_objectType < 0) then { _objectType = -1; };
 if(_efficiency <= 0 && {_objectType != -1}) exitWith {PRINT_ERROR("Please validate your limitationObjects Param3! (Efficiency multiplicator needs to be >0 if ObjectType != -1!)");};
 if(_objectType == -1) then {_efficiency = 0};
 
-_index = count X39_MS2_var_Internal_LimitationSystem_Objects;
-X39_MS2_var_Internal_LimitationSystem_Objects set[_index, [_limitations, _objectType, _efficiency]];
-_index
+(X39_MS2_var_Internal_LimitationSystem_Objects pushBack [_limitations, _objectType, _efficiency])

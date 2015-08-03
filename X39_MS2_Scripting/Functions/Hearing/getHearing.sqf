@@ -8,8 +8,8 @@
  */
 (_this select 0) getVariable ["X39_MS2_var_Hearing_value", -1];
 
-private["_unit", "_hearingAbility"];
-_unit = [_this, 0, objNull, [objNull]] call BIS_fnc_param;
+private "_hearingAbility";
+params ["_unit"];
 _hearingAbility = _unit getVariable ["X39_MS2_var_Hearing_value", 0];
 if(_unit getVariable ["X39_MS2_var_hasEarplugs", false] && {count _this < 2}) then
 {

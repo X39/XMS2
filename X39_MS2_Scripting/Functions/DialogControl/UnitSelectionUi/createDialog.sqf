@@ -10,10 +10,9 @@
  */
 
 _this spawn {
-	private["_curObj","_index"];
 	DEBUG_CODE(_fnc_scriptName = "X39_MS2_fnc_unitSelection_openDialog";)
 	createDialog "X39_MS2_UnitSelectionUi";
-	_veh = [_this, 0, vehicle player, [objNull]] call BIS_fnc_param;
+	params[["_veh", vehicle player, [objNull]]];
 	_currentCrewList = [];
 	
 	//Does not works for whatever reason ... its "hard coded" inside of the UI now -.-*

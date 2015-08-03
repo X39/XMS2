@@ -7,8 +7,8 @@
  *	
  *	@Author - X39|Cpt. HM Murdock
  */
-private["_id", "_localizedString", "_image", "_condition", "_executionCode", "_index", "_limitationID", "_timeout"];
-_id = toupper ([_this, 0,"NA", [""]] call BIS_fnc_param);
+private "_index";
+params [["_id", "NA", [""]]];
 _count = (count X39_MS2_var_Internal_MedicalActions_actionArray) - 1;
 _index = -1;
 for "_i" from 0 to _count do

@@ -8,9 +8,10 @@
  *	@Return - NA
  *	@Author - X39|Cpt. HM Murdock
  */
-private["_assignee", "_limitationClassId"];
-_assignee = [_this, 0, objNull, ["", objNull]] call BIS_fnc_param;
-_limitationClassId = [_this, 1, "", [""]] call BIS_fnc_param;
+params [
+	["_assignee", objNull, [objNull]],
+	["_limitationClassId", "", [""]]
+];
 
 if(_limitationClassId >= count X39_MS2_var_Internal_LimitationSystem_Classes || _limitationClassId < 0) exitWith {PRINT_ERROR("Invalid LimitationClassId");};
 

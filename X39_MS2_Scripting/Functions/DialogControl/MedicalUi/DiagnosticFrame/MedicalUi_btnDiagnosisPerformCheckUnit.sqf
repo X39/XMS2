@@ -12,7 +12,7 @@ X39_MS2_var_Internal_DialogCommunication_MA_preventActions = true;
 X39_MS2_var_Internal_Handles_CheckUnitHandle = _this spawn {
 	DEBUG_CODE(_fnc_scriptName = "X39_MS2_fnc_MedicalUi_btnDiagnosisPerformCheckUnit";)
 	private["_checkUnitType", "_timeout", "_index"];
-	_checkUnitType = [_this, 0, 0, [0]] call BIS_fnc_param;
+	params [["_checkUnitType", 0, [0]]];
 	_timeout = X39_MS2_var_DialogControl_MedicalActionMenu_checkUnitTimeout select _checkUnitType;
 	if(_timeout > 0) then
 	{

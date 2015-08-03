@@ -18,10 +18,12 @@
  *	@Return - N/A
  *	@Author - X39|Cpt. HM Murdock
  */
-private["_unit", "_lifetime", "_code", "_effectArray", "_index"];
-_unit = [_this, 0, objNull, [objNull]] call BIS_fnc_param;
-_lifetime = [_this, 1, -1, [0]] call BIS_fnc_param;
-_code = [_this, 2, "", [{}, ""]] call BIS_fnc_param;
+private["_effectArray", "_index"];
+params [
+	["_units", objNull, [objNull]],
+	["_lifetime", -1, [0]],
+	["_code","", [{}, ""]]
+];
 
 if(isNull _unit) exitWith {PRINT_ERROR("Please provide a valid unit!");};
 if(_lifetime < 1) exitWith {PRINT_ERROR("XMSEffect lifetime needs to be larger then 0!");};

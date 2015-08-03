@@ -16,11 +16,14 @@
  *	@Return - NA
  */
 _handle = _this spawn {
-	private["_unit", "_fnc_scriptName"];
-	_fnc_scriptName = "X39_MS2_fnc_initUnit";
-	_unit = [_this, 0, objNull, [objNull, {}]] call BIS_fnc_param;
-	if(([_this, 1, false, [false]] call BIS_fnc_param) && {isDedicated}) exitWith {};
-	if(([_this, 2, false, [false]] call BIS_fnc_param) && {!hasInterface}) exitWith {};
+	DEBUG_CODE_SC(_fnc_scriptName = "X39_MS2_fnc_initUnit")
+	params [
+		["_unit", objNull, [objNull, {}]],
+		["_flag_PreventOnIsDedicated", false, [false]],
+		["_flag_PreventOnHasInterface", false, [false]]
+	];
+	if(_flag_PreventOnIsDedicated && {isDedicated}) exitWith {};
+	if(_flag_PreventOnHasInterface && {!hasInterface}) exitWith {};
 	if(ISCODE(_unit)) then
 	{
 		waitUntil{!isNil _unit};

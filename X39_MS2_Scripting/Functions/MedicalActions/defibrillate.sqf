@@ -9,9 +9,10 @@
  *	@Author - X39|Cpt. HM Murdock
  */
 X39_MS2_var_Internal_Handles_DefibrillateHandle = _this spawn {
-	private["_executer", "_unit"];
-	_executer = [_this, 0, objNull, [objNull]] call BIS_fnc_param;
-	_unit = [_this, 1, objNull, [objNull]] call BIS_fnc_param;
+	params[
+		["_executer", objNull, [objNull]],
+		["_unit", objNull, [objNull]]
+	];
 
 	if(isNull _unit) exitWith {PRINT_ERROR("no target")};
 

@@ -13,9 +13,11 @@
  *	
  *	@Author - X39|Cpt. HM Murdock
  */
-private["_input", "_limitation", "_limitationClassId"];
-_input = [_this, 0, "", [objNull, ""]] call BIS_fnc_param;
-_limitation = [_this, 1, "", [""]] call BIS_fnc_param;
+private "_limitationClassId";
+params [
+	["_input", "", [objNull, ""]],
+	["_limitation", "", [""]]
+];
 _limitationClassId = -1;
 if(ISOBJECT(_input)) then
 {

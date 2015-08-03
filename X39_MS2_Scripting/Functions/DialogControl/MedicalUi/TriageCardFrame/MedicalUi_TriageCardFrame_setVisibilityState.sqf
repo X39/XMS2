@@ -7,9 +7,10 @@
  *	@Return - N/A
  *	@Author - X39|Cpt. HM Murdock
  */
-private["_flag", "_anmiationTime"];
-_flag = [_this, 0, false, [false]] call BIS_fnc_param;
-_animationTime = [_this, 1, MEDICALUI_ANIMATIONTIME, [0]] call BIS_fnc_param;
+params [
+	["_flag", false, [false]],
+	["_animationTime", MEDICALUI_ANIMATIONTIME, [0]]
+];
 if(!_flag) then
 {
 	displayCtrl_MedicalUi(IDC_MEDICALUI_BTN_TOGGLETRIAGECARDFRAME)	ctrlSetText ">";

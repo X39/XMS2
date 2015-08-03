@@ -1,6 +1,7 @@
 #include "\X39_MS2_Scripting\default.hpp"
 /*
  *	Adds a new quickAction to XMS2
+ *	Effects are LOCAL
  *
  *	@Param1		- STRING/CODE	- DisplayName of the quickAction
  *	@Param2		- TEXT/CODE	- Description of the quickAction (as text !NOT STRING! see: https://community.bistudio.com/wiki/Structured_Text)
@@ -18,17 +19,18 @@
  *	
  *	@Author - X39|Cpt. HM Murdock
  */
-private["_displayName", "_description", "_image", "_codeRequiredTime", "_codeCondition", "_codeExecute", "_customArguments", "_codeRequiredItems"];
-_displayName			= [_this, 0, "NotSet", ["", {}]] call BIS_fnc_param;
+params [
+	["_displayName", "NotSet", ["", {}]],
+	["_description", "NotSet", [parseText "", {}]],
+	["_image", "", [""]],
+	["_codeRequiredTime", {0}, [{}]],
+	["_codeRequiredItems", {0}, [{}]],
+	["_codeCondition", {false}, [{}]],
+	["_codeExecute", {}, [{}]],
+	"_customArguments"
+];
 if(ISCODE(_displayName)) then { _displayName = [] call compile _displayName; };
-_description			= [_this, 1, "NotSet", [parseText "", {}]] call BIS_fnc_param;
 if(ISCODE(_description)) then { _description = [] call compile _description; };
-_image					= [_this, 2, "", [""]] call BIS_fnc_param;
-_codeRequiredTime		= [_this, 3, {0}, [{}]] call BIS_fnc_param;
-_codeRequiredItems	= [_this, 4, {0}, [{}]] call BIS_fnc_param;
-_codeCondition		= [_this, 5, {false}, [{}]] call BIS_fnc_param;
-_codeExecute			= [_this, 6, {}, [{}]] call BIS_fnc_param;
-_customArguments		= (if(count _this > 7) then {_this select 7} else {nil});
 X39_MS2_var_Internal_MedicalUi_QuickActions pushBack [
 																_displayName,			//0
 																_description,			//1

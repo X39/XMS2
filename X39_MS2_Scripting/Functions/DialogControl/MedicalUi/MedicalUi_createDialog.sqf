@@ -19,7 +19,7 @@ _this spawn {
 	_lastDrugList = [];
 	_lastQuickActionList = [];
 	X39_MS2_var_Internal_DialogCommunication_MA_Caller = player;
-	X39_MS2_var_Internal_DialogCommunication_MA_Target = [_this, 0, objNull, [objNull]] call BIS_fnc_param;
+	X39_MS2_var_Internal_DialogCommunication_MA_Target = param [0, objNull, [objNull]];
 	if(stance X39_MS2_var_Internal_DialogCommunication_MA_Caller != "PRONE" && {stance X39_MS2_var_Internal_DialogCommunication_MA_Caller != "CROUCH"}) then
 	{
 		X39_MS2_var_Internal_DialogCommunication_MA_Caller playActionNow "CROUCH";
