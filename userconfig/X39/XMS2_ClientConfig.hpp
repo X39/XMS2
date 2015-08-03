@@ -16,6 +16,10 @@ class keys {
 	};
 };
 class options {
+	class Generic
+	{
+		ActionSystemOverride = 0;
+	};
 	class MedicalUi {
 		class toggleFrame {
 			class position {
