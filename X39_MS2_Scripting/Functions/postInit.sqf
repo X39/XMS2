@@ -166,4 +166,5 @@ if(isServer) then
 	//nilify extension variables (we dont need them any more)
 	X39_MS2_var_Internal_Extensions_AvailableExtensionsServer = nil;
 	X39_MS2_var_Internal_Extensions_AvailableExtensionsClient = nil;
+	X39_MS2_var_Initialized = true;
 };
