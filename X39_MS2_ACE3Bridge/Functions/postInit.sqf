@@ -1,3 +1,55 @@
+#define HITZONE_Head##head
+#define HITZONE_LeftLowerArm##leftarm
+#define HITZONE_LeftFoot##leftfoot
+#define HITZONE_LeftUpperArm##leftforearm
+#define HITZONE_LeftLowerLeg##leftleg
+#define HITZONE_LeftUpperLeg##leftupleg
+#define HITZONE_RightLowerArm##rightarm
+#define HITZONE_RightFoot##rightfoot
+#define HITZONE_RightUpperArm##rightforearm
+#define HITZONE_RightLowerLeg##rightleg
+#define HITZONE_RightUpperLeg##rightupleg
+#define HITZONE_LowerBody##spine1
+#define HITZONE_UpperBody##spine3
+#define stringify(X) #X
+
+
+#define HITZONE_IndexHead			0
+#define HITZONE_IndexLeftLowerArm	1
+#define HITZONE_IndexLeftFoot		2
+#define HITZONE_IndexLeftUpperArm	3
+#define HITZONE_IndexLeftLowerLeg	4
+#define HITZONE_IndexLeftUpperLeg	5
+#define HITZONE_IndexRightLowerArm	6
+#define HITZONE_IndexRightFoot		7
+#define HITZONE_IndexRightUpperArm	8
+#define HITZONE_IndexRightLowerLeg	9
+#define HITZONE_IndexRightUpperLeg	10
+#define HITZONE_IndexLowerBody		11
+#define HITZONE_IndexUpperBody		12
+
+#define HITZONE_NAME				0
+#define HITZONE_Size				1
+#define HITZONE_HasAterie			2
+#define HITZONE_MedicalUiIdc		3
+#define HITZONE_CommonName			4
+
+#define getHitzoneInfo(INDEX, TYPE) (X39_MS2_var_Internal_HitZones select INDEX select TYPE)
+#define getHitzoneIndexByName(HZ) (HZ call { private["_i", "_result"];\
+	_result = -1;\
+	for "_i" from 0 to ((count X39_MS2_var_Internal_HitZones) - 1) do\
+	{\
+		scopeName "currentLoop";\
+		if(X39_MS2_var_Internal_HitZones select _i select HITZONE_NAME == _this) then\
+		{\
+			_result = _i;\
+			breakOut "currentLoop";\
+		};\
+	};\
+	_result\
+})
+
+
 [] spawn {
 	waitUntil {!isNil "X39_MS2_var_Initialized"};
 	if(isNil "ACE_interact_menu_fnc_addActionToClass") exitWith {diag_log "ACE3Bridge of XMS2 exited, no ACE3 found";};
@@ -22,20 +74,16 @@
 		}count _aceActionVariables;
 	};
 	
-	_ace_selfInteraction = ["xms2_interactions_self", "Interactions", "\z\ace\addons\common\UI\blank_CO.paa", {}, {true}, {
+	//Add XMS2 Interactions to ACE3 interact_menu
+	_ace_Interaction = ["xms2_Interaction", "Interactions", "\z\ace\addons\common\UI\blank_CO.paa", {}, {true}, {
 		X39_XLib_var_ActionDialog_Executor = _this select 0;
 		X39_XLib_var_ActionDialog_Target = _this select 1;
 		X39_XLib_var_ActionDialog_IsSelf = X39_XLib_var_ActionDialog_Executor == X39_XLib_var_ActionDialog_Target;
 		X39_XLib_var_ActionDialog_ExecutorInVehicle = vehicle player == player;
 	}] call ACE_interact_menu_fnc_createAction;
-	["CAManBase", 1, ["ACE_MainActions"], _ace_selfInteraction] call _recursiveAddActionToClass;
-	_ace_otherInteraction = ["xms2_interactions_other", "Interactions", "\z\ace\addons\common\UI\blank_CO.paa", {}, {true}, {
-		X39_XLib_var_ActionDialog_Executor = _this select 0;
-		X39_XLib_var_ActionDialog_Target = _this select 1;
-		X39_XLib_var_ActionDialog_IsSelf = X39_XLib_var_ActionDialog_Executor == X39_XLib_var_ActionDialog_Target;
-		X39_XLib_var_ActionDialog_ExecutorInVehicle = vehicle player == player;
-	}] call ACE_interact_menu_fnc_createAction;
-	["CAManBase", 0, ["ACE_MainActions"], _ace_otherInteraction] call _recursiveAddActionToClass;
+	["CAManBase", 1, ["ACE_SelfActions"], _ace_Interaction] call _recursiveAddActionToClass;
+	["CAManBase", 0, ["ACE_MainActions"], _ace_Interaction] call _recursiveAddActionToClass;
+	
 	{
 		_ID = format["xms2_interaction%1", _forEachIndex];
 		_displayText = _x select 0;
@@ -43,7 +91,47 @@
 		_execCode = _this select 2;
 		_condition = _this select 3;
 		_action = [_ID, _displayText, _image, _execCode, _condition] call ACE_interact_menu_fnc_createAction;
-		["CAManBase", 1, ["ACE_MainActions", "xms2_interactions_self"], _action] call _recursiveAddActionToClass;
-		["CAManBase", 0, ["ACE_MainActions", "xms2_interactions_other"], _action] call _recursiveAddActionToClass;
+		["CAManBase", 1, ["ACE_SelfActions", "xms2_Interaction"], _action] call _recursiveAddActionToClass;
+		["CAManBase", 0, ["ACE_MainActions", "xms2_Interaction"], _action] call _recursiveAddActionToClass;
 	}foreach X39_MS2_var_Internal_XLibActionArrays;
+	
+	{
+		private["_ace_limb_self", "_ace_limb_other", "_limb"];
+		_limb = _x;
+		//Add the hitzone to ACE3 interact_menu
+		_ace_limb = [format["xms2_limb_%1", _limb], _limb, "\z\ace\addons\common\UI\blank_CO.paa", {}, {true}, {
+			X39_XLib_var_ActionDialog_Executor = _this select 0;
+			X39_XLib_var_ActionDialog_Target = _this select 1;
+			X39_XLib_var_ActionDialog_IsSelf = X39_XLib_var_ActionDialog_Executor == X39_XLib_var_ActionDialog_Target;
+			X39_XLib_var_ActionDialog_ExecutorInVehicle = vehicle player == player;
+		}, nil, _x] call ACE_interact_menu_fnc_createAction;
+		["CAManBase", 1, ["ACE_SelfActions"], _ace_limb] call _recursiveAddActionToClass;
+		["CAManBase", 0, ["ACE_MainActions"], _ace_limb] call _recursiveAddActionToClass;
+		
+		//Add drug usability to the limbs
+		_drugUsability = [format["xms2_limb_%1_drugs", _limb], "Drugs", "\z\ace\addons\common\UI\blank_CO.paa", {}, {true}] call ACE_interact_menu_fnc_createAction;
+		["CAManBase", 1, ["ACE_SelfActions", format["xms2_limb_%1", _limb]], _drugUsability] call _recursiveAddActionToClass;
+		["CAManBase", 0, ["ACE_MainActions", format["xms2_limb_%1", _limb]], _drugUsability] call _recursiveAddActionToClass;
+		
+		{
+			_drug = [format["xms2_limb_%1_drugs_%2", _limb, _x select 0], _x select 1, if(_x select 2 == "") then {"\z\ace\addons\common\UI\blank_CO.paa"} else {_x select 2}, {[_forEachIndex] call X39_MS2_fnc_MedicalUi_DrugsFrame_applyDrug}, _x select 3] call ACE_interact_menu_fnc_createAction;
+			["CAManBase", 1, ["ACE_SelfActions", format["xms2_limb_%1", _limb], format["xms2_limb_%1_drugs", _limb]], _drugUsability] call _recursiveAddActionToClass;
+			["CAManBase", 0, ["ACE_MainActions", format["xms2_limb_%1", _limb], format["xms2_limb_%1_drugs", _limb]], _drugUsability] call _recursiveAddActionToClass;
+		} foreach X39_MS2_var_Internal_MedicalUi_RegisteredDrugs;
+		false
+	} count [
+		stringify(HITZONE_Head),
+		stringify(HITZONE_LeftLowerArm),
+		stringify(HITZONE_LeftFoot),
+		stringify(HITZONE_LeftUpperArm),
+		stringify(HITZONE_LeftLowerLeg),
+		stringify(HITZONE_LeftUpperLeg),
+		stringify(HITZONE_RightLowerArm),
+		stringify(HITZONE_RightFoot),
+		stringify(HITZONE_RightUpperArm),
+		stringify(HITZONE_RightLowerLeg),
+		stringify(HITZONE_RightUpperLeg),
+		stringify(HITZONE_LowerBody),
+		stringify(HITZONE_UpperBody)
+	];
 };
