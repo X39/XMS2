@@ -29,7 +29,7 @@ class General //Functions without any categoriy
 };
 class InitModFunctions //Functions for initMod
 {
-	class initMod:X39_XLib_Function_TypeB														{file = "\X39_MS2_Scripting\Functions\initMod.sqf";};
+	class preInit:X39_XLib_Function_TypeB														{file = "\X39_MS2_Scripting\Functions\preInit.sqf";};
 	class postInit:X39_XLib_Function_TypeC														{file = "\X39_MS2_Scripting\Functions\postInit.sqf";};
 };
 class HitZones
