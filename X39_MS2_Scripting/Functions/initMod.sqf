@@ -412,7 +412,7 @@ assignValue("X39_MS2_var_Hearing_GlobalModificator", 1.0);
 //Enable/Disable heartRelated features
 assignValue("X39_MS2_var_Heart_enableHeartSimulation", true);
 
-assignValue("X39_MS2_var_Heart_useFatigueForHeartCalculations", true);
+assignValue("X39_MS2_var_Heart_usePlayerLoad", true);
 assignValue("X39_MS2_var_Heart_allowForceWalkByPulse", false);
 assignValue("X39_MS2_var_Heart_allowBlurryScreenByPulse", true);
 assignValue("X39_MS2_var_Heart_allowCamShakeByPulse", true);
@@ -440,12 +440,14 @@ assignValue("X39_MS2_var_Heart_pulseLimitStage1", 90);
 assignValue("X39_MS2_var_Heart_pulseLimitStage2", 120);
 assignValue("X39_MS2_var_Heart_pulseLimitStage3", 180);
 assignValue("X39_MS2_var_Heart_pulseLimitStage4", 220);
+assignValue("X39_MS2_var_Heart_playerLoad_normalizeBase", 500);
 
 //Modificators
 assignValue("X39_MS2_var_Heart_pulseGlobalMultiplicator", 1);
 assignValue("X39_MS2_var_Heart_pulseReductionMultiplicator", 2);
 assignValue("X39_MS2_var_Heart_BlackedOutPulseModificator", 0.1);
 assignValue("X39_MS2_var_Heart_camShakeMultiplicator", 3);
+assignValue("X39_MS2_var_Heart_playerLoad_effectStrengthMultiplicator", 3);
 
 /*****************
 * CATEGORY: PAIN *

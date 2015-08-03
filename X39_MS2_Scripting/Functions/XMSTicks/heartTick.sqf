@@ -93,14 +93,8 @@ if(!([_unit] call X39_MS2_fnc_hasFlatLine)) then
 	};
 	if(X39_MS2_var_Heart_useFatigueForHeartCalculations) then
 	{
-		if(_pulseChange < 0) then
-		{
-			_pulseChange = (1 - _fatigue) * _pulseChange;
-		}
-		else
-		{
-			_pulseChange = _pulseChange + _fatigue;
-		};
+		_normalizedWeight = (loadAbs _unit) / X39_MS2_var_Heart_playerLoad_normalizeBase;
+		_pulseChange = _pulseChange * (X39_MS2_var_Heart_playerLoad_effectStrengthMultiplicator * _normalizedWeight)
 	};
 	if(X39_MS2_var_Drugs_Adrenaline_useForHeartCalculations) then
 	{
