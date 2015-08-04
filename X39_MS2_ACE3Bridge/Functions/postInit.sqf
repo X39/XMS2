@@ -109,28 +109,44 @@
 			X39_XLib_var_ActionDialog_IsSelf = X39_XLib_var_ActionDialog_Executor == X39_XLib_var_ActionDialog_Target;
 			X39_XLib_var_ActionDialog_ExecutorInVehicle = vehicle X39_XLib_var_ActionDialog_Executor == X39_XLib_var_ActionDialog_Executor;
 			[]
-		}, [], _x] call ACE_interact_menu_fnc_createAction;
+		}, {}, _x] call ACE_interact_menu_fnc_createAction;
 		["CAManBase", 1, ["ACE_SelfActions"], _ace_limb] call _recursiveAddActionToClass;
 		["CAManBase", 0, ["ACE_MainActions"], _ace_limb] call _recursiveAddActionToClass;
 		
 		//Add drug usability to the limbs
-		_drugBase = [format["xms2_limb_%1_drugs", _limb], "Drugs", "\z\ace\addons\common\UI\blank_CO.paa", {}, {true}] call ACE_interact_menu_fnc_createAction;
+		_drugBase = [format["xms2_limb_%1_drugs", _limb], "Drugs", "\z\ace\addons\common\UI\blank_CO.paa", {}, {true}, {}, _limb] call ACE_interact_menu_fnc_createAction;
 		["CAManBase", 1, ["ACE_SelfActions", format["xms2_limb_%1", _limb]], _drugBase] call _recursiveAddActionToClass;
 		["CAManBase", 0, ["ACE_MainActions", format["xms2_limb_%1", _limb]], _drugBase] call _recursiveAddActionToClass;
 		
 		{
-			_drug = [format["xms2_limb_%1_drugs_%2", _limb, _x select 0], _x select 1, if(_x select 2 == "") then {"\z\ace\addons\common\UI\blank_CO.paa"} else {_x select 2}, compile format["[%1] call X39_MS2_fnc_MedicalUi_DrugsFrame_applyDrug", _forEachIndex], _x select 3] call ACE_interact_menu_fnc_createAction;
+			_drug = [
+				format["xms2_limb_%1_drugs_%2", _limb, _x select 0],
+				_x select 1,
+				if(_x select 2 == "") then {"\z\ace\addons\common\UI\blank_CO.paa"} else {_x select 2},
+				compile format["[%1] call X39_MS2_fnc_MedicalUi_DrugsFrame_applyDrug", _forEachIndex],
+				_x select 3,
+				{},
+				_limb
+			] call ACE_interact_menu_fnc_createAction;
 			["CAManBase", 1, ["ACE_SelfActions", format["xms2_limb_%1", _limb], format["xms2_limb_%1_drugs", _limb]], _drug] call _recursiveAddActionToClass;
 			["CAManBase", 0, ["ACE_MainActions", format["xms2_limb_%1", _limb], format["xms2_limb_%1_drugs", _limb]], _drug] call _recursiveAddActionToClass;
 		} foreach X39_MS2_var_Internal_MedicalUi_RegisteredDrugs;
 		
 		//Add actions to the limbs
-		_actionBase = [format["xms2_limb_%1_actions", _limb], "Actions", "\z\ace\addons\common\UI\blank_CO.paa", {}, {true}] call ACE_interact_menu_fnc_createAction;
+		_actionBase = [
+			format["xms2_limb_%1_actions", _limb],
+			"Actions",
+			"\z\ace\addons\common\UI\blank_CO.paa",
+			{},
+			{true},
+			{},
+			_limb
+		] call ACE_interact_menu_fnc_createAction;
 		["CAManBase", 1, ["ACE_SelfActions", format["xms2_limb_%1", _limb]], _actionBase] call _recursiveAddActionToClass;
 		["CAManBase", 0, ["ACE_MainActions", format["xms2_limb_%1", _limb]], _actionBase] call _recursiveAddActionToClass;
 		
 		{
-			_action = [format["xms2_limb_%1_action_%2", _limb, _x select 0], localize (_x select 1), if(_x select 2 == "") then {"\z\ace\addons\common\UI\blank_CO.paa"} else {_x select 2}, compile format["
+			_execCode = compile format["
 								if(!(X39_MS2_var_Internal_MedicalActions_actionArray select %4 select 7)) then
 								{
 									X39_MS2_var_Internal_DialogCommunication_MA_preventActions = true;
@@ -182,18 +198,43 @@
 											X39_XLib_var_ActionDialog_preventMenuOpening = false;
 										};
 									};
-								};" , str _limb, 0, MEDICALUI_ANIMATIONTIME, _forEachIndex], compile format["([X39_MS2_var_Internal_DialogCommunication_MA_Caller, (X39_MS2_var_Internal_MedicalActions_actionArray select %1) select 5] call X39_MS2_fnc_ls_isAllowedToUse) select 0 && %2", _forEachIndex, _x select 3]] call ACE_interact_menu_fnc_createAction;
+								};" , str _limb, 0, MEDICALUI_ANIMATIONTIME, _forEachIndex];
+			_action = [
+				format["xms2_limb_%1_action_%2", _limb, _x select 0],
+				localize (_x select 1),
+				if(_x select 2 == "") then {"\z\ace\addons\common\UI\blank_CO.paa"} else {_x select 2},
+				_execCode,
+				compile format["([X39_MS2_var_Internal_DialogCommunication_MA_Caller, (X39_MS2_var_Internal_MedicalActions_actionArray select %1) select 5] call X39_MS2_fnc_ls_isAllowedToUse) select 0 && %2", _forEachIndex, _x select 3],
+				{},
+				_limb
+			] call ACE_interact_menu_fnc_createAction;
 			["CAManBase", 1, ["ACE_SelfActions", format["xms2_limb_%1", _limb], format["xms2_limb_%1_actions", _limb]], _action] call _recursiveAddActionToClass;
 			["CAManBase", 0, ["ACE_MainActions", format["xms2_limb_%1", _limb], format["xms2_limb_%1_actions", _limb]], _action] call _recursiveAddActionToClass;
 		} foreach X39_MS2_var_Internal_MedicalActions_actionArray;
 		
 		//Add QuickActions to the limbs
-		_quickActionBase = [format["xms2_limb_%1_quickActions", _limb], "QuickActions", "\z\ace\addons\common\UI\blank_CO.paa", {}, {true}] call ACE_interact_menu_fnc_createAction;
+		_quickActionBase = [
+			format["xms2_limb_%1_quickActions", _limb],
+			"QuickActions",
+			"\z\ace\addons\common\UI\blank_CO.paa",
+			{},
+			{true},
+			{},
+			_limb
+		] call ACE_interact_menu_fnc_createAction;
 		["CAManBase", 1, ["ACE_SelfActions", format["xms2_limb_%1", _limb]], _quickActionBase] call _recursiveAddActionToClass;
 		["CAManBase", 0, ["ACE_MainActions", format["xms2_limb_%1", _limb]], _quickActionBase] call _recursiveAddActionToClass;
 		
 		{
-			_quickAction = [format["xms2_limb_%1_quickAction_%2", _limb, _forEachIndex], _x select 0, if(_x select 2 == "") then {"\z\ace\addons\common\UI\blank_CO.paa"} else {_x select 2}, compile format["[%1, X39_MS2_var_Internal_DialogCommunication_MA_Target, X39_MS2_var_Internal_DialogCommunication_MA_Caller] call (_quickAction select 5);", _forEachIndex, _x select 6], _x select 4] call ACE_interact_menu_fnc_createAction;
+			_quickAction = [
+				format["xms2_limb_%1_quickAction_%2", _limb, _forEachIndex],
+				_x select 0,
+				if(_x select 2 == "") then {"\z\ace\addons\common\UI\blank_CO.paa"} else {_x select 2},
+				compile format["[%1, X39_MS2_var_Internal_DialogCommunication_MA_Target, X39_MS2_var_Internal_DialogCommunication_MA_Caller] call (_quickAction select 5);", _forEachIndex, _x select 6],
+				_x select 4,
+				{},
+				_limb
+			] call ACE_interact_menu_fnc_createAction;
 			["CAManBase", 1, ["ACE_SelfActions", format["xms2_limb_%1", _limb], format["xms2_limb_%1_quickActions", _limb]], _quickAction] call _recursiveAddActionToClass;
 			["CAManBase", 0, ["ACE_MainActions", format["xms2_limb_%1", _limb], format["xms2_limb_%1_quickActions", _limb]], _quickAction] call _recursiveAddActionToClass;
 		} foreach X39_MS2_var_Internal_MedicalUi_QuickActions;
