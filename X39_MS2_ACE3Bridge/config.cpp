@@ -3,7 +3,7 @@ class CfgPatches{
          units[] = {};
          weapons[] = {};
          requiredVersion = 1.0;
-         requiredAddons[] = {"X39_XLib_Scripting", "ace_interact_menu"};
+         requiredAddons[] = {"X39_MS2_Scripting", "ace_interact_menu"};
          author = "X39|Cpt. HM Murdock";
          mail = "killerx29@gmail.com";
 	};

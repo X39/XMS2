@@ -49,6 +49,8 @@
 	_result\
 })
 
+#define MEDICALUI_ANIMATIONTIME (profileNamespace getVariable ["X39_MS2_options_medicalUi_AnimationSpeed", 1])
+
 
 [] spawn {
 	waitUntil {!isNil "X39_MS2_var_Initialized"};
@@ -62,7 +64,7 @@
 		};
 		false
 	} count allVariables MissionNamespace;
-	_recursiveAddActionToClass {
+	_recursiveAddActionToClass = {
 		params ["_typename", "_addActionToClassArray"];
 		{
 			if(_x isKindOf _typename || {_x isEqualTo _typename}) then 
@@ -114,10 +116,73 @@
 		["CAManBase", 0, ["ACE_MainActions", format["xms2_limb_%1", _limb]], _drugUsability] call _recursiveAddActionToClass;
 		
 		{
-			_drug = [format["xms2_limb_%1_drugs_%2", _limb, _x select 0], _x select 1, if(_x select 2 == "") then {"\z\ace\addons\common\UI\blank_CO.paa"} else {_x select 2}, {[_forEachIndex] call X39_MS2_fnc_MedicalUi_DrugsFrame_applyDrug}, _x select 3] call ACE_interact_menu_fnc_createAction;
+			_drug = [format["xms2_limb_%1_drugs_%2", _limb, _x select 0], _x select 1, if(_x select 2 == "") then {"\z\ace\addons\common\UI\blank_CO.paa"} else {_x select 2}, compile format["[%1] call X39_MS2_fnc_MedicalUi_DrugsFrame_applyDrug", _forEachIndex], _x select 3, {}, _limb] call ACE_interact_menu_fnc_createAction;
 			["CAManBase", 1, ["ACE_SelfActions", format["xms2_limb_%1", _limb], format["xms2_limb_%1_drugs", _limb]], _drugUsability] call _recursiveAddActionToClass;
 			["CAManBase", 0, ["ACE_MainActions", format["xms2_limb_%1", _limb], format["xms2_limb_%1_drugs", _limb]], _drugUsability] call _recursiveAddActionToClass;
 		} foreach X39_MS2_var_Internal_MedicalUi_RegisteredDrugs;
+		
+		//Add actions to the limbs
+		_drugUsability = [format["xms2_limb_%1_actions", _limb], "Actions", "\z\ace\addons\common\UI\blank_CO.paa", {}, {true}] call ACE_interact_menu_fnc_createAction;
+		["CAManBase", 1, ["ACE_SelfActions", format["xms2_limb_%1", _limb]], _drugUsability] call _recursiveAddActionToClass;
+		["CAManBase", 0, ["ACE_MainActions", format["xms2_limb_%1", _limb]], _drugUsability] call _recursiveAddActionToClass;
+		
+		{
+			_isAllowedToUseResult = [X39_MS2_var_Internal_DialogCommunication_MA_Caller, _x select 5] call X39_MS2_fnc_ls_isAllowedToUse;
+			_drug = [format["xms2_limb_%1_action_%2", _limb, _x select 0], localize (_x select 1), if(_x select 2 == "") then {"\z\ace\addons\common\UI\blank_CO.paa"} else {_x select 2}, compile format["
+								if(!(X39_MS2_var_Internal_MedicalActions_actionArray select %4 select 7)) then
+								{
+									X39_MS2_var_Internal_DialogCommunication_MA_preventActions = true;
+									X39_XLib_var_ActionDialog_preventMenuOpening = true;
+								};
+								_res = [] spawn {
+									X39_MS2_var_Internal_Handles_ActionHandle = _this spawn {
+										private['_timeout'];
+										_timeout = [] call (X39_MS2_var_Internal_MedicalActions_actionArray select %4 select 6);
+										if(_timeout > 0) then
+										{
+											if(vehicle X39_MS2_var_Internal_DialogCommunication_MA_Caller == X39_MS2_var_Internal_DialogCommunication_MA_Caller) then
+											{
+												[
+													X39_MS2_var_Internal_DialogCommunication_MA_Caller,
+													['ainvpknlmstpsnonwrfldnon_medic', 'ainvpknlmstpsnonwrfldnon_medic0s', 'ainvpknlmstpsnonwrfldnon_ainvpknlmstpsnonwrfldnon_medic'],
+													['ainvpknlmstpsnonwrfldnon_medicend'],
+													{
+														terminate X39_MS2_var_Internal_Handles_ActionHandle;
+														if(!(X39_MS2_var_Internal_MedicalActions_actionArray select %4 select 7)) then
+														{
+															X39_MS2_var_Internal_DialogCommunication_MA_preventActions = false;
+															X39_XLib_var_ActionDialog_preventMenuOpening = false;
+														};
+														[] call X39_MS2_fnc_clearProgressBarTimeout;
+														[] call X39_MS2_fnc_clearAnimationLock;
+													},
+													{
+														if(vehicle (_this select 1 select 0) == (_this select 1 select 0)) then
+														{
+															(_this select 1 select 0) playAction 'MedicStart';
+														};
+														[_this select 1 select 2] call X39_MS2_fnc_setProgressBarTimeout;
+													},
+													[X39_MS2_var_Internal_DialogCommunication_MA_Caller, X39_MS2_var_Internal_DialogCommunication_MA_Target, _timeout]
+												] call X39_MS2_fnc_setAnimationLock;
+											};
+											uiSleep _timeout;
+											if(vehicle X39_MS2_var_Internal_DialogCommunication_MA_Caller == X39_MS2_var_Internal_DialogCommunication_MA_Caller) then
+											{
+												X39_MS2_var_Internal_DialogCommunication_MA_Caller playAction 'MedicStop';
+											};
+										};
+										[X39_MS2_var_Internal_DialogCommunication_MA_Caller, X39_MS2_var_Internal_DialogCommunication_MA_Target, %1, %5] call (X39_MS2_var_Internal_MedicalActions_actionArray select %4 select 4);
+										if(!(X39_MS2_var_Internal_MedicalActions_actionArray select %4 select 7)) then
+										{
+											X39_MS2_var_Internal_DialogCommunication_MA_preventActions = false;
+											X39_XLib_var_ActionDialog_preventMenuOpening = false;
+										};
+									};
+								};" , str _limb, nil, MEDICALUI_ANIMATIONTIME, _forEachIndex, _isAllowedToUseResult select 1], _x select 3, {}, _limb] call ACE_interact_menu_fnc_createAction;
+			["CAManBase", 1, ["ACE_SelfActions", format["xms2_limb_%1", _limb], format["xms2_limb_%1_actions", _limb]], _drugUsability] call _recursiveAddActionToClass;
+			["CAManBase", 0, ["ACE_MainActions", format["xms2_limb_%1", _limb], format["xms2_limb_%1_actions", _limb]], _drugUsability] call _recursiveAddActionToClass;
+		} foreach X39_MS2_var_Internal_MedicalActions_actionArray;
 		false
 	} count [
 		stringify(HITZONE_Head),
