@@ -91,7 +91,7 @@ if(!([_unit] call X39_MS2_fnc_hasFlatLine)) then
 	{
 		_pulseChange = _pulseChange + (X39_MS2_var_Heart_basePulseChangePerTick * _stage);
 	};
-	if(X39_MS2_var_Heart_useFatigueForHeartCalculations) then
+	if(X39_MS2_var_Heart_usePlayerLoad) then
 	{
 		_normalizedWeight = (loadAbs _unit) / X39_MS2_var_Heart_playerLoad_normalizeBase;
 		_pulseChange = _pulseChange * (X39_MS2_var_Heart_playerLoad_effectStrengthMultiplicator * _normalizedWeight)
