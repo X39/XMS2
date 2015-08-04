@@ -13,7 +13,7 @@ params [
 	["_localizationString", "", [""]],
 	["_colorArray", [1,1,1,1], [[]], [4]],
 	["_conditionCode", {true}, [{}]],
-	["_presentAtCheckDepth", 0, [0]],
+	["_presentAtCheckDepth", 0, [0]]
 ];
 
 (X39_MS2_var_Internal_MedicalMessages pushBack [

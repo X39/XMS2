@@ -5,7 +5,7 @@
  *	@Param1 - OBJECT - Unit to check
  *	@Return - BOOL
  */
-params[["_unit", objNullm [objNull]]];
+params[["_unit", objNull, [objNull]]];
 
 if(isNull _unit) exitWith { false };
 (_unit getVariable ["X39_MS2_var_UnitInitialized", false])

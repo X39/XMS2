@@ -52,7 +52,7 @@ if (
 										((uiNamespace getVariable 'X39_MS2_var_UIs_MedicalUi') displayCtrl (_x)) ctrlCommit (%3 / (count X39_MS2_var_Internal_Dialog_TriageCard_States));
 										uiSleep (%3 / (count X39_MS2_var_Internal_Dialog_TriageCard_States));
 										((uiNamespace getVariable 'X39_MS2_var_UIs_MedicalUi') displayCtrl (_x)) ctrlShow false;
-										true
+										false
 									}count %2;
 									X39_MS2_var_Internal_Handles_ActionHandle = _this spawn {
 										private['_timeout'];
