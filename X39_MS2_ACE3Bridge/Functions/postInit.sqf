@@ -88,13 +88,12 @@
 	}] call ACE_interact_menu_fnc_createAction;
 	["CAManBase", 1, ["ACE_SelfActions"], _ace_Interaction] call _recursiveAddActionToClass;
 	["CAManBase", 0, ["ACE_MainActions"], _ace_Interaction] call _recursiveAddActionToClass;
-	
 	{
 		_ID = format["xms2_interaction%1", _forEachIndex];
 		_displayText = _x select 0;
 		_image = _x select 1; if(_image == "") then {_image = "\z\ace\addons\common\UI\blank_CO.paa";};
-		_execCode = _this select 2;
-		_condition = _this select 3;
+		_execCode = _x select 2;
+		_condition = _x select 3;
 		_action = [_ID, _displayText, _image, _execCode, _condition] call ACE_interact_menu_fnc_createAction;
 		["CAManBase", 1, ["ACE_SelfActions", "xms2_Interaction"], _action] call _recursiveAddActionToClass;
 		["CAManBase", 0, ["ACE_MainActions", "xms2_Interaction"], _action] call _recursiveAddActionToClass;
