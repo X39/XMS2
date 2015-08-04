@@ -366,7 +366,7 @@ _this spawn {
 		DEBUG_LOG_WFn_SC("Updating drug list...")
 		_arr = [];
 		{
-			if([_x select 6, X39_MS2_var_Internal_DialogCommunication_MA_Caller, X39_MS2_var_Internal_DialogCommunication_MA_Target] call (_x select 4)) then
+			if([X39_MS2_var_Internal_DialogCommunication_MA_Target, X39_MS2_var_Internal_DialogCommunication_MA_Caller, _x select 6] call (_x select 4)) then
 			{
 				DEBUG_LOG_WFn_SC(format["'%1's conditions return true, adding to list" COMMA _x select 0])
 				_arr pushBack _forEachIndex;
