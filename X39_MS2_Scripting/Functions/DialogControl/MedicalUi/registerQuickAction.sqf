@@ -15,6 +15,7 @@
  *	@Param7		- CODE			- Execution code
  *											[CustomArgs:ANY, TargetUnit:OBJECT, ExecutingUnit:OBJECT]
  *	@Param8		- ANY			- Custom Arguments
+ *	@Param9		- BOOL			- Show this quickAction in medical menu (used for ACE3 integration)
  *	@Return		- NA
  *	
  *	@Author - X39|Cpt. HM Murdock
@@ -27,7 +28,8 @@ params [
 	["_codeRequiredItems", {0}, [{}]],
 	["_codeCondition", {false}, [{}]],
 	["_codeExecute", {}, [{}]],
-	"_customArguments"
+	"_customArguments",
+	["_showInMedicalMenu", true, [true]]
 ];
 if(ISCODE(_displayName)) then { _displayName = [] call compile _displayName; };
 if(ISCODE(_description)) then { _description = [] call compile _description; };
@@ -39,5 +41,6 @@ X39_MS2_var_Internal_MedicalUi_QuickActions pushBack [
 																_codeCondition,		//4
 																_codeExecute,			//5
 																_customArguments,		//6
-																_codeRequiredItems	//7
+																_codeRequiredItems,	//7
+																_showInMedicalMenu	//8
 															  ];
