@@ -108,7 +108,7 @@
 
 	//Add drug usability to the limbs
 	_drugBase = [
-		"xms2_limb_drugs",
+		"xms2_drugs",
 		"Drugs",
 		"",
 		{nil},
@@ -126,7 +126,7 @@
 	
 	//Add QuickActions to the limbs
 	_quickActionBase = [
-		"xms2_limb_quickActions",
+		"xms2_quickActions",
 		"QuickActions",
 		"",
 		{nil},
@@ -144,7 +144,7 @@
 	
 	
 	private["_ace_limb_self", "_ace_limb_other", "_limb"];
-	_limb = _x;
+	//_limb = _x;
 	////Add the hitzone to ACE3 interact_menu
 	//_ace_limb = [format["xms2_limb_%1", _limb], _limb, "", {}, {true}, {
 	//	X39_XLib_var_ActionDialog_Executor = _this select 1;
@@ -159,21 +159,21 @@
 	//Add drug usability to the limbs
 	{
 		_drug = [
-			format["xms2_limb_%1_drugs_%2", _limb, _x select 0],
+			format["xms2__drugs_%1", _x select 0],
 			_x select 1,
 			_x select 2,
 			compile format["[%1] call X39_MS2_fnc_MedicalUi_DrugsFrame_applyDrug", _forEachIndex],
 			_x select 3,
 			{}
 		] call ACE_interact_menu_fnc_createAction;
-		["CAManBase", 1, ["ACE_SelfActions", "xms2_limb_drugs"], _drug] call _recursiveAddActionToClass;
-		["CAManBase", 0, ["ACE_MainActions", "xms2_limb_drugs"], _drug] call _recursiveAddActionToClass;
+		["CAManBase", 1, ["ACE_SelfActions", "xms2_drugs"], _drug] call _recursiveAddActionToClass;
+		["CAManBase", 0, ["ACE_MainActions", "xms2_drugs"], _drug] call _recursiveAddActionToClass;
 	} foreach X39_MS2_var_Internal_MedicalUi_RegisteredDrugs;
 	
 	//Add QuickActions to the limbs
 	{
 		_quickAction = [
-			format["xms2_limb_%1_quickAction_%2", _limb, _forEachIndex],
+			format["xms2_quickAction_%1", _forEachIndex],
 			_x select 0,
 			_x select 2,
 			compile format["[%1, X39_MS2_var_Internal_DialogCommunication_MA_Target, X39_MS2_var_Internal_DialogCommunication_MA_Caller] call (_quickAction select 5);", _forEachIndex, _x select 6],
@@ -181,8 +181,8 @@
 			{},
 			_x select 6
 		] call ACE_interact_menu_fnc_createAction;
-		["CAManBase", 1, ["ACE_SelfActions", "xms2_limb_quickActions"], _quickAction] call _recursiveAddActionToClass;
-		["CAManBase", 0, ["ACE_MainActions", "xms2_limb_quickActions"], _quickAction] call _recursiveAddActionToClass;
+		["CAManBase", 1, ["ACE_SelfActions", "xms2_quickActions"], _quickAction] call _recursiveAddActionToClass;
+		["CAManBase", 0, ["ACE_MainActions", "xms2_quickActions"], _quickAction] call _recursiveAddActionToClass;
 	} foreach X39_MS2_var_Internal_MedicalUi_QuickActions;
 	false
 };
