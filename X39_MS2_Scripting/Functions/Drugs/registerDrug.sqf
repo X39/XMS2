@@ -31,16 +31,14 @@ params [
 ];
 
 if(_localizedString == "")	exitWith {PRINT_ERROR("MedicalActions NEEDS a localized string!");};
-if(_image == "")			exitWith {PRINT_ERROR("MedicalActions NEEDS an image!");};
-_index = count X39_MS2_var_Internal_MedicalUi_RegisteredDrugs;
-X39_MS2_var_Internal_MedicalUi_RegisteredDrugs set [_index, [
-														toUpper _id,		//0
-														_localizedString,	//1
+if(_image == "")				exitWith {PRINT_ERROR("MedicalActions NEEDS an image!");};
+(X39_MS2_var_Internal_MedicalUi_RegisteredDrugs pushBack [
+														toUpper _id,			//0
+														_localizedString,		//1
 														_image,				//2
 														_condition,			//3
 														_executionCode,		//4
-														_acceptCode,		//5
+														_acceptCode,			//5
 														_abortCode,			//6
-														_limitationID		//7
-													]];
-_index
+														_limitationID			//7
+													])
