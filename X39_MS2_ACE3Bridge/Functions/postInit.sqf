@@ -159,8 +159,8 @@
 	//Add drug usability to the limbs
 	{
 		_drug = [
-			format["xms2__drugs_%1", _x select 0],
-			_x select 1,
+			format["xms2_drugs_%1", _x select 0],
+			localize (_x select 1),
 			_x select 2,
 			compile format["[%1] call X39_MS2_fnc_MedicalUi_DrugsFrame_applyDrug", _forEachIndex],
 			_x select 3,
