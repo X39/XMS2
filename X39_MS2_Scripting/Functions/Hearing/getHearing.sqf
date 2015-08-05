@@ -6,8 +6,6 @@
  * @Param1 - OBJECT - XMS Unit to handle
  * @Return - SCALAR
  */
-(_this select 0) getVariable ["X39_MS2_var_Hearing_value", -1];
-
 private "_hearingAbility";
 params ["_unit"];
 _hearingAbility = _unit getVariable ["X39_MS2_var_Hearing_value", 0];

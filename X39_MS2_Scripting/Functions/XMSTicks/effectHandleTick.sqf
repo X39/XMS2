@@ -17,6 +17,7 @@
  *	@Param2 - SCALAR - HandleID
  *	@Return - NA
  */
+MT_START
 private["_unit", "_handleID", "_effectArray"];
 _unit = _this select 0;
 _handleID = _this select 1;
@@ -49,3 +50,5 @@ if(	{
 {
 	_unit setVariable["X39_MS2_var_Internal_XMSEffects", _effectArray];
 };
+MT_END
+MT_DEBUG(_times pushBack [_fnc_scriptName COMMA MT_TIME])

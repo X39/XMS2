@@ -21,6 +21,7 @@
  *	@Param2 - SCALAR - HandleID
  *	@Return - NA
  */
+MT_START
 if(!X39_MS2_var_Feature_EnableHearing) exitWith { };
 private["_unit", "_hearing", "_hearingCALC"];
 _unit = _this select 0;
@@ -37,7 +38,6 @@ else
 if(X39_MS2_var_Hearing_allowMusicChange) then {0.1 fadeMusic _hearingCALC;};
 if(X39_MS2_var_Hearing_allowSoundChange) then {0.1 fadeSound _hearingCALC;};
 if(X39_MS2_var_Hearing_allowRadioChange) then {0.1 fadeRadio _hearingCALC;};
-
 //TFAR related variable:
 //Global volume of radio and voice (level of ears health  ) [default value = 1.0]
 _unit setVariable ["tf_globalVolume", _hearingCALC];
@@ -47,3 +47,5 @@ _unit setVariable ["tf_globalVolume", _hearingCALC];
 //	playSound ["X39_Sounds_earRingingSoundLoop_1s", true];
 //};
 [_unit, X39_MS2_var_Hearing_curePerTick] call X39_MS2_fnc_addHearing;
+MT_END
+MT_DEBUG(_times pushBack [_fnc_scriptName COMMA MT_TIME])

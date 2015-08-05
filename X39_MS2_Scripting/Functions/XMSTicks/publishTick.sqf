@@ -17,6 +17,7 @@
  *	@Param2 - SCALAR - HandleID
  *	@Return - NA
  */
+MT_START
 _this spawn {
 	private["_unit", "_handleID","_value"];
 	DEBUG_CODE(;_fnc_scriptName = "X39_MS2_fnc_publishTick");
@@ -93,3 +94,5 @@ _this spawn {
 
 	_unit setVariable["X39_MS2_var_Internal_lastValues", _lastValues, false];
 };
+MT_END
+MT_DEBUG(_times pushBack [_fnc_scriptName COMMA MT_TIME])

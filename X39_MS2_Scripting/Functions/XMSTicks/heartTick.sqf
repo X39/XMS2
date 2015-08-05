@@ -17,6 +17,7 @@
  *	@Param2 - SCALAR - HandleID
  *	@Return - NA
  */
+MT_START
 if(!X39_MS2_var_Heart_enableHeartSimulation) exitWith {};
 
 private["_unit", "_handleID", "_fatigue", "_newPulse", "_stage", "_pulseChange", "_adrenalineChange", "_pulseCurrent", "_adrenalineCurrent", "_speed", "_cprCount"];
@@ -220,3 +221,5 @@ if(!([_unit] call X39_MS2_fnc_hasFlatLine)) then
 		};
 	};
 };
+MT_END
+MT_DEBUG(_times pushBack [_fnc_scriptName COMMA MT_TIME])

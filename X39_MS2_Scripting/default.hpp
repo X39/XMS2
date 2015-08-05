@@ -59,6 +59,9 @@ else \
 	#ifndef DEBUG
 		#define DEBUG
 	#endif
+	#ifndef MT_ENABLE
+		#define MT_ENABLE
+	#endif
 	
 	#define getFnc(PARTA, PARTB) PARTA##PARTB
 	#define stringify(X) #X
@@ -76,6 +79,7 @@ else \
 		#define DEBUG_CODE_INV(X) X
 		#define DEBUG_CODE_SC(X)
 		#define DEBUG_CODE_INV_SC(X) X;
+		
 	
 		//#define PRINT_ERROR(TXT) diag_log format["%1|%2 ERROR: %3", diag_tickTime, time, TXT]
 		//#define PRINT_WARNING(TXT) diag_log format["%1|%2 WARNING: %3", diag_tickTime, time, TXT]
@@ -88,11 +92,23 @@ else \
 		#define DEBUG_CODE(X) X
 		#define DEBUG_CODE_INV(X)
 		#define DEBUG_CODE_SC(X) X;
-		#define DEBUG_CODE_INV_SC(X) X;
+		#define DEBUG_CODE_INV_SC(X)
 	
 		//#define PRINT_ERROR(TXT) diag_log format["%1|%2 ERROR: %3", diag_tickTime, time, TXT]; systemChat format["%1|%2 ERROR: %3", diag_tickTime, time, TXT]
 		//#define PRINT_WARNING(TXT) diag_log format["%1|%2 WARNING: %3", diag_tickTime, time, TXT]; systemChat format["%1|%2 WARNING: %3", diag_tickTime, time, TXT]
 		//#define PRINT_INFO(TXT) diag_log format["%1|%2 INFO: %3", diag_tickTime, time, TXT]; systemChat format["%1|%2 INFO: %3", diag_tickTime, time, TXT]
+	#endif
+	
+	#ifndef MT_ENABLE
+		#define MT_START
+		#define MT_END
+		#define MT_TIME
+		#define MT_DEBUG(X)
+	#else
+		#define MT_START private "_MT_VAR"; _MT_VAR = diag_tickTime;
+		#define MT_END private "_MT_VAR"; _MT_VAR = diag_tickTime - _MT_VAR;
+		#define MT_TIME _MT_VAR
+		#define MT_DEBUG(X) X
 	#endif
 	#define assignValue3(NAM,VAL,NAMESPACE) DEBUG_LOG_SC(SINGLEQUOTATIONMARK defining variable NAM with value VAL SINGLEQUOTATIONMARK) if(isNil {NAMESPACE getVariable NAM}) then { NAMESPACE setVariable [NAM, VAL]; } else { PRINT_WARNING(format["%1 is already set, JIP player?" COMMA VAL]); }
 	#define assignValue(NAM,VAL) assignValue3(NAM,VAL,missionNamespace)
@@ -103,7 +119,6 @@ else \
 	#else
 		DEBUG_LOG_SC(format["%3: %1 call %2" COMMA _this COMMA _fnc_scriptName COMMA diag_tickTime])
 	#endif
-	
 //#endif
 
 #include "\X39_MS2_Scripting\Functions\HitZones\hitZones.hpp"
