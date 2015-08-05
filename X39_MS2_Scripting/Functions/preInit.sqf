@@ -20,8 +20,8 @@
 
 //ArmA3 HitZone names
 
-												//	 HITZONE_NAME						COMMA	HITZONE_Size	COMMA	HITZONE_HasAterie	COMMA HITZONE_MedicalUiIdc				COMMA	HITZONE_CommonName	
-												//	 HitZone name						COMMA	~size			COMMA	hasAterie			COMMA MedicalUi IDC						COMMA	Common name			
+												//	 HITZONE_NAME						COMMA	HITZONE_Size	COMMA	HITZONE_HasAterie	COMMA HITZONE_MedicalUiIdc				COMMA	HITZONE_CommonName
+												//	 HitZone name						COMMA	~size			COMMA	hasAterie			COMMA MedicalUi IDC						COMMA	Common name
 assignValue("X39_MS2_var_Internal_HitZones", 	[
 													[stringify(HITZONE_Head)			COMMA	1				COMMA	false				COMMA	IDC_MEDICALUI_IMG_HEAD			COMMA	localize "STR_X39_MS2_Scripting_Hitzones_CommonNames_Head"				] COMMA
 													[stringify(HITZONE_LeftLowerArm)	COMMA	2				COMMA	true				COMMA	IDC_MEDICALUI_IMG_LEFTLOWERARM	COMMA	localize "STR_X39_MS2_Scripting_Hitzones_CommonNames_LeftLowerArm"		] COMMA
@@ -274,6 +274,8 @@ assignValue("X39_MS2_var_Damage_DeathTime", 600);
 assignValue("X39_MS2_var_Damage_ExplosionModificator", 2.0);
 assignValue("X39_MS2_var_Damage_GlobalModificator", 1.0);
 
+//Modificators for falldmg
+{ assignValue(format["X39_MS2_var_FallDamage_%1Modificator" COMMA _x select HITZONE_NAME], 1.5); false }count X39_MS2_var_Internal_HitZones;
 
 /*********************
 * CATEGORY: BLEEDING *
@@ -352,12 +354,12 @@ assignValue("X39_MS2_var_Hearing_GlobalModificator", 1.0);
 
 	//Drug specification
 	assignValue("X39_MS2_var_Drugs_Morphine_ChangeOnConsume", 5);
-	
+
 //Adrenaline
 	//Enable/Disable Related features
 	assignValue("X39_MS2_var_Drugs_Adrenaline_useForPain", true);
 	assignValue("X39_MS2_var_Drugs_Adrenaline_useForHeartCalculations", true);
-	
+
 	//Dynamic definitions
 	assignValue("X39_MS2_var_Drugs_Adrenaline_PainCureValueP", 1.0);
 	assignValue("X39_MS2_var_Drugs_Adrenaline_PainMinForFullCureP", 1.0);
@@ -366,24 +368,24 @@ assignValue("X39_MS2_var_Hearing_GlobalModificator", 1.0);
 	assignValue("X39_MS2_var_Drugs_Adrenaline_reductionPerTick", 0.02);
 	assignValue("X39_MS2_var_Drugs_Adrenaline_AdrenalineAddedThroughShooting", 0.035);
 	assignValue("X39_MS2_var_Drugs_Adrenaline_AdrenalinePulseRagePointP", 0.7);
-	
+
 	//Modificators
 	assignValue("X39_MS2_var_Drugs_Adrenaline_AdrenalineGlobalMultiplicator", 1);
 	assignValue("X39_MS2_var_Drugs_Adrenaline_AdrenalinePulseMultiplicator", 1);
-	
+
 	//Drug specification
 	assignValue("X39_MS2_var_Drugs_Adrenaline_AdrenalineChangeOnConsume", 5);
-	
+
 //Naloxone
 	//Enable/Disable Related features
 	assignValue("X39_MS2_var_Drugs_Naloxone_hasImpactOnMorphine", true);
 	assignValue("X39_MS2_var_Drugs_Naloxone_allowWakeUnconscious", true);
-	
+
 	//Dynamic definitions
 	assignValue("X39_MS2_var_Drugs_Naloxone_maxNaloxone", 10);
 	assignValue("X39_MS2_var_Drugs_Naloxone_reductionPerTick", 0.001);
 	assignValue("X39_MS2_var_Drugs_Naloxone_wakeBlackedPersonValueP", 0.4);
-	
+
 	//Modificators
 	assignValue("X39_MS2_var_Drugs_Naloxone_NaloxoneGlobalMultiplicator", 1);
 	assignValue("X39_MS2_var_Drugs_Naloxone_MorphineImpactMultiplicator", 8);
@@ -395,13 +397,13 @@ assignValue("X39_MS2_var_Hearing_GlobalModificator", 1.0);
 	//Enable/Disable Related features
 	assignValue("X39_MS2_var_Drugs_Aspirin_hasImpactOnBloodClotting", true);
 	assignValue("X39_MS2_var_Drugs_Aspirin_useForPain", true);
-	
+
 	//Dynamic definitions
 	assignValue("X39_MS2_var_Drugs_Aspirin_PainMinForFullCureP", 1.0);
 	assignValue("X39_MS2_var_Drugs_Aspirin_PainCureValueP", 0.75);
 	assignValue("X39_MS2_var_Drugs_Aspirin_maxAspirin", 10);
 	assignValue("X39_MS2_var_Drugs_Aspirin_reductionPerTick", 0.001);
-	
+
 	//Modificators
 	assignValue("X39_MS2_var_Drugs_Aspirin_GlobalAspirinModificator", 1);
 
@@ -597,9 +599,9 @@ assignValue("X39_MS2_var_Feature_EnableNaloxone", true);
 assignValue("X39_MS2_var_Feature_EnableAspirin", true);
 //Enables the simple hit marker
 assignValue("X39_MS2_var_Feature_SimpleHitMarker", true);
-//Enables the replacement of items in inventory 
+//Enables the replacement of items in inventory
 assignValue("X39_MS2_var_Feature_ReplaceItemsOnInventoryJoin", true);
-//Enables the random appearance of hallucinations 
+//Enables the random appearance of hallucinations
 assignValue("X39_MS2_var_Feature_Hallucinations", true);
 
 /**********************

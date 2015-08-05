@@ -59,7 +59,7 @@ _handle = _this spawn {
 		//set triggers
 		if((_unit getVariable ["X39_MS2_var_EH_HandleDamage", -1]) == -1) then {
 			 _unit setVariable["X39_MS2_var_EH_HandleDamage",
-				_unit addEventHandler["handleDamage", [_this select 0, _this select 3] call X39_MS2_fnc_cb_HandleDamage],
+				_unit addEventHandler["HandleDamage", X39_MS2_fnc_cb_HandleDamage],
 			false];
 		};
 		if((_unit getVariable ["X39_MS2_var_EH_FiredNear", -1]) == -1)			then { _unit setVariable["X39_MS2_var_EH_FiredNear",		_unit addEventHandler["FiredNear",			X39_MS2_fnc_cb_FiredNear		], false];};

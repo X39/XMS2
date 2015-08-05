@@ -9,17 +9,30 @@
  *	@Return - SCALAR - New damage value (always 0)
  */
 
-private ['_unit', '_lvlOfDmg'];
+private ['_addTo', '_unit'];
 
+_addToLegs = ["leftfeet", "rightfeet", "leftleg", "rightleg", "leftupleg", "rightupleg"];
+_addToBody = [];
 _unit = _this select 0;
-_lvlOfDmg = _this select 3;
+_damage = _this select 2;
 
-hint "Test!":
+//Check for fall damag
+if((_this select 4) == "") then {
 
-//This will check if the player getting fall damag
-systemChat "Called!"
-systemChat format ["%1", _unit];
-systemChat format ["%1", _lvlOfDmg];
+	//At the moment I ignore the vehicle part
+	//Just add the damage to the legs because after 1000 logs it adds only dmg to the legs why ever
+	if((_this select 1) == "legs") then {
+
+		//Calc the dmg for the parts
+		{
+			_currentDamage = _damage * (missionNamespace getVariable format["X39_MS2_var_FallDamage_%1Modificator", _x]);
+			[_unit, _currentDamage] call (missionNamespace getVariable format["X39_MS2_fnc_addDamageTo%1", _x]);
+		} forEach _addToLegs;
+
+
+	};
+
+};
 
 //Keep player at 0 ArmA damage to make custom damage system handling possible
 0
