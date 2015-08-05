@@ -21,6 +21,7 @@
  *	@Param2 - SCALAR - HandleID
  *	@Return - NA
  */
+MT_START
 if(!X39_MS2_var_Feature_Hallucinations) exitWith {};
 private["_unit"];
 _unit = _this select 0;
@@ -46,3 +47,5 @@ if(scriptDone X39_MS2_var_Internal_Handles_HallucinationHandle) then
 		};
 	};
 };
+MT_END
+MT_DEBUG(_times pushBack [_fnc_scriptName COMMA MT_TIME])

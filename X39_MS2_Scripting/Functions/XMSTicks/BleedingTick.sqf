@@ -17,6 +17,7 @@
  *	@Param2 - SCALAR - HandleID
  *	@Return - NA
  */
+MT_START
 if(!X39_MS2_var_Feature_EnableBlood) exitWith {};
 private["_unit", "_handleID", "_bloodP", "_bloodPresure"];
 _unit = _this select 0;
@@ -66,3 +67,5 @@ if(X39_MS2_var_Bleeding_EnableBloodPresureForBleedingTick) then
 		};
 	};
 };
+MT_END
+MT_DEBUG(_times pushBack [_fnc_scriptName COMMA MT_TIME])

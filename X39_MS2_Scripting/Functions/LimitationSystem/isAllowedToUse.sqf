@@ -27,18 +27,18 @@ if(ISOBJECT(_input)) then
 		_input = typeOf _input;
 	};
 };
-if(ISSTRING(_input) && {_input == ""}) exitWith {PRINT_ERROR("Please provide a valid input for checking");};
+if(ISSTRING(_input) && {_input == ""}) exitWith {PRINT_ERROR("Please provide a valid input for checking"); [true, 1]};
 //In case _input was an object: If no limitation class was located on the given Object
 //try to find a limitation class id using the classname
 if(_limitationClassId == -1) then
 {
+	scopeName "out_1";
 	{
-		scopeName "out_1";
 		if(_input in (_x select 0)) then
 		{
 			if(!(_limitation in (_x select 1))) exitWith {};
 			_limitationClassId = _forEachIndex;
-			breakOut "out_1";
+			breakTo "out_1";
 		};
 	}forEach X39_MS2_var_Internal_LimitationSystem_Structure;
 };

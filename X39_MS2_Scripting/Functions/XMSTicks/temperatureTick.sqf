@@ -17,6 +17,7 @@
  *	@Param2 - SCALAR - HandleID
  *	@Return - NA
  */
+MT_START
 if(!X39_MS2_var_Feature_EnableTemperature) exitWith {DEBUG_LOG("As X39_MS2_var_Feature_EnableTemperature is false the temperatureTick is skipped");};
 private["_unit", "_handleID", "_currentTemperature", "_temperatureChange", "_calcValue", "_firePlaces"];
 _unit = _this select 0;
@@ -176,3 +177,5 @@ if(_currentTemperature <= X39_MS2_var_Temperature_forceWalkAtTemperature) then
 {
 	_unit setVariable["X39_MS2_var_Internal_Ticker_cfnForceWalk", (_unit getVariable "X39_MS2_var_Internal_Ticker_cfnForceWalk") + 1];
 };
+MT_END
+MT_DEBUG(_times pushBack [_fnc_scriptName COMMA MT_TIME])

@@ -21,8 +21,11 @@
  *	@Param2 - SCALAR - HandleID
  *	@Return - NA
  */
+MT_START
 if(X39_MS2_var_special_DisableTimeIntensiveCallsTick) exitWith {};
 private["_unit", "_handleID"];
 _unit = _this select 0;
 
 _unit spawn {_this setVariable["X39_MS2_var_isUnitInOpenArea", [_this, 15, 2.5] call X39_XLib_fnc_isUnitInOpenArea]};
+MT_END
+MT_DEBUG(_times pushBack [_fnc_scriptName COMMA MT_TIME])

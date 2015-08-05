@@ -1,3 +1,7 @@
+class Hooks
+{
+	class addActionToInteractionMenu:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\addActionToInteractionMenu.sqf";};
+};
 class General //Functions without any categoriy
 {
 	class initUnit:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\initUnit.sqf";};

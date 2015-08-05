@@ -58,10 +58,10 @@ _handle = _this spawn {
 		}count X39_MS2_var_Internal_UnitVariables;
 		//set triggers
 		if((_unit getVariable ["X39_MS2_var_EH_HandleDamage", -1]) == -1)		then { _unit setVariable["X39_MS2_var_EH_HandleDamage",		_unit addEventHandler["HandleDamage",		X39_MS2_fnc_cb_HandleDamage		], false];};
-		if((_unit getVariable ["X39_MS2_var_EH_FiredNear", -1]) == -1)			then { _unit setVariable["X39_MS2_var_EH_FiredNear",		_unit addEventHandler["FiredNear",			X39_MS2_fnc_cb_FiredNear		], false];};
-		if((_unit getVariable ["X39_MS2_var_EH_Explosion", -1]) == -1)			then { _unit setVariable["X39_MS2_var_EH_Explosion",		_unit addEventHandler["Explosion",			X39_MS2_fnc_cb_Explosion		], false];};
+		if((_unit getVariable ["X39_MS2_var_EH_FiredNear", -1]) == -1)			then { _unit setVariable["X39_MS2_var_EH_FiredNear",			_unit addEventHandler["FiredNear",			X39_MS2_fnc_cb_FiredNear			], false];};
+		if((_unit getVariable ["X39_MS2_var_EH_Explosion", -1]) == -1)			then { _unit setVariable["X39_MS2_var_EH_Explosion",			_unit addEventHandler["Explosion",			X39_MS2_fnc_cb_Explosion			], false];};
 		if((_unit getVariable ["X39_MS2_var_EH_AnimStateChanged", -1]) == -1)	then { _unit setVariable["X39_MS2_var_EH_AnimStateChanged",	_unit addEventHandler["AnimStateChanged",	X39_MS2_fnc_cb_AnimStateChanged	], false];};
-		if((_unit getVariable ["X39_MS2_var_EH_Respawn", -1]) == -1)			then { _unit setVariable["X39_MS2_var_EH_Respawn",			_unit addEventHandler["Respawn",			X39_MS2_fnc_cb_Respawn			], false];};
+		if((_unit getVariable ["X39_MS2_var_EH_Respawn", -1]) == -1)			then { _unit setVariable["X39_MS2_var_EH_Respawn",			_unit addEventHandler["Respawn",				X39_MS2_fnc_cb_Respawn			], false];};
 		
 		DEBUG_LOG_WFn_SC(format["X39_MS2_var_EH_HandleDamage = %1" COMMA (_unit getVariable ["X39_MS2_var_EH_HandleDamage" COMMA "NA"])])
 		DEBUG_LOG_WFn_SC(format["X39_MS2_var_EH_FiredNear = %1" COMMA (_unit getVariable ["X39_MS2_var_EH_FiredNear" COMMA "NA"])])
@@ -70,7 +70,8 @@ _handle = _this spawn {
 		DEBUG_LOG_WFn_SC(format["X39_MS2_var_EH_Respawn = %1" COMMA (_unit getVariable ["X39_MS2_var_EH_Respawn" COMMA "NA"])])
 		
 		_unit setVariable ["X39_MS2_var_UnitInitialized", true];
-		[_unit, "X39_MS2_fnc_runTicker", _unit, false] spawn BIS_fnc_MP;
+		//_unit spawn X39_MS2_fnc_runTicker;
+		[_unit, X39_MS2_fnc_runTicker] execFSM "\X39_MS2_Scripting\callCode.fsm";
 		sendMessageToServer(MSG_ADDXMS2UNITTOUNITARRAY, _unit);
 	};
 	//Initialize ppEffects if current entity hasInterface and they are -1

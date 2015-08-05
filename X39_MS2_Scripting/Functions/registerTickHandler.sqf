@@ -18,7 +18,7 @@ scopeName "function";
 params [
 	["_handler", "", [{}, "", text ""]],
 	["_tickRate", 1, [1]],
-	["_mode", "", 2, [1]]
+	["_mode", "", 3, [1]]
 ];
 if(typeName _handler == "STRING" || typeName _handler == "TEXT") then
 {

@@ -19,6 +19,7 @@
  *	@Param2 - SCALAR - HandleID
  *	@Return - NA
  */
+MT_START
 private["_unit"];
 _unit = _this select 0;
 if(X39_MS2_var_Feature_EnableAdrenaline) then {
@@ -121,3 +122,5 @@ if(X39_MS2_var_Feature_EnableNaloxone) then {
 if(X39_MS2_var_Feature_EnableAspirin) then {
 	[_unit, -X39_MS2_var_Drugs_Aspirin_ReductionPerTick] call X39_MS2_fnc_addAspirin;
 };
+MT_END
+MT_DEBUG(_times pushBack [_fnc_scriptName COMMA MT_TIME])

@@ -21,6 +21,7 @@
  *	@Param2 - SCALAR - HandleID
  *	@Return - NA
  */
+MT_START
 private["_unit", "_handleID"];
 _unit = _this select 0;
 
@@ -35,3 +36,5 @@ _unit setVariable["X39_MS2_var_Internal_Ticker_ppeWetDisort_RightStrength", _dis
 
 
 [_unit, -X39_MS2_var_Distraction_reductionPerTick] call X39_MS2_fnc_addDistraction;
+MT_END
+MT_DEBUG(_times pushBack [_fnc_scriptName COMMA MT_TIME])

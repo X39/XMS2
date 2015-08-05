@@ -29,7 +29,7 @@ class CfgSettings
 		{
 			class ClientConfig
 			{
-				#include "\userconfig\X39\XMS2_ClientConfig.hpp"
+				#include "\userconfig\x39\xms2_clientconfig.hpp"
 			};
 			class ServerConfig {
 				class triageBase
@@ -50,7 +50,7 @@ class CfgSettings
 													//	%1 --> Will be replaced with units name
 					color[] = {1, 1, 1, 1};			//Color of the message (in selection and status report)
 				};
-				#include "\userconfig\X39\XMS2_ServerConfig.hpp"
+				#include "\userconfig\x39\xms2_serverconfig.hpp"
 			};
 			class Extensions
 			{
@@ -62,7 +62,7 @@ class CfgSettings
 					serverOnly = 0;		//Should this be broadcasted to the client? 1 = yes, 0 = no
 					requiredExtensions[] = {};	//Extensions required for this extension to work
 				};
-				#include "\userconfig\X39\XMS2_Extensions.hpp"
+				#include "\userconfig\x39\xms2_extensions.hpp"
 			};
 		};
 	};

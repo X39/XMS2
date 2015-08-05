@@ -8,14 +8,11 @@
  *	@Author - X39|Cpt. HM Murdock
  */
 X39_MS2_var_Internal_Handles_ApplyDrugHandle = _this spawn {
-	private["_flag", "_anmiationTime", "_lbCurVal"];
+	private["_flag", "_anmiationTime"];
 	DEBUG_CODE_SC(_fnc_scriptName = "X39_MS2_fnc_MedicalUi_DrugsFrame_applyDrug")
 	X39_MS2_var_Internal_DialogCommunication_MA_preventActions = true;
-	if(count _this >= 1) then
-	{
-		_lbCurVal = _this select 0;
-	}
-	else
+	params [["_lbCurValue", nil, [1]]];
+	if(isNil "_lbCurValue") then
 	{
 		_lbCurValue = (displayCtrl_MedicalUi(IDC_MEDICALUI_LB_DRUGSLIST) lbValue (lbCurSel displayCtrl_MedicalUi(IDC_MEDICALUI_LB_DRUGSLIST)));
 	};

@@ -75,6 +75,26 @@ class XLib {
 						};
 					};
 				};
+				class X39_MS2_options_actionSystem: propertyBase {
+					variable = "X39_MS2_options_actionSystem";
+					display = "Use ActionSystem of";
+					type = TYPE_COMBOBOX;
+					valueType = "SCALAR";
+					description = "Which 'Action System' (the way you interact with the modifaction, also refered to as 'Menu') you want to use";
+					default = 1;
+					class values {
+						class value1 {
+							display = "XLib";
+							displayShort = "XLib";
+							value = 1;
+						};
+						class value2 {
+							display = "ACE3";
+							displayShort = "ACE3";
+							value = 2;
+						};
+					};
+				};
 			};
 		};
 	};

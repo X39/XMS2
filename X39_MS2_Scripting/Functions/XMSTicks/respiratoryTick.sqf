@@ -21,6 +21,7 @@
  *	@Param2 - SCALAR - HandleID
  *	@Return - NA
  */
+MT_START
 private["_unit", "_currentRespiratory", "_changeRespiratory"];
 _unit = _this select 0;
 _currentRespiratory = [_unit] call X39_MS2_fnc_getRespiratory;
@@ -48,3 +49,5 @@ if(_changeRespiratory != 0) then
 {
 	[_unit, _changeRespiratory] call X39_MS2_fnc_addRespiratory;
 };
+MT_END
+MT_DEBUG(_times pushBack [_fnc_scriptName COMMA MT_TIME])

@@ -17,6 +17,7 @@
  *	@Param2 - SCALAR - HandleID
  *	@Return - NA
  */
+MT_START
 if(!hasInterface) exitWith {};
 private["_unit", "_handleID", "_currentHitMarkerValue", "_calcValue", "_currentTemperature"];
 _unit = _this select 0;
@@ -77,3 +78,5 @@ else
 		displayCtrl_Overlay(1292) ctrlShow false;
 	};
 };
+MT_END
+MT_DEBUG(_times pushBack [_fnc_scriptName COMMA MT_TIME])

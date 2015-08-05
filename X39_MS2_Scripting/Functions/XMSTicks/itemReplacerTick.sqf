@@ -19,6 +19,7 @@
  *	@Param2 - SCALAR - HandleID
  *	@Return - NA
  */
+MT_START
 if(!X39_MS2_var_Feature_ReplaceItemsOnInventoryJoin) exitWith {};
 private["_unit"];
 _unit = _this select 0;
@@ -39,3 +40,5 @@ if("FirstAidKit" in (items _unit)) then
 		false
 	}count X39_MS2_var_ItemReplacement_FirstAidKit;
 };
+MT_END
+MT_DEBUG(_times pushBack [_fnc_scriptName COMMA MT_TIME])

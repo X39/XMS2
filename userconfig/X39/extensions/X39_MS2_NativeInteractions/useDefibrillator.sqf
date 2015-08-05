@@ -13,5 +13,5 @@
 		(((items X39_XLib_var_ActionDialog_Target) find 'x39_xms2_defibrillator') != -1) || {
 		(((items X39_XLib_var_ActionDialog_Executor) find 'x39_xms2_defibrillator') != -1) }}
 	}
-] call X39_XLib_fnc_ActionDialog_registerAction;
+] call X39_MS2_fnc_addActionToInteractionMenu;
 true

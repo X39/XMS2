@@ -17,6 +17,7 @@
  *	@Param2 - SCALAR - HandleID
  *	@Return - NA
  */
+MT_START
 private["_unit", "_handleID"];
 _unit = _this select 0;
 _handleID = _this select 1;
@@ -62,3 +63,5 @@ if(X39_MS2_DEBUG_enable && isPlayer _unit) then
 	if(X39_MS2_DEBUG_cfnDisableFatigue != -1)		then {_unit setVariable["X39_MS2_var_Internal_Ticker_cfnDisableFatigue", X39_MS2_DEBUGcfnDisableFatigue];		};
 	if(X39_MS2_DEBUG_cfnForceWalk != -1)			then {_unit setVariable["X39_MS2_var_Internal_Ticker_cfnForceWalk", X39_MS2_DEBUGcfnForceWalk]	;					};
 };
+MT_END
+MT_DEBUG(_times pushBack [_fnc_scriptName COMMA MT_TIME])

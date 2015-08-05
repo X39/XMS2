@@ -17,6 +17,7 @@
  *	@Param2 - SCALAR - HandleID
  *	@Return - NA
  */
+MT_START
 private["_unit", "_currentPain", "_maxPain", "_changePain"];
 _unit = _this select 0;
 
@@ -31,3 +32,5 @@ if(_changePain != 0) then
 {
 	[_unit, _changePain] call X39_MS2_fnc_addPain;
 };
+MT_END
+MT_DEBUG(_times pushBack [_fnc_scriptName COMMA MT_TIME])
