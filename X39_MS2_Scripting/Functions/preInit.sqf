@@ -140,6 +140,8 @@ X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables
 	false
 }count X39_MS2_var_Internal_HitZones;
 
+assignValue("X39_MS2_var_Internal_XLibActionArrays", []);
+
 //Reserve ppEffect/EventHandler variable holders (not all are used)
 assignValue("X39_MS2_var_Internal_ppe_radialBlur", -1);
 assignValue("X39_MS2_var_Internal_ppe_chromAberration", -1);

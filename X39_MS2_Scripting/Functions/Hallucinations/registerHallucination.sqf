@@ -19,7 +19,7 @@
  */
 params [
 	["_logic", "", ["", {}]],
-	"_customArgs"
+	"_customArgs",
 	["_chance", -1, [0, {}]],
 	["_condition", {true}, ["", {}]]
 ];
