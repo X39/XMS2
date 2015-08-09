@@ -172,6 +172,7 @@ assignValue("X39_MS2_var_Internal_Handles_ApplyDrugHandle", scriptNull);
 assignValue("X39_MS2_var_Internal_Handles_DefibrillateHandle", scriptNull);
 assignValue("X39_MS2_var_Internal_Handles_HallucinationHandle", scriptNull);
 assignValue("X39_MS2_var_Internal_Handles_BlackOutDialogHandle", scriptNull);
+assignValue("X39_MS2_var_Internal_Handles_QuickActionHandle", scriptNull);
 
 assignValue("X39_MS2_var_Internal_Overlay_ProgressBarRunning", false);
 assignValue("X39_MS2_var_Internal_Overlay_ProgressBarHandle", scriptNull);

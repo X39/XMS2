@@ -241,6 +241,7 @@ class DialogControl_MedicalUi
 	class MedicalUi_outputBlockedMessage:X39_XLib_Function_TypeA								{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\errorMessageOutputs\outputBlockedMessage.sqf";};
 	class MedicalUi_outputNothingSelectedMessage:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\errorMessageOutputs\outputNothingSelectedMessage.sqf";};
 	class MedicalUi_outputCannotBeAppliedOnThisPartMessage:X39_XLib_Function_TypeA				{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\errorMessageOutputs\outputCannotBeAppliedOnThisPartMessage.sqf";};
+	class MedicalUi_performQuickaction:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\QuickActionFrame\MedicalUi_performQuickaction.sqf";};
 };
 class MedcialActions
 {

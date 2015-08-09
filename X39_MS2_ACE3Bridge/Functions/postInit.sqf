@@ -176,7 +176,7 @@
 			format["xms2_quickAction_%1", _forEachIndex],
 			_x select 0,
 			_x select 2,
-			compile format["[%1, X39_MS2_var_Internal_DialogCommunication_MA_Target, X39_MS2_var_Internal_DialogCommunication_MA_Caller] call (_quickAction select 5);", _forEachIndex, _x select 6],
+			compile format["[%1, X39_MS2_var_Internal_DialogCommunication_MA_Target, X39_MS2_var_Internal_DialogCommunication_MA_Caller] call X39_MS2_fnc_MedicalUi_performQuickaction;", _forEachIndex],
 			_x select 4,
 			{},
 			_x select 6

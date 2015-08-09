@@ -211,8 +211,9 @@ _this spawn {
 																															if(_index >= 0 && _index < count X39_MS2_var_Internal_MedicalUi_QuickActions) then
 																															{
 																																DEBUG_CODE(systemChat "performQuickAction - QuickAction was available";)
-																																_quickAction = X39_MS2_var_Internal_MedicalUi_QuickActions select _index;
-																																[_quickAction select 6, X39_MS2_var_Internal_DialogCommunication_MA_Target, X39_MS2_var_Internal_DialogCommunication_MA_Caller] call (_quickAction select 5);
+																																[_index, X39_MS2_var_Internal_DialogCommunication_MA_Caller, X39_MS2_var_Internal_DialogCommunication_MA_Target] call X39_MS2_fnc_MedicalUi_performQuickaction;
+																																//_quickAction = X39_MS2_var_Internal_MedicalUi_QuickActions select _index;
+																																//[_quickAction select 6, X39_MS2_var_Internal_DialogCommunication_MA_Target, X39_MS2_var_Internal_DialogCommunication_MA_Caller] call (_quickAction select 5);
 																															};
 																														} call X39_XLib_fnc_ConvertCodeToString];
 
