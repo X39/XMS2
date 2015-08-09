@@ -1,5 +1,9 @@
 class X39_MS2_stretcher: X39_MS2_vehicles_Base
 {
+	/*
+		stretcher attachTo [player, [0,-1,2]];
+		player switchMove "AcinPercMstpSnonWnonDnon"
+	*/
 	side = 1;
 	scope = 2;
 	model = "\X39_MS2_vehicles\data\stretcher\stretcher.p3d";
