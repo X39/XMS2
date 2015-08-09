@@ -1,15 +1,15 @@
 #include "\X39_MS2_Scripting\default.hpp"
-/*	
+/*
  *	Initializes a unit
  *	!WARNING!
  *	Depending on if the unit is still in JIP or not this can and will lead in unexpected
  *	behaviour when other initialization methods are also used!
  *	Please only call this function if you KNOW what youre doing!
- *	
+ *
  *	Errors will use https://community.bistudio.com/wiki/throw
- *	
+ *
  *	Function supports tryCatch for errors (warnings will be ignored)
- *	
+ *
  *	@Param1 - OBJECT - Unit to initialize
  *	@Param2 - BOOL - prevent call on isDedicated
  *	@Param2 - BOOL - prevent call on !hasInterface
@@ -50,10 +50,10 @@ _handle = _this spawn {
 		//initialize variables
 		{
 			if (_x select 0 != "X39_MS2_var_triageState" && _x select 0 != "X39_MS2_var_triageCard") then {
-				_unit setVariable[_x select 0, [] call (_x select 1), true];				
-			}else{					
-				[] call (_x select 1);				
-			};			
+				_unit setVariable[_x select 0, [] call (_x select 1), true];
+			}else{
+				[] call (_x select 1);
+			};
 			false
 		}count X39_MS2_var_Internal_UnitVariables;
 		//set triggers
@@ -68,7 +68,7 @@ _handle = _this spawn {
 		DEBUG_LOG_WFn_SC(format["X39_MS2_var_EH_Explosion = %1" COMMA (_unit getVariable ["X39_MS2_var_EH_Explosion" COMMA "NA"])])
 		DEBUG_LOG_WFn_SC(format["X39_MS2_var_EH_AnimStateChanged = %1" COMMA (_unit getVariable ["X39_MS2_var_EH_AnimStateChanged" COMMA "NA"])])
 		DEBUG_LOG_WFn_SC(format["X39_MS2_var_EH_Respawn = %1" COMMA (_unit getVariable ["X39_MS2_var_EH_Respawn" COMMA "NA"])])
-		
+
 		_unit setVariable ["X39_MS2_var_UnitInitialized", true];
 		//_unit spawn X39_MS2_fnc_runTicker;
 		[_unit, X39_MS2_fnc_runTicker] execFSM "\X39_MS2_Scripting\callCode.fsm";
