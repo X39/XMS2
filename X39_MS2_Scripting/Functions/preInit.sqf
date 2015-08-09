@@ -275,7 +275,14 @@ assignValue("X39_MS2_var_Damage_ExplosionModificator", 2.0);
 assignValue("X39_MS2_var_Damage_GlobalModificator", 1.0);
 
 //Modificators for falldmg
-{ assignValue(format["X39_MS2_var_FallDamage_%1Modificator" COMMA _x select HITZONE_NAME], 1.5); false }count X39_MS2_var_Internal_HitZones;
+assignValue(format ["X39_MS2_var_FallDamage_%1Modificator" COMMA stringify(HITZONE_LeftFoot)], 2.0);
+assignValue(format ["X39_MS2_var_FallDamage_%1Modificator" COMMA stringify(HITZONE_RightFoot)], 2.0);
+assignValue(format ["X39_MS2_var_FallDamage_%1Modificator" COMMA stringify(HITZONE_LeftLowerLeg)], 1.5);
+assignValue(format ["X39_MS2_var_FallDamage_%1Modificator" COMMA stringify(HITZONE_RightLowerLeg)], 1.5);
+assignValue(format ["X39_MS2_var_FallDamage_%1Modificator" COMMA stringify(HITZONE_LeftUpperLeg)], 1.0);
+assignValue(format ["X39_MS2_var_FallDamage_%1Modificator" COMMA stringify(HITZONE_RightUpperLeg)], 1.0);
+assignValue(format ["X39_MS2_var_FallDamage_%1Modificator" COMMA stringify(HITZONE_LowerBody)], 0.5);
+assignValue(format ["X39_MS2_var_FallDamage_%1Modificator" COMMA stringify(HITZONE_UpperBody)], 0.5);
 
 /*********************
 * CATEGORY: BLEEDING *

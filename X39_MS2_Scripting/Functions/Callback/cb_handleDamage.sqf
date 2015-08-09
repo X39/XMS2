@@ -9,28 +9,36 @@
  *	@Return - SCALAR - New damage value (always 0)
  */
 
-private ['_addTo', '_unit'];
+//Privates
+private ['_damage', '_unit', '_currentDamage', '_addDamageTo'];
 
-_addToLegs = ["leftfeet", "rightfeet", "leftleg", "rightleg", "leftupleg", "rightupleg"];
-_addToBody = [];
+//Get variables from EH
 _unit = _this select 0;
 _damage = _this select 2;
+
+//Add here your damage zone,
+//it will apply to the hitzones at fall damage
+_addDamageTo = [
+		  stringify(HITZONE_LeftFoot),
+		  stringify(HITZONE_RightFoot),
+		  stringify(HITZONE_LeftLowerLeg),
+		  stringify(HITZONE_RightLowerLeg),
+		  stringify(HITZONE_LeftUpperLeg),
+		  stringify(HITZONE_RightUpperLeg),
+		  stringify(HITZONE_LowerBody),
+		  stringify(HITZONE_UpperBody)
+	      ];
 
 //Check for fall damag
 if((_this select 4) == "") then {
 
-	//At the moment I ignore the vehicle part
-	//Just add the damage to the legs because after 1000 logs it adds only dmg to the legs why ever
-	if((_this select 1) == "legs") then {
 
-		//Calc the dmg for the parts
-		{
-			_currentDamage = _damage * (missionNamespace getVariable format["X39_MS2_var_FallDamage_%1Modificator", _x]);
-			[_unit, _currentDamage] call (missionNamespace getVariable format["X39_MS2_fnc_addDamageTo%1", _x]);
-		} forEach _addToLegs;
+	//Ad now the damage to the parts
+	{
+		_currentDamage = _damage * (missionNamespace getVariable format["X39_MS2_var_FallDamage_%1Modificator", _x]);
+		[_unit, _currentDamage] call (missionNamespace getVariable format["X39_MS2_fnc_addDamageTo%1", _x]);
 
-
-	};
+	} forEach _addDamageTo;
 
 };
 
