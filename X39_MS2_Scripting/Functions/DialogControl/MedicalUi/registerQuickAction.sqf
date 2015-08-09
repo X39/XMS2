@@ -11,7 +11,7 @@
  *	@Param5		- CODE			- Code to get the required items
  *											[CustomArgs:ANY, TargetUnit:OBJECT, ExecutingUnit:OBJECT]
  *	@Param6		- CODE			- Code which checks if the player is allowed to use this specific quickAction
- *											[CustomArgs:ANY, TargetUnit:OBJECT, ExecutingUnit:OBJECT]
+ *											[TargetUnit:OBJECT, ExecutingUnit:OBJECT, CustomArgs:ANY]
  *	@Param7		- CODE			- Execution code
  *											[CustomArgs:ANY, TargetUnit:OBJECT, ExecutingUnit:OBJECT]
  *	@Param8		- ANY			- Custom Arguments
