@@ -62,17 +62,21 @@ _handle = _this spawn {
 		if((_unit getVariable ["X39_MS2_var_EH_Explosion", -1]) == -1)			then { _unit setVariable["X39_MS2_var_EH_Explosion",			_unit addEventHandler["Explosion",			X39_MS2_fnc_cb_Explosion			], false];};
 		if((_unit getVariable ["X39_MS2_var_EH_AnimStateChanged", -1]) == -1)	then { _unit setVariable["X39_MS2_var_EH_AnimStateChanged",	_unit addEventHandler["AnimStateChanged",	X39_MS2_fnc_cb_AnimStateChanged	], false];};
 		if((_unit getVariable ["X39_MS2_var_EH_Respawn", -1]) == -1)			then { _unit setVariable["X39_MS2_var_EH_Respawn",			_unit addEventHandler["Respawn",				X39_MS2_fnc_cb_Respawn			], false];};
-		
+
 		DEBUG_LOG_WFn_SC(format["X39_MS2_var_EH_HandleDamage = %1" COMMA (_unit getVariable ["X39_MS2_var_EH_HandleDamage" COMMA "NA"])])
 		DEBUG_LOG_WFn_SC(format["X39_MS2_var_EH_FiredNear = %1" COMMA (_unit getVariable ["X39_MS2_var_EH_FiredNear" COMMA "NA"])])
 		DEBUG_LOG_WFn_SC(format["X39_MS2_var_EH_Explosion = %1" COMMA (_unit getVariable ["X39_MS2_var_EH_Explosion" COMMA "NA"])])
 		DEBUG_LOG_WFn_SC(format["X39_MS2_var_EH_AnimStateChanged = %1" COMMA (_unit getVariable ["X39_MS2_var_EH_AnimStateChanged" COMMA "NA"])])
 		DEBUG_LOG_WFn_SC(format["X39_MS2_var_EH_Respawn = %1" COMMA (_unit getVariable ["X39_MS2_var_EH_Respawn" COMMA "NA"])])
 
+		//Variables for food system
+		_unit setVariable ["X39_MS2_var_food_waterLevel", 100];
+
 		_unit setVariable ["X39_MS2_var_UnitInitialized", true];
 		//_unit spawn X39_MS2_fnc_runTicker;
 		[_unit, X39_MS2_fnc_runTicker] execFSM "\X39_MS2_Scripting\callCode.fsm";
 		sendMessageToServer(MSG_ADDXMS2UNITTOUNITARRAY, _unit);
+
 	};
 	//Initialize ppEffects if current entity hasInterface and they are -1
 	DEBUG_LOG_WFn_SC(format["Initializing '%1's ppEffectHandles + other client related stuff if target is a player computer" COMMA _unit])

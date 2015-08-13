@@ -6,7 +6,7 @@ class General //Functions without any categoriy
 {
 	class initUnit:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\initUnit.sqf";};
 	class unInitUnit:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\unInitUnit.sqf";};
-	
+
 	class isUnitXms2Unit:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\isUnitXms2Unit.sqf";};
 	class runTicker:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\runTicker.sqf";};
 	class blackOutUnit:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\blackOutUnit.sqf";};
@@ -19,13 +19,13 @@ class General //Functions without any categoriy
 	class registerTickHandler:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\registerTickHandler.sqf";};
 	class registerMedicalMessage:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\registerMedicalMessage.sqf";};
 	class registerMedicalStatusEffect:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\registerMedicalStatusEffect.sqf";};
-	
+
 	class applyServerConfig:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\applyServerConfig.sqf";};
 	class applyClientConfig:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\applyClientConfig.sqf";};
 	class resetUnitsVariables:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\resetUnitsVariables.sqf";};
-	
+
 	class serverMessageSystem:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\serverMessageSystem.sqf";};
-	
+
 	class setAnimationLock:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\setAnimationLock.sqf";};
 	class clearAnimationLock:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\clearAnimationLock.sqf";};
 	class isAnimationLockInPlace:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\isAnimationLockInPlace.sqf";};
@@ -50,19 +50,19 @@ class Bleeding
 {
 	class addBlood:X39_XLib_Function_TypeA														{file = "X39_MS2_Scripting\Functions\Bleeding\adder\addBlood.sqf";};
 	class addClotting:X39_XLib_Function_TypeA													{file = "X39_MS2_Scripting\Functions\Bleeding\adder\addClotting.sqf";};
-	
+
 	class setBlood:X39_XLib_Function_TypeA														{file = "X39_MS2_Scripting\Functions\Bleeding\setter\setBlood.sqf";};
 	class setClotting:X39_XLib_Function_TypeA													{file = "X39_MS2_Scripting\Functions\Bleeding\setter\setClotting.sqf";};
-	
+
 	class getBlood:X39_XLib_Function_TypeA														{file = "X39_MS2_Scripting\Functions\Bleeding\getter\getBlood.sqf";};
 	class getClotting:X39_XLib_Function_TypeA													{file = "X39_MS2_Scripting\Functions\Bleeding\getter\getClotting.sqf";};
-	
+
 	class isBleeding:X39_XLib_Function_TypeA													{file = "X39_MS2_Scripting\Functions\Bleeding\isBleeding.sqf";};
 	class getAterialDamage:X39_XLib_Function_TypeA												{file = "X39_MS2_Scripting\Functions\Bleeding\getAterialDamage.sqf";};
 	class setAterialDamage:X39_XLib_Function_TypeA												{file = "X39_MS2_Scripting\Functions\Bleeding\setAterialDamage.sqf";};
 	class getBloodPresure:X39_XLib_Function_TypeA												{file = "X39_MS2_Scripting\Functions\Bleeding\getBloodPresure.sqf";};
 	class getCurrentBleeding:X39_XLib_Function_TypeA											{file = "X39_MS2_Scripting\Functions\Bleeding\getCurrentBleeding.sqf";};
-	
+
 	class getTournique:X39_XLib_Function_TypeA													{file = "X39_MS2_Scripting\Functions\Bleeding\Tournique\getTournique.sqf";};
 	class setTournique:X39_XLib_Function_TypeA													{file = "X39_MS2_Scripting\Functions\Bleeding\Tournique\setTournique.sqf";};
 	class hasTournique:X39_XLib_Function_TypeA													{file = "X39_MS2_Scripting\Functions\Bleeding\Tournique\hasTournique.sqf";};
@@ -93,19 +93,19 @@ class Drugs
 {
 	class registerDrug:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\registerDrug.sqf";};
 	class executeDrug:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\executeDrug.sqf";};
-	
+
 	class addMorphine:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Morphine\addMorphine.sqf";};
 	class getMorphine:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Morphine\getMorphine.sqf";};
 	class setMorphine:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Morphine\setMorphine.sqf";};
-	
+
 	class addAdrenaline:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Adrenaline\addAdrenaline.sqf";};
 	class getAdrenaline:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Adrenaline\getAdrenaline.sqf";};
 	class setAdrenaline:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Adrenaline\setAdrenaline.sqf";};
-	
+
 	class addNaloxone:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Naloxone\addNaloxone.sqf";};
 	class getNaloxone:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Naloxone\getNaloxone.sqf";};
 	class setNaloxone:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Naloxone\setNaloxone.sqf";};
-	
+
 	class addAspirin:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Aspirin\addAspirin.sqf";};
 	class getAspirin:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Aspirin\getAspirin.sqf";};
 	class setAspirin:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Aspirin\setAspirin.sqf";};
@@ -121,12 +121,12 @@ class Respiratory
 	class addRespiratory:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\addRespiratory.sqf";};
 	class getRespiratory:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\getRespiratory.sqf";};
 	class setRespiratory:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\setRespiratory.sqf";};
-	
+
 	class setToungeBlocking:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\setToungeBlocking.sqf";};
 	class getToungeBlocking:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\getToungeBlocking.sqf";};
 	class setArrestPresent:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\setArrestPresent.sqf";};
 	class getArrestPresent:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\getArrestPresent.sqf";};
-	
+
 	class getNasopharyngeal:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\Nasopharyngeal\getNasopharyngeal.sqf";};
 	class setNasopharyngeal:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\Respiratory\Nasopharyngeal\setNasopharyngeal.sqf";};
 	class getKingLt:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\Respiratory\KingLt\getkingLt.sqf";};
@@ -139,10 +139,10 @@ class Heart
 	class addHeartPulse:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Heart\addHeartPulse.sqf";};
 	class getHeartPulse:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Heart\getHeartPulse.sqf";};
 	class setHeartPulse:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Heart\setHeartPulse.sqf";};
-	
+
 	class setFlatLine:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Heart\setFlatLine.sqf";};
 	class hasFlatLine:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Heart\hasFlatLine.sqf";};
-	
+
 	class getCprPresent:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Heart\getCprPresent.sqf";};
 	class setCprPresent:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Heart\setCprPresent.sqf";};
 	class addCprCount:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Heart\addCprCount.sqf";};
@@ -161,7 +161,7 @@ class Temperature
 class Hallucinations
 {
 	class registerHallucination:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\Hallucinations\registerHallucination.sqf";};
-	
+
 	class hallu_testHallucination:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\Hallucinations\testHallucination.sqf";};
 };
 class XMSTicks
@@ -182,7 +182,8 @@ class XMSTicks
 	class hitPartTick:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\XMSTicks\hitPartTick.sqf";};
 	class hallucinationTick:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\XMSTicks\hallucinationTick.sqf";};
 	class timeIntensiveCallsTick:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\XMSTicks\timeIntensiveCallsTick.sqf";};
-	
+	class walkTick:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\XMSTicks\walkTick.sqf";};
+
 	class publishTick:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\XMSTicks\publishTick.sqf";};
 };
 class LimitationSystem
@@ -247,6 +248,13 @@ class MedcialActions
 {
 	class registerAction:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\MedicalActions\registerAction.sqf";};
 	class getActionById:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\MedicalActions\getActionById.sqf";};
-	
+
 	class MA_defibrillate:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\MedicalActions\defibrillate.sqf";};
+};
+
+class Food {
+
+	class addWater: X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\Food\addWater.sqf";};
+	class removeWater: X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Food\removeWater.sqf";}
+
 };
