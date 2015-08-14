@@ -150,6 +150,42 @@
 				  <Russian>Bandage all limbs</Russian>
 				   <Polish>Bandage all limbs</Polish>
 			</Key>
+			<Key ID="STR_X39_MS2_Scripting_QuickActions_putTourniquetAll_Name">
+				  <English>Put Tourniquets to all needed limbs</English>
+				   <German>Put Tourniquets to all needed limbs</German>
+				<Hungarian>Put Tourniquets to all needed limbs</Hungarian>
+				  <Italian>Put Tourniquets to all needed limbs</Italian>
+				   <French>Put Tourniquets to all needed limbs</French>
+				  <Russian>Put Tourniquets to all needed limbs</Russian>
+				   <Polish>Put Tourniquets to all needed limbs</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_QuickActions_putTourniquetAll_Description">
+				  <English>Put Tourniquets to all needed limbs</English>
+				   <German>Put Tourniquets to all needed limbs</German>
+				<Hungarian>Put Tourniquets to all needed limbs</Hungarian>
+				  <Italian>Put Tourniquets to all needed limbs</Italian>
+				   <French>Put Tourniquets to all needed limbs</French>
+				  <Russian>Put Tourniquets to all needed limbs</Russian>
+				   <Polish>Put Tourniquets to all needed limbs</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_QuickActions_dropTourniquetAll_Name">
+				  <English>Remove Tourniquets from all limbs</English>
+				   <German>Remove Tourniquets from all limbs</German>
+				<Hungarian>Remove Tourniquets from all limbs</Hungarian>
+				  <Italian>Remove Tourniquets from all limbs</Italian>
+				   <French>Remove Tourniquets from all limbs</French>
+				  <Russian>Remove Tourniquets from all limbs</Russian>
+				   <Polish>Remove Tourniquets from all limbs</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_QuickActions_dropTourniquetAll_Description">
+				  <English>Remove Tourniquets from all limbs</English>
+				   <German>Remove Tourniquets from all limbs</German>
+				<Hungarian>Remove Tourniquets from all limbs</Hungarian>
+				  <Italian>Remove Tourniquets from all limbs</Italian>
+				   <French>Remove Tourniquets from all limbs</French>
+				  <Russian>Remove Tourniquets from all limbs</Russian>
+				   <Polish>Remove Tourniquets from all limbs</Polish>
+			</Key>
 		</Container>
 		<Container name="DialogControl_BlackOutDialog">
 			<Key ID="STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_BloodLeft">
