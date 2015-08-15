@@ -11,7 +11,7 @@ class X39_MS2_medicalbox: NATO_Box_Base {
 	transportMaxWeapons = 10000;
 	transportMaxBackpacks = 10000;
 	maximumLoad = 200000;
-	
+
 	class TransportMagazines{};
 	class TransportWeapons{};
 	class TransportItems {
@@ -77,6 +77,10 @@ class X39_MS2_medicalbox: NATO_Box_Base {
 		};
 		class x39_xms2_bagvalvemask {
 			name = "x39_xms2_bagvalvemask";
+			count = 100;
+		};
+		class x39_xms2_waterbottle {
+			name = "x39_xms2_waterbottle";
 			count = 100;
 		};
 	};

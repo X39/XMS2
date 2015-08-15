@@ -21,15 +21,37 @@
  *	@Param2 - SCALAR - HandleID
  *	@Return - NA
  */
-private["_unit", "_handleID", '_speed', '_pulse'];
+private["_unit", "_handleID", '_speed', '_removeWaterMod', '_lastSpeedCheck', '_timeOfSpeedCheck', '_currentWater'];
 _unit = _this select 0;
 _handleID = _this select 1;
 
-
+//Internal variables
 _speed = speed player;
+_removeWaterMod = 0;
+_removeWaterMod = missionNamespace getVariable format["X39_MS2_var_food_removeWaterMod", 0];
 
-//Check if the player is walking
-if(_speed > 5) then {
-	//systemChat "I was called because i walk!";
+//Check if the player is running
+if(_speed > 10) then {
+	//get the last speed check of the unit
+	//So if her runs and runs and runs we will do a little punishment
+	_lastSpeedCheck = _unit getVariable["X39_MS2_var_food_lastSpeed", 0];
+	_timeOfSpeedCheck = _unit getVariable["X39_MS2_var_food_timeOfSpeedCheck", 0];
 
+	//Check if we need to punish
+	if((_timeOfSpeedCheck >= 10) && (_lastSpeedCheck == (round _speed))) then {
+		_removeWaterMod = missionNamespace getVariable format["X39_MS2_var_food_removeWaterMod2", 0];
+	};
+
+	//FOR DEBUG
+	_removeWaterMod = missionNamespace getVariable format["X39_MS2_var_food_removeWaterMod2", 0];
+	//Remove now the water
+	_currentWater = ([_unit] call X39_MS2_fnc_getWater) - _removeWaterMod;
+	[_unit, _currentWater] call X39_MS2_fnc_setWater;
+
+} else {
+	//Remove water
+	if(_speed > 5) then {
+		_currentWater = ([_unit] call X39_MS2_fnc_getWater) - _removeWaterMod;
+		[_unit, _currentWater] call X39_MS2_fnc_setWater;
+	};
 };

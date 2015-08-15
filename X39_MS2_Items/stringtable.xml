@@ -157,6 +157,15 @@
 				  <Russian>Bag-Valve Mask</Russian>
 				   <Polish>Bag-Valve Mask</Polish>
 			</Key>
+			<Key ID="STR_X39_MS2_Items_waterbottle">
+				  <English>Water Bottle</English>
+				   <German>Wasserflasche</German>
+				<Hungarian>Water Bottle</Hungarian>
+				  <Italian>Water Bottle</Italian>
+				   <French>Water Bottle</French>
+				  <Russian>Water Bottle</Russian>
+				   <Polish>Water Bottle</Polish>
+			</Key>
 		</Container>
 	</Package>
 </Project>

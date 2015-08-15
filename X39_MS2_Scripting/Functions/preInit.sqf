@@ -133,6 +133,8 @@ X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["tf_voiceVolume",								{1													}, true	,					false	,				false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["tf_globalVolume",								{1													}, true	,					false	,				false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_food_waterLevel",{100}, true, false, false]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_food_lastSpeed",{0}, true, false, false]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_food_timeOfSpeedCheck",{0}, true, false, false]];
 {
 	X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, [format["X39_MS2_var_Damage_%1" COMMA _x select HITZONE_NAME], {0}, true, false]];
 	X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, [format["X39_MS2_var_Bleeding_%1" COMMA _x select HITZONE_NAME], {0}, true, false]];
@@ -195,7 +197,7 @@ assignValue("X39_MS2_var_Internal_ticker_tickHandlers", []);
 ["X39_MS2_fnc_soundTick", 12] call X39_MS2_fnc_registerTickHandler;
 ["X39_MS2_fnc_hitPartTick", 11] call X39_MS2_fnc_registerTickHandler;
 ["X39_MS2_fnc_hallucinationTick", 4] call X39_MS2_fnc_registerTickHandler;
-["X39_MS2_fnc_walkTick", 1] call X39_MS2_fnc_registerTickHandler;
+["X39_MS2_fnc_walkTick", 11] call X39_MS2_fnc_registerTickHandler;
 ["X39_MS2_fnc_timeIntensiveCallsTick", 10] call X39_MS2_fnc_registerTickHandler;
 DEBUG_CODE(["X39_MS2_fnc_debugTick" COMMA 1] call X39_MS2_fnc_registerTickHandler);
 assignValue("X39_MS2_var_Internal_ticker_minTickRate", 0.5);
@@ -749,4 +751,5 @@ generateFunctionsDynamiclyByHitZone("X39_MS2_fnc_getBleedingOf%1",	"\X39_MS2_Scr
 /****************************
 * CATEGORY: FoodSystem *
 ****************************/
-//assignValue("X39_MS2_var_food_", 100);
+assignValue("X39_MS2_var_food_removeWaterMod", 0.5);
+assignValue("X39_MS2_var_food_removeWaterMod2", 5);

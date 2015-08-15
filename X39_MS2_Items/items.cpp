@@ -6,7 +6,7 @@ class x39_xms2_bandage : x39_itemcore
 	class ItemInfo
     {
 		mass = 2;
-    }; 
+    };
 	picture = "\X39_MS2_Resources\Items\Bandage\Bandage.paa";
 	descriptionShort = "";
 };
@@ -19,7 +19,7 @@ class x39_xms2_adrenaline : x39_itemcore
 	class ItemInfo
     {
 		mass = 1;
-    }; 
+    };
 	descriptionShort = "";
 };
 class x39_xms2_heatPack : x39_itemcore
@@ -29,7 +29,7 @@ class x39_xms2_heatPack : x39_itemcore
 	class ItemInfo
     {
 		mass = 4;
-    }; 
+    };
 	picture = "\X39_MS2_Resources\Items\HeatPack.paa";
 	descriptionShort = "";
 };
@@ -40,7 +40,7 @@ class x39_xms2_mediPack : x39_itemcore
 	class ItemInfo
     {
 		mass = 8;
-    }; 
+    };
 	picture = "\X39_MS2_Resources\Items\MedicalPack.paa";
 	descriptionShort = "";
 };
@@ -53,7 +53,7 @@ class x39_xms2_morphine : x39_itemcore
 	class ItemInfo
     {
 		mass = 1;
-    }; 
+    };
 	descriptionShort = "";
 };
 class x39_xms2_naloxone : x39_itemcore
@@ -65,7 +65,7 @@ class x39_xms2_naloxone : x39_itemcore
 	class ItemInfo
     {
 		mass = 1;
-    }; 
+    };
 	descriptionShort = "";
 };
 class x39_xms2_earplugs : x39_itemcore
@@ -75,7 +75,7 @@ class x39_xms2_earplugs : x39_itemcore
 	class ItemInfo
     {
 		mass = 0;
-    }; 
+    };
 	picture = "\X39_MS2_Resources\Items\earplugs.paa";
 	descriptionShort = "";
 };
@@ -87,7 +87,7 @@ class x39_xms2_defibrillator : x39_itemcore
 	class ItemInfo
     {
     	mass = 20;
-    }; 
+    };
 	picture = "\X39_MS2_Resources\Items\Defibrillator.paa";
 	descriptionShort = "";
 };
@@ -100,7 +100,7 @@ class x39_xms2_tourniquet : x39_itemcore
 	class ItemInfo
     {
     	mass = 3;
-    }; 
+    };
 	descriptionShort = "";
 };
 class x39_xms2_sphygmomanometer : x39_itemcore
@@ -111,7 +111,7 @@ class x39_xms2_sphygmomanometer : x39_itemcore
 	class ItemInfo
     {
     	mass = 5;
-    }; 
+    };
 	descriptionShort = "";
 };
 class x39_xms2_ivbag : x39_itemcore
@@ -123,7 +123,7 @@ class x39_xms2_ivbag : x39_itemcore
 	class ItemInfo
     {
     	mass = 5;
-    }; 
+    };
 	descriptionShort = "";
 };
 class x39_xms2_aspirin : x39_itemcore
@@ -135,7 +135,7 @@ class x39_xms2_aspirin : x39_itemcore
 	class ItemInfo
     {
     	mass = 2;
-    }; 
+    };
 	descriptionShort = "";
 };
 class x39_xms2_nasopharyngeal : x39_itemcore
@@ -147,7 +147,7 @@ class x39_xms2_nasopharyngeal : x39_itemcore
 	class ItemInfo
     {
     	mass = 4;
-    }; 
+    };
 	descriptionShort = "";
 };
 class x39_xms2_kinglt : x39_itemcore
@@ -159,7 +159,7 @@ class x39_xms2_kinglt : x39_itemcore
 	class ItemInfo
     {
     	mass = 4;
-    }; 
+    };
 	descriptionShort = "";
 };
 class x39_xms2_bagvalvemask : x39_itemcore
@@ -171,6 +171,18 @@ class x39_xms2_bagvalvemask : x39_itemcore
 	class ItemInfo
     {
     	mass = 6;
-    }; 
+    };
+	descriptionShort = "";
+};
+class x39_xms2_waterbottle : x39_itemcore
+{
+	scope = 2;
+	displayName = $STR_X39_MS2_Items_waterbottle;
+	model = "\A3\structures_f_epa\Items\Food\BottlePlastic_V2_F.p3d";
+	picture = "\X39_MS2_Resources\Items\Waterbottle.paa";
+	class ItemInfo
+    {
+		mass = 10;
+    };
 	descriptionShort = "";
 };

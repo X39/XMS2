@@ -186,6 +186,24 @@
 				  <Russian>Remove Tourniquets from all limbs</Russian>
 				   <Polish>Remove Tourniquets from all limbs</Polish>
 			</Key>
+			<Key ID="STR_X39_MS2_Scripting_QuickActions_Drink_Name">
+				  <English>Drink something</English>
+				   <German>Trinke etwas</German>
+				<Hungarian>Drink something</Hungarian>
+				  <Italian>Drink something</Italian>
+				   <French>Drink something</French>
+				  <Russian>Drink something</Russian>
+				   <Polish>Drink something</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_QuickActions_Drink_Description">
+				  <English>Drink something</English>
+				   <German>Trinke etwas</German>
+				<Hungarian>Drink something</Hungarian>
+				  <Italian>Drink something</Italian>
+				   <French>Drink something</French>
+				  <Russian>Drink something</Russian>
+				   <Polish>Drink something</Polish>
+			</Key>
 		</Container>
 		<Container name="DialogControl_BlackOutDialog">
 			<Key ID="STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_BloodLeft">
@@ -923,6 +941,15 @@
 				   <French>Start CPR</French>
 				  <Russian>Start CPR</Russian>
 				   <Polish>Start CPR</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_DrinkWater">
+				  <English>Drink</English>
+				   <German>Trinken</German>
+				<Hungarian>Drink</Hungarian>
+				  <Italian>Drink</Italian>
+				   <French>Drink</French>
+				  <Russian>Drink</Russian>
+				   <Polish>Drink</Polish>
 			</Key>
 			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Close">
 				  <English>Close</English>

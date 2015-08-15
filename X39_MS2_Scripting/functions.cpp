@@ -254,7 +254,7 @@ class MedcialActions
 
 class Food {
 
-	class addWater: X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\Food\addWater.sqf";};
-	class removeWater: X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Food\removeWater.sqf";}
+	class setWater: X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Food\setWater.sqf";}
+	class getWater: X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\Food\getWater.sqf";}
 
 };
