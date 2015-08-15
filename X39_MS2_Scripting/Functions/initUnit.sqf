@@ -69,9 +69,6 @@ _handle = _this spawn {
 		DEBUG_LOG_WFn_SC(format["X39_MS2_var_EH_AnimStateChanged = %1" COMMA (_unit getVariable ["X39_MS2_var_EH_AnimStateChanged" COMMA "NA"])])
 		DEBUG_LOG_WFn_SC(format["X39_MS2_var_EH_Respawn = %1" COMMA (_unit getVariable ["X39_MS2_var_EH_Respawn" COMMA "NA"])])
 
-		//Variables for food system
-		_unit setVariable ["X39_MS2_var_food_waterLevel", 100];
-
 		_unit setVariable ["X39_MS2_var_UnitInitialized", true];
 		//_unit spawn X39_MS2_fnc_runTicker;
 		[_unit, X39_MS2_fnc_runTicker] execFSM "\X39_MS2_Scripting\callCode.fsm";

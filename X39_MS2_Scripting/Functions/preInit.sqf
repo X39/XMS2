@@ -132,6 +132,7 @@ X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["tf_unable_to_use_radio",						{true												}, true	,					false	,				false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["tf_voiceVolume",								{1													}, true	,					false	,				false	]];
 X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["tf_globalVolume",								{1													}, true	,					false	,				false	]];
+X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, ["X39_MS2_var_food_waterLevel",{100}, true, false, false]];
 {
 	X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, [format["X39_MS2_var_Damage_%1" COMMA _x select HITZONE_NAME], {0}, true, false]];
 	X39_MS2_var_Internal_UnitVariables set [count X39_MS2_var_Internal_UnitVariables, [format["X39_MS2_var_Bleeding_%1" COMMA _x select HITZONE_NAME], {0}, true, false]];
