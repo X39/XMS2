@@ -22,7 +22,7 @@ X39_MS2_var_Internal_Handles_QuickActionHandle = _this spawn
 	if(vehicle _executor == _executor) then { _executor playAction "MedicStart"; };
 	
 	//Start progress bar animation
-	[3] call X39_MS2_fnc_setProgressBarTimeout;
+	[([_qa select 6, _target, _executor] call (_qa select 3))] call X39_MS2_fnc_setProgressBarTimeout;
 	
 	//set animation lock to abort the execution if the user moves "unexpected" (or dies, or ...)
 	[
