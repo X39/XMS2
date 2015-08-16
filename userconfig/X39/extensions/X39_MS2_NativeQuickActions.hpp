@@ -4,6 +4,7 @@ class X39_MS2_NativeQuickActions : extensionBase
 	requiredExtensions[] =  {"X39_MS2_NativeMedicalActions"};
 	version = "1.0";
 	files[] = {
+				"\userconfig\X39\extensions\X39_MS2_NativeQuickActions\ACE3_CheckUnit.sqf",
 				"\userconfig\X39\extensions\X39_MS2_NativeQuickActions\ACE3_GiveSaline.sqf",
 				"\userconfig\X39\extensions\X39_MS2_NativeQuickActions\ACE3_Heatpack.sqf",
 				"\userconfig\X39\extensions\X39_MS2_NativeQuickActions\ACE3_PutKingLT.sqf",

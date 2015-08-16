@@ -276,6 +276,15 @@
 				  <Russian>Start CPR</Russian>
 				   <Polish>Start CPR</Polish>
 			</Key>
+			<Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_CheckUnit_Name">
+				  <English>Check Unit</English>
+				   <German>Check Unit</German>
+				<Hungarian>Check Unit</Hungarian>
+				  <Italian>Check Unit</Italian>
+				   <French>Check Unit</French>
+				  <Russian>Check Unit</Russian>
+				   <Polish>Check Unit</Polish>
+			</Key>
 		</Container>
 		<Container name="DialogControl_BlackOutDialog">
 			<Key ID="STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_BloodLeft">
