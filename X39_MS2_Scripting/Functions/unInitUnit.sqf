@@ -3,9 +3,10 @@
  *	Uninitializes given unit
  *	
  *	@Param1 - OBJECT - Unit to initialize
+ *	@Param2 - BOOLEAN - Should the function leave variables that are flagged as "keep over respawn" like they are or not
  *	@Return - NA
  */
-params [["_unit", objNull, [objNull]]];
+params [["_unit", objNull, [objNull]], ["_leaveKepperVariablesAlive", false, [false]]];
 FORCELOCAL(_unit);
 player enableFatigue true;
 if(isNull _unit) exitWith {PRINT_ERROR("Cannot uninitialize a NULL unit!");};
@@ -27,38 +28,38 @@ if(hasInterface && {_unit == player}) then
 {
 	if(X39_MS2_var_Internal_ppe_radialBlur == -1) then
 	{
-		 ppEffectDestroy X39_MS2_var_Internal_ppe_radialBlur;
-		 X39_MS2_var_Internal_ppe_radialBlur = -1;
+		ppEffectDestroy X39_MS2_var_Internal_ppe_radialBlur;
+		X39_MS2_var_Internal_ppe_radialBlur = -1;
 	};
 	if(X39_MS2_var_Internal_ppe_chromAberration == -1) then
 	{
-		 ppEffectDestroy X39_MS2_var_Internal_ppe_chromAberration;
-		 X39_MS2_var_Internal_ppe_chromAberration = -1;
+		ppEffectDestroy X39_MS2_var_Internal_ppe_chromAberration;
+		X39_MS2_var_Internal_ppe_chromAberration = -1;
 	};
 	if(X39_MS2_var_Internal_ppe_wetDistortion == -1) then
 	{
-		 ppEffectDestroy X39_MS2_var_Internal_ppe_wetDistortion;
-		 X39_MS2_var_Internal_ppe_wetDistortion = -1;
+		ppEffectDestroy X39_MS2_var_Internal_ppe_wetDistortion;
+		X39_MS2_var_Internal_ppe_wetDistortion = -1;
 	};
 	if(X39_MS2_var_Internal_ppe_colorCorrections == -1) then
 	{
-		 ppEffectDestroy X39_MS2_var_Internal_ppe_colorCorrections;
-		 X39_MS2_var_Internal_ppe_colorCorrections = -1;
+		ppEffectDestroy X39_MS2_var_Internal_ppe_colorCorrections;
+		X39_MS2_var_Internal_ppe_colorCorrections = -1;
 	};
 	if(X39_MS2_var_Internal_ppe_dynamicBlur == -1) then
 	{
-		 ppEffectDestroy X39_MS2_var_Internal_ppe_dynamicBlur;
-		 X39_MS2_var_Internal_ppe_dynamicBlur = -1;
+		ppEffectDestroy X39_MS2_var_Internal_ppe_dynamicBlur;
+		X39_MS2_var_Internal_ppe_dynamicBlur = -1;
 	};
 	if(X39_MS2_var_Internal_ppe_filmGrain == -1) then
 	{
-		 ppEffectDestroy X39_MS2_var_Internal_ppe_filmGrain;
-		 X39_MS2_var_Internal_ppe_filmGrain = -1;
+		ppEffectDestroy X39_MS2_var_Internal_ppe_filmGrain;
+		X39_MS2_var_Internal_ppe_filmGrain = -1;
 	};
 	if(X39_MS2_var_Internal_ppe_colorInversion == -1) then
 	{
-		 ppEffectDestroy X39_MS2_var_Internal_ppe_colorInversion;
-		 X39_MS2_var_Internal_ppe_colorInversion = -1;
+		ppEffectDestroy X39_MS2_var_Internal_ppe_colorInversion;
+		X39_MS2_var_Internal_ppe_colorInversion = -1;
 	};
 	[] call X39_MS2_fnc_blackOutDialog_closeDialog;
 	[] call X39_MS2_fnc_overlay_destroyDisplay;
@@ -66,7 +67,7 @@ if(hasInterface && {_unit == player}) then
 };
 
 {
-	if(_x select 3) then
+	if(_x select 3 && (!_leaveKepperVariablesAlive || !(_x select 4))) then
 	{
 		_unit setVariable[_x select 0, nil, true];				
 	};
