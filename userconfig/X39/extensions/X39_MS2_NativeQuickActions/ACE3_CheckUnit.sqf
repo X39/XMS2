@@ -4,19 +4,19 @@
 [
 	localize "STR_X39_MS2_Scripting_QuickActions_ACE3_CheckUnit_Name",
 	parseText "",
-	X39_MS2_var_Internal_MedicalActions_actionArray select _actionIndex select 2,
-	X39_MS2_var_Internal_MedicalActions_actionArray select _actionIndex select 6,
+	"",
+	{X39_MS2_var_DialogControl_MedicalActionMenu_checkUnitTimeout select 2},
 	{1},//RequiredItemsCode
 	{true},//ConditionCode
 	{//ExecutionCode
-		if(isNull CUControl) then
+		if(!isNull CUControl) then
 		{
-			ctrlDelete CUControl
+			ctrlDelete CUControl;
 			terminate X39_MS2_var_Internal_QuickActions_CheckUnitHandle;
 		};
 		if(vehicle player == player) then
 		{
-			DEBUG_LOG_WFn_SC(format["Starting animation"])
+			DEBUG_LOG_SC(format["Starting animation"])
 			player playAction "MedicStart";
 		};
 		_timeout = X39_MS2_var_DialogControl_MedicalActionMenu_checkUnitTimeout select 2;
@@ -38,7 +38,7 @@
 		{
 			if(vehicle player == player) then
 			{
-				DEBUG_LOG_WFn_SC(format["Stopping animation"])
+				DEBUG_LOG_SC(format["Stopping animation"])
 				player playAction "MedicStop";
 			};
 		};
@@ -55,20 +55,21 @@
 		CUControl ctrlSetBackgroundColor [0, 0, 0, 0.25];
 		_str = "";
 		{
-			DEBUG_LOG_WFn_SC(format["Checking %1" COMMA _x])
-			if(_checkUnitType >= _x select 3) then
+			DEBUG_LOG_SC(format["Checking %1" COMMA _x])
+			if(2 >= _x select 3) then
 			{
 				if(X39_MS2_var_Internal_DialogCommunication_MA_Target call (_x select 2)) then
 				{
-					DEBUG_LOG_WFn_SC(format["%1 is valid, Adding ..." COMMA _x])
-					_str = _str + format["<t color='#%1'>%2</t>", (_x select 1) call BIS_fnc_colorRGBAtoHTML, format[(if(ISCODE(_x select 0)) then {[X39_MS2_var_Internal_DialogCommunication_MA_Target, X39_MS2_var_Internal_DialogCommunication_MA_Caller] call (_x select 0)} else {localize (_x select 0)}), name X39_MS2_var_Internal_DialogCommunication_MA_Target, name X39_MS2_var_Internal_DialogCommunication_MA_Caller]];
+					DEBUG_LOG_SC(format["%1 is valid, Adding ..." COMMA _x])
+					_str = _str + format["- <t color='#%1'>%2</t><br />", (_x select 1) call BIS_fnc_colorRGBAtoHTML, format[(if(ISCODE(_x select 0)) then {[X39_MS2_var_Internal_DialogCommunication_MA_Target, X39_MS2_var_Internal_DialogCommunication_MA_Caller] call (_x select 0)} else {localize (_x select 0)}), name X39_MS2_var_Internal_DialogCommunication_MA_Target, name X39_MS2_var_Internal_DialogCommunication_MA_Caller]];
 				};
 			};
 			false
 		}count X39_MS2_var_Internal_MedicalMessages;
+		CUControl ctrlSetStructuredText parseText _str;
 		X39_MS2_var_Internal_QuickActions_CheckUnitHandle = [] spawn
 		{
-			sleep 15;
+			sleep 30;
 			ctrlDelete CUControl;
 			uiNamespace setVariable ["X39_MS2_var_Internal_QuickActions_CheckUnitControl", controlNull];
 		};
