@@ -258,6 +258,15 @@
 				  <Russian>Place King-LT</Russian>
 				   <Polish>Place King-LT</Polish>
 			</Key>
+			<Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_UseBagvalveMask_Name">
+				  <English>Use Bagvalve Mask</English>
+				   <German>Use Bagvalve Mask</German>
+				<Hungarian>Use Bagvalve Mask</Hungarian>
+				  <Italian>Use Bagvalve Mask</Italian>
+				   <French>Use Bagvalve Mask</French>
+				  <Russian>Use Bagvalve Mask</Russian>
+				   <Polish>Use Bagvalve Mask</Polish>
+			</Key>
 		</Container>
 		<Container name="DialogControl_BlackOutDialog">
 			<Key ID="STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_BloodLeft">
