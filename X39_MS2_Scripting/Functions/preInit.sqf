@@ -104,7 +104,7 @@ X39_MS2_var_Internal_UnitVariables pushBack ["X39_MS2_var_Hearing_value",				{1	
 X39_MS2_var_Internal_UnitVariables pushBack ["X39_MS2_var_Internal_XMSEffects",			{[]												}, false	,										true	,				false	];
 X39_MS2_var_Internal_UnitVariables pushBack ["X39_MS2_var_Temperature_value",			{X39_MS2_var_Temperature_max					}, true	,										true	,				false	];
 X39_MS2_var_Internal_UnitVariables pushBack ["X39_MS2_var_Temperature_wetness",			{0													}, true	,										true	,				false	];
-X39_MS2_var_Internal_UnitVariables pushBack ["X39_MS2_var_hasEarplugs",					{false												}, true	,										true	,				false	];
+X39_MS2_var_Internal_UnitVariables pushBack ["X39_MS2_var_hasEarplugs",					{false												}, true	,										true	,				true	];
 X39_MS2_var_Internal_UnitVariables pushBack ["X39_MS2_var_hasNasopharyngeal",			{false												}, true	,										true	,				false	];
 X39_MS2_var_Internal_UnitVariables pushBack ["X39_MS2_var_haskingLt",					{false												}, true	,										true	,				false	];
 X39_MS2_var_Internal_UnitVariables pushBack ["X39_MS2_var_hasBagvalveMask",				{false												}, true	,										true	,				false	];
