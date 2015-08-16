@@ -1,8 +1,8 @@
 #include "\X39_MS2_Scripting\default.hpp"
 
 private["_actionIndex"];
-_actionIndex = ["BANDAGE"] call X39_MS2_fnc_getActionById;
-if(_actionIndex == -1) exitWith {PRINT_ERROR("Cannot get Native XMS2 action 'BANDAGE'"); false};
+_actionIndex = ["MEDIPACK"] call X39_MS2_fnc_getActionById;
+if(_actionIndex == -1) exitWith {PRINT_ERROR("Cannot get Native XMS2 action 'MEDIPACK'"); false};
 
 [
 	localize "STR_X39_MS2_Scripting_QuickActions_MedipackAll_Name",					//Name
