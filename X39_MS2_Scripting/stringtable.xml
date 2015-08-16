@@ -267,6 +267,15 @@
 				  <Russian>Use Bagvalve Mask</Russian>
 				   <Polish>Use Bagvalve Mask</Polish>
 			</Key>
+			<Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_StartCPR_Name">
+				  <English>Start CPR</English>
+				   <German>Start CPR</German>
+				<Hungarian>Start CPR</Hungarian>
+				  <Italian>Start CPR</Italian>
+				   <French>Start CPR</French>
+				  <Russian>Start CPR</Russian>
+				   <Polish>Start CPR</Polish>
+			</Key>
 		</Container>
 		<Container name="DialogControl_BlackOutDialog">
 			<Key ID="STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_BloodLeft">

@@ -8,6 +8,7 @@ class X39_MS2_NativeQuickActions : extensionBase
 				"\userconfig\X39\extensions\X39_MS2_NativeQuickActions\ACE3_Heatpack.sqf",
 				"\userconfig\X39\extensions\X39_MS2_NativeQuickActions\ACE3_PutKingLT.sqf",
 				"\userconfig\X39\extensions\X39_MS2_NativeQuickActions\ACE3_PutNasopharyngeal.sqf",
+				"\userconfig\X39\extensions\X39_MS2_NativeQuickActions\ACE3_StartCPR.sqf",
 				"\userconfig\X39\extensions\X39_MS2_NativeQuickActions\ACE3_TakeKingLT.sqf",
 				"\userconfig\X39\extensions\X39_MS2_NativeQuickActions\ACE3_TakeNasopharyngeal.sqf",
 				"\userconfig\X39\extensions\X39_MS2_NativeQuickActions\ACE3_UseBagvalveMask.sqf",
