@@ -222,6 +222,24 @@
 				  <Russian>Place Nasopharyngeal</Russian>
 				   <Polish>Place Nasopharyngeal</Polish>
 			</Key>
+			<Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_TakeKingLT_Name">
+				  <English>Take King-LT</English>
+				   <German>Take King-LT</German>
+				<Hungarian>Take King-LT</Hungarian>
+				  <Italian>Take King-LT</Italian>
+				   <French>Take King-LT</French>
+				  <Russian>Take King-LT</Russian>
+				   <Polish>Take King-LT</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_PutKingLT_Name">
+				  <English>Place King-LT</English>
+				   <German>Place King-LT</German>
+				<Hungarian>Place King-LT</Hungarian>
+				  <Italian>Place King-LT</Italian>
+				   <French>Place King-LT</French>
+				  <Russian>Place King-LT</Russian>
+				   <Polish>Place King-LT</Polish>
+			</Key>
 		</Container>
 		<Container name="DialogControl_BlackOutDialog">
 			<Key ID="STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_BloodLeft">
