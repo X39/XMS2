@@ -150,6 +150,24 @@
 				  <Russian>Bandage all limbs</Russian>
 				   <Polish>Bandage all limbs</Polish>
 			</Key>
+			<Key ID="STR_X39_MS2_Scripting_QuickActions_MedipackAll_Name">
+				  <English>Medipack limbs</English>
+				   <German>Medipack limbs</German>
+				<Hungarian>Medipack limbs</Hungarian>
+				  <Italian>Medipack limbs</Italian>
+				   <French>Medipack limbs</French>
+				  <Russian>Medipack limbs</Russian>
+				   <Polish>Medipack limbs</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_QuickActions_MedipackAll_Description">
+				  <English>Use a Medipack on all limbs</English>
+				   <German>Use a Medipack on all limbs</German>
+				<Hungarian>Use a Medipack on all limbs</Hungarian>
+				  <Italian>Use a Medipack on all limbs</Italian>
+				   <French>Use a Medipack on all limbs</French>
+				  <Russian>Use a Medipack on all limbs</Russian>
+				   <Polish>Use a Medipack on all limbs</Polish>
+			</Key>
 			<Key ID="STR_X39_MS2_Scripting_QuickActions_putTourniquetAll_Name">
 				  <English>Put Tourniquets to all needed limbs</English>
 				   <German>Put Tourniquets to all needed limbs</German>

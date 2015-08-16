@@ -12,6 +12,7 @@ class X39_MS2_NativeQuickActions : extensionBase
 				"\userconfig\X39\extensions\X39_MS2_NativeQuickActions\ACE3_TakeNasopharyngeal.sqf",
 				"\userconfig\X39\extensions\X39_MS2_NativeQuickActions\bandageAll.sqf",
 				"\userconfig\X39\extensions\X39_MS2_NativeQuickActions\dropTourniquetAll.sqf",
+				"\userconfig\X39\extensions\X39_MS2_NativeQuickActions\medipackAll.sqf",
 				"\userconfig\X39\extensions\X39_MS2_NativeQuickActions\putTourniquetAll.sqf"
 			  };
 	serverOnly = 0;
