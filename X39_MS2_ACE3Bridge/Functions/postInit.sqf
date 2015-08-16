@@ -84,7 +84,7 @@
 		"Interactions",
 		"",
 		{nil},
-		{[_this select 1] call X39_MS2_fnc_isUnitXms2Unit && [_this select 0] call X39_MS2_fnc_isUnitXms2Unit},
+		{[_this select 1] call X39_MS2_fnc_isUnitXms2Unit && [_this select 0] call X39_MS2_fnc_isUnitXms2Unit && !X39_MS2_var_Internal_DialogCommunication_MA_preventActions},
 		{
 			X39_XLib_var_ActionDialog_Executor = _this select 1;
 			X39_XLib_var_ActionDialog_Target = _this select 0;
@@ -112,7 +112,7 @@
 		"Drugs",
 		"",
 		{nil},
-		{[_this select 1] call X39_MS2_fnc_isUnitXms2Unit && [_this select 0] call X39_MS2_fnc_isUnitXms2Unit},
+		{[_this select 1] call X39_MS2_fnc_isUnitXms2Unit && [_this select 0] call X39_MS2_fnc_isUnitXms2Unit && !X39_MS2_var_Internal_DialogCommunication_MA_preventActions},
 		{
 			X39_XLib_var_ActionDialog_Executor = _this select 1;
 			X39_XLib_var_ActionDialog_Target = _this select 0;
@@ -130,7 +130,7 @@
 		"QuickActions",
 		"",
 		{nil},
-		{[_this select 1] call X39_MS2_fnc_isUnitXms2Unit && [_this select 0] call X39_MS2_fnc_isUnitXms2Unit},
+		{[_this select 1] call X39_MS2_fnc_isUnitXms2Unit && [_this select 0] call X39_MS2_fnc_isUnitXms2Unit && !X39_MS2_var_Internal_DialogCommunication_MA_preventActions},
 		{
 			X39_XLib_var_ActionDialog_Executor = _this select 1;
 			X39_XLib_var_ActionDialog_Target = _this select 0;
