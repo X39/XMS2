@@ -125,9 +125,11 @@ if(isServer) then
 			for "_fileIndex" from 0 to ((count _files) - 1) do
 			{
 				scopeName "out";
+				private "_return";
 				_return = [] call compile (_files select _fileIndex);
 				if(isNil "_return" || {!ISBOOL(_return) || {!_return}}) then
 				{
+					if(isNil "_return") then {_return = "NIL"};
 					PRINT_ERROR(format["Failed to initialize XMS2 extension '%1', file '%2' exited with result '%3' instead of 'true'" COMMA _x select 0 COMMA _fileIndex COMMA _return]);
 					_failFlag = true;
 					breakOut "out";
