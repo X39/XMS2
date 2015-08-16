@@ -195,6 +195,33 @@
 				  <Russian>Give Saline</Russian>
 				   <Polish>Give Saline</Polish>
 			</Key>
+			<Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_GiveHeatpack_Name">
+				  <English>Give Heatpack</English>
+				   <German>Give Heatpack</German>
+				<Hungarian>Give Heatpack</Hungarian>
+				  <Italian>Give Heatpack</Italian>
+				   <French>Give Heatpack</French>
+				  <Russian>Give Heatpack</Russian>
+				   <Polish>Give Heatpack</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_TakeNasopharyngeal_Name">
+				  <English>Take Nasopharyngeal</English>
+				   <German>Take Nasopharyngeal</German>
+				<Hungarian>Take Nasopharyngeal</Hungarian>
+				  <Italian>Take Nasopharyngeal</Italian>
+				   <French>Take Nasopharyngeal</French>
+				  <Russian>Take Nasopharyngeal</Russian>
+				   <Polish>Take Nasopharyngeal</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_PutNasopharyngeal_Name">
+				  <English>Place Nasopharyngeal</English>
+				   <German>Place Nasopharyngeal</German>
+				<Hungarian>Place Nasopharyngeal</Hungarian>
+				  <Italian>Place Nasopharyngeal</Italian>
+				   <French>Place Nasopharyngeal</French>
+				  <Russian>Place Nasopharyngeal</Russian>
+				   <Polish>Place Nasopharyngeal</Polish>
+			</Key>
 		</Container>
 		<Container name="DialogControl_BlackOutDialog">
 			<Key ID="STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_BloodLeft">
