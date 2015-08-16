@@ -7,7 +7,7 @@ if(_actionIndex == -1) exitWith {PRINT_ERROR("Cannot get Native XMS2 action 'PUT
 [
 	localize "STR_X39_MS2_Scripting_QuickActions_putTourniquetAll_Name",						//Name
 	parseText localize "STR_X39_MS2_Scripting_QuickActions_putTourniquetAll_Description",	//Description
-	"\X39_MS2_Resources\Items\Tourniquet\Tourniquet_thumb.paa",										//ImagePath
+	X39_MS2_var_Internal_MedicalActions_actionArray select _actionIndex select 2,
 	{//RequiredTimeCode
 		private "_count";
 		_count = {[_this select 1, _x select 0] call X39_MS2_fnc_getAterialDamage} count X39_MS2_var_Internal_HitZones;

@@ -7,7 +7,7 @@ if(_actionIndex == -1) exitWith {PRINT_ERROR("Cannot get Native XMS2 action 'BAN
 [
 	localize "STR_X39_MS2_Scripting_QuickActions_BandageAll_Name",						//Name
 	parseText localize "STR_X39_MS2_Scripting_QuickActions_BandageAll_Description",	//Description
-	"\X39_MS2_Resources\Items\Bandage\Bandage.paa",										//ImagePath
+	X39_MS2_var_Internal_MedicalActions_actionArray select _actionIndex select 2,
 	{//RequiredTimeCode
 		private "_time";
 		_time = {([_this select 1] call (missionNamespace getVariable format["X39_MS2_fnc_getBleedingOf%1", _x select 0])) > 0}count X39_MS2_var_Internal_HitZones;
