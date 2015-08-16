@@ -13,7 +13,7 @@ if(_actionIndex == -1) exitWith {PRINT_ERROR("Cannot get Native XMS2 action 'HEA
 	{//ConditionCode
 		private ["_isAllowedToUseResult", "_res"];
 		_isAllowedToUseResult = [_this select 1, (X39_MS2_var_Internal_MedicalActions_actionArray select (_this select 2)) select 5] call X39_MS2_fnc_ls_isAllowedToUse;
-		_res = !( [_this select 0, _this select 1, "", _isAllowedToUseResult select 1] call (X39_MS2_var_Internal_MedicalActions_actionArray select (_this select 2) select 3) );
+		_res = ( [_this select 0, _this select 1, "", _isAllowedToUseResult select 1] call (X39_MS2_var_Internal_MedicalActions_actionArray select (_this select 2) select 3) );
 		( (_isAllowedToUseResult select 0) && _res )
 	},
 	{//ExecutionCode

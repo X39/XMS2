@@ -3,7 +3,16 @@
 	"PUTKINGLT",
 	"STR_X39_MS2_Scripting_MedicalUiActions_KingLt_ActionNamePut",
 	"",
-	{(("x39_xms2_kinglt" in items (_this select 0)) || ("x39_xms2_kinglt" in items (_this select 1))) && !([_this select 1] call X39_MS2_fnc_getBagvalveMask) && {([_this select 1] call X39_MS2_fnc_isBlackedOut) && {!([_this select 1] call X39_MS2_fnc_getkingLt)}}},
+	{
+		(("x39_xms2_kinglt" in items (_this select 0)) || ("x39_xms2_kinglt" in items (_this select 1))) &&
+		!([_this select 1] call X39_MS2_fnc_getBagvalveMask) &&
+		{
+			([_this select 1] call X39_MS2_fnc_isBlackedOut) &&
+			{
+				!([_this select 1] call X39_MS2_fnc_getkingLt)
+			}
+		}
+	},
 	{
 		if ("x39_xms2_kinglt" in items (_this select 1)) then
 		{
