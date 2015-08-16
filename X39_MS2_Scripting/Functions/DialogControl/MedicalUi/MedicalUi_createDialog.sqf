@@ -397,7 +397,8 @@ _this spawn {
 		if(_index >= 0 && _index < count X39_MS2_var_Internal_MedicalUi_QuickActions) then
 		{
 			_item = X39_MS2_var_Internal_MedicalUi_QuickActions select _index;
-			displayCtrl_MedicalUi(IDC_MEDICALUI_TB_QUICKACTIONDESCRIPTION) ctrlSetStructuredText parseText format[
+			DEBUG_LOG_WFn_SC(format["Current QuickAction: %1, %2" COMMA str _index COMMA str _item])
+			_txt = parseText format[
 																												"%1: %2<br />%3: %4<br />%5:<br />%6",
 																												localize "STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_QuickActions_RequiredTime", 
 																												[_item select 6, X39_MS2_var_Internal_DialogCommunication_MA_Target, X39_MS2_var_Internal_DialogCommunication_MA_Caller] call (_item select 3),
@@ -406,6 +407,7 @@ _this spawn {
 																												localize "STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_QuickActions_Description",
 																												_item select 1
 																											];
+			displayCtrl_MedicalUi(IDC_MEDICALUI_TB_QUICKACTIONDESCRIPTION) ctrlSetStructuredText _txt;
 		}
 		else
 		{
