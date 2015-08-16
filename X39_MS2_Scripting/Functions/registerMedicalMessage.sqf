@@ -10,7 +10,7 @@
  *	@Author - X39|Cpt. HM Murdock
  */
 params [
-	["_localizationString", "", [""]],
+	["_localizationString", "", ["", {}]],
 	["_colorArray", [1,1,1,1], [[]], [4]],
 	["_conditionCode", {true}, [{}]],
 	["_presentAtCheckDepth", 0, [0]]
