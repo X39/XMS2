@@ -31,7 +31,7 @@ X39_MS2_var_Internal_Handles_QuickActionHandle = _this spawn
 		["ainvpknlmstpsnonwrfldnon_medicend"],
 		{
 			terminate X39_MS2_var_Internal_Handles_QuickActionHandle;
-			X39_MS2_var_Internal_Handles_QuickActionHandle = false;
+			X39_MS2_var_Internal_Handles_QuickActionHandle = scriptNull;
 			[] call X39_MS2_fnc_clearProgressBarTimeout;
 			[] call X39_MS2_fnc_clearAnimationLock;
 		},
