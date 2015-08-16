@@ -92,6 +92,7 @@
 			X39_XLib_var_ActionDialog_ExecutorInVehicle = vehicle X39_XLib_var_ActionDialog_Executor != X39_XLib_var_ActionDialog_Executor;
 			X39_MS2_var_Internal_DialogCommunication_MA_Caller = X39_XLib_var_ActionDialog_Executor;
 			X39_MS2_var_Internal_DialogCommunication_MA_Target = X39_XLib_var_ActionDialog_Target;
+			[]
 		}
 	] call ACE_interact_menu_fnc_createAction;
 	["CAManBase", 1, ["ACE_SelfActions"], _ace_Interaction] call _recursiveAddActionToClass;
@@ -121,6 +122,7 @@
 			X39_XLib_var_ActionDialog_ExecutorInVehicle = vehicle X39_XLib_var_ActionDialog_Executor != X39_XLib_var_ActionDialog_Executor;
 			X39_MS2_var_Internal_DialogCommunication_MA_Caller = X39_XLib_var_ActionDialog_Executor;
 			X39_MS2_var_Internal_DialogCommunication_MA_Target = X39_XLib_var_ActionDialog_Target;
+			[]
 		}
 	] call ACE_interact_menu_fnc_createAction;
 	["CAManBase", 1, ["ACE_SelfActions"], _drugBase] call _recursiveAddActionToClass;
@@ -140,6 +142,7 @@
 			X39_XLib_var_ActionDialog_ExecutorInVehicle = vehicle X39_XLib_var_ActionDialog_Executor != X39_XLib_var_ActionDialog_Executor; 
 			X39_MS2_var_Internal_DialogCommunication_MA_Caller = X39_XLib_var_ActionDialog_Executor;
 			X39_MS2_var_Internal_DialogCommunication_MA_Target = X39_XLib_var_ActionDialog_Target;
+			[]
 		}
 	] call ACE_interact_menu_fnc_createAction;
 	["CAManBase", 1, ["ACE_SelfActions"], _quickActionBase] call _recursiveAddActionToClass;
