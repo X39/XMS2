@@ -393,7 +393,11 @@ _this spawn {
 		DEBUG_LOG_WFn_SC("Updating quickAction list has been done!")
 		//update quickActionText
 		//IDC_MEDICALUI_TB_QUICKACTIONDESCRIPTION
-		_index = (displayCtrl_MedicalUi(IDC_MEDICALUI_LB_QUICKACTIONLIST) lbValue lbCurSel displayCtrl_MedicalUi(IDC_MEDICALUI_LB_QUICKACTIONLIST));
+		_index = lbCurSel displayCtrl_MedicalUi(IDC_MEDICALUI_LB_QUICKACTIONLIST);
+		if(_index >= 0) then
+		{
+			_index = displayCtrl_MedicalUi(IDC_MEDICALUI_LB_QUICKACTIONLIST) lbValue _index;
+		};
 		if(_index >= 0 && _index < count X39_MS2_var_Internal_MedicalUi_QuickActions) then
 		{
 			_item = X39_MS2_var_Internal_MedicalUi_QuickActions select _index;
