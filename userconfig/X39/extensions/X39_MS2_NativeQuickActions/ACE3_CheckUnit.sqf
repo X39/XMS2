@@ -75,6 +75,7 @@
 		};
 	},
 	[],
+	false,
 	false
 ] call X39_MS2_fnc_registerQuickAction;
 true

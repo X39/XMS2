@@ -23,6 +23,7 @@ if(_actionIndex == -1) exitWith {PRINT_ERROR("Cannot get Native XMS2 action 'GIV
 		[_this select 2, _this select 1, "", _isAllowedToUseResult select 1] call (X39_MS2_var_Internal_MedicalActions_actionArray select (_this select 0) select 4);
 	},
 	_actionIndex,
+	true,
 	false
 ] call X39_MS2_fnc_registerQuickAction;
 true
