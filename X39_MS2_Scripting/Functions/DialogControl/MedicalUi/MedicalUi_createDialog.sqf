@@ -367,7 +367,7 @@ _this spawn {
 		DEBUG_LOG_WFn_SC("Updating drug list...")
 		_arr = [];
 		{
-			if(_x select 8) then
+			if(_x select 9) then
 			{
 				if([X39_MS2_var_Internal_DialogCommunication_MA_Caller, X39_MS2_var_Internal_DialogCommunication_MA_Target, _x select 6] call (_x select 4)) then
 				{
