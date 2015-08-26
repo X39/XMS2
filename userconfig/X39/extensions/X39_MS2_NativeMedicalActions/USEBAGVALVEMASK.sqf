@@ -3,7 +3,7 @@
 	"USEBAGVALVEMASK",
 	"STR_X39_MS2_Scripting_MedicalUiActions_UseBagValveMask",
 	"",
-	{("x39_xms2_bagvalvemask" in items (_this select 0)) || ("x39_xms2_bagvalvemask" in items (_this select 1)) && {([_this select 1] call X39_MS2_fnc_isBlackedOut) && {!([_this select 1] call X39_MS2_fnc_getBagvalveMask)}}},
+	{(("x39_xms2_bagvalvemask" in items (_this select 0)) || ("x39_xms2_bagvalvemask" in items (_this select 1))) && {([_this select 1] call X39_MS2_fnc_isBlackedOut) && {!([_this select 1] call X39_MS2_fnc_getBagvalveMask)}}},
 	{
 		[
 			_this select 0,
