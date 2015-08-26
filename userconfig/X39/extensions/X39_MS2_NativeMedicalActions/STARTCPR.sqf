@@ -3,7 +3,7 @@
 	"STARTCPR",
 	"STR_X39_MS2_Scripting_MedicalUiActions_StartCPR",
 	"",
-	{!([_this select 1] call X39_MS2_fnc_getCprPresent)},
+	{!([_this select 1] call X39_MS2_fnc_getCprPresent) && ([_this select 1] call X39_MS2_fnc_isBlackedOut)},
 	{
 		[
 			_this select 0,
