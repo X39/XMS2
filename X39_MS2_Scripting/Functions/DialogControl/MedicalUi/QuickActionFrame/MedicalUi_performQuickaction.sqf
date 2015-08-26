@@ -44,6 +44,5 @@ X39_MS2_var_Internal_Handles_QuickActionHandle = _this spawn
 	//Stop the medic animation if not in vehicle
 	if(vehicle _executor == _executor) then { _executor playAction "MedicStop"; };
 	
-	
-	[_qa select 6, _target, _executor] call (_qa select 5);
+	[_target, format["_this call (X39_MS2_var_Internal_MedicalUi_QuickActions select %1)", _qaIndex], [_qa select 6, _target, _executor]] call X39_XLib_fnc_executeLocalToUnit;
 };
