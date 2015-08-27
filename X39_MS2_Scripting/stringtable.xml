@@ -150,6 +150,24 @@
 				  <Russian>Bandage all limbs</Russian>
 				   <Polish>Bandage all limbs</Polish>
 			</Key>
+			<Key ID="STR_X39_MS2_Scripting_QuickActions_MedipackAll_Name">
+				  <English>Medipack limbs</English>
+				   <German>Medipack limbs</German>
+				<Hungarian>Medipack limbs</Hungarian>
+				  <Italian>Medipack limbs</Italian>
+				   <French>Medipack limbs</French>
+				  <Russian>Medipack limbs</Russian>
+				   <Polish>Medipack limbs</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_QuickActions_MedipackAll_Description">
+				  <English>Use a Medipack on all limbs</English>
+				   <German>Use a Medipack on all limbs</German>
+				<Hungarian>Use a Medipack on all limbs</Hungarian>
+				  <Italian>Use a Medipack on all limbs</Italian>
+				   <French>Use a Medipack on all limbs</French>
+				  <Russian>Use a Medipack on all limbs</Russian>
+				   <Polish>Use a Medipack on all limbs</Polish>
+			</Key>
 			<Key ID="STR_X39_MS2_Scripting_QuickActions_putTourniquetAll_Name">
 				  <English>Put Tourniquets to all needed limbs</English>
 				   <German>Put Tourniquets to all needed limbs</German>
@@ -203,6 +221,86 @@
 				   <French>Drink something</French>
 				  <Russian>Drink something</Russian>
 				   <Polish>Drink something</Polish>
+			<Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_GiveSaline_Name">
+				  <English>Give Saline</English>
+				   <German>Give Saline</German>
+				<Hungarian>Give Saline</Hungarian>
+				  <Italian>Give Saline</Italian>
+				   <French>Give Saline</French>
+				  <Russian>Give Saline</Russian>
+				   <Polish>Give Saline</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_GiveHeatpack_Name">
+				  <English>Give Heatpack</English>
+				   <German>Give Heatpack</German>
+				<Hungarian>Give Heatpack</Hungarian>
+				  <Italian>Give Heatpack</Italian>
+				   <French>Give Heatpack</French>
+				  <Russian>Give Heatpack</Russian>
+				   <Polish>Give Heatpack</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_TakeNasopharyngeal_Name">
+				  <English>Take Nasopharyngeal</English>
+				   <German>Take Nasopharyngeal</German>
+				<Hungarian>Take Nasopharyngeal</Hungarian>
+				  <Italian>Take Nasopharyngeal</Italian>
+				   <French>Take Nasopharyngeal</French>
+				  <Russian>Take Nasopharyngeal</Russian>
+				   <Polish>Take Nasopharyngeal</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_PutNasopharyngeal_Name">
+				  <English>Place Nasopharyngeal</English>
+				   <German>Place Nasopharyngeal</German>
+				<Hungarian>Place Nasopharyngeal</Hungarian>
+				  <Italian>Place Nasopharyngeal</Italian>
+				   <French>Place Nasopharyngeal</French>
+				  <Russian>Place Nasopharyngeal</Russian>
+				   <Polish>Place Nasopharyngeal</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_TakeKingLT_Name">
+				  <English>Take King-LT</English>
+				   <German>Take King-LT</German>
+				<Hungarian>Take King-LT</Hungarian>
+				  <Italian>Take King-LT</Italian>
+				   <French>Take King-LT</French>
+				  <Russian>Take King-LT</Russian>
+				   <Polish>Take King-LT</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_PutKingLT_Name">
+				  <English>Place King-LT</English>
+				   <German>Place King-LT</German>
+				<Hungarian>Place King-LT</Hungarian>
+				  <Italian>Place King-LT</Italian>
+				   <French>Place King-LT</French>
+				  <Russian>Place King-LT</Russian>
+				   <Polish>Place King-LT</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_UseBagvalveMask_Name">
+				  <English>Use Bagvalve Mask</English>
+				   <German>Use Bagvalve Mask</German>
+				<Hungarian>Use Bagvalve Mask</Hungarian>
+				  <Italian>Use Bagvalve Mask</Italian>
+				   <French>Use Bagvalve Mask</French>
+				  <Russian>Use Bagvalve Mask</Russian>
+				   <Polish>Use Bagvalve Mask</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_StartCPR_Name">
+				  <English>Start CPR</English>
+				   <German>Start CPR</German>
+				<Hungarian>Start CPR</Hungarian>
+				  <Italian>Start CPR</Italian>
+				   <French>Start CPR</French>
+				  <Russian>Start CPR</Russian>
+				   <Polish>Start CPR</Polish>
+			</Key>
+			<Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_CheckUnit_Name">
+				  <English>Check Unit</English>
+				   <German>Check Unit</German>
+				<Hungarian>Check Unit</Hungarian>
+				  <Italian>Check Unit</Italian>
+				   <French>Check Unit</French>
+				  <Russian>Check Unit</Russian>
+				   <Polish>Check Unit</Polish>
 			</Key>
 		</Container>
 		<Container name="DialogControl_BlackOutDialog">

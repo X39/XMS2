@@ -22,7 +22,7 @@ X39_MS2_var_Internal_Handles_QuickActionHandle = _this spawn
 	if(vehicle _executor == _executor) then { _executor playAction "MedicStart"; };
 	
 	//Start progress bar animation
-	[3] call X39_MS2_fnc_setProgressBarTimeout;
+	[[_qa select 6, _target, _executor] call (_qa select 3)] call X39_MS2_fnc_setProgressBarTimeout;
 	
 	//set animation lock to abort the execution if the user moves "unexpected" (or dies, or ...)
 	[
@@ -31,7 +31,7 @@ X39_MS2_var_Internal_Handles_QuickActionHandle = _this spawn
 		["ainvpknlmstpsnonwrfldnon_medicend"],
 		{
 			terminate X39_MS2_var_Internal_Handles_QuickActionHandle;
-			X39_MS2_var_Internal_Handles_QuickActionHandle = false;
+			X39_MS2_var_Internal_Handles_QuickActionHandle = scriptNull;
 			[] call X39_MS2_fnc_clearProgressBarTimeout;
 			[] call X39_MS2_fnc_clearAnimationLock;
 		},
@@ -43,7 +43,12 @@ X39_MS2_var_Internal_Handles_QuickActionHandle = _this spawn
 	
 	//Stop the medic animation if not in vehicle
 	if(vehicle _executor == _executor) then { _executor playAction "MedicStop"; };
-	
-	
-	[_qa select 6, _target, _executor] call (_qa select 5);
+	if(_qa select 8) then
+	{
+		[_target, format["_this call ((X39_MS2_var_Internal_MedicalUi_QuickActions select %1) select 5)", _qaIndex], [_qa select 6, _target, _executor]] call X39_XLib_fnc_executeLocalToUnit;
+	}
+	else
+	{
+		[_qa select 6, _target, _executor] call  (_qa select 5)
+	};
 };
