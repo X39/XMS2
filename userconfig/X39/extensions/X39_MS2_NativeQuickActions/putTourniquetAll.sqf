@@ -18,15 +18,15 @@ if(_actionIndex == -1) exitWith {PRINT_ERROR("Cannot get Native XMS2 action 'PUT
 	{//RequiredItemsCode
 		private "_count";
 		_count = {[_this select 1, _x select 0] call X39_MS2_fnc_getAterialDamage} count X39_MS2_var_Internal_HitZones;
-		_count = _count - {[_this select 1, _x select 0] call X39_MS2_fnc_getTournique} count X39_MS2_var_Internal_HitZones;
+		_count = _count - ({[_this select 1, _x select 0] call X39_MS2_fnc_getTournique} count X39_MS2_var_Internal_HitZones);
 		if(_count < 0) exitWith {0};
 		_count
 	},
 	{//ConditionCode
 		private ["_isAllowedToUseResult", "_count"];
 		_isAllowedToUseResult = [_this select 1, (X39_MS2_var_Internal_MedicalActions_actionArray select (_this select 2)) select 5] call X39_MS2_fnc_ls_isAllowedToUse;
-		_count = {!( [_this select 0, _this select 1, _x select 0, _isAllowedToUseResult select 1] call (X39_MS2_var_Internal_MedicalActions_actionArray select (_this select 2) select 3) )} count X39_MS2_var_Internal_HitZones;
-		( (_isAllowedToUseResult select 0) && (_count == 0) )
+		_count = {( [_this select 0, _this select 1, _x select 0, _isAllowedToUseResult select 1] call (X39_MS2_var_Internal_MedicalActions_actionArray select (_this select 2) select 3) ) && ([_this select 1, _x select 0] call X39_MS2_fnc_getAterialDamage)} count X39_MS2_var_Internal_HitZones;
+		( (_isAllowedToUseResult select 0) && (_count > 0) )
 	},
 	{//ExecutionCode
 		private ["_hitzones", "_isAllowedToUseResult"];
