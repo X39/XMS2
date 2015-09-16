@@ -17,12 +17,13 @@ X39_MS2_var_Internal_Handles_QuickActionHandle = _this spawn
 	if(_qaIndex < 0) exitWith {PRINT_WARNING("_qaIndex < 0, exiting QuickAction perform");};
 	_qa = X39_MS2_var_Internal_MedicalUi_QuickActions select _qaIndex;
 	if(!([_target, _executor, _qa select 6] call (_qa select 4))) exitWith {DEBUG_LOG_SC("QuickAction condition != true")};
-	
+	_timeout = [_qa select 6, _target, _executor] call (_qa select 3);
+	if(_timeout == 0) exitWith {};
 	//Start the medic animation if not in vehicle
 	if(vehicle _executor == _executor) then { _executor playAction "MedicStart"; };
 	
 	//Start progress bar animation
-	[[_qa select 6, _target, _executor] call (_qa select 3)] call X39_MS2_fnc_setProgressBarTimeout;
+	[_timeout] call X39_MS2_fnc_setProgressBarTimeout;
 	
 	//set animation lock to abort the execution if the user moves "unexpected" (or dies, or ...)
 	[
@@ -39,7 +40,7 @@ X39_MS2_var_Internal_Handles_QuickActionHandle = _this spawn
 		[_executor, _target]
 	] call X39_MS2_fnc_setAnimationLock;
 	
-	uiSleep ([_qa select 6, _target, _executor] call (_qa select 3));
+	uiSleep _timeout;
 	
 	//Stop the medic animation if not in vehicle
 	if(vehicle _executor == _executor) then { _executor playAction "MedicStop"; };
