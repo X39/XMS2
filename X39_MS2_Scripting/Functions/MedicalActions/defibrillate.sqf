@@ -23,8 +23,8 @@ X39_MS2_var_Internal_Handles_DefibrillateHandle = _this spawn {
 	[TIMEOUT] call X39_MS2_fnc_setProgressBarTimeout;
 	[
 		X39_MS2_var_Internal_DialogCommunication_MA_Caller,
-		["ainvpknlmstpsnonwrfldnon_medic", "ainvpknlmstpsnonwrfldnon_medic0s", "ainvpknlmstpsnonwrfldnon_ainvpknlmstpsnonwrfldnon_medic"],
-		["ainvpknlmstpsnonwrfldnon_medicend"],
+		MEDIC_ANIM_ONGOING,
+		MEDIC_ANIM_END,
 		{
 			terminate X39_MS2_var_Internal_Handles_DefibrillateHandle;
 			X39_XLib_var_ActionDialog_preventMenuOpening = false;

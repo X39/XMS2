@@ -7,8 +7,8 @@
 	{
 		[
 			_this select 0,
-			["ainvpknlmstpsnonwrfldnon_medic", "ainvpknlmstpsnonwrfldnon_medic0s", "ainvpknlmstpsnonwrfldnon_ainvpknlmstpsnonwrfldnon_medic"],
-			["ainvpknlmstpsnonwrfldnon_medicend"],
+			MEDIC_ANIM_ONGOING,
+			MEDIC_ANIM_END,
 			{
 				_this = _this select 1;
 				[[_this select 0, false], "X39_MS2_fnc_setCprPresent", _this select 0, false, true] call BIS_fnc_MP;

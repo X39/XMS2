@@ -42,6 +42,9 @@ else \
 	#define ISTEAM_MEMBER(X)(typeName (X) == "TEAM_MEMBER")
 	#define ISNAMESPACE(X)	(typeName (X) == "NAMESPACE")
 	
+	#define MEDIC_ANIM_ONGOING ["amovpercmstpsraswrfldnon_amovpknlmstpsraswrfldnon", "ainvpknlmstpsnonwrfldnon_ainvpknlmstpsnonwrfldnon_medic", "ainvpknlmstpsnonwrfldnon_medic", "ainvpknlmstpsnonwrfldnon_medic0s"]
+	#define MEDIC_ANIM_END ["ainvpknlmstpsnonwrfldnon_medicend", "amovpknlmstpsraswrfldnon"]
+	
 	#define FORCELOCAL(X) if(!local (X)) exitWith {[_this, _fnc_scriptName, X, false] spawn BIS_fnc_MP;}
 	
 	#define NOTIMPLEMENTED diag_log format["%1 is not implemented", _fnc_scriptName]; systemChat format["%1 is not implemented", _fnc_scriptName];

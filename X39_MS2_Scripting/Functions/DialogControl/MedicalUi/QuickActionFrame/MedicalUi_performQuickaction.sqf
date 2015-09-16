@@ -28,8 +28,8 @@ X39_MS2_var_Internal_Handles_QuickActionHandle = _this spawn
 	//set animation lock to abort the execution if the user moves "unexpected" (or dies, or ...)
 	[
 		_executor,
-		["ainvpknlmstpsnonwrfldnon_medic", "ainvpknlmstpsnonwrfldnon_medic0s", "ainvpknlmstpsnonwrfldnon_ainvpknlmstpsnonwrfldnon_medic"],
-		["ainvpknlmstpsnonwrfldnon_medicend"],
+		MEDIC_ANIM_ONGOING,
+		MEDIC_ANIM_END,
 		{
 			terminate X39_MS2_var_Internal_Handles_QuickActionHandle;
 			X39_MS2_var_Internal_Handles_QuickActionHandle = scriptNull;
