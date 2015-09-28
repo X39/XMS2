@@ -460,6 +460,11 @@ assignValue("X39_MS2_var_Heart_pulseReductionMultiplicator", 2);
 assignValue("X39_MS2_var_Heart_BlackedOutPulseModificator", 0.1);
 assignValue("X39_MS2_var_Heart_camShakeMultiplicator", 3);
 assignValue("X39_MS2_var_Heart_playerLoad_effectStrengthMultiplicator", 3);
+//_pulseChange = _pulseChange * (((_pulseCurrent / X39_MS2_var_Heart_deadlyMaxHeartPulsePerSecond - X39_MS2_var_Heart_GraphMod1) ^ X39_MS2_var_Heart_GraphMod2) * X39_MS2_var_Heart_GraphMod3 + X39_MS2_var_Heart_GraphMod4);
+assignValue("X39_MS2_var_Heart_GraphMod1", 1);
+assignValue("X39_MS2_var_Heart_GraphMod2", 4);
+assignValue("X39_MS2_var_Heart_GraphMod3", 0.5);
+assignValue("X39_MS2_var_Heart_GraphMod4", 0.45);
 
 /*****************
 * CATEGORY: PAIN *

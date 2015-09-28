@@ -87,6 +87,7 @@ if(!([_unit] call X39_MS2_fnc_hasFlatLine)) then
 	if(_stage == 0) then
 	{
 		_pulseChange = _pulseChange + (-X39_MS2_var_Heart_basePulseChangePerTick * X39_MS2_var_Heart_pulseReductionMultiplicator);
+        _pulseChange = _pulseChange * (((_pulseCurrent / X39_MS2_var_Heart_deadlyMaxHeartPulsePerSecond - X39_MS2_var_Heart_GraphMod1) ^ X39_MS2_var_Heart_GraphMod2) * X39_MS2_var_Heart_GraphMod3 + X39_MS2_var_Heart_GraphMod4);
 	}
 	else
 	{
