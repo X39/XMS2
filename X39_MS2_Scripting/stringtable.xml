@@ -1,1057 +1,1068 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="ArmA3">
-	<Package name="X39_MS2_Scripting">
-		<Container name="Hitzones_CommonNames">
-			<Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_Head">
-				    <English>Head</English>
-				      <German>Head</German>
-				<Hungarian>Head</Hungarian>
-				    <Italian>Head</Italian>
-				      <French>Head</French>
-				    <Russian>Head</Russian>
-				      <Polish>Head</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_LeftLowerArm">
-				    <English>LeftLowerArm</English>
-				      <German>LeftLowerArm</German>
-				<Hungarian>LeftLowerArm</Hungarian>
-				    <Italian>LeftLowerArm</Italian>
-				      <French>LeftLowerArm</French>
-				    <Russian>LeftLowerArm</Russian>
-				      <Polish>LeftLowerArm</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_LeftFoot">
-				    <English>LeftFoot</English>
-				      <German>LeftFoot</German>
-				<Hungarian>LeftFoot</Hungarian>
-				    <Italian>LeftFoot</Italian>
-				      <French>LeftFoot</French>
-				    <Russian>LeftFoot</Russian>
-				      <Polish>LeftFoot</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_LeftUpperArm">
-				    <English>LeftUpperArm</English>
-				      <German>LeftUpperArm</German>
-				<Hungarian>LeftUpperArm</Hungarian>
-				    <Italian>LeftUpperArm</Italian>
-				      <French>LeftUpperArm</French>
-				    <Russian>LeftUpperArm</Russian>
-				      <Polish>LeftUpperArm</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_LeftLowerLeg">
-				    <English>LeftLowerLeg</English>
-				      <German>LeftLowerLeg</German>
-				<Hungarian>LeftLowerLeg</Hungarian>
-				    <Italian>LeftLowerLeg</Italian>
-				      <French>LeftLowerLeg</French>
-				    <Russian>LeftLowerLeg</Russian>
-				      <Polish>LeftLowerLeg</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_LeftUpperLeg">
-				    <English>LeftUpperLeg</English>
-				      <German>LeftUpperLeg</German>
-				<Hungarian>LeftUpperLeg</Hungarian>
-				    <Italian>LeftUpperLeg</Italian>
-				      <French>LeftUpperLeg</French>
-				    <Russian>LeftUpperLeg</Russian>
-				      <Polish>LeftUpperLeg</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_RightLowerArm">
-				    <English>RightLowerArm</English>
-				      <German>RightLowerArm</German>
-				<Hungarian>RightLowerArm</Hungarian>
-				    <Italian>RightLowerArm</Italian>
-				      <French>RightLowerArm</French>
-				    <Russian>RightLowerArm</Russian>
-				      <Polish>RightLowerArm</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_RightFoot">
-				    <English>RightFoot</English>
-				      <German>RightFoot</German>
-				<Hungarian>RightFoot</Hungarian>
-				    <Italian>RightFoot</Italian>
-				      <French>RightFoot</French>
-				    <Russian>RightFoot</Russian>
-				      <Polish>RightFoot</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_RightUpperArm">
-				    <English>RightUpperArm</English>
-				      <German>RightUpperArm</German>
-				<Hungarian>RightUpperArm</Hungarian>
-				    <Italian>RightUpperArm</Italian>
-				      <French>RightUpperArm</French>
-				    <Russian>RightUpperArm</Russian>
-				      <Polish>RightUpperArm</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_RightLowerLeg">
-				    <English>RightLowerLeg</English>
-				      <German>RightLowerLeg</German>
-				<Hungarian>RightLowerLeg</Hungarian>
-				    <Italian>RightLowerLeg</Italian>
-				      <French>RightLowerLeg</French>
-				    <Russian>RightLowerLeg</Russian>
-				      <Polish>RightLowerLeg</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_RightUpperLeg">
-				    <English>RightUpperLeg</English>
-				      <German>RightUpperLeg</German>
-				<Hungarian>RightUpperLeg</Hungarian>
-				    <Italian>RightUpperLeg</Italian>
-				      <French>RightUpperLeg</French>
-				    <Russian>RightUpperLeg</Russian>
-				      <Polish>RightUpperLeg</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_LowerBody">
-				    <English>LowerBody</English>
-				      <German>LowerBody</German>
-				<Hungarian>LowerBody</Hungarian>
-				    <Italian>LowerBody</Italian>
-				      <French>LowerBody</French>
-				    <Russian>LowerBody</Russian>
-				      <Polish>LowerBody</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_UpperBody">
-				    <English>UpperBody</English>
-				      <German>UpperBody</German>
-				<Hungarian>UpperBody</Hungarian>
-				    <Italian>UpperBody</Italian>
-				      <French>UpperBody</French>
-				    <Russian>UpperBody</Russian>
-				      <Polish>UpperBody</Polish>
-			</Key>
-		</Container>
-		<Container name="veh_Modules">
-			<Key ID="STR_X39_MS2_Scripting_Modules_BaseModule">
-				    <English>Base module</English>
-				      <German>Basis Modul</German>
-				<Hungarian>Base module</Hungarian>
-				    <Italian>Base module</Italian>
-				      <French>Base module</French>
-				    <Russian>Base module</Russian>
-				      <Polish>Base module</Polish>
-			</Key>
-		</Container>
-		<Container name="QuickActions">
-			<Key ID="STR_X39_MS2_Scripting_QuickActions_BandageAll_Name">
-				  <English>Bandage all limbs</English>
-				   <German>Bandage all limbs</German>
-				<Hungarian>Bandage all limbs</Hungarian>
-				  <Italian>Bandage all limbs</Italian>
-				   <French>Bandage all limbs</French>
-				  <Russian>Bandage all limbs</Russian>
-				   <Polish>Bandage all limbs</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_QuickActions_BandageAll_Description">
-				  <English>Bandage all limbs</English>
-				   <German>Bandage all limbs</German>
-				<Hungarian>Bandage all limbs</Hungarian>
-				  <Italian>Bandage all limbs</Italian>
-				   <French>Bandage all limbs</French>
-				  <Russian>Bandage all limbs</Russian>
-				   <Polish>Bandage all limbs</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_QuickActions_MedipackAll_Name">
-				  <English>Medipack limbs</English>
-				   <German>Medipack limbs</German>
-				<Hungarian>Medipack limbs</Hungarian>
-				  <Italian>Medipack limbs</Italian>
-				   <French>Medipack limbs</French>
-				  <Russian>Medipack limbs</Russian>
-				   <Polish>Medipack limbs</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_QuickActions_MedipackAll_Description">
-				  <English>Use a Medipack on all limbs</English>
-				   <German>Use a Medipack on all limbs</German>
-				<Hungarian>Use a Medipack on all limbs</Hungarian>
-				  <Italian>Use a Medipack on all limbs</Italian>
-				   <French>Use a Medipack on all limbs</French>
-				  <Russian>Use a Medipack on all limbs</Russian>
-				   <Polish>Use a Medipack on all limbs</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_QuickActions_putTourniquetAll_Name">
-				  <English>Put Tourniquets to all needed limbs</English>
-				   <German>Put Tourniquets to all needed limbs</German>
-				<Hungarian>Put Tourniquets to all needed limbs</Hungarian>
-				  <Italian>Put Tourniquets to all needed limbs</Italian>
-				   <French>Put Tourniquets to all needed limbs</French>
-				  <Russian>Put Tourniquets to all needed limbs</Russian>
-				   <Polish>Put Tourniquets to all needed limbs</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_QuickActions_putTourniquetAll_Description">
-				  <English>Put Tourniquets to all needed limbs</English>
-				   <German>Put Tourniquets to all needed limbs</German>
-				<Hungarian>Put Tourniquets to all needed limbs</Hungarian>
-				  <Italian>Put Tourniquets to all needed limbs</Italian>
-				   <French>Put Tourniquets to all needed limbs</French>
-				  <Russian>Put Tourniquets to all needed limbs</Russian>
-				   <Polish>Put Tourniquets to all needed limbs</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_QuickActions_dropTourniquetAll_Name">
-				  <English>Remove Tourniquets from all limbs</English>
-				   <German>Remove Tourniquets from all limbs</German>
-				<Hungarian>Remove Tourniquets from all limbs</Hungarian>
-				  <Italian>Remove Tourniquets from all limbs</Italian>
-				   <French>Remove Tourniquets from all limbs</French>
-				  <Russian>Remove Tourniquets from all limbs</Russian>
-				   <Polish>Remove Tourniquets from all limbs</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_QuickActions_dropTourniquetAll_Description">
-				  <English>Remove Tourniquets from all limbs</English>
-				   <German>Remove Tourniquets from all limbs</German>
-				<Hungarian>Remove Tourniquets from all limbs</Hungarian>
-				  <Italian>Remove Tourniquets from all limbs</Italian>
-				   <French>Remove Tourniquets from all limbs</French>
-				  <Russian>Remove Tourniquets from all limbs</Russian>
-				   <Polish>Remove Tourniquets from all limbs</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_GiveSaline_Name">
-				  <English>Give Saline</English>
-				   <German>Give Saline</German>
-				<Hungarian>Give Saline</Hungarian>
-				  <Italian>Give Saline</Italian>
-				   <French>Give Saline</French>
-				  <Russian>Give Saline</Russian>
-				   <Polish>Give Saline</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_GiveHeatpack_Name">
-				  <English>Give Heatpack</English>
-				   <German>Give Heatpack</German>
-				<Hungarian>Give Heatpack</Hungarian>
-				  <Italian>Give Heatpack</Italian>
-				   <French>Give Heatpack</French>
-				  <Russian>Give Heatpack</Russian>
-				   <Polish>Give Heatpack</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_TakeNasopharyngeal_Name">
-				  <English>Take Nasopharyngeal</English>
-				   <German>Take Nasopharyngeal</German>
-				<Hungarian>Take Nasopharyngeal</Hungarian>
-				  <Italian>Take Nasopharyngeal</Italian>
-				   <French>Take Nasopharyngeal</French>
-				  <Russian>Take Nasopharyngeal</Russian>
-				   <Polish>Take Nasopharyngeal</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_PutNasopharyngeal_Name">
-				  <English>Place Nasopharyngeal</English>
-				   <German>Place Nasopharyngeal</German>
-				<Hungarian>Place Nasopharyngeal</Hungarian>
-				  <Italian>Place Nasopharyngeal</Italian>
-				   <French>Place Nasopharyngeal</French>
-				  <Russian>Place Nasopharyngeal</Russian>
-				   <Polish>Place Nasopharyngeal</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_TakeKingLT_Name">
-				  <English>Take King-LT</English>
-				   <German>Take King-LT</German>
-				<Hungarian>Take King-LT</Hungarian>
-				  <Italian>Take King-LT</Italian>
-				   <French>Take King-LT</French>
-				  <Russian>Take King-LT</Russian>
-				   <Polish>Take King-LT</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_PutKingLT_Name">
-				  <English>Place King-LT</English>
-				   <German>Place King-LT</German>
-				<Hungarian>Place King-LT</Hungarian>
-				  <Italian>Place King-LT</Italian>
-				   <French>Place King-LT</French>
-				  <Russian>Place King-LT</Russian>
-				   <Polish>Place King-LT</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_UseBagvalveMask_Name">
-				  <English>Use Bagvalve Mask</English>
-				   <German>Use Bagvalve Mask</German>
-				<Hungarian>Use Bagvalve Mask</Hungarian>
-				  <Italian>Use Bagvalve Mask</Italian>
-				   <French>Use Bagvalve Mask</French>
-				  <Russian>Use Bagvalve Mask</Russian>
-				   <Polish>Use Bagvalve Mask</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_StartCPR_Name">
-				  <English>Start CPR</English>
-				   <German>Start CPR</German>
-				<Hungarian>Start CPR</Hungarian>
-				  <Italian>Start CPR</Italian>
-				   <French>Start CPR</French>
-				  <Russian>Start CPR</Russian>
-				   <Polish>Start CPR</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_CheckUnit_Name">
-				  <English>Check Unit</English>
-				   <German>Check Unit</German>
-				<Hungarian>Check Unit</Hungarian>
-				  <Italian>Check Unit</Italian>
-				   <French>Check Unit</French>
-				  <Russian>Check Unit</Russian>
-				   <Polish>Check Unit</Polish>
-			</Key>
-		</Container>
-		<Container name="DialogControl_BlackOutDialog">
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_BloodLeft">
-				    <English>Blood left:</English>
-				      <German>Vorhandenes Blut:</German>
-				<Hungarian>Blood left:</Hungarian>
-				    <Italian>Blood left:</Italian>
-				      <French>Blood left:</French>
-				    <Russian>Blood left:</Russian>
-				      <Polish>Blood left:</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_Temperature">
-				    <English>Body Temperature:</English>
-				      <German>Körpertemperatur:</German>
-				<Hungarian>Body Temperature:</Hungarian>
-				    <Italian>Body Temperature:</Italian>
-				      <French>Body Temperature:</French>
-				    <Russian>Body Temperature:</Russian>
-				      <Polish>Body Temperature:</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_Pulse">
-				    <English>Current pulse:</English>
-				      <German>Aktueller Puls:</German>
-				<Hungarian>Current pulse:</Hungarian>
-				    <Italian>Current pulse:</Italian>
-				      <French>Current pulse:</French>
-				    <Russian>Current pulse:</Russian>
-				      <Polish>Current pulse:</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_TimeLeftDeath">
-				  <English>Time left for revive</English>
-				   <German>Time left for revive</German>
-				<Hungarian>Time left for revive</Hungarian>
-				  <Italian>Time left for revive</Italian>
-				   <French>Time left for revive</French>
-				  <Russian>Time left for revive</Russian>
-				   <Polish>Time left for revive</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_TimeLeftAwake">
-				  <English>Time left before awake again</English>
-				   <German>Time left before awake again</German>
-				<Hungarian>Time left before awake again</Hungarian>
-				  <Italian>Time left before awake again</Italian>
-				   <French>Time left before awake again</French>
-				  <Russian>Time left before awake again</Russian>
-				   <Polish>Time left before awake again</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_FlatLine">
-				  <English>FLATLINE</English>
-				   <German>FLATLINE</German>
-				<Hungarian>FLATLINE</Hungarian>
-				  <Italian>FLATLINE</Italian>
-				   <French>FLATLINE</French>
-				  <Russian>FLATLINE</Russian>
-				   <Polish>FLATLINE</Polish>
-			</Key>
-		</Container>
-		<Container name="MedicalMessages">
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Low">
-				    <English>%1s %2 is damaged lightly</English>
-				      <German>%1s %2 is damaged lightly</German>
-				<Hungarian>%1s %2 is damaged lightly</Hungarian>
-				    <Italian>%1s %2 is damaged lightly</Italian>
-				      <French>%1s %2 is damaged lightly</French>
-				    <Russian>%1s %2 is damaged lightly</Russian>
-				      <Polish>%1s %2 is damaged lightly</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Middle">
-				    <English>%1s %2 is damaged</English>
-				      <German>%1s %2 is damaged</German>
-				<Hungarian>%1s %2 is damaged</Hungarian>
-				    <Italian>%1s %2 is damaged</Italian>
-				      <French>%1s %2 is damaged</French>
-				    <Russian>%1s %2 is damaged</Russian>
-				      <Polish>%1s %2 is damaged</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_High">
-				    <English>%1s %2 is damaged heavily</English>
-				      <German>%1s %2 is damaged heavily</German>
-				<Hungarian>%1s %2 is damaged heavily</Hungarian>
-				    <Italian>%1s %2 is damaged heavily</Italian>
-				      <French>%1s %2 is damaged heavily</French>
-				    <Russian>%1s %2 is damaged heavily</Russian>
-				      <Polish>%1s %2 is damaged heavily</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Extreme">
-				    <English>%1s %2 is damaged deadly</English>
-				      <German>%1s %2 is damaged deadly</German>
-				<Hungarian>%1s %2 is damaged deadly</Hungarian>
-				    <Italian>%1s %2 is damaged deadly</Italian>
-				      <French>%1s %2 is damaged deadly</French>
-				    <Russian>%1s %2 is damaged deadly</Russian>
-				      <Polish>%1s %2 is damaged deadly</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Low">
-				    <English>%1s %2 is bleeding lightly</English>
-				      <German>%1s %2 is bleeding lightly</German>
-				<Hungarian>%1s %2 is bleeding lightly</Hungarian>
-				    <Italian>%1s %2 is bleeding lightly</Italian>
-				      <French>%1s %2 is bleeding lightly</French>
-				    <Russian>%1s %2 is bleeding lightly</Russian>
-				      <Polish>%1s %2 is bleeding lightly</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Middle">
-				    <English>%1s %2 is bleeding</English>
-				      <German>%1s %2 is bleeding</German>
-				<Hungarian>%1s %2 is bleeding</Hungarian>
-				    <Italian>%1s %2 is bleeding</Italian>
-				      <French>%1s %2 is bleeding</French>
-				    <Russian>%1s %2 is bleeding</Russian>
-				      <Polish>%1s %2 is bleeding</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_High">
-				    <English>%1s %2 is bleeding heavily</English>
-				      <German>%1s %2 is bleeding heavily</German>
-				<Hungarian>%1s %2 is bleeding heavily</Hungarian>
-				    <Italian>%1s %2 is bleeding heavily</Italian>
-				      <French>%1s %2 is bleeding heavily</French>
-				    <Russian>%1s %2 is bleeding heavily</Russian>
-				      <Polish>%1s %2 is bleeding heavily</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Extreme">
-				    <English>%1s %2 is bleeding deadly</English>
-				      <German>%1s %2 is bleeding deadly</German>
-				<Hungarian>%1s %2 is bleeding deadly</Hungarian>
-				    <Italian>%1s %2 is bleeding deadly</Italian>
-				      <French>%1s %2 is bleeding deadly</French>
-				    <Russian>%1s %2 is bleeding deadly</Russian>
-				      <Polish>%1s %2 is bleeding deadly</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Pain_Low">
-				    <English>%1 has light pain</English>
-				      <German>%1 has light pain</German>
-				<Hungarian>%1 has light pain</Hungarian>
-				    <Italian>%1 has light pain</Italian>
-				      <French>%1 has light pain</French>
-				    <Russian>%1 has light pain</Russian>
-				      <Polish>%1 has light pain</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Pain_Middle">
-				    <English>%1 has medium pain</English>
-				      <German>%1 has medium pain</German>
-				<Hungarian>%1 has medium pain</Hungarian>
-				    <Italian>%1 has medium pain</Italian>
-				      <French>%1 has medium pain</French>
-				    <Russian>%1 has medium pain</Russian>
-				      <Polish>%1 has medium pain</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Pain_High">
-				    <English>%1 has heavy pain</English>
-				      <German>%1 has heavy pain</German>
-				<Hungarian>%1 has heavy pain</Hungarian>
-				    <Italian>%1 has heavy pain</Italian>
-				      <French>%1 has heavy pain</French>
-				    <Russian>%1 has heavy pain</Russian>
-				      <Polish>%1 has heavy pain</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Pain_Extreme">
-				    <English>%1 in agony because of pain</English>
-				      <German>%1 in agony because of pain</German>
-				<Hungarian>%1 in agony because of pain</Hungarian>
-				    <Italian>%1 in agony because of pain</Italian>
-				      <French>%1 in agony because of pain</French>
-				    <Russian>%1 in agony because of pain</Russian>
-				      <Polish>%1 in agony because of pain</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_AterialDamage">
-				    <English>%1s %2 aterie seems to be damaged</English>
-				      <German>%1s %2 aterie seems to be damaged</German>
-				<Hungarian>%1s %2 aterie seems to be damaged</Hungarian>
-				    <Italian>%1s %2 aterie seems to be damaged</Italian>
-				      <French>%1s %2 aterie seems to be damaged</French>
-				    <Russian>%1s %2 aterie seems to be damaged</Russian>
-				      <Polish>%1s %2 aterie seems to be damaged</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_BloodPresure">
-				    <English>%1s current bloodpresure is %2</English>
-					 <German>%1s current bloodpresure is %2</German>
-				  <Hungarian>%1s current bloodpresure is %2</Hungarian>
-				    <Italian>%1s current bloodpresure is %2</Italian>
-				     <French>%1s current bloodpresure is %2</French>
-				    <Russian>%1s current bloodpresure is %2</Russian>
-				     <Polish>%1s current bloodpresure is %2</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Pulse_NoPulse">
-				  <English>No pulse</English>
-				   <German>No pulse</German>
-				<Hungarian>No pulse</Hungarian>
-				  <Italian>No pulse</Italian>
-				   <French>No pulse</French>
-				  <Russian>No pulse</Russian>
-				   <Polish>No pulse</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Drugs_ConcentrationMessage">
-				  <English>%1 concentration at %2%3</English>
-				   <German>%1 concentration at %2%3</German>
-				<Hungarian>%1 concentration at %2%3</Hungarian>
-				  <Italian>%1 concentration at %2%3</Italian>
-				   <French>%1 concentration at %2%3</French>
-				  <Russian>%1 concentration at %2%3</Russian>
-				   <Polish>%1 concentration at %2%3</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Respiration_NotBreathing">
-				  <English>%1 is not breathing</English>
-				   <German>%1 is not breathing</German>
-				<Hungarian>%1 is not breathing</Hungarian>
-				  <Italian>%1 is not breathing</Italian>
-				   <French>%1 is not breathing</French>
-				  <Russian>%1 is not breathing</Russian>
-				   <Polish>%1 is not breathing</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalMessages_Respiration_ToungeBlocks">
-				  <English>%1s tongue is blocking is airway</English>
-				   <German>%1s tongue is blocking is airway</German>
-				<Hungarian>%1s tongue is blocking is airway</Hungarian>
-				  <Italian>%1s tongue is blocking is airway</Italian>
-				   <French>%1s tongue is blocking is airway</French>
-				  <Russian>%1s tongue is blocking is airway</Russian>
-				   <Polish>%1s tongue is blocking is airway</Polish>
-			</Key>
-		</Container>
-		<Container name="DialogControl_MedicalActionMenu">
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_BlockedMessage1">
-				  <English>Youre currently doing something else</English>
-				   <German>Youre currently doing something else</German>
-				<Hungarian>Youre currently doing something else</Hungarian>
-				  <Italian>Youre currently doing something else</Italian>
-				   <French>Youre currently doing something else</French>
-				  <Russian>Youre currently doing something else</Russian>
-				   <Polish>Youre currently doing something else</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_BlockedMessage2">
-				  <English>You cand do that while doing something else</English>
-				   <German>You cand do that while doing something else</German>
-				<Hungarian>You cand do that while doing something else</Hungarian>
-				  <Italian>You cand do that while doing something else</Italian>
-				   <French>You cand do that while doing something else</French>
-				  <Russian>You cand do that while doing something else</Russian>
-				   <Polish>You cand do that while doing something else</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_BlockedMessage3">
-				  <English>Please wait till your current action has finished!</English>
-				   <German>Please wait till your current action has finished!</German>
-				<Hungarian>Please wait till your current action has finished!</Hungarian>
-				  <Italian>Please wait till your current action has finished!</Italian>
-				   <French>Please wait till your current action has finished!</French>
-				  <Russian>Please wait till your current action has finished!</Russian>
-				   <Polish>Please wait till your current action has finished!</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_BlockedMessage4">
-				  <English>Youre previous action has not finished yet. Please wait!</English>
-				   <German>Youre previous action has not finished yet. Please wait!</German>
-				<Hungarian>Youre previous action has not finished yet. Please wait!</Hungarian>
-				  <Italian>Youre previous action has not finished yet. Please wait!</Italian>
-				   <French>Youre previous action has not finished yet. Please wait!</French>
-				  <Russian>Youre previous action has not finished yet. Please wait!</Russian>
-				   <Polish>Youre previous action has not finished yet. Please wait!</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_NothingSelected1">
-				  <English>You need to select something for this action</English>
-				   <German>You need to select something for this action</German>
-				<Hungarian>You need to select something for this action</Hungarian>
-				  <Italian>You need to select something for this action</Italian>
-				   <French>You need to select something for this action</French>
-				  <Russian>You need to select something for this action</Russian>
-				   <Polish>You need to select something for this action</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_NothingSelected2">
-				  <English>You need to select something for this action</English>
-				   <German>You need to select something for this action</German>
-				<Hungarian>You need to select something for this action</Hungarian>
-				  <Italian>You need to select something for this action</Italian>
-				   <French>You need to select something for this action</French>
-				  <Russian>You need to select something for this action</Russian>
-				   <Polish>You need to select something for this action</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_NothingSelected3">
-				  <English>Please select something first</English>
-				   <German>Please select something first</German>
-				<Hungarian>Please select something first</Hungarian>
-				  <Italian>Please select something first</Italian>
-				   <French>Please select something first</French>
-				  <Russian>Please select something first</Russian>
-				   <Polish>Please select something first</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_NothingSelected4">
-				  <English>Please select something first</English>
-				   <German>Please select something first</German>
-				<Hungarian>Please select something first</Hungarian>
-				  <Italian>Please select something first</Italian>
-				   <French>Please select something first</French>
-				  <Russian>Please select something first</Russian>
-				   <Polish>Please select something first</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_CannotBeAppliedOnPart1">
-				  <English>Cannot be applied on this part</English>
-				   <German>Cannot be applied on this part</German>
-				<Hungarian>Cannot be applied on this part</Hungarian>
-				  <Italian>Cannot be applied on this part</Italian>
-				   <French>Cannot be applied on this part</French>
-				  <Russian>Cannot be applied on this part</Russian>
-				   <Polish>Cannot be applied on this part</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_CannotBeAppliedOnPart2">
-				  <English>You need to select a different body part</English>
-				   <German>You need to select a different body part</German>
-				<Hungarian>You need to select a different body part</Hungarian>
-				  <Italian>You need to select a different body part</Italian>
-				   <French>You need to select a different body part</French>
-				  <Russian>You need to select a different body part</Russian>
-				   <Polish>You need to select a different body part</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_CannotBeAppliedOnPart3">
-				  <English>Try another part of the body for this</English>
-				   <German>Try another part of the body for this</German>
-				<Hungarian>Try another part of the body for this</Hungarian>
-				  <Italian>Try another part of the body for this</Italian>
-				   <French>Try another part of the body for this</French>
-				  <Russian>Try another part of the body for this</Russian>
-				   <Polish>Try another part of the body for this</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_CannotBeAppliedOnPart4">
-				  <English>This makes no sense</English>
-				   <German>This makes no sense</German>
-				<Hungarian>This makes no sense</Hungarian>
-				  <Italian>This makes no sense</Italian>
-				   <French>This makes no sense</French>
-				  <Russian>This makes no sense</Russian>
-				   <Polish>This makes no sense</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_CheckUnit_quick">
-				  <English>Quick check</English>
-				   <German>Quick check</German>
-				<Hungarian>Quick check</Hungarian>
-				  <Italian>Quick check</Italian>
-				   <French>Quick check</French>
-				  <Russian>Quick check</Russian>
-				   <Polish>Quick check</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_CheckUnit_normal">
-				  <English>Usual check</English>
-				   <German>Usual check</German>
-				<Hungarian>Usual check</Hungarian>
-				  <Italian>Usual check</Italian>
-				   <French>Usual check</French>
-				  <Russian>Usual check</Russian>
-				   <Polish>Usual check</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_CheckUnit_full">
-				  <English>Full check</English>
-				   <German>Full check</German>
-				<Hungarian>Full check</Hungarian>
-				  <Italian>Full check</Italian>
-				   <French>Full check</French>
-				  <Russian>Full check</Russian>
-				   <Polish>Full check</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_TargetLabel">
-				  <English>Targeting: %1</English>
-				   <German>Targeting: %1</German>
-				<Hungarian>Targeting: %1</Hungarian>
-				  <Italian>Targeting: %1</Italian>
-				   <French>Targeting: %1</French>
-				  <Russian>Targeting: %1</Russian>
-				   <Polish>Targeting: %1</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_ItemSelectionStartText">
-				  <English>No item has been selected yet</English>
-				   <German>No item has been selected yet</German>
-				<Hungarian>No item has been selected yet</Hungarian>
-				  <Italian>No item has been selected yet</Italian>
-				   <French>No item has been selected yet</French>
-				  <Russian>No item has been selected yet</Russian>
-				   <Polish>No item has been selected yet</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_ItemSelectionText">
-				  <English>Currently selected item: %1</English>
-				   <German>Currently selected item: %1</German>
-				<Hungarian>Currently selected item: %1</Hungarian>
-				  <Italian>Currently selected item: %1</Italian>
-				   <French>Currently selected item: %1</French>
-				  <Russian>Currently selected item: %1</Russian>
-				   <Polish>Currently selected item: %1</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_QuickActions_RequiredTime">
-				  <English>Required time</English>
-				   <German>Required time</German>
-				<Hungarian>Required time</Hungarian>
-				  <Italian>Required time</Italian>
-				   <French>Required time</French>
-				  <Russian>Required time</Russian>
-				   <Polish>Required time</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_QuickActions_RequiredItems">
-				  <English>Required items</English>
-				   <German>Required items</German>
-				<Hungarian>Required items</Hungarian>
-				  <Italian>Required items</Italian>
-				   <French>Required items</French>
-				  <Russian>Required items</Russian>
-				   <Polish>Required items</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_QuickActions_Description">
-				  <English>Description</English>
-				   <German>Description</German>
-				<Hungarian>Description</Hungarian>
-				  <Italian>Description</Italian>
-				   <French>Description</French>
-				  <Russian>Description</Russian>
-				   <Polish>Description</Polish>
-			</Key>
-		</Container>
-		<Container name="InteractionMenu">
-			<Key ID="STR_X39_MS2_Scripting_InteractionMenu_openMedicalMenu">
-				  <English>Medical treatment</English>
-				   <German>Medical treatment</German>
-				<Hungarian>Medical treatment</Hungarian>
-				  <Italian>Medical treatment</Italian>
-				   <French>Medical treatment</French>
-				  <Russian>Medical treatment</Russian>
-				   <Polish>Medical treatment</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_InteractionMenu_putEarplugs">
-				  <English>Put earplugs</English>
-				   <German>Put earplugs</German>
-				<Hungarian>Put earplugs</Hungarian>
-				  <Italian>Put earplugs</Italian>
-				   <French>Put earplugs</French>
-				  <Russian>Put earplugs</Russian>
-				   <Polish>Put earplugs</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_InteractionMenu_removeEarplugs">
-				  <English>Remove earplugs</English>
-				   <German>Remove earplugs</German>
-				<Hungarian>Remove earplugs</Hungarian>
-				  <Italian>Remove earplugs</Italian>
-				   <French>Remove earplugs</French>
-				  <Russian>Remove earplugs</Russian>
-				   <Polish>Remove earplugs</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_InteractionMenu_useDefibrillator">
-				  <English>Use defibrillator</English>
-				   <German>Use defibrillator</German>
-				<Hungarian>Use defibrillator</Hungarian>
-				  <Italian>Use defibrillator</Italian>
-				   <French>Use defibrillator</French>
-				  <Russian>Use defibrillator</Russian>
-				   <Polish>Use defibrillator</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_InteractionMenu_stripWeapons">
-				  <English>Strip weapons</English>
-				   <German>Strip weapons</German>
-				<Hungarian>Strip weapons</Hungarian>
-				  <Italian>Strip weapons</Italian>
-				   <French>Strip weapons</French>
-				  <Russian>Strip weapons</Russian>
-				   <Polish>Strip weapons</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_InteractionMenu_dragUnit">
-				  <English>Drag unit</English>
-				   <German>Drag unit</German>
-				<Hungarian>Drag unit</Hungarian>
-				  <Italian>Drag unit</Italian>
-				   <French>Drag unit</French>
-				  <Russian>Drag unit</Russian>
-				   <Polish>Drag unit</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_InteractionMenu_carryUnit">
-				  <English>Carry unit</English>
-				   <German>Carry unit</German>
-				<Hungarian>Carry unit</Hungarian>
-				  <Italian>Carry unit</Italian>
-				   <French>Carry unit</French>
-				  <Russian>Carry unit</Russian>
-				   <Polish>Carry unit</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_InteractionMenu_dropUnit">
-				  <English>Drop unit</English>
-				   <German>Drop unit</German>
-				<Hungarian>Drop unit</Hungarian>
-				  <Italian>Drop unit</Italian>
-				   <French>Drop unit</French>
-				  <Russian>Drop unit</Russian>
-				   <Polish>Drop unit</Polish>
-			</Key>
-		</Container>
-		<Container name="XMSTicks">
-			<Key ID="STR_X39_MS2_Scripting_XMSTicks_temperatureTick_DeathThroughColdness">
-				  <English>Youre dead because of coldness</English>
-				   <German>Youre dead because of coldness</German>
-				<Hungarian>Youre dead because of coldness</Hungarian>
-				  <Italian>Youre dead because of coldness</Italian>
-				   <French>Youre dead because of coldness</French>
-				  <Russian>Youre dead because of coldness</Russian>
-				   <Polish>Youre dead because of coldness</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_XMSTicks_MorphineSimulation_DeathThroughMorphineOverdose">
-				  <English>Youre dead because of a morphine overdose</English>
-				   <German>Youre dead because of a morphine overdose</German>
-				<Hungarian>Youre dead because of a morphine overdose</Hungarian>
-				  <Italian>Youre dead because of a morphine overdose</Italian>
-				   <French>Youre dead because of a morphine overdose</French>
-				  <Russian>Youre dead because of a morphine overdose</Russian>
-				   <Polish>Youre dead because of a morphine overdose</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_XMSTicks_MorphineSimulation_KnockOutThroughMorphineOverdose">
-				  <English>Youre knocked out because of a morphine overdose</English>
-				   <German>Youre knocked out because of a morphine overdose</German>
-				<Hungarian>Youre knocked out because of a morphine overdose</Hungarian>
-				  <Italian>Youre knocked out because of a morphine overdose</Italian>
-				   <French>Youre knocked out because of a morphine overdose</French>
-				  <Russian>Youre knocked out because of a morphine overdose</Russian>
-				   <Polish>Youre knocked out because of a morphine overdose</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_XMSTicks_BleedingTick_KnockOutDueLowBlood">
-				  <English>Youre knocked out as you got not enough blood in your body</English>
-				   <German>Youre knocked out as you got not enough blood in your body</German>
-				<Hungarian>Youre knocked out as you got not enough blood in your body</Hungarian>
-				  <Italian>Youre knocked out as you got not enough blood in your body</Italian>
-				   <French>Youre knocked out as you got not enough blood in your body</French>
-				  <Russian>Youre knocked out as you got not enough blood in your body</Russian>
-				   <Polish>Youre knocked out as you got not enough blood in your body</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_XMSTicks_BleedingTick_KnockOutDueBloodPresureLow">
-				  <English>Youre knocked out as your blood presure is too low</English>
-				   <German>Youre knocked out as your blood presure is too low</German>
-				<Hungarian>Youre knocked out as your blood presure is too low</Hungarian>
-				  <Italian>Youre knocked out as your blood presure is too low</Italian>
-				   <French>Youre knocked out as your blood presure is too low</French>
-				  <Russian>Youre knocked out as your blood presure is too low</Russian>
-				   <Polish>Youre knocked out as your blood presure is too low</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_XMSTicks_BleedingTick_KnockOutDueBloodPresureHigh">
-				  <English>Youre knocked out as your blood presure is too high</English>
-				   <German>Youre knocked out as your blood presure is too high</German>
-				<Hungarian>Youre knocked out as your blood presure is too high</Hungarian>
-				  <Italian>Youre knocked out as your blood presure is too high</Italian>
-				   <French>Youre knocked out as your blood presure is too high</French>
-				  <Russian>Youre knocked out as your blood presure is too high</Russian>
-				   <Polish>Youre knocked out as your blood presure is too high</Polish>
-			</Key>
-		</Container>
-		<Container name="Adrenaline">
-			<Key ID="STR_X39_MS2_Scripting_Adrenaline_Pulse_FlatLine">
-				  <English>Youre heart failed</English>
-				   <German>Youre heart failed</German>
-				<Hungarian>Youre heart failed</Hungarian>
-				  <Italian>Youre heart failed</Italian>
-				   <French>Youre heart failed</French>
-				  <Russian>Youre heart failed</Russian>
-				   <Polish>Youre heart failed</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_Adrenaline_Pulse_TooHigh">
-				  <English>You got unconscious because of your pulse</English>
-				   <German>You got unconscious because of your pulse</German>
-				<Hungarian>You got unconscious because of your pulse</Hungarian>
-				  <Italian>You got unconscious because of your pulse</Italian>
-				   <French>You got unconscious because of your pulse</French>
-				  <Russian>You got unconscious because of your pulse</Russian>
-				   <Polish>You got unconscious because of your pulse</Polish>
-			</Key>
-		</Container>
-		<Container name="cb_handleDamage">
-			<Key ID="STR_X39_MS2_Scripting_cb_handleDamage_knockOut">
-				  <English>Youre knocked out as youre too heavily damaged</English>
-				   <German>Youre knocked out as youre too heavily damaged</German>
-				<Hungarian>Youre knocked out as youre too heavily damaged</Hungarian>
-				  <Italian>Youre knocked out as youre too heavily damaged</Italian>
-				   <French>Youre knocked out as youre too heavily damaged</French>
-				  <Russian>Youre knocked out as youre too heavily damaged</Russian>
-				   <Polish>Youre knocked out as youre too heavily damaged</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_cb_handleDamage_death">
-				  <English>You got killed! Please Imagine a white light ^^</English>
-				   <German>You got killed! Please Imagine a white light ^^</German>
-				<Hungarian>You got killed! Please Imagine a white light ^^</Hungarian>
-				  <Italian>You got killed! Please Imagine a white light ^^</Italian>
-				   <French>You got killed! Please Imagine a white light ^^</French>
-				  <Russian>You got killed! Please Imagine a white light ^^</Russian>
-				   <Polish>You got killed! Please Imagine a white light ^^</Polish>
-			</Key>
-		</Container>
-		<Container name="Drugs">
-			<Key ID="STR_X39_MS2_Scripting_Drugs_Adrenaline_Name">
-				  <English>Adrenaline</English>
-				   <German>Adrenaline</German>
-				<Hungarian>Adrenaline</Hungarian>
-				  <Italian>Adrenaline</Italian>
-				   <French>Adrenaline</French>
-				  <Russian>Adrenaline</Russian>
-				   <Polish>Adrenaline</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_Drugs_executeDrugRequestTemplate">
-				  <English>%1 wants to give you %2</English>
-				   <German>%1 wants to give you %2</German>
-				<Hungarian>%1 wants to give you %2</Hungarian>
-				  <Italian>%1 wants to give you %2</Italian>
-				   <French>%1 wants to give you %2</French>
-				  <Russian>%1 wants to give you %2</Russian>
-				   <Polish>%1 wants to give you %2</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_Drugs_Morphine_Name">
-				  <English>Morphine</English>
-				   <German>Morphine</German>
-				<Hungarian>Morphine</Hungarian>
-				  <Italian>Morphine</Italian>
-				   <French>Morphine</French>
-				  <Russian>Morphine</Russian>
-				   <Polish>Morphine</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_Drugs_Naloxone_Name">
-				  <English>Naloxone</English>
-				   <German>Naloxone</German>
-				<Hungarian>Naloxone</Hungarian>
-				  <Italian>Naloxone</Italian>
-				   <French>Naloxone</French>
-				  <Russian>Naloxone</Russian>
-				   <Polish>Naloxone</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_Drugs_Aspirin_Name">
-				  <English>Aspirin</English>
-				   <German>Aspirin</German>
-				<Hungarian>Aspirin</Hungarian>
-				  <Italian>Aspirin</Italian>
-				   <French>Aspirin</French>
-				  <Russian>Aspirin</Russian>
-				   <Polish>Aspirin</Polish>
-			</Key>
-		</Container>
-		<Container name="MedicalUiActions">
-			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Bandage_ActionName">
-				  <English>Apply a bandage</English>
-				   <German>Apply a bandage</German>
-				<Hungarian>Apply a bandage</Hungarian>
-				  <Italian>Apply a bandage</Italian>
-				   <French>Apply a bandage</French>
-				  <Russian>Apply a bandage</Russian>
-				   <Polish>Apply a bandage</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_MediPack_ActionName">
-				  <English>Apply a medi-pack</English>
-				   <German>Apply a medi-pack</German>
-				<Hungarian>Apply a medi-pack</Hungarian>
-				  <Italian>Apply a medi-pack</Italian>
-				   <French>Apply a medi-pack</French>
-				  <Russian>Apply a medi-pack</Russian>
-				   <Polish>Apply a medi-pack</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Heatpack_ActionName">
-				  <English>Apply a Heatpack</English>
-				   <German>Apply a Heatpack</German>
-				<Hungarian>Apply a Heatpack</Hungarian>
-				  <Italian>Apply a Heatpack</Italian>
-				   <French>Apply a Heatpack</French>
-				  <Russian>Apply a Heatpack</Russian>
-				   <Polish>Apply a Heatpack</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Tourniquet_ActionNamePut">
-				  <English>Put tournique</English>
-				   <German>Put tournique</German>
-				<Hungarian>Put tournique</Hungarian>
-				  <Italian>Put tournique</Italian>
-				   <French>Put tournique</French>
-				  <Russian>Put tournique</Russian>
-				   <Polish>Put tournique</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Tourniquet_ActionNameTake">
-				  <English>Remove tournique</English>
-				   <German>Remove tournique</German>
-				<Hungarian>Remove tournique</Hungarian>
-				  <Italian>Remove tournique</Italian>
-				   <French>Remove tournique</French>
-				  <Russian>Remove tournique</Russian>
-				   <Polish>Remove tournique</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Nasopharyngeal_ActionNamePut">
-				  <English>Put nasopharyngeal</English>
-				   <German>Put nasopharyngeal</German>
-				<Hungarian>Put nasopharyngeal</Hungarian>
-				  <Italian>Put nasopharyngeal</Italian>
-				   <French>Put nasopharyngeal</French>
-				  <Russian>Put nasopharyngeal</Russian>
-				   <Polish>Put nasopharyngeal</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Nasopharyngeal_ActionNameTake">
-				  <English>Remove nasopharyngeal</English>
-				   <German>Remove nasopharyngeal</German>
-				<Hungarian>Remove nasopharyngeal</Hungarian>
-				  <Italian>Remove nasopharyngeal</Italian>
-				   <French>Remove nasopharyngeal</French>
-				  <Russian>Remove nasopharyngeal</Russian>
-				   <Polish>Remove nasopharyngeal</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_KingLt_ActionNamePut">
-				  <English>Put King-LT</English>
-				   <German>Put King-LT</German>
-				<Hungarian>Put King-LT</Hungarian>
-				  <Italian>Put King-LT</Italian>
-				   <French>Put King-LT</French>
-				  <Russian>Put King-LT</Russian>
-				   <Polish>Put King-LT</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_KingLt_ActionNameTake">
-				  <English>Remove King-LT</English>
-				   <German>Remove King-LT</German>
-				<Hungarian>Remove King-LT</Hungarian>
-				  <Italian>Remove King-LT</Italian>
-				   <French>Remove King-LT</French>
-				  <Russian>Remove King-LT</Russian>
-				   <Polish>Remove King-LT</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Saline_ActionName">
-				  <English>Give saline bag</English>
-				   <German>Give saline bag</German>
-				<Hungarian>Give saline bag</Hungarian>
-				  <Italian>Give saline bag</Italian>
-				   <French>Give saline bag</French>
-				  <Russian>Give saline bag</Russian>
-				   <Polish>Give saline bag</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_UseBagValveMask">
-				  <English>Start using Bag-Valve Mask</English>
-				   <German>Start using Bag-Valve Mask</German>
-				<Hungarian>Start using Bag-Valve Mask</Hungarian>
-				  <Italian>Start using Bag-Valve Mask</Italian>
-				   <French>Start using Bag-Valve Mask</French>
-				  <Russian>Start using Bag-Valve Mask</Russian>
-				   <Polish>Start using Bag-Valve Mask</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_StartCPR">
-				  <English>Start CPR</English>
-				   <German>Start CPR</German>
-				<Hungarian>Start CPR</Hungarian>
-				  <Italian>Start CPR</Italian>
-				   <French>Start CPR</French>
-				  <Russian>Start CPR</Russian>
-				   <Polish>Start CPR</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Close">
-				  <English>Close</English>
-				   <German>Close</German>
-				<Hungarian>Close</Hungarian>
-				  <Italian>Close</Italian>
-				   <French>Close</French>
-				  <Russian>Close</Russian>
-				   <Polish>Close</Polish>
-			</Key>
-		</Container>
-		<Container name="NotifyMessages">
-			<Key ID="STR_X39_MS2_Scripting_NotifyMessages_Defibrillate_failed">
-				  <English>Damned! Still nothing!</English>
-				   <German>Damned! Still nothing!</German>
-				<Hungarian>Damned! Still nothing!</Hungarian>
-				  <Italian>Damned! Still nothing!</Italian>
-				   <French>Damned! Still nothing!</French>
-				  <Russian>Damned! Still nothing!</Russian>
-				   <Polish>Damned! Still nothing!</Polish>
-			</Key>
-			<Key ID="STR_X39_MS2_Scripting_NotifyMessages_Defibrillate_succeeded">
-				  <English>Success! He is alive again ...</English>
-				   <German>Success! He is alive again ...</German>
-				<Hungarian>Success! He is alive again ...</Hungarian>
-				  <Italian>Success! He is alive again ...</Italian>
-				   <French>Success! He is alive again ...</French>
-				  <Russian>Success! He is alive again ...</Russian>
-				   <Polish>Success! He is alive again ...</Polish>
-			</Key>
-		</Container>
-	</Package>
+    <Package name="X39_MS2_Scripting">
+        <Container name="Hitzones_CommonNames">
+            <Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_Head">
+                      <English>Head</English>
+                       <German>Head</German>
+                    <Hungarian>Head</Hungarian>
+                      <Italian>Head</Italian>
+                       <French>Head</French>
+                      <Russian>Head</Russian>
+                       <Polish>Head</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_LeftLowerArm">
+                      <English>LeftLowerArm</English>
+                       <German>LeftLowerArm</German>
+                    <Hungarian>LeftLowerArm</Hungarian>
+                      <Italian>LeftLowerArm</Italian>
+                       <French>LeftLowerArm</French>
+                      <Russian>LeftLowerArm</Russian>
+                       <Polish>LeftLowerArm</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_LeftFoot">
+                      <English>LeftFoot</English>
+                       <German>LeftFoot</German>
+                    <Hungarian>LeftFoot</Hungarian>
+                      <Italian>LeftFoot</Italian>
+                       <French>LeftFoot</French>
+                      <Russian>LeftFoot</Russian>
+                       <Polish>LeftFoot</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_LeftUpperArm">
+                      <English>LeftUpperArm</English>
+                       <German>LeftUpperArm</German>
+                    <Hungarian>LeftUpperArm</Hungarian>
+                      <Italian>LeftUpperArm</Italian>
+                       <French>LeftUpperArm</French>
+                      <Russian>LeftUpperArm</Russian>
+                       <Polish>LeftUpperArm</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_LeftLowerLeg">
+                      <English>LeftLowerLeg</English>
+                       <German>LeftLowerLeg</German>
+                    <Hungarian>LeftLowerLeg</Hungarian>
+                      <Italian>LeftLowerLeg</Italian>
+                       <French>LeftLowerLeg</French>
+                      <Russian>LeftLowerLeg</Russian>
+                       <Polish>LeftLowerLeg</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_LeftUpperLeg">
+                      <English>LeftUpperLeg</English>
+                       <German>LeftUpperLeg</German>
+                    <Hungarian>LeftUpperLeg</Hungarian>
+                      <Italian>LeftUpperLeg</Italian>
+                       <French>LeftUpperLeg</French>
+                      <Russian>LeftUpperLeg</Russian>
+                       <Polish>LeftUpperLeg</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_RightLowerArm">
+                      <English>RightLowerArm</English>
+                       <German>RightLowerArm</German>
+                    <Hungarian>RightLowerArm</Hungarian>
+                      <Italian>RightLowerArm</Italian>
+                       <French>RightLowerArm</French>
+                      <Russian>RightLowerArm</Russian>
+                       <Polish>RightLowerArm</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_RightFoot">
+                      <English>RightFoot</English>
+                       <German>RightFoot</German>
+                    <Hungarian>RightFoot</Hungarian>
+                      <Italian>RightFoot</Italian>
+                       <French>RightFoot</French>
+                      <Russian>RightFoot</Russian>
+                       <Polish>RightFoot</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_RightUpperArm">
+                      <English>RightUpperArm</English>
+                       <German>RightUpperArm</German>
+                    <Hungarian>RightUpperArm</Hungarian>
+                      <Italian>RightUpperArm</Italian>
+                       <French>RightUpperArm</French>
+                      <Russian>RightUpperArm</Russian>
+                       <Polish>RightUpperArm</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_RightLowerLeg">
+                      <English>RightLowerLeg</English>
+                       <German>RightLowerLeg</German>
+                    <Hungarian>RightLowerLeg</Hungarian>
+                      <Italian>RightLowerLeg</Italian>
+                       <French>RightLowerLeg</French>
+                      <Russian>RightLowerLeg</Russian>
+                       <Polish>RightLowerLeg</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_RightUpperLeg">
+                      <English>RightUpperLeg</English>
+                       <German>RightUpperLeg</German>
+                    <Hungarian>RightUpperLeg</Hungarian>
+                      <Italian>RightUpperLeg</Italian>
+                       <French>RightUpperLeg</French>
+                      <Russian>RightUpperLeg</Russian>
+                       <Polish>RightUpperLeg</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_LowerBody">
+                      <English>LowerBody</English>
+                       <German>LowerBody</German>
+                    <Hungarian>LowerBody</Hungarian>
+                      <Italian>LowerBody</Italian>
+                       <French>LowerBody</French>
+                      <Russian>LowerBody</Russian>
+                       <Polish>LowerBody</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_UpperBody">
+                      <English>UpperBody</English>
+                       <German>UpperBody</German>
+                    <Hungarian>UpperBody</Hungarian>
+                      <Italian>UpperBody</Italian>
+                       <French>UpperBody</French>
+                      <Russian>UpperBody</Russian>
+                       <Polish>UpperBody</Polish>
+            </Key>
+        </Container>
+        <Container name="veh_Modules">
+            <Key ID="STR_X39_MS2_Scripting_Modules_BaseModule">
+                      <English>Base module</English>
+                       <German>Basis Modul</German>
+                    <Hungarian>Base module</Hungarian>
+                      <Italian>Base module</Italian>
+                       <French>Base module</French>
+                      <Russian>Base module</Russian>
+                       <Polish>Base module</Polish>
+            </Key>
+        </Container>
+        <Container name="QuickActions">
+            <Key ID="STR_X39_MS2_Scripting_QuickActions_BandageAll_Name">
+                      <English>Bandage all limbs</English>
+                       <German>Bandage all limbs</German>
+                    <Hungarian>Bandage all limbs</Hungarian>
+                      <Italian>Bandage all limbs</Italian>
+                       <French>Bandage all limbs</French>
+                      <Russian>Bandage all limbs</Russian>
+                       <Polish>Bandage all limbs</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_QuickActions_BandageAll_Description">
+                      <English>Bandage all limbs</English>
+                       <German>Bandage all limbs</German>
+                    <Hungarian>Bandage all limbs</Hungarian>
+                      <Italian>Bandage all limbs</Italian>
+                       <French>Bandage all limbs</French>
+                      <Russian>Bandage all limbs</Russian>
+                       <Polish>Bandage all limbs</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_QuickActions_MedipackAll_Name">
+                      <English>Medipack limbs</English>
+                       <German>Medipack limbs</German>
+                    <Hungarian>Medipack limbs</Hungarian>
+                      <Italian>Medipack limbs</Italian>
+                       <French>Medipack limbs</French>
+                      <Russian>Medipack limbs</Russian>
+                       <Polish>Medipack limbs</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_QuickActions_MedipackAll_Description">
+                      <English>Use a Medipack on all limbs</English>
+                       <German>Use a Medipack on all limbs</German>
+                    <Hungarian>Use a Medipack on all limbs</Hungarian>
+                      <Italian>Use a Medipack on all limbs</Italian>
+                       <French>Use a Medipack on all limbs</French>
+                      <Russian>Use a Medipack on all limbs</Russian>
+                       <Polish>Use a Medipack on all limbs</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_QuickActions_putTourniquetAll_Name">
+                      <English>Put Tourniquets to all needed limbs</English>
+                       <German>Put Tourniquets to all needed limbs</German>
+                    <Hungarian>Put Tourniquets to all needed limbs</Hungarian>
+                      <Italian>Put Tourniquets to all needed limbs</Italian>
+                       <French>Put Tourniquets to all needed limbs</French>
+                      <Russian>Put Tourniquets to all needed limbs</Russian>
+                       <Polish>Put Tourniquets to all needed limbs</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_QuickActions_putTourniquetAll_Description">
+                      <English>Put Tourniquets to all needed limbs</English>
+                       <German>Put Tourniquets to all needed limbs</German>
+                    <Hungarian>Put Tourniquets to all needed limbs</Hungarian>
+                      <Italian>Put Tourniquets to all needed limbs</Italian>
+                       <French>Put Tourniquets to all needed limbs</French>
+                      <Russian>Put Tourniquets to all needed limbs</Russian>
+                       <Polish>Put Tourniquets to all needed limbs</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_QuickActions_dropTourniquetAll_Name">
+                      <English>Remove Tourniquets from all limbs</English>
+                       <German>Remove Tourniquets from all limbs</German>
+                    <Hungarian>Remove Tourniquets from all limbs</Hungarian>
+                      <Italian>Remove Tourniquets from all limbs</Italian>
+                       <French>Remove Tourniquets from all limbs</French>
+                      <Russian>Remove Tourniquets from all limbs</Russian>
+                       <Polish>Remove Tourniquets from all limbs</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_QuickActions_dropTourniquetAll_Description">
+                      <English>Remove Tourniquets from all limbs</English>
+                       <German>Remove Tourniquets from all limbs</German>
+                    <Hungarian>Remove Tourniquets from all limbs</Hungarian>
+                      <Italian>Remove Tourniquets from all limbs</Italian>
+                       <French>Remove Tourniquets from all limbs</French>
+                      <Russian>Remove Tourniquets from all limbs</Russian>
+                       <Polish>Remove Tourniquets from all limbs</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_GiveSaline_Name">
+                      <English>Give Saline</English>
+                       <German>Give Saline</German>
+                    <Hungarian>Give Saline</Hungarian>
+                      <Italian>Give Saline</Italian>
+                       <French>Give Saline</French>
+                      <Russian>Give Saline</Russian>
+                       <Polish>Give Saline</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_GiveHeatpack_Name">
+                      <English>Give Heatpack</English>
+                       <German>Give Heatpack</German>
+                    <Hungarian>Give Heatpack</Hungarian>
+                      <Italian>Give Heatpack</Italian>
+                       <French>Give Heatpack</French>
+                      <Russian>Give Heatpack</Russian>
+                       <Polish>Give Heatpack</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_TakeNasopharyngeal_Name">
+                      <English>Take Nasopharyngeal</English>
+                       <German>Take Nasopharyngeal</German>
+                    <Hungarian>Take Nasopharyngeal</Hungarian>
+                      <Italian>Take Nasopharyngeal</Italian>
+                       <French>Take Nasopharyngeal</French>
+                      <Russian>Take Nasopharyngeal</Russian>
+                       <Polish>Take Nasopharyngeal</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_PutNasopharyngeal_Name">
+                      <English>Place Nasopharyngeal</English>
+                       <German>Place Nasopharyngeal</German>
+                    <Hungarian>Place Nasopharyngeal</Hungarian>
+                      <Italian>Place Nasopharyngeal</Italian>
+                       <French>Place Nasopharyngeal</French>
+                      <Russian>Place Nasopharyngeal</Russian>
+                       <Polish>Place Nasopharyngeal</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_TakeKingLT_Name">
+                      <English>Take King-LT</English>
+                       <German>Take King-LT</German>
+                    <Hungarian>Take King-LT</Hungarian>
+                      <Italian>Take King-LT</Italian>
+                       <French>Take King-LT</French>
+                      <Russian>Take King-LT</Russian>
+                       <Polish>Take King-LT</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_PutKingLT_Name">
+                      <English>Place King-LT</English>
+                       <German>Place King-LT</German>
+                    <Hungarian>Place King-LT</Hungarian>
+                      <Italian>Place King-LT</Italian>
+                       <French>Place King-LT</French>
+                      <Russian>Place King-LT</Russian>
+                       <Polish>Place King-LT</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_UseBagvalveMask_Name">
+                      <English>Use Bagvalve Mask</English>
+                       <German>Use Bagvalve Mask</German>
+                    <Hungarian>Use Bagvalve Mask</Hungarian>
+                      <Italian>Use Bagvalve Mask</Italian>
+                       <French>Use Bagvalve Mask</French>
+                      <Russian>Use Bagvalve Mask</Russian>
+                       <Polish>Use Bagvalve Mask</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_StartCPR_Name">
+                      <English>Start CPR</English>
+                       <German>Start CPR</German>
+                    <Hungarian>Start CPR</Hungarian>
+                      <Italian>Start CPR</Italian>
+                       <French>Start CPR</French>
+                      <Russian>Start CPR</Russian>
+                       <Polish>Start CPR</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_CheckUnit_Name">
+                      <English>Check Unit</English>
+                       <German>Check Unit</German>
+                    <Hungarian>Check Unit</Hungarian>
+                      <Italian>Check Unit</Italian>
+                       <French>Check Unit</French>
+                      <Russian>Check Unit</Russian>
+                       <Polish>Check Unit</Polish>
+            </Key>
+        </Container>
+        <Container name="DialogControl_BlackOutDialog">
+            <Key ID="STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_BloodLeft">
+                      <English>Blood left:</English>
+                       <German>Vorhandenes Blut:</German>
+                    <Hungarian>Blood left:</Hungarian>
+                      <Italian>Blood left:</Italian>
+                       <French>Blood left:</French>
+                      <Russian>Blood left:</Russian>
+                       <Polish>Blood left:</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_Temperature">
+                      <English>Body Temperature:</English>
+                       <German>Körpertemperatur:</German>
+                    <Hungarian>Body Temperature:</Hungarian>
+                      <Italian>Body Temperature:</Italian>
+                       <French>Body Temperature:</French>
+                      <Russian>Body Temperature:</Russian>
+                       <Polish>Body Temperature:</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_Pulse">
+                      <English>Current pulse:</English>
+                       <German>Aktueller Puls:</German>
+                    <Hungarian>Current pulse:</Hungarian>
+                      <Italian>Current pulse:</Italian>
+                       <French>Current pulse:</French>
+                      <Russian>Current pulse:</Russian>
+                       <Polish>Current pulse:</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_TimeLeftDeath">
+                      <English>Time left for revive</English>
+                       <German>Time left for revive</German>
+                    <Hungarian>Time left for revive</Hungarian>
+                      <Italian>Time left for revive</Italian>
+                       <French>Time left for revive</French>
+                      <Russian>Time left for revive</Russian>
+                       <Polish>Time left for revive</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_TimeLeftAwake">
+                      <English>Time left before awake again</English>
+                       <German>Time left before awake again</German>
+                    <Hungarian>Time left before awake again</Hungarian>
+                      <Italian>Time left before awake again</Italian>
+                       <French>Time left before awake again</French>
+                      <Russian>Time left before awake again</Russian>
+                       <Polish>Time left before awake again</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_FlatLine">
+                      <English>FLATLINE</English>
+                       <German>FLATLINE</German>
+                    <Hungarian>FLATLINE</Hungarian>
+                      <Italian>FLATLINE</Italian>
+                       <French>FLATLINE</French>
+                      <Russian>FLATLINE</Russian>
+                       <Polish>FLATLINE</Polish>
+            </Key>
+        </Container>
+        <Container name="MedicalMessages">
+            <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Low">
+                      <English>%1s %2 is damaged lightly</English>
+                       <German>%1s %2 is damaged lightly</German>
+                    <Hungarian>%1s %2 is damaged lightly</Hungarian>
+                      <Italian>%1s %2 is damaged lightly</Italian>
+                       <French>%1s %2 is damaged lightly</French>
+                      <Russian>%1s %2 is damaged lightly</Russian>
+                       <Polish>%1s %2 is damaged lightly</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Middle">
+                      <English>%1s %2 is damaged</English>
+                       <German>%1s %2 is damaged</German>
+                    <Hungarian>%1s %2 is damaged</Hungarian>
+                      <Italian>%1s %2 is damaged</Italian>
+                       <French>%1s %2 is damaged</French>
+                      <Russian>%1s %2 is damaged</Russian>
+                       <Polish>%1s %2 is damaged</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_High">
+                      <English>%1s %2 is damaged heavily</English>
+                       <German>%1s %2 is damaged heavily</German>
+                    <Hungarian>%1s %2 is damaged heavily</Hungarian>
+                      <Italian>%1s %2 is damaged heavily</Italian>
+                       <French>%1s %2 is damaged heavily</French>
+                      <Russian>%1s %2 is damaged heavily</Russian>
+                       <Polish>%1s %2 is damaged heavily</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Extreme">
+                      <English>%1s %2 is damaged deadly</English>
+                       <German>%1s %2 is damaged deadly</German>
+                    <Hungarian>%1s %2 is damaged deadly</Hungarian>
+                      <Italian>%1s %2 is damaged deadly</Italian>
+                       <French>%1s %2 is damaged deadly</French>
+                      <Russian>%1s %2 is damaged deadly</Russian>
+                       <Polish>%1s %2 is damaged deadly</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Low">
+                      <English>%1s %2 is bleeding lightly</English>
+                       <German>%1s %2 is bleeding lightly</German>
+                    <Hungarian>%1s %2 is bleeding lightly</Hungarian>
+                      <Italian>%1s %2 is bleeding lightly</Italian>
+                       <French>%1s %2 is bleeding lightly</French>
+                      <Russian>%1s %2 is bleeding lightly</Russian>
+                       <Polish>%1s %2 is bleeding lightly</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Middle">
+                      <English>%1s %2 is bleeding</English>
+                       <German>%1s %2 is bleeding</German>
+                    <Hungarian>%1s %2 is bleeding</Hungarian>
+                      <Italian>%1s %2 is bleeding</Italian>
+                       <French>%1s %2 is bleeding</French>
+                      <Russian>%1s %2 is bleeding</Russian>
+                       <Polish>%1s %2 is bleeding</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_High">
+                      <English>%1s %2 is bleeding heavily</English>
+                       <German>%1s %2 is bleeding heavily</German>
+                    <Hungarian>%1s %2 is bleeding heavily</Hungarian>
+                      <Italian>%1s %2 is bleeding heavily</Italian>
+                       <French>%1s %2 is bleeding heavily</French>
+                      <Russian>%1s %2 is bleeding heavily</Russian>
+                       <Polish>%1s %2 is bleeding heavily</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Extreme">
+                      <English>%1s %2 is bleeding deadly</English>
+                       <German>%1s %2 is bleeding deadly</German>
+                    <Hungarian>%1s %2 is bleeding deadly</Hungarian>
+                      <Italian>%1s %2 is bleeding deadly</Italian>
+                       <French>%1s %2 is bleeding deadly</French>
+                      <Russian>%1s %2 is bleeding deadly</Russian>
+                       <Polish>%1s %2 is bleeding deadly</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Pain_Low">
+                      <English>%1 has light pain</English>
+                       <German>%1 has light pain</German>
+                    <Hungarian>%1 has light pain</Hungarian>
+                      <Italian>%1 has light pain</Italian>
+                       <French>%1 has light pain</French>
+                      <Russian>%1 has light pain</Russian>
+                       <Polish>%1 has light pain</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Pain_Middle">
+                      <English>%1 has medium pain</English>
+                       <German>%1 has medium pain</German>
+                    <Hungarian>%1 has medium pain</Hungarian>
+                      <Italian>%1 has medium pain</Italian>
+                       <French>%1 has medium pain</French>
+                      <Russian>%1 has medium pain</Russian>
+                       <Polish>%1 has medium pain</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Pain_High">
+                      <English>%1 has heavy pain</English>
+                       <German>%1 has heavy pain</German>
+                    <Hungarian>%1 has heavy pain</Hungarian>
+                      <Italian>%1 has heavy pain</Italian>
+                       <French>%1 has heavy pain</French>
+                      <Russian>%1 has heavy pain</Russian>
+                       <Polish>%1 has heavy pain</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Pain_Extreme">
+                      <English>%1 in agony because of pain</English>
+                       <German>%1 in agony because of pain</German>
+                    <Hungarian>%1 in agony because of pain</Hungarian>
+                      <Italian>%1 in agony because of pain</Italian>
+                       <French>%1 in agony because of pain</French>
+                      <Russian>%1 in agony because of pain</Russian>
+                       <Polish>%1 in agony because of pain</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_AterialDamage">
+                      <English>%1s %2 aterie seems to be damaged</English>
+                       <German>%1s %2 aterie seems to be damaged</German>
+                    <Hungarian>%1s %2 aterie seems to be damaged</Hungarian>
+                      <Italian>%1s %2 aterie seems to be damaged</Italian>
+                       <French>%1s %2 aterie seems to be damaged</French>
+                      <Russian>%1s %2 aterie seems to be damaged</Russian>
+                       <Polish>%1s %2 aterie seems to be damaged</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_BloodPresure">
+                      <English>%1s current bloodpresure is %2</English>
+                       <German>%1s current bloodpresure is %2</German>
+                    <Hungarian>%1s current bloodpresure is %2</Hungarian>
+                      <Italian>%1s current bloodpresure is %2</Italian>
+                       <French>%1s current bloodpresure is %2</French>
+                      <Russian>%1s current bloodpresure is %2</Russian>
+                       <Polish>%1s current bloodpresure is %2</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Pulse_NoPulse">
+                      <English>No pulse</English>
+                       <German>No pulse</German>
+                    <Hungarian>No pulse</Hungarian>
+                      <Italian>No pulse</Italian>
+                       <French>No pulse</French>
+                      <Russian>No pulse</Russian>
+                       <Polish>No pulse</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Drugs_ConcentrationMessage">
+                      <English>%1 concentration at %2%3</English>
+                       <German>%1 concentration at %2%3</German>
+                    <Hungarian>%1 concentration at %2%3</Hungarian>
+                      <Italian>%1 concentration at %2%3</Italian>
+                       <French>%1 concentration at %2%3</French>
+                      <Russian>%1 concentration at %2%3</Russian>
+                       <Polish>%1 concentration at %2%3</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Respiration_NotBreathing">
+                      <English>%1 is not breathing</English>
+                       <German>%1 is not breathing</German>
+                    <Hungarian>%1 is not breathing</Hungarian>
+                      <Italian>%1 is not breathing</Italian>
+                       <French>%1 is not breathing</French>
+                      <Russian>%1 is not breathing</Russian>
+                       <Polish>%1 is not breathing</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Respiration_ToungeBlocks">
+                      <English>%1s tongue is blocking is airway</English>
+                       <German>%1s tongue is blocking is airway</German>
+                    <Hungarian>%1s tongue is blocking is airway</Hungarian>
+                      <Italian>%1s tongue is blocking is airway</Italian>
+                       <French>%1s tongue is blocking is airway</French>
+                      <Russian>%1s tongue is blocking is airway</Russian>
+                       <Polish>%1s tongue is blocking is airway</Polish>
+            </Key>
+        </Container>
+        <Container name="MedicalMessages">
+            <Key ID="STR_X39_MS2_Scripting_MedicalMessagesCategories_Generic">
+                      <English>Generic</English>
+                       <German>Generic</German>
+                    <Hungarian>Generic</Hungarian>
+                      <Italian>Generic</Italian>
+                       <French>Generic</French>
+                      <Russian>Generic</Russian>
+                       <Polish>Generic</Polish>
+            </Key>
+        </Container>
+        <Container name="DialogControl_MedicalActionMenu">
+            <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_BlockedMessage1">
+                      <English>Youre currently doing something else</English>
+                       <German>Youre currently doing something else</German>
+                    <Hungarian>Youre currently doing something else</Hungarian>
+                      <Italian>Youre currently doing something else</Italian>
+                       <French>Youre currently doing something else</French>
+                      <Russian>Youre currently doing something else</Russian>
+                       <Polish>Youre currently doing something else</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_BlockedMessage2">
+                      <English>You cand do that while doing something else</English>
+                       <German>You cand do that while doing something else</German>
+                    <Hungarian>You cand do that while doing something else</Hungarian>
+                      <Italian>You cand do that while doing something else</Italian>
+                       <French>You cand do that while doing something else</French>
+                      <Russian>You cand do that while doing something else</Russian>
+                       <Polish>You cand do that while doing something else</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_BlockedMessage3">
+                      <English>Please wait till your current action has finished!</English>
+                       <German>Please wait till your current action has finished!</German>
+                    <Hungarian>Please wait till your current action has finished!</Hungarian>
+                      <Italian>Please wait till your current action has finished!</Italian>
+                       <French>Please wait till your current action has finished!</French>
+                      <Russian>Please wait till your current action has finished!</Russian>
+                       <Polish>Please wait till your current action has finished!</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_BlockedMessage4">
+                      <English>Youre previous action has not finished yet. Please wait!</English>
+                       <German>Youre previous action has not finished yet. Please wait!</German>
+                    <Hungarian>Youre previous action has not finished yet. Please wait!</Hungarian>
+                      <Italian>Youre previous action has not finished yet. Please wait!</Italian>
+                       <French>Youre previous action has not finished yet. Please wait!</French>
+                      <Russian>Youre previous action has not finished yet. Please wait!</Russian>
+                       <Polish>Youre previous action has not finished yet. Please wait!</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_NothingSelected1">
+                      <English>You need to select something for this action</English>
+                       <German>You need to select something for this action</German>
+                    <Hungarian>You need to select something for this action</Hungarian>
+                      <Italian>You need to select something for this action</Italian>
+                       <French>You need to select something for this action</French>
+                      <Russian>You need to select something for this action</Russian>
+                       <Polish>You need to select something for this action</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_NothingSelected2">
+                      <English>You need to select something for this action</English>
+                       <German>You need to select something for this action</German>
+                    <Hungarian>You need to select something for this action</Hungarian>
+                      <Italian>You need to select something for this action</Italian>
+                       <French>You need to select something for this action</French>
+                      <Russian>You need to select something for this action</Russian>
+                       <Polish>You need to select something for this action</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_NothingSelected3">
+                      <English>Please select something first</English>
+                       <German>Please select something first</German>
+                    <Hungarian>Please select something first</Hungarian>
+                      <Italian>Please select something first</Italian>
+                       <French>Please select something first</French>
+                      <Russian>Please select something first</Russian>
+                       <Polish>Please select something first</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_NothingSelected4">
+                      <English>Please select something first</English>
+                       <German>Please select something first</German>
+                    <Hungarian>Please select something first</Hungarian>
+                      <Italian>Please select something first</Italian>
+                       <French>Please select something first</French>
+                      <Russian>Please select something first</Russian>
+                       <Polish>Please select something first</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_CannotBeAppliedOnPart1">
+                      <English>Cannot be applied on this part</English>
+                       <German>Cannot be applied on this part</German>
+                    <Hungarian>Cannot be applied on this part</Hungarian>
+                      <Italian>Cannot be applied on this part</Italian>
+                       <French>Cannot be applied on this part</French>
+                      <Russian>Cannot be applied on this part</Russian>
+                       <Polish>Cannot be applied on this part</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_CannotBeAppliedOnPart2">
+                      <English>You need to select a different body part</English>
+                       <German>You need to select a different body part</German>
+                    <Hungarian>You need to select a different body part</Hungarian>
+                      <Italian>You need to select a different body part</Italian>
+                       <French>You need to select a different body part</French>
+                      <Russian>You need to select a different body part</Russian>
+                       <Polish>You need to select a different body part</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_CannotBeAppliedOnPart3">
+                      <English>Try another part of the body for this</English>
+                       <German>Try another part of the body for this</German>
+                    <Hungarian>Try another part of the body for this</Hungarian>
+                      <Italian>Try another part of the body for this</Italian>
+                       <French>Try another part of the body for this</French>
+                      <Russian>Try another part of the body for this</Russian>
+                       <Polish>Try another part of the body for this</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_CannotBeAppliedOnPart4">
+                      <English>This makes no sense</English>
+                       <German>This makes no sense</German>
+                    <Hungarian>This makes no sense</Hungarian>
+                      <Italian>This makes no sense</Italian>
+                       <French>This makes no sense</French>
+                      <Russian>This makes no sense</Russian>
+                       <Polish>This makes no sense</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_CheckUnit_quick">
+                      <English>Quick check</English>
+                       <German>Quick check</German>
+                    <Hungarian>Quick check</Hungarian>
+                      <Italian>Quick check</Italian>
+                       <French>Quick check</French>
+                      <Russian>Quick check</Russian>
+                       <Polish>Quick check</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_CheckUnit_normal">
+                      <English>Usual check</English>
+                       <German>Usual check</German>
+                    <Hungarian>Usual check</Hungarian>
+                      <Italian>Usual check</Italian>
+                       <French>Usual check</French>
+                      <Russian>Usual check</Russian>
+                       <Polish>Usual check</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_CheckUnit_full">
+                      <English>Full check</English>
+                       <German>Full check</German>
+                    <Hungarian>Full check</Hungarian>
+                      <Italian>Full check</Italian>
+                       <French>Full check</French>
+                      <Russian>Full check</Russian>
+                       <Polish>Full check</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_TargetLabel">
+                      <English>Targeting: %1</English>
+                       <German>Targeting: %1</German>
+                    <Hungarian>Targeting: %1</Hungarian>
+                      <Italian>Targeting: %1</Italian>
+                       <French>Targeting: %1</French>
+                      <Russian>Targeting: %1</Russian>
+                       <Polish>Targeting: %1</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_ItemSelectionStartText">
+                      <English>No item has been selected yet</English>
+                       <German>No item has been selected yet</German>
+                    <Hungarian>No item has been selected yet</Hungarian>
+                      <Italian>No item has been selected yet</Italian>
+                       <French>No item has been selected yet</French>
+                      <Russian>No item has been selected yet</Russian>
+                       <Polish>No item has been selected yet</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_ItemSelectionText">
+                      <English>Currently selected item: %1</English>
+                       <German>Currently selected item: %1</German>
+                    <Hungarian>Currently selected item: %1</Hungarian>
+                      <Italian>Currently selected item: %1</Italian>
+                       <French>Currently selected item: %1</French>
+                      <Russian>Currently selected item: %1</Russian>
+                       <Polish>Currently selected item: %1</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_QuickActions_RequiredTime">
+                      <English>Required time</English>
+                       <German>Required time</German>
+                    <Hungarian>Required time</Hungarian>
+                      <Italian>Required time</Italian>
+                       <French>Required time</French>
+                      <Russian>Required time</Russian>
+                       <Polish>Required time</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_QuickActions_RequiredItems">
+                      <English>Required items</English>
+                       <German>Required items</German>
+                    <Hungarian>Required items</Hungarian>
+                      <Italian>Required items</Italian>
+                       <French>Required items</French>
+                      <Russian>Required items</Russian>
+                       <Polish>Required items</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_QuickActions_Description">
+                      <English>Description</English>
+                       <German>Description</German>
+                    <Hungarian>Description</Hungarian>
+                      <Italian>Description</Italian>
+                       <French>Description</French>
+                      <Russian>Description</Russian>
+                       <Polish>Description</Polish>
+            </Key>
+        </Container>
+        <Container name="InteractionMenu">
+            <Key ID="STR_X39_MS2_Scripting_InteractionMenu_openMedicalMenu">
+                      <English>Medical treatment</English>
+                       <German>Medical treatment</German>
+                    <Hungarian>Medical treatment</Hungarian>
+                      <Italian>Medical treatment</Italian>
+                       <French>Medical treatment</French>
+                      <Russian>Medical treatment</Russian>
+                       <Polish>Medical treatment</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_InteractionMenu_putEarplugs">
+                      <English>Put earplugs</English>
+                       <German>Put earplugs</German>
+                    <Hungarian>Put earplugs</Hungarian>
+                      <Italian>Put earplugs</Italian>
+                       <French>Put earplugs</French>
+                      <Russian>Put earplugs</Russian>
+                       <Polish>Put earplugs</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_InteractionMenu_removeEarplugs">
+                      <English>Remove earplugs</English>
+                       <German>Remove earplugs</German>
+                    <Hungarian>Remove earplugs</Hungarian>
+                      <Italian>Remove earplugs</Italian>
+                       <French>Remove earplugs</French>
+                      <Russian>Remove earplugs</Russian>
+                       <Polish>Remove earplugs</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_InteractionMenu_useDefibrillator">
+                      <English>Use defibrillator</English>
+                       <German>Use defibrillator</German>
+                    <Hungarian>Use defibrillator</Hungarian>
+                      <Italian>Use defibrillator</Italian>
+                       <French>Use defibrillator</French>
+                      <Russian>Use defibrillator</Russian>
+                       <Polish>Use defibrillator</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_InteractionMenu_stripWeapons">
+                      <English>Strip weapons</English>
+                       <German>Strip weapons</German>
+                    <Hungarian>Strip weapons</Hungarian>
+                      <Italian>Strip weapons</Italian>
+                       <French>Strip weapons</French>
+                      <Russian>Strip weapons</Russian>
+                       <Polish>Strip weapons</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_InteractionMenu_dragUnit">
+                      <English>Drag unit</English>
+                       <German>Drag unit</German>
+                    <Hungarian>Drag unit</Hungarian>
+                      <Italian>Drag unit</Italian>
+                       <French>Drag unit</French>
+                      <Russian>Drag unit</Russian>
+                       <Polish>Drag unit</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_InteractionMenu_carryUnit">
+                      <English>Carry unit</English>
+                       <German>Carry unit</German>
+                    <Hungarian>Carry unit</Hungarian>
+                      <Italian>Carry unit</Italian>
+                       <French>Carry unit</French>
+                      <Russian>Carry unit</Russian>
+                       <Polish>Carry unit</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_InteractionMenu_dropUnit">
+                      <English>Drop unit</English>
+                       <German>Drop unit</German>
+                    <Hungarian>Drop unit</Hungarian>
+                      <Italian>Drop unit</Italian>
+                       <French>Drop unit</French>
+                      <Russian>Drop unit</Russian>
+                       <Polish>Drop unit</Polish>
+            </Key>
+        </Container>
+        <Container name="XMSTicks">
+            <Key ID="STR_X39_MS2_Scripting_XMSTicks_temperatureTick_DeathThroughColdness">
+                      <English>Youre dead because of coldness</English>
+                       <German>Youre dead because of coldness</German>
+                    <Hungarian>Youre dead because of coldness</Hungarian>
+                      <Italian>Youre dead because of coldness</Italian>
+                       <French>Youre dead because of coldness</French>
+                      <Russian>Youre dead because of coldness</Russian>
+                       <Polish>Youre dead because of coldness</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_XMSTicks_MorphineSimulation_DeathThroughMorphineOverdose">
+                      <English>Youre dead because of a morphine overdose</English>
+                       <German>Youre dead because of a morphine overdose</German>
+                    <Hungarian>Youre dead because of a morphine overdose</Hungarian>
+                      <Italian>Youre dead because of a morphine overdose</Italian>
+                       <French>Youre dead because of a morphine overdose</French>
+                      <Russian>Youre dead because of a morphine overdose</Russian>
+                       <Polish>Youre dead because of a morphine overdose</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_XMSTicks_MorphineSimulation_KnockOutThroughMorphineOverdose">
+                      <English>Youre knocked out because of a morphine overdose</English>
+                       <German>Youre knocked out because of a morphine overdose</German>
+                    <Hungarian>Youre knocked out because of a morphine overdose</Hungarian>
+                      <Italian>Youre knocked out because of a morphine overdose</Italian>
+                       <French>Youre knocked out because of a morphine overdose</French>
+                      <Russian>Youre knocked out because of a morphine overdose</Russian>
+                       <Polish>Youre knocked out because of a morphine overdose</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_XMSTicks_BleedingTick_KnockOutDueLowBlood">
+                      <English>Youre knocked out as you got not enough blood in your body</English>
+                       <German>Youre knocked out as you got not enough blood in your body</German>
+                    <Hungarian>Youre knocked out as you got not enough blood in your body</Hungarian>
+                      <Italian>Youre knocked out as you got not enough blood in your body</Italian>
+                       <French>Youre knocked out as you got not enough blood in your body</French>
+                      <Russian>Youre knocked out as you got not enough blood in your body</Russian>
+                       <Polish>Youre knocked out as you got not enough blood in your body</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_XMSTicks_BleedingTick_KnockOutDueBloodPresureLow">
+                      <English>Youre knocked out as your blood presure is too low</English>
+                       <German>Youre knocked out as your blood presure is too low</German>
+                    <Hungarian>Youre knocked out as your blood presure is too low</Hungarian>
+                      <Italian>Youre knocked out as your blood presure is too low</Italian>
+                       <French>Youre knocked out as your blood presure is too low</French>
+                      <Russian>Youre knocked out as your blood presure is too low</Russian>
+                       <Polish>Youre knocked out as your blood presure is too low</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_XMSTicks_BleedingTick_KnockOutDueBloodPresureHigh">
+                      <English>Youre knocked out as your blood presure is too high</English>
+                       <German>Youre knocked out as your blood presure is too high</German>
+                    <Hungarian>Youre knocked out as your blood presure is too high</Hungarian>
+                      <Italian>Youre knocked out as your blood presure is too high</Italian>
+                       <French>Youre knocked out as your blood presure is too high</French>
+                      <Russian>Youre knocked out as your blood presure is too high</Russian>
+                       <Polish>Youre knocked out as your blood presure is too high</Polish>
+            </Key>
+        </Container>
+        <Container name="Adrenaline">
+            <Key ID="STR_X39_MS2_Scripting_Adrenaline_Pulse_FlatLine">
+                      <English>Youre heart failed</English>
+                       <German>Youre heart failed</German>
+                    <Hungarian>Youre heart failed</Hungarian>
+                      <Italian>Youre heart failed</Italian>
+                       <French>Youre heart failed</French>
+                      <Russian>Youre heart failed</Russian>
+                       <Polish>Youre heart failed</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_Adrenaline_Pulse_TooHigh">
+                      <English>You got unconscious because of your pulse</English>
+                       <German>You got unconscious because of your pulse</German>
+                    <Hungarian>You got unconscious because of your pulse</Hungarian>
+                      <Italian>You got unconscious because of your pulse</Italian>
+                       <French>You got unconscious because of your pulse</French>
+                      <Russian>You got unconscious because of your pulse</Russian>
+                       <Polish>You got unconscious because of your pulse</Polish>
+            </Key>
+        </Container>
+        <Container name="cb_handleDamage">
+            <Key ID="STR_X39_MS2_Scripting_cb_handleDamage_knockOut">
+                      <English>Youre knocked out as youre too heavily damaged</English>
+                       <German>Youre knocked out as youre too heavily damaged</German>
+                    <Hungarian>Youre knocked out as youre too heavily damaged</Hungarian>
+                      <Italian>Youre knocked out as youre too heavily damaged</Italian>
+                       <French>Youre knocked out as youre too heavily damaged</French>
+                      <Russian>Youre knocked out as youre too heavily damaged</Russian>
+                       <Polish>Youre knocked out as youre too heavily damaged</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_cb_handleDamage_death">
+                      <English>You got killed! Please Imagine a white light ^^</English>
+                       <German>You got killed! Please Imagine a white light ^^</German>
+                    <Hungarian>You got killed! Please Imagine a white light ^^</Hungarian>
+                      <Italian>You got killed! Please Imagine a white light ^^</Italian>
+                       <French>You got killed! Please Imagine a white light ^^</French>
+                      <Russian>You got killed! Please Imagine a white light ^^</Russian>
+                       <Polish>You got killed! Please Imagine a white light ^^</Polish>
+            </Key>
+        </Container>
+        <Container name="Drugs">
+            <Key ID="STR_X39_MS2_Scripting_Drugs_Adrenaline_Name">
+                      <English>Adrenaline</English>
+                       <German>Adrenaline</German>
+                    <Hungarian>Adrenaline</Hungarian>
+                      <Italian>Adrenaline</Italian>
+                       <French>Adrenaline</French>
+                      <Russian>Adrenaline</Russian>
+                       <Polish>Adrenaline</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_Drugs_executeDrugRequestTemplate">
+                      <English>%1 wants to give you %2</English>
+                       <German>%1 wants to give you %2</German>
+                    <Hungarian>%1 wants to give you %2</Hungarian>
+                      <Italian>%1 wants to give you %2</Italian>
+                       <French>%1 wants to give you %2</French>
+                      <Russian>%1 wants to give you %2</Russian>
+                       <Polish>%1 wants to give you %2</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_Drugs_Morphine_Name">
+                      <English>Morphine</English>
+                       <German>Morphine</German>
+                    <Hungarian>Morphine</Hungarian>
+                      <Italian>Morphine</Italian>
+                       <French>Morphine</French>
+                      <Russian>Morphine</Russian>
+                       <Polish>Morphine</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_Drugs_Naloxone_Name">
+                      <English>Naloxone</English>
+                       <German>Naloxone</German>
+                    <Hungarian>Naloxone</Hungarian>
+                      <Italian>Naloxone</Italian>
+                       <French>Naloxone</French>
+                      <Russian>Naloxone</Russian>
+                       <Polish>Naloxone</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_Drugs_Aspirin_Name">
+                      <English>Aspirin</English>
+                       <German>Aspirin</German>
+                    <Hungarian>Aspirin</Hungarian>
+                      <Italian>Aspirin</Italian>
+                       <French>Aspirin</French>
+                      <Russian>Aspirin</Russian>
+                       <Polish>Aspirin</Polish>
+            </Key>
+        </Container>
+        <Container name="MedicalUiActions">
+            <Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Bandage_ActionName">
+                      <English>Apply a bandage</English>
+                       <German>Apply a bandage</German>
+                    <Hungarian>Apply a bandage</Hungarian>
+                      <Italian>Apply a bandage</Italian>
+                       <French>Apply a bandage</French>
+                      <Russian>Apply a bandage</Russian>
+                       <Polish>Apply a bandage</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_MedicalUiActions_MediPack_ActionName">
+                      <English>Apply a medi-pack</English>
+                       <German>Apply a medi-pack</German>
+                    <Hungarian>Apply a medi-pack</Hungarian>
+                      <Italian>Apply a medi-pack</Italian>
+                       <French>Apply a medi-pack</French>
+                      <Russian>Apply a medi-pack</Russian>
+                       <Polish>Apply a medi-pack</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Heatpack_ActionName">
+                      <English>Apply a Heatpack</English>
+                       <German>Apply a Heatpack</German>
+                    <Hungarian>Apply a Heatpack</Hungarian>
+                      <Italian>Apply a Heatpack</Italian>
+                       <French>Apply a Heatpack</French>
+                      <Russian>Apply a Heatpack</Russian>
+                       <Polish>Apply a Heatpack</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Tourniquet_ActionNamePut">
+                      <English>Put tournique</English>
+                       <German>Put tournique</German>
+                    <Hungarian>Put tournique</Hungarian>
+                      <Italian>Put tournique</Italian>
+                       <French>Put tournique</French>
+                      <Russian>Put tournique</Russian>
+                       <Polish>Put tournique</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Tourniquet_ActionNameTake">
+                      <English>Remove tournique</English>
+                       <German>Remove tournique</German>
+                    <Hungarian>Remove tournique</Hungarian>
+                      <Italian>Remove tournique</Italian>
+                       <French>Remove tournique</French>
+                      <Russian>Remove tournique</Russian>
+                       <Polish>Remove tournique</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Nasopharyngeal_ActionNamePut">
+                      <English>Put nasopharyngeal</English>
+                       <German>Put nasopharyngeal</German>
+                    <Hungarian>Put nasopharyngeal</Hungarian>
+                      <Italian>Put nasopharyngeal</Italian>
+                       <French>Put nasopharyngeal</French>
+                      <Russian>Put nasopharyngeal</Russian>
+                       <Polish>Put nasopharyngeal</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Nasopharyngeal_ActionNameTake">
+                      <English>Remove nasopharyngeal</English>
+                       <German>Remove nasopharyngeal</German>
+                    <Hungarian>Remove nasopharyngeal</Hungarian>
+                      <Italian>Remove nasopharyngeal</Italian>
+                       <French>Remove nasopharyngeal</French>
+                      <Russian>Remove nasopharyngeal</Russian>
+                       <Polish>Remove nasopharyngeal</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_MedicalUiActions_KingLt_ActionNamePut">
+                      <English>Put King-LT</English>
+                       <German>Put King-LT</German>
+                    <Hungarian>Put King-LT</Hungarian>
+                      <Italian>Put King-LT</Italian>
+                       <French>Put King-LT</French>
+                      <Russian>Put King-LT</Russian>
+                       <Polish>Put King-LT</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_MedicalUiActions_KingLt_ActionNameTake">
+                      <English>Remove King-LT</English>
+                       <German>Remove King-LT</German>
+                    <Hungarian>Remove King-LT</Hungarian>
+                      <Italian>Remove King-LT</Italian>
+                       <French>Remove King-LT</French>
+                      <Russian>Remove King-LT</Russian>
+                       <Polish>Remove King-LT</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Saline_ActionName">
+                      <English>Give saline bag</English>
+                       <German>Give saline bag</German>
+                    <Hungarian>Give saline bag</Hungarian>
+                      <Italian>Give saline bag</Italian>
+                       <French>Give saline bag</French>
+                      <Russian>Give saline bag</Russian>
+                       <Polish>Give saline bag</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_MedicalUiActions_UseBagValveMask">
+                      <English>Start using Bag-Valve Mask</English>
+                       <German>Start using Bag-Valve Mask</German>
+                    <Hungarian>Start using Bag-Valve Mask</Hungarian>
+                      <Italian>Start using Bag-Valve Mask</Italian>
+                       <French>Start using Bag-Valve Mask</French>
+                      <Russian>Start using Bag-Valve Mask</Russian>
+                       <Polish>Start using Bag-Valve Mask</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_MedicalUiActions_StartCPR">
+                      <English>Start CPR</English>
+                       <German>Start CPR</German>
+                    <Hungarian>Start CPR</Hungarian>
+                      <Italian>Start CPR</Italian>
+                       <French>Start CPR</French>
+                      <Russian>Start CPR</Russian>
+                       <Polish>Start CPR</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Close">
+                      <English>Close</English>
+                       <German>Close</German>
+                    <Hungarian>Close</Hungarian>
+                      <Italian>Close</Italian>
+                       <French>Close</French>
+                      <Russian>Close</Russian>
+                       <Polish>Close</Polish>
+            </Key>
+        </Container>
+        <Container name="NotifyMessages">
+            <Key ID="STR_X39_MS2_Scripting_NotifyMessages_Defibrillate_failed">
+                      <English>Damned! Still nothing!</English>
+                       <German>Damned! Still nothing!</German>
+                    <Hungarian>Damned! Still nothing!</Hungarian>
+                      <Italian>Damned! Still nothing!</Italian>
+                       <French>Damned! Still nothing!</French>
+                      <Russian>Damned! Still nothing!</Russian>
+                       <Polish>Damned! Still nothing!</Polish>
+            </Key>
+            <Key ID="STR_X39_MS2_Scripting_NotifyMessages_Defibrillate_succeeded">
+                      <English>Success! He is alive again ...</English>
+                       <German>Success! He is alive again ...</German>
+                    <Hungarian>Success! He is alive again ...</Hungarian>
+                      <Italian>Success! He is alive again ...</Italian>
+                       <French>Success! He is alive again ...</French>
+                      <Russian>Success! He is alive again ...</Russian>
+                       <Polish>Success! He is alive again ...</Polish>
+            </Key>
+        </Container>
+    </Package>
 </Project>
