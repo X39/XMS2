@@ -214,6 +214,8 @@ assignValue("X39_MS2_var_Internal_Dialog_TriageCard_PreDefinedMessages", []);
 
 //MedicalMessages
 assignValue("X39_MS2_var_Internal_MedicalMessages", []);
+assignValue("X39_MS2_var_Internal_MedicalMessagesCategories", [[] COMMA []]);
+["Generic", localize "STR_X39_MS2_Scripting_MedicalMessagesCategories_Generic"] call X39_MS2_fnc_registerMedicalMessageCategory;
 assignValue("X39_MS2_var_Internal_MedicalStatusEffects", []);
 
 //ClientServer communication

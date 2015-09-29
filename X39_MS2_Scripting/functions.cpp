@@ -16,9 +16,6 @@ class General //Functions without any categoriy
 	class resetPPEffects:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\resetPPEffects.sqf";};
 	class addEffect:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\addEffect.sqf";};
 	class killUnit:X39_XLib_Function_TypeA														{file = "\X39_MS2_Scripting\Functions\killUnit.sqf";};
-	class registerTickHandler:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\registerFunctions\registerTickHandler.sqf";};
-	class registerMedicalMessage:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\registerFunctions\registerMedicalMessage.sqf";};
-	class registerMedicalStatusEffect:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\registerFunctions\registerMedicalStatusEffect.sqf";};
 	
 	class applyServerConfig:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\applyServerConfig.sqf";};
 	class applyClientConfig:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\applyClientConfig.sqf";};
@@ -30,6 +27,19 @@ class General //Functions without any categoriy
 	class clearAnimationLock:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\clearAnimationLock.sqf";};
 	class isAnimationLockInPlace:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\isAnimationLockInPlace.sqf";};
 	class notifyUnit:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\notifyUnit.sqf";};
+};
+class RegisterFunctions
+{
+	class registerTickHandler:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\registerFunctions\registerTickHandler.sqf";};
+	class registerMedicalMessageCategory:X39_XLib_Function_TypeA								{file = "\X39_MS2_Scripting\Functions\registerFunctions\registerMedicalMessageCategory.sqf";};
+	class registerMedicalMessage:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\registerFunctions\registerMedicalMessage.sqf";};
+	class registerMedicalStatusEffect:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\registerFunctions\registerMedicalStatusEffect.sqf";};
+	class registerDrug:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\registerFunctions\registerDrug.sqf";};
+	class registerHallucination:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\registerFunctions\registerHallucination.sqf";};
+	class registerMedicalUiStatusEffect:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\registerFunctions\registerMedicalUiStatusEffect.sqf";};
+	class registerQuickAction:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\registerFunctions\registerQuickAction.sqf";};
+	class registerAction:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\registerFunctions\registerAction.sqf";};
+	class ls_registerLimitation:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\registerFunctions\registerLimitation.sqf";};
 };
 class InitModFunctions //Functions for initMod
 {
@@ -91,7 +101,6 @@ class Distraction
 };
 class Drugs
 {
-	class registerDrug:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\registerFunctions\registerDrug.sqf";};
 	class executeDrug:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\executeDrug.sqf";};
 	
 	class addMorphine:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\Drugs\Morphine\addMorphine.sqf";};
@@ -160,7 +169,6 @@ class Temperature
 };
 class Hallucinations
 {
-	class registerHallucination:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\registerFunctions\registerHallucination.sqf";};
 	
 	class hallu_testHallucination:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\Hallucinations\testHallucination.sqf";};
 };
@@ -194,7 +202,6 @@ class LimitationSystem
 	class ls_createLimitationClass:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\LimitationSystem\createLimitationClass.sqf";};
 	class ls_createLimitationObject:X39_XLib_Function_TypeA										{file = "\X39_MS2_Scripting\Functions\LimitationSystem\createLimitationObject.sqf";};
 	class ls_isAllowedToUse:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\LimitationSystem\isAllowedToUse.sqf";};
-	class ls_registerLimitation:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\registerFunctions\registerLimitation.sqf";};
 };
 class Modules
 {
@@ -219,8 +226,6 @@ class DialogControl_UnitSelection
 };
 class DialogControl_MedicalUi
 {
-	class registerMedicalUiStatusEffect:X39_XLib_Function_TypeA									{file = "\X39_MS2_Scripting\Functions\registerFunctions\registerMedicalUiStatusEffect.sqf";};
-	class registerQuickAction:X39_XLib_Function_TypeA											{file = "\X39_MS2_Scripting\Functions\registerFunctions\registerQuickAction.sqf";};
 	class MedicalUi_DiagnosticFrame_setVisibilityState:X39_XLib_Function_TypeA					{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\DiagnosticFrame\MedicalUi_DiagnosticFrame_setVisibilityState.sqf";};
 	class MedicalUi_btnDiagnosisPerformCheckUnit:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\DiagnosticFrame\MedicalUi_btnDiagnosisPerformCheckUnit.sqf";};
 	class MedicalUi_DrugsFrame_setVisibilityState:X39_XLib_Function_TypeA						{file = "\X39_MS2_Scripting\Functions\DialogControl\MedicalUi\DrugsFrame\MedicalUi_DrugsFrame_setVisibilityState.sqf";};
@@ -245,7 +250,6 @@ class DialogControl_MedicalUi
 };
 class MedcialActions
 {
-	class registerAction:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\registerFunctions\registerAction.sqf";};
 	class getActionById:X39_XLib_Function_TypeA													{file = "\X39_MS2_Scripting\Functions\MedicalActions\getActionById.sqf";};
 	
 	class MA_defibrillate:X39_XLib_Function_TypeA												{file = "\X39_MS2_Scripting\Functions\MedicalActions\defibrillate.sqf";};
