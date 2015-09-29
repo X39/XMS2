@@ -506,7 +506,7 @@
                        <Polish>%1s tongue is blocking is airway</Polish>
             </Key>
         </Container>
-        <Container name="MedicalMessages">
+        <Container name="MedicalMessagesCategory">
             <Key ID="STR_X39_MS2_Scripting_MedicalMessagesCategories_Generic">
                       <English>Generic</English>
                        <German>Generic</German>
