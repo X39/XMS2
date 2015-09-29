@@ -3,7 +3,7 @@
  *	LS (LimitationSystem) Function
  *	Converts current LimitationSystem Classes&Objects to its final state so that it can be used & sends them to all clients
  *	@Return - NA
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 X39_MS2_var_Internal_LimitationSystem_Structure = [];
 private["_finalArray"];

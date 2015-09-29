@@ -6,7 +6,7 @@
  *	@ParamsCount - 1
  *	@Param1 - OBJECT - Player unit
  *	@Return - N/A
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 if(!X39_MS2_var_Feature_SimpleHitMarker) exitWith {};
 

@@ -6,6 +6,6 @@
  *
  *	@Param1 - OBJECT - targeted unit
  *	@Return - SCALAR - TriageCard state
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 _this select 0 getVariable["X39_MS2_var_triageState", -1];

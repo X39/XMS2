@@ -2,7 +2,7 @@
 /*
  *	Module function for the base module
  *	
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 if(!isDedicated && hasInterface) then
 {

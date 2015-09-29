@@ -12,7 +12,7 @@
  *										3 --> via a simple call in asynchron space
  *										4 --> via spawn (wont wait for completeness)
  *										5 --> via spawn (will wait for completeness)
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 scopeName "function";
 params [

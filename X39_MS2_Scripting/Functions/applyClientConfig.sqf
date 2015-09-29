@@ -3,7 +3,7 @@
  *	Loads the clientconfig
  *
  *	@Return - N/A
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 private["_i", "_selectedEntry", "_name", "_value"];
 if(isDedicated) exitWith { diag_log "you a dedicated server dude! You dont need a client config ..."; };

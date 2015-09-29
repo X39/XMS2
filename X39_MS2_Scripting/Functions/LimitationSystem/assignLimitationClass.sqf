@@ -6,7 +6,7 @@
  *	@Param1 - STRING/OBJECT	- ClassName/Object which the LimitationClass shall be assigned to
  *	@Param2 - SCALAR		- LimitationClass ID which shall be assigned
  *	@Return - NA
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 params [
 	["_assignee", objNull, [objNull]],

@@ -2,7 +2,7 @@
 /*	
  *	Clears current animation lock
  *	@Return - NA
- *	@Author	- X39|Cpt. HM Murdock
+ *	@Author	- X39
  */
 
 X39_MS2_var_Internal_AnimLock_AllowedAnimations = [];

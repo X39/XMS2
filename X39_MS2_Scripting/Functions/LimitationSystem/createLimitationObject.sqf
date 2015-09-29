@@ -10,7 +10,7 @@
  *							   -1 - DENY	- Prevents usage of this limitation for ALL following limitations (exception: ACTIVE limitations will remove this modifier again)
  *	@Param3 - SCALAR	- Efficiency multiplicator
  *	@Return - SCALAR	- Limitation object ID
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 params [
 	["_limitations", [], [[]]],

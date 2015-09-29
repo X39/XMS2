@@ -8,7 +8,7 @@
  *	@Param2		- ARRAY	- Valid hitzones (use ["*"] for ALL hitzones)
  *	@Return		- NA
  *	
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 params [
 	["_image", "", [""]],

@@ -5,6 +5,6 @@
  * 
  * @Param1 - OBJECT - XMS Unit to handle
  * @Return - SCALAR - Current respiratory of the unit
- * @Author - X39|Cpt. HM Murdock
+ * @Author - X39
  */
 ((_this select 0) getVariable ["X39_MS2_var_respiratory_value", 0])

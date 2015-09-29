@@ -4,7 +4,7 @@
  *
  *	@ParamsCount - 0
  *	@Return - N/A
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 private["_version"];
 if(!isNull(uiNamespace getVariable['X39_MS2_var_UIs_XMS2_Overlay', displayNull])) exitWith { DEBUG_LOG("Overlay is already open."); };

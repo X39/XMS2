@@ -5,7 +5,7 @@
  *	
  *	@Param1 - BOOL - True to show the UI frame; False to hide the UI frame
  *	@Return - N/A
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 params [
 	["_flag", false, [false]],

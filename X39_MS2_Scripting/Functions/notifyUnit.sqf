@@ -4,7 +4,7 @@
  *	@Param1 - OBJECT	- UNIT
  *	@Param2 - TEXT	- Message
  *	@Return - NA
- *	@Author	- X39|Cpt. HM Murdock
+ *	@Author	- X39
  */
 params [
 	["_unit", objNull, [objNull]],

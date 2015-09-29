@@ -4,7 +4,7 @@
  *	((Also resets overlay elements))
  *	
  *	@Return - N/A
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 if(!hasInterface) exitWith { PRINT_INFO("ArmA instance has no interface, cannot reset effects"); };
 X39_MS2_var_Internal_ppe_radialBlur			ppEffectEnable X39_MS2_var_ppEffect_EnableRadialBlur;

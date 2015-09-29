@@ -7,7 +7,7 @@
  *	@ParamsCount - 1
  *	@Param1 - SCLALAR - TimeOut (if timeout < 0, progress bar will be showed until clearProgressBarTimeout is callen)
  *	@Return - N/A
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 private["_res"];
 if(X39_MS2_var_Internal_Overlay_ProgressBarRunning) exitWith {PRINT_ERROR("X39_MS2_var_Internal_Overlay_ProgressBarRunning == true!")};

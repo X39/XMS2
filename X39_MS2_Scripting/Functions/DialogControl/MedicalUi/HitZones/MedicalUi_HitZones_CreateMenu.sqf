@@ -10,7 +10,7 @@
  *	@Param1 - STRING - hitzone name
  *	@Param2 - ARRAY - [MousePosX:SCALAR, MousePosY:SCALAR]
  *	@Return - N/A
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 private["_hitZone", "_mousePos", "_i", "_arr", "_isAllowedToUseResult"];
 _hitZone = _this select 0;

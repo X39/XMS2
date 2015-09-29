@@ -5,6 +5,6 @@
  *	UI function to close the MedicalActionMenu dialog
  *
  *	@Return - N/A
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 closeDialog IDC_MEDICALUI_UIIDD;

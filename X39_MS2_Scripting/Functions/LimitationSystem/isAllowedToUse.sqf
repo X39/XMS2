@@ -11,7 +11,7 @@
  *	@Param2 - STRING - limited action to check
  *	@Return - ARRAY - array containing the info as plain bool
  *	
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 private "_limitationClassId";
 params [

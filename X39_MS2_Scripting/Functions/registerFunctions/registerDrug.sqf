@@ -16,7 +16,7 @@
  *	@Notes		-	Params for ALL code interactions: [Executer:OBJECT, Target:OBJECT, Efficiency:SCALAR]
  *					Code will ALWAYS be executed on executer computer
  *	
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 private "_index";
 params [

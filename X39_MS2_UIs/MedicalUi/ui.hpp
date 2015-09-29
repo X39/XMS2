@@ -11,7 +11,7 @@ class X39_MS2_MedicalUi {
 	fadeIn = 0;
 	fadeOut = 0;
 	enableSimulation = 1;
-	author = "X39|Cpt. HM Murdock";
+	author = "X39";
 	class controls {
 		class back_MainFrame: IGUIBack
 		{

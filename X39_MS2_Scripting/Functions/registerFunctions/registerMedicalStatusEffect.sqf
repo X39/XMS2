@@ -7,7 +7,7 @@
  *	@Param2		- ARRAY			- RGBA color array (fe.: [1,1,1,1] for white)
  *	@Param3		- CODE			- Condition when this message will be displayed
  *	@Return		- SCALAR		- MAA ID
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 params [
 	["_condition", {true}, ["", {}]],

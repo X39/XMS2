@@ -5,7 +5,7 @@
  *	
  *	@Param1 - SCALAR - Optional _lbCurVal override
  *	@Return - N/A
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 X39_MS2_var_Internal_Handles_ApplyDrugHandle = _this spawn {
 	private["_flag", "_anmiationTime"];

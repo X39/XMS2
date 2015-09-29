@@ -5,7 +5,7 @@
  *
  *	@Param1 - SCALAR - CheckUnitType
  *	@Return - N/A
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 if(X39_MS2_var_Internal_DialogCommunication_MA_preventActions) exitWith {[] call X39_MS2_fnc_MedicalUi_outputBlockedMessage;};
 X39_MS2_var_Internal_DialogCommunication_MA_preventActions = true;

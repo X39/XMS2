@@ -4,7 +4,7 @@
  *
  *	@Param1 - OBJECT - Unit to handle
  *	@Return - N/A
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 if(!scriptDone (_this getVariable ["X39_MS2_var_UnitTickHandle", scriptNull])) exitWith {PRINT_ERROR("XMS2 TICKER IS ALREADY RUNNING!");};
 _this setVariable ["X39_MS2_var_UnitTickHandle", _this spawn {

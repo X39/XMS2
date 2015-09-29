@@ -8,7 +8,7 @@
  *	@Param1 - OBJECT (unit) - N/A
  *	@Param2 - STRING (animation) - N/A
  *	@Return - N/A
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 private["_unit", "_animation"];
 //TODO: Make independent from unit so that the animationLock can also be used for AI

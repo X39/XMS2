@@ -6,7 +6,7 @@
  *	@Param1 - ARRAY	- Array filled with limitationObject IDs which belong to this class
  *	@Param2 - SCALAR	- Parents limitationClass id
  *	@Return - SCALAR	- limitationClass ID
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 params [
 	["_limitationObjects", [], [[]]],

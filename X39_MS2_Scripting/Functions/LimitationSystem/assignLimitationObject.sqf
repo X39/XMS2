@@ -6,7 +6,7 @@
  *	@Param1 - SCALAR	- LimitationClass ID where the LimitationObject shall be added to
  *	@Param2 - SCALAR	- LimitationObject ID which will be added
  *	@Return - NA
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 params [
 	["_limitationId", -1, [0]],

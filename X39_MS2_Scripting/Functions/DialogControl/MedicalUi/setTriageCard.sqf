@@ -7,7 +7,7 @@
  *	@Param1 - OBJECT - targeted unit
  *	@Param2 - ARRAY - TriageCard entries
  *	@Return - N/A
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 FORCELOCAL(_this select 0);
 _this select 0 setVariable["X39_MS2_var_triageCard", _this select 1];

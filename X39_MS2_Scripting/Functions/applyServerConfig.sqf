@@ -3,7 +3,7 @@
  *	Loads the serverconfig
  *
  *	@Return - N/A
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 private["_i", "_selectedEntry", "_name", "_value"];
 if(!isServer) exitWith { diag_log "you no server dude!"; };

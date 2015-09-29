@@ -12,7 +12,7 @@
  *	@Param4.4	-	SCALAR	-	DrugIndex
  *	@Return		-	NA
  *	
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 FORCELOCAL(_this select 2);
 private["_drug"];

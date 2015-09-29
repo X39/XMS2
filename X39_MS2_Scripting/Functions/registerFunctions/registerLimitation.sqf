@@ -5,7 +5,7 @@
  *
  *	@Param1 - STRING - limited action to check
  *	@Return - NA
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 params [["_limitation", "", [""]]];
 if(_limitation == "") exitWith {PRINT_ERROR("Please provide a valid limitation!");};

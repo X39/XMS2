@@ -6,7 +6,7 @@
  *	@Param1 - OBJECT - Unit to kill
  *	@Param1 - BOOL - apply score change to last hitter (true => playerScore + 1 (to remove the selfkill) & killerScore + 1 (to add the kill), false => Skip those things)
  *	@Return - N/A
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 params [
 	["_unit", objNull, [objNull]],

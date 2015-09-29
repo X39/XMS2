@@ -10,7 +10,7 @@
  *
  *	@Param1 - OBJECT - targeted unit
  *	@Return - N/A
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 _this spawn {
 	DEBUG_CODE_SC(_fnc_scriptName = "X39_MS2_fnc_MedicalUi_createDialog";);

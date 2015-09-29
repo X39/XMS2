@@ -5,7 +5,7 @@
  *	@Param1		- STRING		- ActionID
  *	@Return		- SCALAR		- Action Index, -1 if nothing was found
  *	
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 private "_index";
 params [["_id", "NA", [""]]];

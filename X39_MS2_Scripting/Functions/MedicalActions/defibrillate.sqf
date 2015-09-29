@@ -6,7 +6,7 @@
  *	@Param1	- OBJECT - Executing unit
  *	@Param2 - OBJECT - Targeted unit
  *	@Return	- NA
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 X39_MS2_var_Internal_Handles_DefibrillateHandle = _this spawn {
 	params[

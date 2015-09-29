@@ -4,7 +4,7 @@
  *	
  *	@Param1 - ARRAY - Message array
  *	@Return - NA
- *	@Author	- X39|Cpt. HM Murdock
+ *	@Author	- X39
  */
 
 private["_messageArray", "_messageType", "_messageValue", "_index"];

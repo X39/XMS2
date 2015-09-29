@@ -7,7 +7,7 @@
  * @Param2 - STRING - XMS hitZone
  * @Param3 - BOOL - value to set
  * @Return - NA
- * @Author - X39|Cpt. HM Murdock
+ * @Author - X39
  */
 if(!X39_MS2_var_Feature_EnableBlood || !X39_MS2_var_Bleeding_EnableAterialDamage) exitWith {};
 FORCELOCAL(_this select 0);

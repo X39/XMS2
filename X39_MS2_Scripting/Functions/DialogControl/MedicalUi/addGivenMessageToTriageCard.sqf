@@ -6,7 +6,7 @@
  *	@Param1 - STRING - Message to add
  *	@Param2 - COLOR - color to use
  *	@Return - N/A
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 private["_msg", "_color", "_triageCardEntries"];
 _msg = _this select 0;

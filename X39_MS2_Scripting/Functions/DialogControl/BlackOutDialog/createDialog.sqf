@@ -5,7 +5,7 @@
  *
  *	@Param1 - OBJECT - targeted unit
  *	@Return - N/A
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 if(!local (_this select 0)) exitWith {[_this, _fnc_scriptName, (_this select 0), false] call BIS_fnc_MP;};
 if(X39_MS2_var_Internal_DialogCommunication_BO_isActive && isPlayer (_this select 0)) exitWith {};

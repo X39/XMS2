@@ -3,7 +3,7 @@
  *	UI function to close the BlackOut dialog
  *
  *	@Return - N/A
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 if(!scriptDone X39_MS2_var_Internal_Handles_BlackOutDialogHandle) then
 {

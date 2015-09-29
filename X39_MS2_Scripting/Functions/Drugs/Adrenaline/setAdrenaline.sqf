@@ -6,7 +6,7 @@
  * @Param1 - OBJECT - XMS Unit to handle
  * @Param2 - SCALAR - Value to set
  * @Return - NA
- * @Author - X39|Cpt. HM Murdock
+ * @Author - X39
  */
 if(X39_MS2_var_Events_EnableSetEvents) then
 {

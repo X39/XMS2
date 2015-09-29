@@ -6,7 +6,7 @@
  *
  *	@Param1 - OBJECT - targeted unit
  *	@Return - N/A
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 
 _this spawn {

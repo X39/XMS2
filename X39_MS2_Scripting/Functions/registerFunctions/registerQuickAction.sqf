@@ -19,7 +19,7 @@
  *	@Param9		- BOOL			- Show this quickAction in medical menu (used for ACE3 integration)
  *	@Return		- NA
  *	
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 params [
 	["_displayName", "NotSet", ["", {}]],

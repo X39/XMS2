@@ -16,7 +16,7 @@
  *					 	_cfnDisableFatigue		- range 0 - n | >0 will disable fatigue
  *					 	_cfnForceWalk			- range 0 - n | >0 will force walk
  *	@Return - N/A
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 private["_effectArray", "_index"];
 params [

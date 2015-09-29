@@ -5,7 +5,7 @@
  *
  *	@Param1	- SCALAR - Type
  *	@Return - N/A
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 private["_type"];
 _type = _this select 0;

@@ -12,7 +12,7 @@
  *	@Param5 - CODE - Code to be executed before the actual animation lock (use this to change the animation)
  *	@Param6 - ANY - Custom args passed to each code
  *	@Return - NA
- *	@Author	- X39|Cpt. HM Murdock
+ *	@Author	- X39
  */
 params [
 	["_target", objNull, [objNull]],

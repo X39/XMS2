@@ -6,7 +6,7 @@
  *	@Param1 - OBJECT (unit) - Object the event handler is assigned to
  *	@Param2 - SCALAR (corpse) - Object the event handler was assigned to, aka the corpse/unit player was previously controlling
  *	@Return - N/A
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 private["_unit", "_corpse"];
 _unit = _this select 0;

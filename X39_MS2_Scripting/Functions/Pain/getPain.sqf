@@ -5,7 +5,7 @@
  * 
  * @Param1 - OBJECT - XMS Unit to handle
  * @Return - SCALAR
- * @Author - X39|Cpt. HM Murdock
+ * @Author - X39
  */
 private["_unit", "_pain", "_calcBase"];
 _unit = _this select 0;

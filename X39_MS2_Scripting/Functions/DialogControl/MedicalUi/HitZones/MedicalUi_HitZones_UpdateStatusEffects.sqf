@@ -11,7 +11,7 @@
  *	@Param2 - CONTROL	- EventArgs
  *	@Param3 - BOOL	- Enter (true) or Exit (false)
  *	@Return - N/A
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 if(_this select 2) then
 {//Mouse enter

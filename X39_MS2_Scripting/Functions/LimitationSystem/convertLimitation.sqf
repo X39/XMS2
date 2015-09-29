@@ -8,7 +8,7 @@
  *	@Param1	- SCALAR	- Parents LimitationClass ID
  *	@Param1	- ARRAY		- any finalArray of this function
  *	@Return	- ARRAY		- a finalArray that was converted
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 private["_parent", "_lsObjects", "_lsAssignedClasses", "_finalArray", "_limitationsArray", "_workArray", "_lsObject"];
 _parent = (X39_MS2_var_Internal_LimitationSystem_Classes select (_this select 0)) select 0;

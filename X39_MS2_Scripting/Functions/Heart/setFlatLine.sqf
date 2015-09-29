@@ -7,7 +7,7 @@
  * @Param2 - SCALAR - Value to set
  * @Param3 - ANY - If set, no blackOutUnit call will be done
  * @Return - NA
- * @Author - X39|Cpt. HM Murdock
+ * @Author - X39
  */
 if(X39_MS2_var_Events_EnableSetEvents) then
 {

@@ -3,7 +3,7 @@
  *	Organization function which is not intended to be callen by anyone else but the XMSTicker (undefined variables errors will occure otherwhise)
  *	
  *	@Return - N/A
- *	@Author - X39|Cpt. HM Murdock
+ *	@Author - X39
  */
 if(!hasInterface) exitWith {};
 if(X39_MS2_var_ppEffect_EnableRadialBlur) then
