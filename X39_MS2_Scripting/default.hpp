@@ -41,6 +41,7 @@ else \
 	#define ISCHARP(X)		(ISSTRING(X) || dISTEXT(X))
 	#define ISTEAM_MEMBER(X)(typeName (X) == "TEAM_MEMBER")
 	#define ISNAMESPACE(X)	(typeName (X) == "NAMESPACE")
+    
 	
 	#define MEDIC_ANIM_ONGOING ["amovpercmstpsraswrfldnon_amovpknlmstpsraswrfldnon", "ainvpknlmstpsnonwrfldnon_ainvpknlmstpsnonwrfldnon_medic", "ainvpknlmstpsnonwrfldnon_medic", "ainvpknlmstpsnonwrfldnon_medic0s"]
 	#define MEDIC_ANIM_END ["ainvpknlmstpsnonwrfldnon_medicend", "amovpknlmstpsraswrfldnon"]
@@ -122,6 +123,22 @@ else \
 	#else
 		DEBUG_LOG_SC(format["%3: %1 call %2" COMMA _this COMMA _fnc_scriptName COMMA diag_tickTime])
 	#endif
+    
+    
+    //CallExtension variables
+    #define _DLLNAME_ XMS2Simulation
+    
+    #define GETVAR(ID,VAR)          (call compile stringify(_DLLNAME_) callExtension SINGLEQUOTATIONMARK##["getValue",[ID,stringify(VAR)]]##SINGLEQUOTATIONMARK)
+    #define SETVAR(ID,VAR,VALUE)    (call compile stringify(_DLLNAME_) callExtension SINGLEQUOTATIONMARK##["setValue",[ID,stringify(VAR),VALUE]]##SINGLEQUOTATIONMARK)
+    #define GETVARSQF(ID,VAR)          (call compile stringify(_DLLNAME_) callExtension str ["getValue",[ID,stringify(VAR)]])
+    #define SETVARSQF(ID,VAR,VALUE)    (call compile stringify(_DLLNAME_) callExtension str ["setValue",[ID,stringify(VAR),VALUE]])
+    
+    #define GETGLOBALVAR(VAR)       GETVAR(-1,VAR)
+    #define SETGLOBALVAR(VAR,VALUE) SETVAR(-1,VAR,VALUE)
+    #define GETUNITVAR(UNIT,VAR)       GETVARSQF(UNIT getVariable "X39_MS2_var_UnitExtensionID",VAR)
+    #define SETUNITVAR(UNIT,VAR,VALUE) SETVARSQF(UNIT getVariable "X39_MS2_var_UnitExtensionID",VAR,VALUE)
+    
 //#endif
+    
 
 #include "\X39_MS2_Scripting\Functions\HitZones\hitZones.hpp"
