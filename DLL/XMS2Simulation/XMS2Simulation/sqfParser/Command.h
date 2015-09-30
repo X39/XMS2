@@ -7,10 +7,11 @@ namespace sqf
 	class Command
 	{
 	private:
-		std::function<std::string(sqf::Array*)> _fnc;
+		std::function<std::string(sqf::Array*, char*, int)> _fnc;
 		sqf::Array* _parameters;
 		std::string _help;
 		std::string _name;
+		bool _preventCompare;
 	public:
 		enum error
 		{
@@ -18,7 +19,7 @@ namespace sqf
 			LengthDiffers = 1,
 			TypeDiffers
 		};
-		Command(std::string name, std::function<std::string(sqf::Array*)> fnc, std::string example = "", std::string help = "") : _fnc(fnc), _help(help), _name(name)
+		Command(std::string name, std::function<std::string(sqf::Array*, char*, int)> fnc, std::string example = "", std::string help = "", bool preventCompare = false) : _fnc(fnc), _help(help), _name(name), _preventCompare(preventCompare)
 		{
 			_parameters = new sqf::Array;
 			try
@@ -59,18 +60,18 @@ namespace sqf
 		{
 			return std::string(this->_name).append(": ").append(this->_help).append(" Example: ").append(this->_parameters->escapedString());
 		}
-		std::string runCommand(sqf::Array* params, bool checkParams = true)
+		std::string runCommand(sqf::Array* params, char* output, int outputSize, bool checkParams = true)
 		{
-			if (checkParams && compareParameters(params))
+			if (checkParams && !this->_preventCompare && compareParameters(params))
 				throw std::exception("Parameters dont match");
-			auto result = this->_fnc(params);
+			auto result = this->_fnc(params, output, outputSize);
 			return result;
 		}
-		inline bool runIfMatch(const std::string& name, std::string& out, sqf::Array* params, bool checkParams = true)
+		inline bool runIfMatch(const std::string& name, std::string& out, sqf::Array* params, char* output, int outputSize, bool checkParams = true)
 		{
 			if (name.compare(this->_name) == 0)
 			{
-				out = runCommand(params, checkParams);
+				out = runCommand(params, output, outputSize, checkParams);
 				return true;
 			}
 			return false;

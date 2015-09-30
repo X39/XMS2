@@ -131,7 +131,7 @@ void __stdcall RVExtension(char *output, int outputSize, const char *function)
 	{
 		for (auto& it : g_commands)
 		{
-			if (flag = it->runIfMatch(fnc, cmdOut, &arg, false))
+			if (flag = it->runIfMatch(fnc, cmdOut, &arg, output, outputSize, false))
 			{
 				strncpy(output, cmdOut.c_str(), outputSize);
 				break;
