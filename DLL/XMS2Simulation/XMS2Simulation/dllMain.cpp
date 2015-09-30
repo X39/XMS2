@@ -254,7 +254,7 @@ void __stdcall RVExtension(char *output, int outputSize, const char *function)
 	}
 }
 
-#ifndef _DEBUG
+#ifndef _DEBUG_
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
 {
 	switch (ul_reason_for_call)

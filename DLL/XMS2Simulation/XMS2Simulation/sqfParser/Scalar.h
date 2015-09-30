@@ -32,7 +32,7 @@ namespace sqf
 			for (; numberLen < in.length(); numberLen++)
 			{
 				char c = in[numberLen];
-				if (c != '.' && !(c >= '0' && c <= '9'))
+				if (c != '.' && c != '-' && !(c >= '0' && c <= '9'))
 					break;
 			}
 			if (numberLen >= in.length())

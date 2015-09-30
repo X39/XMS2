@@ -1,4 +1,4 @@
-#ifdef _DEBUG
+#ifdef _DEBUG_
 #define _OUTPUTSIZE_ 8000
 #define EXPECT(EXPECTED, VALUE)if (strcmp(EXPECTED, VALUE) != 0) cout << "ERROR! Expected:" << EXPECTED << "\tGot:" << VALUE << endl; else cout << "PASSED WITH:" << VALUE << endl
 
@@ -21,6 +21,7 @@ void main()
 	//SetValue
 	RVExtension(output, _OUTPUTSIZE_, "[\"createUnit\",[]]"); EXPECT("[TRUE,\"\",1]", toUpper(output));
 	RVExtension(output, _OUTPUTSIZE_, "[\"setValue\",[1, \"test\", \"TESTVALUE\"]]"); EXPECT("[TRUE,\"\",NIL]", toUpper(output));
+	RVExtension(output, _OUTPUTSIZE_, "[\"setValue\",[-1, \"test\", \"TESTVALUE\"]]"); EXPECT("[TRUE,\"\",NIL]", toUpper(output));
 	//GetValue
 	RVExtension(output, _OUTPUTSIZE_, "[\"getValue\",[1, \"test\"]]"); EXPECT("[TRUE,\"\",\"TESTVALUE\"]", toUpper(output));
 	//RunSimulation
