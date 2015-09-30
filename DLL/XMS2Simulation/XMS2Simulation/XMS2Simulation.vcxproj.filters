@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\GNU compatibility">
+      <UniqueIdentifier>{da47e556-5013-4a4f-9433-6e4cd6a8877b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\sqfParser">
+      <UniqueIdentifier>{466f4bec-dfa4-4ff3-a1b9-e5196b6c81bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\SimulationTicks">
+      <UniqueIdentifier>{08d0c373-ad40-4aad-a91c-4a2d9235e700}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SimulationTicks">
+      <UniqueIdentifier>{2451de5a-8d1d-4360-8f1c-12b3184b8946}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Unit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="dllMain.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="global.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="string.h">
+      <Filter>Header Files\GNU compatibility</Filter>
+    </ClInclude>
+    <ClInclude Include="map.h">
+      <Filter>Header Files\GNU compatibility</Filter>
+    </ClInclude>
+    <ClInclude Include="Unit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sqfParser\Array.h">
+      <Filter>Header Files\sqfParser</Filter>
+    </ClInclude>
+    <ClInclude Include="sqfParser\Base.h">
+      <Filter>Header Files\sqfParser</Filter>
+    </ClInclude>
+    <ClInclude Include="sqfParser\Boolean.h">
+      <Filter>Header Files\sqfParser</Filter>
+    </ClInclude>
+    <ClInclude Include="sqfParser\Command.h">
+      <Filter>Header Files\sqfParser</Filter>
+    </ClInclude>
+    <ClInclude Include="sqfParser\Nil.h">
+      <Filter>Header Files\sqfParser</Filter>
+    </ClInclude>
+    <ClInclude Include="sqfParser\Scalar.h">
+      <Filter>Header Files\sqfParser</Filter>
+    </ClInclude>
+    <ClInclude Include="sqfParser\String.h">
+      <Filter>Header Files\sqfParser</Filter>
+    </ClInclude>
+    <ClInclude Include="SimulationTick.h">
+      <Filter>Header Files\SimulationTicks</Filter>
+    </ClInclude>
+    <ClInclude Include="vector.h">
+      <Filter>Header Files\GNU compatibility</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
