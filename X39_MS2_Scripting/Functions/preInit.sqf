@@ -115,9 +115,9 @@ X39_MS2_var_Internal_UnitVariables pushBack ["X39_MS2_var_BlackOut_timeOfUnconsc
 X39_MS2_var_Internal_UnitVariables pushBack ["X39_MS2_var_BlackOut_timeOfDeath",		{-1													}, true	,										true	,				false	];
 X39_MS2_var_Internal_UnitVariables pushBack ["X39_MS2_var_BlackOut_TimeValue",			{-1													}, true	,										true	,				false	];
 X39_MS2_var_Internal_UnitVariables pushBack ["X39_MS2_var_Internal_lastValues",			{[]												}, false	,										true	,				false	];
-X39_MS2_var_Internal_UnitVariables pushBack ["X39_MS2_var_triageCard",					{[player] call X39_MS2_fnc_getTriageCard		}, true	,										true	,				false	];
+X39_MS2_var_Internal_UnitVariables pushBack ["X39_MS2_var_triageCard",					{_this call X39_MS2_fnc_getTriageCard	    	}, true	,										true	,				false	];
 X39_MS2_var_Internal_UnitVariables pushBack ["X39_MS2_var_hitMarkerValue",				{0													}, false	,										true	,				false	];
-X39_MS2_var_Internal_UnitVariables pushBack ["X39_MS2_var_triageState",					{[player] call X39_MS2_fnc_getTriageState	}, true	,										true	,				false	];
+X39_MS2_var_Internal_UnitVariables pushBack ["X39_MS2_var_triageState",					{_this call X39_MS2_fnc_getTriageState         }, true	,										true	,				false	];
 X39_MS2_var_Internal_UnitVariables pushBack ["X39_MS2_var_Drugs_Morphine_value",		{0													}, true	,										true	,				false	];
 X39_MS2_var_Internal_UnitVariables pushBack ["X39_MS2_var_Drugs_Adrenaline_value",		{0													}, true	,										true	,				false	];
 X39_MS2_var_Internal_UnitVariables pushBack ["X39_MS2_var_Drugs_Naloxone_value",		{0													}, true	,										true	,				false	];
