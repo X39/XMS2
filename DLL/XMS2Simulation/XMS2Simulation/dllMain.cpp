@@ -31,10 +31,11 @@ void toUpper(std::string& s)
 	for (int i = s.length() - 1; i >= 0; i--)
 		s[i] = toupper(s[i]);
 }
-void toUpper(char* s)
+char* toUpper(char* s)
 {
 	for (int i = 0; s[i] != '\0'; i++)
 		s[i] = toupper(s[i]);
+	return s;
 }
 void addCommands(void)
 {
@@ -42,16 +43,37 @@ void addCommands(void)
 			"createUnit",
 			[](sqf::Array* arr, char* output, int outputSize) {
 				int index = g_units.size();
-				g_units.push_back(new xms2::Unit());
+				auto flag = false;
+				for (int i = g_units.size() - 1; i >= 0; i--)
+				{
+					if (!g_units[i])
+					{
+						flag = true;
+						g_units[i] = new xms2::Unit();
+						index = i;
+					}
+				}
+				if (!flag)
+					g_units.push_back(new xms2::Unit());
 				return std::string("[TRUE,\"\",").append(std::to_string(index)).append("]");
 			},
 			"[]",
 			"Creates a new unit. Returns unit ID"
 	));
-	//ToDo:
 	g_commands.push_back(new sqf::Command(
 		"deleteUnit",
 			[](sqf::Array* arr, char* output, int outputSize) {
+			if (arr->length() == 0)
+				return std::string("[FALSE,\"Not enough arguments provided\",").append("nil").append("]");
+			sqf::Base* element =(*arr)[0];
+			if (element->getType() != sqf::Type::SCALAR)
+				return std::string("[FALSE,\"Invalid argument provided at arg 0\",").append("nil").append("]");
+			auto index = ((sqf::Scalar*)element)->getValue();
+			if (index < 0 || index >= g_units.size())
+				return std::string("[FALSE,\"Invalid unit ID was provided at arg 0\",").append("nil").append("]");
+			auto unit = g_units[index];
+			g_units[index] = nullptr;
+			delete unit;
 			return std::string("[TRUE,\"\",").append("nil").append("]");
 		},
 		"[]",
@@ -60,32 +82,114 @@ void addCommands(void)
 	g_commands.push_back(new sqf::Command(
 		"setValue",
 		[](sqf::Array* arr, char* output, int outputSize) {
-			return std::string("[TRUE,\"\",").append("nil").append("]");
+			if (arr->length() < 3)
+				return std::string("[FALSE,\"Not enough arguments provided\",").append("nil").append("]");
+			sqf::Base* element = (*arr)[0];
+			if (element->getType() != sqf::Type::SCALAR)
+				return std::string("[FALSE,\"Invalid argument provided at arg 0\",").append("nil").append("]");
+			auto index = ((sqf::Scalar*)element)->getValue();
+			if (index < -1 || index >= g_units.size())
+				return std::string("[FALSE,\"Invalid ID was provided at arg 0\",").append("nil").append("]");
+
+			element = (*arr)[1];
+			if (element->getType() != sqf::Type::STRING)
+				return std::string("[FALSE,\"Invalid argument provided at arg 1\",").append("nil").append("]");
+			auto key = ((sqf::String*)element)->getValue();
+
+			element = (*arr)[2];
+
+			if (index != -1)
+			{
+				auto unit = g_units[index];
+				unit->setValue(key, element);
+				return std::string("[TRUE,\"\",").append("nil").append("]");
+			}
+			else
+			{
+				delete g_globalXms2Variables[key];
+				sqf::Base* val;
+				switch (element->getType())
+				{
+				case sqf::Type::ARRAY:
+					val = new sqf::Array(*(const sqf::Array*)element);
+					break;
+				case sqf::Type::STRING:
+					val = new sqf::String(*(const sqf::String*)element);
+					break;
+				case sqf::Type::SCALAR:
+					val = new sqf::Scalar(*(const sqf::Scalar*)element);
+					break;
+				case sqf::Type::BOOLEAN:
+					val = new sqf::Boolean(*(const sqf::Boolean*)element);
+					break;
+				case sqf::Type::NIL:
+					val = new sqf::Nil(*(const sqf::Nil*)element);
+					break;
+				default:
+					throw std::exception("Whoops ... something moved wrong");
+					break;
+				}
+				g_globalXms2Variables[key] = val;
+				return std::string("[TRUE,\"\",").append("nil").append("]");
+			}
 		},
-		"[0, \"ANY\"]",
+		"[0, \"KEY\", \"ANY\"]",
 		"Inserts/Updates the value, in case of first param == -1 the global variables will be set"
 	));
 	g_commands.push_back(new sqf::Command(
 		"getValue",
 		[](sqf::Array* arr, char* output, int outputSize) {
-			return std::string("[TRUE,\"\",").append("nil").append("]");
+			if (arr->length() < 2)
+				return std::string("[FALSE,\"Not enough arguments provided\",").append("nil").append("]");
+			sqf::Base* element = (*arr)[0];
+			if (element->getType() != sqf::Type::SCALAR)
+				return std::string("[FALSE,\"Invalid argument provided at arg 0\",").append("nil").append("]");
+			auto index = ((sqf::Scalar*)element)->getValue();
+			if (index < -1 || index >= g_units.size())
+				return std::string("[FALSE,\"Invalid ID was provided at arg 0\",").append("nil").append("]");
+
+			element = (*arr)[1];
+			if (element->getType() != sqf::Type::STRING)
+				return std::string("[FALSE,\"Invalid argument provided at arg 1\",").append("nil").append("]");
+
+			auto key = ((sqf::String*)element)->getValue();
+
+			if (index != -1)
+			{
+				auto unit = g_units[index];
+				const sqf::Base* val = unit->getValue(key);
+				return std::string("[TRUE,\"\",").append(val->escapedString()).append("]");
+			}
+			else
+			{
+				sqf::Base* val = g_globalXms2Variables[key];
+				return std::string("[TRUE,\"\",").append(val->escapedString()).append("]");
+			}
 		},
-		"[0]",
+		"[0, \"KEY\"]",
 		"receives the value, in case of first param == -1 the global variables will be checked"
 		));
 	g_commands.push_back(new sqf::Command(
 		"runSimulation",
 		[](sqf::Array* arr, char* output, int outputSize) {
+			if (arr->length() < 1)
+				return std::string("[FALSE,\"Not enough arguments provided\",").append("nil").append("]");
+			sqf::Base* element = (*arr)[0];
+			if (element->getType() != sqf::Type::SCALAR)
+				return std::string("[FALSE,\"Invalid argument provided at arg 0\",").append("nil").append("]");
+			auto index = ((sqf::Scalar*)element)->getValue();
+			if (index < 0 || index >= g_units.size())
+				return std::string("[FALSE,\"Invalid ID was provided at arg 0\",").append("nil").append("]");
+			xms2::Unit* unit = g_units[index];
 			for (auto& it : g_simulations)
 			{
-				xms2::Unit* unit;
 				it->runSimulation(g_globalXms2Variables, unit);
 			}
 			return std::string("[TRUE,\"\",").append("nil").append("]");
 		},
 		"[0]",
 		"Runs the simulation ticks, first param represents the unit ID"
-		));
+	));
 }
 void __stdcall RVExtension(char *output, int outputSize, const char *function)
 {

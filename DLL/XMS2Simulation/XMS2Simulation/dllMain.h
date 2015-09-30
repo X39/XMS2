@@ -3,5 +3,6 @@ extern "C"
 {
 	__declspec(dllexport) void __stdcall RVExtension(char *output, int outputSize, const char *function);
 };
+void addCommands(void);
 void toUpper(std::string& s);
-void toUpper(char* s);
+char* toUpper(char* s);

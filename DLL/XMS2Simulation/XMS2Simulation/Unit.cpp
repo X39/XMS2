@@ -43,6 +43,7 @@ namespace xms2
 			throw std::exception("Whoops ... something moved wrong");
 			break;
 		}
+		delete valueMap[key];
 		valueMap[key] = val;
 	}
 	void Unit::setValue(std::string key, const sqf::Base& value)
@@ -69,6 +70,7 @@ namespace xms2
 			throw std::exception("Whoops ... something moved wrong");
 			break;
 		}
+		delete valueMap[key];
 		valueMap[key] = val;
 	}
 	const sqf::Base* Unit::getValue(std::string key) const
