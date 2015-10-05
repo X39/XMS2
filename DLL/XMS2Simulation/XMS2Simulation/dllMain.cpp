@@ -158,12 +158,18 @@ void addCommands(void)
 			{
 				auto unit = g_units[index];
 				const sqf::Base* val = unit->getValue(key);
-				return std::string("[TRUE,\"\",").append(val->escapedString()).append("]");
+				if (val)
+					return std::string("[TRUE,\"\",").append(val->escapedString()).append("]");
+				else
+					return std::string("[TRUE,\"\",nil]");
 			}
 			else
 			{
 				sqf::Base* val = g_globalXms2Variables[key];
-				return std::string("[TRUE,\"\",").append(val->escapedString()).append("]");
+				if (val)
+					return std::string("[TRUE,\"\",").append(val->escapedString()).append("]");
+				else
+					return std::string("[TRUE,\"\",nil]");
 			}
 		},
 		"[0, \"KEY\"]",
@@ -189,7 +195,18 @@ void addCommands(void)
 		},
 		"[0]",
 		"Runs the simulation ticks, first param represents the unit ID"
+		));
+#if defined(_DEBUG_) || defined(_DEBUG_DLL_)
+	g_commands.push_back(new sqf::Command(
+		"sleep",
+		[](sqf::Array* arr, char* output, int outputSize) {
+			Sleep(2 * 1000);
+			return std::string("[TRUE,\"\",").append("nil").append("]");
+		},
+		"[]",
+		"test command"
 	));
+#endif
 }
 void __stdcall RVExtension(char *output, int outputSize, const char *function)
 {
@@ -254,7 +271,7 @@ void __stdcall RVExtension(char *output, int outputSize, const char *function)
 	}
 }
 
-#ifndef _DEBUG_
+#if !defined(_DEBUG_) && !defined(_RELEASE_)
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
 {
 	switch (ul_reason_for_call)

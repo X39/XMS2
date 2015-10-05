@@ -9,6 +9,7 @@ Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug_dll|Win32 = Debug_dll|Win32
 		Debug|Win32 = Debug|Win32
+		Release_dll|Win32 = Release_dll|Win32
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
@@ -16,6 +17,8 @@ Global
 		{728395A6-ACD3-4971-A2D9-5775653F2594}.Debug_dll|Win32.Build.0 = Debug_dll|Win32
 		{728395A6-ACD3-4971-A2D9-5775653F2594}.Debug|Win32.ActiveCfg = Debug|Win32
 		{728395A6-ACD3-4971-A2D9-5775653F2594}.Debug|Win32.Build.0 = Debug|Win32
+		{728395A6-ACD3-4971-A2D9-5775653F2594}.Release_dll|Win32.ActiveCfg = Release_dll|Win32
+		{728395A6-ACD3-4971-A2D9-5775653F2594}.Release_dll|Win32.Build.0 = Release_dll|Win32
 		{728395A6-ACD3-4971-A2D9-5775653F2594}.Release|Win32.ActiveCfg = Release|Win32
 		{728395A6-ACD3-4971-A2D9-5775653F2594}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
