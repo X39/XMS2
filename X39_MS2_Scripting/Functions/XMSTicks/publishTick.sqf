@@ -31,7 +31,7 @@ _this spawn {
 		//COPY array instead of refering to it
 		_lastValues = + X39_MS2_var_Internal_UnitVariables;
 		{
-			_x set [1, call (_x select 1)];
+			_x set [1, [player] call (_x select 1)];
 			_lastValues set [_forEachIndex, _x];
 		}forEach _lastValues;
 		_unit setVariable["X39_MS2_var_Internal_lastValues", _lastValues, false];
