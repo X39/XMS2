@@ -47,7 +47,7 @@ _this spawn {
 			}
 			else
 			{				
-				_value = [] call (_x select 1);								
+				_value = [player] call (_x select 1);								
 			};
 			_compareObject = _lastValues select _forEachIndex;
 			//If at any point in time the following DEBUG code will cause issues because _value is NIL, check the RPT log
