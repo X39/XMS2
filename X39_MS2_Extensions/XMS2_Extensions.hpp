@@ -13,9 +13,9 @@
  *			serverOnly = 0;				//Should this be broadcasted to the client? 1 = yes, 0 = no
  *		};
  */
-#include "\X39_MS2_Extensions\X39_MS2_NativeDrugs.hpp"
-#include "\X39_MS2_Extensions\X39_MS2_NativeInteractions.hpp"
-#include "\X39_MS2_Extensions\X39_MS2_NativeMedicalActions.hpp"
-#include "\X39_MS2_Extensions\X39_MS2_NativeMedicalMessages.hpp"
-#include "\X39_MS2_Extensions\X39_MS2_NativeMedicalUiStatusEffects.hpp"
-#include "\X39_MS2_Extensions\X39_MS2_NativeQuickActions.hpp"
+#include "\X39_MS2_Extensions\extensions\X39_MS2_NativeDrugs.hpp"
+#include "\X39_MS2_Extensions\extensions\X39_MS2_NativeInteractions.hpp"
+#include "\X39_MS2_Extensions\extensions\X39_MS2_NativeMedicalActions.hpp"
+#include "\X39_MS2_Extensions\extensions\X39_MS2_NativeMedicalMessages.hpp"
+#include "\X39_MS2_Extensions\extensions\X39_MS2_NativeMedicalUiStatusEffects.hpp"
+#include "\X39_MS2_Extensions\extensions\X39_MS2_NativeQuickActions.hpp"
