@@ -54,7 +54,7 @@ _this spawn {
 			//for the variable name causing all this & make sure that ALL points where that variable is used are setted up proper!
 			//NIL in _value means simply that the unit variable was set to nil at some point
 			//The issue itself is NOT supposed to be fixed! The publishTick was written like this so it is possible to discover variable issues fast and simple!
-			DEBUG_LOG_WFn_SC(format["Comparing value '%1' against '%2'" COMMA (if( isNil "_value") then {"NIL"} else {_value}) COMMA _compareObject select 1])
+			DEBUG_LOG_WFn_SC(format["Comparing value '%1' against '%2'" COMMA _value COMMA _compareObject select 1])
 			if(ISBOOL(_value)) then
 			{
 				_boolNew = _compareObject select 1;
