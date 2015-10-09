@@ -40,7 +40,7 @@ class CfgSettings
 					serverOnly = 0;		//Should this be broadcasted to the client? 1 = yes, 0 = no
 					requiredExtensions[] = {};	//Extensions required for this extension to work
 				};
-				#include "\userconfig\x39\xms2_extensions.hpp"
+				#include "\X39_MS2_Extensions\xms2_extensions.hpp"
 			};
 		};
 	};
