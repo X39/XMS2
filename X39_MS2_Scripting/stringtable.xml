@@ -13,7 +13,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_LeftLowerArm">
                       <English>LeftLowerArm</English>
-                       <German>LeftLowerArm</German>
+                       <German>Linker unterer Arm</German>
                     <Hungarian>LeftLowerArm</Hungarian>
                       <Italian>LeftLowerArm</Italian>
                        <French>LeftLowerArm</French>
@@ -22,7 +22,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_LeftFoot">
                       <English>LeftFoot</English>
-                       <German>LeftFoot</German>
+                       <German>Linker Fuß</German>
                     <Hungarian>LeftFoot</Hungarian>
                       <Italian>LeftFoot</Italian>
                        <French>LeftFoot</French>
@@ -31,7 +31,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_LeftUpperArm">
                       <English>LeftUpperArm</English>
-                       <German>LeftUpperArm</German>
+                       <German>Linker oberer Arm</German>
                     <Hungarian>LeftUpperArm</Hungarian>
                       <Italian>LeftUpperArm</Italian>
                        <French>LeftUpperArm</French>
@@ -40,7 +40,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_LeftLowerLeg">
                       <English>LeftLowerLeg</English>
-                       <German>LeftLowerLeg</German>
+                       <German>Linkes unteres Bein</German>
                     <Hungarian>LeftLowerLeg</Hungarian>
                       <Italian>LeftLowerLeg</Italian>
                        <French>LeftLowerLeg</French>
@@ -49,7 +49,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_LeftUpperLeg">
                       <English>LeftUpperLeg</English>
-                       <German>LeftUpperLeg</German>
+                       <German>Linkes oberes Bein</German>
                     <Hungarian>LeftUpperLeg</Hungarian>
                       <Italian>LeftUpperLeg</Italian>
                        <French>LeftUpperLeg</French>
@@ -58,7 +58,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_RightLowerArm">
                       <English>RightLowerArm</English>
-                       <German>RightLowerArm</German>
+                       <German>Rechter unterer Arm</German>
                     <Hungarian>RightLowerArm</Hungarian>
                       <Italian>RightLowerArm</Italian>
                        <French>RightLowerArm</French>
@@ -67,7 +67,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_RightFoot">
                       <English>RightFoot</English>
-                       <German>RightFoot</German>
+                       <German>Rechter Fuß</German>
                     <Hungarian>RightFoot</Hungarian>
                       <Italian>RightFoot</Italian>
                        <French>RightFoot</French>
@@ -76,7 +76,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_RightUpperArm">
                       <English>RightUpperArm</English>
-                       <German>RightUpperArm</German>
+                       <German>Rechter oberer Arm</German>
                     <Hungarian>RightUpperArm</Hungarian>
                       <Italian>RightUpperArm</Italian>
                        <French>RightUpperArm</French>
@@ -85,7 +85,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_RightLowerLeg">
                       <English>RightLowerLeg</English>
-                       <German>RightLowerLeg</German>
+                       <German>Rechtes unteres Bein</German>
                     <Hungarian>RightLowerLeg</Hungarian>
                       <Italian>RightLowerLeg</Italian>
                        <French>RightLowerLeg</French>
@@ -94,7 +94,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_RightUpperLeg">
                       <English>RightUpperLeg</English>
-                       <German>RightUpperLeg</German>
+                       <German>Rechtes oberes Bein</German>
                     <Hungarian>RightUpperLeg</Hungarian>
                       <Italian>RightUpperLeg</Italian>
                        <French>RightUpperLeg</French>
@@ -103,7 +103,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_LowerBody">
                       <English>LowerBody</English>
-                       <German>LowerBody</German>
+                       <German>Unterkörper</German>
                     <Hungarian>LowerBody</Hungarian>
                       <Italian>LowerBody</Italian>
                        <French>LowerBody</French>
@@ -112,7 +112,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_Hitzones_CommonNames_UpperBody">
                       <English>UpperBody</English>
-                       <German>UpperBody</German>
+                       <German>Oberkörper</German>
                     <Hungarian>UpperBody</Hungarian>
                       <Italian>UpperBody</Italian>
                        <French>UpperBody</French>
@@ -134,7 +134,7 @@
         <Container name="QuickActions">
             <Key ID="STR_X39_MS2_Scripting_QuickActions_BandageAll_Name">
                       <English>Bandage all limbs</English>
-                       <German>Bandage all limbs</German>
+                       <German>Alle Gliedmaßen bandagieren</German>
                     <Hungarian>Bandage all limbs</Hungarian>
                       <Italian>Bandage all limbs</Italian>
                        <French>Bandage all limbs</French>
@@ -143,7 +143,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_QuickActions_BandageAll_Description">
                       <English>Bandage all limbs</English>
-                       <German>Bandage all limbs</German>
+                       <German>Alle blutenden Gliedmaßen werden bandagiert</German>
                     <Hungarian>Bandage all limbs</Hungarian>
                       <Italian>Bandage all limbs</Italian>
                        <French>Bandage all limbs</French>
@@ -152,7 +152,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_QuickActions_MedipackAll_Name">
                       <English>Medipack limbs</English>
-                       <German>Medipack limbs</German>
+                       <German>Alle Gliedmaßen endheilen</German>
                     <Hungarian>Medipack limbs</Hungarian>
                       <Italian>Medipack limbs</Italian>
                        <French>Medipack limbs</French>
@@ -161,7 +161,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_QuickActions_MedipackAll_Description">
                       <English>Use a Medipack on all limbs</English>
-                       <German>Use a Medipack on all limbs</German>
+                       <German>Benutzt das Medipack an allen verletzten Gliedmaßen.</German>
                     <Hungarian>Use a Medipack on all limbs</Hungarian>
                       <Italian>Use a Medipack on all limbs</Italian>
                        <French>Use a Medipack on all limbs</French>
@@ -170,7 +170,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_QuickActions_putTourniquetAll_Name">
                       <English>Put Tourniquets to all needed limbs</English>
-                       <German>Put Tourniquets to all needed limbs</German>
+                       <German>Setze Aderklemmen an blutenden Gliedmaßen an</German>
                     <Hungarian>Put Tourniquets to all needed limbs</Hungarian>
                       <Italian>Put Tourniquets to all needed limbs</Italian>
                        <French>Put Tourniquets to all needed limbs</French>
@@ -179,7 +179,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_QuickActions_putTourniquetAll_Description">
                       <English>Put Tourniquets to all needed limbs</English>
-                       <German>Put Tourniquets to all needed limbs</German>
+                       <German>Setzt Aderklemmen an allen blutenden Gliedmaßen an.</German>
                     <Hungarian>Put Tourniquets to all needed limbs</Hungarian>
                       <Italian>Put Tourniquets to all needed limbs</Italian>
                        <French>Put Tourniquets to all needed limbs</French>
@@ -188,7 +188,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_QuickActions_dropTourniquetAll_Name">
                       <English>Remove Tourniquets from all limbs</English>
-                       <German>Remove Tourniquets from all limbs</German>
+                       <German>Alle Aderklemmen entfernen</German>
                     <Hungarian>Remove Tourniquets from all limbs</Hungarian>
                       <Italian>Remove Tourniquets from all limbs</Italian>
                        <French>Remove Tourniquets from all limbs</French>
@@ -197,7 +197,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_QuickActions_dropTourniquetAll_Description">
                       <English>Remove Tourniquets from all limbs</English>
-                       <German>Remove Tourniquets from all limbs</German>
+                       <German>Alle Aderklemmen werden von den Gliedmaßen entfernt.</German>
                     <Hungarian>Remove Tourniquets from all limbs</Hungarian>
                       <Italian>Remove Tourniquets from all limbs</Italian>
                        <French>Remove Tourniquets from all limbs</French>
@@ -206,7 +206,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_GiveSaline_Name">
                       <English>Give Saline</English>
-                       <German>Give Saline</German>
+                       <German>Kochsalzlösungsinfusion legen</German>
                     <Hungarian>Give Saline</Hungarian>
                       <Italian>Give Saline</Italian>
                        <French>Give Saline</French>
@@ -215,7 +215,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_GiveHeatpack_Name">
                       <English>Give Heatpack</English>
-                       <German>Give Heatpack</German>
+                       <German>Wärmekissen auflegen</German>
                     <Hungarian>Give Heatpack</Hungarian>
                       <Italian>Give Heatpack</Italian>
                        <French>Give Heatpack</French>
@@ -224,7 +224,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_TakeNasopharyngeal_Name">
                       <English>Take Nasopharyngeal</English>
-                       <German>Take Nasopharyngeal</German>
+                       <German>Nasopharyngeal nehmen</German>
                     <Hungarian>Take Nasopharyngeal</Hungarian>
                       <Italian>Take Nasopharyngeal</Italian>
                        <French>Take Nasopharyngeal</French>
@@ -233,7 +233,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_PutNasopharyngeal_Name">
                       <English>Place Nasopharyngeal</English>
-                       <German>Place Nasopharyngeal</German>
+                       <German>Nasopharyngeal legen</German>
                     <Hungarian>Place Nasopharyngeal</Hungarian>
                       <Italian>Place Nasopharyngeal</Italian>
                        <French>Place Nasopharyngeal</French>
@@ -242,7 +242,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_TakeKingLT_Name">
                       <English>Take King-LT</English>
-                       <German>Take King-LT</German>
+                       <German>King-LT nehmen</German>
                     <Hungarian>Take King-LT</Hungarian>
                       <Italian>Take King-LT</Italian>
                        <French>Take King-LT</French>
@@ -251,7 +251,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_PutKingLT_Name">
                       <English>Place King-LT</English>
-                       <German>Place King-LT</German>
+                       <German>King-LT legen</German>
                     <Hungarian>Place King-LT</Hungarian>
                       <Italian>Place King-LT</Italian>
                        <French>Place King-LT</French>
@@ -269,7 +269,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_StartCPR_Name">
                       <English>Start CPR</English>
-                       <German>Start CPR</German>
+                       <German>Beginne HLW</German>
                     <Hungarian>Start CPR</Hungarian>
                       <Italian>Start CPR</Italian>
                        <French>Start CPR</French>
@@ -278,7 +278,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_QuickActions_ACE3_CheckUnit_Name">
                       <English>Check Unit</English>
-                       <German>Check Unit</German>
+                       <German>Einheit überprüfen</German>
                     <Hungarian>Check Unit</Hungarian>
                       <Italian>Check Unit</Italian>
                        <French>Check Unit</French>
@@ -289,7 +289,7 @@
         <Container name="DialogControl_BlackOutDialog">
             <Key ID="STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_BloodLeft">
                       <English>Blood left:</English>
-                       <German>Vorhandenes Blut:</German>
+                       <German>Verbleibendes Blut:</German>
                     <Hungarian>Blood left:</Hungarian>
                       <Italian>Blood left:</Italian>
                        <French>Blood left:</French>
@@ -316,7 +316,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_TimeLeftDeath">
                       <English>Time left for revive</English>
-                       <German>Time left for revive</German>
+                       <German>Verbleibende Zeit für eine Wiederbelebung</German>
                     <Hungarian>Time left for revive</Hungarian>
                       <Italian>Time left for revive</Italian>
                        <French>Time left for revive</French>
@@ -325,7 +325,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_TimeLeftAwake">
                       <English>Time left before awake again</English>
-                       <German>Time left before awake again</German>
+                       <German>Verbleibende Zeit bis zum Wiedererwachen</German>
                     <Hungarian>Time left before awake again</Hungarian>
                       <Italian>Time left before awake again</Italian>
                        <French>Time left before awake again</French>
@@ -334,7 +334,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_DialogControl_BlackOutDialog_FlatLine">
                       <English>FLATLINE</English>
-                       <German>FLATLINE</German>
+                       <German>Asystolie</German>
                     <Hungarian>FLATLINE</Hungarian>
                       <Italian>FLATLINE</Italian>
                        <French>FLATLINE</French>
@@ -345,7 +345,7 @@
         <Container name="MedicalMessages">
             <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Low">
                       <English>%1s %2 is damaged lightly</English>
-                       <German>%1s %2 is damaged lightly</German>
+                       <German>%1s %2 ist leicht verwundet</German>
                     <Hungarian>%1s %2 is damaged lightly</Hungarian>
                       <Italian>%1s %2 is damaged lightly</Italian>
                        <French>%1s %2 is damaged lightly</French>
@@ -354,7 +354,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Middle">
                       <English>%1s %2 is damaged</English>
-                       <German>%1s %2 is damaged</German>
+                       <German>%1s %2 ist verwundet</German>
                     <Hungarian>%1s %2 is damaged</Hungarian>
                       <Italian>%1s %2 is damaged</Italian>
                        <French>%1s %2 is damaged</French>
@@ -363,7 +363,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_High">
                       <English>%1s %2 is damaged heavily</English>
-                       <German>%1s %2 is damaged heavily</German>
+                       <German>%1s %2 schwer verwundet</German>
                     <Hungarian>%1s %2 is damaged heavily</Hungarian>
                       <Italian>%1s %2 is damaged heavily</Italian>
                        <French>%1s %2 is damaged heavily</French>
@@ -372,7 +372,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Damage_Extreme">
                       <English>%1s %2 is damaged deadly</English>
-                       <German>%1s %2 is damaged deadly</German>
+                       <German>%1s %2 ist tödlich verwundet</German>
                     <Hungarian>%1s %2 is damaged deadly</Hungarian>
                       <Italian>%1s %2 is damaged deadly</Italian>
                        <French>%1s %2 is damaged deadly</French>
@@ -381,7 +381,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Low">
                       <English>%1s %2 is bleeding lightly</English>
-                       <German>%1s %2 is bleeding lightly</German>
+                       <German>%1s %2 blutet leicht</German>
                     <Hungarian>%1s %2 is bleeding lightly</Hungarian>
                       <Italian>%1s %2 is bleeding lightly</Italian>
                        <French>%1s %2 is bleeding lightly</French>
@@ -390,7 +390,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Middle">
                       <English>%1s %2 is bleeding</English>
-                       <German>%1s %2 is bleeding</German>
+                       <German>%1s %2 blutet</German>
                     <Hungarian>%1s %2 is bleeding</Hungarian>
                       <Italian>%1s %2 is bleeding</Italian>
                        <French>%1s %2 is bleeding</French>
@@ -399,7 +399,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_High">
                       <English>%1s %2 is bleeding heavily</English>
-                       <German>%1s %2 is bleeding heavily</German>
+                       <German>%1s %2 blutet stark</German>
                     <Hungarian>%1s %2 is bleeding heavily</Hungarian>
                       <Italian>%1s %2 is bleeding heavily</Italian>
                        <French>%1s %2 is bleeding heavily</French>
@@ -408,7 +408,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_Extreme">
                       <English>%1s %2 is bleeding deadly</English>
-                       <German>%1s %2 is bleeding deadly</German>
+                       <German>%1s %2 blutet sehr stark</German>
                     <Hungarian>%1s %2 is bleeding deadly</Hungarian>
                       <Italian>%1s %2 is bleeding deadly</Italian>
                        <French>%1s %2 is bleeding deadly</French>
@@ -417,7 +417,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Pain_Low">
                       <English>%1 has light pain</English>
-                       <German>%1 has light pain</German>
+                       <German>%1 hat leichte Schmerzen</German>
                     <Hungarian>%1 has light pain</Hungarian>
                       <Italian>%1 has light pain</Italian>
                        <French>%1 has light pain</French>
@@ -426,7 +426,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Pain_Middle">
                       <English>%1 has medium pain</English>
-                       <German>%1 has medium pain</German>
+                       <German>%1 hat mittlere Schmerzen</German>
                     <Hungarian>%1 has medium pain</Hungarian>
                       <Italian>%1 has medium pain</Italian>
                        <French>%1 has medium pain</French>
@@ -435,7 +435,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Pain_High">
                       <English>%1 has heavy pain</English>
-                       <German>%1 has heavy pain</German>
+                       <German>%1 hat starke Schmerzen</German>
                     <Hungarian>%1 has heavy pain</Hungarian>
                       <Italian>%1 has heavy pain</Italian>
                        <French>%1 has heavy pain</French>
@@ -444,7 +444,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Pain_Extreme">
                       <English>%1 in agony because of pain</English>
-                       <German>%1 in agony because of pain</German>
+                       <German>%1 hat quälende Schmerzen</German>
                     <Hungarian>%1 in agony because of pain</Hungarian>
                       <Italian>%1 in agony because of pain</Italian>
                        <French>%1 in agony because of pain</French>
@@ -452,8 +452,8 @@
                        <Polish>%1 in agony because of pain</Polish>
             </Key>
             <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_AterialDamage">
-                      <English>%1s %2 aterie seems to be damaged</English>
-                       <German>%1s %2 aterie seems to be damaged</German>
+                      <English>%1s %2 artery seems to be damaged</English>
+                       <German>%1s %2 Arterie scheint verletzt</German>
                     <Hungarian>%1s %2 aterie seems to be damaged</Hungarian>
                       <Italian>%1s %2 aterie seems to be damaged</Italian>
                        <French>%1s %2 aterie seems to be damaged</French>
@@ -462,7 +462,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Bleeding_BloodPresure">
                       <English>%1s current bloodpresure is %2</English>
-                       <German>%1s current bloodpresure is %2</German>
+                       <German>%1s momentaner Blutdruck beträgt %2</German>
                     <Hungarian>%1s current bloodpresure is %2</Hungarian>
                       <Italian>%1s current bloodpresure is %2</Italian>
                        <French>%1s current bloodpresure is %2</French>
@@ -471,7 +471,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Pulse_NoPulse">
                       <English>No pulse</English>
-                       <German>No pulse</German>
+                       <German>Kein Puls</German>
                     <Hungarian>No pulse</Hungarian>
                       <Italian>No pulse</Italian>
                        <French>No pulse</French>
@@ -480,7 +480,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Drugs_ConcentrationMessage">
                       <English>%1 concentration at %2%3</English>
-                       <German>%1 concentration at %2%3</German>
+                       <German>%1 Konzentration beträgt %2%3</German>
                     <Hungarian>%1 concentration at %2%3</Hungarian>
                       <Italian>%1 concentration at %2%3</Italian>
                        <French>%1 concentration at %2%3</French>
@@ -489,7 +489,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Respiration_NotBreathing">
                       <English>%1 is not breathing</English>
-                       <German>%1 is not breathing</German>
+                       <German>%1 atmet nicht</German>
                     <Hungarian>%1 is not breathing</Hungarian>
                       <Italian>%1 is not breathing</Italian>
                        <French>%1 is not breathing</French>
@@ -498,7 +498,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_MedicalMessages_Respiration_ToungeBlocks">
                       <English>%1s tongue is blocking is airway</English>
-                       <German>%1s tongue is blocking is airway</German>
+                       <German>%1s Zunge blockiert die Atemwege</German>
                     <Hungarian>%1s tongue is blocking is airway</Hungarian>
                       <Italian>%1s tongue is blocking is airway</Italian>
                        <French>%1s tongue is blocking is airway</French>
@@ -509,7 +509,7 @@
         <Container name="MedicalMessagesCategory">
             <Key ID="STR_X39_MS2_Scripting_MedicalMessagesCategories_Generic">
                       <English>Generic</English>
-                       <German>Generic</German>
+                       <German>Generisch</German>
                     <Hungarian>Generic</Hungarian>
                       <Italian>Generic</Italian>
                        <French>Generic</French>
@@ -520,7 +520,7 @@
         <Container name="DialogControl_MedicalActionMenu">
             <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_BlockedMessage1">
                       <English>Youre currently doing something else</English>
-                       <German>Youre currently doing something else</German>
+                       <German>Du tust momentan etwas anderes</German>
                     <Hungarian>Youre currently doing something else</Hungarian>
                       <Italian>Youre currently doing something else</Italian>
                        <French>Youre currently doing something else</French>
@@ -529,7 +529,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_BlockedMessage2">
                       <English>You cand do that while doing something else</English>
-                       <German>You cand do that while doing something else</German>
+                       <German>Das kannst Du nicht während einer anderen Aktion tun</German>
                     <Hungarian>You cand do that while doing something else</Hungarian>
                       <Italian>You cand do that while doing something else</Italian>
                        <French>You cand do that while doing something else</French>
@@ -538,7 +538,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_BlockedMessage3">
                       <English>Please wait till your current action has finished!</English>
-                       <German>Please wait till your current action has finished!</German>
+                       <German>Bitte warte, bis die momentane Aktion beendet ist!</German>
                     <Hungarian>Please wait till your current action has finished!</Hungarian>
                       <Italian>Please wait till your current action has finished!</Italian>
                        <French>Please wait till your current action has finished!</French>
@@ -547,7 +547,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_BlockedMessage4">
                       <English>Youre previous action has not finished yet. Please wait!</English>
-                       <German>Youre previous action has not finished yet. Please wait!</German>
+                       <German>Deine momentane Aktion ist noch nicht beendet. Warte bitte!</German>
                     <Hungarian>Youre previous action has not finished yet. Please wait!</Hungarian>
                       <Italian>Youre previous action has not finished yet. Please wait!</Italian>
                        <French>Youre previous action has not finished yet. Please wait!</French>
@@ -556,7 +556,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_NothingSelected1">
                       <English>You need to select something for this action</English>
-                       <German>You need to select something for this action</German>
+                       <German>Für diese Aktion muss etwas ausgewählt werden</German>
                     <Hungarian>You need to select something for this action</Hungarian>
                       <Italian>You need to select something for this action</Italian>
                        <French>You need to select something for this action</French>
@@ -565,7 +565,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_NothingSelected2">
                       <English>You need to select something for this action</English>
-                       <German>You need to select something for this action</German>
+                       <German>Um diese Aktion auszuführen, muss etwas ausgewählt werden</German>
                     <Hungarian>You need to select something for this action</Hungarian>
                       <Italian>You need to select something for this action</Italian>
                        <French>You need to select something for this action</French>
@@ -574,7 +574,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_NothingSelected3">
                       <English>Please select something first</English>
-                       <German>Please select something first</German>
+                       <German>Wähle vorher etwas aus</German>
                     <Hungarian>Please select something first</Hungarian>
                       <Italian>Please select something first</Italian>
                        <French>Please select something first</French>
@@ -583,7 +583,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_NothingSelected4">
                       <English>Please select something first</English>
-                       <German>Please select something first</German>
+                       <German>Wähle bitte vorher etwas aus</German>
                     <Hungarian>Please select something first</Hungarian>
                       <Italian>Please select something first</Italian>
                        <French>Please select something first</French>
@@ -592,7 +592,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_CannotBeAppliedOnPart1">
                       <English>Cannot be applied on this part</English>
-                       <German>Cannot be applied on this part</German>
+                       <German>Dies kann nicht auf diesen Teil angewendet werden</German>
                     <Hungarian>Cannot be applied on this part</Hungarian>
                       <Italian>Cannot be applied on this part</Italian>
                        <French>Cannot be applied on this part</French>
@@ -601,7 +601,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_CannotBeAppliedOnPart2">
                       <English>You need to select a different body part</English>
-                       <German>You need to select a different body part</German>
+                       <German>Ein anderes Körperteil muss ausgewählt werden</German>
                     <Hungarian>You need to select a different body part</Hungarian>
                       <Italian>You need to select a different body part</Italian>
                        <French>You need to select a different body part</French>
@@ -610,7 +610,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_CannotBeAppliedOnPart3">
                       <English>Try another part of the body for this</English>
-                       <German>Try another part of the body for this</German>
+                       <German>Wähle hierfür ein anderes Körperteil aus</German>
                     <Hungarian>Try another part of the body for this</Hungarian>
                       <Italian>Try another part of the body for this</Italian>
                        <French>Try another part of the body for this</French>
@@ -619,7 +619,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_CannotBeAppliedOnPart4">
                       <English>This makes no sense</English>
-                       <German>This makes no sense</German>
+                       <German>Das macht keinen Sinn</German>
                     <Hungarian>This makes no sense</Hungarian>
                       <Italian>This makes no sense</Italian>
                        <French>This makes no sense</French>
@@ -628,7 +628,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_CheckUnit_quick">
                       <English>Quick check</English>
-                       <German>Quick check</German>
+                       <German>Schnelle Prüfung</German>
                     <Hungarian>Quick check</Hungarian>
                       <Italian>Quick check</Italian>
                        <French>Quick check</French>
@@ -637,7 +637,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_CheckUnit_normal">
                       <English>Usual check</English>
-                       <German>Usual check</German>
+                       <German>Normale Prüfung</German>
                     <Hungarian>Usual check</Hungarian>
                       <Italian>Usual check</Italian>
                        <French>Usual check</French>
@@ -646,7 +646,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_CheckUnit_full">
                       <English>Full check</English>
-                       <German>Full check</German>
+                       <German>Komplettprüfung</German>
                     <Hungarian>Full check</Hungarian>
                       <Italian>Full check</Italian>
                        <French>Full check</French>
@@ -655,7 +655,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_TargetLabel">
                       <English>Targeting: %1</English>
-                       <German>Targeting: %1</German>
+                       <German>Ziel: %1</German>
                     <Hungarian>Targeting: %1</Hungarian>
                       <Italian>Targeting: %1</Italian>
                        <French>Targeting: %1</French>
@@ -664,7 +664,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_ItemSelectionStartText">
                       <English>No item has been selected yet</English>
-                       <German>No item has been selected yet</German>
+                       <German>Kein Gegenstand ausgewählt</German>
                     <Hungarian>No item has been selected yet</Hungarian>
                       <Italian>No item has been selected yet</Italian>
                        <French>No item has been selected yet</French>
@@ -673,7 +673,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_ItemSelectionText">
                       <English>Currently selected item: %1</English>
-                       <German>Currently selected item: %1</German>
+                       <German>Zurzeit gewählter Gegenstand: %1</German>
                     <Hungarian>Currently selected item: %1</Hungarian>
                       <Italian>Currently selected item: %1</Italian>
                        <French>Currently selected item: %1</French>
@@ -682,7 +682,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_QuickActions_RequiredTime">
                       <English>Required time</English>
-                       <German>Required time</German>
+                       <German>Benötigte Zeit</German>
                     <Hungarian>Required time</Hungarian>
                       <Italian>Required time</Italian>
                        <French>Required time</French>
@@ -691,7 +691,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_QuickActions_RequiredItems">
                       <English>Required items</English>
-                       <German>Required items</German>
+                       <German>Benötigte Gegenstände</German>
                     <Hungarian>Required items</Hungarian>
                       <Italian>Required items</Italian>
                        <French>Required items</French>
@@ -700,7 +700,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_DialogControl_MedicalActionMenu_QuickActions_Description">
                       <English>Description</English>
-                       <German>Description</German>
+                       <German>Beschreibung</German>
                     <Hungarian>Description</Hungarian>
                       <Italian>Description</Italian>
                        <French>Description</French>
@@ -711,7 +711,7 @@
         <Container name="InteractionMenu">
             <Key ID="STR_X39_MS2_Scripting_InteractionMenu_openMedicalMenu">
                       <English>Medical treatment</English>
-                       <German>Medical treatment</German>
+                       <German>Medizinische Versorgung</German>
                     <Hungarian>Medical treatment</Hungarian>
                       <Italian>Medical treatment</Italian>
                        <French>Medical treatment</French>
@@ -720,7 +720,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_InteractionMenu_putEarplugs">
                       <English>Put earplugs</English>
-                       <German>Put earplugs</German>
+                       <German>Ohrenstöpsel einlegen</German>
                     <Hungarian>Put earplugs</Hungarian>
                       <Italian>Put earplugs</Italian>
                        <French>Put earplugs</French>
@@ -729,7 +729,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_InteractionMenu_removeEarplugs">
                       <English>Remove earplugs</English>
-                       <German>Remove earplugs</German>
+                       <German>Orehnstöpsel entfernen</German>
                     <Hungarian>Remove earplugs</Hungarian>
                       <Italian>Remove earplugs</Italian>
                        <French>Remove earplugs</French>
@@ -738,7 +738,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_InteractionMenu_useDefibrillator">
                       <English>Use defibrillator</English>
-                       <German>Use defibrillator</German>
+                       <German>Defibrillator nutzen</German>
                     <Hungarian>Use defibrillator</Hungarian>
                       <Italian>Use defibrillator</Italian>
                        <French>Use defibrillator</French>
@@ -747,7 +747,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_InteractionMenu_stripWeapons">
                       <English>Strip weapons</English>
-                       <German>Strip weapons</German>
+                       <German>Waffen abnehmen</German>
                     <Hungarian>Strip weapons</Hungarian>
                       <Italian>Strip weapons</Italian>
                        <French>Strip weapons</French>
@@ -756,7 +756,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_InteractionMenu_dragUnit">
                       <English>Drag unit</English>
-                       <German>Drag unit</German>
+                       <German>Einheit ziehen</German>
                     <Hungarian>Drag unit</Hungarian>
                       <Italian>Drag unit</Italian>
                        <French>Drag unit</French>
@@ -765,7 +765,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_InteractionMenu_carryUnit">
                       <English>Carry unit</English>
-                       <German>Carry unit</German>
+                       <German>Einheit tragen</German>
                     <Hungarian>Carry unit</Hungarian>
                       <Italian>Carry unit</Italian>
                        <French>Carry unit</French>
@@ -774,7 +774,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_InteractionMenu_dropUnit">
                       <English>Drop unit</English>
-                       <German>Drop unit</German>
+                       <German>Einheit ablegen</German>
                     <Hungarian>Drop unit</Hungarian>
                       <Italian>Drop unit</Italian>
                        <French>Drop unit</French>
@@ -785,7 +785,7 @@
         <Container name="XMSTicks">
             <Key ID="STR_X39_MS2_Scripting_XMSTicks_temperatureTick_DeathThroughColdness">
                       <English>Youre dead because of coldness</English>
-                       <German>Youre dead because of coldness</German>
+                       <German>Du bist erfroren</German>
                     <Hungarian>Youre dead because of coldness</Hungarian>
                       <Italian>Youre dead because of coldness</Italian>
                        <French>Youre dead because of coldness</French>
@@ -794,7 +794,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_XMSTicks_MorphineSimulation_DeathThroughMorphineOverdose">
                       <English>Youre dead because of a morphine overdose</English>
-                       <German>Youre dead because of a morphine overdose</German>
+                       <German>Du bist an einer Überdosis Morphin gestorben</German>
                     <Hungarian>Youre dead because of a morphine overdose</Hungarian>
                       <Italian>Youre dead because of a morphine overdose</Italian>
                        <French>Youre dead because of a morphine overdose</French>
@@ -803,7 +803,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_XMSTicks_MorphineSimulation_KnockOutThroughMorphineOverdose">
                       <English>Youre knocked out because of a morphine overdose</English>
-                       <German>Youre knocked out because of a morphine overdose</German>
+                       <German>Du wurdest aufgrund einer Überdosis Morphin ohnmächtig</German>
                     <Hungarian>Youre knocked out because of a morphine overdose</Hungarian>
                       <Italian>Youre knocked out because of a morphine overdose</Italian>
                        <French>Youre knocked out because of a morphine overdose</French>
@@ -812,7 +812,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_XMSTicks_BleedingTick_KnockOutDueLowBlood">
                       <English>Youre knocked out as you got not enough blood in your body</English>
-                       <German>Youre knocked out as you got not enough blood in your body</German>
+                       <German>Du bist aufgrund hohen Blutverlustes ohnmächtig</German>
                     <Hungarian>Youre knocked out as you got not enough blood in your body</Hungarian>
                       <Italian>Youre knocked out as you got not enough blood in your body</Italian>
                        <French>Youre knocked out as you got not enough blood in your body</French>
@@ -821,7 +821,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_XMSTicks_BleedingTick_KnockOutDueBloodPresureLow">
                       <English>Youre knocked out as your blood presure is too low</English>
-                       <German>Youre knocked out as your blood presure is too low</German>
+                       <German>Du bist aufgrund zu geringen Blutdrucks ohnmächtig</German>
                     <Hungarian>Youre knocked out as your blood presure is too low</Hungarian>
                       <Italian>Youre knocked out as your blood presure is too low</Italian>
                        <French>Youre knocked out as your blood presure is too low</French>
@@ -830,7 +830,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_XMSTicks_BleedingTick_KnockOutDueBloodPresureHigh">
                       <English>Youre knocked out as your blood presure is too high</English>
-                       <German>Youre knocked out as your blood presure is too high</German>
+                       <German>Du bist aufgrund zu hohen Blutdrucks ohnmächtig</German>
                     <Hungarian>Youre knocked out as your blood presure is too high</Hungarian>
                       <Italian>Youre knocked out as your blood presure is too high</Italian>
                        <French>Youre knocked out as your blood presure is too high</French>
@@ -841,7 +841,7 @@
         <Container name="Adrenaline">
             <Key ID="STR_X39_MS2_Scripting_Adrenaline_Pulse_FlatLine">
                       <English>Youre heart failed</English>
-                       <German>Youre heart failed</German>
+                       <German>Dein Herz hat ausgesetzt</German>
                     <Hungarian>Youre heart failed</Hungarian>
                       <Italian>Youre heart failed</Italian>
                        <French>Youre heart failed</French>
@@ -850,7 +850,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_Adrenaline_Pulse_TooHigh">
                       <English>You got unconscious because of your pulse</English>
-                       <German>You got unconscious because of your pulse</German>
+                       <German>Du wurdest wegen deines Pulses ohnmächtig</German>
                     <Hungarian>You got unconscious because of your pulse</Hungarian>
                       <Italian>You got unconscious because of your pulse</Italian>
                        <French>You got unconscious because of your pulse</French>
@@ -861,7 +861,7 @@
         <Container name="cb_handleDamage">
             <Key ID="STR_X39_MS2_Scripting_cb_handleDamage_knockOut">
                       <English>Youre knocked out as youre too heavily damaged</English>
-                       <German>Youre knocked out as youre too heavily damaged</German>
+                       <German>Du wurdest wegen deiner schweren Verletzungen ohnmächtig</German>
                     <Hungarian>Youre knocked out as youre too heavily damaged</Hungarian>
                       <Italian>Youre knocked out as youre too heavily damaged</Italian>
                        <French>Youre knocked out as youre too heavily damaged</French>
@@ -870,7 +870,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_cb_handleDamage_death">
                       <English>You got killed! Please Imagine a white light ^^</English>
-                       <German>You got killed! Please Imagine a white light ^^</German>
+                       <German>Du wurdest getötet! Stelle dir bitte ein weißes Licht vor ^^</German>
                     <Hungarian>You got killed! Please Imagine a white light ^^</Hungarian>
                       <Italian>You got killed! Please Imagine a white light ^^</Italian>
                        <French>You got killed! Please Imagine a white light ^^</French>
@@ -881,7 +881,7 @@
         <Container name="Drugs">
             <Key ID="STR_X39_MS2_Scripting_Drugs_Adrenaline_Name">
                       <English>Adrenaline</English>
-                       <German>Adrenaline</German>
+                       <German>Adrenalin</German>
                     <Hungarian>Adrenaline</Hungarian>
                       <Italian>Adrenaline</Italian>
                        <French>Adrenaline</French>
@@ -890,7 +890,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_Drugs_executeDrugRequestTemplate">
                       <English>%1 wants to give you %2</English>
-                       <German>%1 wants to give you %2</German>
+                       <German>%1 will dir %2 verabreichen</German>
                     <Hungarian>%1 wants to give you %2</Hungarian>
                       <Italian>%1 wants to give you %2</Italian>
                        <French>%1 wants to give you %2</French>
@@ -899,7 +899,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_Drugs_Morphine_Name">
                       <English>Morphine</English>
-                       <German>Morphine</German>
+                       <German>Morphin</German>
                     <Hungarian>Morphine</Hungarian>
                       <Italian>Morphine</Italian>
                        <French>Morphine</French>
@@ -908,7 +908,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_Drugs_Naloxone_Name">
                       <English>Naloxone</English>
-                       <German>Naloxone</German>
+                       <German>Naloxon</German>
                     <Hungarian>Naloxone</Hungarian>
                       <Italian>Naloxone</Italian>
                        <French>Naloxone</French>
@@ -928,7 +928,7 @@
         <Container name="MedicalUiActions">
             <Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Bandage_ActionName">
                       <English>Apply a bandage</English>
-                       <German>Apply a bandage</German>
+                       <German>Bandage anlegen</German>
                     <Hungarian>Apply a bandage</Hungarian>
                       <Italian>Apply a bandage</Italian>
                        <French>Apply a bandage</French>
@@ -937,7 +937,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_MedicalUiActions_MediPack_ActionName">
                       <English>Apply a medi-pack</English>
-                       <German>Apply a medi-pack</German>
+                       <German>Medipack nutzen</German>
                     <Hungarian>Apply a medi-pack</Hungarian>
                       <Italian>Apply a medi-pack</Italian>
                        <French>Apply a medi-pack</French>
@@ -946,7 +946,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Heatpack_ActionName">
                       <English>Apply a Heatpack</English>
-                       <German>Apply a Heatpack</German>
+                       <German>Wärmekissen anlegen</German>
                     <Hungarian>Apply a Heatpack</Hungarian>
                       <Italian>Apply a Heatpack</Italian>
                        <French>Apply a Heatpack</French>
@@ -955,7 +955,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Tourniquet_ActionNamePut">
                       <English>Put tournique</English>
-                       <German>Put tournique</German>
+                       <German>Aderklemme anlegen</German>
                     <Hungarian>Put tournique</Hungarian>
                       <Italian>Put tournique</Italian>
                        <French>Put tournique</French>
@@ -964,7 +964,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Tourniquet_ActionNameTake">
                       <English>Remove tournique</English>
-                       <German>Remove tournique</German>
+                       <German>Aderklemme entfernen</German>
                     <Hungarian>Remove tournique</Hungarian>
                       <Italian>Remove tournique</Italian>
                        <French>Remove tournique</French>
@@ -973,7 +973,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Nasopharyngeal_ActionNamePut">
                       <English>Put nasopharyngeal</English>
-                       <German>Put nasopharyngeal</German>
+                       <German>Nasopharyngeal legen</German>
                     <Hungarian>Put nasopharyngeal</Hungarian>
                       <Italian>Put nasopharyngeal</Italian>
                        <French>Put nasopharyngeal</French>
@@ -982,7 +982,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Nasopharyngeal_ActionNameTake">
                       <English>Remove nasopharyngeal</English>
-                       <German>Remove nasopharyngeal</German>
+                       <German>Nasopharyngeal entfernen</German>
                     <Hungarian>Remove nasopharyngeal</Hungarian>
                       <Italian>Remove nasopharyngeal</Italian>
                        <French>Remove nasopharyngeal</French>
@@ -991,7 +991,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_MedicalUiActions_KingLt_ActionNamePut">
                       <English>Put King-LT</English>
-                       <German>Put King-LT</German>
+                       <German>King-LT nutzen</German>
                     <Hungarian>Put King-LT</Hungarian>
                       <Italian>Put King-LT</Italian>
                        <French>Put King-LT</French>
@@ -1000,7 +1000,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_MedicalUiActions_KingLt_ActionNameTake">
                       <English>Remove King-LT</English>
-                       <German>Remove King-LT</German>
+                       <German>King-LT entfernen</German>
                     <Hungarian>Remove King-LT</Hungarian>
                       <Italian>Remove King-LT</Italian>
                        <French>Remove King-LT</French>
@@ -1009,7 +1009,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Saline_ActionName">
                       <English>Give saline bag</English>
-                       <German>Give saline bag</German>
+                       <German>Kochsalzlösungsinfusion legen</German>
                     <Hungarian>Give saline bag</Hungarian>
                       <Italian>Give saline bag</Italian>
                        <French>Give saline bag</French>
@@ -1027,7 +1027,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_MedicalUiActions_StartCPR">
                       <English>Start CPR</English>
-                       <German>Start CPR</German>
+                       <German>Beginne HLW</German>
                     <Hungarian>Start CPR</Hungarian>
                       <Italian>Start CPR</Italian>
                        <French>Start CPR</French>
@@ -1036,7 +1036,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_MedicalUiActions_Close">
                       <English>Close</English>
-                       <German>Close</German>
+                       <German>Schließen</German>
                     <Hungarian>Close</Hungarian>
                       <Italian>Close</Italian>
                        <French>Close</French>
@@ -1047,7 +1047,7 @@
         <Container name="NotifyMessages">
             <Key ID="STR_X39_MS2_Scripting_NotifyMessages_Defibrillate_failed">
                       <English>Damned! Still nothing!</English>
-                       <German>Damned! Still nothing!</German>
+                       <German>Verdammt! Immernoch nichts!</German>
                     <Hungarian>Damned! Still nothing!</Hungarian>
                       <Italian>Damned! Still nothing!</Italian>
                        <French>Damned! Still nothing!</French>
@@ -1056,7 +1056,7 @@
             </Key>
             <Key ID="STR_X39_MS2_Scripting_NotifyMessages_Defibrillate_succeeded">
                       <English>Success! He is alive again ...</English>
-                       <German>Success! He is alive again ...</German>
+                       <German>Erfolg! Er ist wieder am Leben...</German>
                     <Hungarian>Success! He is alive again ...</Hungarian>
                       <Italian>Success! He is alive again ...</Italian>
                        <French>Success! He is alive again ...</French>
