@@ -9,36 +9,27 @@
  *	@Return - SCALAR - New damage value (always 0)
  */
 
-//Privates
-private ['_damage', '_unit', '_currentDamage', '_addDamageTo'];
-
-//Get variables from EH
-_unit = _this select 0;
-_damage = _this select 2;
-
-//Add here your damage zone,
-//it will apply to the hitzones at fall damage
-_addDamageTo = [
-		  stringify(HITZONE_LeftFoot),
-		  stringify(HITZONE_RightFoot),
-		  stringify(HITZONE_LeftLowerLeg),
-		  stringify(HITZONE_RightLowerLeg),
-		  stringify(HITZONE_LeftUpperLeg),
-		  stringify(HITZONE_RightUpperLeg),
-		  stringify(HITZONE_LowerBody),
-		  stringify(HITZONE_UpperBody)
-	      ];
-
-//Check for fall damag
-if((_this select 4) == "") then {
-
-
+//Check for environmental dmg damag
+if((_this select 4) == "") then
+{
+	private ["_damage", "_unit", "_currentDamage"];
+	_unit = _this select 0;
+	_damage = _this select 2;
 	//Ad now the damage to the parts
 	{
 		_currentDamage = _damage * (missionNamespace getVariable format["X39_MS2_var_FallDamage_%1Modificator", _x]);
 		[_unit, _currentDamage] call (missionNamespace getVariable format["X39_MS2_fnc_addDamageTo%1", _x]);
-
-	} forEach _addDamageTo;
+		false
+	} count [
+		stringify(HITZONE_LeftFoot),
+		stringify(HITZONE_RightFoot),
+		stringify(HITZONE_LeftLowerLeg),
+		stringify(HITZONE_RightLowerLeg),
+		stringify(HITZONE_LeftUpperLeg),
+		stringify(HITZONE_RightUpperLeg),
+		stringify(HITZONE_LowerBody),
+		stringify(HITZONE_UpperBody)
+	];
 
 };
 
