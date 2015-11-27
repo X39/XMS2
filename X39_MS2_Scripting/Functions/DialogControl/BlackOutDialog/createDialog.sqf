@@ -147,8 +147,8 @@ X39_MS2_var_Internal_Handles_BlackOutDialogHandle = _this spawn {
 				{
 					if(!([_unit] call _x)) then
 					{
-						X39_MS2_var_Internal_BlackOut_ConditionIDs set[_forEachIndex, -1];
-						X39_MS2_var_Internal_BlackOut_ConditionCode set[_forEachIndex, -1];
+						X39_MS2_var_Internal_BlackOut_ConditionIDs set [_forEachIndex, -1];
+						X39_MS2_var_Internal_BlackOut_ConditionCode set [_forEachIndex, -1];
 					};
 				};
 			}forEach X39_MS2_var_Internal_BlackOut_ConditionCode;

@@ -11,9 +11,9 @@ FORCELOCAL(_unit);
 player enableFatigue true;
 if(isNull _unit) exitWith {PRINT_ERROR("Cannot uninitialize a NULL unit!");};
 if((_unit getVariable ["X39_MS2_var_EH_HandleDamage", -1]) != -1)			then {_unit removeEventHandler["HandleDamage",			(_unit getVariable ["X39_MS2_var_EH_HandleDamage", -1])];};
-if((_unit getVariable ["X39_MS2_var_EH_FiredNear", -1]) != -1)				then {_unit removeEventHandler["FiredNear",			(_unit getVariable ["X39_MS2_var_EH_FiredNear", -1])];};
-if((_unit getVariable ["X39_MS2_var_EH_Explosion", -1]) != -1)				then {_unit removeEventHandler["Explosion",			(_unit getVariable ["X39_MS2_var_EH_Explosion", -1])];};
-if((_unit getVariable ["X39_MS2_var_EH_AnimStateChanged", -1]) != -1)		then {_unit removeEventHandler["AnimStateChanged",	(_unit getVariable ["X39_MS2_var_EH_AnimStateChanged", -1])];};
+if((_unit getVariable ["X39_MS2_var_EH_FiredNear", -1]) != -1)				then {_unit removeEventHandler["FiredNear",			    (_unit getVariable ["X39_MS2_var_EH_FiredNear", -1])];};
+if((_unit getVariable ["X39_MS2_var_EH_Explosion", -1]) != -1)				then {_unit removeEventHandler["Explosion",			    (_unit getVariable ["X39_MS2_var_EH_Explosion", -1])];};
+if((_unit getVariable ["X39_MS2_var_EH_AnimStateChanged", -1]) != -1)		then {_unit removeEventHandler["AnimStateChanged",  	(_unit getVariable ["X39_MS2_var_EH_AnimStateChanged", -1])];};
 if((_unit getVariable ["X39_MS2_var_EH_Respawn", -1]) != -1)				then {_unit removeEventHandler["Respawn",				(_unit getVariable ["X39_MS2_var_EH_Respawn", -1])	];};
 
 if(!scriptDone (_unit getVariable ["X39_MS2_var_UnitTickHandle", scriptNull]))	then {terminate (_unit getVariable ["X39_MS2_var_UnitTickHandle", scriptNull]);};
