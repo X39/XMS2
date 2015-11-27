@@ -11,7 +11,7 @@ if(_actionIndex == -1) exitWith {PRINT_ERROR("Cannot get Native XMS2 action 'PUT
 	{//RequiredTimeCode
 		private "_count";
 		_count = {[_this select 1, _x select 0] call X39_MS2_fnc_getAterialDamage} count X39_MS2_var_Internal_HitZones;
-		_count = _count - {[_this select 1, _x select 0] call X39_MS2_fnc_getTournique} count X39_MS2_var_Internal_HitZones;
+		_count = _count - ({[_this select 1, _x select 0] call X39_MS2_fnc_getTournique} count X39_MS2_var_Internal_HitZones);
 		if(_count < 0) exitWith {0};
 		( _count * ([] call (X39_MS2_var_Internal_MedicalActions_actionArray select (_this select 0) select 6)) )
 	},
