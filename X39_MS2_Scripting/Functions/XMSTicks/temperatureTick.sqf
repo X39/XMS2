@@ -100,7 +100,7 @@ if(X39_MS2_var_Temperature_allowUnitSpeedToAffectTemperatureIncrease && vehicle 
 };
 DEBUG_LOG_WFn_SC(format["_temperatureChange after body stress part of simulation: %1" COMMA _temperatureChange])
 //prone reduction
-if(stance _unit == "PRONE") then
+if(stance _unit == "PRONE" && _currentTemperature > X39_MS2_var_Temperature_maxReductionByProne) then
 {
 	_temperatureChange = _temperatureChange - X39_MS2_var_Temperature_reductionByBeingPronePerTick;
 };
