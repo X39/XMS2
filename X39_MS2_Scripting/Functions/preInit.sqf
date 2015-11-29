@@ -303,7 +303,7 @@ assignValue("X39_MS2_var_Bleeding_AllowBleedingCureWhenAterieDamaged", false);
 //Dynamic definitions
 { assignValue(format["X39_MS2_var_Bleeding_BleedingCurePerTick%1" COMMA _x select HITZONE_NAME], 0.0001); false }count X39_MS2_var_Internal_HitZones;
 { assignValue(format["X39_MS2_var_Bleeding_maxBleeding%1" COMMA _x select 0], 1); false }count X39_MS2_var_Internal_HitZones;
-assignValue("X39_MS2_var_Bleeding_ChanceForAterialDamageP", 0.2);
+assignValue("X39_MS2_var_Bleeding_ChanceForAterialDamageP", 0.03);
 assignValue("X39_MS2_var_Bleeding_maxBloodInEntireBody", 6000);
 assignValue("X39_MS2_var_Bleeding_knockOutAtPBlood", 0.25);
 assignValue("X39_MS2_var_Bleeding_killAtPBlood", 0.1);
@@ -511,6 +511,7 @@ assignValue("X39_MS2_var_Temperature_InstantDeath", false); //when reaching X39_
 //Dynamic definitions
 assignValue("X39_MS2_var_Temperature_max", 10); //Maximum temperature a unit can reach (starts with this), not allowed to be 0!
 assignValue("X39_MS2_var_Temperature_maxReductionByRaining", 5); //Maximum temperature to which raining can reduce the temperature
+assignValue("X39_MS2_var_Temperature_maxReductionByProne", 2); //Maximum temperature to which being prone can reduce the temperature
 assignValue("X39_MS2_var_Temperature_maxReductionByOcean", 2); //Maximum temperature to which ocean can reduce the temperature
 assignValue("X39_MS2_var_Temperature_minNatural", 5); //Temperature where no effects (like slowing) will be applied
 assignValue("X39_MS2_var_Temperature_forceWalkAtTemperature", 2.5);
