@@ -1,4 +1,4 @@
-
+**XMS2 WILL SOON GET REPLACED BY A NEW KIND OF MOD WHICH IS A 100% NEW ITTERATION AGAIN (and ... promise ... the final itteration of my medical system :3)!**
 
 <div style="text-align: center;"><img src="https://raw.githubusercontent.com/X39/XMS2/master/XMS2_Logo_PageHeader.png" /></div>
 
